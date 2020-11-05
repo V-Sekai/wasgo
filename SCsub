@@ -13,6 +13,7 @@ module_env.Prepend( CPPPATH = [
   "./thirdparty/wasm-micro-runtime/core/shared/mem-alloc",
   "./thirdparty/wasm-micro-runtime/core/iwasm/common",
   "./thirdparty/wasm-micro-runtime/core/shared/utils",
+  # "./thirdparty/wasm-micro-runtime/core/shared/utils/uncommon",
 ])
 
 sdk = [
@@ -56,7 +57,13 @@ else:
   # module_env.Append(CFLAGS=['-std=c11'])
 
 if module_env["platform"] == "windows":
-  sdk.append("./thirdparty/wasm-micro-runtime/core/shared/platform/windows/platform_init.c")
+  sdk += [
+    "./thirdparty/wasm-micro-runtime/core/shared/platform/windows/platform_init.c",
+    "./thirdparty/wasm-micro-runtime/core/shared/platform/windows/posix_malloc.c",
+    "./thirdparty/wasm-micro-runtime/core/shared/platform/windows/win_memmap.c",
+    "./thirdparty/wasm-micro-runtime/core/shared/platform/windows/win_thread.c",
+    "./thirdparty/wasm-micro-runtime/core/shared/platform/windows/win_time.c",
+  ]
   module_env.Prepend( CPPPATH = [
     "./thirdparty/wasm-micro-runtime/core/shared/platform/windows",
     "./thirdparty/wasm-micro-runtime/core/shared/platform/windows/../include",
@@ -78,6 +85,7 @@ else:
 
 module_env.add_source_files(env.modules_sources, sdk)
 module_env.add_source_files(env.modules_sources, "src/*.cpp")
+module_env.add_source_files(env.modules_sources, "*.cpp")
 # module_env.Append(CCFLAGS=['-O2']) # Flags for C and C++ code
 # module_env.Append(CXXFLAGS=['-std=c++11']) # Flags for C++ code only
 
