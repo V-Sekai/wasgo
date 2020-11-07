@@ -102,15 +102,15 @@ extern "C" void print_usage(void) {
 int WasGoTest::test() {
 	printf("We got to the test\n");
 
-	static char global_heap_buf[512 * 1024];
+	static char global_heap_buf[512 * 1024 * 100];
 	char *buffer = nullptr, error_buf[128];
 	int opt;
-	char *wasm_path = "test.wasm";
+	char *wasm_path = "bytecoder.wasm";
 
 	wasm_module_t module = NULL;
 	wasm_module_inst_t module_inst = NULL;
 	wasm_exec_env_t exec_env = NULL;
-	uint32_t buf_size, stack_size = 80920, heap_size = 80920;
+	uint32_t buf_size, stack_size = 809200, heap_size = 809200;
 	wasm_function_inst_t func = NULL;
 	wasm_function_inst_t func2 = NULL;
 	char *native_buffer = NULL;
@@ -162,7 +162,7 @@ int WasGoTest::test() {
 	Error err;
 	FileAccess *file = FileAccess::open(wasm_path, FileAccess::READ, &err);
 	if (err != OK) {
-		printf("We couldnt read the file\n");
+		printf("We couldnt read the file: %s\n", wasm_path);
 		goto fail;
 	}
 	buffer = (char *) malloc(file->get_len());
@@ -202,18 +202,24 @@ int WasGoTest::test() {
 	double arg_d = 0.000101;
 	argv[0] = 10;
 	// the second arg will occupy two array elements
-	memcpy(&argv[1], &arg_d, sizeof(arg_d));
-	*(float *)(argv + 3) = 300.002;
+	// memcpy(&argv[1], &arg_d, sizeof(arg_d));
+	// *(float *)(argv + 3) = 300.002;
+
+	// char *arg_s = "";
+	// memcpy(&argv[1], &arg_s, sizeof(arg_s));
+	// *(float *)(argv + 3) = 300.002;
 
 	if (!(func = wasm_runtime_lookup_function(module_inst, "test", NULL))) {
 		printf("The test wasm function is not found.\n");
-		// goto fail;
+		printf("error buffer: %s\n", error_buf);
+		goto fail;
 	}
 
 	// pass 4 elements for function arguments
 	if (!wasm_runtime_call_wasm(exec_env, func, 0, argv)) {
 		printf("call wasm function test failed. %s\n", wasm_runtime_get_exception(module_inst));
-		// goto fail;
+		printf("error buffer: %s\n", error_buf);
+		goto fail;
 	}
 
 	int ret_val = *(int *)argv;
