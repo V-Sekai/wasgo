@@ -8,6 +8,7 @@
 #undef Vector
 #include "wasm_export.h"
 #include "core/os/file_access.h"
+#include "wasgo_state.h"
 // #include "wasm_runtime_common.h"
 
 #include "math.h"
