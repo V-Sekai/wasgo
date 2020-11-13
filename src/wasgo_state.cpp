@@ -46,13 +46,36 @@ void WasGoState::_initialize() {
 }
 
 void WasGoState::_bind_methods() {
+	ClassDB::bind_method(D_METHOD("set_script", "p_script"), &WasGoState::set_script);
+	ClassDB::bind_method(D_METHOD("get_script"), &WasGoState::get_script);
+	ClassDB::bind_method(D_METHOD("set_properties", "p_properties"), &WasGoState::set_properties);
+	ClassDB::bind_method(D_METHOD("get_properties"), &WasGoState::get_properties);
+	ClassDB::bind_method(D_METHOD("set_stack_size", "p_stack_size"), &WasGoState::set_stack_size);
+	ClassDB::bind_method(D_METHOD("get_stack_size"), &WasGoState::get_stack_size);
+	ClassDB::bind_method(D_METHOD("set_heap_size", "p_heap_size"), &WasGoState::set_heap_size);
+	ClassDB::bind_method(D_METHOD("get_heap_size"), &WasGoState::get_heap_size);
+
 	ADD_GROUP("script", "script_");
 	ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "script_script", PROPERTY_HINT_RESOURCE_TYPE, "Wasm"), "set_script", "get_script");
 	ADD_PROPERTY(PropertyInfo(Variant::DICTIONARY, "script_properties", PROPERTY_HINT_NONE, ""), "set_properties", "get_properties");
 
 	ADD_GROUP("runtime", "runtime_");
-	ADD_PROPERTY(PropertyInfo(Variant::REAL, "runtime_stack_size", PROPERTY_HINT_LENGTH, "8192"), "set_stack_size", "get_stack_size");
-	ADD_PROPERTY(PropertyInfo(Variant::REAL, "runtime_heap_size", PROPERTY_HINT_LENGTH, "8192"), "set_heap_size", "get_heap_size");
+	ADD_PROPERTY(PropertyInfo(Variant::INT, "runtime_stack_size", PROPERTY_HINT_NONE, ""), "set_stack_size", "get_stack_size");
+	ADD_PROPERTY(PropertyInfo(Variant::INT, "runtime_heap_size", PROPERTY_HINT_NONE, ""), "set_heap_size", "get_heap_size");
+}
+
+void WasGoState::_validate_property(PropertyInfo &property) const{
+
+}
+void WasGoState::_notification(int p_what){
+
+}
+
+WasGoState::WasGoState() {
+	script = "";
+	properties = {};
+	stack_size = 8192;
+	heap_size = 8192;
 }
 
 WasGoState::~WasGoState(){
@@ -94,23 +117,23 @@ bool WasGoState::is_active(){
 	return module_inst && exec_env;
 }
 
-void WasGoState::set_stack_size(uint32_t p_stack_size){
+void WasGoState::set_stack_size(int p_stack_size){
     //I don't think you can dynamically change the stack and heap sizes, so we're gonna only change it if the wasm module is not active
 	if (!is_active()) {
 		stack_size = p_stack_size;
 	}
 }
-uint32_t WasGoState::get_stack_size(){
+int WasGoState::get_stack_size(){
 	return stack_size;
 }
 
-void WasGoState::set_heap_size(uint32_t p_heap_size){
+void WasGoState::set_heap_size(int p_heap_size){
     //I don't think you can dynamically change the stack and heap sizes, so we're gonna only change it if the wasm module is not active
 	if (!is_active()) {
 	    heap_size = p_heap_size;
     }
 }
-uint32_t WasGoState::get_heap_size(){
+int WasGoState::get_heap_size(){
 	return heap_size;
 }
 

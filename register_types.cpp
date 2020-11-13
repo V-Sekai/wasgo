@@ -1,6 +1,7 @@
 #include "register_types.h"
 #include "stdio.h"
 #include "src/Test.h"
+#include "src/wasgo_state.h"
 
 void register_WasGo_types() {
 	printf("REGISTERING WASGO\n");
@@ -9,6 +10,7 @@ void register_WasGo_types() {
 	WasGoTest::test();
 
 	printf("DONE\n");
+	ClassDB::register_class<WasGoState>();
 }
 
 void unregister_WasGo_types(){

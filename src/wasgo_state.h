@@ -22,10 +22,10 @@ These nodes also handle things like translating wasm commands to Godot functions
 	GDCLASS(WasGoState, Node);
 
 	//Properties
-	String script; //TODO make a Resource subclass just for wasm. These would have just the .wasm binary in memory
-	Dictionary properties; //Properties to be passed to the script when it starts up
-	uint32_t stack_size;
-	uint32_t heap_size;
+	String script = ""; //TODO make a Resource subclass just for wasm. These would have just the .wasm binary in memory
+	Dictionary properties = {}; //Properties to be passed to the script when it starts up
+	uint32_t stack_size = 8192;
+	uint32_t heap_size = 8192;
 
 public:
 	typedef uint32_t WasGoID;
@@ -39,11 +39,11 @@ public:
 	void _notification(int p_what);
 	static void _bind_methods();
 
-	void set_stack_size(uint32_t p_stack_size);
-	uint32_t get_stack_size();
+	void set_stack_size(int p_stack_size);
+	int get_stack_size();
 
-	void set_heap_size(uint32_t p_heap_size);
-	uint32_t get_heap_size();
+	void set_heap_size(int p_heap_size);
+	int get_heap_size();
 
 	void set_script(String p_script);
 	String get_script();
@@ -95,6 +95,11 @@ private:
 
 	HashMap<Dictionary, WasGoID> referencedDictionary;
 	HashMap<WasGoID, Dictionary> referencedDictionaryReverse;
+
+	// HashMap<WasGoID, int> createdObjectCounts;
+	// HashMap<WasGoID, int> referencedObjectCounts;
+	// HashMap<WasGoID, int> referencedArraysCounts;
+	// HashMap<WasGoID, int> referencedDictionaryCounts;
 
 	int add_object(Object *);
 };
