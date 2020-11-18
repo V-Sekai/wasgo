@@ -13,16 +13,17 @@ These nodes also handle things like translating wasm commands to Godot functions
 #ifndef WASGO_STATE_H
 #define WASGO_STATE_H
 
+#include "resource_wasm.h"
 #include "wasm_export.h"
 #include <core/engine.h>
 #include <core/variant.h>
 #include <scene/main/node.h>
 
-		class WasGoState : public Node {
+class WasGoState : public Node {
 	GDCLASS(WasGoState, Node);
 
 	//Properties
-	String script = ""; //TODO make a Resource subclass just for wasm. These would have just the .wasm binary in memory
+	Ref<WasmResource> wasm_script;
 	Dictionary properties = {}; //Properties to be passed to the script when it starts up
 	uint32_t stack_size = 8192;
 	uint32_t heap_size = 8192;
@@ -45,8 +46,8 @@ public:
 	void set_heap_size(int p_heap_size);
 	int get_heap_size();
 
-	void set_wasm_script(String p_script);
-	String get_wasm_script();
+	void set_wasm_script(Ref<WasmResource> p_wasm_script);
+	Ref<WasmResource> get_wasm_script();
 
 	void set_properties(Dictionary p_properties);
 	Dictionary get_properties();
@@ -84,6 +85,8 @@ private:
 	wasm_module_inst_t module_inst = NULL;
 	wasm_exec_env_t exec_env = NULL;
 	uint32_t wasm_buffer = 0;
+
+	Ref<WasmResource> wasm_resource;
 
 	HashMap<ObjectID, WasGoID> createdObjects;
 	HashMap<WasGoID, ObjectID> createdObjectsReverse;

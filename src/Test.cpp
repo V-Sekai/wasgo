@@ -106,7 +106,7 @@ int WasGoTest::test() {
 	static char global_heap_buf[512 * 1024 * 100];
 	char *buffer = nullptr, error_buf[128];
 	int opt;
-	char *wasm_path = "bytecoder.wasm";
+	char *wasm_path = "test.wasm";
 
 	wasm_module_t module = NULL;
 	wasm_module_inst_t module_inst = NULL;

@@ -3,38 +3,15 @@
 
 //TEMP
 //TODO: Actually make a singleton
-wasm_module_t wasm_singleton_load_module(String script_path){
-    //start wasm runtime and read a script file from a path
-    //In the real singleton, only one runtime would ever run
-    //in this temp code we make new one every timewasm_module_t module = NULL;
-	wasm_module_t module = NULL;
+wasm_module_t wasm_singleton_load_module(Ref<WasmResource> wasm_script){
 	char error_buf[128];
-	char *buffer = nullptr;
-	uint32_t buf_size;
-
-	Error err;
-	FileAccess *file = FileAccess::open(script_path, FileAccess::READ, &err);
-	if (err != OK) {
-		printf("We couldnt read the file: %s\n", script_path);
-        return nullptr;
-	}
-	buffer = (char *)malloc(file->get_len());
-	buf_size = file->get_len();
-	file->get_buffer((uint8_t *)buffer, file->get_len());
-	file->close();
-
-	if (!buffer) {
-		printf("Open wasm app file [%s] failed.\n", script_path);
-		if (buffer) free(buffer);
-        return nullptr;
-	}
-
-	return wasm_runtime_load((uint8_t *)buffer, buf_size, error_buf, sizeof(error_buf));
+	PoolByteArray buffer = wasm_script->get_buf();
+	return wasm_runtime_load((uint8_t *)buffer.write().ptr(), buffer.size(), error_buf, sizeof(error_buf));
 }
 
 
 void WasGoState::_initialize() {
-	module = wasm_singleton_load_module(script);
+	module = wasm_singleton_load_module(wasm_script);
 	char error_buf[128];
 	module_inst = wasm_runtime_instantiate(module,
 			stack_size,
@@ -46,8 +23,8 @@ void WasGoState::_initialize() {
 }
 
 void WasGoState::_bind_methods() {
-	ClassDB::bind_method(D_METHOD("set_script", "p_script"), &WasGoState::set_script);
-	ClassDB::bind_method(D_METHOD("get_script"), &WasGoState::get_script);
+	ClassDB::bind_method(D_METHOD("set_wasm_script", "p_wasm_script"), &WasGoState::set_wasm_script);
+	ClassDB::bind_method(D_METHOD("get_wasm_script"), &WasGoState::get_wasm_script);
 	ClassDB::bind_method(D_METHOD("set_properties", "p_properties"), &WasGoState::set_properties);
 	ClassDB::bind_method(D_METHOD("get_properties"), &WasGoState::get_properties);
 	ClassDB::bind_method(D_METHOD("set_stack_size", "p_stack_size"), &WasGoState::set_stack_size);
@@ -56,7 +33,7 @@ void WasGoState::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_heap_size"), &WasGoState::get_heap_size);
 
 	ADD_GROUP("script", "script_");
-	ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "script_script", PROPERTY_HINT_RESOURCE_TYPE, "Wasm"), "set_script", "get_script");
+	ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "script_binary", PROPERTY_HINT_RESOURCE_TYPE, "WasmResource"), "set_wasm_script", "get_wasm_script");
 	ADD_PROPERTY(PropertyInfo(Variant::DICTIONARY, "script_properties", PROPERTY_HINT_NONE, ""), "set_properties", "get_properties");
 
 	ADD_GROUP("runtime", "runtime_");
@@ -72,7 +49,6 @@ void WasGoState::_notification(int p_what){
 }
 
 WasGoState::WasGoState() {
-	script = "";
 	properties = {};
 	stack_size = 8192;
 	heap_size = 8192;
@@ -138,14 +114,14 @@ int WasGoState::get_heap_size(){
 }
 
 
-void WasGoState::set_wasm_script(String p_script) {
+void WasGoState::set_wasm_script(Ref<WasmResource> p_wasm_script) {
 	//Only change it if the wasm module is not active
 	if (!is_active()) {
-		script = p_script;
+		wasm_script = p_wasm_script;
 	}
 }
-String WasGoState::get_wasm_script() {
-	return script;
+Ref<WasmResource> WasGoState::get_wasm_script() {
+	return wasm_script;
 }
 
 void WasGoState::set_properties(Dictionary p_properties) {
