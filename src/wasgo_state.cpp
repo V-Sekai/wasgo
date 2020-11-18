@@ -138,13 +138,13 @@ int WasGoState::get_heap_size(){
 }
 
 
-void WasGoState::set_script(String p_script) {
+void WasGoState::set_wasm_script(String p_script) {
 	//Only change it if the wasm module is not active
 	if (!is_active()) {
 		script = p_script;
 	}
 }
-String WasGoState::get_script() {
+String WasGoState::get_wasm_script() {
 	return script;
 }
 

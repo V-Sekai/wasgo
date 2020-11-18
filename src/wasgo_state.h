@@ -45,8 +45,8 @@ public:
 	void set_heap_size(int p_heap_size);
 	int get_heap_size();
 
-	void set_script(String p_script);
-	String get_script();
+	void set_wasm_script(String p_script);
+	String get_wasm_script();
 
 	void set_properties(Dictionary p_properties);
 	Dictionary get_properties();
