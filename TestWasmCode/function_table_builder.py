@@ -148,5 +148,5 @@ if __name__ == "__main__":
     api2 = json.load(fd2)
     file_source = [api1, api2]
 
-    with open('test.cpp', 'w') as fd:
+    with open('test_c.cpp', 'w') as fd:
         fd.write(_export_native_api_to_wasm(file_source))
