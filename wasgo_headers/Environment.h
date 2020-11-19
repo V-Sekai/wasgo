@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef ENVIRONMENT_H
+#define ENVIRONMENT_H
 
 #include <stdint.h>
 
-#include "Texture.h"
 #include "Resource.h"
-#include "Variant.h"
-#include "Basis.h"
 #include "Sky.h"
+#include "Basis.h"
 #include "Vector3.h"
+#include "Texture.h"
+#include "Variant.h"
 class Environment : public Resource{
 public: Environment();
 enum SSAOBlur{
@@ -276,3 +278,4 @@ void  set_tonemap_exposure(float exposure);
 void  set_tonemap_white(float white);
 void  set_tonemapper(int mode);
 };
+#endif

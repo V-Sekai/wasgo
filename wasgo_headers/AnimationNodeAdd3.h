@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONNODEADD3_H
+#define ANIMATIONNODEADD3_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ bool  is_using_sync();
 bool  is_using_sync();
 void  set_use_sync(bool enable);
 };
+#endif

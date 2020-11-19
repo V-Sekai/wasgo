@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef BOXCONTAINER_H
+#define BOXCONTAINER_H
 
 #include <stdint.h>
 
@@ -14,3 +16,4 @@ enum.BoxContainer::AlignMode  get_alignment();
 enum.BoxContainer::AlignMode  get_alignment();
 void  set_alignment(int alignment);
 };
+#endif

@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef CANVASLAYER_H
+#define CANVASLAYER_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "Node.h"
-#include "Transform2D.h"
 #include "Vector2.h"
+#include "Transform2D.h"
+#include "Node.h"
+#include "RID.h"
 class CanvasLayer : public Node{
 public: CanvasLayer();
 RID  get_canvas();
@@ -38,3 +40,4 @@ void  set_rotation_degrees(float degrees);
 void  set_scale(Vector2 scale);
 void  set_transform(Transform2D transform);
 };
+#endif

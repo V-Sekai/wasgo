@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef NINEPATCHRECT_H
+#define NINEPATCHRECT_H
 
 #include <stdint.h>
 
 #include "Texture.h"
-#include "Control.h"
 #include "Rect2.h"
+#include "Control.h"
 class NinePatchRect : public Control{
 public: NinePatchRect();
 enum AxisStretchMode{
@@ -29,3 +31,4 @@ void  set_region_rect(Rect2 rect);
 void  set_texture(Texture texture);
 void  set_v_axis_stretch_mode(int mode);
 };
+#endif

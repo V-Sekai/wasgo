@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef JSONRPC_H
+#define JSONRPC_H
 
 #include <stdint.h>
 
 #include "String.h"
+#include "Dictionary.h"
 #include "Object.h"
 #include "Variant.h"
-#include "Dictionary.h"
 class JSONRPC : public Object{
 public: JSONRPC();
 enum ErrorCode{
@@ -22,3 +24,4 @@ Variant  process_action(Variant action, bool recurse = false);
 String  process_string(String action);
 void  set_scope(String scope, Object target);
 };
+#endif

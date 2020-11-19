@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODECOLORFUNC_H
+#define VISUALSHADERNODECOLORFUNC_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ enum.VisualShaderNodeColorFunc::Function  get_function();
 enum.VisualShaderNodeColorFunc::Function  get_function();
 void  set_function(int func);
 };
+#endif

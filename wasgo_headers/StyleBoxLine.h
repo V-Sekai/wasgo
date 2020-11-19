@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef STYLEBOXLINE_H
+#define STYLEBOXLINE_H
 
 #include <stdint.h>
 
@@ -22,3 +24,4 @@ void  set_grow_end(float offset);
 void  set_thickness(int thickness);
 void  set_vertical(bool vertical);
 };
+#endif

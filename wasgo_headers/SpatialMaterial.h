@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef SPATIALMATERIAL_H
+#define SPATIALMATERIAL_H
 
 #include <stdint.h>
 
@@ -278,3 +280,4 @@ void  set_uv2_offset(Vector3 offset);
 void  set_uv2_scale(Vector3 scale);
 void  set_uv2_triplanar_blend_sharpness(float sharpness);
 };
+#endif

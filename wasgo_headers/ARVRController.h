@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef ARVRCONTROLLER_H
+#define ARVRCONTROLLER_H
 
 #include <stdint.h>
 
-#include "Mesh.h"
-#include "String.h"
 #include "ARVRPositionalTracker.h"
+#include "String.h"
 #include "Spatial.h"
+#include "Mesh.h"
 class ARVRController : public Spatial{
 public: ARVRController();
 int  get_controller_id();
@@ -27,3 +29,4 @@ int  is_button_pressed(int button);
 void  set_controller_id(int controller_id);
 void  set_rumble(float rumble);
 };
+#endif

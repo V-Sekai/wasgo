@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISIBILITYNOTIFIER2D_H
+#define VISIBILITYNOTIFIER2D_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ bool  is_on_screen();
 bool  is_on_screen();
 void  set_rect(Rect2 rect);
 };
+#endif

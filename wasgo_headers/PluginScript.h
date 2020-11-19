@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef PLUGINSCRIPT_H
+#define PLUGINSCRIPT_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ public: PluginScript();
 Variant  new();
 Variant  new();
 };
+#endif

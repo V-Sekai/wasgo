@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONNODEANIMATION_H
+#define ANIMATIONNODEANIMATION_H
 
 #include <stdint.h>
 
@@ -10,3 +12,4 @@ String  get_animation();
 String  get_animation();
 void  set_animation(String name);
 };
+#endif

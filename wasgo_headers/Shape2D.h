@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef SHAPE2D_H
+#define SHAPE2D_H
 
 #include <stdint.h>
 
-#include "Transform2D.h"
 #include "Vector2.h"
 #include "Resource.h"
+#include "Transform2D.h"
 #include "Variant.h"
 class Shape2D : public Resource{
 public: Shape2D();
@@ -16,3 +18,4 @@ float  get_custom_solver_bias();
 float  get_custom_solver_bias();
 void  set_custom_solver_bias(float bias);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef DAMPEDSPRINGJOINT2D_H
+#define DAMPEDSPRINGJOINT2D_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ void  set_length(float length);
 void  set_rest_length(float rest_length);
 void  set_stiffness(float stiffness);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef GRIDCONTAINER_H
+#define GRIDCONTAINER_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ int  get_columns();
 int  get_columns();
 void  set_columns(int columns);
 };
+#endif

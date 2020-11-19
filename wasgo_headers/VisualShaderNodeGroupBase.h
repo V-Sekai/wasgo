@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODEGROUPBASE_H
+#define VISUALSHADERNODEGROUPBASE_H
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Vector2.h"
+#include "String.h"
 #include "VisualShaderNode.h"
 class VisualShaderNodeGroupBase : public VisualShaderNode{
 public: VisualShaderNodeGroupBase();
@@ -40,3 +42,4 @@ void  set_output_port_type(int id, int type);
 void  set_outputs(String outputs);
 void  set_size(Vector2 size);
 };
+#endif

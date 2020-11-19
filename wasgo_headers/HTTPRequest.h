@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef HTTPREQUEST_H
+#define HTTPREQUEST_H
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
 #include "String.h"
+#include "PoolByteArray.h"
 #include "HTTPClient.h"
-#include "Erro.h"
 #include "Node.h"
+#include "Erro.h"
 #include "PoolStringArray.h"
 class HTTPRequest : public Node{
 public: HTTPRequest();
@@ -56,3 +58,4 @@ void  set_max_redirects(int amount);
 void  set_timeout(int timeout);
 void  set_use_threads(bool enable);
 };
+#endif

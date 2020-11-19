@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef PHYSICS2DDIRECTBODYSTATE_H
+#define PHYSICS2DDIRECTBODYSTATE_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "Physics2DDirectSpaceState.h"
-#include "Transform2D.h"
-#include "Object.h"
 #include "Vector2.h"
+#include "Object.h"
+#include "Transform2D.h"
+#include "Physics2DDirectSpaceState.h"
 #include "Variant.h"
+#include "RID.h"
 class Physics2DDirectBodyState : public Object{
 public: Physics2DDirectBodyState();
 void  add_central_force(Vector2 force);
@@ -57,3 +59,4 @@ void  set_linear_velocity(Vector2 velocity);
 void  set_sleep_state(bool enabled);
 void  set_transform(Transform2D transform);
 };
+#endif

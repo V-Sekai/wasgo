@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOSTREAMPLAYER3D_H
+#define AUDIOSTREAMPLAYER3D_H
 
 #include <stdint.h>
 
-#include "AudioStreamPlayback.h"
-#include "String.h"
 #include "AudioStream.h"
+#include "String.h"
 #include "Spatial.h"
+#include "AudioStreamPlayback.h"
 class AudioStreamPlayer3D : public Spatial{
 public: AudioStreamPlayer3D();
 enum AttenuationModel{
@@ -90,3 +92,4 @@ void  set_unit_size(float unit_size);
 void  stop();
 void  stop();
 };
+#endif

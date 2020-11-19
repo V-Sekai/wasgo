@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef WEBSOCKETSERVER_H
+#define WEBSOCKETSERVER_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Erro.h"
-#include "X509Certificate.h"
-#include "CryptoKey.h"
 #include "WebSocketMultiplayerPeer.h"
+#include "X509Certificate.h"
+#include "Erro.h"
+#include "CryptoKey.h"
 #include "PoolStringArray.h"
 class WebSocketServer : public WebSocketMultiplayerPeer{
 public: WebSocketServer();
@@ -32,3 +34,4 @@ void  set_ssl_certificate(X509Certificate arg0);
 void  stop();
 void  stop();
 };
+#endif

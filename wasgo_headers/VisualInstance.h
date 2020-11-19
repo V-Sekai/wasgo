@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALINSTANCE_H
+#define VISUALINSTANCE_H
 
 #include <stdint.h>
 
-#include "RID.h"
 #include "AABB.h"
 #include "Spatial.h"
+#include "RID.h"
 class VisualInstance : public Spatial{
 public: VisualInstance();
 RID  _get_visual_instance_rid();
@@ -24,3 +26,4 @@ void  set_base(RID base);
 void  set_layer_mask(int mask);
 void  set_layer_mask_bit(int layer, bool enabled);
 };
+#endif

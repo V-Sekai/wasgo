@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef WEBRTCDATACHANNEL_H
+#define WEBRTCDATACHANNEL_H
 
 #include <stdint.h>
 
-#include "Erro.h"
-#include "String.h"
 #include "PacketPeer.h"
+#include "String.h"
+#include "Erro.h"
 class WebRTCDataChannel : public PacketPeer{
 public: WebRTCDataChannel();
 enum WriteMode{
@@ -41,3 +43,4 @@ void  set_write_mode(int write_mode);
 bool  was_string_packet();
 bool  was_string_packet();
 };
+#endif

@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef KINEMATICCOLLISION_H
+#define KINEMATICCOLLISION_H
 
 #include <stdint.h>
 
-#include "Vector3.h"
-#include "Object.h"
 #include "Reference.h"
+#include "Object.h"
+#include "Vector3.h"
 #include "Variant.h"
 class KinematicCollision : public Reference{
 public: KinematicCollision();
@@ -31,3 +33,4 @@ Vector3  get_remainder();
 Vector3  get_travel();
 Vector3  get_travel();
 };
+#endif

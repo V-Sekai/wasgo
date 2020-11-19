@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTEVENTMOUSEBUTTON_H
+#define INPUTEVENTMOUSEBUTTON_H
 
 #include <stdint.h>
 
@@ -16,3 +18,4 @@ void  set_doubleclick(bool doubleclick);
 void  set_factor(float factor);
 void  set_pressed(bool pressed);
 };
+#endif

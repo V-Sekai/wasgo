@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef SKELETONIK_H
+#define SKELETONIK_H
 
 #include <stdint.h>
 
-#include "Transform.h"
 #include "String.h"
-#include "NodePath.h"
-#include "Vector3.h"
 #include "Skeleton.h"
+#include "NodePath.h"
 #include "Node.h"
+#include "Transform.h"
+#include "Vector3.h"
 class SkeletonIK : public Node{
 public: SkeletonIK();
 float  get_interpolation();
@@ -48,3 +50,4 @@ void  start(bool one_time = false);
 void  stop();
 void  stop();
 };
+#endif

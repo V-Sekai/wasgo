@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef SHADERMATERIAL_H
+#define SHADERMATERIAL_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Shader.h"
-#include "Variant.h"
 #include "Material.h"
+#include "Variant.h"
+#include "Shader.h"
 class ShaderMaterial : public Material{
 public: ShaderMaterial();
 void  _shader_changed();
@@ -18,3 +20,4 @@ Variant  property_get_revert(String name);
 void  set_shader(Shader shader);
 void  set_shader_param(String param, Variant value);
 };
+#endif

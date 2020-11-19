@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef KINEMATICBODY_H
+#define KINEMATICBODY_H
 
 #include <stdint.h>
 
-#include "Transform.h"
-#include "Vector3.h"
-#include "PhysicsBody.h"
 #include "KinematicCollision.h"
+#include "PhysicsBody.h"
+#include "Vector3.h"
+#include "Transform.h"
 class KinematicBody : public PhysicsBody{
 public: KinematicBody();
 bool  get_axis_lock(int axis);
@@ -31,3 +33,4 @@ void  set_axis_lock(int axis, bool lock);
 void  set_safe_margin(float pixels);
 bool  test_move(Transform from, Vector3 rel_vec, bool infinite_inertia = true);
 };
+#endif

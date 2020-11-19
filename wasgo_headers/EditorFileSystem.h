@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORFILESYSTEM_H
+#define EDITORFILESYSTEM_H
 
 #include <stdint.h>
 
@@ -23,3 +25,4 @@ void  update_file(String path);
 void  update_script_classes();
 void  update_script_classes();
 };
+#endif

@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef CUBEMESH_H
+#define CUBEMESH_H
 
 #include <stdint.h>
 
-#include "PrimitiveMesh.h"
 #include "Vector3.h"
+#include "PrimitiveMesh.h"
 class CubeMesh : public PrimitiveMesh{
 public: CubeMesh();
 Vector3  get_size();
@@ -19,3 +21,4 @@ void  set_subdivide_depth(int divisions);
 void  set_subdivide_height(int divisions);
 void  set_subdivide_width(int subdivide);
 };
+#endif

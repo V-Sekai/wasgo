@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef ARVRINTERFACE_H
+#define ARVRINTERFACE_H
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Vector2.h"
+#include "String.h"
 #include "Reference.h"
 class ARVRInterface : public Reference{
 public: ARVRInterface();
@@ -49,3 +51,4 @@ void  set_is_primary(bool enable);
 void  uninitialize();
 void  uninitialize();
 };
+#endif

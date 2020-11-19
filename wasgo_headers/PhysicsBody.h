@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef PHYSICSBODY_H
+#define PHYSICSBODY_H
 
 #include <stdint.h>
 
@@ -25,3 +27,4 @@ void  set_collision_layer_bit(int bit, bool value);
 void  set_collision_mask(int mask);
 void  set_collision_mask_bit(int bit, bool value);
 };
+#endif

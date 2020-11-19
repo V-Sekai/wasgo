@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORIMPORTPLUGIN_H
+#define EDITORIMPORTPLUGIN_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "ResourceImporter.h"
-#include "Variant.h"
 #include "Dictionary.h"
+#include "Variant.h"
+#include "ResourceImporter.h"
 class EditorImportPlugin : public ResourceImporter{
 public: EditorImportPlugin();
 Array  get_import_options(int preset);
@@ -29,3 +31,4 @@ String  get_visible_name();
 String  get_visible_name();
 int  import(String source_file, String save_path, Dictionary options, Array platform_variants, Array gen_files);
 };
+#endif

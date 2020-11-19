@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef POLYGON2D_H
+#define POLYGON2D_H
 
 #include <stdint.h>
 
-#include "Node2D.h"
-#include "Texture.h"
 #include "Vector2.h"
-#include "Variant.h"
+#include "PoolVector2Array.h"
 #include "NodePath.h"
 #include "PoolRealArray.h"
-#include "PoolVector2Array.h"
+#include "Texture.h"
+#include "Node2D.h"
+#include "Variant.h"
 class Polygon2D : public Node2D{
 public: Polygon2D();
 Array  _get_bones();
@@ -75,3 +77,4 @@ void  set_texture_scale(Vector2 texture_scale);
 void  set_uv(PoolVector2Array uv);
 void  set_vertex_colors(PoolColorArray vertex_colors);
 };
+#endif

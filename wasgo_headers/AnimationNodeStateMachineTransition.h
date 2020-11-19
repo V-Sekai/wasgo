@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONNODESTATEMACHINETRANSITION_H
+#define ANIMATIONNODESTATEMACHINETRANSITION_H
 
 #include <stdint.h>
 
@@ -29,3 +31,4 @@ void  set_priority(int priority);
 void  set_switch_mode(int mode);
 void  set_xfade_time(float secs);
 };
+#endif

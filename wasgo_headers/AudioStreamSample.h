@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOSTREAMSAMPLE_H
+#define AUDIOSTREAMSAMPLE_H
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
-#include "String.h"
 #include "AudioStream.h"
+#include "PoolByteArray.h"
 #include "Erro.h"
+#include "String.h"
 class AudioStreamSample : public AudioStream{
 public: AudioStreamSample();
 enum LoopMode{
@@ -40,3 +42,4 @@ void  set_loop_mode(int loop_mode);
 void  set_mix_rate(int mix_rate);
 void  set_stereo(bool stereo);
 };
+#endif

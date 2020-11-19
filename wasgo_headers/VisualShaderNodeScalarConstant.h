@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODESCALARCONSTANT_H
+#define VISUALSHADERNODESCALARCONSTANT_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ float  get_constant();
 float  get_constant();
 void  set_constant(float value);
 };
+#endif

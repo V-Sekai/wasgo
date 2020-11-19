@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CSGSPHERE_H
+#define CSGSPHERE_H
 
 #include <stdint.h>
 
@@ -22,3 +24,4 @@ void  set_radius(float radius);
 void  set_rings(int rings);
 void  set_smooth_faces(bool smooth_faces);
 };
+#endif

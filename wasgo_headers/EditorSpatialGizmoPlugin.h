@@ -1,16 +1,18 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORSPATIALGIZMOPLUGIN_H
+#define EDITORSPATIALGIZMOPLUGIN_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Texture.h"
-#include "Resource.h"
-#include "Variant.h"
 #include "Vector2.h"
+#include "String.h"
+#include "Resource.h"
+#include "SpatialMaterial.h"
 #include "EditorSpatialGizmo.h"
 #include "Camera.h"
-#include "SpatialMaterial.h"
 #include "Spatial.h"
+#include "Texture.h"
+#include "Variant.h"
 class EditorSpatialGizmoPlugin : public Resource{
 public: EditorSpatialGizmoPlugin();
 void  add_material(String name, SpatialMaterial material);
@@ -35,3 +37,4 @@ bool  is_selectable_when_hidden();
 void  redraw(EditorSpatialGizmo gizmo);
 void  set_handle(EditorSpatialGizmo gizmo, int index, Camera camera, Vector2 point);
 };
+#endif

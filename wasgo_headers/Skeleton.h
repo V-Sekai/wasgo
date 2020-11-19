@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef SKELETON_H
+#define SKELETON_H
 
 #include <stdint.h>
 
-#include "Transform.h"
 #include "String.h"
-#include "RID.h"
-#include "Variant.h"
-#include "Node.h"
 #include "SkinReference.h"
-#include "Skin.h"
+#include "Node.h"
+#include "Transform.h"
 #include "Spatial.h"
+#include "Skin.h"
+#include "Variant.h"
+#include "RID.h"
 class Skeleton : public Spatial{
 public: Skeleton();
 void  add_bone(String name);
@@ -44,3 +46,4 @@ void  set_bone_rest(int bone_idx, Transform rest);
 void  unbind_child_node_from_bone(int bone_idx, Node node);
 void  unparent_bone_and_rest(int bone_idx);
 };
+#endif

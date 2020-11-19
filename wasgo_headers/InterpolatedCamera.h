@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef INTERPOLATEDCAMERA_H
+#define INTERPOLATEDCAMERA_H
 
 #include <stdint.h>
 
 #include "Camera.h"
-#include "Object.h"
 #include "NodePath.h"
+#include "Object.h"
 class InterpolatedCamera : public Camera{
 public: InterpolatedCamera();
 float  get_speed();
@@ -18,3 +20,4 @@ void  set_speed(float speed);
 void  set_target(Object target);
 void  set_target_path(NodePath target_path);
 };
+#endif

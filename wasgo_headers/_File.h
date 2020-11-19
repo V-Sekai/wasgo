@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef _FILE_H
+#define _FILE_H
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
 #include "String.h"
+#include "PoolByteArray.h"
 #include "Reference.h"
-#include "Variant.h"
 #include "Erro.h"
 #include "PoolStringArray.h"
+#include "Variant.h"
 class _File : public Reference{
 public: _File();
 enum CompressionMode{
@@ -86,3 +88,4 @@ void  store_real(float value);
 void  store_string(String string);
 void  store_var(Variant value, bool full_objects = false);
 };
+#endif

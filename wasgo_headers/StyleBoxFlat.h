@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef STYLEBOXFLAT_H
+#define STYLEBOXFLAT_H
 
 #include <stdint.h>
 
-#include "StyleBox.h"
 #include "Vector2.h"
+#include "StyleBox.h"
 #include "Variant.h"
 class StyleBoxFlat : public StyleBox{
 public: StyleBoxFlat();
@@ -51,3 +53,4 @@ void  set_shadow_color(Color color);
 void  set_shadow_offset(Vector2 offset);
 void  set_shadow_size(int size);
 };
+#endif

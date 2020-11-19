@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef IMAGETEXTURE_H
+#define IMAGETEXTURE_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "String.h"
-#include "Texture.h"
 #include "Vector2.h"
-#include "Erro.h"
+#include "String.h"
 #include "Image.h"
+#include "Erro.h"
+#include "Texture.h"
+#include "RID.h"
 class ImageTexture : public Texture{
 public: ImageTexture();
 enum Storage{
@@ -29,3 +31,4 @@ void  set_lossy_storage_quality(float quality);
 void  set_size_override(Vector2 size);
 void  set_storage(int mode);
 };
+#endif

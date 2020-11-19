@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef PHYSICSSERVER_H
+#define PHYSICSSERVER_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "Transform.h"
 #include "String.h"
-#include "PhysicsDirectSpaceState.h"
-#include "Object.h"
-#include "Variant.h"
-#include "Vector3.h"
 #include "PhysicsDirectBodyState.h"
+#include "PhysicsDirectSpaceState.h"
+#include "Transform.h"
+#include "Object.h"
+#include "Vector3.h"
+#include "Variant.h"
+#include "RID.h"
 class PhysicsServer : public Object{
 public: PhysicsServer();
 enum BodyAxis{
@@ -271,3 +273,4 @@ bool  space_is_active(RID space);
 void  space_set_active(RID space, bool active);
 void  space_set_param(RID space, int param, float value);
 };
+#endif

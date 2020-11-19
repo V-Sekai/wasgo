@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTLISTS_H
+#define VISUALSCRIPTLISTS_H
 
 #include <stdint.h>
 
@@ -15,3 +17,4 @@ void  set_input_data_port_type(int index, int type);
 void  set_output_data_port_name(int index, String name);
 void  set_output_data_port_type(int index, int type);
 };
+#endif

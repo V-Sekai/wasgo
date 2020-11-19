@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef PACKEDSCENE_H
+#define PACKEDSCENE_H
 
 #include <stdint.h>
 
-#include "SceneState.h"
 #include "Resource.h"
+#include "Node.h"
+#include "SceneState.h"
 #include "Erro.h"
 #include "Dictionary.h"
-#include "Node.h"
 class PackedScene : public Resource{
 public: PackedScene();
 enum GenEditState{
@@ -23,3 +25,4 @@ SceneState  get_state();
 Node  instance(int edit_state = 0);
 enum.Error  pack(Node path);
 };
+#endif

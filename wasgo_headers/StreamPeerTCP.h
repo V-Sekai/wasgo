@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef STREAMPEERTCP_H
+#define STREAMPEERTCP_H
 
 #include <stdint.h>
 
-#include "Erro.h"
-#include "String.h"
 #include "StreamPeer.h"
+#include "String.h"
+#include "Erro.h"
 class StreamPeerTCP : public StreamPeer{
 public: StreamPeerTCP();
 enum Status{
@@ -25,3 +27,4 @@ bool  is_connected_to_host();
 bool  is_connected_to_host();
 void  set_no_delay(bool enabled);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef PHYSICSMATERIAL_H
+#define PHYSICSMATERIAL_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ void  set_bounce(float bounce);
 void  set_friction(float friction);
 void  set_rough(bool rough);
 };
+#endif

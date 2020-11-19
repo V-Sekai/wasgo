@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONNODEBLENDSPACE2D_H
+#define ANIMATIONNODEBLENDSPACE2D_H
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Vector2.h"
+#include "String.h"
 #include "PoolIntArray.h"
 #include "AnimationRootNode.h"
 class AnimationNodeBlendSpace2D : public AnimationRootNode{
@@ -55,3 +57,4 @@ void  set_snap(Vector2 snap);
 void  set_x_label(String text);
 void  set_y_label(String text);
 };
+#endif

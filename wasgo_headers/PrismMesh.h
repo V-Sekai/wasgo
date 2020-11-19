@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef PRISMMESH_H
+#define PRISMMESH_H
 
 #include <stdint.h>
 
-#include "PrimitiveMesh.h"
 #include "Vector3.h"
+#include "PrimitiveMesh.h"
 class PrismMesh : public PrimitiveMesh{
 public: PrismMesh();
 float  get_left_to_right();
@@ -22,3 +24,4 @@ void  set_subdivide_depth(int segments);
 void  set_subdivide_height(int segments);
 void  set_subdivide_width(int segments);
 };
+#endif

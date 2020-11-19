@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef OPTIONBUTTON_H
+#define OPTIONBUTTON_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "PopupMenu.h"
+#include "Button.h"
 #include "Texture.h"
 #include "Variant.h"
-#include "Button.h"
 class OptionButton : public Button{
 public: OptionButton();
 void  _focused(int arg0);
@@ -45,3 +47,4 @@ void  set_item_id(int idx, int id);
 void  set_item_metadata(int idx, Variant metadata);
 void  set_item_text(int idx, String text);
 };
+#endif

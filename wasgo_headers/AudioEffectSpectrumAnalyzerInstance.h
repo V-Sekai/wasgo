@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTSPECTRUMANALYZERINSTANCE_H
+#define AUDIOEFFECTSPECTRUMANALYZERINSTANCE_H
 
 #include <stdint.h>
 
@@ -11,3 +13,4 @@ MAGNITUDE_AVERAGE: 0,
 };
 Vector2  get_magnitude_for_frequency_range(float from_hz, float to_hz, int mode = 1);
 };
+#endif

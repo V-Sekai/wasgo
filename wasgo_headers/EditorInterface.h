@@ -1,20 +1,22 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORINTERFACE_H
+#define EDITORINTERFACE_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "EditorSelection.h"
-#include "EditorFileSystem.h"
-#include "EditorSettings.h"
-#include "Control.h"
 #include "Resource.h"
-#include "Variant.h"
-#include "Object.h"
-#include "Erro.h"
-#include "ScriptEditor.h"
-#include "Node.h"
+#include "Control.h"
 #include "EditorResourcePreview.h"
+#include "Node.h"
 #include "EditorInspector.h"
+#include "Erro.h"
+#include "EditorSelection.h"
+#include "Object.h"
+#include "EditorSettings.h"
+#include "ScriptEditor.h"
+#include "EditorFileSystem.h"
+#include "Variant.h"
 class EditorInterface : public Node{
 public: EditorInterface();
 void  edit_resource(Resource resource);
@@ -55,3 +57,4 @@ void  set_distraction_free_mode(bool enter);
 void  set_main_screen_editor(String name);
 void  set_plugin_enabled(String plugin, bool enabled);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef TIMER_H
+#define TIMER_H
 
 #include <stdint.h>
 
@@ -31,3 +33,4 @@ void  start(float time_sec = -1);
 void  stop();
 void  stop();
 };
+#endif

@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef NATIVESCRIPT_H
+#define NATIVESCRIPT_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Variant.h"
-#include "GDNativeLibrary.h"
 #include "Script.h"
+#include "GDNativeLibrary.h"
+#include "Variant.h"
 class NativeScript : public Script{
 public: NativeScript();
 String  get_class_documentation();
@@ -28,3 +30,4 @@ void  set_library(GDNativeLibrary library);
 void  set_script_class_icon_path(String icon_path);
 void  set_script_class_name(String class_name);
 };
+#endif

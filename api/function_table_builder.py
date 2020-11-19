@@ -111,10 +111,13 @@ def _build_function_interfaces(api_one, api_two):
         header_file_data = [
             "/* THIS FILE IS GENERATED */"
             "",
+            "#ifndef %s_H" % header_api["name"].upper(),
+            "#define %s_H" % header_api["name"].upper(),
             "",
             "#include <stdint.h>",
-            ""
+            "",
         ]
+        #ifdefs
         includes = set()
         for method in header_api['methods']:
             for args in method["arguments"]:
@@ -156,7 +159,9 @@ def _build_function_interfaces(api_one, api_two):
 
             header_file_data += generate_header_function_interface(
                 n, header_api['methods'])
-            header_file_data += ["};"]
+            header_file_data += ["};",
+                "#endif"
+            ]
             with open('../wasgo_headers/%s.h' % n, 'w') as fd:  # to be included on the native side
                 fd.write('\n'.join(header_file_data))
 

@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef CAMERA_H
+#define CAMERA_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "Transform.h"
 #include "Vector2.h"
-#include "Variant.h"
 #include "Environment.h"
+#include "Transform.h"
 #include "Vector3.h"
 #include "Spatial.h"
+#include "Variant.h"
+#include "RID.h"
 class Camera : public Spatial{
 public: Camera();
 enum KeepAspect{
@@ -82,3 +84,4 @@ void  set_zfar(float arg0);
 void  set_znear(float arg0);
 Vector2  unproject_position(Vector3 world_point);
 };
+#endif

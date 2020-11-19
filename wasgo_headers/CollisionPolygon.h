@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef COLLISIONPOLYGON_H
+#define COLLISIONPOLYGON_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ void  set_depth(float depth);
 void  set_disabled(bool disabled);
 void  set_polygon(PoolVector2Array polygon);
 };
+#endif

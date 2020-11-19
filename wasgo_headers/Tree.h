@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef TREE_H
+#define TREE_H
 
 #include <stdint.h>
 
+#include "Vector2.h"
 #include "String.h"
 #include "Control.h"
-#include "InputEvent.h"
-#include "Vector2.h"
+#include "Rect2.h"
 #include "Object.h"
 #include "TreeItem.h"
-#include "Rect2.h"
+#include "InputEvent.h"
 class Tree : public Control{
 public: Tree();
 enum SelectMode{
@@ -84,3 +86,4 @@ void  set_hide_folding(bool hide);
 void  set_hide_root(bool enable);
 void  set_select_mode(int mode);
 };
+#endif

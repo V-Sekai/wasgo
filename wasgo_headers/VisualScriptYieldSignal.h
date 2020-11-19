@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTYIELDSIGNAL_H
+#define VISUALSCRIPTYIELDSIGNAL_H
 
 #include <stdint.h>
 
@@ -24,3 +26,4 @@ void  set_base_type(String base_type);
 void  set_call_mode(int mode);
 void  set_signal(String signal);
 };
+#endif

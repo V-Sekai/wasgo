@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTTYPECAST_H
+#define VISUALSCRIPTTYPECAST_H
 
 #include <stdint.h>
 
@@ -13,3 +15,4 @@ String  get_base_type();
 void  set_base_script(String path);
 void  set_base_type(String type);
 };
+#endif

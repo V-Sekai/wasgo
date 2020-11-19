@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef ENCODEDOBJECTASID_H
+#define ENCODEDOBJECTASID_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ int  get_object_id();
 int  get_object_id();
 void  set_object_id(int id);
 };
+#endif

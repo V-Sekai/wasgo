@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CURVE_H
+#define CURVE_H
 
 #include <stdint.h>
 
@@ -47,3 +49,4 @@ void  set_point_right_mode(int index, int mode);
 void  set_point_right_tangent(int index, float tangent);
 void  set_point_value(int index, float y);
 };
+#endif

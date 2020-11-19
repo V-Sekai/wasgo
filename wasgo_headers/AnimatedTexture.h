@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATEDTEXTURE_H
+#define ANIMATEDTEXTURE_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ void  set_frame_delay(int frame, float delay);
 void  set_frame_texture(int frame, Texture texture);
 void  set_frames(int frames);
 };
+#endif

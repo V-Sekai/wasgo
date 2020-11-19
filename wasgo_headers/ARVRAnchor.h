@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef ARVRANCHOR_H
+#define ARVRANCHOR_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Vector3.h"
 #include "Mesh.h"
+#include "Vector3.h"
 #include "Spatial.h"
 #include "Plane.h"
 class ARVRAnchor : public Spatial{
@@ -23,3 +25,4 @@ Vector3  get_size();
 Vector3  get_size();
 void  set_anchor_id(int anchor_id);
 };
+#endif

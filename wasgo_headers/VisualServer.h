@@ -1,24 +1,26 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSERVER_H
+#define VISUALSERVER_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "Transform.h"
+#include "Vector2.h"
+#include "PoolVector2Array.h"
 #include "String.h"
 #include "PoolByteArray.h"
-#include "PoolIntArray.h"
-#include "Transform2D.h"
 #include "AABB.h"
-#include "Vector2.h"
-#include "Variant.h"
-#include "Basis.h"
-#include "Object.h"
-#include "PoolRealArray.h"
-#include "PoolVector2Array.h"
-#include "Vector3.h"
+#include "Transform.h"
 #include "Rect2.h"
+#include "PoolRealArray.h"
+#include "Basis.h"
 #include "Image.h"
+#include "Transform2D.h"
+#include "Vector3.h"
+#include "Object.h"
+#include "PoolIntArray.h"
 #include "Plane.h"
+#include "Variant.h"
+#include "RID.h"
 class VisualServer : public Object{
 public: VisualServer();
 enum ReflectionProbeUpdateMode{
@@ -671,3 +673,4 @@ void  viewport_set_usage(RID viewport, int usage);
 void  viewport_set_use_arvr(RID viewport, bool use_arvr);
 void  viewport_set_vflip(RID viewport, bool enabled);
 };
+#endif

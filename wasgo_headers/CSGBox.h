@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CSGBOX_H
+#define CSGBOX_H
 
 #include <stdint.h>
 
@@ -19,3 +21,4 @@ void  set_height(float height);
 void  set_material(Material material);
 void  set_width(float width);
 };
+#endif

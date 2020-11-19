@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTEVENTMIDI_H
+#define INPUTEVENTMIDI_H
 
 #include <stdint.h>
 
@@ -30,3 +32,4 @@ void  set_pitch(int pitch);
 void  set_pressure(int pressure);
 void  set_velocity(int velocity);
 };
+#endif

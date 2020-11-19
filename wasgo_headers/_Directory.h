@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef _DIRECTORY_H
+#define _DIRECTORY_H
 
 #include <stdint.h>
 
-#include "Erro.h"
 #include "String.h"
+#include "Erro.h"
 #include "Reference.h"
 class _Directory : public Reference{
 public: _Directory();
@@ -33,3 +35,4 @@ enum.Error  open(String path);
 enum.Error  remove(String path);
 enum.Error  rename(String from, String to);
 };
+#endif

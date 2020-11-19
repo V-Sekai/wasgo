@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef PROXYTEXTURE_H
+#define PROXYTEXTURE_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ Texture  get_base();
 Texture  get_base();
 void  set_base(Texture base);
 };
+#endif

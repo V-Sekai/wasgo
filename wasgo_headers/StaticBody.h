@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef STATICBODY_H
+#define STATICBODY_H
 
 #include <stdint.h>
 
-#include "Vector3.h"
 #include "PhysicsBody.h"
+#include "Vector3.h"
 #include "PhysicsMaterial.h"
 class StaticBody : public PhysicsBody{
 public: StaticBody();
@@ -25,3 +27,4 @@ void  set_constant_linear_velocity(Vector3 vel);
 void  set_friction(float friction);
 void  set_physics_material_override(PhysicsMaterial physics_material_override);
 };
+#endif

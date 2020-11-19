@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef STREAMPEER_H
+#define STREAMPEER_H
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
 #include "String.h"
+#include "PoolByteArray.h"
 #include "Reference.h"
-#include "Variant.h"
 #include "Erro.h"
+#include "Variant.h"
 class StreamPeer : public Reference{
 public: StreamPeer();
 int  get_16();
@@ -55,3 +57,4 @@ void  put_utf8_string(String value);
 void  put_var(Variant value, bool full_objects = false);
 void  set_big_endian(bool enable);
 };
+#endif

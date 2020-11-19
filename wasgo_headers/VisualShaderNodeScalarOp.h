@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODESCALAROP_H
+#define VISUALSHADERNODESCALAROP_H
 
 #include <stdint.h>
 
@@ -20,3 +22,4 @@ enum.VisualShaderNodeScalarOp::Operator  get_operator();
 enum.VisualShaderNodeScalarOp::Operator  get_operator();
 void  set_operator(int op);
 };
+#endif

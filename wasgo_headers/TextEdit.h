@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef TEXTEDIT_H
+#define TEXTEDIT_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "PopupMenu.h"
-#include "PoolIntArray.h"
 #include "Control.h"
+#include "PoolIntArray.h"
+#include "PopupMenu.h"
 #include "InputEvent.h"
 #include "Variant.h"
 class TextEdit : public Control{
@@ -189,3 +191,4 @@ void  unfold_line(int line);
 void  unhide_all_lines();
 void  unhide_all_lines();
 };
+#endif

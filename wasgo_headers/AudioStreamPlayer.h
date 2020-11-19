@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOSTREAMPLAYER_H
+#define AUDIOSTREAMPLAYER_H
 
 #include <stdint.h>
 
-#include "AudioStreamPlayback.h"
+#include "AudioStream.h"
 #include "String.h"
 #include "Node.h"
-#include "AudioStream.h"
+#include "AudioStreamPlayback.h"
 class AudioStreamPlayer : public Node{
 public: AudioStreamPlayer();
 enum MixTarget{
@@ -49,3 +51,4 @@ void  set_volume_db(float volume_db);
 void  stop();
 void  stop();
 };
+#endif

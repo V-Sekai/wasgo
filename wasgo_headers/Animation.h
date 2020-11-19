@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATION_H
+#define ANIMATION_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "PoolIntArray.h"
-#include "Resource.h"
 #include "Vector2.h"
+#include "String.h"
+#include "Resource.h"
 #include "NodePath.h"
-#include "Variant.h"
-#include "Vector3.h"
 #include "Quat.h"
+#include "Vector3.h"
+#include "PoolIntArray.h"
+#include "Variant.h"
 class Animation : public Resource{
 public: Animation();
 enum TrackType{
@@ -98,3 +100,4 @@ PoolIntArray  value_track_get_key_indices(int track_idx, float time_sec, float d
 enum.Animation::UpdateMode  value_track_get_update_mode(int track_idx);
 void  value_track_set_update_mode(int track_idx, int mode);
 };
+#endif

@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef HTTPCLIENT_H
+#define HTTPCLIENT_H
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
 #include "String.h"
+#include "StreamPeer.h"
+#include "PoolByteArray.h"
 #include "Reference.h"
 #include "Erro.h"
-#include "Dictionary.h"
 #include "PoolStringArray.h"
-#include "StreamPeer.h"
+#include "Dictionary.h"
 class HTTPClient : public Reference{
 public: HTTPClient();
 enum Status{
@@ -129,3 +131,4 @@ void  set_blocking_mode(bool enabled);
 void  set_connection(StreamPeer connection);
 void  set_read_chunk_size(int bytes);
 };
+#endif

@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef BAKEDLIGHTMAP_H
+#define BAKEDLIGHTMAP_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Vector3.h"
 #include "VisualInstance.h"
-#include "BakedLightmapData.h"
 #include "Node.h"
+#include "Vector3.h"
+#include "BakedLightmapData.h"
 class BakedLightmap : public VisualInstance{
 public: BakedLightmap();
 enum BakeQuality{
@@ -59,3 +61,4 @@ void  set_image_path(String image_path);
 void  set_light_data(BakedLightmapData data);
 void  set_propagation(float propagation);
 };
+#endif

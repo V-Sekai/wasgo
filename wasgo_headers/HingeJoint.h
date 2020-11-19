@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef HINGEJOINT_H
+#define HINGEJOINT_H
 
 #include <stdint.h>
 
@@ -30,3 +32,4 @@ float  get_param(int param);
 void  set_flag(int flag, bool enabled);
 void  set_param(int param, float value);
 };
+#endif

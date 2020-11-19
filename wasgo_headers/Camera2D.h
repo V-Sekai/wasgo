@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef CAMERA2D_H
+#define CAMERA2D_H
 
 #include <stdint.h>
 
-#include "Node2D.h"
 #include "Vector2.h"
 #include "Node.h"
 #include "Object.h"
+#include "Node2D.h"
 class Camera2D : public Node2D{
 public: Camera2D();
 enum Camera2DProcessMode{
@@ -88,3 +90,4 @@ void  set_v_drag_enabled(bool enabled);
 void  set_v_offset(float ofs);
 void  set_zoom(Vector2 zoom);
 };
+#endif

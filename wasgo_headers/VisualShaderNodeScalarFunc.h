@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODESCALARFUNC_H
+#define VISUALSHADERNODESCALARFUNC_H
 
 #include <stdint.h>
 
@@ -42,3 +44,4 @@ enum.VisualShaderNodeScalarFunc::Function  get_function();
 enum.VisualShaderNodeScalarFunc::Function  get_function();
 void  set_function(int func);
 };
+#endif

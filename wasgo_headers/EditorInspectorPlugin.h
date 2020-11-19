@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORINSPECTORPLUGIN_H
+#define EDITORINSPECTORPLUGIN_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Reference.h"
 #include "Control.h"
+#include "Reference.h"
 #include "Object.h"
 #include "PoolStringArray.h"
 class EditorInspectorPlugin : public Reference{
@@ -19,3 +21,4 @@ void  parse_end();
 void  parse_end();
 bool  parse_property(Object object, int type, String path, int hint, String hint_text, int usage);
 };
+#endif

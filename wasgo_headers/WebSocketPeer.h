@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef WEBSOCKETPEER_H
+#define WEBSOCKETPEER_H
 
 #include <stdint.h>
 
-#include "String.h"
 #include "PacketPeer.h"
+#include "String.h"
 class WebSocketPeer : public PacketPeer{
 public: WebSocketPeer();
 enum WriteMode{
@@ -23,3 +25,4 @@ void  set_write_mode(int mode);
 bool  was_string_packet();
 bool  was_string_packet();
 };
+#endif

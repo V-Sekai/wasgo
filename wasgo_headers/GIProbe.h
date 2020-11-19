@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef GIPROBE_H
+#define GIPROBE_H
 
 #include <stdint.h>
 
-#include "GIProbeData.h"
-#include "Node.h"
 #include "VisualInstance.h"
+#include "Node.h"
 #include "Vector3.h"
+#include "GIProbeData.h"
 class GIProbe : public VisualInstance{
 public: GIProbe();
 enum Subdiv{
@@ -48,3 +50,4 @@ void  set_probe_data(GIProbeData data);
 void  set_propagation(float max);
 void  set_subdiv(int subdiv);
 };
+#endif

@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef MAINLOOP_H
+#define MAINLOOP_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "InputEvent.h"
 #include "Object.h"
-#include "Variant.h"
 #include "PoolStringArray.h"
+#include "InputEvent.h"
+#include "Variant.h"
 class MainLoop : public Object{
 public: MainLoop();
 void  _drop_files(PoolStringArray files, int from_screen);
@@ -28,3 +30,4 @@ void  input_event(InputEvent event);
 void  input_text(String text);
 bool  iteration(float delta);
 };
+#endif

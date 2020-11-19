@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTCUSTOMNODE_H
+#define VISUALSCRIPTCUSTOMNODE_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Variant.h"
 #include "VisualScriptNode.h"
+#include "Variant.h"
 class VisualScriptCustomNode : public VisualScriptNode{
 public: VisualScriptCustomNode();
 enum StartMode{
@@ -36,3 +38,4 @@ void  _script_changed();
 void  _script_changed();
 Variant  _step(Array inputs, Array outputs, int start_mode, Array working_mem);
 };
+#endif

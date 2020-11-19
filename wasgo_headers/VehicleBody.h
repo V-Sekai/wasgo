@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VEHICLEBODY_H
+#define VEHICLEBODY_H
 
 #include <stdint.h>
 
@@ -15,3 +17,4 @@ void  set_brake(float brake);
 void  set_engine_force(float engine_force);
 void  set_steering(float steering);
 };
+#endif

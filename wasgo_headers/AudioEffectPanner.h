@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTPANNER_H
+#define AUDIOEFFECTPANNER_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ float  get_pan();
 float  get_pan();
 void  set_pan(float cpanume);
 };
+#endif

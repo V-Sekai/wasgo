@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef SLIDERJOINT_H
+#define SLIDERJOINT_H
 
 #include <stdint.h>
 
@@ -38,3 +40,4 @@ void  _set_upper_limit_angular(float upper_limit_angular);
 float  get_param(int param);
 void  set_param(int param, float value);
 };
+#endif

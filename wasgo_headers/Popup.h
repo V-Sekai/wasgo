@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef POPUP_H
+#define POPUP_H
 
 #include <stdint.h>
 
-#include "Control.h"
 #include "Vector2.h"
 #include "Rect2.h"
+#include "Control.h"
 class Popup : public Control{
 public: Popup();
 bool  is_exclusive();
@@ -18,3 +20,4 @@ void  set_as_minsize();
 void  set_as_minsize();
 void  set_exclusive(bool enable);
 };
+#endif

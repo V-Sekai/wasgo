@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef SCRIPTCREATEDIALOG_H
+#define SCRIPTCREATEDIALOG_H
 
 #include <stdint.h>
 
-#include "ConfirmationDialog.h"
 #include "String.h"
+#include "ConfirmationDialog.h"
 class ScriptCreateDialog : public ConfirmationDialog{
 public: ScriptCreateDialog();
 void  _browse_class_in_tree();
@@ -24,3 +26,4 @@ void  _path_hbox_sorted();
 void  _template_changed(int arg0);
 void  config(String inherits, String path, bool built_in_enabled = true, bool load_enabled = true);
 };
+#endif

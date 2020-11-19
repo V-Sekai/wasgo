@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef AREA2D_H
+#define AREA2D_H
 
 #include <stdint.h>
 
-#include "RID.h"
+#include "Vector2.h"
 #include "String.h"
 #include "CollisionObject2D.h"
-#include "Vector2.h"
-#include "Variant.h"
 #include "Node.h"
+#include "Variant.h"
+#include "RID.h"
 class Area2D : public CollisionObject2D{
 public: Area2D();
 enum SpaceOverride{
@@ -75,3 +77,4 @@ void  set_monitoring(bool enable);
 void  set_priority(float priority);
 void  set_space_override_mode(int space_override_mode);
 };
+#endif

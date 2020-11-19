@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTDELAY_H
+#define AUDIOEFFECTDELAY_H
 
 #include <stdint.h>
 
@@ -45,3 +47,4 @@ void  set_tap2_delay_ms(float amount);
 void  set_tap2_level_db(float amount);
 void  set_tap2_pan(float amount);
 };
+#endif

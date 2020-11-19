@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef PHYSICSDIRECTBODYSTATE_H
+#define PHYSICSDIRECTBODYSTATE_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "Transform.h"
 #include "PhysicsDirectSpaceState.h"
-#include "Object.h"
+#include "Transform.h"
 #include "Basis.h"
+#include "Object.h"
 #include "Vector3.h"
+#include "RID.h"
 class PhysicsDirectBodyState : public Object{
 public: PhysicsDirectBodyState();
 void  add_central_force(Vector3 force);
@@ -61,3 +63,4 @@ void  set_linear_velocity(Vector3 velocity);
 void  set_sleep_state(bool enabled);
 void  set_transform(Transform transform);
 };
+#endif

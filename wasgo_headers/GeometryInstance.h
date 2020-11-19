@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef GEOMETRYINSTANCE_H
+#define GEOMETRYINSTANCE_H
 
 #include <stdint.h>
 
@@ -41,3 +43,4 @@ void  set_lod_min_distance(float mode);
 void  set_lod_min_hysteresis(float mode);
 void  set_material_override(Material material);
 };
+#endif

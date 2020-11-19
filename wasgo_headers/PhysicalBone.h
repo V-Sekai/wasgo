@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef PHYSICALBONE_H
+#define PHYSICALBONE_H
 
 #include <stdint.h>
 
-#include "Transform.h"
-#include "Vector3.h"
 #include "PhysicsBody.h"
 #include "Object.h"
+#include "Vector3.h"
+#include "Transform.h"
 class PhysicalBone : public PhysicsBody{
 public: PhysicalBone();
 enum JointType{
@@ -51,3 +53,4 @@ void  set_joint_type(int joint_type);
 void  set_mass(float mass);
 void  set_weight(float weight);
 };
+#endif

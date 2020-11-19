@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef TEXTURERECT_H
+#define TEXTURERECT_H
 
 #include <stdint.h>
 
@@ -33,3 +35,4 @@ void  set_flip_v(bool enable);
 void  set_stretch_mode(int stretch_mode);
 void  set_texture(Texture texture);
 };
+#endif

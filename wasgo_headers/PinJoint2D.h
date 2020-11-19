@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef PINJOINT2D_H
+#define PINJOINT2D_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ float  get_softness();
 float  get_softness();
 void  set_softness(float softness);
 };
+#endif

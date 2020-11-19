@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CONETWISTJOINT_H
+#define CONETWISTJOINT_H
 
 #include <stdint.h>
 
@@ -21,3 +23,4 @@ void  _set_twist_span(float twist_span);
 float  get_param(int param);
 void  set_param(int param, float value);
 };
+#endif

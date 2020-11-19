@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef TEXTURE_H
+#define TEXTURE_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "Resource.h"
 #include "Vector2.h"
-#include "Variant.h"
+#include "Resource.h"
 #include "Rect2.h"
 #include "Image.h"
+#include "Variant.h"
+#include "RID.h"
 class Texture : public Resource{
 public: Texture();
 enum Flags{
@@ -36,3 +38,4 @@ bool  has_alpha();
 bool  has_alpha();
 void  set_flags(int flags);
 };
+#endif

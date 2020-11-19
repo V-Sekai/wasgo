@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODESCALARDERIVATIVEFUNC_H
+#define VISUALSHADERNODESCALARDERIVATIVEFUNC_H
 
 #include <stdint.h>
 
@@ -13,3 +15,4 @@ enum.VisualShaderNodeScalarDerivativeFunc::Function  get_function();
 enum.VisualShaderNodeScalarDerivativeFunc::Function  get_function();
 void  set_function(int func);
 };
+#endif

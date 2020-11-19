@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTPHASER_H
+#define AUDIOEFFECTPHASER_H
 
 #include <stdint.h>
 
@@ -21,3 +23,4 @@ void  set_range_max_hz(float hz);
 void  set_range_min_hz(float hz);
 void  set_rate_hz(float hz);
 };
+#endif

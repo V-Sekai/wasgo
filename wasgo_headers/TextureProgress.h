@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef TEXTUREPROGRESS_H
+#define TEXTUREPROGRESS_H
 
 #include <stdint.h>
 
-#include "Texture.h"
-#include "Range.h"
 #include "Vector2.h"
+#include "Texture.h"
 #include "Variant.h"
+#include "Range.h"
 class TextureProgress : public Range{
 public: TextureProgress();
 enum FillMode{
@@ -54,3 +56,4 @@ void  set_tint_progress(Color tint);
 void  set_tint_under(Color tint);
 void  set_under_texture(Texture tex);
 };
+#endif

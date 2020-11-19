@@ -1,20 +1,22 @@
 /* THIS FILE IS GENERATED */
+#ifndef CONTROL_H
+#define CONTROL_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Font.h"
-#include "Texture.h"
-#include "InputEvent.h"
-#include "Shader.h"
-#include "Object.h"
 #include "Vector2.h"
-#include "Variant.h"
-#include "NodePath.h"
+#include "String.h"
 #include "Theme.h"
+#include "NodePath.h"
 #include "Rect2.h"
-#include "StyleBox.h"
 #include "CanvasItem.h"
+#include "Object.h"
+#include "Font.h"
+#include "Shader.h"
+#include "Texture.h"
+#include "StyleBox.h"
+#include "InputEvent.h"
+#include "Variant.h"
 class Control : public CanvasItem{
 public: Control();
 enum Anchor{
@@ -235,3 +237,4 @@ void  set_v_size_flags(int flags);
 void  show_modal(bool exclusive = false);
 void  warp_mouse(Vector2 to_position);
 };
+#endif

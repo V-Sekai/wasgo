@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VIEWPORTTEXTURE_H
+#define VIEWPORTTEXTURE_H
 
 #include <stdint.h>
 
@@ -10,3 +12,4 @@ NodePath  get_viewport_path_in_scene();
 NodePath  get_viewport_path_in_scene();
 void  set_viewport_path_in_scene(NodePath path);
 };
+#endif

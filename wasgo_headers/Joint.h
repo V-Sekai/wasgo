@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef JOINT_H
+#define JOINT_H
 
 #include <stdint.h>
 
@@ -19,3 +21,4 @@ void  set_node_a(NodePath node);
 void  set_node_b(NodePath node);
 void  set_solver_priority(int priority);
 };
+#endif

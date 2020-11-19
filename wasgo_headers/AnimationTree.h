@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONTREE_H
+#define ANIMATIONTREE_H
 
 #include <stdint.h>
 
-#include "Transform.h"
 #include "String.h"
-#include "AnimationNode.h"
 #include "NodePath.h"
 #include "Node.h"
+#include "Transform.h"
+#include "AnimationNode.h"
 class AnimationTree : public Node{
 public: AnimationTree();
 enum AnimationProcessMode{
@@ -40,3 +42,4 @@ void  set_process_mode(int mode);
 void  set_root_motion_track(NodePath path);
 void  set_tree_root(AnimationNode root);
 };
+#endif

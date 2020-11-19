@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef MATERIAL_H
+#define MATERIAL_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ int  get_render_priority();
 void  set_next_pass(Material next_pass);
 void  set_render_priority(int priority);
 };
+#endif

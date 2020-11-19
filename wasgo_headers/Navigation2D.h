@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef NAVIGATION2D_H
+#define NAVIGATION2D_H
 
 #include <stdint.h>
 
-#include "Node2D.h"
-#include "Transform2D.h"
-#include "Object.h"
 #include "Vector2.h"
 #include "PoolVector2Array.h"
+#include "Object.h"
+#include "Transform2D.h"
+#include "Node2D.h"
 #include "NavigationPolygon.h"
 class Navigation2D : public Node2D{
 public: Navigation2D();
@@ -17,3 +19,4 @@ int  navpoly_add(NavigationPolygon mesh, Transform2D xform, Object owner = null)
 void  navpoly_remove(int id);
 void  navpoly_set_transform(int id, Transform2D xform);
 };
+#endif

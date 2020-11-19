@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef NOISETEXTURE_H
+#define NOISETEXTURE_H
 
 #include <stdint.h>
 
-#include "OpenSimplexNoise.h"
 #include "Texture.h"
 #include "Image.h"
+#include "OpenSimplexNoise.h"
 class NoiseTexture : public Texture{
 public: NoiseTexture();
 Image  _generate_texture();
@@ -29,3 +31,4 @@ void  set_noise(OpenSimplexNoise noise);
 void  set_seamless(bool seamless);
 void  set_width(int width);
 };
+#endif

@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef THEME_H
+#define THEME_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Font.h"
-#include "Texture.h"
 #include "Resource.h"
-#include "Variant.h"
-#include "StyleBox.h"
+#include "Font.h"
 #include "PoolStringArray.h"
+#include "Texture.h"
+#include "StyleBox.h"
+#include "Variant.h"
 class Theme : public Resource{
 public: Theme();
 void  _emit_theme_changed();
@@ -50,3 +52,4 @@ void  set_font(String name, String type, Font font);
 void  set_icon(String name, String type, Texture texture);
 void  set_stylebox(String name, String type, StyleBox texture);
 };
+#endif

@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef SHORTCUT_H
+#define SHORTCUT_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "InputEvent.h"
 #include "Resource.h"
+#include "InputEvent.h"
 class ShortCut : public Resource{
 public: ShortCut();
 String  get_as_text();
@@ -16,3 +18,4 @@ bool  is_valid();
 bool  is_valid();
 void  set_shortcut(InputEvent event);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODEVECTORFUNC_H
+#define VISUALSHADERNODEVECTORFUNC_H
 
 #include <stdint.h>
 
@@ -45,3 +47,4 @@ enum.VisualShaderNodeVectorFunc::Function  get_function();
 enum.VisualShaderNodeVectorFunc::Function  get_function();
 void  set_function(int func);
 };
+#endif

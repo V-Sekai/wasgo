@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOSTREAMRANDOMPITCH_H
+#define AUDIOSTREAMRANDOMPITCH_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ float  get_random_pitch();
 void  set_audio_stream(AudioStream stream);
 void  set_random_pitch(float scale);
 };
+#endif

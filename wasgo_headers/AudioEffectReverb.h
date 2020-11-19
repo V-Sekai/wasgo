@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTREVERB_H
+#define AUDIOEFFECTREVERB_H
 
 #include <stdint.h>
 
@@ -30,3 +32,4 @@ void  set_room_size(float size);
 void  set_spread(float amount);
 void  set_wet(float amount);
 };
+#endif

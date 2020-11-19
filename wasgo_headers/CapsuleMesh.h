@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CAPSULEMESH_H
+#define CAPSULEMESH_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ void  set_radial_segments(int segments);
 void  set_radius(float radius);
 void  set_rings(int rings);
 };
+#endif

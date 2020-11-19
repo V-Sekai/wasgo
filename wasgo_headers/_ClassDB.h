@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef _CLASSDB_H
+#define _CLASSDB_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Object.h"
-#include "Variant.h"
 #include "Erro.h"
-#include "Dictionary.h"
+#include "Object.h"
 #include "PoolStringArray.h"
+#include "Dictionary.h"
+#include "Variant.h"
 class _ClassDB : public Object{
 public: _ClassDB();
 bool  can_instance(String class);
@@ -32,3 +34,4 @@ Variant  instance(String class);
 bool  is_class_enabled(String class);
 bool  is_parent_class(String class, String inherits);
 };
+#endif

@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef RIGIDBODY_H
+#define RIGIDBODY_H
 
 #include <stdint.h>
 
-#include "PhysicsMaterial.h"
-#include "Object.h"
 #include "Variant.h"
+#include "Object.h"
 #include "Vector3.h"
-#include "PhysicsDirectBodyState.h"
+#include "PhysicsMaterial.h"
 #include "PhysicsBody.h"
+#include "PhysicsDirectBodyState.h"
 class RigidBody : public PhysicsBody{
 public: RigidBody();
 enum Mode{
@@ -84,3 +86,4 @@ void  set_use_continuous_collision_detection(bool enable);
 void  set_use_custom_integrator(bool enable);
 void  set_weight(float weight);
 };
+#endif

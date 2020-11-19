@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CAMERASERVER_H
+#define CAMERASERVER_H
 
 #include <stdint.h>
 
@@ -20,3 +22,4 @@ int  get_feed_count();
 int  get_feed_count();
 void  remove_feed(CameraFeed feed);
 };
+#endif

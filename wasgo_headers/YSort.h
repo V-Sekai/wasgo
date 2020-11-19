@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef YSORT_H
+#define YSORT_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ bool  is_sort_enabled();
 bool  is_sort_enabled();
 void  set_sort_enabled(bool enabled);
 };
+#endif

@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef TREEITEM_H
+#define TREEITEM_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Texture.h"
-#include "Variant.h"
-#include "Object.h"
-#include "Dictionary.h"
 #include "Rect2.h"
+#include "Object.h"
+#include "Texture.h"
+#include "Dictionary.h"
+#include "Variant.h"
 class TreeItem : public Object{
 public: TreeItem();
 enum TreeCellMode{
@@ -96,3 +98,4 @@ void  set_text(int column, String text);
 void  set_text_align(int column, int text_align);
 void  set_tooltip(int column, String tooltip);
 };
+#endif

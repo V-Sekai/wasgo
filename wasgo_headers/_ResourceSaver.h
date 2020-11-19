@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef _RESOURCESAVER_H
+#define _RESOURCESAVER_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "Resource.h"
-#include "Object.h"
 #include "Erro.h"
+#include "Object.h"
 #include "PoolStringArray.h"
 class _ResourceSaver : public Object{
 public: _ResourceSaver();
@@ -20,3 +22,4 @@ FLAG_COMPRESS: 32,
 PoolStringArray  get_recognized_extensions(Resource type);
 enum.Error  save(String path, Resource resource, int flags = 0);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTVARIABLEGET_H
+#define VISUALSCRIPTVARIABLEGET_H
 
 #include <stdint.h>
 
@@ -10,3 +12,4 @@ String  get_variable();
 String  get_variable();
 void  set_variable(String name);
 };
+#endif

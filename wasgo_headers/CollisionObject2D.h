@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef COLLISIONOBJECT2D_H
+#define COLLISIONOBJECT2D_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "Node2D.h"
-#include "Transform2D.h"
-#include "InputEvent.h"
-#include "Object.h"
-#include "Variant.h"
 #include "Shape2D.h"
+#include "Object.h"
+#include "Transform2D.h"
+#include "Node2D.h"
+#include "InputEvent.h"
+#include "Variant.h"
+#include "RID.h"
 class CollisionObject2D : public Node2D{
 public: CollisionObject2D();
 void  _input_event(Object viewport, InputEvent event, int shape_idx);
@@ -38,3 +40,4 @@ void  shape_owner_set_one_way_collision(int owner_id, bool enable);
 void  shape_owner_set_one_way_collision_margin(int owner_id, float margin);
 void  shape_owner_set_transform(int owner_id, Transform2D transform);
 };
+#endif

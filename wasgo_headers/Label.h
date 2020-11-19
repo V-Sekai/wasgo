@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef LABEL_H
+#define LABEL_H
 
 #include <stdint.h>
 
-#include "Control.h"
 #include "String.h"
+#include "Control.h"
 class Label : public Control{
 public: Label();
 enum Align{
@@ -55,3 +57,4 @@ void  set_uppercase(bool enable);
 void  set_valign(int valign);
 void  set_visible_characters(int amount);
 };
+#endif

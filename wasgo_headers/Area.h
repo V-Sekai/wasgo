@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef AREA_H
+#define AREA_H
 
 #include <stdint.h>
 
-#include "RID.h"
 #include "String.h"
+#include "Node.h"
+#include "Vector3.h"
 #include "CollisionObject.h"
 #include "Variant.h"
-#include "Vector3.h"
-#include "Node.h"
+#include "RID.h"
 class Area : public CollisionObject{
 public: Area();
 enum SpaceOverride{
@@ -87,3 +89,4 @@ void  set_reverb_uniformity(float amount);
 void  set_space_override_mode(int enable);
 void  set_use_reverb_bus(bool enable);
 };
+#endif

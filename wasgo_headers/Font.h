@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef FONT_H
+#define FONT_H
 
 #include <stdint.h>
 
-#include "RID.h"
+#include "Vector2.h"
 #include "String.h"
 #include "Resource.h"
-#include "Vector2.h"
 #include "Variant.h"
+#include "RID.h"
 class Font : public Resource{
 public: Font();
 void  draw(RID canvas_item, Vector2 position, String string, Color modulate = 1,1,1,1, int clip_w = -1, Color outline_modulate = 1,1,1,1);
@@ -26,3 +28,4 @@ bool  is_distance_field_hint();
 void  update_changes();
 void  update_changes();
 };
+#endif

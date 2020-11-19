@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef MESHINSTANCE_H
+#define MESHINSTANCE_H
 
 #include <stdint.h>
 
-#include "Material.h"
-#include "NodePath.h"
 #include "GeometryInstance.h"
+#include "NodePath.h"
 #include "Mesh.h"
+#include "Material.h"
 #include "Skin.h"
 class MeshInstance : public GeometryInstance{
 public: MeshInstance();
@@ -31,3 +33,4 @@ void  set_skeleton_path(NodePath skeleton_path);
 void  set_skin(Skin skin);
 void  set_surface_material(int surface, Material material);
 };
+#endif

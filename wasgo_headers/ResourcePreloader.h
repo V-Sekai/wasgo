@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef RESOURCEPRELOADER_H
+#define RESOURCEPRELOADER_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "Resource.h"
-#include "Variant.h"
 #include "Node.h"
 #include "PoolStringArray.h"
+#include "Variant.h"
 class ResourcePreloader : public Node{
 public: ResourcePreloader();
 Array  _get_resources();
@@ -20,3 +22,4 @@ bool  has_resource(String name);
 void  remove_resource(String name);
 void  rename_resource(String name, String newname);
 };
+#endif

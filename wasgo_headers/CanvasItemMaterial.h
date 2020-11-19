@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CANVASITEMMATERIAL_H
+#define CANVASITEMMATERIAL_H
 
 #include <stdint.h>
 
@@ -34,3 +36,4 @@ void  set_particles_anim_loop(bool loop);
 void  set_particles_anim_v_frames(int frames);
 void  set_particles_animation(bool particles_anim);
 };
+#endif

@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef CSGMESH_H
+#define CSGMESH_H
 
 #include <stdint.h>
 
-#include "CSGPrimitive.h"
 #include "Mesh.h"
+#include "CSGPrimitive.h"
 #include "Material.h"
 class CSGMesh : public CSGPrimitive{
 public: CSGMesh();
@@ -16,3 +18,4 @@ Mesh  get_mesh();
 void  set_material(Material material);
 void  set_mesh(Mesh mesh);
 };
+#endif

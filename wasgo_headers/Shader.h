@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef SHADER_H
+#define SHADER_H
 
 #include <stdint.h>
 
@@ -20,3 +22,4 @@ bool  has_param(String name);
 void  set_code(String code);
 void  set_default_texture_param(String param, Texture texture);
 };
+#endif

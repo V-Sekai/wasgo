@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef MENUBUTTON_H
+#define MENUBUTTON_H
 
 #include <stdint.h>
 
-#include "InputEvent.h"
-#include "PopupMenu.h"
-#include "Variant.h"
 #include "Button.h"
+#include "InputEvent.h"
+#include "Variant.h"
+#include "PopupMenu.h"
 class MenuButton : public Button{
 public: MenuButton();
 Array  _get_items();
@@ -19,3 +21,4 @@ bool  is_switch_on_hover();
 void  set_disable_shortcuts(bool disabled);
 void  set_switch_on_hover(bool enable);
 };
+#endif

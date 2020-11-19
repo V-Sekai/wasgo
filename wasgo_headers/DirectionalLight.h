@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef DIRECTIONALLIGHT_H
+#define DIRECTIONALLIGHT_H
 
 #include <stdint.h>
 
@@ -22,3 +24,4 @@ void  set_blend_splits(bool enabled);
 void  set_shadow_depth_range(int mode);
 void  set_shadow_mode(int mode);
 };
+#endif

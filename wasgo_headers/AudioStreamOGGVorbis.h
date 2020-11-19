@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOSTREAMOGGVORBIS_H
+#define AUDIOSTREAMOGGVORBIS_H
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
 #include "AudioStream.h"
+#include "PoolByteArray.h"
 class AudioStreamOGGVorbis : public AudioStream{
 public: AudioStreamOGGVorbis();
 PoolByteArray  get_data();
@@ -16,3 +18,4 @@ void  set_data(PoolByteArray data);
 void  set_loop(bool enable);
 void  set_loop_offset(float seconds);
 };
+#endif

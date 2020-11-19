@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODEBOOLEANCONSTANT_H
+#define VISUALSHADERNODEBOOLEANCONSTANT_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ bool  get_constant();
 bool  get_constant();
 void  set_constant(bool value);
 };
+#endif

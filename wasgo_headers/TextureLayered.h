@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef TEXTURELAYERED_H
+#define TEXTURELAYERED_H
 
 #include <stdint.h>
 
 #include "Image.h"
-#include "Resource.h"
 #include "Dictionary.h"
+#include "Resource.h"
 class TextureLayered : public Resource{
 public: TextureLayered();
 enum Flags{
@@ -31,3 +33,4 @@ void  set_data_partial(Image image, int x_offset, int y_offset, int layer, int m
 void  set_flags(int flags);
 void  set_layer_data(Image image, int layer);
 };
+#endif

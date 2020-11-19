@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef ACCEPTDIALOG_H
+#define ACCEPTDIALOG_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "Node.h"
 #include "Label.h"
-#include "WindowDialog.h"
 #include "Button.h"
+#include "WindowDialog.h"
 class AcceptDialog : public WindowDialog{
 public: AcceptDialog();
 void  _builtin_text_entered(String arg0);
@@ -30,3 +32,4 @@ void  set_autowrap(bool autowrap);
 void  set_hide_on_ok(bool enabled);
 void  set_text(String text);
 };
+#endif

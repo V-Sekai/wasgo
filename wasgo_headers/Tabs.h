@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef TABS_H
+#define TABS_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Texture.h"
 #include "Control.h"
-#include "InputEvent.h"
 #include "Rect2.h"
+#include "Texture.h"
+#include "InputEvent.h"
 class Tabs : public Control{
 public: Tabs();
 enum CloseButtonDisplayPolicy{
@@ -63,3 +65,4 @@ void  set_tab_icon(int tab_idx, Texture icon);
 void  set_tab_title(int tab_idx, String title);
 void  set_tabs_rearrange_group(int group_id);
 };
+#endif

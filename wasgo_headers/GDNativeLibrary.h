@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef GDNATIVELIBRARY_H
+#define GDNATIVELIBRARY_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "PoolStringArray.h"
-#include "ConfigFile.h"
 #include "Resource.h"
+#include "ConfigFile.h"
+#include "PoolStringArray.h"
 class GDNativeLibrary : public Resource{
 public: GDNativeLibrary();
 ConfigFile  get_config_file();
@@ -28,3 +30,4 @@ void  set_symbol_prefix(String symbol_prefix);
 bool  should_load_once();
 bool  should_load_once();
 };
+#endif

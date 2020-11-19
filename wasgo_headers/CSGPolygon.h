@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef CSGPOLYGON_H
+#define CSGPOLYGON_H
 
 #include <stdint.h>
 
-#include "CSGPrimitive.h"
 #include "PoolVector2Array.h"
 #include "NodePath.h"
+#include "CSGPrimitive.h"
 #include "Material.h"
 class CSGPolygon : public CSGPrimitive{
 public: CSGPolygon();
@@ -64,3 +66,4 @@ void  set_smooth_faces(bool smooth_faces);
 void  set_spin_degrees(float degrees);
 void  set_spin_sides(int spin_sides);
 };
+#endif

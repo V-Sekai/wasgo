@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef RESOURCE_H
+#define RESOURCE_H
 
 #include <stdint.h>
 
-#include "RID.h"
 #include "String.h"
 #include "Node.h"
 #include "Reference.h"
+#include "RID.h"
 class Resource : public Reference{
 public: Resource();
 void  _setup_local_to_scene();
@@ -28,3 +30,4 @@ void  setup_local_to_scene();
 void  setup_local_to_scene();
 void  take_over_path(String path);
 };
+#endif

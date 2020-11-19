@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef MULTIPLAYERAPI_H
+#define MULTIPLAYERAPI_H
 
 #include <stdint.h>
 
 #include "PoolByteArray.h"
-#include "PoolIntArray.h"
-#include "NetworkedMultiplayerPeer.h"
+#include "Node.h"
 #include "Reference.h"
 #include "Erro.h"
-#include "Node.h"
+#include "PoolIntArray.h"
+#include "NetworkedMultiplayerPeer.h"
 class MultiplayerAPI : public Reference{
 public: MultiplayerAPI();
 enum RPCMode{
@@ -54,3 +56,4 @@ void  set_network_peer(NetworkedMultiplayerPeer peer);
 void  set_refuse_new_network_connections(bool refuse);
 void  set_root_node(Node node);
 };
+#endif

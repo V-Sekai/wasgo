@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef STREAMPEERBUFFER_H
+#define STREAMPEERBUFFER_H
 
 #include <stdint.h>
 
@@ -20,3 +22,4 @@ void  resize(int size);
 void  seek(int position);
 void  set_data_array(PoolByteArray data);
 };
+#endif

@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORVCSINTERFACE_H
+#define EDITORVCSINTERFACE_H
 
 #include <stdint.h>
 
 #include "String.h"
+#include "Dictionary.h"
 #include "Object.h"
 #include "Variant.h"
-#include "Dictionary.h"
 class EditorVCSInterface : public Object{
 public: EditorVCSInterface();
 void  _commit(String msg);
@@ -41,3 +43,4 @@ bool  shut_down();
 void  stage_file(String file_path);
 void  unstage_file(String file_path);
 };
+#endif

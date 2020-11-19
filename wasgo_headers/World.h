@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef WORLD_H
+#define WORLD_H
 
 #include <stdint.h>
 
-#include "RID.h"
 #include "Resource.h"
 #include "PhysicsDirectSpaceState.h"
 #include "Environment.h"
+#include "RID.h"
 class World : public Resource{
 public: World();
 PhysicsDirectSpaceState  get_direct_space_state();
@@ -21,3 +23,4 @@ RID  get_space();
 void  set_environment(Environment env);
 void  set_fallback_environment(Environment env);
 };
+#endif

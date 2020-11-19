@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef COLLISIONSHAPE_H
+#define COLLISIONSHAPE_H
 
 #include <stdint.h>
 
@@ -21,3 +23,4 @@ void  resource_changed(Resource resource);
 void  set_disabled(bool enable);
 void  set_shape(Shape shape);
 };
+#endif

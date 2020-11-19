@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef RIGIDBODY2D_H
+#define RIGIDBODY2D_H
 
 #include <stdint.h>
 
-#include "PhysicsBody2D.h"
-#include "PhysicsMaterial.h"
-#include "Physics2DDirectBodyState.h"
-#include "Physics2DTestMotionResult.h"
 #include "Vector2.h"
+#include "Physics2DTestMotionResult.h"
 #include "Object.h"
+#include "PhysicsMaterial.h"
+#include "PhysicsBody2D.h"
 #include "Variant.h"
+#include "Physics2DDirectBodyState.h"
 class RigidBody2D : public PhysicsBody2D{
 public: RigidBody2D();
 enum Mode{
@@ -97,3 +99,4 @@ void  set_use_custom_integrator(bool enable);
 void  set_weight(float weight);
 bool  test_motion(Vector2 motion, bool infinite_inertia = true, float margin = 0.08, Physics2DTestMotionResult result = null);
 };
+#endif

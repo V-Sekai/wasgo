@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef REGEXMATCH_H
+#define REGEXMATCH_H
 
 #include <stdint.h>
 
 #include "String.h"
+#include "Dictionary.h"
 #include "Reference.h"
 #include "Variant.h"
-#include "Dictionary.h"
 class RegExMatch : public Reference{
 public: RegExMatch();
 int  get_end(Variant name = 0);
@@ -20,3 +22,4 @@ Array  get_strings();
 String  get_subject();
 String  get_subject();
 };
+#endif

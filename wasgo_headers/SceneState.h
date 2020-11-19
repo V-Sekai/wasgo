@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef SCENESTATE_H
+#define SCENESTATE_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Reference.h"
-#include "PackedScene.h"
-#include "Variant.h"
 #include "NodePath.h"
+#include "PackedScene.h"
+#include "Reference.h"
 #include "PoolStringArray.h"
+#include "Variant.h"
 class SceneState : public Reference{
 public: SceneState();
 enum GenEditState{
@@ -37,3 +39,4 @@ Variant  get_node_property_value(int idx, int prop_idx);
 String  get_node_type(int idx);
 bool  is_node_instance_placeholder(int idx);
 };
+#endif

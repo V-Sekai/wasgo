@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef LINEEDIT_H
+#define LINEEDIT_H
 
 #include <stdint.h>
 
 #include "String.h"
+#include "Control.h"
 #include "PopupMenu.h"
 #include "Texture.h"
-#include "Control.h"
 #include "InputEvent.h"
 class LineEdit : public Control{
 public: LineEdit();
@@ -93,3 +95,4 @@ void  set_selecting_enabled(bool enable);
 void  set_shortcut_keys_enabled(bool enable);
 void  set_text(String text);
 };
+#endif

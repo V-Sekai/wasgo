@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef REFERENCE_H
+#define REFERENCE_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ bool  reference();
 bool  unreference();
 bool  unreference();
 };
+#endif

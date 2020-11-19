@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTFUNCTIONCALL_H
+#define VISUALSCRIPTFUNCTIONCALL_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Variant.h"
 #include "NodePath.h"
 #include "VisualScriptNode.h"
 #include "Dictionary.h"
+#include "Variant.h"
 class VisualScriptFunctionCall : public VisualScriptNode{
 public: VisualScriptFunctionCall();
 enum RPCCallMode{
@@ -55,3 +57,4 @@ void  set_singleton(String singleton);
 void  set_use_default_args(int amount);
 void  set_validate(bool enable);
 };
+#endif

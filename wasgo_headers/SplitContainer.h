@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef SPLITCONTAINER_H
+#define SPLITCONTAINER_H
 
 #include <stdint.h>
 
-#include "Container.h"
 #include "InputEvent.h"
+#include "Container.h"
 class SplitContainer : public Container{
 public: SplitContainer();
 enum DraggerVisibility{
@@ -23,3 +25,4 @@ void  set_collapsed(bool collapsed);
 void  set_dragger_visibility(int mode);
 void  set_split_offset(int offset);
 };
+#endif

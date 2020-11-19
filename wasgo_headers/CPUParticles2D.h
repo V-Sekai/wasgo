@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef CPUPARTICLES2D_H
+#define CPUPARTICLES2D_H
 
 #include <stdint.h>
 
-#include "Node2D.h"
-#include "Texture.h"
-#include "Curve.h"
-#include "Gradient.h"
 #include "Vector2.h"
-#include "Variant.h"
+#include "Gradient.h"
 #include "PoolVector2Array.h"
+#include "Curve.h"
 #include "Node.h"
+#include "Texture.h"
+#include "Node2D.h"
+#include "Variant.h"
 class CPUParticles2D : public Node2D{
 public: CPUParticles2D();
 enum Flags{
@@ -133,3 +135,4 @@ void  set_spread(float degrees);
 void  set_texture(Texture texture);
 void  set_use_local_coordinates(bool enable);
 };
+#endif

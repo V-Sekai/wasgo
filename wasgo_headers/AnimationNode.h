@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONNODE_H
+#define ANIMATIONNODE_H
 
 #include <stdint.h>
 
 #include "String.h"
+#include "NodePath.h"
 #include "Resource.h"
 #include "Object.h"
-#include "NodePath.h"
-#include "Variant.h"
 #include "Dictionary.h"
+#include "Variant.h"
 class AnimationNode : public Resource{
 public: AnimationNode();
 enum FilterAction{
@@ -45,3 +47,4 @@ void  set_filter_enabled(bool enable);
 void  set_filter_path(NodePath path, bool enable);
 void  set_parameter(String name, Variant value);
 };
+#endif

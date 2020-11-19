@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONTREEPLAYER_H
+#define ANIMATIONTREEPLAYER_H
 
 #include <stdint.h>
 
-#include "Animation.h"
-#include "String.h"
 #include "Vector2.h"
+#include "String.h"
 #include "NodePath.h"
-#include "Erro.h"
 #include "Node.h"
+#include "Erro.h"
+#include "Animation.h"
 #include "PoolStringArray.h"
 class AnimationTreePlayer : public Node{
 public: AnimationTreePlayer();
@@ -98,3 +100,4 @@ void  transition_node_set_input_auto_advance(String id, int input_idx, bool enab
 void  transition_node_set_input_count(String id, int count);
 void  transition_node_set_xfade_time(String id, float time_sec);
 };
+#endif

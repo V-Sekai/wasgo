@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef ATLASTEXTURE_H
+#define ATLASTEXTURE_H
 
 #include <stdint.h>
 
@@ -19,3 +21,4 @@ void  set_filter_clip(bool enable);
 void  set_margin(Rect2 margin);
 void  set_region(Rect2 region);
 };
+#endif

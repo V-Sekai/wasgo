@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CURVETEXTURE_H
+#define CURVETEXTURE_H
 
 #include <stdint.h>
 
@@ -13,3 +15,4 @@ Curve  get_curve();
 void  set_curve(Curve curve);
 void  set_width(int width);
 };
+#endif

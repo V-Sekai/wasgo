@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef PINJOINT_H
+#define PINJOINT_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ PARAM_DAMPING: 1,
 float  get_param(int param);
 void  set_param(int param, float value);
 };
+#endif

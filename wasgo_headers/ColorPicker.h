@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef COLORPICKER_H
+#define COLORPICKER_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "Control.h"
 #include "InputEvent.h"
-#include "Variant.h"
 #include "BoxContainer.h"
+#include "Variant.h"
 class ColorPicker : public BoxContainer{
 public: ColorPicker();
 void  _add_preset_pressed();
@@ -58,3 +60,4 @@ void  set_presets_enabled(bool enabled);
 void  set_presets_visible(bool visible);
 void  set_raw_mode(bool mode);
 };
+#endif

@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPT_H
+#define VISUALSCRIPT_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Variant.h"
 #include "Vector2.h"
+#include "String.h"
 #include "VisualScriptNode.h"
-#include "Dictionary.h"
 #include "Script.h"
+#include "Dictionary.h"
+#include "Variant.h"
 class VisualScript : public Script{
 public: VisualScript();
 Dictionary  _get_data();
@@ -57,3 +59,4 @@ void  set_variable_default_value(String name, Variant value);
 void  set_variable_export(String name, bool enable);
 void  set_variable_info(String name, Dictionary value);
 };
+#endif

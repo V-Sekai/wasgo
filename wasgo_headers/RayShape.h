@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef RAYSHAPE_H
+#define RAYSHAPE_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ bool  get_slips_on_slope();
 void  set_length(float length);
 void  set_slips_on_slope(bool active);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISIBILITYENABLER2D_H
+#define VISIBILITYENABLER2D_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ void  _node_removed(Node arg0);
 bool  is_enabler_enabled(int enabler);
 void  set_enabler(int enabler, bool enabled);
 };
+#endif

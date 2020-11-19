@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef LINE2D_H
+#define LINE2D_H
 
 #include <stdint.h>
 
-#include "Node2D.h"
-#include "Texture.h"
-#include "Curve.h"
-#include "Gradient.h"
 #include "Vector2.h"
-#include "Variant.h"
+#include "Gradient.h"
 #include "PoolVector2Array.h"
+#include "Variant.h"
+#include "Texture.h"
+#include "Node2D.h"
+#include "Curve.h"
 class Line2D : public Node2D{
 public: Line2D();
 enum LineTextureMode{
@@ -75,3 +77,4 @@ void  set_texture(Texture texture);
 void  set_texture_mode(int mode);
 void  set_width(float width);
 };
+#endif

@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef KINEMATICCOLLISION2D_H
+#define KINEMATICCOLLISION2D_H
 
 #include <stdint.h>
 
 #include "Vector2.h"
-#include "Object.h"
 #include "Reference.h"
+#include "Object.h"
 #include "Variant.h"
 class KinematicCollision2D : public Reference{
 public: KinematicCollision2D();
@@ -31,3 +33,4 @@ Vector2  get_remainder();
 Vector2  get_travel();
 Vector2  get_travel();
 };
+#endif

@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTMAP_H
+#define INPUTMAP_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "InputEvent.h"
 #include "Object.h"
+#include "InputEvent.h"
 #include "Variant.h"
 class InputMap : public Object{
 public: InputMap();
@@ -23,3 +25,4 @@ bool  has_action(String action);
 void  load_from_globals();
 void  load_from_globals();
 };
+#endif

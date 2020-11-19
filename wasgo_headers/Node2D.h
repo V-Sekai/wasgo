@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef NODE2D_H
+#define NODE2D_H
 
 #include <stdint.h>
 
+#include "Vector2.h"
 #include "Transform2D.h"
 #include "Node.h"
-#include "Vector2.h"
 #include "CanvasItem.h"
 class Node2D : public CanvasItem{
 public: Node2D();
@@ -52,3 +54,4 @@ Vector2  to_global(Vector2 local_point);
 Vector2  to_local(Vector2 global_point);
 void  translate(Vector2 offset);
 };
+#endif

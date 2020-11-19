@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef LISTENER_H
+#define LISTENER_H
 
 #include <stdint.h>
 
-#include "Transform.h"
 #include "Spatial.h"
+#include "Transform.h"
 class Listener : public Spatial{
 public: Listener();
 void  clear_current();
@@ -15,3 +17,4 @@ bool  is_current();
 void  make_current();
 void  make_current();
 };
+#endif

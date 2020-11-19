@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef LARGETEXTURE_H
+#define LARGETEXTURE_H
 
 #include <stdint.h>
 
-#include "Texture.h"
 #include "Vector2.h"
+#include "Texture.h"
 #include "Variant.h"
 class LargeTexture : public Texture{
 public: LargeTexture();
@@ -21,3 +23,4 @@ void  set_piece_offset(int idx, Vector2 ofs);
 void  set_piece_texture(int idx, Texture texture);
 void  set_size(Vector2 size);
 };
+#endif

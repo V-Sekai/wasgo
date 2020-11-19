@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef TOUCHSCREENBUTTON_H
+#define TOUCHSCREENBUTTON_H
 
 #include <stdint.h>
 
-#include "Node2D.h"
 #include "String.h"
-#include "Texture.h"
-#include "InputEvent.h"
-#include "BitMap.h"
 #include "Shape2D.h"
+#include "BitMap.h"
+#include "Texture.h"
+#include "Node2D.h"
+#include "InputEvent.h"
 class TouchScreenButton : public Node2D{
 public: TouchScreenButton();
 enum VisibilityMode{
@@ -44,3 +46,4 @@ void  set_texture(Texture texture);
 void  set_texture_pressed(Texture texture_pressed);
 void  set_visibility_mode(int mode);
 };
+#endif

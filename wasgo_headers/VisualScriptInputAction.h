@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTINPUTACTION_H
+#define VISUALSCRIPTINPUTACTION_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ String  get_action_name();
 void  set_action_mode(int mode);
 void  set_action_name(String name);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef GRADIENT_H
+#define GRADIENT_H
 
 #include <stdint.h>
 
@@ -23,3 +25,4 @@ void  set_colors(PoolColorArray colors);
 void  set_offset(int point, float offset);
 void  set_offsets(PoolRealArray offsets);
 };
+#endif

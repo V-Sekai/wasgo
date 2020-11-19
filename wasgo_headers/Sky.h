@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef SKY_H
+#define SKY_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ enum.Sky::RadianceSize  get_radiance_size();
 enum.Sky::RadianceSize  get_radiance_size();
 void  set_radiance_size(int size);
 };
+#endif

@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef CAMERAFEED_H
+#define CAMERAFEED_H
 
 #include <stdint.h>
 
-#include "Transform2D.h"
 #include "String.h"
-#include "Reference.h"
 #include "Image.h"
+#include "Transform2D.h"
+#include "Reference.h"
 class CameraFeed : public Reference{
 public: CameraFeed();
 enum FeedDataType{
@@ -36,3 +38,4 @@ bool  is_active();
 void  set_active(bool active);
 void  set_transform(Transform2D transform);
 };
+#endif

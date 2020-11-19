@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTCOMMENT_H
+#define VISUALSCRIPTCOMMENT_H
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Vector2.h"
+#include "String.h"
 #include "VisualScriptNode.h"
 class VisualScriptComment : public VisualScriptNode{
 public: VisualScriptComment();
@@ -17,3 +19,4 @@ void  set_description(String description);
 void  set_size(Vector2 size);
 void  set_title(String title);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTAMPLIFY_H
+#define AUDIOEFFECTAMPLIFY_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ float  get_volume_db();
 float  get_volume_db();
 void  set_volume_db(float volume);
 };
+#endif

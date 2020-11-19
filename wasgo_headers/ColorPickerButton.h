@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef COLORPICKERBUTTON_H
+#define COLORPICKERBUTTON_H
 
 #include <stdint.h>
 
-#include "PopupPanel.h"
 #include "Button.h"
-#include "Variant.h"
+#include "PopupPanel.h"
 #include "ColorPicker.h"
+#include "Variant.h"
 class ColorPickerButton : public Button{
 public: ColorPickerButton();
 void  _color_changed(Color arg0);
@@ -22,3 +24,4 @@ bool  is_editing_alpha();
 void  set_edit_alpha(bool show);
 void  set_pick_color(Color color);
 };
+#endif

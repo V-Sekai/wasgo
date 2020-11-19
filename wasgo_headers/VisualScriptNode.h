@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTNODE_H
+#define VISUALSCRIPTNODE_H
 
 #include <stdint.h>
 
-#include "VisualScript.h"
 #include "Resource.h"
 #include "Variant.h"
+#include "VisualScript.h"
 class VisualScriptNode : public Resource{
 public: VisualScriptNode();
 Array  _get_default_input_values();
@@ -17,3 +19,4 @@ void  ports_changed_notify();
 void  ports_changed_notify();
 void  set_default_input_value(int port_idx, Variant value);
 };
+#endif

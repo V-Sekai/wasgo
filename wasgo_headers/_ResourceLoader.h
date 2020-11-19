@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef _RESOURCELOADER_H
+#define _RESOURCELOADER_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "ResourceInteractiveLoader.h"
 #include "Resource.h"
+#include "ResourceInteractiveLoader.h"
 #include "Object.h"
 #include "PoolStringArray.h"
 class _ResourceLoader : public Object{
@@ -18,3 +20,4 @@ Resource  load(String path, String type_hint = "", bool no_cache = false);
 ResourceInteractiveLoader  load_interactive(String path, String type_hint = "");
 void  set_abort_on_missing_resources(bool abort);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODEUNIFORM_H
+#define VISUALSHADERNODEUNIFORM_H
 
 #include <stdint.h>
 
@@ -10,3 +12,4 @@ String  get_uniform_name();
 String  get_uniform_name();
 void  set_uniform_name(String name);
 };
+#endif

@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef BITMAP_H
+#define BITMAP_H
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "Variant.h"
 #include "Vector2.h"
-#include "Dictionary.h"
+#include "Resource.h"
 #include "Rect2.h"
 #include "Image.h"
+#include "Dictionary.h"
+#include "Variant.h"
 class BitMap : public Resource{
 public: BitMap();
 Dictionary  _get_data();
@@ -25,3 +27,4 @@ Array  opaque_to_polygons(Rect2 rect, float epsilon = 2);
 void  set_bit(Vector2 position, bool bit);
 void  set_bit_rect(Rect2 rect, bool bit);
 };
+#endif

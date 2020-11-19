@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef BAKEDLIGHTMAPDATA_H
+#define BAKEDLIGHTMAPDATA_H
 
 #include <stdint.h>
 
-#include "Transform.h"
-#include "PoolByteArray.h"
-#include "Texture.h"
-#include "AABB.h"
-#include "Resource.h"
-#include "Variant.h"
 #include "NodePath.h"
+#include "Resource.h"
+#include "PoolByteArray.h"
+#include "AABB.h"
+#include "Transform.h"
+#include "Texture.h"
+#include "Variant.h"
 class BakedLightmapData : public Resource{
 public: BakedLightmapData();
 Array  _get_user_data();
@@ -37,3 +39,4 @@ void  set_cell_subdiv(int cell_subdiv);
 void  set_energy(float energy);
 void  set_octree(PoolByteArray octree);
 };
+#endif

@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef RESOURCEINTERACTIVELOADER_H
+#define RESOURCEINTERACTIVELOADER_H
 
 #include <stdint.h>
 
+#include "Reference.h"
 #include "Erro.h"
 #include "Resource.h"
-#include "Reference.h"
 class ResourceInteractiveLoader : public Reference{
 public: ResourceInteractiveLoader();
 Resource  get_resource();
@@ -18,3 +20,4 @@ enum.Error  poll();
 enum.Error  wait();
 enum.Error  wait();
 };
+#endif

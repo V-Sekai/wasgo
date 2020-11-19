@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef ASTAR_H
+#define ASTAR_H
 
 #include <stdint.h>
 
-#include "PoolIntArray.h"
-#include "Reference.h"
-#include "Variant.h"
 #include "PoolVector3Array.h"
+#include "Reference.h"
 #include "Vector3.h"
+#include "PoolIntArray.h"
+#include "Variant.h"
 class AStar : public Reference{
 public: AStar();
 float  _compute_cost(int from_id, int to_id);
@@ -40,3 +42,4 @@ void  set_point_disabled(int id, bool disabled = true);
 void  set_point_position(int id, Vector3 position);
 void  set_point_weight_scale(int id, float weight_scale);
 };
+#endif

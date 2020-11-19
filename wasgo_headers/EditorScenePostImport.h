@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORSCENEPOSTIMPORT_H
+#define EDITORSCENEPOSTIMPORT_H
 
 #include <stdint.h>
 
@@ -13,3 +15,4 @@ String  get_source_folder();
 String  get_source_folder();
 Object  post_import(Object scene);
 };
+#endif

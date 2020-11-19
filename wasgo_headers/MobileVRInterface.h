@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef MOBILEVRINTERFACE_H
+#define MOBILEVRINTERFACE_H
 
 #include <stdint.h>
 
@@ -27,3 +29,4 @@ void  set_k1(float k);
 void  set_k2(float k);
 void  set_oversample(float oversample);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef HASHINGCONTEXT_H
+#define HASHINGCONTEXT_H
 
 #include <stdint.h>
 
@@ -16,3 +18,4 @@ PoolByteArray  finish();
 enum.Error  start(int type);
 enum.Error  update(PoolByteArray chunk);
 };
+#endif

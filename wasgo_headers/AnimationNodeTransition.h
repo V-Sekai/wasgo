@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONNODETRANSITION_H
+#define ANIMATIONNODETRANSITION_H
 
 #include <stdint.h>
 
-#include "String.h"
 #include "AnimationNode.h"
+#include "String.h"
 class AnimationNodeTransition : public AnimationNode{
 public: AnimationNodeTransition();
 float  get_cross_fade_time();
@@ -17,3 +19,4 @@ void  set_enabled_inputs(int amount);
 void  set_input_as_auto_advance(int input, bool enable);
 void  set_input_caption(int input, String caption);
 };
+#endif

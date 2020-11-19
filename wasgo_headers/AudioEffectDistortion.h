@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTDISTORTION_H
+#define AUDIOEFFECTDISTORTION_H
 
 #include <stdint.h>
 
@@ -27,3 +29,4 @@ void  set_mode(int mode);
 void  set_post_gain(float post_gain);
 void  set_pre_gain(float pre_gain);
 };
+#endif

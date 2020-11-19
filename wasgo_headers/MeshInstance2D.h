@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef MESHINSTANCE2D_H
+#define MESHINSTANCE2D_H
 
 #include <stdint.h>
 
@@ -17,3 +19,4 @@ void  set_mesh(Mesh mesh);
 void  set_normal_map(Texture normal_map);
 void  set_texture(Texture texture);
 };
+#endif

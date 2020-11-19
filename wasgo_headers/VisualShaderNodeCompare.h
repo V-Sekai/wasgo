@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODECOMPARE_H
+#define VISUALSHADERNODECOMPARE_H
 
 #include <stdint.h>
 
@@ -30,3 +32,4 @@ void  set_comparison_type(int type);
 void  set_condition(int condition);
 void  set_function(int func);
 };
+#endif

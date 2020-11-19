@@ -1,28 +1,30 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORPLUGIN_H
+#define EDITORPLUGIN_H
 
 #include <stdint.h>
 
-#include "EditorExportPlugin.h"
-#include "EditorSpatialGizmoPlugin.h"
-#include "EditorImportPlugin.h"
-#include "UndoRedo.h"
-#include "Dictionary.h"
-#include "PoolStringArray.h"
-#include "EditorInterface.h"
-#include "EditorSceneImporter.h"
 #include "String.h"
-#include "Object.h"
-#include "ConfigFile.h"
-#include "ScriptCreateDialog.h"
 #include "Script.h"
-#include "Control.h"
+#include "EditorSpatialGizmoPlugin.h"
+#include "Variant.h"
+#include "EditorSceneImporter.h"
 #include "EditorInspectorPlugin.h"
+#include "Control.h"
+#include "ScriptCreateDialog.h"
 #include "Camera.h"
-#include "ToolButton.h"
+#include "UndoRedo.h"
+#include "EditorInterface.h"
+#include "Node.h"
+#include "EditorExportPlugin.h"
+#include "PoolStringArray.h"
 #include "Texture.h"
 #include "InputEvent.h"
-#include "Variant.h"
-#include "Node.h"
+#include "EditorImportPlugin.h"
+#include "ConfigFile.h"
+#include "Object.h"
+#include "ToolButton.h"
+#include "Dictionary.h"
 class EditorPlugin : public Node{
 public: EditorPlugin();
 enum DockSlot{
@@ -121,3 +123,4 @@ void  set_window_layout(ConfigFile layout);
 int  update_overlays();
 int  update_overlays();
 };
+#endif

@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef GIPROBEDATA_H
+#define GIPROBEDATA_H
 
 #include <stdint.h>
 
 #include "AABB.h"
-#include "Transform.h"
 #include "Resource.h"
+#include "Transform.h"
 #include "PoolIntArray.h"
 class GIProbeData : public Resource{
 public: GIProbeData();
@@ -42,3 +44,4 @@ void  set_normal_bias(float bias);
 void  set_propagation(float propagation);
 void  set_to_cell_xform(Transform to_cell_xform);
 };
+#endif

@@ -1,17 +1,19 @@
 /* THIS FILE IS GENERATED */
+#ifndef MESHDATATOOL_H
+#define MESHDATATOOL_H
 
 #include <stdint.h>
 
-#include "PoolIntArray.h"
-#include "Reference.h"
-#include "Material.h"
-#include "Variant.h"
 #include "Vector2.h"
+#include "ArrayMesh.h"
+#include "PoolRealArray.h"
+#include "Material.h"
+#include "Reference.h"
 #include "Erro.h"
 #include "Vector3.h"
-#include "PoolRealArray.h"
-#include "ArrayMesh.h"
+#include "PoolIntArray.h"
 #include "Plane.h"
+#include "Variant.h"
 class MeshDataTool : public Reference{
 public: MeshDataTool();
 void  clear();
@@ -59,3 +61,4 @@ void  set_vertex_uv(int idx, Vector2 uv);
 void  set_vertex_uv2(int idx, Vector2 uv2);
 void  set_vertex_weights(int idx, PoolRealArray weights);
 };
+#endif

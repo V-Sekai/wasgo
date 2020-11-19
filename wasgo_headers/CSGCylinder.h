@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CSGCYLINDER_H
+#define CSGCYLINDER_H
 
 #include <stdint.h>
 
@@ -25,3 +27,4 @@ void  set_radius(float radius);
 void  set_sides(int sides);
 void  set_smooth_faces(bool smooth_faces);
 };
+#endif

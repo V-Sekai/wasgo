@@ -1,20 +1,22 @@
 /* THIS FILE IS GENERATED */
+#ifndef VIEWPORT_H
+#define VIEWPORT_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "String.h"
-#include "World.h"
-#include "Transform2D.h"
-#include "Control.h"
-#include "InputEvent.h"
-#include "World2D.h"
 #include "Vector2.h"
-#include "Variant.h"
-#include "Camera.h"
+#include "String.h"
+#include "Control.h"
 #include "ViewportTexture.h"
-#include "Rect2.h"
 #include "Node.h"
+#include "Rect2.h"
+#include "World2D.h"
+#include "Camera.h"
+#include "Transform2D.h"
+#include "World.h"
+#include "InputEvent.h"
+#include "Variant.h"
+#include "RID.h"
 class Viewport : public Node{
 public: Viewport();
 enum ClearMode{
@@ -193,3 +195,4 @@ bool  use_arvr();
 bool  use_arvr();
 void  warp_mouse(Vector2 to_position);
 };
+#endif

@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef MESH_H
+#define MESH_H
 
 #include <stdint.h>
 
-#include "Material.h"
-#include "AABB.h"
-#include "TriangleMesh.h"
-#include "Resource.h"
-#include "Vector2.h"
-#include "Variant.h"
 #include "PoolVector3Array.h"
+#include "Vector2.h"
+#include "Resource.h"
+#include "AABB.h"
+#include "Material.h"
 #include "Shape.h"
+#include "TriangleMesh.h"
+#include "Variant.h"
 class Mesh : public Resource{
 public: Mesh();
 enum BlendShapeMode{
@@ -78,3 +80,4 @@ Array  surface_get_blend_shape_arrays(int surf_idx);
 Material  surface_get_material(int surf_idx);
 void  surface_set_material(int surf_idx, Material material);
 };
+#endif

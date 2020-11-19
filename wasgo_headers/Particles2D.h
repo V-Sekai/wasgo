@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef PARTICLES2D_H
+#define PARTICLES2D_H
 
 #include <stdint.h>
 
 #include "Texture.h"
 #include "Node2D.h"
-#include "Material.h"
 #include "Rect2.h"
+#include "Material.h"
 class Particles2D : public Node2D{
 public: Particles2D();
 enum DrawOrder{
@@ -64,3 +66,4 @@ void  set_texture(Texture texture);
 void  set_use_local_coordinates(bool enable);
 void  set_visibility_rect(Rect2 visibility_rect);
 };
+#endif

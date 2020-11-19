@@ -1,16 +1,18 @@
 /* THIS FILE IS GENERATED */
+#ifndef MULTIMESH_H
+#define MULTIMESH_H
 
 #include <stdint.h>
 
-#include "Transform.h"
-#include "AABB.h"
-#include "Transform2D.h"
-#include "Resource.h"
-#include "Variant.h"
 #include "PoolVector3Array.h"
-#include "PoolRealArray.h"
 #include "PoolVector2Array.h"
+#include "Resource.h"
 #include "Mesh.h"
+#include "AABB.h"
+#include "Transform.h"
+#include "PoolRealArray.h"
+#include "Transform2D.h"
+#include "Variant.h"
 class MultiMesh : public Resource{
 public: MultiMesh();
 enum TransformFormat{
@@ -66,3 +68,4 @@ void  set_mesh(Mesh mesh);
 void  set_transform_format(int format);
 void  set_visible_instance_count(int count);
 };
+#endif

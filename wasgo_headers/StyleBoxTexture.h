@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef STYLEBOXTEXTURE_H
+#define STYLEBOXTEXTURE_H
 
 #include <stdint.h>
 
 #include "Texture.h"
 #include "StyleBox.h"
-#include "Variant.h"
 #include "Rect2.h"
+#include "Variant.h"
 class StyleBoxTexture : public StyleBox{
 public: StyleBoxTexture();
 enum AxisStretchMode{
@@ -40,3 +42,4 @@ void  set_region_rect(Rect2 region);
 void  set_texture(Texture texture);
 void  set_v_axis_stretch_mode(int mode);
 };
+#endif

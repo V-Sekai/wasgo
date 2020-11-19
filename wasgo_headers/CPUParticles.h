@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef CPUPARTICLES_H
+#define CPUPARTICLES_H
 
 #include <stdint.h>
 
-#include "Curve.h"
-#include "Gradient.h"
-#include "Variant.h"
 #include "PoolVector3Array.h"
-#include "Vector3.h"
+#include "Gradient.h"
 #include "GeometryInstance.h"
+#include "Curve.h"
 #include "Mesh.h"
 #include "Node.h"
+#include "Vector3.h"
+#include "Variant.h"
 class CPUParticles : public GeometryInstance{
 public: CPUParticles();
 enum Flags{
@@ -134,3 +136,4 @@ void  set_speed_scale(float scale);
 void  set_spread(float degrees);
 void  set_use_local_coordinates(bool enable);
 };
+#endif

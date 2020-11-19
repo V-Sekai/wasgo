@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTPROPERTYSET_H
+#define VISUALSCRIPTPROPERTYSET_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Variant.h"
 #include "NodePath.h"
 #include "VisualScriptNode.h"
 #include "Dictionary.h"
+#include "Variant.h"
 class VisualScriptPropertySet : public VisualScriptNode{
 public: VisualScriptPropertySet();
 enum AssignOp{
@@ -54,3 +56,4 @@ void  set_call_mode(int mode);
 void  set_index(String index);
 void  set_property(String property);
 };
+#endif

@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef SCROLLCONTAINER_H
+#define SCROLLCONTAINER_H
 
 #include <stdint.h>
 
-#include "Control.h"
 #include "VScrollBar.h"
+#include "Control.h"
+#include "HScrollBar.h"
 #include "InputEvent.h"
 #include "Container.h"
-#include "HScrollBar.h"
 class ScrollContainer : public Container{
 public: ScrollContainer();
 void  _ensure_focused_visible(Control arg0);
@@ -37,3 +39,4 @@ void  set_follow_focus(bool enabled);
 void  set_h_scroll(int value);
 void  set_v_scroll(int value);
 };
+#endif

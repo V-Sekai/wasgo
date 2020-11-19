@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef PERFORMANCE_H
+#define PERFORMANCE_H
 
 #include <stdint.h>
 
@@ -38,3 +40,4 @@ AUDIO_OUTPUT_LATENCY: 28,
 };
 float  get_monitor(int monitor);
 };
+#endif

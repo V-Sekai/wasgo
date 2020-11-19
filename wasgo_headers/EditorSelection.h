@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORSELECTION_H
+#define EDITORSELECTION_H
 
 #include <stdint.h>
 
@@ -19,3 +21,4 @@ Array  get_transformable_selected_nodes();
 Array  get_transformable_selected_nodes();
 void  remove_node(Node node);
 };
+#endif

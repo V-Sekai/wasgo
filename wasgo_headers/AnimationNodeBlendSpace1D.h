@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONNODEBLENDSPACE1D_H
+#define ANIMATIONNODEBLENDSPACE1D_H
 
 #include <stdint.h>
 
@@ -30,3 +32,4 @@ void  set_min_space(float min_space);
 void  set_snap(float snap);
 void  set_value_label(String text);
 };
+#endif

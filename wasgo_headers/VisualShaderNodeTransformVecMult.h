@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODETRANSFORMVECMULT_H
+#define VISUALSHADERNODETRANSFORMVECMULT_H
 
 #include <stdint.h>
 
@@ -14,3 +16,4 @@ enum.VisualShaderNodeTransformVecMult::Operator  get_operator();
 enum.VisualShaderNodeTransformVecMult::Operator  get_operator();
 void  set_operator(int op);
 };
+#endif

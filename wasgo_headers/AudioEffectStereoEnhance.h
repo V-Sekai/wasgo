@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTSTEREOENHANCE_H
+#define AUDIOEFFECTSTEREOENHANCE_H
 
 #include <stdint.h>
 
@@ -15,3 +17,4 @@ void  set_pan_pullout(float amount);
 void  set_surround(float amount);
 void  set_time_pullout(float amount);
 };
+#endif

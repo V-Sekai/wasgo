@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef PROJECTSETTINGS_H
+#define PROJECTSETTINGS_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Object.h"
-#include "Variant.h"
 #include "Erro.h"
+#include "Object.h"
 #include "Dictionary.h"
+#include "Variant.h"
 class ProjectSettings : public Object{
 public: ProjectSettings();
 void  add_property_info(Dictionary hint);
@@ -26,3 +28,4 @@ void  set_initial_value(String name, Variant value);
 void  set_order(String name, int position);
 void  set_setting(String name, Variant value);
 };
+#endif

@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef PARALLAXBACKGROUND_H
+#define PARALLAXBACKGROUND_H
 
 #include <stdint.h>
 
+#include "Vector2.h"
 #include "Transform2D.h"
 #include "CanvasLayer.h"
-#include "Vector2.h"
 class ParallaxBackground : public CanvasLayer{
 public: ParallaxBackground();
 void  _camera_moved(Transform2D arg0, Vector2 arg1);
@@ -27,3 +29,4 @@ void  set_scroll_base_offset(Vector2 ofs);
 void  set_scroll_base_scale(Vector2 scale);
 void  set_scroll_offset(Vector2 ofs);
 };
+#endif

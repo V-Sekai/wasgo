@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODECOLOROP_H
+#define VISUALSHADERNODECOLOROP_H
 
 #include <stdint.h>
 
@@ -19,3 +21,4 @@ enum.VisualShaderNodeColorOp::Operator  get_operator();
 enum.VisualShaderNodeColorOp::Operator  get_operator();
 void  set_operator(int op);
 };
+#endif

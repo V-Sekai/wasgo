@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef GENERIC6DOFJOINT_H
+#define GENERIC6DOFJOINT_H
 
 #include <stdint.h>
 
@@ -65,3 +67,4 @@ void  set_param_y(int param, float value);
 void  set_param_z(int param, float value);
 void  set_precision(int precision);
 };
+#endif

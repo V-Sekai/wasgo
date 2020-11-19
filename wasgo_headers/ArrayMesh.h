@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef ARRAYMESH_H
+#define ARRAYMESH_H
 
 #include <stdint.h>
 
-#include "Transform.h"
 #include "String.h"
-#include "PoolByteArray.h"
-#include "AABB.h"
-#include "Variant.h"
-#include "Erro.h"
 #include "Mesh.h"
+#include "AABB.h"
+#include "PoolByteArray.h"
+#include "Transform.h"
+#include "Erro.h"
+#include "Variant.h"
 class ArrayMesh : public Mesh{
 public: ArrayMesh();
 enum ArrayFormat{
@@ -58,3 +60,4 @@ void  surface_remove(int surf_idx);
 void  surface_set_name(int surf_idx, String name);
 void  surface_update_region(int surf_idx, int offset, PoolByteArray data);
 };
+#endif

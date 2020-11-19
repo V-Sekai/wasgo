@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORSPINSLIDER_H
+#define EDITORSPINSLIDER_H
 
 #include <stdint.h>
 
@@ -28,3 +30,4 @@ void  set_flat(bool flat);
 void  set_label(String label);
 void  set_read_only(bool read_only);
 };
+#endif

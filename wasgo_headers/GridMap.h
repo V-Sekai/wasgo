@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef GRIDMAP_H
+#define GRIDMAP_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "MeshLibrary.h"
 #include "Resource.h"
-#include "Variant.h"
 #include "Vector3.h"
+#include "MeshLibrary.h"
 #include "Spatial.h"
+#include "Variant.h"
+#include "RID.h"
 class GridMap : public Spatial{
 public: GridMap();
 void  _update_octants_callback();
@@ -63,3 +65,4 @@ void  set_mesh_library(MeshLibrary mesh_library);
 void  set_octant_size(int size);
 Vector3  world_to_map(Vector3 pos);
 };
+#endif

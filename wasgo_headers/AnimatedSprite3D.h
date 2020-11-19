@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATEDSPRITE3D_H
+#define ANIMATEDSPRITE3D_H
 
 #include <stdint.h>
 
-#include "String.h"
 #include "SpriteBase3D.h"
+#include "String.h"
 #include "SpriteFrames.h"
 class AnimatedSprite3D : public SpriteBase3D{
 public: AnimatedSprite3D();
@@ -27,3 +29,4 @@ void  set_sprite_frames(SpriteFrames sprite_frames);
 void  stop();
 void  stop();
 };
+#endif

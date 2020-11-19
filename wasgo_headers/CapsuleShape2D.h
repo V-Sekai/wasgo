@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CAPSULESHAPE2D_H
+#define CAPSULESHAPE2D_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ float  get_radius();
 void  set_height(float height);
 void  set_radius(float radius);
 };
+#endif

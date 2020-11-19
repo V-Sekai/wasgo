@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef RANDOMNUMBERGENERATOR_H
+#define RANDOMNUMBERGENERATOR_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ void  randomize();
 void  randomize();
 void  set_seed(int seed);
 };
+#endif

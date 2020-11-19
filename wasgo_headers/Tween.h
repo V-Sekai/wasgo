@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef TWEEN_H
+#define TWEEN_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Object.h"
 #include "NodePath.h"
-#include "Variant.h"
 #include "Node.h"
+#include "Object.h"
+#include "Variant.h"
 class Tween : public Node{
 public: Tween();
 enum TransitionType{
@@ -70,3 +72,4 @@ bool  targeting_property(Object object, NodePath property, Object initial, NodeP
 float  tell();
 float  tell();
 };
+#endif

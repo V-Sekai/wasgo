@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef PACKEDDATACONTAINERREF_H
+#define PACKEDDATACONTAINERREF_H
 
 #include <stdint.h>
 
-#include "Variant.h"
 #include "Reference.h"
+#include "Variant.h"
 class PackedDataContainerRef : public Reference{
 public: PackedDataContainerRef();
 bool  _is_dictionary();
@@ -14,3 +16,4 @@ Variant  _iter_next(Array arg0);
 int  size();
 int  size();
 };
+#endif

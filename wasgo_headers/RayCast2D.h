@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef RAYCAST2D_H
+#define RAYCAST2D_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "Node2D.h"
 #include "Vector2.h"
 #include "Object.h"
+#include "Node2D.h"
+#include "RID.h"
 class RayCast2D : public Node2D{
 public: RayCast2D();
 void  add_exception(Object node);
@@ -47,3 +49,4 @@ void  set_collision_mask_bit(int bit, bool value);
 void  set_enabled(bool enabled);
 void  set_exclude_parent_body(bool mask);
 };
+#endif

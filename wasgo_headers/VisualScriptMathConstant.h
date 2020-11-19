@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTMATHCONSTANT_H
+#define VISUALSCRIPTMATHCONSTANT_H
 
 #include <stdint.h>
 
@@ -19,3 +21,4 @@ enum.VisualScriptMathConstant::MathConstant  get_math_constant();
 enum.VisualScriptMathConstant::MathConstant  get_math_constant();
 void  set_math_constant(int which);
 };
+#endif

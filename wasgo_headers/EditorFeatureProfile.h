@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORFEATUREPROFILE_H
+#define EDITORFEATUREPROFILE_H
 
 #include <stdint.h>
 
-#include "Erro.h"
 #include "String.h"
+#include "Erro.h"
 #include "Reference.h"
 class EditorFeatureProfile : public Reference{
 public: EditorFeatureProfile();
@@ -28,3 +30,4 @@ void  set_disable_class_editor(String class_name, bool disable);
 void  set_disable_class_property(String class_name, String property, bool disable);
 void  set_disable_feature(int feature, bool disable);
 };
+#endif

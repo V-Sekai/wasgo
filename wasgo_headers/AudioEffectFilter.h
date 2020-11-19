@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTFILTER_H
+#define AUDIOEFFECTFILTER_H
 
 #include <stdint.h>
 
@@ -23,3 +25,4 @@ void  set_db(int amount);
 void  set_gain(float amount);
 void  set_resonance(float amount);
 };
+#endif

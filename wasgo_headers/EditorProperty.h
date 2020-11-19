@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORPROPERTY_H
+#define EDITORPROPERTY_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "Control.h"
-#include "Container.h"
-#include "InputEvent.h"
 #include "Object.h"
+#include "InputEvent.h"
 #include "Variant.h"
+#include "Container.h"
 class EditorProperty : public Container{
 public: EditorProperty();
 void  _focusable_focused(int arg0);
@@ -42,3 +44,4 @@ void  set_read_only(bool read_only);
 void  update_property();
 void  update_property();
 };
+#endif

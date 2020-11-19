@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef GDSCRIPT_H
+#define GDSCRIPT_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ PoolByteArray  get_as_byte_code();
 Variant  new();
 Variant  new();
 };
+#endif

@@ -1,16 +1,18 @@
 /* THIS FILE IS GENERATED */
+#ifndef NODE_H
+#define NODE_H
 
 #include <stdint.h>
 
+#include "MultiplayerAPI.h"
 #include "String.h"
-#include "Viewport.h"
-#include "InputEvent.h"
-#include "Variant.h"
 #include "NodePath.h"
 #include "SceneTree.h"
-#include "MultiplayerAPI.h"
 #include "Object.h"
+#include "Viewport.h"
 #include "InputEventKey.h"
+#include "InputEvent.h"
+#include "Variant.h"
 class Node : public Object{
 public: Node();
 enum PauseMode{
@@ -168,3 +170,4 @@ void  set_scene_instance_load_placeholder(bool load_placeholder);
 void  update_configuration_warning();
 void  update_configuration_warning();
 };
+#endif

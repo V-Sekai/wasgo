@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef IP_H
+#define IP_H
 
 #include <stdint.h>
 
@@ -28,3 +30,4 @@ enum.IP::ResolverStatus  get_resolve_item_status(int id);
 String  resolve_hostname(String host, int ip_type = 3);
 int  resolve_hostname_queue_item(String host, int ip_type = 3);
 };
+#endif

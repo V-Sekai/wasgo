@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORSETTINGS_H
+#define EDITORSETTINGS_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "Resource.h"
-#include "Variant.h"
-#include "Dictionary.h"
 #include "PoolStringArray.h"
+#include "Dictionary.h"
+#include "Variant.h"
 class EditorSettings : public Resource{
 public: EditorSettings();
 void  add_property_info(Dictionary info);
@@ -30,3 +32,4 @@ void  set_project_metadata(String section, String key, Variant data);
 void  set_recent_dirs(PoolStringArray dirs);
 void  set_setting(String name, Variant value);
 };
+#endif

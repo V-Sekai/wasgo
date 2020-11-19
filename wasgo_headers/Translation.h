@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef TRANSLATION_H
+#define TRANSLATION_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "PoolStringArray.h"
 #include "Resource.h"
+#include "PoolStringArray.h"
 class Translation : public Resource{
 public: Translation();
 PoolStringArray  _get_messages();
@@ -21,3 +23,4 @@ PoolStringArray  get_message_list();
 PoolStringArray  get_message_list();
 void  set_locale(String locale);
 };
+#endif

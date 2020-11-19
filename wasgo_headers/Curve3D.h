@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef CURVE3D_H
+#define CURVE3D_H
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "PoolVector3Array.h"
+#include "Resource.h"
 #include "PoolRealArray.h"
 #include "Vector3.h"
 #include "Dictionary.h"
@@ -48,3 +50,4 @@ void  set_point_tilt(int idx, float tilt);
 void  set_up_vector_enabled(bool enable);
 PoolVector3Array  tessellate(int max_stages = 5, float tolerance_degrees = 4);
 };
+#endif

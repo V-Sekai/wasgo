@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef CUBEMAP_H
+#define CUBEMAP_H
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "Image.h"
+#include "Resource.h"
 class CubeMap : public Resource{
 public: CubeMap();
 enum Flags{
@@ -38,3 +40,4 @@ void  set_lossy_storage_quality(float quality);
 void  set_side(int side, Image image);
 void  set_storage(int mode);
 };
+#endif

@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef JOINT2D_H
+#define JOINT2D_H
 
 #include <stdint.h>
 
-#include "Node2D.h"
 #include "NodePath.h"
+#include "Node2D.h"
 class Joint2D : public Node2D{
 public: Joint2D();
 float  get_bias();
@@ -19,3 +21,4 @@ void  set_exclude_nodes_from_collision(bool enable);
 void  set_node_a(NodePath node);
 void  set_node_b(NodePath node);
 };
+#endif

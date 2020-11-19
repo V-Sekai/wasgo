@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CONFIRMATIONDIALOG_H
+#define CONFIRMATIONDIALOG_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ public: ConfirmationDialog();
 Button  get_cancel();
 Button  get_cancel();
 };
+#endif

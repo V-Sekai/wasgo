@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISIBILITYENABLER_H
+#define VISIBILITYENABLER_H
 
 #include <stdint.h>
 
-#include "Node.h"
 #include "VisibilityNotifier.h"
+#include "Node.h"
 class VisibilityEnabler : public VisibilityNotifier{
 public: VisibilityEnabler();
 enum Enabler{
@@ -14,3 +16,4 @@ void  _node_removed(Node arg0);
 bool  is_enabler_enabled(int enabler);
 void  set_enabler(int enabler, bool enabled);
 };
+#endif

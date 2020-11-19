@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef TRANSLATIONSERVER_H
+#define TRANSLATIONSERVER_H
 
 #include <stdint.h>
 
-#include "Object.h"
-#include "Translation.h"
 #include "String.h"
+#include "Translation.h"
+#include "Object.h"
 #include "Variant.h"
 class TranslationServer : public Object{
 public: TranslationServer();
@@ -20,3 +22,4 @@ void  remove_translation(Translation translation);
 void  set_locale(String locale);
 String  translate(String message);
 };
+#endif

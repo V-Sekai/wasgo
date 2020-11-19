@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODEVECTORDERIVATIVEFUNC_H
+#define VISUALSHADERNODEVECTORDERIVATIVEFUNC_H
 
 #include <stdint.h>
 
@@ -13,3 +15,4 @@ enum.VisualShaderNodeVectorDerivativeFunc::Function  get_function();
 enum.VisualShaderNodeVectorDerivativeFunc::Function  get_function();
 void  set_function(int func);
 };
+#endif

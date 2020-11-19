@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODETEXTUREUNIFORM_H
+#define VISUALSHADERNODETEXTUREUNIFORM_H
 
 #include <stdint.h>
 
@@ -20,3 +22,4 @@ enum.VisualShaderNodeTextureUniform::TextureType  get_texture_type();
 void  set_color_default(int type);
 void  set_texture_type(int type);
 };
+#endif

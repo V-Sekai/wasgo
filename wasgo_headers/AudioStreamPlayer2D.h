@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOSTREAMPLAYER2D_H
+#define AUDIOSTREAMPLAYER2D_H
 
 #include <stdint.h>
 
-#include "AudioStreamPlayback.h"
+#include "AudioStream.h"
 #include "String.h"
 #include "Node2D.h"
-#include "AudioStream.h"
+#include "AudioStreamPlayback.h"
 class AudioStreamPlayer2D : public Node2D{
 public: AudioStreamPlayer2D();
 void  _bus_layout_changed();
@@ -51,3 +53,4 @@ void  set_volume_db(float volume_db);
 void  stop();
 void  stop();
 };
+#endif

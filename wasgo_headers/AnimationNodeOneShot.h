@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONNODEONESHOT_H
+#define ANIMATIONNODEONESHOT_H
 
 #include <stdint.h>
 
@@ -30,3 +32,4 @@ void  set_fadeout_time(float time);
 void  set_mix_mode(int mode);
 void  set_use_sync(bool enable);
 };
+#endif

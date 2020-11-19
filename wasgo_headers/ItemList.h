@@ -1,16 +1,18 @@
 /* THIS FILE IS GENERATED */
+#ifndef ITEMLIST_H
+#define ITEMLIST_H
 
 #include <stdint.h>
 
+#include "Vector2.h"
 #include "String.h"
+#include "VScrollBar.h"
+#include "Control.h"
+#include "Rect2.h"
 #include "PoolIntArray.h"
 #include "Texture.h"
-#include "VScrollBar.h"
 #include "InputEvent.h"
-#include "Control.h"
-#include "Vector2.h"
 #include "Variant.h"
-#include "Rect2.h"
 class ItemList : public Control{
 public: ItemList();
 enum SelectMode{
@@ -106,3 +108,4 @@ void  unselect(int idx);
 void  unselect_all();
 void  unselect_all();
 };
+#endif

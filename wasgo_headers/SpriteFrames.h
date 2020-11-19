@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef SPRITEFRAMES_H
+#define SPRITEFRAMES_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Texture.h"
 #include "Resource.h"
-#include "Variant.h"
 #include "PoolStringArray.h"
+#include "Texture.h"
+#include "Variant.h"
 class SpriteFrames : public Resource{
 public: SpriteFrames();
 Array  _get_animations();
@@ -34,3 +36,4 @@ void  set_animation_loop(String anim, bool loop);
 void  set_animation_speed(String anim, float speed);
 void  set_frame(String anim, int idx, Texture txt);
 };
+#endif

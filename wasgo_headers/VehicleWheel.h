@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VEHICLEWHEEL_H
+#define VEHICLEWHEEL_H
 
 #include <stdint.h>
 
@@ -54,3 +56,4 @@ void  set_suspension_travel(float length);
 void  set_use_as_steering(bool enable);
 void  set_use_as_traction(bool enable);
 };
+#endif

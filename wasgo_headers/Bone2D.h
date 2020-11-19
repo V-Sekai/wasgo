@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef BONE2D_H
+#define BONE2D_H
 
 #include <stdint.h>
 
@@ -19,3 +21,4 @@ Transform2D  get_skeleton_rest();
 void  set_default_length(float default_length);
 void  set_rest(Transform2D rest);
 };
+#endif

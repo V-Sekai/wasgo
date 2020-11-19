@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef NETWORKEDMULTIPLAYERENET_H
+#define NETWORKEDMULTIPLAYERENET_H
 
 #include <stdint.h>
 
-#include "Erro.h"
 #include "String.h"
+#include "Erro.h"
 #include "NetworkedMultiplayerPeer.h"
 class NetworkedMultiplayerENet : public NetworkedMultiplayerPeer{
 public: NetworkedMultiplayerENet();
@@ -40,3 +42,4 @@ void  set_compression_mode(int mode);
 void  set_server_relay_enabled(bool enabled);
 void  set_transfer_channel(int channel);
 };
+#endif

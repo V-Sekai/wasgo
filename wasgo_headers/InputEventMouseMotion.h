@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTEVENTMOUSEMOTION_H
+#define INPUTEVENTMOUSEMOTION_H
 
 #include <stdint.h>
 
@@ -19,3 +21,4 @@ void  set_relative(Vector2 relative);
 void  set_speed(Vector2 speed);
 void  set_tilt(Vector2 tilt);
 };
+#endif

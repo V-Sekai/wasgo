@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTEVENTJOYPADBUTTON_H
+#define INPUTEVENTJOYPADBUTTON_H
 
 #include <stdint.h>
 
@@ -13,3 +15,4 @@ void  set_button_index(int button_index);
 void  set_pressed(bool pressed);
 void  set_pressure(float pressure);
 };
+#endif

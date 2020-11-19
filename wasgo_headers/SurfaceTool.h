@@ -1,21 +1,23 @@
 /* THIS FILE IS GENERATED */
+#ifndef SURFACETOOL_H
+#define SURFACETOOL_H
 
 #include <stdint.h>
 
-#include "Transform.h"
-#include "String.h"
-#include "PoolIntArray.h"
-#include "Reference.h"
-#include "Material.h"
-#include "Variant.h"
-#include "Vector2.h"
 #include "PoolVector3Array.h"
-#include "Vector3.h"
 #include "PoolVector2Array.h"
-#include "PoolRealArray.h"
+#include "Vector2.h"
+#include "String.h"
 #include "Mesh.h"
 #include "ArrayMesh.h"
+#include "Transform.h"
+#include "PoolRealArray.h"
+#include "Material.h"
+#include "Reference.h"
+#include "Vector3.h"
+#include "PoolIntArray.h"
 #include "Plane.h"
+#include "Variant.h"
 class SurfaceTool : public Reference{
 public: SurfaceTool();
 void  add_bones(PoolIntArray bones);
@@ -47,3 +49,4 @@ void  index();
 void  index();
 void  set_material(Material material);
 };
+#endif

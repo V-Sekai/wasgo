@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef _ENGINE_H
+#define _ENGINE_H
 
 #include <stdint.h>
 
+#include "MainLoop.h"
 #include "String.h"
 #include "Object.h"
-#include "Variant.h"
-#include "MainLoop.h"
 #include "Dictionary.h"
+#include "Variant.h"
 class _Engine : public Object{
 public: _Engine();
 Dictionary  get_author_info();
@@ -53,3 +55,4 @@ void  set_physics_jitter_fix(float physics_jitter_fix);
 void  set_target_fps(int target_fps);
 void  set_time_scale(float time_scale);
 };
+#endif

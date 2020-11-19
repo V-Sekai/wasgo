@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef VIEWPORTCONTAINER_H
+#define VIEWPORTCONTAINER_H
 
 #include <stdint.h>
 
-#include "Container.h"
 #include "InputEvent.h"
+#include "Container.h"
 class ViewportContainer : public Container{
 public: ViewportContainer();
 void  _input(InputEvent event);
@@ -15,3 +17,4 @@ bool  is_stretch_enabled();
 void  set_stretch(bool enable);
 void  set_stretch_shrink(int amount);
 };
+#endif

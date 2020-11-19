@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef UNDOREDO_H
+#define UNDOREDO_H
 
 #include <stdint.h>
 
@@ -36,3 +38,4 @@ bool  redo();
 bool  undo();
 bool  undo();
 };
+#endif

@@ -1,16 +1,18 @@
 /* THIS FILE IS GENERATED */
+#ifndef _OS_H
+#define _OS_H
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Vector2.h"
-#include "Variant.h"
-#include "Object.h"
-#include "Erro.h"
-#include "Dictionary.h"
+#include "String.h"
 #include "Rect2.h"
-#include "PoolStringArray.h"
+#include "Erro.h"
 #include "Image.h"
+#include "Object.h"
+#include "PoolStringArray.h"
+#include "Dictionary.h"
+#include "Variant.h"
 class _OS : public Object{
 public: _OS();
 enum VideoDriver{
@@ -273,3 +275,4 @@ void  set_window_title(String title);
 enum.Error  shell_open(String uri);
 void  show_virtual_keyboard(String existing_text = "");
 };
+#endif

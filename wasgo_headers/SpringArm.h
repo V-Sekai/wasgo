@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef SPRINGARM_H
+#define SPRINGARM_H
 
 #include <stdint.h>
 
-#include "RID.h"
 #include "Shape.h"
 #include "Spatial.h"
+#include "RID.h"
 class SpringArm : public Spatial{
 public: SpringArm();
 void  add_excluded_object(RID RID);
@@ -26,3 +28,4 @@ void  set_length(float length);
 void  set_margin(float margin);
 void  set_shape(Shape shape);
 };
+#endif

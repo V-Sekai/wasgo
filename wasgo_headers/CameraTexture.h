@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CAMERATEXTURE_H
+#define CAMERATEXTURE_H
 
 #include <stdint.h>
 
@@ -16,3 +18,4 @@ void  set_camera_active(bool active);
 void  set_camera_feed_id(int feed_id);
 void  set_which_feed(int which_feed);
 };
+#endif

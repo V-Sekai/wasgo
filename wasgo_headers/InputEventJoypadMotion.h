@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTEVENTJOYPADMOTION_H
+#define INPUTEVENTJOYPADMOTION_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ float  get_axis_value();
 void  set_axis(int axis);
 void  set_axis_value(float axis_value);
 };
+#endif

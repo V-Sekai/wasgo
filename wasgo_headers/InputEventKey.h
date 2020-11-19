@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTEVENTKEY_H
+#define INPUTEVENTKEY_H
 
 #include <stdint.h>
 
@@ -16,3 +18,4 @@ void  set_pressed(bool pressed);
 void  set_scancode(int scancode);
 void  set_unicode(int unicode);
 };
+#endif

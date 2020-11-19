@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTLIMITER_H
+#define AUDIOEFFECTLIMITER_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ void  set_soft_clip_db(float soft_clip);
 void  set_soft_clip_ratio(float soft_clip);
 void  set_threshold_db(float threshold);
 };
+#endif

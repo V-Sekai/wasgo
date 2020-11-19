@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTBUILTINFUNC_H
+#define VISUALSCRIPTBUILTINFUNC_H
 
 #include <stdint.h>
 
@@ -79,3 +81,4 @@ enum.VisualScriptBuiltinFunc::BuiltinFunc  get_func();
 enum.VisualScriptBuiltinFunc::BuiltinFunc  get_func();
 void  set_func(int which);
 };
+#endif

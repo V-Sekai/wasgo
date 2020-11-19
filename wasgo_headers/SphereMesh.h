@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef SPHEREMESH_H
+#define SPHEREMESH_H
 
 #include <stdint.h>
 
@@ -21,3 +23,4 @@ void  set_radial_segments(int radial_segments);
 void  set_radius(float radius);
 void  set_rings(int rings);
 };
+#endif

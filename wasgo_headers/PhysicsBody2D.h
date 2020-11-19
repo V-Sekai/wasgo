@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef PHYSICSBODY2D_H
+#define PHYSICSBODY2D_H
 
 #include <stdint.h>
 
 #include "Node.h"
-#include "CollisionObject2D.h"
 #include "Variant.h"
+#include "CollisionObject2D.h"
 class PhysicsBody2D : public CollisionObject2D{
 public: PhysicsBody2D();
 int  _get_layers();
@@ -25,3 +27,4 @@ void  set_collision_layer_bit(int bit, bool value);
 void  set_collision_mask(int mask);
 void  set_collision_mask_bit(int bit, bool value);
 };
+#endif

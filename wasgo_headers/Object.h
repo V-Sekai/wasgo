@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef OBJECT_H
+#define OBJECT_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Reference.h"
-#include "Variant.h"
 #include "NodePath.h"
+#include "Reference.h"
 #include "Erro.h"
 #include "PoolStringArray.h"
+#include "Variant.h"
 class Object{
 public: Object();
 enum ConnectFlags{
@@ -79,3 +81,4 @@ String  to_string();
 String  to_string();
 String  tr(String message);
 };
+#endif

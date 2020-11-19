@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONNODESTATEMACHINE_H
+#define ANIMATIONNODESTATEMACHINE_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "AnimationNode.h"
 #include "Vector2.h"
-#include "AnimationNodeStateMachineTransition.h"
+#include "String.h"
 #include "AnimationRootNode.h"
+#include "AnimationNodeStateMachineTransition.h"
+#include "AnimationNode.h"
 class AnimationNodeStateMachine : public AnimationRootNode{
 public: AnimationNodeStateMachine();
 void  _tree_changed();
@@ -38,3 +40,4 @@ void  set_graph_offset(Vector2 offset);
 void  set_node_position(String name, Vector2 position);
 void  set_start_node(String name);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef TEXTUREBUTTON_H
+#define TEXTUREBUTTON_H
 
 #include <stdint.h>
 
@@ -40,3 +42,4 @@ void  set_normal_texture(Texture texture);
 void  set_pressed_texture(Texture texture);
 void  set_stretch_mode(int p_mode);
 };
+#endif

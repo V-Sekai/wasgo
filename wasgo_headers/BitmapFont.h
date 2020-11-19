@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef BITMAPFONT_H
+#define BITMAPFONT_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Font.h"
-#include "PoolIntArray.h"
-#include "Texture.h"
 #include "Vector2.h"
-#include "Variant.h"
-#include "Erro.h"
+#include "String.h"
 #include "Rect2.h"
+#include "Erro.h"
+#include "PoolIntArray.h"
+#include "Font.h"
+#include "Texture.h"
+#include "Variant.h"
 class BitmapFont : public Font{
 public: BitmapFont();
 PoolIntArray  _get_chars();
@@ -39,3 +41,4 @@ void  set_distance_field_hint(bool enable);
 void  set_fallback(BitmapFont fallback);
 void  set_height(float px);
 };
+#endif

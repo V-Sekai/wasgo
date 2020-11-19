@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef MESHTEXTURE_H
+#define MESHTEXTURE_H
 
 #include <stdint.h>
 
+#include "Vector2.h"
 #include "Texture.h"
 #include "Mesh.h"
-#include "Vector2.h"
 class MeshTexture : public Texture{
 public: MeshTexture();
 Texture  get_base_texture();
@@ -17,3 +19,4 @@ void  set_base_texture(Texture texture);
 void  set_image_size(Vector2 size);
 void  set_mesh(Mesh mesh);
 };
+#endif

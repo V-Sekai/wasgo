@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef SCRIPT_H
+#define SCRIPT_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "Resource.h"
-#include "Object.h"
-#include "Variant.h"
 #include "Erro.h"
+#include "Object.h"
 #include "Dictionary.h"
+#include "Variant.h"
 class Script : public Resource{
 public: Script();
 bool  can_instance();
@@ -36,3 +38,4 @@ bool  is_tool();
 enum.Error  reload(bool keep_state = false);
 void  set_source_code(String source);
 };
+#endif

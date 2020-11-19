@@ -1,19 +1,21 @@
 /* THIS FILE IS GENERATED */
+#ifndef TILESET_H
+#define TILESET_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Transform2D.h"
-#include "Texture.h"
-#include "Resource.h"
 #include "Vector2.h"
-#include "Object.h"
+#include "String.h"
+#include "Resource.h"
 #include "OccluderPolygon2D.h"
-#include "Variant.h"
-#include "ShaderMaterial.h"
-#include "NavigationPolygon.h"
 #include "Rect2.h"
 #include "Shape2D.h"
+#include "ShaderMaterial.h"
+#include "Object.h"
+#include "Transform2D.h"
+#include "Texture.h"
+#include "Variant.h"
+#include "NavigationPolygon.h"
 class TileSet : public Resource{
 public: TileSet();
 enum TileMode{
@@ -106,3 +108,4 @@ void  tile_set_texture_offset(int id, Vector2 texture_offset);
 void  tile_set_tile_mode(int id, int tilemode);
 void  tile_set_z_index(int id, int z_index);
 };
+#endif

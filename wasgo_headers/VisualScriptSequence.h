@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTSEQUENCE_H
+#define VISUALSCRIPTSEQUENCE_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ int  get_steps();
 int  get_steps();
 void  set_steps(int steps);
 };
+#endif

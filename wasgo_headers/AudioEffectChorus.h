@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTCHORUS_H
+#define AUDIOEFFECTCHORUS_H
 
 #include <stdint.h>
 
@@ -27,3 +29,4 @@ void  set_voice_pan(int voice_idx, float pan);
 void  set_voice_rate_hz(int voice_idx, float rate_hz);
 void  set_wet(float amount);
 };
+#endif

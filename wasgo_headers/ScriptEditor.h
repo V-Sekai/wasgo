@@ -1,19 +1,21 @@
 /* THIS FILE IS GENERATED */
+#ifndef SCRIPTEDITOR_H
+#define SCRIPTEDITOR_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Reference.h"
-#include "Control.h"
-#include "InputEvent.h"
-#include "Resource.h"
-#include "Object.h"
 #include "Vector2.h"
-#include "Variant.h"
+#include "String.h"
+#include "Resource.h"
 #include "Script.h"
+#include "Control.h"
 #include "Node.h"
-#include "PoolStringArray.h"
+#include "Reference.h"
+#include "Object.h"
 #include "PanelContainer.h"
+#include "PoolStringArray.h"
+#include "InputEvent.h"
+#include "Variant.h"
 class ScriptEditor : public PanelContainer{
 public: ScriptEditor();
 void  _add_callback(Object arg0, String arg1, PoolStringArray arg2);
@@ -104,3 +106,4 @@ Array  get_open_scripts();
 void  goto_line(int line_number);
 void  open_script_create_dialog(String base_name, String base_path);
 };
+#endif

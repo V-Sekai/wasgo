@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITOREXPORTPLUGIN_H
+#define EDITOREXPORTPLUGIN_H
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
 #include "String.h"
-#include "PoolStringArray.h"
 #include "Reference.h"
+#include "PoolByteArray.h"
+#include "PoolStringArray.h"
 class EditorExportPlugin : public Reference{
 public: EditorExportPlugin();
 void  _export_begin(PoolStringArray features, bool is_debug, String path, int flags);
@@ -22,3 +24,4 @@ void  add_shared_object(String path, PoolStringArray tags);
 void  skip();
 void  skip();
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTSPECTRUMANALYZER_H
+#define AUDIOEFFECTSPECTRUMANALYZER_H
 
 #include <stdint.h>
 
@@ -22,3 +24,4 @@ void  set_buffer_length(float seconds);
 void  set_fft_size(int size);
 void  set_tap_back_pos(float seconds);
 };
+#endif

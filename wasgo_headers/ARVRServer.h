@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef ARVRSERVER_H
+#define ARVRSERVER_H
 
 #include <stdint.h>
 
-#include "Transform.h"
 #include "String.h"
+#include "Transform.h"
 #include "ARVRPositionalTracker.h"
-#include "Variant.h"
 #include "Object.h"
 #include "ARVRInterface.h"
+#include "Variant.h"
 class ARVRServer : public Object{
 public: ARVRServer();
 enum RotationMode{
@@ -48,3 +50,4 @@ float  get_world_scale();
 void  set_primary_interface(ARVRInterface interface);
 void  set_world_scale(float arg0);
 };
+#endif

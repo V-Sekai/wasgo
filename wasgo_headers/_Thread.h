@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef _THREAD_H
+#define _THREAD_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "Reference.h"
+#include "Erro.h"
 #include "Object.h"
 #include "Variant.h"
-#include "Erro.h"
 class _Thread : public Reference{
 public: _Thread();
 enum Priority{
@@ -21,3 +23,4 @@ enum.Error  start(Object instance, String method, Variant userdata = null, int p
 Variant  wait_to_finish();
 Variant  wait_to_finish();
 };
+#endif

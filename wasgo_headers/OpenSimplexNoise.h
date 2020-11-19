@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef OPENSIMPLEXNOISE_H
+#define OPENSIMPLEXNOISE_H
 
 #include <stdint.h>
 
-#include "Vector3.h"
-#include "Resource.h"
 #include "Vector2.h"
 #include "Image.h"
+#include "Resource.h"
+#include "Vector3.h"
 class OpenSimplexNoise : public Resource{
 public: OpenSimplexNoise();
 Image  get_image(int width, int height);
@@ -32,3 +34,4 @@ void  set_period(float period);
 void  set_persistence(float persistence);
 void  set_seed(int seed);
 };
+#endif

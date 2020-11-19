@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTSCENENODE_H
+#define VISUALSCRIPTSCENENODE_H
 
 #include <stdint.h>
 
@@ -10,3 +12,4 @@ NodePath  get_node_path();
 NodePath  get_node_path();
 void  set_node_path(NodePath path);
 };
+#endif

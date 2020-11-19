@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef SPRITE_H
+#define SPRITE_H
 
 #include <stdint.h>
 
+#include "Vector2.h"
 #include "Texture.h"
 #include "Node2D.h"
-#include "Vector2.h"
 #include "Rect2.h"
 class Sprite : public Node2D{
 public: Sprite();
@@ -53,3 +55,4 @@ void  set_region_rect(Rect2 rect);
 void  set_texture(Texture texture);
 void  set_vframes(int vframes);
 };
+#endif

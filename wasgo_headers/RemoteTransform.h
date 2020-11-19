@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef REMOTETRANSFORM_H
+#define REMOTETRANSFORM_H
 
 #include <stdint.h>
 
@@ -24,3 +26,4 @@ void  set_update_rotation(bool update_remote_rotation);
 void  set_update_scale(bool update_remote_scale);
 void  set_use_global_coordinates(bool use_global_coordinates);
 };
+#endif

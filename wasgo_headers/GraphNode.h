@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef GRAPHNODE_H
+#define GRAPHNODE_H
 
 #include <stdint.h>
 
+#include "Vector2.h"
 #include "String.h"
 #include "Texture.h"
-#include "Container.h"
 #include "InputEvent.h"
-#include "Vector2.h"
 #include "Variant.h"
+#include "Container.h"
 class GraphNode : public Container{
 public: GraphNode();
 enum Overlay{
@@ -57,3 +59,4 @@ void  set_show_close_button(bool show);
 void  set_slot(int idx, bool enable_left, int type_left, Color color_left, bool enable_right, int type_right, Color color_right, Texture custom_left = [object:null], Texture custom_right = [object:null]);
 void  set_title(String title);
 };
+#endif

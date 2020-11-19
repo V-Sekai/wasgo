@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef SPRITEBASE3D_H
+#define SPRITEBASE3D_H
 
 #include <stdint.h>
 
-#include "TriangleMesh.h"
-#include "Variant.h"
 #include "Vector2.h"
-#include "Vector3.h"
-#include "Rect2.h"
-#include "SpatialMaterial.h"
 #include "GeometryInstance.h"
+#include "SpatialMaterial.h"
+#include "Rect2.h"
+#include "TriangleMesh.h"
+#include "Vector3.h"
+#include "Variant.h"
 class SpriteBase3D : public GeometryInstance{
 public: SpriteBase3D();
 enum DrawFlags{
@@ -61,3 +63,4 @@ void  set_offset(Vector2 offset);
 void  set_opacity(float opacity);
 void  set_pixel_size(float pixel_size);
 };
+#endif

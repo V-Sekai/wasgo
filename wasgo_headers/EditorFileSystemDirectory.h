@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORFILESYSTEMDIRECTORY_H
+#define EDITORFILESYSTEMDIRECTORY_H
 
 #include <stdint.h>
 
@@ -26,3 +28,4 @@ EditorFileSystemDirectory  get_subdir(int idx);
 int  get_subdir_count();
 int  get_subdir_count();
 };
+#endif

@@ -1,17 +1,19 @@
 /* THIS FILE IS GENERATED */
+#ifndef RICHTEXTLABEL_H
+#define RICHTEXTLABEL_H
 
 #include <stdint.h>
 
 #include "String.h"
+#include "VScrollBar.h"
+#include "Control.h"
+#include "Erro.h"
+#include "PoolStringArray.h"
 #include "Font.h"
 #include "Texture.h"
-#include "VScrollBar.h"
-#include "InputEvent.h"
-#include "Control.h"
-#include "Variant.h"
-#include "Erro.h"
 #include "Dictionary.h"
-#include "PoolStringArray.h"
+#include "InputEvent.h"
+#include "Variant.h"
 class RichTextLabel : public Control{
 public: RichTextLabel();
 enum Align{
@@ -130,3 +132,4 @@ void  set_text(String text);
 void  set_use_bbcode(bool enable);
 void  set_visible_characters(int amount);
 };
+#endif

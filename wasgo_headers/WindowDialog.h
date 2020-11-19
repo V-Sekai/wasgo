@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef WINDOWDIALOG_H
+#define WINDOWDIALOG_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "InputEvent.h"
-#include "TextureButton.h"
 #include "Popup.h"
+#include "TextureButton.h"
 class WindowDialog : public Popup{
 public: WindowDialog();
 void  _closed();
@@ -20,3 +22,4 @@ String  get_title();
 void  set_resizable(bool resizable);
 void  set_title(String title);
 };
+#endif

@@ -1,20 +1,22 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORSPATIALGIZMO_H
+#define EDITORSPATIALGIZMO_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Material.h"
-#include "TriangleMesh.h"
-#include "EditorSpatialGizmoPlugin.h"
-#include "Variant.h"
-#include "Vector2.h"
 #include "PoolVector3Array.h"
-#include "Camera.h"
-#include "SpatialGizmo.h"
-#include "Node.h"
+#include "String.h"
+#include "Vector2.h"
 #include "SkinReference.h"
 #include "ArrayMesh.h"
+#include "EditorSpatialGizmoPlugin.h"
+#include "Node.h"
+#include "Material.h"
+#include "Camera.h"
+#include "SpatialGizmo.h"
+#include "TriangleMesh.h"
 #include "Spatial.h"
+#include "Variant.h"
 class EditorSpatialGizmo : public SpatialGizmo{
 public: EditorSpatialGizmo();
 void  add_collision_segments(PoolVector3Array segments);
@@ -39,3 +41,4 @@ void  set_handle(int index, Camera camera, Vector2 point);
 void  set_hidden(bool hidden);
 void  set_spatial_node(Node node);
 };
+#endif

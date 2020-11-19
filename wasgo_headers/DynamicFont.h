@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef DYNAMICFONT_H
+#define DYNAMICFONT_H
 
 #include <stdint.h>
 
 #include "Font.h"
-#include "DynamicFontData.h"
 #include "Variant.h"
+#include "DynamicFontData.h"
 class DynamicFont : public Font{
 public: DynamicFont();
 enum SpacingType{
@@ -39,3 +41,4 @@ void  set_spacing(int type, int value);
 void  set_use_filter(bool enable);
 void  set_use_mipmaps(bool enable);
 };
+#endif

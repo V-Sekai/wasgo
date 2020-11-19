@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTEVENTMAGNIFYGESTURE_H
+#define INPUTEVENTMAGNIFYGESTURE_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ float  get_factor();
 float  get_factor();
 void  set_factor(float factor);
 };
+#endif

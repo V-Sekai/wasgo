@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADER_H
+#define VISUALSHADER_H
 
 #include <stdint.h>
 
-#include "PoolIntArray.h"
-#include "VisualShaderNode.h"
-#include "Shader.h"
 #include "Vector2.h"
-#include "Variant.h"
+#include "VisualShaderNode.h"
 #include "Erro.h"
+#include "PoolIntArray.h"
+#include "Shader.h"
+#include "Variant.h"
 class VisualShader : public Shader{
 public: VisualShader();
 enum Type{
@@ -38,3 +40,4 @@ void  set_graph_offset(Vector2 offset);
 void  set_mode(int mode);
 void  set_node_position(int type, int id, Vector2 position);
 };
+#endif

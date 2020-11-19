@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef KINEMATICBODY2D_H
+#define KINEMATICBODY2D_H
 
 #include <stdint.h>
 
-#include "KinematicCollision2D.h"
-#include "PhysicsBody2D.h"
-#include "Transform2D.h"
 #include "Vector2.h"
+#include "KinematicCollision2D.h"
 #include "Object.h"
+#include "Transform2D.h"
+#include "PhysicsBody2D.h"
 class KinematicBody2D : public PhysicsBody2D{
 public: KinematicBody2D();
 void  _direct_state_changed(Object arg0);
@@ -34,3 +36,4 @@ void  set_safe_margin(float pixels);
 void  set_sync_to_physics(bool enable);
 bool  test_move(Transform2D from, Vector2 rel_vec, bool infinite_inertia = true);
 };
+#endif

@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef STREAMPEERSSL_H
+#define STREAMPEERSSL_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Erro.h"
-#include "X509Certificate.h"
-#include "CryptoKey.h"
 #include "StreamPeer.h"
+#include "X509Certificate.h"
+#include "Erro.h"
+#include "CryptoKey.h"
 class StreamPeerSSL : public StreamPeer{
 public: StreamPeerSSL();
 enum Status{
@@ -27,3 +29,4 @@ void  poll();
 void  poll();
 void  set_blocking_handshake_enabled(bool enabled);
 };
+#endif

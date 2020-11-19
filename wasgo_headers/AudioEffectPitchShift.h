@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTPITCHSHIFT_H
+#define AUDIOEFFECTPITCHSHIFT_H
 
 #include <stdint.h>
 
@@ -22,3 +24,4 @@ void  set_fft_size(int size);
 void  set_oversampling(int amount);
 void  set_pitch_scale(float rate);
 };
+#endif

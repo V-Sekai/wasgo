@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTPROPERTYGET_H
+#define VISUALSCRIPTPROPERTYGET_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Variant.h"
 #include "NodePath.h"
 #include "VisualScriptNode.h"
+#include "Variant.h"
 class VisualScriptPropertyGet : public VisualScriptNode{
 public: VisualScriptPropertyGet();
 enum CallMode{
@@ -37,3 +39,4 @@ void  set_call_mode(int mode);
 void  set_index(String index);
 void  set_property(String property);
 };
+#endif

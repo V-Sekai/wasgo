@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef TILEMAP_H
+#define TILEMAP_H
 
 #include <stdint.h>
 
-#include "Rect2.h"
-#include "Node2D.h"
-#include "PoolIntArray.h"
-#include "Transform2D.h"
 #include "Vector2.h"
-#include "Variant.h"
-#include "Dictionary.h"
+#include "Rect2.h"
+#include "Transform2D.h"
+#include "PoolIntArray.h"
 #include "TileSet.h"
+#include "Dictionary.h"
+#include "Node2D.h"
+#include "Variant.h"
 class TileMap : public Node2D{
 public: TileMap();
 enum Mode{
@@ -119,3 +121,4 @@ void  update_dirty_quadrants();
 void  update_dirty_quadrants();
 Vector2  world_to_map(Vector2 world_position);
 };
+#endif

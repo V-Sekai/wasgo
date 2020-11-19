@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTEVENTACTION_H
+#define INPUTEVENTACTION_H
 
 #include <stdint.h>
 
@@ -14,3 +16,4 @@ void  set_action(String action);
 void  set_pressed(bool pressed);
 void  set_strength(float strength);
 };
+#endif

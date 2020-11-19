@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORRESOURCECONVERSIONPLUGIN_H
+#define EDITORRESOURCECONVERSIONPLUGIN_H
 
 #include <stdint.h>
 
@@ -11,3 +13,4 @@ Resource  _convert(Resource resource);
 String  _converts_to();
 String  _converts_to();
 };
+#endif

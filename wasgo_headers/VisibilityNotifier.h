@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISIBILITYNOTIFIER_H
+#define VISIBILITYNOTIFIER_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ bool  is_on_screen();
 bool  is_on_screen();
 void  set_aabb(AABB rect);
 };
+#endif

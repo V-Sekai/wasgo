@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef ARVRPOSITIONALTRACKER_H
+#define ARVRPOSITIONALTRACKER_H
 
 #include <stdint.h>
 
-#include "Transform.h"
 #include "String.h"
 #include "ARVRServer.h"
-#include "Object.h"
-#include "Basis.h"
-#include "Vector3.h"
 #include "Mesh.h"
+#include "Transform.h"
+#include "Basis.h"
+#include "Object.h"
+#include "Vector3.h"
 class ARVRPositionalTracker : public Object{
 public: ARVRPositionalTracker();
 enum TrackerHand{
@@ -44,3 +46,4 @@ enum.ARVRServer::TrackerType  get_type();
 enum.ARVRServer::TrackerType  get_type();
 void  set_rumble(float rumble);
 };
+#endif

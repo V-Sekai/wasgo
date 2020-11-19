@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef ARVRORIGIN_H
+#define ARVRORIGIN_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ float  get_world_scale();
 float  get_world_scale();
 void  set_world_scale(float world_scale);
 };
+#endif

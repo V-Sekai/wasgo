@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONNODEBLENDTREE_H
+#define ANIMATIONNODEBLENDTREE_H
 
 #include <stdint.h>
 
+#include "AnimationNode.h"
 #include "String.h"
 #include "Vector2.h"
 #include "AnimationRootNode.h"
-#include "AnimationNode.h"
 class AnimationNodeBlendTree : public AnimationRootNode{
 public: AnimationNodeBlendTree();
 void  _node_changed(String node);
@@ -24,3 +26,4 @@ void  rename_node(String name, String new_name);
 void  set_graph_offset(Vector2 offset);
 void  set_node_position(String name, Vector2 position);
 };
+#endif

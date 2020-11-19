@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CSGTORUS_H
+#define CSGTORUS_H
 
 #include <stdint.h>
 
@@ -25,3 +27,4 @@ void  set_ring_sides(int sides);
 void  set_sides(int sides);
 void  set_smooth_faces(bool smooth_faces);
 };
+#endif

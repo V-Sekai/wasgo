@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODETEXTURE_H
+#define VISUALSHADERNODETEXTURE_H
 
 #include <stdint.h>
 
@@ -27,3 +29,4 @@ void  set_source(int value);
 void  set_texture(Texture value);
 void  set_texture_type(int value);
 };
+#endif

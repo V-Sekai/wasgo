@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef NAVIGATIONPOLYGON_H
+#define NAVIGATIONPOLYGON_H
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "PoolVector2Array.h"
-#include "Variant.h"
+#include "Resource.h"
 #include "PoolIntArray.h"
+#include "Variant.h"
 class NavigationPolygon : public Resource{
 public: NavigationPolygon();
 Array  _get_outlines();
@@ -35,3 +37,4 @@ void  remove_outline(int idx);
 void  set_outline(int idx, PoolVector2Array outline);
 void  set_vertices(PoolVector2Array vertices);
 };
+#endif

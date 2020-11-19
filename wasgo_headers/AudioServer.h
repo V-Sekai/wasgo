@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOSERVER_H
+#define AUDIOSERVER_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "AudioEffectInstance.h"
 #include "AudioEffect.h"
+#include "String.h"
 #include "Variant.h"
-#include "Object.h"
 #include "AudioBusLayout.h"
+#include "Object.h"
+#include "AudioEffectInstance.h"
 class AudioServer : public Object{
 public: AudioServer();
 enum SpeakerMode{
@@ -76,3 +78,4 @@ void  swap_bus_effects(int bus_idx, int effect_idx, int by_effect_idx);
 void  unlock();
 void  unlock();
 };
+#endif

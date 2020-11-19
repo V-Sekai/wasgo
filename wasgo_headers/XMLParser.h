@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef XMLPARSER_H
+#define XMLPARSER_H
 
 #include <stdint.h>
 
-#include "Erro.h"
 #include "String.h"
-#include "PoolByteArray.h"
+#include "Erro.h"
 #include "Reference.h"
+#include "PoolByteArray.h"
 class XMLParser : public Reference{
 public: XMLParser();
 enum NodeType{
@@ -43,3 +45,4 @@ enum.Error  seek(int position);
 void  skip_section();
 void  skip_section();
 };
+#endif

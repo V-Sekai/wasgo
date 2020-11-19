@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef PACKETPEERUDP_H
+#define PACKETPEERUDP_H
 
 #include <stdint.h>
 
-#include "Erro.h"
-#include "String.h"
 #include "PacketPeer.h"
+#include "String.h"
+#include "Erro.h"
 class PacketPeerUDP : public PacketPeer{
 public: PacketPeerUDP();
 void  close();
@@ -23,3 +25,4 @@ enum.Error  set_dest_address(String host, int port);
 enum.Error  wait();
 enum.Error  wait();
 };
+#endif

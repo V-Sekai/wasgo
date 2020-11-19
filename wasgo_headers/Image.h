@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef IMAGE_H
+#define IMAGE_H
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
+#include "Vector2.h"
 #include "String.h"
 #include "Resource.h"
-#include "Vector2.h"
-#include "Variant.h"
+#include "PoolByteArray.h"
+#include "Rect2.h"
 #include "Erro.h"
 #include "Dictionary.h"
-#include "Rect2.h"
+#include "Variant.h"
 class Image : public Resource{
 public: Image();
 enum AlphaMode{
@@ -150,3 +152,4 @@ void  srgb_to_linear();
 void  unlock();
 void  unlock();
 };
+#endif

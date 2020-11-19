@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef WEBSOCKETCLIENT_H
+#define WEBSOCKETCLIENT_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Erro.h"
-#include "X509Certificate.h"
 #include "WebSocketMultiplayerPeer.h"
+#include "X509Certificate.h"
+#include "Erro.h"
 #include "PoolStringArray.h"
 class WebSocketClient : public WebSocketMultiplayerPeer{
 public: WebSocketClient();
@@ -22,3 +24,4 @@ bool  is_verify_ssl_enabled();
 void  set_trusted_ssl_certificate(X509Certificate arg0);
 void  set_verify_ssl_enabled(bool enabled);
 };
+#endif

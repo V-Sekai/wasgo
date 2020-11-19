@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef SPINBOX_H
+#define SPINBOX_H
 
 #include <stdint.h>
 
+#include "LineEdit.h"
 #include "String.h"
 #include "InputEvent.h"
 #include "Range.h"
-#include "LineEdit.h"
 class SpinBox : public Range{
 public: SpinBox();
 void  _gui_input(InputEvent arg0);
@@ -32,3 +34,4 @@ void  set_editable(bool editable);
 void  set_prefix(String prefix);
 void  set_suffix(String suffix);
 };
+#endif

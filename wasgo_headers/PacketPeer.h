@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef PACKETPEER_H
+#define PACKETPEER_H
 
 #include <stdint.h>
 
 #include "PoolByteArray.h"
 #include "Erro.h"
-#include "Variant.h"
 #include "Reference.h"
+#include "Variant.h"
 class PacketPeer : public Reference{
 public: PacketPeer();
 int  get_available_packet_count();
@@ -24,3 +26,4 @@ enum.Error  put_var(Variant var, bool full_objects = false);
 void  set_allow_object_decoding(bool enable);
 void  set_encode_buffer_max_size(int max_size);
 };
+#endif

@@ -1,16 +1,18 @@
 /* THIS FILE IS GENERATED */
+#ifndef PHYSICS2DSERVER_H
+#define PHYSICS2DSERVER_H
 
 #include <stdint.h>
 
-#include "RID.h"
+#include "Vector2.h"
 #include "String.h"
-#include "Physics2DDirectSpaceState.h"
-#include "Transform2D.h"
 #include "Physics2DDirectBodyState.h"
 #include "Physics2DTestMotionResult.h"
+#include "Transform2D.h"
 #include "Object.h"
+#include "Physics2DDirectSpaceState.h"
 #include "Variant.h"
-#include "Vector2.h"
+#include "RID.h"
 class Physics2DServer : public Object{
 public: Physics2DServer();
 enum ProcessInfo{
@@ -204,3 +206,4 @@ bool  space_is_active(RID space);
 void  space_set_active(RID space, bool active);
 void  space_set_param(RID space, int param, float value);
 };
+#endif

@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef LIGHT2D_H
+#define LIGHT2D_H
 
 #include <stdint.h>
 
+#include "Vector2.h"
 #include "Texture.h"
 #include "Node2D.h"
-#include "Vector2.h"
 #include "Variant.h"
 class Light2D : public Node2D{
 public: Light2D();
@@ -84,3 +86,4 @@ void  set_texture_scale(float texture_scale);
 void  set_z_range_max(int z);
 void  set_z_range_min(int z);
 };
+#endif

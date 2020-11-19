@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef COLLISIONOBJECT_H
+#define COLLISIONOBJECT_H
 
 #include <stdint.h>
 
-#include "RID.h"
 #include "Transform.h"
-#include "InputEvent.h"
-#include "Object.h"
-#include "Variant.h"
-#include "Vector3.h"
 #include "Shape.h"
+#include "Object.h"
+#include "Vector3.h"
 #include "Spatial.h"
+#include "InputEvent.h"
+#include "Variant.h"
+#include "RID.h"
 class CollisionObject : public Spatial{
 public: CollisionObject();
 void  _input_event(Object camera, InputEvent event, Vector3 click_position, Vector3 click_normal, int shape_idx);
@@ -38,3 +40,4 @@ void  shape_owner_remove_shape(int owner_id, int shape_id);
 void  shape_owner_set_disabled(int owner_id, bool disabled);
 void  shape_owner_set_transform(int owner_id, Transform transform);
 };
+#endif

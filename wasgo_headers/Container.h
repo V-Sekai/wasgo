@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef CONTAINER_H
+#define CONTAINER_H
 
 #include <stdint.h>
 
-#include "Control.h"
 #include "Rect2.h"
+#include "Control.h"
 class Container : public Control{
 public: Container();
 void  _child_minsize_changed();
@@ -14,3 +16,4 @@ void  fit_child_in_rect(Control child, Rect2 rect);
 void  queue_sort();
 void  queue_sort();
 };
+#endif

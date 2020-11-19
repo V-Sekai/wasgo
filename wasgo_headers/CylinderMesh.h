@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CYLINDERMESH_H
+#define CYLINDERMESH_H
 
 #include <stdint.h>
 
@@ -21,3 +23,4 @@ void  set_radial_segments(int segments);
 void  set_rings(int rings);
 void  set_top_radius(float radius);
 };
+#endif

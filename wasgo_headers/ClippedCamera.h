@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef CLIPPEDCAMERA_H
+#define CLIPPEDCAMERA_H
 
 #include <stdint.h>
 
-#include "RID.h"
 #include "Camera.h"
 #include "Object.h"
+#include "RID.h"
 class ClippedCamera : public Camera{
 public: ClippedCamera();
 enum ProcessMode{
@@ -36,3 +38,4 @@ void  set_collision_mask_bit(int bit, bool value);
 void  set_margin(float margin);
 void  set_process_mode(int process_mode);
 };
+#endif

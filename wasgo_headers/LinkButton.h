@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef LINKBUTTON_H
+#define LINKBUTTON_H
 
 #include <stdint.h>
 
@@ -17,3 +19,4 @@ enum.LinkButton::UnderlineMode  get_underline_mode();
 void  set_text(String text);
 void  set_underline_mode(int underline_mode);
 };
+#endif

@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef PARTICLES_H
+#define PARTICLES_H
 
 #include <stdint.h>
 
-#include "AABB.h"
-#include "Mesh.h"
 #include "GeometryInstance.h"
+#include "Mesh.h"
+#include "AABB.h"
 #include "Material.h"
 class Particles : public GeometryInstance{
 public: Particles();
@@ -64,3 +66,4 @@ void  set_speed_scale(float scale);
 void  set_use_local_coordinates(bool enable);
 void  set_visibility_aabb(AABB aabb);
 };
+#endif

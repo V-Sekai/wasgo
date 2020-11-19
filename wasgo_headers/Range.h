@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef RANGE_H
+#define RANGE_H
 
 #include <stdint.h>
 
-#include "Control.h"
 #include "Node.h"
+#include "Control.h"
 class Range : public Control{
 public: Range();
 float  get_as_ratio();
@@ -40,3 +42,4 @@ void  share(Node with);
 void  unshare();
 void  unshare();
 };
+#endif

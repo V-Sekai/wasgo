@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CIRCLESHAPE2D_H
+#define CIRCLESHAPE2D_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ float  get_radius();
 float  get_radius();
 void  set_radius(float radius);
 };
+#endif

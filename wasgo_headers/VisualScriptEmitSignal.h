@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTEMITSIGNAL_H
+#define VISUALSCRIPTEMITSIGNAL_H
 
 #include <stdint.h>
 
@@ -10,3 +12,4 @@ String  get_signal();
 String  get_signal();
 void  set_signal(String name);
 };
+#endif

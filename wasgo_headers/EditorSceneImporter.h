@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORSCENEIMPORTER_H
+#define EDITORSCENEIMPORTER_H
 
 #include <stdint.h>
 
-#include "Animation.h"
 #include "String.h"
-#include "Reference.h"
-#include "Variant.h"
 #include "Node.h"
+#include "Reference.h"
+#include "Animation.h"
+#include "Variant.h"
 class EditorSceneImporter : public Reference{
 public: EditorSceneImporter();
 Array  _get_extensions();
@@ -18,3 +20,4 @@ Node  _import_scene(String path, int flags, int bake_fps);
 Animation  import_animation_from_other_importer(String path, int flags, int bake_fps);
 Node  import_scene_from_other_importer(String path, int flags, int bake_fps);
 };
+#endif

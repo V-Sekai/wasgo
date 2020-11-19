@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODE_H
+#define VISUALSHADERNODE_H
 
 #include <stdint.h>
 
@@ -22,3 +24,4 @@ void  set_default_input_values(Array values);
 void  set_input_port_default_value(int port, Variant value);
 void  set_output_port_for_preview(int port);
 };
+#endif

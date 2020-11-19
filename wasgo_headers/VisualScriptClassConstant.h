@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTCLASSCONSTANT_H
+#define VISUALSCRIPTCLASSCONSTANT_H
 
 #include <stdint.h>
 
@@ -13,3 +15,4 @@ String  get_class_constant();
 void  set_base_type(String name);
 void  set_class_constant(String name);
 };
+#endif

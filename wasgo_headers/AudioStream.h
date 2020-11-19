@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOSTREAM_H
+#define AUDIOSTREAM_H
 
 #include <stdint.h>
 
@@ -8,3 +10,4 @@ public: AudioStream();
 float  get_length();
 float  get_length();
 };
+#endif

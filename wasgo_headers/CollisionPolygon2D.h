@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef COLLISIONPOLYGON2D_H
+#define COLLISIONPOLYGON2D_H
 
 #include <stdint.h>
 
-#include "Node2D.h"
 #include "PoolVector2Array.h"
+#include "Node2D.h"
 class CollisionPolygon2D : public Node2D{
 public: CollisionPolygon2D();
 enum BuildMode{
@@ -25,3 +27,4 @@ void  set_one_way_collision(bool enabled);
 void  set_one_way_collision_margin(float margin);
 void  set_polygon(PoolVector2Array polygon);
 };
+#endif

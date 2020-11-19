@@ -1,24 +1,26 @@
 /* THIS FILE IS GENERATED */
+#ifndef CANVASITEM_H
+#define CANVASITEM_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "String.h"
-#include "MultiMesh.h"
-#include "Font.h"
-#include "Material.h"
-#include "Transform2D.h"
-#include "Texture.h"
-#include "World2D.h"
-#include "InputEvent.h"
-#include "Variant.h"
 #include "Vector2.h"
+#include "String.h"
 #include "PoolVector2Array.h"
-#include "Dictionary.h"
-#include "Rect2.h"
 #include "Mesh.h"
 #include "Node.h"
+#include "Rect2.h"
+#include "MultiMesh.h"
+#include "Material.h"
+#include "World2D.h"
+#include "Transform2D.h"
+#include "Font.h"
+#include "Texture.h"
+#include "Dictionary.h"
 #include "StyleBox.h"
+#include "InputEvent.h"
+#include "Variant.h"
+#include "RID.h"
 class CanvasItem : public Node{
 public: CanvasItem();
 enum BlendMode{
@@ -149,3 +151,4 @@ void  show();
 void  update();
 void  update();
 };
+#endif

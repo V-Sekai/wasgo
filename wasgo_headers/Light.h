@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef LIGHT_H
+#define LIGHT_H
 
 #include <stdint.h>
 
@@ -54,3 +56,4 @@ void  set_shadow(bool enabled);
 void  set_shadow_color(Color shadow_color);
 void  set_shadow_reverse_cull_face(bool enable);
 };
+#endif

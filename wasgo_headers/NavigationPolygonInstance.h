@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef NAVIGATIONPOLYGONINSTANCE_H
+#define NAVIGATIONPOLYGONINSTANCE_H
 
 #include <stdint.h>
 
@@ -15,3 +17,4 @@ bool  is_enabled();
 void  set_enabled(bool enabled);
 void  set_navigation_polygon(NavigationPolygon navpoly);
 };
+#endif

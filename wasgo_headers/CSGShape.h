@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef CSGSHAPE_H
+#define CSGSHAPE_H
 
 #include <stdint.h>
 
@@ -39,3 +41,4 @@ void  set_operation(int operation);
 void  set_snap(float snap);
 void  set_use_collision(bool operation);
 };
+#endif

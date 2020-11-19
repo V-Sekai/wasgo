@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef SPATIAL_H
+#define SPATIAL_H
 
 #include <stdint.h>
 
+#include "Node.h"
 #include "Transform.h"
-#include "World.h"
 #include "SpatialGizmo.h"
 #include "Vector3.h"
-#include "Node.h"
+#include "World.h"
 class Spatial : public Node{
 public: Spatial();
 void  _update_gizmo();
@@ -82,3 +84,4 @@ void  translate_object_local(Vector3 offset);
 void  update_gizmo();
 void  update_gizmo();
 };
+#endif

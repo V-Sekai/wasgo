@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef DYNAMICFONTDATA_H
+#define DYNAMICFONTDATA_H
 
 #include <stdint.h>
 
@@ -20,3 +22,4 @@ void  set_antialiased(bool antialiased);
 void  set_font_path(String path);
 void  set_hinting(int mode);
 };
+#endif

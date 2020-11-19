@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef PRIMITIVEMESH_H
+#define PRIMITIVEMESH_H
 
 #include <stdint.h>
 
-#include "AABB.h"
 #include "Mesh.h"
+#include "AABB.h"
 #include "Variant.h"
 #include "Material.h"
 class PrimitiveMesh : public Mesh{
@@ -22,3 +24,4 @@ void  set_custom_aabb(AABB aabb);
 void  set_flip_faces(bool flip_faces);
 void  set_material(Material material);
 };
+#endif

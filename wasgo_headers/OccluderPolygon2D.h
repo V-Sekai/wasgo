@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef OCCLUDERPOLYGON2D_H
+#define OCCLUDERPOLYGON2D_H
 
 #include <stdint.h>
 
@@ -20,3 +22,4 @@ void  set_closed(bool closed);
 void  set_cull_mode(int cull_mode);
 void  set_polygon(PoolVector2Array polygon);
 };
+#endif

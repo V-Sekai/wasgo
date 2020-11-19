@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODETRANSFORMFUNC_H
+#define VISUALSHADERNODETRANSFORMFUNC_H
 
 #include <stdint.h>
 
@@ -12,3 +14,4 @@ enum.VisualShaderNodeTransformFunc::Function  get_function();
 enum.VisualShaderNodeTransformFunc::Function  get_function();
 void  set_function(int func);
 };
+#endif

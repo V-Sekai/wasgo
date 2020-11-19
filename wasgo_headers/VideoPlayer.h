@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VIDEOPLAYER_H
+#define VIDEOPLAYER_H
 
 #include <stdint.h>
 
@@ -49,3 +51,4 @@ void  set_volume_db(float db);
 void  stop();
 void  stop();
 };
+#endif

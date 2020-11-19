@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef CURVE2D_H
+#define CURVE2D_H
 
 #include <stdint.h>
 
-#include "PoolVector2Array.h"
 #include "Vector2.h"
+#include "PoolVector2Array.h"
 #include "Dictionary.h"
 #include "Resource.h"
 class Curve2D : public Resource{
@@ -37,3 +39,4 @@ void  set_point_out(int idx, Vector2 position);
 void  set_point_position(int idx, Vector2 position);
 PoolVector2Array  tessellate(int max_stages = 5, float tolerance_degrees = 4);
 };
+#endif

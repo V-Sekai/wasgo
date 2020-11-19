@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUT_H
+#define INPUT_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "InputEvent.h"
-#include "Resource.h"
 #include "Vector2.h"
-#include "Variant.h"
+#include "String.h"
+#include "Resource.h"
 #include "Object.h"
 #include "Vector3.h"
+#include "InputEvent.h"
+#include "Variant.h"
 class Input : public Object{
 public: Input();
 enum MouseMode{
@@ -84,3 +86,4 @@ void  stop_joy_vibration(int device);
 void  vibrate_handheld(int duration_ms = 500);
 void  warp_mouse_position(Vector2 to);
 };
+#endif

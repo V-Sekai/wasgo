@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATEDSPRITE_H
+#define ANIMATEDSPRITE_H
 
 #include <stdint.h>
 
-#include "Node2D.h"
-#include "String.h"
 #include "Vector2.h"
+#include "String.h"
 #include "SpriteFrames.h"
+#include "Node2D.h"
 class AnimatedSprite : public Node2D{
 public: AnimatedSprite();
 bool  _is_playing();
@@ -43,3 +45,4 @@ void  set_sprite_frames(SpriteFrames sprite_frames);
 void  stop();
 void  stop();
 };
+#endif

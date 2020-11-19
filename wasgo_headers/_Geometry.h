@@ -1,16 +1,18 @@
 /* THIS FILE IS GENERATED */
+#ifndef _GEOMETRY_H
+#define _GEOMETRY_H
 
 #include <stdint.h>
 
-#include "PoolIntArray.h"
-#include "Variant.h"
-#include "Vector2.h"
 #include "PoolVector3Array.h"
+#include "PoolVector2Array.h"
+#include "Vector2.h"
 #include "Object.h"
 #include "Vector3.h"
-#include "PoolVector2Array.h"
+#include "PoolIntArray.h"
 #include "Dictionary.h"
 #include "Plane.h"
+#include "Variant.h"
 class _Geometry : public Object{
 public: _Geometry();
 enum PolyEndType{
@@ -64,3 +66,4 @@ Variant  segment_intersects_triangle(Vector3 from, Vector3 to, Vector3 a, Vector
 PoolIntArray  triangulate_delaunay_2d(PoolVector2Array points);
 PoolIntArray  triangulate_polygon(PoolVector2Array polygon);
 };
+#endif

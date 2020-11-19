@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef PHYSICSSHAPEQUERYPARAMETERS_H
+#define PHYSICSSHAPEQUERYPARAMETERS_H
 
 #include <stdint.h>
 
-#include "RID.h"
+#include "Resource.h"
 #include "Transform.h"
 #include "Reference.h"
-#include "Resource.h"
 #include "Variant.h"
+#include "RID.h"
 class PhysicsShapeQueryParameters : public Reference{
 public: PhysicsShapeQueryParameters();
 int  get_collision_mask();
@@ -32,3 +34,4 @@ void  set_shape(Resource shape);
 void  set_shape_rid(RID shape);
 void  set_transform(Transform transform);
 };
+#endif

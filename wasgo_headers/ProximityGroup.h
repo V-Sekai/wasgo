@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef PROXIMITYGROUP_H
+#define PROXIMITYGROUP_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "Vector3.h"
-#include "Variant.h"
 #include "Spatial.h"
+#include "Variant.h"
 class ProximityGroup : public Spatial{
 public: ProximityGroup();
 enum DispatchMode{
@@ -23,3 +25,4 @@ void  set_dispatch_mode(int mode);
 void  set_grid_radius(Vector3 radius);
 void  set_group_name(String name);
 };
+#endif

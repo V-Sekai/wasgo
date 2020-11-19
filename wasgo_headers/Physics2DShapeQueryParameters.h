@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef PHYSICS2DSHAPEQUERYPARAMETERS_H
+#define PHYSICS2DSHAPEQUERYPARAMETERS_H
 
 #include <stdint.h>
 
-#include "RID.h"
+#include "Vector2.h"
+#include "Resource.h"
 #include "Reference.h"
 #include "Transform2D.h"
-#include "Resource.h"
-#include "Vector2.h"
 #include "Variant.h"
+#include "RID.h"
 class Physics2DShapeQueryParameters : public Reference{
 public: Physics2DShapeQueryParameters();
 int  get_collision_layer();
@@ -36,3 +38,4 @@ void  set_shape(Resource shape);
 void  set_shape_rid(RID shape);
 void  set_transform(Transform2D transform);
 };
+#endif

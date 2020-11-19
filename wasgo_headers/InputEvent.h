@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTEVENT_H
+#define INPUTEVENT_H
 
 #include <stdint.h>
 
-#include "Transform2D.h"
-#include "String.h"
-#include "Resource.h"
 #include "Vector2.h"
+#include "String.h"
+#include "Transform2D.h"
+#include "Resource.h"
 class InputEvent : public Resource{
 public: InputEvent();
 bool  accumulate(InputEvent with_event);
@@ -27,3 +29,4 @@ void  set_device(int device);
 bool  shortcut_match(InputEvent event);
 InputEvent  xformed_by(Transform2D xform, Vector2 local_ofs = (0, 0));
 };
+#endif

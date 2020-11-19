@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef BACKBUFFERCOPY_H
+#define BACKBUFFERCOPY_H
 
 #include <stdint.h>
 
@@ -17,3 +19,4 @@ Rect2  get_rect();
 void  set_copy_mode(int copy_mode);
 void  set_rect(Rect2 rect);
 };
+#endif

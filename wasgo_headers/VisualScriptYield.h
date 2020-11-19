@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSCRIPTYIELD_H
+#define VISUALSCRIPTYIELD_H
 
 #include <stdint.h>
 
@@ -16,3 +18,4 @@ enum.VisualScriptYield::YieldMode  get_yield_mode();
 void  set_wait_time(float sec);
 void  set_yield_mode(int mode);
 };
+#endif

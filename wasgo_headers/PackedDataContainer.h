@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef PACKEDDATACONTAINER_H
+#define PACKEDDATACONTAINER_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ enum.Error  pack(Variant value);
 int  size();
 int  size();
 };
+#endif

@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef CHARFXTRANSFORM_H
+#define CHARFXTRANSFORM_H
 
 #include <stdint.h>
 
 #include "Vector2.h"
 #include "Reference.h"
-#include "Variant.h"
 #include "Dictionary.h"
+#include "Variant.h"
 class CharFXTransform : public Reference{
 public: CharFXTransform();
 int  get_absolute_index();
@@ -33,3 +35,4 @@ void  set_offset(Vector2 offset);
 void  set_relative_index(int index);
 void  set_visibility(bool visibility);
 };
+#endif

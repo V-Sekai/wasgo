@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef SHAPE_H
+#define SHAPE_H
 
 #include <stdint.h>
 
@@ -9,3 +11,4 @@ float  get_margin();
 float  get_margin();
 void  set_margin(float margin);
 };
+#endif

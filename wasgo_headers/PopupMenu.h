@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef POPUPMENU_H
+#define POPUPMENU_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "Popup.h"
 #include "Texture.h"
+#include "ShortCut.h"
 #include "InputEvent.h"
 #include "Variant.h"
-#include "ShortCut.h"
 class PopupMenu : public Popup{
 public: PopupMenu();
 Array  _get_items();
@@ -87,3 +89,4 @@ void  set_submenu_popup_delay(float seconds);
 void  toggle_item_checked(int idx);
 void  toggle_item_multistate(int idx);
 };
+#endif

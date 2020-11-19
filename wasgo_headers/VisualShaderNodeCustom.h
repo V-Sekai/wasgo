@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODECUSTOM_H
+#define VISUALSHADERNODECUSTOM_H
 
 #include <stdint.h>
 
@@ -28,3 +30,4 @@ int  _get_return_icon_type();
 String  _get_subcategory();
 String  _get_subcategory();
 };
+#endif

@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONPLAYER_H
+#define ANIMATIONPLAYER_H
 
 #include <stdint.h>
 
-#include "Animation.h"
 #include "String.h"
 #include "NodePath.h"
-#include "Erro.h"
 #include "Node.h"
+#include "Erro.h"
 #include "PoolStringArray.h"
+#include "Animation.h"
 class AnimationPlayer : public Node{
 public: AnimationPlayer();
 enum AnimationProcessMode{
@@ -80,3 +82,4 @@ void  set_root(NodePath path);
 void  set_speed_scale(float speed);
 void  stop(bool reset = true);
 };
+#endif

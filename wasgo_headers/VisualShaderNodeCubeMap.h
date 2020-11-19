@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODECUBEMAP_H
+#define VISUALSHADERNODECUBEMAP_H
 
 #include <stdint.h>
 
@@ -23,3 +25,4 @@ void  set_cube_map(CubeMap value);
 void  set_source(int value);
 void  set_texture_type(int value);
 };
+#endif

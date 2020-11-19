@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef PATHFOLLOW_H
+#define PATHFOLLOW_H
 
 #include <stdint.h>
 
@@ -33,3 +35,4 @@ void  set_rotation_mode(int rotation_mode);
 void  set_unit_offset(float unit_offset);
 void  set_v_offset(float v_offset);
 };
+#endif

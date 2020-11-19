@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef RAYCAST_H
+#define RAYCAST_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "Vector3.h"
 #include "Object.h"
+#include "Vector3.h"
 #include "Spatial.h"
+#include "RID.h"
 class RayCast : public Spatial{
 public: RayCast();
 void  add_exception(Object node);
@@ -47,3 +49,4 @@ void  set_collision_mask_bit(int bit, bool value);
 void  set_enabled(bool enabled);
 void  set_exclude_parent_body(bool mask);
 };
+#endif

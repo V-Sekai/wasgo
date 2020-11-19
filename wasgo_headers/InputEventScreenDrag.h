@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTEVENTSCREENDRAG_H
+#define INPUTEVENTSCREENDRAG_H
 
 #include <stdint.h>
 
-#include "InputEvent.h"
 #include "Vector2.h"
+#include "InputEvent.h"
 class InputEventScreenDrag : public InputEvent{
 public: InputEventScreenDrag();
 int  get_index();
@@ -19,3 +21,4 @@ void  set_position(Vector2 position);
 void  set_relative(Vector2 relative);
 void  set_speed(Vector2 speed);
 };
+#endif

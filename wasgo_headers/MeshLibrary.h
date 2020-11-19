@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef MESHLIBRARY_H
+#define MESHLIBRARY_H
 
 #include <stdint.h>
 
-#include "Transform.h"
 #include "String.h"
+#include "Resource.h"
+#include "Mesh.h"
+#include "Transform.h"
 #include "PoolIntArray.h"
 #include "Texture.h"
-#include "Resource.h"
 #include "NavigationMesh.h"
 #include "Variant.h"
-#include "Mesh.h"
 class MeshLibrary : public Resource{
 public: MeshLibrary();
 void  clear();
@@ -34,3 +36,4 @@ void  set_item_navmesh_transform(int id, Transform navmesh);
 void  set_item_preview(int id, Texture texture);
 void  set_item_shapes(int id, Array shapes);
 };
+#endif

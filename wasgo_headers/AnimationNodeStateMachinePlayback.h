@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef ANIMATIONNODESTATEMACHINEPLAYBACK_H
+#define ANIMATIONNODESTATEMACHINEPLAYBACK_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "PoolStringArray.h"
 #include "Resource.h"
+#include "PoolStringArray.h"
 class AnimationNodeStateMachinePlayback : public Resource{
 public: AnimationNodeStateMachinePlayback();
 String  get_current_node();
@@ -18,3 +20,4 @@ void  stop();
 void  stop();
 void  travel(String to_node);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef NETWORKEDMULTIPLAYERPEER_H
+#define NETWORKEDMULTIPLAYERPEER_H
 
 #include <stdint.h>
 
@@ -29,3 +31,4 @@ void  set_refuse_new_connections(bool enable);
 void  set_target_peer(int id);
 void  set_transfer_mode(int mode);
 };
+#endif

@@ -1,15 +1,17 @@
 /* THIS FILE IS GENERATED */
+#ifndef GRAPHEDIT_H
+#define GRAPHEDIT_H
 
 #include <stdint.h>
 
+#include "Vector2.h"
 #include "String.h"
-#include "HBoxContainer.h"
 #include "Control.h"
+#include "Node.h"
+#include "Erro.h"
+#include "HBoxContainer.h"
 #include "InputEvent.h"
 #include "Variant.h"
-#include "Vector2.h"
-#include "Erro.h"
-#include "Node.h"
 class GraphEdit : public Control{
 public: GraphEdit();
 void  _connections_layer_draw();
@@ -66,3 +68,4 @@ void  set_snap(int pixels);
 void  set_use_snap(bool enable);
 void  set_zoom(float p_zoom);
 };
+#endif

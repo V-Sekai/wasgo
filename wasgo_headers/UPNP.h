@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef UPNP_H
+#define UPNP_H
 
 #include <stdint.h>
 
-#include "String.h"
 #include "UPNPDevice.h"
 #include "Reference.h"
+#include "String.h"
 class UPNP : public Reference{
 public: UPNP();
 enum UPNPResult{
@@ -62,3 +64,4 @@ void  set_discover_ipv6(bool ipv6);
 void  set_discover_local_port(int port);
 void  set_discover_multicast_if(String m_if);
 };
+#endif

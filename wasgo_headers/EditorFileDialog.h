@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORFILEDIALOG_H
+#define EDITORFILEDIALOG_H
 
 #include <stdint.h>
 
+#include "Vector2.h"
 #include "String.h"
+#include "ConfirmationDialog.h"
 #include "VBoxContainer.h"
 #include "Texture.h"
 #include "InputEvent.h"
-#include "Vector2.h"
 #include "Variant.h"
-#include "ConfirmationDialog.h"
 class EditorFileDialog : public ConfirmationDialog{
 public: EditorFileDialog();
 enum DisplayMode{
@@ -101,3 +103,4 @@ void  set_display_mode(int mode);
 void  set_mode(int mode);
 void  set_show_hidden_files(bool show);
 };
+#endif

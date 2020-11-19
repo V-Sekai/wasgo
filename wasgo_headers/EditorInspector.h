@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef EDITORINSPECTOR_H
+#define EDITORINSPECTOR_H
 
 #include <stdint.h>
 
 #include "String.h"
 #include "Resource.h"
-#include "Object.h"
-#include "Variant.h"
-#include "Node.h"
-#include "PoolStringArray.h"
 #include "ScrollContainer.h"
+#include "Node.h"
+#include "Object.h"
+#include "PoolStringArray.h"
+#include "Variant.h"
 class EditorInspector : public ScrollContainer{
 public: EditorInspector();
 void  _edit_request_change(Object arg0, String arg1);
@@ -29,3 +31,4 @@ void  _vscroll_changed(float arg0);
 void  refresh();
 void  refresh();
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef BOXSHAPE_H
+#define BOXSHAPE_H
 
 #include <stdint.h>
 
@@ -10,3 +12,4 @@ Vector3  get_extents();
 Vector3  get_extents();
 void  set_extents(Vector3 extents);
 };
+#endif

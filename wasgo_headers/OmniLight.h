@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef OMNILIGHT_H
+#define OMNILIGHT_H
 
 #include <stdint.h>
 
@@ -18,3 +20,4 @@ enum.OmniLight::ShadowMode  get_shadow_mode();
 void  set_shadow_detail(int detail);
 void  set_shadow_mode(int mode);
 };
+#endif

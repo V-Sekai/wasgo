@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef UPNPDEVICE_H
+#define UPNPDEVICE_H
 
 #include <stdint.h>
 
@@ -42,3 +44,4 @@ void  set_igd_service_type(String type);
 void  set_igd_status(int status);
 void  set_service_type(String type);
 };
+#endif

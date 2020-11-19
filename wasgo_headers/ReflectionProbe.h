@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef REFLECTIONPROBE_H
+#define REFLECTIONPROBE_H
 
 #include <stdint.h>
 
-#include "VisualInstance.h"
 #include "Vector3.h"
+#include "VisualInstance.h"
 #include "Variant.h"
 class ReflectionProbe : public VisualInstance{
 public: ReflectionProbe();
@@ -47,3 +49,4 @@ void  set_max_distance(float max_distance);
 void  set_origin_offset(Vector3 origin_offset);
 void  set_update_mode(int mode);
 };
+#endif

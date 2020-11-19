@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef ASTAR2D_H
+#define ASTAR2D_H
 
 #include <stdint.h>
 
-#include "PoolIntArray.h"
-#include "Reference.h"
 #include "Vector2.h"
-#include "Variant.h"
 #include "PoolVector2Array.h"
+#include "Reference.h"
+#include "PoolIntArray.h"
+#include "Variant.h"
 class AStar2D : public Reference{
 public: AStar2D();
 void  add_point(int id, Vector2 position, float weight_scale = 1);
@@ -38,3 +40,4 @@ void  set_point_disabled(int id, bool disabled = true);
 void  set_point_position(int id, Vector2 position);
 void  set_point_weight_scale(int id, float weight_scale);
 };
+#endif

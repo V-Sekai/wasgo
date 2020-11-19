@@ -1,14 +1,16 @@
 /* THIS FILE IS GENERATED */
+#ifndef TABCONTAINER_H
+#define TABCONTAINER_H
 
 #include <stdint.h>
 
 #include "String.h"
-#include "Popup.h"
 #include "Control.h"
+#include "Popup.h"
+#include "Node.h"
 #include "Texture.h"
 #include "InputEvent.h"
 #include "Container.h"
-#include "Node.h"
 class TabContainer : public Container{
 public: TabContainer();
 enum TabAlign{
@@ -59,3 +61,4 @@ void  set_tabs_rearrange_group(int group_id);
 void  set_tabs_visible(bool visible);
 void  set_use_hidden_tabs_for_min_size(bool enabled);
 };
+#endif

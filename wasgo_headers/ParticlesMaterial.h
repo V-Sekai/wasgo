@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef PARTICLESMATERIAL_H
+#define PARTICLESMATERIAL_H
 
 #include <stdint.h>
 
+#include "GradientTexture.h"
+#include "CurveTexture.h"
 #include "Material.h"
+#include "Vector3.h"
 #include "Texture.h"
 #include "Variant.h"
-#include "GradientTexture.h"
-#include "Vector3.h"
-#include "CurveTexture.h"
 class ParticlesMaterial : public Material{
 public: ParticlesMaterial();
 enum Flags{
@@ -96,3 +98,4 @@ void  set_trail_color_modifier(GradientTexture texture);
 void  set_trail_divisor(int divisor);
 void  set_trail_size_modifier(CurveTexture texture);
 };
+#endif

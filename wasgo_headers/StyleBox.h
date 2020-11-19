@@ -1,12 +1,14 @@
 /* THIS FILE IS GENERATED */
+#ifndef STYLEBOX_H
+#define STYLEBOX_H
 
 #include <stdint.h>
 
-#include "RID.h"
-#include "Resource.h"
 #include "Vector2.h"
+#include "Resource.h"
 #include "Rect2.h"
 #include "CanvasItem.h"
+#include "RID.h"
 class StyleBox : public Resource{
 public: StyleBox();
 void  draw(RID canvas_item, Rect2 rect);
@@ -23,3 +25,4 @@ Vector2  get_offset();
 void  set_default_margin(int margin, float offset);
 bool  test_mask(Vector2 point, Rect2 rect);
 };
+#endif

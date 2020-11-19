@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef SOFTBODY_H
+#define SOFTBODY_H
 
 #include <stdint.h>
 
+#include "NodePath.h"
 #include "Node.h"
 #include "MeshInstance.h"
 #include "Variant.h"
-#include "NodePath.h"
 class SoftBody : public MeshInstance{
 public: SoftBody();
 void  _draw_soft_mesh();
@@ -58,3 +60,4 @@ void  set_simulation_precision(int simulation_precision);
 void  set_total_mass(float mass);
 void  set_volume_stiffness(float volume_stiffness);
 };
+#endif

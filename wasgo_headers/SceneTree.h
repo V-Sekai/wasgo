@@ -1,20 +1,22 @@
 /* THIS FILE IS GENERATED */
+#ifndef SCENETREE_H
+#define SCENETREE_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "PoolIntArray.h"
-#include "NetworkedMultiplayerPeer.h"
-#include "Viewport.h"
-#include "PackedScene.h"
-#include "Variant.h"
-#include "Object.h"
-#include "Vector2.h"
-#include "Erro.h"
 #include "MultiplayerAPI.h"
+#include "String.h"
+#include "Vector2.h"
+#include "PackedScene.h"
 #include "MainLoop.h"
 #include "Node.h"
 #include "SceneTreeTimer.h"
+#include "Erro.h"
+#include "Object.h"
+#include "PoolIntArray.h"
+#include "Viewport.h"
+#include "Variant.h"
+#include "NetworkedMultiplayerPeer.h"
 class SceneTree : public MainLoop{
 public: SceneTree();
 enum StretchAspect{
@@ -110,3 +112,4 @@ void  set_refuse_new_network_connections(bool refuse);
 void  set_screen_stretch(int mode, int aspect, Vector2 minsize, float shrink = 1);
 void  set_use_font_oversampling(bool enable);
 };
+#endif

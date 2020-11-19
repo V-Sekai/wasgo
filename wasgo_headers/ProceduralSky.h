@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef PROCEDURALSKY_H
+#define PROCEDURALSKY_H
 
 #include <stdint.h>
 
-#include "Variant.h"
 #include "Image.h"
 #include "Sky.h"
+#include "Variant.h"
 class ProceduralSky : public Sky{
 public: ProceduralSky();
 enum TextureSize{
@@ -66,3 +68,4 @@ void  set_sun_latitude(float degrees);
 void  set_sun_longitude(float degrees);
 void  set_texture_size(int size);
 };
+#endif

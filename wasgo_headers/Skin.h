@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef SKIN_H
+#define SKIN_H
 
 #include <stdint.h>
 
-#include "Transform.h"
 #include "Resource.h"
+#include "Transform.h"
 class Skin : public Resource{
 public: Skin();
 void  add_bind(int bone, Transform pose);
@@ -17,3 +19,4 @@ void  set_bind_bone(int bind_index, int bone);
 void  set_bind_count(int bind_count);
 void  set_bind_pose(int bind_index, Transform pose);
 };
+#endif

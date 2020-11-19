@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef NAVIGATIONMESH_H
+#define NAVIGATIONMESH_H
 
 #include <stdint.h>
 
-#include "String.h"
-#include "PoolIntArray.h"
-#include "Resource.h"
-#include "Variant.h"
 #include "PoolVector3Array.h"
+#include "String.h"
+#include "Resource.h"
 #include "Mesh.h"
+#include "PoolIntArray.h"
+#include "Variant.h"
 class NavigationMesh : public Resource{
 public: NavigationMesh();
 Array  _get_polygons();
@@ -89,3 +91,4 @@ void  set_source_group_name(String mask);
 void  set_vertices(PoolVector3Array vertices);
 void  set_verts_per_poly(float verts_per_poly);
 };
+#endif

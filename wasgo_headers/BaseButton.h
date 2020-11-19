@@ -1,11 +1,13 @@
 /* THIS FILE IS GENERATED */
+#ifndef BASEBUTTON_H
+#define BASEBUTTON_H
 
 #include <stdint.h>
 
-#include "Control.h"
-#include "InputEvent.h"
-#include "ShortCut.h"
 #include "ButtonGroup.h"
+#include "ShortCut.h"
+#include "InputEvent.h"
+#include "Control.h"
 class BaseButton : public Control{
 public: BaseButton();
 enum ActionMode{
@@ -57,3 +59,4 @@ void  set_shortcut(ShortCut shortcut);
 void  set_shortcut_in_tooltip(bool enabled);
 void  set_toggle_mode(bool enabled);
 };
+#endif

@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef INPUTEVENTWITHMODIFIERS_H
+#define INPUTEVENTWITHMODIFIERS_H
 
 #include <stdint.h>
 
@@ -21,3 +23,4 @@ void  set_control(bool enable);
 void  set_metakey(bool enable);
 void  set_shift(bool enable);
 };
+#endif

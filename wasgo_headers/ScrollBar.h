@@ -1,9 +1,11 @@
 /* THIS FILE IS GENERATED */
+#ifndef SCROLLBAR_H
+#define SCROLLBAR_H
 
 #include <stdint.h>
 
-#include "Range.h"
 #include "InputEvent.h"
+#include "Range.h"
 class ScrollBar : public Range{
 public: ScrollBar();
 void  _drag_node_exit();
@@ -14,3 +16,4 @@ float  get_custom_step();
 float  get_custom_step();
 void  set_custom_step(float step);
 };
+#endif

@@ -1,10 +1,12 @@
 /* THIS FILE IS GENERATED */
+#ifndef BUTTON_H
+#define BUTTON_H
 
 #include <stdint.h>
 
 #include "Texture.h"
-#include "String.h"
 #include "BaseButton.h"
+#include "String.h"
 class Button : public BaseButton{
 public: Button();
 enum TextAlign{
@@ -30,3 +32,4 @@ void  set_flat(bool enabled);
 void  set_text(String text);
 void  set_text_align(int align);
 };
+#endif

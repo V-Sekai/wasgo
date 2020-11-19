@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef CONFIGFILE_H
+#define CONFIGFILE_H
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
 #include "String.h"
+#include "PoolByteArray.h"
 #include "Reference.h"
-#include "Variant.h"
 #include "Erro.h"
 #include "PoolStringArray.h"
+#include "Variant.h"
 class ConfigFile : public Reference{
 public: ConfigFile();
 void  erase_section(String section);
@@ -26,3 +28,4 @@ enum.Error  save_encrypted(String path, PoolByteArray key);
 enum.Error  save_encrypted_pass(String path, String pass);
 void  set_value(String section, String key, Variant value);
 };
+#endif

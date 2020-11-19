@@ -1,13 +1,15 @@
 /* THIS FILE IS GENERATED */
+#ifndef POLYGONPATHFINDER_H
+#define POLYGONPATHFINDER_H
 
 #include <stdint.h>
 
-#include "PoolIntArray.h"
-#include "Resource.h"
 #include "Vector2.h"
 #include "PoolVector2Array.h"
-#include "Dictionary.h"
+#include "Resource.h"
 #include "Rect2.h"
+#include "PoolIntArray.h"
+#include "Dictionary.h"
 class PolygonPathFinder : public Resource{
 public: PolygonPathFinder();
 Dictionary  _get_data();
@@ -23,3 +25,4 @@ bool  is_point_inside(Vector2 point);
 void  set_point_penalty(int idx, float penalty);
 void  setup(PoolVector2Array points, PoolIntArray connections);
 };
+#endif

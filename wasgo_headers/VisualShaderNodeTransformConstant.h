@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef VISUALSHADERNODETRANSFORMCONSTANT_H
+#define VISUALSHADERNODETRANSFORMCONSTANT_H
 
 #include <stdint.h>
 
@@ -10,3 +12,4 @@ Transform  get_constant();
 Transform  get_constant();
 void  set_constant(Transform value);
 };
+#endif

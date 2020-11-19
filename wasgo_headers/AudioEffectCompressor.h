@@ -1,4 +1,6 @@
 /* THIS FILE IS GENERATED */
+#ifndef AUDIOEFFECTCOMPRESSOR_H
+#define AUDIOEFFECTCOMPRESSOR_H
 
 #include <stdint.h>
 
@@ -28,3 +30,4 @@ void  set_release_ms(float release_ms);
 void  set_sidechain(String sidechain);
 void  set_threshold(float threshold);
 };
+#endif
