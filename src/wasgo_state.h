@@ -15,9 +15,9 @@ These nodes also handle things like translating wasm commands to Godot functions
 
 #include "resource_wasm.h"
 #include "wasm_export.h"
-#include <core/engine.h>
-#include <core/variant.h>
-#include <scene/main/node.h>
+#include "core/engine.h"
+#include "core/variant.h"
+#include "scene/main/node.h"
 
 class WasGoState : public Node {
 	GDCLASS(WasGoState, Node);

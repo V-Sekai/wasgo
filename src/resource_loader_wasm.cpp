@@ -5,9 +5,9 @@
 #include "resource_wasm.h"
 
 RES ResourceFormatLoaderWasm::load(const String &p_path, const String &p_original_path, Error *r_error) {
-Ref<WasmResource> wasm = memnew(WasmResource);
+    Ref<WasmResource> wasm = memnew(WasmResource);
     if (r_error) {
-            *r_error = OK;
+	    *r_error = OK;
     }
     Error err = wasm->load_file(p_path);
     return wasm;
