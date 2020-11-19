@@ -1,0 +1,21 @@
+/* THIS FILE IS GENERATED */
+
+#include <stdint.h>
+
+#include "Node.h"
+#include "Object.h"
+#include "Variant.h"
+class EditorSelection : public Object{
+public: EditorSelection();
+void  _emit_change();
+void  _emit_change();
+void  _node_removed(Node arg0);
+void  add_node(Node node);
+void  clear();
+void  clear();
+Array  get_selected_nodes();
+Array  get_selected_nodes();
+Array  get_transformable_selected_nodes();
+Array  get_transformable_selected_nodes();
+void  remove_node(Node node);
+};

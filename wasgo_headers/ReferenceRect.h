@@ -1,0 +1,15 @@
+/* THIS FILE IS GENERATED */
+
+#include <stdint.h>
+
+#include "Control.h"
+#include "Variant.h"
+class ReferenceRect : public Control{
+public: ReferenceRect();
+Color  get_border_color();
+Color  get_border_color();
+bool  get_editor_only();
+bool  get_editor_only();
+void  set_border_color(Color color);
+void  set_editor_only(bool enabled);
+};

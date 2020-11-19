@@ -66,27 +66,27 @@ WasGoState::~WasGoState(){
 Object *WasGoState::lookup_object(WasGoID id) {
 	if (createdObjectsReverse.has(id)) {
 		return ObjectDB::get_instance(createdObjectsReverse[id]);
-	} else {
-		return nullptr;
 	}
+	return nullptr;
 }
 
 Object *WasGoState::lookup_referencedObject(WasGoID id) {
 	if (referencedObjectsReverse.has(id)) {
 		return ObjectDB::get_instance(referencedObjectsReverse[id]);
-	} else {
-		return nullptr;
 	}
+	return nullptr;
 }
 Array WasGoState::lookup_array(WasGoID id){
     if(referencedArraysReverse.has(id)){
 		return referencedArraysReverse[id];
 	}
+	return Array();
 }
 Dictionary WasGoState::lookup_dictionary(WasGoID id){
     if(referencedDictionaryReverse.has(id)){
 		return referencedDictionaryReverse[id];
 	}
+	return Dictionary();
 }
 
 bool WasGoState::is_active(){
