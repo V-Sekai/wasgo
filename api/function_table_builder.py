@@ -98,11 +98,14 @@ def _build_function_interfaces(api_one, api_two):
 
     #TODO create a wrapper class for Variants because they aren't in the api.json
     out += [
+        "#ifndef VARIANT_H",
+        "#define VARIANT_H",
         "class Variant{",
         "private: uint32_t objectID;",
         "};"]
     for variant in variants:
-        out += ["class %s: public Variant{};" % variant]
+        out += ["class %s: public Variant{};" % variant,
+                "#endif"]
 
     # for header_api in api_two:
     #     n = header_api['name']
@@ -117,7 +120,6 @@ def _build_function_interfaces(api_one, api_two):
             "#include <stdint.h>",
             "",
         ]
-        #ifdefs
         includes = set()
         for method in header_api['methods']:
             for args in method["arguments"]:
