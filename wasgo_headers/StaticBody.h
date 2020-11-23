@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "PhysicsBody.h"
 #include "Vector3.h"
+#include "PhysicsBody.h"
 #include "PhysicsMaterial.h"
 class StaticBody : public PhysicsBody{
 public: StaticBody();

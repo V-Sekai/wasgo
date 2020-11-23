@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "PoolVector3Array.h"
 #include "Transform.h"
+#include "PoolVector3Array.h"
+#include "Spatial.h"
 #include "Object.h"
 #include "Vector3.h"
-#include "Spatial.h"
 #include "NavigationMesh.h"
 class Navigation : public Spatial{
 public: Navigation();

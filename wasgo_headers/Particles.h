@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
+#include "Material.h"
+#include "AABB.h"
 #include "GeometryInstance.h"
 #include "Mesh.h"
-#include "AABB.h"
-#include "Material.h"
 class Particles : public GeometryInstance{
 public: Particles();
 enum DrawOrder{

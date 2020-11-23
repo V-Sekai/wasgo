@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "GDNativeLibrary.h"
 #include "String.h"
 #include "Script.h"
-#include "GDNativeLibrary.h"
 #include "Variant.h"
 class NativeScript : public Script{
 public: NativeScript();

@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
 #include "String.h"
 #include "Erro.h"
+#include "Texture.h"
 class StreamTexture : public Texture{
 public: StreamTexture();
 String  get_load_path();

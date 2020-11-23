@@ -4,19 +4,19 @@
 
 #include <stdint.h>
 
-#include "MultiplayerAPI.h"
 #include "String.h"
+#include "Node.h"
+#include "Viewport.h"
 #include "Vector2.h"
+#include "PoolIntArray.h"
+#include "NetworkedMultiplayerPeer.h"
+#include "SceneTreeTimer.h"
+#include "MultiplayerAPI.h"
+#include "Erro.h"
+#include "Variant.h"
 #include "PackedScene.h"
 #include "MainLoop.h"
-#include "Node.h"
-#include "SceneTreeTimer.h"
-#include "Erro.h"
 #include "Object.h"
-#include "PoolIntArray.h"
-#include "Viewport.h"
-#include "Variant.h"
-#include "NetworkedMultiplayerPeer.h"
 class SceneTree : public MainLoop{
 public: SceneTree();
 enum StretchAspect{

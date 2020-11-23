@@ -4,13 +4,13 @@
 
 #include <stdint.h>
 
-#include "NodePath.h"
 #include "Resource.h"
-#include "PoolByteArray.h"
 #include "AABB.h"
+#include "PoolByteArray.h"
 #include "Transform.h"
-#include "Texture.h"
+#include "NodePath.h"
 #include "Variant.h"
+#include "Texture.h"
 class BakedLightmapData : public Resource{
 public: BakedLightmapData();
 Array  _get_user_data();

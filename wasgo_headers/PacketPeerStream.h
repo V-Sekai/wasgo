@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "PacketPeer.h"
 #include "StreamPeer.h"
+#include "PacketPeer.h"
 class PacketPeerStream : public PacketPeer{
 public: PacketPeerStream();
 int  get_input_buffer_max_size();

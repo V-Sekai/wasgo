@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "Resource.h"
+#include "Vector2.h"
 #include "Transform2D.h"
 #include "Variant.h"
 class Shape2D : public Resource{

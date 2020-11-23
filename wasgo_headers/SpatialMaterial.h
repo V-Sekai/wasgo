@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
+#include "Material.h"
 #include "Vector3.h"
 #include "Variant.h"
-#include "Material.h"
+#include "Texture.h"
 class SpatialMaterial : public Material{
 public: SpatialMaterial();
 enum EmissionOperator{

@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Shape.h"
 #include "Spatial.h"
+#include "Shape.h"
 #include "RID.h"
 class SpringArm : public Spatial{
 public: SpringArm();

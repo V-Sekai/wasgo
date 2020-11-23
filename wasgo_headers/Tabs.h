@@ -5,10 +5,10 @@
 #include <stdint.h>
 
 #include "String.h"
-#include "Control.h"
 #include "Rect2.h"
-#include "Texture.h"
 #include "InputEvent.h"
+#include "Control.h"
+#include "Texture.h"
 class Tabs : public Control{
 public: Tabs();
 enum CloseButtonDisplayPolicy{

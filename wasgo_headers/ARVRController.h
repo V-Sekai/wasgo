@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "ARVRPositionalTracker.h"
-#include "String.h"
 #include "Spatial.h"
+#include "String.h"
 #include "Mesh.h"
+#include "ARVRPositionalTracker.h"
 class ARVRController : public Spatial{
 public: ARVRController();
 int  get_controller_id();

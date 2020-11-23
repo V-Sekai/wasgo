@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
-#include "String.h"
 #include "Resource.h"
+#include "String.h"
+#include "Texture.h"
 class Shader : public Resource{
 public: Shader();
 enum Mode{

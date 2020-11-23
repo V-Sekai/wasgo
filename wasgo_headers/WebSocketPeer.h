@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "PacketPeer.h"
 #include "String.h"
+#include "PacketPeer.h"
 class WebSocketPeer : public PacketPeer{
 public: WebSocketPeer();
 enum WriteMode{

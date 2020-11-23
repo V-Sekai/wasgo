@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "PoolVector3Array.h"
 #include "Shape.h"
+#include "PoolVector3Array.h"
 class ConcavePolygonShape : public Shape{
 public: ConcavePolygonShape();
 PoolVector3Array  get_faces();

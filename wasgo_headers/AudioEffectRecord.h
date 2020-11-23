@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "AudioEffect.h"
 #include "AudioStreamSample.h"
+#include "AudioEffect.h"
 class AudioEffectRecord : public AudioEffect{
 public: AudioEffectRecord();
 enum.AudioStreamSample::Format  get_format();

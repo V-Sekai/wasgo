@@ -7,8 +7,8 @@
 #include "String.h"
 #include "Node.h"
 #include "Label.h"
-#include "Button.h"
 #include "WindowDialog.h"
+#include "Button.h"
 class AcceptDialog : public WindowDialog{
 public: AcceptDialog();
 void  _builtin_text_entered(String arg0);

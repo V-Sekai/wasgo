@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
 #include "StreamPeer.h"
+#include "PoolByteArray.h"
 class StreamPeerBuffer : public StreamPeer{
 public: StreamPeerBuffer();
 void  clear();

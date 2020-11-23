@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Resource.h"
+#include "String.h"
 #include "Erro.h"
-#include "Object.h"
 #include "Dictionary.h"
 #include "Variant.h"
+#include "Object.h"
 class Script : public Resource{
 public: Script();
 bool  can_instance();

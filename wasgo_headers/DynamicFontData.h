@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Resource.h"
+#include "String.h"
 class DynamicFontData : public Resource{
 public: DynamicFontData();
 enum Hinting{

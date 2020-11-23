@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "String.h"
 #include "SpriteFrames.h"
+#include "Vector2.h"
 #include "Node2D.h"
 class AnimatedSprite : public Node2D{
 public: AnimatedSprite();

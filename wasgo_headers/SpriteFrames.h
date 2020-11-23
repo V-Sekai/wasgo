@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Resource.h"
+#include "String.h"
 #include "PoolStringArray.h"
-#include "Texture.h"
 #include "Variant.h"
+#include "Texture.h"
 class SpriteFrames : public Resource{
 public: SpriteFrames();
 Array  _get_animations();

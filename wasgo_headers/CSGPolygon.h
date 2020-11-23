@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "PoolVector2Array.h"
+#include "Material.h"
 #include "NodePath.h"
 #include "CSGPrimitive.h"
-#include "Material.h"
+#include "PoolVector2Array.h"
 class CSGPolygon : public CSGPrimitive{
 public: CSGPolygon();
 enum PathRotation{

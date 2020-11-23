@@ -6,8 +6,8 @@
 
 #include "String.h"
 #include "Dictionary.h"
-#include "Variant.h"
 #include "ResourceImporter.h"
+#include "Variant.h"
 class EditorImportPlugin : public ResourceImporter{
 public: EditorImportPlugin();
 Array  get_import_options(int preset);

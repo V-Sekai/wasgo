@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "GeometryInstance.h"
 #include "MultiMesh.h"
+#include "GeometryInstance.h"
 class MultiMeshInstance : public GeometryInstance{
 public: MultiMeshInstance();
 MultiMesh  get_multimesh();

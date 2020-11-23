@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Node2D.h"
 #include "Curve2D.h"
+#include "Node2D.h"
 class Path2D : public Node2D{
 public: Path2D();
 void  _curve_changed();

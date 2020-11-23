@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "ConfirmationDialog.h"
+#include "String.h"
 class ScriptCreateDialog : public ConfirmationDialog{
 public: ScriptCreateDialog();
 void  _browse_class_in_tree();

@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
 #include "StyleBox.h"
 #include "Rect2.h"
 #include "Variant.h"
+#include "Texture.h"
 class StyleBoxTexture : public StyleBox{
 public: StyleBoxTexture();
 enum AxisStretchMode{

@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
 #include "Rect2.h"
+#include "Texture.h"
 class AtlasTexture : public Texture{
 public: AtlasTexture();
 Texture  get_atlas();

@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "PhysicsBody.h"
+#include "Transform.h"
 #include "Object.h"
 #include "Vector3.h"
-#include "Transform.h"
+#include "PhysicsBody.h"
 class PhysicalBone : public PhysicsBody{
 public: PhysicalBone();
 enum JointType{

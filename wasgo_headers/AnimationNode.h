@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
+#include "Resource.h"
 #include "String.h"
 #include "NodePath.h"
-#include "Resource.h"
-#include "Object.h"
 #include "Dictionary.h"
 #include "Variant.h"
+#include "Object.h"
 class AnimationNode : public Resource{
 public: AnimationNode();
 enum FilterAction{

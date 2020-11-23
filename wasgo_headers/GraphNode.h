@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "String.h"
-#include "Texture.h"
 #include "InputEvent.h"
-#include "Variant.h"
 #include "Container.h"
+#include "Vector2.h"
+#include "Variant.h"
+#include "Texture.h"
 class GraphNode : public Container{
 public: GraphNode();
 enum Overlay{

@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "CSGPrimitive.h"
 #include "Material.h"
+#include "CSGPrimitive.h"
 class CSGBox : public CSGPrimitive{
 public: CSGBox();
 float  get_depth();

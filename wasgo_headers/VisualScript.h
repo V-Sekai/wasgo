@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "String.h"
-#include "VisualScriptNode.h"
-#include "Script.h"
+#include "Vector2.h"
 #include "Dictionary.h"
+#include "VisualScriptNode.h"
 #include "Variant.h"
+#include "Script.h"
 class VisualScript : public Script{
 public: VisualScript();
 Dictionary  _get_data();

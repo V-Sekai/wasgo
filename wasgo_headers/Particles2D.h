@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
+#include "Material.h"
 #include "Node2D.h"
 #include "Rect2.h"
-#include "Material.h"
+#include "Texture.h"
 class Particles2D : public Node2D{
 public: Particles2D();
 enum DrawOrder{

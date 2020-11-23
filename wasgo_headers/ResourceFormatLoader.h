@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Reference.h"
+#include "String.h"
 #include "PoolStringArray.h"
 #include "Variant.h"
 class ResourceFormatLoader : public Reference{

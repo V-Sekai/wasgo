@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "Resource.h"
-#include "Variant.h"
 #include "VisualScript.h"
+#include "Variant.h"
 class VisualScriptNode : public Resource{
 public: VisualScriptNode();
 Array  _get_default_input_values();

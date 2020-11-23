@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "Node.h"
-#include "Variant.h"
 #include "CollisionObject2D.h"
+#include "Variant.h"
 class PhysicsBody2D : public CollisionObject2D{
 public: PhysicsBody2D();
 int  _get_layers();

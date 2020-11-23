@@ -6,8 +6,8 @@
 
 #include "String.h"
 #include "NodePath.h"
-#include "VisualScriptNode.h"
 #include "Dictionary.h"
+#include "VisualScriptNode.h"
 #include "Variant.h"
 class VisualScriptFunctionCall : public VisualScriptNode{
 public: VisualScriptFunctionCall();

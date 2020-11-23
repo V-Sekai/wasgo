@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "AABB.h"
 #include "Spatial.h"
+#include "AABB.h"
 class VisibilityNotifier : public Spatial{
 public: VisibilityNotifier();
 AABB  get_aabb();

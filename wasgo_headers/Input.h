@@ -4,13 +4,13 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
-#include "String.h"
 #include "Resource.h"
+#include "String.h"
+#include "InputEvent.h"
+#include "Vector2.h"
+#include "Variant.h"
 #include "Object.h"
 #include "Vector3.h"
-#include "InputEvent.h"
-#include "Variant.h"
 class Input : public Object{
 public: Input();
 enum MouseMode{

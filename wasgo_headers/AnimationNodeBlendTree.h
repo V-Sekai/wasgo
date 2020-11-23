@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "AnimationNode.h"
-#include "String.h"
 #include "Vector2.h"
+#include "String.h"
+#include "AnimationNode.h"
 #include "AnimationRootNode.h"
 class AnimationNodeBlendTree : public AnimationRootNode{
 public: AnimationNodeBlendTree();

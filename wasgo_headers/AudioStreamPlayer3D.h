@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "AudioStream.h"
-#include "String.h"
 #include "Spatial.h"
+#include "String.h"
 #include "AudioStreamPlayback.h"
+#include "AudioStream.h"
 class AudioStreamPlayer3D : public Spatial{
 public: AudioStreamPlayer3D();
 enum AttenuationModel{

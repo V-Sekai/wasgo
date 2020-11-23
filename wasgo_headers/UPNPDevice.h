@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Reference.h"
+#include "String.h"
 class UPNPDevice : public Reference{
 public: UPNPDevice();
 enum IGDStatus{

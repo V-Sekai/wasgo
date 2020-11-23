@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "Reference.h"
+#include "Vector2.h"
 #include "Object.h"
 #include "RID.h"
 class Physics2DTestMotionResult : public Reference{

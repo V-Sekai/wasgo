@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "Reference.h"
+#include "Vector2.h"
 #include "Dictionary.h"
 #include "Variant.h"
 class CharFXTransform : public Reference{

@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
-#include "String.h"
 #include "Reference.h"
+#include "String.h"
+#include "Vector2.h"
 class ARVRInterface : public Reference{
 public: ARVRInterface();
 enum Tracking_status{

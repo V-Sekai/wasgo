@@ -5,11 +5,11 @@
 #include <stdint.h>
 
 #include "String.h"
-#include "NodePath.h"
 #include "Node.h"
-#include "Erro.h"
 #include "PoolStringArray.h"
 #include "Animation.h"
+#include "Erro.h"
+#include "NodePath.h"
 class AnimationPlayer : public Node{
 public: AnimationPlayer();
 enum AnimationProcessMode{

@@ -6,9 +6,9 @@
 
 #include "Resource.h"
 #include "Node.h"
-#include "SceneState.h"
 #include "Erro.h"
 #include "Dictionary.h"
+#include "SceneState.h"
 class PackedScene : public Resource{
 public: PackedScene();
 enum GenEditState{

@@ -5,9 +5,9 @@
 #include <stdint.h>
 
 #include "ButtonGroup.h"
+#include "Control.h"
 #include "ShortCut.h"
 #include "InputEvent.h"
-#include "Control.h"
 class BaseButton : public Control{
 public: BaseButton();
 enum ActionMode{

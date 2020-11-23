@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Resource.h"
+#include "String.h"
+#include "PoolStringArray.h"
 #include "Erro.h"
 #include "Object.h"
-#include "PoolStringArray.h"
 class _ResourceSaver : public Object{
 public: _ResourceSaver();
 enum SaverFlags{

@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Image.h"
-#include "Dictionary.h"
 #include "Resource.h"
+#include "Dictionary.h"
+#include "Image.h"
 class TextureLayered : public Resource{
 public: TextureLayered();
 enum Flags{

@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
 #include "String.h"
 #include "VideoStream.h"
 #include "Control.h"
+#include "Texture.h"
 class VideoPlayer : public Control{
 public: VideoPlayer();
 int  get_audio_track();

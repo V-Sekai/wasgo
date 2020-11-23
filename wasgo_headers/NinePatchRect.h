@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
-#include "Rect2.h"
 #include "Control.h"
+#include "Rect2.h"
+#include "Texture.h"
 class NinePatchRect : public Control{
 public: NinePatchRect();
 enum AxisStretchMode{

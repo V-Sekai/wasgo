@@ -5,12 +5,12 @@
 #include <stdint.h>
 
 #include "String.h"
-#include "StreamPeer.h"
 #include "PoolByteArray.h"
 #include "Reference.h"
-#include "Erro.h"
 #include "PoolStringArray.h"
+#include "Erro.h"
 #include "Dictionary.h"
+#include "StreamPeer.h"
 class HTTPClient : public Reference{
 public: HTTPClient();
 enum Status{

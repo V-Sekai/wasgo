@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "NodePath.h"
 #include "Spatial.h"
+#include "NodePath.h"
 class RemoteTransform : public Spatial{
 public: RemoteTransform();
 void  force_update_cache();

@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "Resource.h"
 #include "Rect2.h"
+#include "Vector2.h"
+#include "RID.h"
 #include "Image.h"
 #include "Variant.h"
-#include "RID.h"
 class Texture : public Resource{
 public: Texture();
 enum Flags{

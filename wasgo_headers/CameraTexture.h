@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
 #include "CameraServer.h"
+#include "Texture.h"
 class CameraTexture : public Texture{
 public: CameraTexture();
 bool  get_camera_active();

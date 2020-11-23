@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "NavigationMesh.h"
 #include "Spatial.h"
+#include "NavigationMesh.h"
 class NavigationMeshInstance : public Spatial{
 public: NavigationMeshInstance();
 NavigationMesh  get_navigation_mesh();

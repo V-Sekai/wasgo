@@ -5,11 +5,11 @@
 #include <stdint.h>
 
 #include "String.h"
-#include "Control.h"
-#include "Object.h"
 #include "InputEvent.h"
-#include "Variant.h"
 #include "Container.h"
+#include "Control.h"
+#include "Variant.h"
+#include "Object.h"
 class EditorProperty : public Container{
 public: EditorProperty();
 void  _focusable_focused(int arg0);

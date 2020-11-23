@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Reference.h"
 #include "String.h"
 #include "Node.h"
-#include "Reference.h"
 #include "RID.h"
 class Resource : public Reference{
 public: Resource();

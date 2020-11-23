@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "VisibilityNotifier2D.h"
 #include "Node.h"
+#include "VisibilityNotifier2D.h"
 class VisibilityEnabler2D : public VisibilityNotifier2D{
 public: VisibilityEnabler2D();
 enum Enabler{

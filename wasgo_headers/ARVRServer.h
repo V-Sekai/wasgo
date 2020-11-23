@@ -7,9 +7,9 @@
 #include "String.h"
 #include "Transform.h"
 #include "ARVRPositionalTracker.h"
-#include "Object.h"
-#include "ARVRInterface.h"
 #include "Variant.h"
+#include "ARVRInterface.h"
+#include "Object.h"
 class ARVRServer : public Object{
 public: ARVRServer();
 enum RotationMode{

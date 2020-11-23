@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "Object.h"
-#include "CameraFeed.h"
 #include "Variant.h"
+#include "CameraFeed.h"
 class CameraServer : public Object{
 public: CameraServer();
 enum FeedImage{

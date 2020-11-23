@@ -6,9 +6,9 @@
 
 #include "String.h"
 #include "Erro.h"
-#include "Object.h"
 #include "Dictionary.h"
 #include "Variant.h"
+#include "Object.h"
 class ProjectSettings : public Object{
 public: ProjectSettings();
 void  add_property_info(Dictionary hint);

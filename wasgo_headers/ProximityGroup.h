@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Spatial.h"
 #include "String.h"
 #include "Vector3.h"
-#include "Spatial.h"
 #include "Variant.h"
 class ProximityGroup : public Spatial{
 public: ProximityGroup();

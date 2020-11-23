@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
+#include "Transform.h"
+#include "Vector3.h"
 #include "KinematicCollision.h"
 #include "PhysicsBody.h"
-#include "Vector3.h"
-#include "Transform.h"
 class KinematicBody : public PhysicsBody{
 public: KinematicBody();
 bool  get_axis_lock(int axis);

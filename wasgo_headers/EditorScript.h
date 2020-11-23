@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "Reference.h"
-#include "Node.h"
 #include "EditorInterface.h"
+#include "Node.h"
 class EditorScript : public Reference{
 public: EditorScript();
 void  _run();

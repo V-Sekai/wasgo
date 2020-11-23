@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Rect2.h"
 #include "Control.h"
+#include "Rect2.h"
 class Container : public Control{
 public: Container();
 void  _child_minsize_changed();

@@ -4,19 +4,19 @@
 
 #include <stdint.h>
 
-#include "PoolVector3Array.h"
-#include "String.h"
-#include "Vector2.h"
-#include "SkinReference.h"
-#include "ArrayMesh.h"
-#include "EditorSpatialGizmoPlugin.h"
-#include "Node.h"
 #include "Material.h"
+#include "String.h"
 #include "Camera.h"
+#include "ArrayMesh.h"
+#include "Node.h"
 #include "SpatialGizmo.h"
-#include "TriangleMesh.h"
-#include "Spatial.h"
+#include "EditorSpatialGizmoPlugin.h"
+#include "Vector2.h"
+#include "PoolVector3Array.h"
+#include "SkinReference.h"
 #include "Variant.h"
+#include "Spatial.h"
+#include "TriangleMesh.h"
 class EditorSpatialGizmo : public SpatialGizmo{
 public: EditorSpatialGizmo();
 void  add_collision_segments(PoolVector3Array segments);

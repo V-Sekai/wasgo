@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Node.h"
 #include "Environment.h"
+#include "Node.h"
 class WorldEnvironment : public Node{
 public: WorldEnvironment();
 Environment  get_environment();

@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
-#include "Erro.h"
 #include "Reference.h"
+#include "Erro.h"
+#include "PoolByteArray.h"
 class HashingContext : public Reference{
 public: HashingContext();
 enum HashType{

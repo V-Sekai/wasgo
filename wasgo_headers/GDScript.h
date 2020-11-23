@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "PoolByteArray.h"
 #include "Script.h"
 #include "Variant.h"
+#include "PoolByteArray.h"
 class GDScript : public Script{
 public: GDScript();
 PoolByteArray  get_as_byte_code();

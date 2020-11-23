@@ -4,14 +4,14 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "String.h"
 #include "Rect2.h"
-#include "Erro.h"
+#include "Vector2.h"
 #include "PoolIntArray.h"
+#include "Erro.h"
+#include "Variant.h"
 #include "Font.h"
 #include "Texture.h"
-#include "Variant.h"
 class BitmapFont : public Font{
 public: BitmapFont();
 PoolIntArray  _get_chars();

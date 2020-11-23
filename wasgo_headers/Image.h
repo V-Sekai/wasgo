@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
-#include "String.h"
 #include "Resource.h"
-#include "PoolByteArray.h"
+#include "String.h"
 #include "Rect2.h"
+#include "PoolByteArray.h"
+#include "Vector2.h"
 #include "Erro.h"
 #include "Dictionary.h"
 #include "Variant.h"

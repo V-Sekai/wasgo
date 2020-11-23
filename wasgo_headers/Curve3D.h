@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "PoolVector3Array.h"
 #include "Resource.h"
+#include "PoolVector3Array.h"
+#include "Dictionary.h"
 #include "PoolRealArray.h"
 #include "Vector3.h"
-#include "Dictionary.h"
 class Curve3D : public Resource{
 public: Curve3D();
 Dictionary  _get_data();

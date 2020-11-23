@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Vector3.h"
 #include "PrimitiveMesh.h"
+#include "Vector3.h"
 class PrismMesh : public PrimitiveMesh{
 public: PrismMesh();
 float  get_left_to_right();

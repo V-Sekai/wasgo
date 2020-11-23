@@ -4,13 +4,13 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "GeometryInstance.h"
-#include "SpatialMaterial.h"
 #include "Rect2.h"
-#include "TriangleMesh.h"
-#include "Vector3.h"
+#include "Vector2.h"
+#include "SpatialMaterial.h"
 #include "Variant.h"
+#include "Vector3.h"
+#include "TriangleMesh.h"
 class SpriteBase3D : public GeometryInstance{
 public: SpriteBase3D();
 enum DrawFlags{

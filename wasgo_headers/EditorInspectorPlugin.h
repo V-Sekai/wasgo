@@ -5,10 +5,10 @@
 #include <stdint.h>
 
 #include "String.h"
-#include "Control.h"
 #include "Reference.h"
-#include "Object.h"
 #include "PoolStringArray.h"
+#include "Control.h"
+#include "Object.h"
 class EditorInspectorPlugin : public Reference{
 public: EditorInspectorPlugin();
 void  add_custom_control(Control control);

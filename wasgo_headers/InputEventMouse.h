@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "InputEventWithModifiers.h"
+#include "Vector2.h"
 class InputEventMouse : public InputEventWithModifiers{
 public: InputEventMouse();
 int  get_button_mask();

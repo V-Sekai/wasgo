@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "String.h"
-#include "Variant.h"
 #include "VisualShaderNode.h"
+#include "Variant.h"
 class VisualShaderNodeCustom : public VisualShaderNode{
 public: VisualShaderNodeCustom();
 String  _get_category();

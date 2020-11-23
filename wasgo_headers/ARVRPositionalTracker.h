@@ -6,11 +6,11 @@
 
 #include "String.h"
 #include "ARVRServer.h"
-#include "Mesh.h"
 #include "Transform.h"
-#include "Basis.h"
 #include "Object.h"
 #include "Vector3.h"
+#include "Basis.h"
+#include "Mesh.h"
 class ARVRPositionalTracker : public Object{
 public: ARVRPositionalTracker();
 enum TrackerHand{

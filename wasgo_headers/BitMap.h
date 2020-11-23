@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "Resource.h"
 #include "Rect2.h"
-#include "Image.h"
+#include "Vector2.h"
 #include "Dictionary.h"
+#include "Image.h"
 #include "Variant.h"
 class BitMap : public Resource{
 public: BitMap();

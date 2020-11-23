@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "PoolVector2Array.h"
 #include "Resource.h"
+#include "PoolVector2Array.h"
 class OccluderPolygon2D : public Resource{
 public: OccluderPolygon2D();
 enum CullMode{

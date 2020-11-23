@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "PacketPeer.h"
 #include "String.h"
 #include "Erro.h"
+#include "PacketPeer.h"
 class WebRTCDataChannel : public PacketPeer{
 public: WebRTCDataChannel();
 enum WriteMode{

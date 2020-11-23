@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Reference.h"
 #include "String.h"
 #include "Object.h"
-#include "Reference.h"
 #include "Variant.h"
 class VisualScriptFunctionState : public Reference{
 public: VisualScriptFunctionState();

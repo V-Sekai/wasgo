@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Reference.h"
 #include "String.h"
 #include "Erro.h"
-#include "Reference.h"
 #include "PoolByteArray.h"
 class XMLParser : public Reference{
 public: XMLParser();

@@ -4,13 +4,13 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "String.h"
-#include "Control.h"
 #include "Node.h"
-#include "Erro.h"
-#include "HBoxContainer.h"
 #include "InputEvent.h"
+#include "Vector2.h"
+#include "HBoxContainer.h"
+#include "Erro.h"
+#include "Control.h"
 #include "Variant.h"
 class GraphEdit : public Control{
 public: GraphEdit();

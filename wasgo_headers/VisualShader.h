@@ -6,9 +6,9 @@
 
 #include "Vector2.h"
 #include "VisualShaderNode.h"
-#include "Erro.h"
 #include "PoolIntArray.h"
 #include "Shader.h"
+#include "Erro.h"
 #include "Variant.h"
 class VisualShader : public Shader{
 public: VisualShader();

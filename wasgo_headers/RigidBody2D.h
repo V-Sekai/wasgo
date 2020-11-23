@@ -5,12 +5,12 @@
 #include <stdint.h>
 
 #include "Vector2.h"
-#include "Physics2DTestMotionResult.h"
-#include "Object.h"
-#include "PhysicsMaterial.h"
-#include "PhysicsBody2D.h"
-#include "Variant.h"
 #include "Physics2DDirectBodyState.h"
+#include "Physics2DTestMotionResult.h"
+#include "Variant.h"
+#include "Object.h"
+#include "PhysicsBody2D.h"
+#include "PhysicsMaterial.h"
 class RigidBody2D : public PhysicsBody2D{
 public: RigidBody2D();
 enum Mode{

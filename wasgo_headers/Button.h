@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
-#include "BaseButton.h"
 #include "String.h"
+#include "BaseButton.h"
+#include "Texture.h"
 class Button : public BaseButton{
 public: Button();
 enum TextAlign{

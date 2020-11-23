@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Button.h"
+#include "PopupMenu.h"
 #include "InputEvent.h"
 #include "Variant.h"
-#include "PopupMenu.h"
+#include "Button.h"
 class MenuButton : public Button{
 public: MenuButton();
 Array  _get_items();

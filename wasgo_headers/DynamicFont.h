@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Font.h"
-#include "Variant.h"
 #include "DynamicFontData.h"
+#include "Variant.h"
+#include "Font.h"
 class DynamicFont : public Font{
 public: DynamicFont();
 enum SpacingType{

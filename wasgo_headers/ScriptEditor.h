@@ -4,18 +4,18 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
-#include "String.h"
 #include "Resource.h"
-#include "Script.h"
-#include "Control.h"
+#include "String.h"
 #include "Node.h"
-#include "Reference.h"
-#include "Object.h"
-#include "PanelContainer.h"
-#include "PoolStringArray.h"
 #include "InputEvent.h"
+#include "Reference.h"
+#include "Vector2.h"
+#include "PoolStringArray.h"
+#include "Control.h"
+#include "PanelContainer.h"
 #include "Variant.h"
+#include "Object.h"
+#include "Script.h"
 class ScriptEditor : public PanelContainer{
 public: ScriptEditor();
 void  _add_callback(Object arg0, String arg1, PoolStringArray arg2);

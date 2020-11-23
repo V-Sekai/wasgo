@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Vector3.h"
 #include "VisualInstance.h"
+#include "Vector3.h"
 #include "Variant.h"
 class ReflectionProbe : public VisualInstance{
 public: ReflectionProbe();

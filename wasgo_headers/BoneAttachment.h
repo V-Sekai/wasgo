@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Spatial.h"
+#include "String.h"
 class BoneAttachment : public Spatial{
 public: BoneAttachment();
 String  get_bone_name();

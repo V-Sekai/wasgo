@@ -5,11 +5,11 @@
 #include <stdint.h>
 
 #include "Resource.h"
-#include "Sky.h"
-#include "Basis.h"
-#include "Vector3.h"
-#include "Texture.h"
 #include "Variant.h"
+#include "Sky.h"
+#include "Vector3.h"
+#include "Basis.h"
+#include "Texture.h"
 class Environment : public Resource{
 public: Environment();
 enum SSAOBlur{

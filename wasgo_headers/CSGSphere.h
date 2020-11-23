@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "CSGPrimitive.h"
 #include "Material.h"
+#include "CSGPrimitive.h"
 class CSGSphere : public CSGPrimitive{
 public: CSGSphere();
 Material  get_material();

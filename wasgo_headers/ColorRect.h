@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Variant.h"
 #include "Control.h"
+#include "Variant.h"
 class ColorRect : public Control{
 public: ColorRect();
 Color  get_frame_color();

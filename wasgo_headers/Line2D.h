@@ -4,13 +4,13 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "Gradient.h"
+#include "Vector2.h"
+#include "Node2D.h"
 #include "PoolVector2Array.h"
+#include "Curve.h"
 #include "Variant.h"
 #include "Texture.h"
-#include "Node2D.h"
-#include "Curve.h"
 class Line2D : public Node2D{
 public: Line2D();
 enum LineTextureMode{

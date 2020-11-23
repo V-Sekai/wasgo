@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "AudioEffect.h"
+#include "String.h"
 class AudioEffectCompressor : public AudioEffect{
 public: AudioEffectCompressor();
 float  get_attack_us();

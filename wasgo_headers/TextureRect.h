@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
 #include "Control.h"
+#include "Texture.h"
 class TextureRect : public Control{
 public: TextureRect();
 enum StretchMode{

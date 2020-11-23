@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Resource.h"
+#include "String.h"
 #include "PoolStringArray.h"
 class Translation : public Resource{
 public: Translation();

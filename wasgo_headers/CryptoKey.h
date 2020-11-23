@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Resource.h"
 #include "String.h"
 #include "Erro.h"
-#include "Resource.h"
 class CryptoKey : public Resource{
 public: CryptoKey();
 enum.Error  load(String path);

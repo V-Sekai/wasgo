@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
 #include "Gradient.h"
+#include "Texture.h"
 class GradientTexture : public Texture{
 public: GradientTexture();
 void  _update();

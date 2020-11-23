@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "JavaClass.h"
 #include "String.h"
 #include "Object.h"
+#include "JavaClass.h"
 class JavaClassWrapper : public Object{
 public: JavaClassWrapper();
 JavaClass  wrap(String name);

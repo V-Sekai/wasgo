@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
-#include "PoolVector2Array.h"
 #include "Reference.h"
+#include "Vector2.h"
 #include "PoolIntArray.h"
+#include "PoolVector2Array.h"
 #include "Variant.h"
 class AStar2D : public Reference{
 public: AStar2D();

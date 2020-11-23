@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "String.h"
-#include "Dictionary.h"
 #include "Object.h"
+#include "Dictionary.h"
 #include "Variant.h"
 class JSONRPC : public Object{
 public: JSONRPC();

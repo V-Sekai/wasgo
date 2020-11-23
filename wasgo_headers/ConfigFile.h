@@ -7,8 +7,8 @@
 #include "String.h"
 #include "PoolByteArray.h"
 #include "Reference.h"
-#include "Erro.h"
 #include "PoolStringArray.h"
+#include "Erro.h"
 #include "Variant.h"
 class ConfigFile : public Reference{
 public: ConfigFile();

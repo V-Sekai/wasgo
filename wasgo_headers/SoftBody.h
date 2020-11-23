@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "NodePath.h"
 #include "Node.h"
+#include "NodePath.h"
 #include "MeshInstance.h"
 #include "Variant.h"
 class SoftBody : public MeshInstance{

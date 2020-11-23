@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Image.h"
 #include "Sky.h"
+#include "Image.h"
 #include "Variant.h"
 class ProceduralSky : public Sky{
 public: ProceduralSky();

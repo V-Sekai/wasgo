@@ -6,8 +6,8 @@
 
 #include "AudioEffect.h"
 #include "String.h"
-#include "Variant.h"
 #include "AudioBusLayout.h"
+#include "Variant.h"
 #include "Object.h"
 #include "AudioEffectInstance.h"
 class AudioServer : public Object{

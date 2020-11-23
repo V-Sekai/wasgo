@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
-#include "GradientTexture.h"
-#include "CurveTexture.h"
 #include "Material.h"
+#include "CurveTexture.h"
+#include "Variant.h"
+#include "GradientTexture.h"
 #include "Vector3.h"
 #include "Texture.h"
-#include "Variant.h"
 class ParticlesMaterial : public Material{
 public: ParticlesMaterial();
 enum Flags{

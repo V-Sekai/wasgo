@@ -4,19 +4,19 @@
 
 #include <stdint.h>
 
-#include "Vector2.h"
 #include "String.h"
-#include "Theme.h"
-#include "NodePath.h"
+#include "StyleBox.h"
 #include "Rect2.h"
+#include "InputEvent.h"
+#include "Vector2.h"
+#include "Shader.h"
+#include "NodePath.h"
+#include "Theme.h"
+#include "Variant.h"
+#include "Font.h"
 #include "CanvasItem.h"
 #include "Object.h"
-#include "Font.h"
-#include "Shader.h"
 #include "Texture.h"
-#include "StyleBox.h"
-#include "InputEvent.h"
-#include "Variant.h"
 class Control : public CanvasItem{
 public: Control();
 enum Anchor{

@@ -5,10 +5,10 @@
 #include <stdint.h>
 
 #include "String.h"
-#include "VisualInstance.h"
 #include "Node.h"
-#include "Vector3.h"
 #include "BakedLightmapData.h"
+#include "VisualInstance.h"
+#include "Vector3.h"
 class BakedLightmap : public VisualInstance{
 public: BakedLightmap();
 enum BakeQuality{

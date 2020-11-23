@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "VisibilityNotifier.h"
 #include "Node.h"
+#include "VisibilityNotifier.h"
 class VisibilityEnabler : public VisibilityNotifier{
 public: VisibilityEnabler();
 enum Enabler{

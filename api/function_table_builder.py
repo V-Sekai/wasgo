@@ -178,6 +178,59 @@ def _build_function_tables(api_one, api_two):
         "{"
     ]
 
+    def define_wrapper_header(class_name, func_name, return_type, argument_types):
+        wrapper = [];
+        arguments = "".join([(", %s arg%i" % arg, index) for index, arg in enumerate(argument_types)])
+        wrapper += [("static void wasgo_%s_%s(WasGoID wasgo_id%s);" % class_name, func_name, arguments)]
+        return wrapper
+
+    def define_wrapper_cpp(class_name, func_name, return_type, argument_types):
+        wrapper = []
+        arguments = "".join([", {0} arg{1}".format(arg["type"], index) if (arg["type"] == "int" or arg["type"] == "float") else ", WasGoID arg{0}".format(index) for index, arg in enumerate(argument_types)])
+        def resolve_arguments(index, arg):
+            if (arg == "int" or arg == "float"):
+                return ("arg%i" % index)
+            elif (arg == "Array"):
+                return "&({0} *)lookup_array(arg{1})".format(arg, index)
+            elif (arg == "Dictionary"):
+                return "&({0} *)lookup_dictionary(arg{1})".format(arg, index)
+            elif (len(arg) > 1 and arg[0] == "*"):
+                return "(%s *)lookup_object(arg%i)" % arg, index
+            return "&({0} *)lookup_object(arg{1})".format(arg, index)
+
+        argument_vars = ", ".join([resolve_arguments(index, arg["type"]) for index, arg in enumerate(argument_types)])
+        real_return_type = "WasGoId"
+        if (return_type == "int" or return_type == "float" or return_type == "void"):
+            real_return_type = return_type
+        wrapper += ["static {0} wasgo_{1}_{2}(wasm_exec_env_t exec_env, WasGoID caller_id{3}){{".format(real_return_type, class_name, func_name, arguments),
+                    "WasGoState *state = wasm_runtime_get_user_data(exec_env);",
+                    "if(state){",
+                    "{0} *caller = ({1} *) state->lookup_object(caller_id);".format(class_name, class_name),
+                    "if(caller){"]
+        
+        if return_type == "void":
+            wrapper += ["caller->{0}({1});".format(func_name, argument_vars)]
+        elif return_type == "int" or return_type == "float":
+            wrapper += ["return caller->{0}({1});".format(func_name, argument_vars)]
+        elif return_type[-1] == '*':  # TODO: Handle pointers
+            wrapper += [("%s ret_value = caller->%s(%s);" % return_type, func_name, argument_vars),
+                        "WasGoId new_id = state->generate_id();",
+                        "referencedObjects.set(new_id, ret_value->get_instance_id())",
+                        "referencedObjectsReverse.set(ret_value->get_instance_id(), new_id)",
+                        "return new_id",
+                        ]
+        else:
+            wrapper += ["{0} ret_value = caller->{1}({2});".format(return_type, func_name, argument_vars),
+                        "WasGoId new_id = state->generate_id();",
+                        "referencedObjects.set(new_id, ret_value.get_instance_id())",
+                        "referencedObjectsReverse.set(ret_value.get_instance_id(), new_id)",
+                        "return new_id",
+                        ]
+        wrapper +=["}",
+                "}",
+                "}"]
+        return wrapper
+
     def register_core_function_interface(core):
         ret = []
         for api in core['api']:
@@ -247,6 +300,11 @@ def _build_function_tables(api_one, api_two):
         n = header_api['name']
         out += register_header_function_interface(n, header_api)
     out += ["};", ""]
+
+    for header_api in api_two:
+        n = header_api['name']
+        for method in header_api['methods']:
+            out += define_wrapper_cpp(n, method["name"], method["return_type"], method["arguments"])
 
     return out
 

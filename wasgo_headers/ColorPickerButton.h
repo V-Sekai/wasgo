@@ -6,8 +6,8 @@
 
 #include "Button.h"
 #include "PopupPanel.h"
-#include "ColorPicker.h"
 #include "Variant.h"
+#include "ColorPicker.h"
 class ColorPickerButton : public Button{
 public: ColorPickerButton();
 void  _color_changed(Color arg0);

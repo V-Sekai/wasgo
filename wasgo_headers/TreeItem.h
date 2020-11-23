@@ -6,10 +6,10 @@
 
 #include "String.h"
 #include "Rect2.h"
-#include "Object.h"
-#include "Texture.h"
 #include "Dictionary.h"
 #include "Variant.h"
+#include "Object.h"
+#include "Texture.h"
 class TreeItem : public Object{
 public: TreeItem();
 enum TreeCellMode{

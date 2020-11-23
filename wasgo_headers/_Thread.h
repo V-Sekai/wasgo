@@ -7,8 +7,8 @@
 #include "String.h"
 #include "Reference.h"
 #include "Erro.h"
-#include "Object.h"
 #include "Variant.h"
+#include "Object.h"
 class _Thread : public Reference{
 public: _Thread();
 enum Priority{

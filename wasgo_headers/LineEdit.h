@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Control.h"
 #include "PopupMenu.h"
-#include "Texture.h"
+#include "String.h"
 #include "InputEvent.h"
+#include "Control.h"
+#include "Texture.h"
 class LineEdit : public Control{
 public: LineEdit();
 enum Align{

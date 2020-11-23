@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Texture.h"
 #include "Image.h"
+#include "Texture.h"
 #include "OpenSimplexNoise.h"
 class NoiseTexture : public Texture{
 public: NoiseTexture();

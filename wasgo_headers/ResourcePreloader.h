@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Resource.h"
+#include "String.h"
 #include "Node.h"
 #include "PoolStringArray.h"
 #include "Variant.h"

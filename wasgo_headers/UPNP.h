@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "UPNPDevice.h"
 #include "Reference.h"
 #include "String.h"
+#include "UPNPDevice.h"
 class UPNP : public Reference{
 public: UPNP();
 enum UPNPResult{
