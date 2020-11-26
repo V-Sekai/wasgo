@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "AnimationNode.h"
+#include "String.h"
 class AnimationNodeTransition : public AnimationNode{
 public: AnimationNodeTransition();
 float  get_cross_fade_time();

@@ -4,18 +4,18 @@
 
 #include <stdint.h>
 
+#include "Vector2.h"
+#include "Shape2D.h"
 #include "ShaderMaterial.h"
 #include "String.h"
-#include "Resource.h"
 #include "Rect2.h"
+#include "Resource.h"
 #include "OccluderPolygon2D.h"
-#include "Vector2.h"
 #include "NavigationPolygon.h"
-#include "Shape2D.h"
-#include "Variant.h"
-#include "Object.h"
 #include "Transform2D.h"
 #include "Texture.h"
+#include "Variant.h"
+#include "Object.h"
 class TileSet : public Resource{
 public: TileSet();
 enum TileMode{

@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "Environment.h"
 #include "RID.h"
+#include "Resource.h"
 #include "PhysicsDirectSpaceState.h"
 class World : public Resource{
 public: World();

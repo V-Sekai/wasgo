@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "RID.h"
 #include "Camera.h"
 #include "Object.h"
-#include "RID.h"
 class ClippedCamera : public Camera{
 public: ClippedCamera();
 enum ProcessMode{

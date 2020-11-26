@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "Transform.h"
+#include "Resource.h"
 class Skin : public Resource{
 public: Skin();
 void  add_bind(int bone, Transform pose);

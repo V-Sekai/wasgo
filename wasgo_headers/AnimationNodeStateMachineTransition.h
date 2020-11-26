@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "String.h"
+#include "Resource.h"
 class AnimationNodeStateMachineTransition : public Resource{
 public: AnimationNodeStateMachineTransition();
 enum SwitchMode{

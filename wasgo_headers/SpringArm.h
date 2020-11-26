@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "Spatial.h"
-#include "Shape.h"
 #include "RID.h"
+#include "Shape.h"
 class SpringArm : public Spatial{
 public: SpringArm();
 void  add_excluded_object(RID RID);

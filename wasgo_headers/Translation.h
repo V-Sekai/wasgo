@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
 #include "PoolStringArray.h"
+#include "String.h"
+#include "Resource.h"
 class Translation : public Resource{
 public: Translation();
 PoolStringArray  _get_messages();

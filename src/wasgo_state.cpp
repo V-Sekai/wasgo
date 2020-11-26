@@ -66,6 +66,14 @@ WasGoState::~WasGoState(){
 Object *WasGoState::lookup_object(WasGoID id) {
 	if (createdObjectsReverse.has(id)) {
 		return ObjectDB::get_instance(createdObjectsReverse[id]);
+	} else if (referencedObjectsReverse.has(id)) {
+		return ObjectDB::get_instance(referencedObjectsReverse[id]);
+	}
+	return nullptr;
+}
+Object *WasGoState::lookup_createdObject(WasGoID id) {
+	if (createdObjectsReverse.has(id)) {
+		return ObjectDB::get_instance(createdObjectsReverse[id]);
 	}
 	return nullptr;
 }
@@ -76,17 +84,11 @@ Object *WasGoState::lookup_referencedObject(WasGoID id) {
 	}
 	return nullptr;
 }
-Array WasGoState::lookup_array(WasGoID id){
-    if(referencedArraysReverse.has(id)){
-		return referencedArraysReverse[id];
+Variant WasGoState::lookup_variant(WasGoID id){
+    if(createdVariantsReverse.has(id)){
+		return createdVariantsReverse[id];
 	}
-	return Array();
-}
-Dictionary WasGoState::lookup_dictionary(WasGoID id){
-    if(referencedDictionaryReverse.has(id)){
-		return referencedDictionaryReverse[id];
-	}
-	return Dictionary();
+	return Variant();
 }
 
 bool WasGoState::is_active(){
@@ -132,6 +134,89 @@ void WasGoState::set_properties(Dictionary p_properties) {
 }
 Dictionary WasGoState::get_properties() {
 	return properties;
+}
+
+WasGoState::WasGoID WasGoState::generate_id(){
+	last_id++;
+	return last_id;
+}
+
+WasGoState::WasGoID WasGoState::create_object(ObjectID obj_id) {
+	WasGoID wasgo_id = 0;
+	if (createdObjects.has(obj_id)) {
+		wasgo_id = createdObjects[wasgo_id];
+	} else {
+		wasgo_id = generate_id();
+		createdObjects.set(obj_id, wasgo_id);
+		createdObjectsReverse.set(wasgo_id, obj_id);
+	}
+	return wasgo_id;
+}
+
+WasGoState::WasGoID WasGoState::reference_object(ObjectID obj_id) {
+	WasGoID wasgo_id = 0;
+	if (referencedObjects.has(obj_id)) {
+		wasgo_id = referencedObjects[wasgo_id];
+	} else {
+		wasgo_id = generate_id();
+		referencedObjects.set(obj_id, wasgo_id);
+		referencedObjectsReverse.set(wasgo_id, obj_id);
+	}
+	return wasgo_id;
+}
+
+WasGoState::WasGoID WasGoState::create_variant(Variant var){
+	WasGoID wasgo_id = generate_id();
+	// createdVariants.set(var, wasgo_id);
+	createdVariantsReverse.set(wasgo_id, var);
+	return wasgo_id;
+}
+
+WasGoState::WasGoID WasGoState::create_object(Object obj) {
+	WasGoID wasgo_id = 0;
+	if (createdObjects.has(obj.get_instance_id())) {
+		wasgo_id = createdObjects[wasgo_id];
+	} else {
+		wasgo_id = generate_id();
+		createdObjects.set(obj.get_instance_id(), wasgo_id);
+		createdObjectsReverse.set(wasgo_id, obj.get_instance_id());
+	}
+	return wasgo_id;
+}
+
+WasGoState::WasGoID WasGoState::reference_object(Object obj) {
+	WasGoID wasgo_id = 0;
+	if (referencedObjects.has(obj.get_instance_id())) {
+		wasgo_id = referencedObjects[wasgo_id];
+	} else {
+		wasgo_id = generate_id();
+		referencedObjects.set(obj.get_instance_id(), wasgo_id);
+		referencedObjectsReverse.set(wasgo_id, obj.get_instance_id());
+	}
+	return wasgo_id;
+}
+
+// WasGoState::WasGoID WasGoState::reference_object(Ref<Object> ref) {
+// 	WasGoID wasgo_id = 0;
+// 	//TODO: Figure out how to handle this case
+// 	// if (referencedObjects.has(obj_id)) {
+// 	// 	wasgo_id = referencedObjects[wasgo_id];
+// 	// } else {
+// 	// 	wasgo_id = generate_id();
+// 	// 	referencedObjects.set(obj_id, wasgo_id);
+// 	// 	referencedObjectsReverse.set(wasgo_id, obj_id);
+// 	// }
+// 	return wasgo_id;
+// }
+
+WasGoState::WasGoID WasGoState::create_object(Object *obj) {
+	//because we're receiving a pointer let's assume we're not responsible for cleaning up the object, so let's use a reference instead
+	return reference_object(obj);
+}
+
+WasGoState::WasGoID WasGoState::reference_object(Object *obj) {
+	//just dereference it for now
+	return reference_object(obj->get_instance_id());
 }
 
 //Regular Node Callbacks

@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
+#include "Animation.h"
+#include "Reference.h"
 #include "String.h"
 #include "Node.h"
-#include "Reference.h"
-#include "Animation.h"
 #include "Variant.h"
 class EditorSceneImporter : public Reference{
 public: EditorSceneImporter();

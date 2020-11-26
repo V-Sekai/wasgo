@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "GDNativeLibrary.h"
-#include "String.h"
 #include "Reference.h"
+#include "String.h"
+#include "GDNativeLibrary.h"
 #include "Variant.h"
 class GDNative : public Reference{
 public: GDNative();

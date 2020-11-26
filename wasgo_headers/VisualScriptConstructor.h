@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Dictionary.h"
 #include "VisualScriptNode.h"
+#include "Dictionary.h"
 #include "Variant.h"
 class VisualScriptConstructor : public VisualScriptNode{
 public: VisualScriptConstructor();

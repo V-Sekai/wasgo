@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Reference.h"
 #include "Vector2.h"
 #include "Dictionary.h"
+#include "Reference.h"
 #include "Variant.h"
 class CharFXTransform : public Reference{
 public: CharFXTransform();

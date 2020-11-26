@@ -4,15 +4,15 @@
 
 #include <stdint.h>
 
-#include "Camera.h"
+#include "EditorSpatialGizmo.h"
+#include "Vector2.h"
+#include "Spatial.h"
 #include "String.h"
 #include "Resource.h"
-#include "Vector2.h"
-#include "EditorSpatialGizmo.h"
-#include "SpatialMaterial.h"
-#include "Variant.h"
-#include "Spatial.h"
 #include "Texture.h"
+#include "SpatialMaterial.h"
+#include "Camera.h"
+#include "Variant.h"
 class EditorSpatialGizmoPlugin : public Resource{
 public: EditorSpatialGizmoPlugin();
 void  add_material(String name, SpatialMaterial material);

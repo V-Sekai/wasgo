@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Object.h"
 #include "Dictionary.h"
+#include "String.h"
 #include "Variant.h"
 class EditorVCSInterface : public Object{
 public: EditorVCSInterface();

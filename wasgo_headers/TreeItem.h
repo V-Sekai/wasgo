@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
+#include "Dictionary.h"
 #include "String.h"
 #include "Rect2.h"
-#include "Dictionary.h"
-#include "Variant.h"
-#include "Object.h"
 #include "Texture.h"
+#include "Object.h"
+#include "Variant.h"
 class TreeItem : public Object{
 public: TreeItem();
 enum TreeCellMode{

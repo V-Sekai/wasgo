@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Object.h"
 #include "JSONParseResult.h"
+#include "Object.h"
+#include "String.h"
 #include "Variant.h"
 class _JSON : public Object{
 public: _JSON();

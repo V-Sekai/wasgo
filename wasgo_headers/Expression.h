@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Reference.h"
 #include "PoolStringArray.h"
+#include "Reference.h"
+#include "String.h"
 #include "Erro.h"
 #include "Variant.h"
 #include "Object.h"

@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Spatial.h"
 #include "NodePath.h"
+#include "Spatial.h"
 class Joint : public Spatial{
 public: Joint();
 bool  get_exclude_nodes_from_collision();

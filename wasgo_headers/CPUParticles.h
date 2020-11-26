@@ -4,14 +4,14 @@
 
 #include <stdint.h>
 
-#include "Node.h"
-#include "GeometryInstance.h"
+#include "Mesh.h"
 #include "Gradient.h"
+#include "GeometryInstance.h"
+#include "Node.h"
 #include "PoolVector3Array.h"
 #include "Curve.h"
-#include "Variant.h"
 #include "Vector3.h"
-#include "Mesh.h"
+#include "Variant.h"
 class CPUParticles : public GeometryInstance{
 public: CPUParticles();
 enum Flags{

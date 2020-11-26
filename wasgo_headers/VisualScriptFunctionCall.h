@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "NodePath.h"
-#include "Dictionary.h"
 #include "VisualScriptNode.h"
+#include "Dictionary.h"
+#include "String.h"
 #include "Variant.h"
 class VisualScriptFunctionCall : public VisualScriptNode{
 public: VisualScriptFunctionCall();

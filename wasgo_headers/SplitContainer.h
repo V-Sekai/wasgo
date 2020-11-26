@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "InputEvent.h"
 #include "Container.h"
+#include "InputEvent.h"
 class SplitContainer : public Container{
 public: SplitContainer();
 enum DraggerVisibility{

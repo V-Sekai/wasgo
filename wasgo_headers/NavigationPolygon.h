@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "PoolVector2Array.h"
 #include "PoolIntArray.h"
+#include "Resource.h"
 #include "Variant.h"
 class NavigationPolygon : public Resource{
 public: NavigationPolygon();

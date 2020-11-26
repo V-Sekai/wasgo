@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Vector2.h"
-#include "RID.h"
+#include "String.h"
 #include "Erro.h"
-#include "Image.h"
 #include "Texture.h"
+#include "Image.h"
+#include "RID.h"
 class ImageTexture : public Texture{
 public: ImageTexture();
 enum Storage{

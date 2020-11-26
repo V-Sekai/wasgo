@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "Vector2.h"
 #include "PoolVector2Array.h"
 #include "Dictionary.h"
+#include "Resource.h"
 class Curve2D : public Resource{
 public: Curve2D();
 Dictionary  _get_data();

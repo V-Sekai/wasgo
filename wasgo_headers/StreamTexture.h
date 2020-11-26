@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Erro.h"
+#include "String.h"
 #include "Texture.h"
 class StreamTexture : public Texture{
 public: StreamTexture();

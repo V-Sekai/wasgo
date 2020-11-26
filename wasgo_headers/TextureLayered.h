@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "Dictionary.h"
+#include "Resource.h"
 #include "Image.h"
 class TextureLayered : public Resource{
 public: TextureLayered();

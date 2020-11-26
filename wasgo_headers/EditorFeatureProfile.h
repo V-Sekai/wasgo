@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Reference.h"
-#include "String.h"
 #include "Erro.h"
+#include "String.h"
+#include "Reference.h"
 class EditorFeatureProfile : public Reference{
 public: EditorFeatureProfile();
 enum Feature{

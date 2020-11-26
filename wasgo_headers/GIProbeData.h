@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "Transform.h"
 #include "AABB.h"
+#include "Resource.h"
 #include "PoolIntArray.h"
 class GIProbeData : public Resource{
 public: GIProbeData();

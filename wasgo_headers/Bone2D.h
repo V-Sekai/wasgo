@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Transform2D.h"
 #include "Node2D.h"
+#include "Transform2D.h"
 class Bone2D : public Node2D{
 public: Bone2D();
 void  apply_rest();

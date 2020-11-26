@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Spatial.h"
 #include "Transform.h"
+#include "Spatial.h"
 class Listener : public Spatial{
 public: Listener();
 void  clear_current();

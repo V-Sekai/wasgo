@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Reference.h"
 #include "Erro.h"
+#include "Reference.h"
 class _Mutex : public Reference{
 public: _Mutex();
 void  lock();

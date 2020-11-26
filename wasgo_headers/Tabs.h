@@ -6,9 +6,9 @@
 
 #include "String.h"
 #include "Rect2.h"
-#include "InputEvent.h"
-#include "Control.h"
 #include "Texture.h"
+#include "Control.h"
+#include "InputEvent.h"
 class Tabs : public Control{
 public: Tabs();
 enum CloseButtonDisplayPolicy{

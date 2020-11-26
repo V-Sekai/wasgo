@@ -4,13 +4,13 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
+#include "EditorResourcePreviewGenerator.h"
 #include "String.h"
+#include "Resource.h"
 #include "Node.h"
+#include "Texture.h"
 #include "Object.h"
 #include "Variant.h"
-#include "EditorResourcePreviewGenerator.h"
-#include "Texture.h"
 class EditorResourcePreview : public Node{
 public: EditorResourcePreview();
 void  _preview_ready(String arg0, Texture arg1, Texture arg2, int arg3, String arg4, Variant arg5);

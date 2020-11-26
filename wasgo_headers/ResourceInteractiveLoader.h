@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Erro.h"
 #include "Resource.h"
 #include "Reference.h"
-#include "Erro.h"
 class ResourceInteractiveLoader : public Reference{
 public: ResourceInteractiveLoader();
 Resource  get_resource();

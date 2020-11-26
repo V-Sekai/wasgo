@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Object.h"
 #include "Translation.h"
+#include "Object.h"
+#include "String.h"
 #include "Variant.h"
 class TranslationServer : public Object{
 public: TranslationServer();

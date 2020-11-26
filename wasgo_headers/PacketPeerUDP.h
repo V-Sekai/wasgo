@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Erro.h"
+#include "String.h"
 #include "PacketPeer.h"
 class PacketPeerUDP : public PacketPeer{
 public: PacketPeerUDP();

@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
+#include "Transform2D.h"
+#include "Image.h"
 #include "Reference.h"
 #include "String.h"
-#include "Image.h"
-#include "Transform2D.h"
 class CameraFeed : public Reference{
 public: CameraFeed();
 enum FeedDataType{

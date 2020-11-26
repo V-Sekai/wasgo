@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "BaseButton.h"
+#include "Resource.h"
 #include "Variant.h"
 class ButtonGroup : public Resource{
 public: ButtonGroup();

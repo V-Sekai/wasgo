@@ -4,13 +4,13 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "PoolByteArray.h"
-#include "Reference.h"
 #include "PoolStringArray.h"
-#include "Erro.h"
 #include "Dictionary.h"
+#include "Reference.h"
+#include "String.h"
+#include "Erro.h"
 #include "StreamPeer.h"
+#include "PoolByteArray.h"
 class HTTPClient : public Reference{
 public: HTTPClient();
 enum Status{

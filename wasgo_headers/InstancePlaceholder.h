@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Node.h"
 #include "Dictionary.h"
 #include "PackedScene.h"
+#include "String.h"
 class InstancePlaceholder : public Node{
 public: InstancePlaceholder();
 Node  create_instance(bool replace = false, PackedScene custom_scene = null);

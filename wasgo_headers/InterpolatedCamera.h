@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Camera.h"
 #include "NodePath.h"
+#include "Camera.h"
 #include "Object.h"
 class InterpolatedCamera : public Camera{
 public: InterpolatedCamera();

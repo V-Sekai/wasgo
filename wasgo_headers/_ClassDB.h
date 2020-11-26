@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "PoolStringArray.h"
-#include "Erro.h"
 #include "Dictionary.h"
+#include "String.h"
+#include "Erro.h"
 #include "Variant.h"
 #include "Object.h"
 class _ClassDB : public Object{

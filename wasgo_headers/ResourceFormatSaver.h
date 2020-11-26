@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
-#include "Reference.h"
 #include "PoolStringArray.h"
+#include "Reference.h"
+#include "String.h"
+#include "Resource.h"
 class ResourceFormatSaver : public Reference{
 public: ResourceFormatSaver();
 PoolStringArray  get_recognized_extensions(Resource resource);

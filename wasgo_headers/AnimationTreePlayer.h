@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Node.h"
 #include "Vector2.h"
+#include "NodePath.h"
 #include "PoolStringArray.h"
 #include "Animation.h"
-#include "NodePath.h"
+#include "String.h"
+#include "Node.h"
 #include "Erro.h"
 class AnimationTreePlayer : public Node{
 public: AnimationTreePlayer();

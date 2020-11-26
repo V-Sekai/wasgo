@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
 #include "PoolStringArray.h"
+#include "String.h"
+#include "Resource.h"
 #include "Erro.h"
 #include "Object.h"
 class _ResourceSaver : public Object{

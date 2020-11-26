@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "GIProbeData.h"
-#include "VisualInstance.h"
 #include "Node.h"
 #include "Vector3.h"
+#include "VisualInstance.h"
+#include "GIProbeData.h"
 class GIProbe : public VisualInstance{
 public: GIProbe();
 enum Subdiv{

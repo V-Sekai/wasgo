@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "SpriteFrames.h"
 #include "Vector2.h"
+#include "SpriteFrames.h"
 #include "Node2D.h"
+#include "String.h"
 class AnimatedSprite : public Node2D{
 public: AnimatedSprite();
 bool  _is_playing();

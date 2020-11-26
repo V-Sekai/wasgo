@@ -4,14 +4,14 @@
 
 #include <stdint.h>
 
-#include "Material.h"
-#include "Resource.h"
-#include "AABB.h"
 #include "Vector2.h"
+#include "TriangleMesh.h"
+#include "Material.h"
+#include "Shape.h"
+#include "AABB.h"
+#include "Resource.h"
 #include "PoolVector3Array.h"
 #include "Variant.h"
-#include "Shape.h"
-#include "TriangleMesh.h"
 class Mesh : public Resource{
 public: Mesh();
 enum BlendShapeMode{

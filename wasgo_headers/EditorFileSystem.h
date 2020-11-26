@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Node.h"
+#include "String.h"
 #include "EditorFileSystemDirectory.h"
 class EditorFileSystem : public Node{
 public: EditorFileSystem();

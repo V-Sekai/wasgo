@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "CollisionObject.h"
 #include "Node.h"
 #include "Variant.h"
-#include "CollisionObject.h"
 class PhysicsBody : public CollisionObject{
 public: PhysicsBody();
 int  _get_layers();

@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "VisualShaderNode.h"
+#include "String.h"
 #include "Variant.h"
 class VisualShaderNodeCustom : public VisualShaderNode{
 public: VisualShaderNodeCustom();

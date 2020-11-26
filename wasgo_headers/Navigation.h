@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
+#include "Spatial.h"
 #include "Transform.h"
 #include "PoolVector3Array.h"
-#include "Spatial.h"
-#include "Object.h"
 #include "Vector3.h"
 #include "NavigationMesh.h"
+#include "Object.h"
 class Navigation : public Spatial{
 public: Navigation();
 Vector3  get_closest_point(Vector3 to_point);

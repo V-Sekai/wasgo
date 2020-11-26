@@ -4,14 +4,14 @@
 
 #include <stdint.h>
 
-#include "Node.h"
-#include "Gradient.h"
 #include "Vector2.h"
-#include "Node2D.h"
 #include "PoolVector2Array.h"
+#include "Gradient.h"
+#include "Node2D.h"
+#include "Node.h"
+#include "Texture.h"
 #include "Curve.h"
 #include "Variant.h"
-#include "Texture.h"
 class CPUParticles2D : public Node2D{
 public: CPUParticles2D();
 enum Flags{

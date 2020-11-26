@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Erro.h"
 #include "StreamPeer.h"
+#include "Erro.h"
+#include "String.h"
 class StreamPeerTCP : public StreamPeer{
 public: StreamPeerTCP();
 enum Status{

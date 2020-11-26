@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "VisualScriptNode.h"
+#include "String.h"
 class VisualScriptTypeCast : public VisualScriptNode{
 public: VisualScriptTypeCast();
 String  get_base_script();

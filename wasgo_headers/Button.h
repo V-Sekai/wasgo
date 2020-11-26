@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "BaseButton.h"
+#include "String.h"
 #include "Texture.h"
 class Button : public BaseButton{
 public: Button();

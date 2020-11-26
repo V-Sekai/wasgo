@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
-#include "GeometryInstance.h"
 #include "Vector2.h"
+#include "GeometryInstance.h"
 #include "Texture.h"
-#include "Variant.h"
-#include "Vector3.h"
 #include "Plane.h"
+#include "Vector3.h"
+#include "Variant.h"
 class ImmediateGeometry : public GeometryInstance{
 public: ImmediateGeometry();
 void  add_sphere(int lats, int lons, float radius, bool add_uv = true);

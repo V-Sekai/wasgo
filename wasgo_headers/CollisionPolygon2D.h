@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "PoolVector2Array.h"
 #include "Node2D.h"
+#include "PoolVector2Array.h"
 class CollisionPolygon2D : public Node2D{
 public: CollisionPolygon2D();
 enum BuildMode{

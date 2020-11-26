@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "NodePath.h"
 #include "Node2D.h"
+#include "NodePath.h"
 class Joint2D : public Node2D{
 public: Joint2D();
 float  get_bias();

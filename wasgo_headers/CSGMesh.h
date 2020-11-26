@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Material.h"
 #include "CSGPrimitive.h"
 #include "Mesh.h"
+#include "Material.h"
 class CSGMesh : public CSGPrimitive{
 public: CSGMesh();
 void  _mesh_changed();

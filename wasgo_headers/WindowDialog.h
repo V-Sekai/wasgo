@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "TextureButton.h"
 #include "Popup.h"
+#include "TextureButton.h"
+#include "String.h"
 #include "InputEvent.h"
 class WindowDialog : public Popup{
 public: WindowDialog();

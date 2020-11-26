@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Material.h"
 #include "CSGPrimitive.h"
+#include "Material.h"
 class CSGTorus : public CSGPrimitive{
 public: CSGTorus();
 float  get_inner_radius();

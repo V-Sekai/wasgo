@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "LineEdit.h"
+#include "String.h"
 #include "Range.h"
 #include "InputEvent.h"
 class SpinBox : public Range{

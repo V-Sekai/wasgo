@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
+#include "SceneState.h"
+#include "Dictionary.h"
 #include "Resource.h"
 #include "Node.h"
 #include "Erro.h"
-#include "Dictionary.h"
-#include "SceneState.h"
 class PackedScene : public Resource{
 public: PackedScene();
 enum GenEditState{

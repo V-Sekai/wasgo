@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Reference.h"
+#include "String.h"
+#include "RegExMatch.h"
 #include "Erro.h"
 #include "Variant.h"
-#include "RegExMatch.h"
 class RegEx : public Reference{
 public: RegEx();
 void  clear();

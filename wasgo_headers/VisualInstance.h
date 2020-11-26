@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "Spatial.h"
-#include "AABB.h"
 #include "RID.h"
+#include "AABB.h"
 class VisualInstance : public Spatial{
 public: VisualInstance();
 RID  _get_visual_instance_rid();

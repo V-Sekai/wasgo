@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Mesh.h"
 #include "Spatial.h"
-#include "Vector3.h"
+#include "Mesh.h"
+#include "String.h"
 #include "Plane.h"
+#include "Vector3.h"
 class ARVRAnchor : public Spatial{
 public: ARVRAnchor();
 int  get_anchor_id();

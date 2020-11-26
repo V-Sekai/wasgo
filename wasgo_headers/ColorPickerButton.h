@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Button.h"
 #include "PopupPanel.h"
-#include "Variant.h"
+#include "Button.h"
 #include "ColorPicker.h"
+#include "Variant.h"
 class ColorPickerButton : public Button{
 public: ColorPickerButton();
 void  _color_changed(Color arg0);

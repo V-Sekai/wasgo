@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Erro.h"
-#include "AudioStream.h"
 #include "PoolByteArray.h"
+#include "AudioStream.h"
+#include "Erro.h"
+#include "String.h"
 class AudioStreamSample : public AudioStream{
 public: AudioStreamSample();
 enum LoopMode{

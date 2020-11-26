@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Control.h"
+#include "String.h"
 class Label : public Control{
 public: Label();
 enum Align{

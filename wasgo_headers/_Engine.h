@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Dictionary.h"
-#include "Variant.h"
 #include "MainLoop.h"
+#include "Dictionary.h"
+#include "String.h"
+#include "Variant.h"
 #include "Object.h"
 class _Engine : public Object{
 public: _Engine();

@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "InputEvent.h"
-#include "Node2D.h"
 #include "Shape2D.h"
-#include "BitMap.h"
+#include "String.h"
+#include "Node2D.h"
 #include "Texture.h"
+#include "BitMap.h"
+#include "InputEvent.h"
 class TouchScreenButton : public Node2D{
 public: TouchScreenButton();
 enum VisibilityMode{

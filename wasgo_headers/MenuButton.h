@@ -6,8 +6,8 @@
 
 #include "PopupMenu.h"
 #include "InputEvent.h"
-#include "Variant.h"
 #include "Button.h"
+#include "Variant.h"
 class MenuButton : public Button{
 public: MenuButton();
 Array  _get_items();

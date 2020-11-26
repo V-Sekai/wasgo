@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "PoolByteArray.h"
 #include "Reference.h"
+#include "String.h"
 #include "Erro.h"
+#include "PoolByteArray.h"
 #include "Variant.h"
 class StreamPeer : public Reference{
 public: StreamPeer();

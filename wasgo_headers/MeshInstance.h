@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "Material.h"
-#include "GeometryInstance.h"
-#include "NodePath.h"
 #include "Skin.h"
 #include "Mesh.h"
+#include "NodePath.h"
+#include "GeometryInstance.h"
+#include "Material.h"
 class MeshInstance : public GeometryInstance{
 public: MeshInstance();
 void  _mesh_changed();

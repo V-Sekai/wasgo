@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "VisualShaderNodeGroupBase.h"
+#include "String.h"
 class VisualShaderNodeExpression : public VisualShaderNodeGroupBase{
 public: VisualShaderNodeExpression();
 String  get_expression();

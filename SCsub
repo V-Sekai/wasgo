@@ -85,11 +85,10 @@ else:
 
 module_env.add_source_files(env.modules_sources, sdk)
 module_env.add_source_files(env.modules_sources, "src/*.cpp")
+module_env.add_source_files(env.modules_sources, "api/*.cpp")
 module_env.add_source_files(env.modules_sources, "*.cpp")
 # module_env.Append(CCFLAGS=['-O2']) # Flags for C and C++ code
 # module_env.Append(CXXFLAGS=['-std=c++11']) # Flags for C++ code only
-
-
 
 module_env.Append(CPPDEFINES=[
   ("BH_FREE", "wasm_runtime_free"),
@@ -110,4 +109,6 @@ module_env.Append(CPPDEFINES=[
   ("WASM_ENABLE_MINI_LOADER", 0),
   ("WASM_ENABLE_MULTI_MODULE", 0),
   ("WASM_ENABLE_SHARED_MEMORY", 0),
+  # ("WASGO_API_TEST", ""),
+  ("WASGO_API_GENERATION", ""),
 ])

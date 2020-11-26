@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
 #include "PoolStringArray.h"
+#include "String.h"
 #include "ConfigFile.h"
+#include "Resource.h"
 class GDNativeLibrary : public Resource{
 public: GDNativeLibrary();
 ConfigFile  get_config_file();

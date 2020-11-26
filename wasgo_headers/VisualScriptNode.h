@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "VisualScript.h"
+#include "Resource.h"
 #include "Variant.h"
 class VisualScriptNode : public Resource{
 public: VisualScriptNode();

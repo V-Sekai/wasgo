@@ -7,8 +7,8 @@
 #include "Reference.h"
 #include "PoolIntArray.h"
 #include "PoolVector3Array.h"
-#include "Variant.h"
 #include "Vector3.h"
+#include "Variant.h"
 class AStar : public Reference{
 public: AStar();
 float  _compute_cost(int from_id, int to_id);

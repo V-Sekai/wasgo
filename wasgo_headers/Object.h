@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Reference.h"
-#include "PoolStringArray.h"
-#include "Erro.h"
 #include "NodePath.h"
+#include "PoolStringArray.h"
+#include "Reference.h"
+#include "String.h"
+#include "Erro.h"
 #include "Variant.h"
 class Object{
 public: Object();

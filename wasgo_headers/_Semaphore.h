@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Reference.h"
 #include "Erro.h"
+#include "Reference.h"
 class _Semaphore : public Reference{
 public: _Semaphore();
 enum.Error  post();

@@ -4,14 +4,14 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
-#include "Quat.h"
 #include "Vector2.h"
-#include "PoolIntArray.h"
+#include "Quat.h"
 #include "NodePath.h"
-#include "Variant.h"
+#include "String.h"
+#include "Resource.h"
+#include "PoolIntArray.h"
 #include "Vector3.h"
+#include "Variant.h"
 class Animation : public Resource{
 public: Animation();
 enum TrackType{

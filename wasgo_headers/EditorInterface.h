@@ -4,19 +4,19 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
-#include "Node.h"
 #include "EditorSettings.h"
-#include "EditorInspector.h"
+#include "EditorFileSystem.h"
+#include "String.h"
+#include "Resource.h"
+#include "ScriptEditor.h"
 #include "EditorSelection.h"
-#include "Object.h"
+#include "Node.h"
+#include "EditorInspector.h"
 #include "Erro.h"
+#include "EditorResourcePreview.h"
+#include "Object.h"
 #include "Control.h"
 #include "Variant.h"
-#include "EditorResourcePreview.h"
-#include "EditorFileSystem.h"
-#include "ScriptEditor.h"
 class EditorInterface : public Node{
 public: EditorInterface();
 void  edit_resource(Resource resource);

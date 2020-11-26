@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
+#include "Mesh.h"
 #include "String.h"
+#include "Resource.h"
 #include "PoolIntArray.h"
 #include "PoolVector3Array.h"
 #include "Variant.h"
-#include "Mesh.h"
 class NavigationMesh : public Resource{
 public: NavigationMesh();
 Array  _get_polygons();

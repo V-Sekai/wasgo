@@ -29,6 +29,11 @@ class WasGoState : public Node {
 	uint32_t heap_size = 8192;
 
 public:
+	enum InterpolationType {
+		NONE,
+		LERP,
+		SLERP
+	};
 	typedef uint32_t WasGoID;
 
 	WasGoState();
@@ -58,12 +63,14 @@ public:
 	int call_wasm_function(String func_name, int argc = 0, uint32_t *argv = nullptr);
 
 	int call_object_function(WasGoID object_id, int argc, uint32_t *argv);
-	int call_array_function(WasGoID array_id, int argc, uint32_t *argv);
-	int call_dictionary_function(WasGoID dictionary_id, int argc, uint32_t *argv);
+	int call_variant_function(WasGoID object_id, int argc, uint32_t *argv);
+	// int call_array_function(WasGoID array_id, int argc, uint32_t *argv);
+	// int call_dictionary_function(WasGoID dictionary_id, int argc, uint32_t *argv);
 
 	Object *lookup_object(WasGoID id);
-	Array lookup_array(WasGoID id);
-	Dictionary lookup_dictionary(WasGoID id);
+	Object *lookup_createdObject(WasGoID id);
+	Object *lookup_referencedObject(WasGoID id);
+	Variant lookup_variant(WasGoID id);
 
 	bool is_active();
 
@@ -78,13 +85,23 @@ public:
 	// void _unhandled_input(InputEvent event);
 	// void _unhandled_key_input(InputEventKey event);
 
+	WasGoID generate_id();
+	WasGoID create_object(ObjectID obj_id);
+	WasGoID reference_object(ObjectID obj_id);
+	WasGoID create_variant(Variant var);
+	WasGoID create_object(Object obj);
+	WasGoID reference_object(Object obj);
+	WasGoID create_object(Object *obj);
+	WasGoID reference_object(Object *obj);
+	WasGoID reference_object(Ref<Object> ref);
+
 private:
-	void cleanup();
-	Object *lookup_referencedObject(WasGoID id);
 	wasm_module_t module = NULL;
 	wasm_module_inst_t module_inst = NULL;
 	wasm_exec_env_t exec_env = NULL;
 	uint32_t wasm_buffer = 0;
+
+	WasGoID last_id = 0;
 
 	Ref<WasmResource> wasm_resource;
 
@@ -93,18 +110,16 @@ private:
 	HashMap<ObjectID, WasGoID> referencedObjects;
 	HashMap<WasGoID, ObjectID> referencedObjectsReverse;
 
-	HashMap<Array, WasGoID> referencedArrays;
-	HashMap<WasGoID, Array> referencedArraysReverse;
+	//Only for special types that are not Objects. No referencing allowed. Everything is pass by value
+	// HashMap<Variant, WasGoID> createdVariants;
+	HashMap<WasGoID, Variant> createdVariantsReverse;
 
-	HashMap<Dictionary, WasGoID> referencedDictionary;
-	HashMap<WasGoID, Dictionary> referencedDictionaryReverse;
+	HashMap<WasGoID, InterpolationType> networkedVariants;
 
 	// HashMap<WasGoID, int> createdObjectCounts;
 	// HashMap<WasGoID, int> referencedObjectCounts;
 	// HashMap<WasGoID, int> referencedArraysCounts;
 	// HashMap<WasGoID, int> referencedDictionaryCounts;
-
-	int add_object(Object *);
 };
 
 #endif

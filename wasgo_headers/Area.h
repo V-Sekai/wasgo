@@ -5,11 +5,11 @@
 #include <stdint.h>
 
 #include "String.h"
+#include "CollisionObject.h"
 #include "Node.h"
 #include "RID.h"
-#include "CollisionObject.h"
-#include "Variant.h"
 #include "Vector3.h"
+#include "Variant.h"
 class Area : public CollisionObject{
 public: Area();
 enum SpaceOverride{

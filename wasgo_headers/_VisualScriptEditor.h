@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Script.h"
 #include "String.h"
 #include "Object.h"
-#include "Script.h"
 class _VisualScriptEditor : public Object{
 public: _VisualScriptEditor();
 void  add_custom_node(String name, String category, Script script);

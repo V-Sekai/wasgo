@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Material.h"
 #include "CSGPrimitive.h"
+#include "Material.h"
 class CSGCylinder : public CSGPrimitive{
 public: CSGCylinder();
 float  get_height();

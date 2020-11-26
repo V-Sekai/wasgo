@@ -6,10 +6,10 @@
 
 #include "AudioEffect.h"
 #include "String.h"
-#include "AudioBusLayout.h"
-#include "Variant.h"
-#include "Object.h"
 #include "AudioEffectInstance.h"
+#include "Object.h"
+#include "Variant.h"
+#include "AudioBusLayout.h"
 class AudioServer : public Object{
 public: AudioServer();
 enum SpeakerMode{

@@ -6,8 +6,8 @@
 
 #include "Material.h"
 #include "Vector3.h"
-#include "Variant.h"
 #include "Texture.h"
+#include "Variant.h"
 class SpatialMaterial : public Material{
 public: SpatialMaterial();
 enum EmissionOperator{

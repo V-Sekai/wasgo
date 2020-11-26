@@ -6,9 +6,9 @@
 
 #include "Dictionary.h"
 #include "PhysicsShapeQueryParameters.h"
+#include "Vector3.h"
 #include "Variant.h"
 #include "Object.h"
-#include "Vector3.h"
 class PhysicsDirectSpaceState : public Object{
 public: PhysicsDirectSpaceState();
 Array  cast_motion(PhysicsShapeQueryParameters shape, Vector3 motion);

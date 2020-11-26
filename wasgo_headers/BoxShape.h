@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Shape.h"
 #include "Vector3.h"
+#include "Shape.h"
 class BoxShape : public Shape{
 public: BoxShape();
 Vector3  get_extents();

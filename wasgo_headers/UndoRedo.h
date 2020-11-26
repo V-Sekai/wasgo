@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Variant.h"
 #include "String.h"
 #include "Object.h"
-#include "Variant.h"
 class UndoRedo : public Object{
 public: UndoRedo();
 enum MergeMode{

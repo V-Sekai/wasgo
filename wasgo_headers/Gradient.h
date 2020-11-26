@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "Resource.h"
-#include "Variant.h"
 #include "PoolRealArray.h"
+#include "Variant.h"
 class Gradient : public Resource{
 public: Gradient();
 void  add_point(float offset, Color color);

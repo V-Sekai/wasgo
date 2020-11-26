@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "Vector2.h"
 #include "Transform2D.h"
+#include "Resource.h"
 #include "Variant.h"
 class Shape2D : public Resource{
 public: Shape2D();

@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Spatial.h"
 #include "Resource.h"
 #include "Shape.h"
-#include "Spatial.h"
 class CollisionShape : public Spatial{
 public: CollisionShape();
 void  _shape_changed();

@@ -4,13 +4,13 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
+#include "Font.h"
+#include "PoolStringArray.h"
 #include "String.h"
 #include "StyleBox.h"
-#include "PoolStringArray.h"
-#include "Variant.h"
-#include "Font.h"
+#include "Resource.h"
 #include "Texture.h"
+#include "Variant.h"
 class Theme : public Resource{
 public: Theme();
 void  _emit_theme_changed();

@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "Rect2.h"
 #include "Vector2.h"
-#include "RID.h"
+#include "Rect2.h"
+#include "Resource.h"
 #include "Image.h"
+#include "RID.h"
 #include "Variant.h"
 class Texture : public Resource{
 public: Texture();

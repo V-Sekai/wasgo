@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "NodePath.h"
+#include "String.h"
 #include "VisualScriptNode.h"
 class VisualScriptYieldSignal : public VisualScriptNode{
 public: VisualScriptYieldSignal();

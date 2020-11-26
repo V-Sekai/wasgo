@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "Vector2.h"
-#include "Variant.h"
 #include "Texture.h"
+#include "Variant.h"
 class LargeTexture : public Texture{
 public: LargeTexture();
 Array  _get_data();

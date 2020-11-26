@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Node.h"
 #include "Label.h"
 #include "WindowDialog.h"
+#include "String.h"
+#include "Node.h"
 #include "Button.h"
 class AcceptDialog : public WindowDialog{
 public: AcceptDialog();

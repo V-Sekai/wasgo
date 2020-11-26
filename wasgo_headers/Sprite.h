@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "Vector2.h"
-#include "Node2D.h"
 #include "Rect2.h"
+#include "Node2D.h"
 #include "Texture.h"
 class Sprite : public Node2D{
 public: Sprite();

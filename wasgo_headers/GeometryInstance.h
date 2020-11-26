@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Material.h"
 #include "VisualInstance.h"
 #include "AABB.h"
+#include "Material.h"
 class GeometryInstance : public VisualInstance{
 public: GeometryInstance();
 enum Flags{

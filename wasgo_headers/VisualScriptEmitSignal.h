@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "VisualScriptNode.h"
+#include "String.h"
 class VisualScriptEmitSignal : public VisualScriptNode{
 public: VisualScriptEmitSignal();
 String  get_signal();

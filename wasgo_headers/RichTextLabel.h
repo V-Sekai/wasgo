@@ -4,16 +4,16 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "VScrollBar.h"
-#include "InputEvent.h"
+#include "Font.h"
 #include "PoolStringArray.h"
-#include "Erro.h"
 #include "Dictionary.h"
+#include "String.h"
+#include "InputEvent.h"
+#include "Erro.h"
+#include "VScrollBar.h"
+#include "Texture.h"
 #include "Control.h"
 #include "Variant.h"
-#include "Font.h"
-#include "Texture.h"
 class RichTextLabel : public Control{
 public: RichTextLabel();
 enum Align{

@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Object.h"
 #include "Variant.h"
+#include "String.h"
 #include "InputEvent.h"
 class InputMap : public Object{
 public: InputMap();

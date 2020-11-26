@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "Vector2.h"
-#include "Vector3.h"
 #include "Image.h"
+#include "Vector3.h"
+#include "Resource.h"
 class OpenSimplexNoise : public Resource{
 public: OpenSimplexNoise();
 Image  get_image(int width, int height);

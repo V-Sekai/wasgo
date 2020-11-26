@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
+#include "PoolStringArray.h"
 #include "String.h"
 #include "HTTPClient.h"
 #include "Node.h"
-#include "PoolByteArray.h"
-#include "PoolStringArray.h"
 #include "Erro.h"
+#include "PoolByteArray.h"
 class HTTPRequest : public Node{
 public: HTTPRequest();
 enum Result{

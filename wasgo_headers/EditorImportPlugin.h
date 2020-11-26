@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Dictionary.h"
 #include "ResourceImporter.h"
+#include "Dictionary.h"
+#include "String.h"
 #include "Variant.h"
 class EditorImportPlugin : public ResourceImporter{
 public: EditorImportPlugin();

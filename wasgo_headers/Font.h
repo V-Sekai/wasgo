@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
 #include "Vector2.h"
+#include "String.h"
+#include "Resource.h"
 #include "RID.h"
 #include "Variant.h"
 class Font : public Resource{

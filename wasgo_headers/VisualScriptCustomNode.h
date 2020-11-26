@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "VisualScriptNode.h"
+#include "String.h"
 #include "Variant.h"
 class VisualScriptCustomNode : public VisualScriptNode{
 public: VisualScriptCustomNode();

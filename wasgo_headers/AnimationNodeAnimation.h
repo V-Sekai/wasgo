@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "AnimationRootNode.h"
+#include "String.h"
 class AnimationNodeAnimation : public AnimationRootNode{
 public: AnimationNodeAnimation();
 String  get_animation();

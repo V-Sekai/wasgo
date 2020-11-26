@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Erro.h"
+#include "String.h"
 #include "NetworkedMultiplayerPeer.h"
 class NetworkedMultiplayerENet : public NetworkedMultiplayerPeer{
 public: NetworkedMultiplayerENet();

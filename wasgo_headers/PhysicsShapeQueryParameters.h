@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "Reference.h"
+#include "Resource.h"
 #include "Transform.h"
 #include "RID.h"
 #include "Variant.h"

@@ -4,13 +4,13 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "ARVRServer.h"
-#include "Transform.h"
-#include "Object.h"
-#include "Vector3.h"
 #include "Basis.h"
+#include "ARVRServer.h"
 #include "Mesh.h"
+#include "String.h"
+#include "Transform.h"
+#include "Vector3.h"
+#include "Object.h"
 class ARVRPositionalTracker : public Object{
 public: ARVRPositionalTracker();
 enum TrackerHand{

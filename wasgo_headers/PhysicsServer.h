@@ -4,6 +4,7 @@
 
 #include <stdint.h>
 
+#include "Vector3.h"
 #include "String.h"
 #include "PhysicsDirectSpaceState.h"
 #include "Transform.h"
@@ -11,7 +12,6 @@
 #include "Variant.h"
 #include "PhysicsDirectBodyState.h"
 #include "Object.h"
-#include "Vector3.h"
 class PhysicsServer : public Object{
 public: PhysicsServer();
 enum BodyAxis{

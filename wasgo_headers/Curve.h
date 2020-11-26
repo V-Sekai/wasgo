@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "Vector2.h"
+#include "Resource.h"
 #include "Variant.h"
 class Curve : public Resource{
 public: Curve();

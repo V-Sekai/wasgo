@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "VisualScriptNode.h"
+#include "String.h"
 class VisualScriptVariableSet : public VisualScriptNode{
 public: VisualScriptVariableSet();
 String  get_variable();

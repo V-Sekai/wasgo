@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "SpriteFrames.h"
 #include "SpriteBase3D.h"
+#include "String.h"
 class AnimatedSprite3D : public SpriteBase3D{
 public: AnimatedSprite3D();
 bool  _is_playing();

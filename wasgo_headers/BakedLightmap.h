@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "BakedLightmapData.h"
 #include "String.h"
 #include "Node.h"
-#include "BakedLightmapData.h"
 #include "VisualInstance.h"
 #include "Vector3.h"
 class BakedLightmap : public VisualInstance{

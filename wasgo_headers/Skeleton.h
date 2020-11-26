@@ -4,14 +4,14 @@
 
 #include <stdint.h>
 
+#include "Spatial.h"
+#include "Skin.h"
 #include "String.h"
 #include "Node.h"
 #include "Transform.h"
-#include "RID.h"
 #include "SkinReference.h"
+#include "RID.h"
 #include "Variant.h"
-#include "Spatial.h"
-#include "Skin.h"
 class Skeleton : public Spatial{
 public: Skeleton();
 void  add_bone(String name);

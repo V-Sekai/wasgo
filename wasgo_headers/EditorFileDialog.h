@@ -4,13 +4,13 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "InputEvent.h"
-#include "ConfirmationDialog.h"
 #include "Vector2.h"
 #include "VBoxContainer.h"
-#include "Variant.h"
+#include "String.h"
+#include "ConfirmationDialog.h"
 #include "Texture.h"
+#include "Variant.h"
+#include "InputEvent.h"
 class EditorFileDialog : public ConfirmationDialog{
 public: EditorFileDialog();
 enum DisplayMode{

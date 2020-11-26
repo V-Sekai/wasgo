@@ -4,23 +4,23 @@
 
 #include <stdint.h>
 
-#include "Material.h"
-#include "String.h"
-#include "Node.h"
-#include "StyleBox.h"
-#include "Rect2.h"
-#include "Mesh.h"
-#include "InputEvent.h"
 #include "Vector2.h"
-#include "RID.h"
-#include "PoolVector2Array.h"
-#include "Dictionary.h"
-#include "Variant.h"
 #include "Font.h"
 #include "MultiMesh.h"
+#include "Material.h"
+#include "Mesh.h"
+#include "Dictionary.h"
+#include "PoolVector2Array.h"
+#include "String.h"
+#include "Rect2.h"
+#include "StyleBox.h"
 #include "World2D.h"
+#include "Node.h"
+#include "InputEvent.h"
 #include "Transform2D.h"
 #include "Texture.h"
+#include "RID.h"
+#include "Variant.h"
 class CanvasItem : public Node{
 public: CanvasItem();
 enum BlendMode{

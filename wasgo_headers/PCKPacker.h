@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Reference.h"
-#include "String.h"
 #include "Erro.h"
+#include "String.h"
+#include "Reference.h"
 class PCKPacker : public Reference{
 public: PCKPacker();
 enum.Error  add_file(String pck_path, String source_path);

@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
+#include "Vector2.h"
+#include "CollisionObject2D.h"
 #include "String.h"
 #include "Node.h"
-#include "Vector2.h"
 #include "RID.h"
 #include "Variant.h"
-#include "CollisionObject2D.h"
 class Area2D : public CollisionObject2D{
 public: Area2D();
 enum SpaceOverride{

@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Dictionary.h"
 #include "String.h"
 #include "Erro.h"
-#include "Dictionary.h"
 #include "Variant.h"
 #include "Object.h"
 class ProjectSettings : public Object{

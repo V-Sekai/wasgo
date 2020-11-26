@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "VideoStream.h"
 #include "Control.h"
+#include "String.h"
 #include "Texture.h"
 class VideoPlayer : public Control{
 public: VideoPlayer();

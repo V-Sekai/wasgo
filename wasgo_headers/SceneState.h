@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Reference.h"
-#include "PoolStringArray.h"
 #include "NodePath.h"
-#include "Variant.h"
+#include "PoolStringArray.h"
+#include "Reference.h"
+#include "String.h"
 #include "PackedScene.h"
+#include "Variant.h"
 class SceneState : public Reference{
 public: SceneState();
 enum GenEditState{

@@ -4,13 +4,13 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
-#include "Node.h"
-#include "PoolStringArray.h"
-#include "Variant.h"
-#include "Object.h"
 #include "ScrollContainer.h"
+#include "PoolStringArray.h"
+#include "String.h"
+#include "Resource.h"
+#include "Node.h"
+#include "Object.h"
+#include "Variant.h"
 class EditorInspector : public ScrollContainer{
 public: EditorInspector();
 void  _edit_request_change(Object arg0, String arg1);

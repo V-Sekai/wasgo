@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "VisualShaderNode.h"
+#include "String.h"
 class VisualShaderNodeUniform : public VisualShaderNode{
 public: VisualShaderNodeUniform();
 String  get_uniform_name();

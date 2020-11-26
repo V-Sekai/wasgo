@@ -6,8 +6,8 @@
 
 #include "Vector2.h"
 #include "Range.h"
-#include "Variant.h"
 #include "Texture.h"
+#include "Variant.h"
 class TextureProgress : public Range{
 public: TextureProgress();
 enum FillMode{

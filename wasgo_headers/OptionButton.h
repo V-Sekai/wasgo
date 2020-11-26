@@ -6,9 +6,9 @@
 
 #include "PopupMenu.h"
 #include "String.h"
-#include "Variant.h"
-#include "Button.h"
 #include "Texture.h"
+#include "Button.h"
+#include "Variant.h"
 class OptionButton : public Button{
 public: OptionButton();
 void  _focused(int arg0);

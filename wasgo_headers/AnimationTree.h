@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
+#include "AnimationNode.h"
+#include "NodePath.h"
 #include "String.h"
 #include "Node.h"
 #include "Transform.h"
-#include "NodePath.h"
-#include "AnimationNode.h"
 class AnimationTree : public Node{
 public: AnimationTree();
 enum AnimationProcessMode{

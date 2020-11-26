@@ -6,9 +6,9 @@
 
 #include "PopupMenu.h"
 #include "String.h"
-#include "InputEvent.h"
-#include "Control.h"
 #include "Texture.h"
+#include "Control.h"
+#include "InputEvent.h"
 class LineEdit : public Control{
 public: LineEdit();
 enum Align{

@@ -4,11 +4,11 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
 #include "PoolStringArray.h"
-#include "Object.h"
+#include "String.h"
 #include "ResourceInteractiveLoader.h"
+#include "Resource.h"
+#include "Object.h"
 class _ResourceLoader : public Object{
 public: _ResourceLoader();
 bool  exists(String path, String type_hint = "");

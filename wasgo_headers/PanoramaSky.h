@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Sky.h"
 #include "Texture.h"
+#include "Sky.h"
 class PanoramaSky : public Sky{
 public: PanoramaSky();
 Texture  get_panorama();

@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Spatial.h"
-#include "Object.h"
 #include "Vector3.h"
+#include "Spatial.h"
 #include "RID.h"
+#include "Object.h"
 class RayCast : public Spatial{
 public: RayCast();
 void  add_exception(Object node);

@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "VisualScriptNode.h"
 #include "Vector2.h"
+#include "VisualScriptNode.h"
+#include "String.h"
 class VisualScriptComment : public VisualScriptNode{
 public: VisualScriptComment();
 String  get_description();

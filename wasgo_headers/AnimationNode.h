@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
 #include "NodePath.h"
 #include "Dictionary.h"
+#include "String.h"
+#include "Resource.h"
 #include "Variant.h"
 #include "Object.h"
 class AnimationNode : public Resource{

@@ -4,12 +4,12 @@
 
 #include <stdint.h>
 
+#include "PoolStringArray.h"
+#include "NodePath.h"
+#include "Animation.h"
 #include "String.h"
 #include "Node.h"
-#include "PoolStringArray.h"
-#include "Animation.h"
 #include "Erro.h"
-#include "NodePath.h"
 class AnimationPlayer : public Node{
 public: AnimationPlayer();
 enum AnimationProcessMode{

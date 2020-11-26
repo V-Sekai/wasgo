@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "Object.h"
+#include "String.h"
 #include "Variant.h"
 class IP : public Object{
 public: IP();

@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "InputEventWithModifiers.h"
 #include "Vector2.h"
+#include "InputEventWithModifiers.h"
 class InputEventGesture : public InputEventWithModifiers{
 public: InputEventGesture();
 Vector2  get_position();

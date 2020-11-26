@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
-#include "Reference.h"
 #include "Vector2.h"
+#include "Reference.h"
+#include "String.h"
+#include "Resource.h"
 #include "Texture.h"
 class EditorResourcePreviewGenerator : public Reference{
 public: EditorResourcePreviewGenerator();

@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "VisualScriptNode.h"
+#include "String.h"
 class VisualScriptClassConstant : public VisualScriptNode{
 public: VisualScriptClassConstant();
 String  get_base_type();

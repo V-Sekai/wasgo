@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Node.h"
 #include "Reference.h"
 #include "EditorInterface.h"
-#include "Node.h"
 class EditorScript : public Reference{
 public: EditorScript();
 void  _run();

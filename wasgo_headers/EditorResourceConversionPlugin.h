@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
 #include "Reference.h"
+#include "String.h"
+#include "Resource.h"
 class EditorResourceConversionPlugin : public Reference{
 public: EditorResourceConversionPlugin();
 Resource  _convert(Resource resource);

@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 #include "Transform.h"
-#include "Vector3.h"
 #include "KinematicCollision.h"
+#include "Vector3.h"
 #include "PhysicsBody.h"
 class KinematicBody : public PhysicsBody{
 public: KinematicBody();

@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
 #include "Image.h"
+#include "Resource.h"
 class CubeMap : public Resource{
 public: CubeMap();
 enum Flags{

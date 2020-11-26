@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "VisualShaderNode.h"
+#include "String.h"
 class VisualShaderNodeInput : public VisualShaderNode{
 public: VisualShaderNodeInput();
 String  get_input_name();

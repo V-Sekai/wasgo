@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "String.h"
+#include "Node2D.h"
 #include "AudioStreamPlayback.h"
 #include "AudioStream.h"
-#include "Node2D.h"
+#include "String.h"
 class AudioStreamPlayer2D : public Node2D{
 public: AudioStreamPlayer2D();
 void  _bus_layout_changed();

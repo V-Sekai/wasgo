@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "VisualShaderNode.h"
 #include "CubeMap.h"
+#include "VisualShaderNode.h"
 class VisualShaderNodeCubeMap : public VisualShaderNode{
 public: VisualShaderNodeCubeMap();
 enum TextureType{

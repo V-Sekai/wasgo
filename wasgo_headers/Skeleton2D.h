@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
+#include "Bone2D.h"
 #include "RID.h"
 #include "Node2D.h"
-#include "Bone2D.h"
 class Skeleton2D : public Node2D{
 public: Skeleton2D();
 void  _update_bone_setup();

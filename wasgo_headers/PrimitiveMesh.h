@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Material.h"
 #include "AABB.h"
 #include "Variant.h"
 #include "Mesh.h"
+#include "Material.h"
 class PrimitiveMesh : public Mesh{
 public: PrimitiveMesh();
 void  _update();

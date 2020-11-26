@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "OccluderPolygon2D.h"
 #include "Node2D.h"
+#include "OccluderPolygon2D.h"
 class LightOccluder2D : public Node2D{
 public: LightOccluder2D();
 void  _poly_changed();

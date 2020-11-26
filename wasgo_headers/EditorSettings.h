@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Resource.h"
-#include "String.h"
 #include "PoolStringArray.h"
 #include "Dictionary.h"
+#include "String.h"
+#include "Resource.h"
 #include "Variant.h"
 class EditorSettings : public Resource{
 public: EditorSettings();

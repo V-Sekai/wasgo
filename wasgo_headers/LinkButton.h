@@ -4,8 +4,8 @@
 
 #include <stdint.h>
 
-#include "String.h"
 #include "BaseButton.h"
+#include "String.h"
 class LinkButton : public BaseButton{
 public: LinkButton();
 enum UnderlineMode{

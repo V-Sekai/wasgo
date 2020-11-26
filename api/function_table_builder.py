@@ -1,4 +1,36 @@
 import json
+from pathlib import Path
+
+#Declare Variant Types
+variants = ["Bool",
+            "Int",
+            "Real",
+            "String",
+            "string",
+            "Vector2",
+            "Rect2",
+            "Vector3",
+            "Transform2d",
+            "Transform2D",#account for inconsistencies in the api.json
+            "Plane",
+            "Quat",
+            "AABB",
+            "Basis",
+            "Transform",
+            "Color",
+            "NodePath",
+            "RID",
+            # "Object",
+            "Dictionary",
+            "Array",
+            "PoolByteArray",
+            "PoolIntArray",
+            "PoolRealArray",
+            "PoolStringArray",
+            "PoolVector2Array",
+            "PoolVector3Array",
+            "PoolColorArray",
+            "Variant"]
 
 # pointer
 def _spaced(e):
@@ -68,33 +100,7 @@ def _build_function_interfaces(api_one, api_two):
     # for extension in api_one['extensions']:
     #     out += generate_extensions_function_interface(extension)
 
-    #Declare Variant Types
-    variants = ["Bool",
-                "Int",
-                "Real",
-                "String",
-                "Vector2",
-                "Rect2",
-                "Vector3",
-                "Transform2d",
-                "Plane",
-                "Quat",
-                "AABB",
-                "Basis",
-                "Transform",
-                "Color",
-                "NodePath",
-                "RID",
-                "Object",
-                "Dictionary",
-                "Array",
-                "PoolByteArray",
-                "PoolIntArray",
-                "PoolRealArray",
-                "PoolStringArray",
-                "PoolVector2Array",
-                "PoolVector3Array",
-                "PoolColorArray"]
+
 
     #TODO create a wrapper class for Variants because they aren't in the api.json
     out += [
@@ -172,60 +178,71 @@ def _build_function_interfaces(api_one, api_two):
 
 def _build_function_tables(api_one, api_two):
 
-    out = [
+    out = ["#ifndef WASGO_FUNCTION_TABLE",
+           "#define WASGO_FUNCTION_TABLE",
         "#include \"wasm_export.h\"",
-        "static NativeSymbol native_symbols[] = ",
-        "{"
+           "#include \"src/wasgo_state.h\"",
     ]
+
+    def include_directory_recursive(dir):
+        return ["#include \"{0}\"".format(path.relative_to(dir)) for path in Path(dir).rglob('*.h')]
+
+    out += include_directory_recursive("../../../scene")
+
+    out += ["static NativeSymbol native_symbols[] = ",
+            "{"
+            ]
 
     def define_wrapper_header(class_name, func_name, return_type, argument_types):
         wrapper = [];
         arguments = "".join([(", %s arg%i" % arg, index) for index, arg in enumerate(argument_types)])
-        wrapper += [("static void wasgo_%s_%s(WasGoID wasgo_id%s);" % class_name, func_name, arguments)]
+        wrapper += [("static void wasgo_%s_%s(WasGoState::WasGoID wasgo_id%s);" % class_name, func_name, arguments)]
         return wrapper
 
     def define_wrapper_cpp(class_name, func_name, return_type, argument_types):
         wrapper = []
-        arguments = "".join([", {0} arg{1}".format(arg["type"], index) if (arg["type"] == "int" or arg["type"] == "float") else ", WasGoID arg{0}".format(index) for index, arg in enumerate(argument_types)])
+        arguments = "".join([", {0} arg{1}".format(arg["type"], index) if (arg["type"] == "int" or arg["type"] == "float") else ", WasGoState::WasGoID arg{0}".format(index) for index, arg in enumerate(argument_types)])
         def resolve_arguments(index, arg):
             if (arg == "int" or arg == "float"):
                 return ("arg%i" % index)
-            elif (arg == "Array"):
-                return "&({0} *)lookup_array(arg{1})".format(arg, index)
-            elif (arg == "Dictionary"):
-                return "&({0} *)lookup_dictionary(arg{1})".format(arg, index)
+            elif (arg == "bool"):
+                return ("int(arg%i)" % index)
+            elif (arg in variants):
+                return "&({0} *)state->lookup_variants(arg{1})".format(arg, index)
             elif (len(arg) > 1 and arg[0] == "*"):
-                return "(%s *)lookup_object(arg%i)" % arg, index
-            return "&({0} *)lookup_object(arg{1})".format(arg, index)
+                return "(%s *)state->lookup_object(arg%i)" % arg, index
+            return "&({0} *)state->lookup_object(arg{1})".format(arg, index)
 
         argument_vars = ", ".join([resolve_arguments(index, arg["type"]) for index, arg in enumerate(argument_types)])
-        real_return_type = "WasGoId"
-        if (return_type == "int" or return_type == "float" or return_type == "void"):
+        real_return_type = "WasGoState::WasGoID"
+        if (return_type == "int" or return_type == "float" or return_type == "void" or return_type == "bool"):
             real_return_type = return_type
-        wrapper += ["static {0} wasgo_{1}_{2}(wasm_exec_env_t exec_env, WasGoID caller_id{3}){{".format(real_return_type, class_name, func_name, arguments),
-                    "WasGoState *state = wasm_runtime_get_user_data(exec_env);",
+        wrapper += ["static {0} wasgo_{1}_{2}(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id{3}){{".format(real_return_type, class_name, func_name, arguments),
+                    "WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);",
                     "if(state){",
                     "{0} *caller = ({1} *) state->lookup_object(caller_id);".format(class_name, class_name),
                     "if(caller){"]
         
         if return_type == "void":
             wrapper += ["caller->{0}({1});".format(func_name, argument_vars)]
-        elif return_type == "int" or return_type == "float":
+        elif return_type == "int" or return_type == "float" or return_type =="bool":
             wrapper += ["return caller->{0}({1});".format(func_name, argument_vars)]
-        elif return_type[-1] == '*':  # TODO: Handle pointers
-            wrapper += [("%s ret_value = caller->%s(%s);" % return_type, func_name, argument_vars),
-                        "WasGoId new_id = state->generate_id();",
-                        "referencedObjects.set(new_id, ret_value->get_instance_id())",
-                        "referencedObjectsReverse.set(ret_value->get_instance_id(), new_id)",
-                        "return new_id",
-                        ]
-        else:
-            wrapper += ["{0} ret_value = caller->{1}({2});".format(return_type, func_name, argument_vars),
-                        "WasGoId new_id = state->generate_id();",
-                        "referencedObjects.set(new_id, ret_value.get_instance_id())",
-                        "referencedObjectsReverse.set(ret_value.get_instance_id(), new_id)",
-                        "return new_id",
-                        ]
+        elif return_type[-1] == '*':  # TODO: Handle pointers by making a reference to it
+            if (return_type[:-2] in variants):
+                wrapper += ["{0} ret_value = caller->{1}({2});".format(return_type, func_name, argument_vars),
+                            "return state->create_variant(&ret_value);"
+                            ]
+            else:
+                wrapper += ["{0} ret_value = caller->{1}({2});".format(return_type, func_name, argument_vars),
+                            "return state->reference_object(ret_value->get_instance_id());"
+                            ]
+        else:  # We don't want objects returned to disappear until we're done with them. We put them in the heap, we'll clean it up when the wasm calls the deconstructor on its wrapper object that connects to it
+            if (return_type in variants):
+                wrapper += ["return state->create_variant(caller->{0}({1}));".format(func_name, argument_vars)]
+            else:
+                wrapper += ["{0} *ret_value = new {0}(caller->{1}({2}));".format(return_type, func_name, argument_vars),
+                            "return state->create_object(ret_value->get_instance_id());"
+                            ]
         wrapper +=["}",
                 "}",
                 "}"]
@@ -238,6 +255,8 @@ def _build_function_tables(api_one, api_two):
             # is_arguments = api['arguments']
             arguments = ""
             for i in api['arguments']:
+                    if i['type'] == 'bool':
+                        arguments += 'i'
                     if i['type'] == 'int':
                         arguments += 'I'
                     elif i['type'] == 'float':
@@ -273,6 +292,8 @@ def _build_function_tables(api_one, api_two):
             # is_arguments = content['arguments']
             arguments = ""
             for i in content['arguments']:
+                    if i['type'] == 'bool':
+                        arguments += 'i'
                     if i['type'] == 'int':
                         arguments += 'I'
                     elif i['type'] == 'float':
@@ -306,6 +327,7 @@ def _build_function_tables(api_one, api_two):
         for method in header_api['methods']:
             out += define_wrapper_cpp(n, method["name"], method["return_type"], method["arguments"])
 
+    out += ["#endif"]
     return out
 
 def _export_native_api_to_wasm(files):
@@ -330,18 +352,184 @@ def _export_native_api_to_wasm(files):
 
     return '\n'.join(ret)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+#****************CLEANUP EFFORT STARTS HERE************************
+#Below code is the same as the above but reorganized and with extra bug fixes
+#it doesn't call any function from above, but may use constants
+
+def list_to_name_dict(list):
+    name_dict = {}
+    for item in list:
+        name_dict[item["name"]] = item
+    return name_dict
+
+def rename_if_enum(name):
+    if (name[0:5] == "enum."):
+        return name[5:]
+    else:
+        return name
+
+
+def wrapper_return_types(return_type):
+        if (return_type.lower() == "bool"):  # bools get converted to 32 bit ints
+            return "int"
+        # ints and floats stay untouched
+        elif (return_type.lower() == "int" or return_type.lower() == "float" or return_type.lower() == "void"):
+            return return_type
+        elif (return_type[0:5] == "enum."):  # enums become ints
+            return "int"
+        else:
+            return "WasGoState::WasGoID"
+
+def wrapper_argument_types(arg_type):
+    if (arg_type.lower() == "bool" or arg_type.lower() == "int" or arg_type.lower() == "float"):  #ints and floats stay untouched
+        return arg_type
+    elif (arg_type[0:5] == "enum."):  #enums become ints
+        return arg_type[5:]
+    else:
+        return "WasGoState::WasGoID"
+
+def wrapper_method_names(class_type, method_name):
+    return "_wasgo_{0}_wrapper_{1}".format(class_type, method_name)
+
+def write_native_wrapper_header(file_path, api_dict):
+
+    def include_directory_recursive(dir, relative_path):
+        return ["#include \"{0}\"".format(path.relative_to(relative_path)) for path in Path(dir).rglob('*.h')]
+    
+    out = [
+        "#ifndef WASGO_NATIVE_WRAPPER_HEADERS",
+        "#define WASGO_NATIVE_WRAPPER_HEADERS",
+        "extern \"C\"{",
+        "#include \"wasm_export.h\"",
+        "#include \"src/wasgo_state.h\"",
+    ]
+
+    out += include_directory_recursive("../../../scene", "../../../scene")
+
+    def cast_args(arg):
+        if arg["type"] == "bool" or arg["type"] == "int" or arg["type"] == "float":
+            return "{0} {1} = ({0}) p_{1};".format(arg["type"], arg["name"])
+        elif arg["type"] in variants:
+            return "{0} {1} = state->lookup_variant(p_{1});".format(arg["type"], arg["name"])
+        else:
+            if api_dict[arg["type"]]["is_reference"]:
+                return "Ref<{0}> {1} = (state->lookup_object(p_{1}));".format(arg["type"], arg["name"])
+            else:
+                return "{0} *{1} = ({0} *) state->lookup_object(p_{1});".format(arg["type"], arg["name"])
+
+    for class_name in [api_class for api_class in api_dict if api_dict[api_class]["is_reference"] == False and api_class in class_whitelist]:
+        for method in [api_method for api_method in api_dict[class_name]["methods"] if api_method["is_editor"] == False and api_method["is_virtual"] == False]:  #filter out virtul and editor methods
+            arg_string = ", ".join(["wasm_exec_env_t exec_env", "WasGoState::WasGoID caller_id"] + ["{0} p_{1}".format(wrapper_argument_types(arg["type"]), arg["name"]) for arg in method["arguments"]])
+            out += ["\n{0} {1}({2}){{".format(wrapper_return_types(method["return_type"]), wrapper_method_names(class_name, method["name"]), arg_string),
+                    "\tWasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);",
+                    "\tif(state){"
+            ]
+            if class_name in variants:
+                out += ["\t\t{0} caller = ({0}) state->lookup_variant(caller_id);".format(class_name)]
+            else:
+                out += ["\t\t{0} *caller = ({0} *) state->lookup_object(caller_id);".format(class_name)]
+            
+            out += ["\t\tif(caller){",
+            ]
+
+            out += ["\t\t\t{0}".format(cast_args(arg)) for arg in method["arguments"]]
+            arg_string = ", ".join([arg["name"] for arg in method["arguments"]])
+            if (method["return_type"] == "void"):
+                out += ["\t\t\tcaller->{0}({1});".format(method["name"], arg_string),
+                        "\t\t\treturn;"
+                        ]
+            elif (wrapper_return_types(method["return_type"]) != "WasGoState::WasGoID"):
+                out += ["\t\t\treturn ({0}) caller->{1}({2});".format(wrapper_return_types(method["return_type"]), method["name"], arg_string)]
+            else:
+                if (method["return_type"] in variants):
+                    out += ["\t\t\treturn state->create_variant(caller->{0}({1}));".format(method["name"], arg_string)]
+                elif (method["return_type"] in api_dict and api_dict[method["return_type"]]["is_reference"]):
+                    out += ["\t\t\treturn state->reference_object(caller->{0}({1}));".format(method["name"], arg_string)]
+                else :
+                    out += ["\t\t\treturn state->create_object(caller->{0}({1}));".format(method["name"], arg_string)]
+            
+            out += ["\t\t}", "\t}", "}"]
+            
+            #TODO: reaching here means that either the state wasn't set or the caller couldn't be found. We should throw an error
+
+    out += ["}", "#endif"]
+
+    with open(file_path, 'w') as fd:
+        fd.write('\n'.join(out))
+
+#TODO get rid of the whitelist. Right now it's helping me ignore errors tho lol
+class_whitelist = [
+    "AudioStreamPlayer",
+    "AnimationPlayer",
+    "AnimationTreePlayer",
+    "AnimationTree",
+    "WorldEnvironment",
+    "Node",
+    "VisibilityNotifier",
+    "Light",
+    "DirectionalLight",
+    "OmniLight",
+    "SpotLight",
+    "Particles",
+    "MeshInstance",
+    "SoftBody",
+    "Camera",
+    "Spatial",
+    "CollisionObject",
+    "CollisionPolygon",
+    "CollisionShape",
+    "Area",
+    "PhysicsBody",
+    "KinematicBody",
+    "PhysicalBone",
+    "RigidBody",
+    "StaticBody",
+    "BoneAttachment",
+    "AudioStreamPlayer3D",
+    "Position3D",
+    "Skeleton",
+    "RayCast",
+    "Joint"
+]
+
+
 if __name__ == "__main__":
     #change file path
     fd1 = open('./gdnative_api.json', 'r')
     fd2 = open('./api.json', 'r')
     api1 = json.load(fd1)
+    fd1.close();
     api1 = []
     api2 = json.load(fd2)
-    file_source = [api1, api2]
+    fd2.close()
+    # file_source = [api1, api2]
 
-    # to be imported into the code that gets compile to WASM
-    with open('../wasgo_headers/Variant.h', 'w') as fd:
-        fd.write('\n'.join(_build_function_interfaces(api1, api2)))
+    # # to be imported into the code that gets compile to WASM
+    # with open('../wasgo_headers/Variant.h', 'w') as fd:
+    #     fd.write('\n'.join(_build_function_interfaces(api1, api2)))
 
-    with open('../include/wasgo_function_table.h', 'w') as fd:#to be included on the native side
-        fd.write('\n'.join(_build_function_tables(api1, api2)))
+    # with open('../include/wasgo_function_table.h', 'w') as fd:#to be included on the native side
+    #     fd.write('\n'.join(_build_function_tables(api1, api2)))
+
+    #TODO: filter out more classes
+    #for now I'm removing all the singletons and editor scripts and reference types
+    api2 = [api for api in api2 if api["singleton"] == False and api["api_type"] == "core" and api["base_class"] != "Script"]
+    api_dict = list_to_name_dict(api2)
+    #Step 1 make the native side function wrappers
+    write_native_wrapper_header("../include/wasgo_native_wrappers.h", api_dict)
+    #Step 2 put the native wrappers in the function table
+    #Step 3 define the wasm wrappers
+    #Step 4 define all classes and methods for the wasm side which will call the wrappers

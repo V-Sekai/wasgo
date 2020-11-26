@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Reference.h"
-#include "String.h"
-#include "Erro.h"
 #include "PoolByteArray.h"
+#include "Erro.h"
+#include "String.h"
+#include "Reference.h"
 class XMLParser : public Reference{
 public: XMLParser();
 enum NodeType{

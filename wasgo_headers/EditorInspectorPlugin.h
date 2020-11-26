@@ -4,9 +4,9 @@
 
 #include <stdint.h>
 
-#include "String.h"
-#include "Reference.h"
 #include "PoolStringArray.h"
+#include "Reference.h"
+#include "String.h"
 #include "Control.h"
 #include "Object.h"
 class EditorInspectorPlugin : public Reference{

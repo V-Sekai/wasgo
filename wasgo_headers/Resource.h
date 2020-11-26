@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "Reference.h"
-#include "String.h"
 #include "Node.h"
 #include "RID.h"
+#include "String.h"
+#include "Reference.h"
 class Resource : public Reference{
 public: Resource();
 void  _setup_local_to_scene();

@@ -4,10 +4,10 @@
 
 #include <stdint.h>
 
-#include "GDNativeLibrary.h"
-#include "String.h"
 #include "Script.h"
 #include "Variant.h"
+#include "String.h"
+#include "GDNativeLibrary.h"
 class NativeScript : public Script{
 public: NativeScript();
 String  get_class_documentation();
