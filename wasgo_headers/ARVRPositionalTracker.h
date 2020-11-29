@@ -2,48 +2,29 @@
 #ifndef ARVRPOSITIONALTRACKER_H
 #define ARVRPOSITIONALTRACKER_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Basis.h"
+#include "Variant.h"
 #include "ARVRServer.h"
 #include "Mesh.h"
-#include "String.h"
-#include "Transform.h"
-#include "Vector3.h"
 #include "Object.h"
 class ARVRPositionalTracker : public Object{
 public: ARVRPositionalTracker();
 enum TrackerHand{
-TRACKER_HAND_UNKNOWN: 0,
-TRACKER_LEFT_HAND: 1,
+TRACKER_HAND_UNKNOWN,
+TRACKER_LEFT_HAND,
+TRACKER_RIGHT_HAND
 };
-void  _set_joy_id(int joy_id);
-void  _set_mesh(Mesh mesh);
-void  _set_name(String name);
-void  _set_orientation(Basis orientation);
-void  _set_rw_position(Vector3 rw_position);
-void  _set_type(int type);
-enum.ARVRPositionalTracker::TrackerHand  get_hand();
-enum.ARVRPositionalTracker::TrackerHand  get_hand();
-int  get_joy_id();
-int  get_joy_id();
-Mesh  get_mesh();
-Mesh  get_mesh();
-String  get_name();
-String  get_name();
-Basis  get_orientation();
-Basis  get_orientation();
-Vector3  get_position();
-Vector3  get_position();
-float  get_rumble();
-float  get_rumble();
-bool  get_tracks_orientation();
-bool  get_tracks_orientation();
-bool  get_tracks_position();
-bool  get_tracks_position();
-Transform  get_transform(bool adjust_by_reference_frame);
-enum.ARVRServer::TrackerType  get_type();
-enum.ARVRServer::TrackerType  get_type();
-void  set_rumble(float rumble);
+ARVRPositionalTracker::TrackerHand get_hand();
+int get_joy_id();
+Mesh get_mesh();
+String get_name();
+Basis get_orientation();
+Vector3 get_position();
+int get_tracker_id();
+bool get_tracks_orientation();
+bool get_tracks_position();
+Transform get_transform(bool p_adjust_by_reference_frame);
+ARVRServer::TrackerType get_type();
 };
 #endif

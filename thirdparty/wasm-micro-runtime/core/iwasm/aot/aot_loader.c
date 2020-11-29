@@ -185,10 +185,8 @@ loader_malloc(uint64 size, char *error_buf, uint32 error_buf_size)
 {
     void *mem;
 
-    if (size >= UINT32_MAX
-        || !(mem = wasm_runtime_malloc((uint32)size))) {
-        set_error_buf(error_buf, error_buf_size,
-                      "allocate memory failed");
+    if (size >= UINT32_MAX || !(mem = wasm_runtime_malloc((uint32)size))) {
+        set_error_buf(error_buf, error_buf_size, "allocate memory failed");
         return NULL;
     }
 

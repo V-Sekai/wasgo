@@ -2,20 +2,18 @@
 #ifndef FUNCREF_H
 #define FUNCREF_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Object.h"
 #include "Reference.h"
-#include "String.h"
 #include "Variant.h"
+#include "Object.h"
 class FuncRef : public Reference{
 public: FuncRef();
-Variant  call_func();
-Variant  call_func();
-Variant  call_funcv(Array arg_array);
-bool  is_valid();
-bool  is_valid();
-void  set_function(String name);
-void  set_instance(Object instance);
+Variant call_func();
+Variant call_funcv(Array p_arg_array);
+String get_function();
+bool is_valid();
+void set_function(String p_name);
+void set_instance(Object p_instance);
 };
 #endif

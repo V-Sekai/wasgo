@@ -2,20 +2,17 @@
 #ifndef INPUTEVENTKEY_H
 #define INPUTEVENTKEY_H
 
-#include <stdint.h>
+#include "stdint.h"
 
 #include "InputEventWithModifiers.h"
 class InputEventKey : public InputEventWithModifiers{
 public: InputEventKey();
-int  get_scancode();
-int  get_scancode();
-int  get_scancode_with_modifiers();
-int  get_scancode_with_modifiers();
-int  get_unicode();
-int  get_unicode();
-void  set_echo(bool echo);
-void  set_pressed(bool pressed);
-void  set_scancode(int scancode);
-void  set_unicode(int unicode);
+int get_scancode();
+int get_scancode_with_modifiers();
+int get_unicode();
+void set_echo(bool p_echo);
+void set_pressed(bool p_pressed);
+void set_scancode(int p_scancode);
+void set_unicode(int p_unicode);
 };
 #endif

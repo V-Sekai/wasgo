@@ -2,44 +2,38 @@
 #ifndef AUDIOSTREAMSAMPLE_H
 #define AUDIOSTREAMSAMPLE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "PoolByteArray.h"
+#include "Variant.h"
 #include "AudioStream.h"
-#include "Erro.h"
-#include "String.h"
+#include "Error.h"
 class AudioStreamSample : public AudioStream{
 public: AudioStreamSample();
-enum LoopMode{
-LOOP_DISABLED: 0,
-LOOP_FORWARD: 1,
-LOOP_PING_PONG: 2,
-};
 enum Format{
-FORMAT_8_BITS: 0,
-FORMAT_16_BITS: 1,
+FORMAT_8_BITS,
+FORMAT_16_BITS,
+FORMAT_IMA_ADPCM
 };
-PoolByteArray  get_data();
-PoolByteArray  get_data();
-enum.AudioStreamSample::Format  get_format();
-enum.AudioStreamSample::Format  get_format();
-int  get_loop_begin();
-int  get_loop_begin();
-int  get_loop_end();
-int  get_loop_end();
-enum.AudioStreamSample::LoopMode  get_loop_mode();
-enum.AudioStreamSample::LoopMode  get_loop_mode();
-int  get_mix_rate();
-int  get_mix_rate();
-bool  is_stereo();
-bool  is_stereo();
-enum.Error  save_to_wav(String path);
-void  set_data(PoolByteArray data);
-void  set_format(int format);
-void  set_loop_begin(int loop_begin);
-void  set_loop_end(int loop_end);
-void  set_loop_mode(int loop_mode);
-void  set_mix_rate(int mix_rate);
-void  set_stereo(bool stereo);
+enum LoopMode{
+LOOP_DISABLED,
+LOOP_FORWARD,
+LOOP_PING_PONG,
+LOOP_BACKWARD
+};
+PoolByteArray get_data();
+AudioStreamSample::Format get_format();
+int get_loop_begin();
+int get_loop_end();
+AudioStreamSample::LoopMode get_loop_mode();
+int get_mix_rate();
+bool is_stereo();
+Error save_to_wav(String p_path);
+void set_data(PoolByteArray p_data);
+void set_format(AudioStreamSample::Format p_format);
+void set_loop_begin(int p_loop_begin);
+void set_loop_end(int p_loop_end);
+void set_loop_mode(AudioStreamSample::LoopMode p_loop_mode);
+void set_mix_rate(int p_mix_rate);
+void set_stereo(bool p_stereo);
 };
 #endif

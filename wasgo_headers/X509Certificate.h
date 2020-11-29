@@ -2,14 +2,14 @@
 #ifndef X509CERTIFICATE_H
 #define X509CERTIFICATE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Erro.h"
-#include "String.h"
+#include "Variant.h"
 #include "Resource.h"
+#include "Error.h"
 class X509Certificate : public Resource{
 public: X509Certificate();
-enum.Error  load(String path);
-enum.Error  save(String path);
+Error load(String p_path);
+Error save(String p_path);
 };
 #endif

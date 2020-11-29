@@ -2,14 +2,13 @@
 #ifndef VISUALSHADERNODECOLORCONSTANT_H
 #define VISUALSHADERNODECOLORCONSTANT_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "VisualShaderNode.h"
 #include "Variant.h"
+#include "VisualShaderNode.h"
 class VisualShaderNodeColorConstant : public VisualShaderNode{
 public: VisualShaderNodeColorConstant();
-Color  get_constant();
-Color  get_constant();
-void  set_constant(Color value);
+Color get_constant();
+void set_constant(Color p_value);
 };
 #endif

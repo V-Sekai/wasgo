@@ -2,17 +2,17 @@
 #ifndef VISUALSHADERNODEVECTORDERIVATIVEFUNC_H
 #define VISUALSHADERNODEVECTORDERIVATIVEFUNC_H
 
-#include <stdint.h>
+#include "stdint.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorDerivativeFunc : public VisualShaderNode{
 public: VisualShaderNodeVectorDerivativeFunc();
 enum Function{
-FUNC_SUM: 0,
-FUNC_X: 1,
+FUNC_SUM,
+FUNC_X,
+FUNC_Y
 };
-enum.VisualShaderNodeVectorDerivativeFunc::Function  get_function();
-enum.VisualShaderNodeVectorDerivativeFunc::Function  get_function();
-void  set_function(int func);
+VisualShaderNodeVectorDerivativeFunc::Function get_function();
+void set_function(VisualShaderNodeVectorDerivativeFunc::Function p_func);
 };
 #endif

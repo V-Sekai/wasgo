@@ -2,13 +2,12 @@
 #ifndef PROXYTEXTURE_H
 #define PROXYTEXTURE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
 #include "Texture.h"
 class ProxyTexture : public Texture{
 public: ProxyTexture();
-Texture  get_base();
-Texture  get_base();
-void  set_base(Texture base);
+Texture get_base();
+void set_base(Texture p_base);
 };
 #endif

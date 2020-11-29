@@ -2,60 +2,41 @@
 #ifndef HTTPREQUEST_H
 #define HTTPREQUEST_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "PoolStringArray.h"
-#include "String.h"
-#include "HTTPClient.h"
+#include "Variant.h"
 #include "Node.h"
-#include "Erro.h"
-#include "PoolByteArray.h"
+#include "HTTPClient.h"
+#include "Error.h"
 class HTTPRequest : public Node{
 public: HTTPRequest();
 enum Result{
-RESULT_SUCCESS: 0,
-RESULT_CHUNKED_BODY_SIZE_MISMATCH: 1,
-RESULT_CANT_CONNECT: 2,
-RESULT_CANT_RESOLVE: 3,
-RESULT_CONNECTION_ERROR: 4,
-RESULT_SSL_HANDSHAKE_ERROR: 5,
-RESULT_NO_RESPONSE: 6,
-RESULT_BODY_SIZE_LIMIT_EXCEEDED: 7,
-RESULT_REQUEST_FAILED: 8,
-RESULT_DOWNLOAD_FILE_CANT_OPEN: 9,
-RESULT_DOWNLOAD_FILE_WRITE_ERROR: 10,
-RESULT_REDIRECT_LIMIT_REACHED: 11,
+RESULT_SUCCESS,
+RESULT_CHUNKED_BODY_SIZE_MISMATCH,
+RESULT_CANT_CONNECT,
+RESULT_CANT_RESOLVE,
+RESULT_CONNECTION_ERROR,
+RESULT_SSL_HANDSHAKE_ERROR,
+RESULT_NO_RESPONSE,
+RESULT_BODY_SIZE_LIMIT_EXCEEDED,
+RESULT_REQUEST_FAILED,
+RESULT_DOWNLOAD_FILE_CANT_OPEN,
+RESULT_DOWNLOAD_FILE_WRITE_ERROR,
+RESULT_REDIRECT_LIMIT_REACHED,
+RESULT_TIMEOUT
 };
-void  _redirect_request(String arg0);
-void  _request_done(int arg0, int arg1, PoolStringArray arg2, PoolByteArray arg3);
-void  _timeout();
-void  _timeout();
-void  cancel_request();
-void  cancel_request();
-int  get_body_size();
-int  get_body_size();
-int  get_body_size_limit();
-int  get_body_size_limit();
-int  get_download_chunk_size();
-int  get_download_chunk_size();
-String  get_download_file();
-String  get_download_file();
-int  get_downloaded_bytes();
-int  get_downloaded_bytes();
-enum.HTTPClient::Status  get_http_client_status();
-enum.HTTPClient::Status  get_http_client_status();
-int  get_max_redirects();
-int  get_max_redirects();
-int  get_timeout();
-int  get_timeout();
-bool  is_using_threads();
-bool  is_using_threads();
-enum.Error  request(String url, PoolStringArray custom_headers = [], bool ssl_validate_domain = true, int method = 0, String request_data = "");
-void  set_body_size_limit(int bytes);
-void  set_download_chunk_size(int arg0);
-void  set_download_file(String path);
-void  set_max_redirects(int amount);
-void  set_timeout(int timeout);
-void  set_use_threads(bool enable);
+void cancel_request();
+int get_body_size();
+int get_body_size_limit();
+String get_download_file();
+int get_downloaded_bytes();
+HTTPClient::Status get_http_client_status();
+int get_max_redirects();
+bool is_using_threads();
+Error request(String p_url, PoolStringArray p_custom_headers = (PoolStringArray) [], bool p_ssl_validate_domain = (bool) True, HTTPClient::Method p_method = (HTTPClient::Method) 0, String p_request_data = (String) );
+void set_body_size_limit(int p_bytes);
+void set_download_file(String p_path);
+void set_max_redirects(int p_amount);
+void set_use_threads(bool p_enable);
 };
 #endif

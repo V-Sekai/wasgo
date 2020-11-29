@@ -2,25 +2,18 @@
 #ifndef COLLISIONSHAPE_H
 #define COLLISIONSHAPE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Spatial.h"
 #include "Resource.h"
+#include "Spatial.h"
 #include "Shape.h"
 class CollisionShape : public Spatial{
 public: CollisionShape();
-void  _shape_changed();
-void  _shape_changed();
-void  _update_debug_shape();
-void  _update_debug_shape();
-Shape  get_shape();
-Shape  get_shape();
-bool  is_disabled();
-bool  is_disabled();
-void  make_convex_from_brothers();
-void  make_convex_from_brothers();
-void  resource_changed(Resource resource);
-void  set_disabled(bool enable);
-void  set_shape(Shape shape);
+Shape get_shape();
+bool is_disabled();
+void make_convex_from_brothers();
+void resource_changed(Resource p_resource);
+void set_disabled(bool p_enable);
+void set_shape(Shape p_shape);
 };
 #endif

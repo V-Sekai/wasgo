@@ -16,7 +16,7 @@ void register_WasGo_types() {
 
 	wasgo_runtime = new(WasGoRuntime);
 
-	WasGoTest::test();
+	// WasGoTest::test();
 
 	printf("DONE\n");
 	ClassDB::register_class<WasGoState>();

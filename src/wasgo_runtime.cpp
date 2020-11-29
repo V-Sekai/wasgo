@@ -1,6 +1,9 @@
 #include "wasgo_runtime.h"
+#include "wasgo_function_table.h"
 
+char WasGoRuntime::global_heap_buf[512 * 1024 * 100];
 WasGoRuntime *WasGoRuntime::singleton = NULL;
+RuntimeInitArgs init_args;
 
 WasGoRuntime *WasGoRuntime::get_singleton() {
   return singleton;
@@ -44,6 +47,7 @@ wasm_module_t WasGoRuntime::load_module(Ref<WasmResource> wasm){
 
 WasGoRuntime::WasGoRuntime() {
   singleton = this;
+  singleton->initialize(native_symbols);
 }
 
 WasGoRuntime::~WasGoRuntime() {
@@ -57,4 +61,21 @@ WasGoRuntime::~WasGoRuntime() {
     curr = curr->next();
   }
   wasm_runtime_destroy();
+}
+
+void WasGoRuntime::initialize(NativeSymbol native_symbols[]) {
+	memset(&init_args, 0, sizeof(RuntimeInitArgs));
+
+	init_args.mem_alloc_type = Alloc_With_Pool;
+	init_args.mem_alloc_option.pool.heap_buf = WasGoRuntime::global_heap_buf;
+	init_args.mem_alloc_option.pool.heap_size = sizeof(WasGoRuntime::global_heap_buf);
+
+	// Native symbols need below registration phase
+	init_args.n_native_symbols = sizeof(native_symbols) / sizeof(NativeSymbol);
+	init_args.native_module_name = "env";
+	init_args.native_symbols = native_symbols;
+
+	if (!wasm_runtime_full_init(&init_args)) {
+		printf("Init runtime environment failed.\n");
+	}
 }

@@ -2,19 +2,17 @@
 #ifndef PHYSICSDIRECTSPACESTATE_H
 #define PHYSICSDIRECTSPACESTATE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Dictionary.h"
-#include "PhysicsShapeQueryParameters.h"
-#include "Vector3.h"
 #include "Variant.h"
+#include "PhysicsShapeQueryParameters.h"
 #include "Object.h"
 class PhysicsDirectSpaceState : public Object{
 public: PhysicsDirectSpaceState();
-Array  cast_motion(PhysicsShapeQueryParameters shape, Vector3 motion);
-Array  collide_shape(PhysicsShapeQueryParameters shape, int max_results = 32);
-Dictionary  get_rest_info(PhysicsShapeQueryParameters shape);
-Dictionary  intersect_ray(Vector3 from, Vector3 to, Array exclude = [], int collision_mask = 2147483647, bool collide_with_bodies = true, bool collide_with_areas = false);
-Array  intersect_shape(PhysicsShapeQueryParameters shape, int max_results = 32);
+Array cast_motion(PhysicsShapeQueryParameters p_shape, Vector3 p_motion);
+Array collide_shape(PhysicsShapeQueryParameters p_shape, int p_max_results = (int) 32);
+Dictionary get_rest_info(PhysicsShapeQueryParameters p_shape);
+Dictionary intersect_ray(Vector3 p_from, Vector3 p_to, Array p_exclude = (Array) [], int p_collision_mask = (int) 2147483647, bool p_collide_with_bodies = (bool) True, bool p_collide_with_areas = (bool) False);
+Array intersect_shape(PhysicsShapeQueryParameters p_shape, int p_max_results = (int) 32);
 };
 #endif

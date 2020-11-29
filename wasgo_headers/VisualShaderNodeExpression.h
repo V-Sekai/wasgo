@@ -2,14 +2,13 @@
 #ifndef VISUALSHADERNODEEXPRESSION_H
 #define VISUALSHADERNODEEXPRESSION_H
 
-#include <stdint.h>
+#include "stdint.h"
 
+#include "Variant.h"
 #include "VisualShaderNodeGroupBase.h"
-#include "String.h"
 class VisualShaderNodeExpression : public VisualShaderNodeGroupBase{
 public: VisualShaderNodeExpression();
-String  get_expression();
-String  get_expression();
-void  set_expression(String expression);
+String get_expression();
+void set_expression(String p_expression);
 };
 #endif

@@ -2,53 +2,34 @@
 #ifndef AUDIOSTREAMPLAYER_H
 #define AUDIOSTREAMPLAYER_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "AudioStreamPlayback.h"
-#include "AudioStream.h"
-#include "String.h"
+#include "Variant.h"
 #include "Node.h"
+#include "AudioStream.h"
 class AudioStreamPlayer : public Node{
 public: AudioStreamPlayer();
 enum MixTarget{
-MIX_TARGET_STEREO: 0,
-MIX_TARGET_SURROUND: 1,
+MIX_TARGET_STEREO,
+MIX_TARGET_SURROUND,
+MIX_TARGET_CENTER
 };
-void  _bus_layout_changed();
-void  _bus_layout_changed();
-bool  _is_active();
-bool  _is_active();
-void  _set_playing(bool enable);
-String  get_bus();
-String  get_bus();
-enum.AudioStreamPlayer::MixTarget  get_mix_target();
-enum.AudioStreamPlayer::MixTarget  get_mix_target();
-float  get_pitch_scale();
-float  get_pitch_scale();
-float  get_playback_position();
-float  get_playback_position();
-AudioStream  get_stream();
-AudioStream  get_stream();
-bool  get_stream_paused();
-bool  get_stream_paused();
-AudioStreamPlayback  get_stream_playback();
-AudioStreamPlayback  get_stream_playback();
-float  get_volume_db();
-float  get_volume_db();
-bool  is_autoplay_enabled();
-bool  is_autoplay_enabled();
-bool  is_playing();
-bool  is_playing();
-void  play(float from_position = 0);
-void  seek(float to_position);
-void  set_autoplay(bool enable);
-void  set_bus(String bus);
-void  set_mix_target(int mix_target);
-void  set_pitch_scale(float pitch_scale);
-void  set_stream(AudioStream stream);
-void  set_stream_paused(bool pause);
-void  set_volume_db(float volume_db);
-void  stop();
-void  stop();
+String get_bus();
+AudioStreamPlayer::MixTarget get_mix_target();
+float get_pitch_scale();
+float get_playback_position();
+AudioStream get_stream();
+float get_volume_db();
+bool is_autoplay_enabled();
+bool is_playing();
+void play(float p_from_position = (float) 0);
+void seek(float p_to_position);
+void set_autoplay(bool p_enable);
+void set_bus(String p_bus);
+void set_mix_target(AudioStreamPlayer::MixTarget p_mix_target);
+void set_pitch_scale(float p_pitch_scale);
+void set_stream(AudioStream p_stream);
+void set_volume_db(float p_volume_db);
+void stop();
 };
 #endif

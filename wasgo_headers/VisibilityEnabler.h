@@ -2,18 +2,17 @@
 #ifndef VISIBILITYENABLER_H
 #define VISIBILITYENABLER_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Node.h"
 #include "VisibilityNotifier.h"
 class VisibilityEnabler : public VisibilityNotifier{
 public: VisibilityEnabler();
 enum Enabler{
-ENABLER_PAUSE_ANIMATIONS: 0,
-ENABLER_FREEZE_BODIES: 1,
+ENABLER_PAUSE_ANIMATIONS,
+ENABLER_FREEZE_BODIES,
+ENABLER_MAX
 };
-void  _node_removed(Node arg0);
-bool  is_enabler_enabled(int enabler);
-void  set_enabler(int enabler, bool enabled);
+bool is_enabler_enabled(VisibilityEnabler::Enabler p_enabler);
+void set_enabler(VisibilityEnabler::Enabler p_enabler, bool p_enabled);
 };
 #endif

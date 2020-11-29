@@ -2,18 +2,18 @@
 #ifndef VISUALSHADERNODETRANSFORMMULT_H
 #define VISUALSHADERNODETRANSFORMMULT_H
 
-#include <stdint.h>
+#include "stdint.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeTransformMult : public VisualShaderNode{
 public: VisualShaderNodeTransformMult();
 enum Operator{
-OP_AxB: 0,
-OP_BxA: 1,
-OP_AxB_COMP: 2,
+OP_AxB,
+OP_BxA,
+OP_AxB_COMP,
+OP_BxA_COMP
 };
-enum.VisualShaderNodeTransformMult::Operator  get_operator();
-enum.VisualShaderNodeTransformMult::Operator  get_operator();
-void  set_operator(int op);
+VisualShaderNodeTransformMult::Operator get_operator();
+void set_operator(VisualShaderNodeTransformMult::Operator p_op);
 };
 #endif

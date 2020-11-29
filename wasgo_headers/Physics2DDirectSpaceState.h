@@ -2,21 +2,19 @@
 #ifndef PHYSICS2DDIRECTSPACESTATE_H
 #define PHYSICS2DDIRECTSPACESTATE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Vector2.h"
-#include "Physics2DShapeQueryParameters.h"
-#include "Dictionary.h"
 #include "Variant.h"
+#include "Physics2DShapeQueryParameters.h"
 #include "Object.h"
 class Physics2DDirectSpaceState : public Object{
 public: Physics2DDirectSpaceState();
-Array  cast_motion(Physics2DShapeQueryParameters shape);
-Array  collide_shape(Physics2DShapeQueryParameters shape, int max_results = 32);
-Dictionary  get_rest_info(Physics2DShapeQueryParameters shape);
-Array  intersect_point(Vector2 point, int max_results = 32, Array exclude = [], int collision_layer = 2147483647, bool collide_with_bodies = true, bool collide_with_areas = false);
-Array  intersect_point_on_canvas(Vector2 point, int canvas_instance_id, int max_results = 32, Array exclude = [], int collision_layer = 2147483647, bool collide_with_bodies = true, bool collide_with_areas = false);
-Dictionary  intersect_ray(Vector2 from, Vector2 to, Array exclude = [], int collision_layer = 2147483647, bool collide_with_bodies = true, bool collide_with_areas = false);
-Array  intersect_shape(Physics2DShapeQueryParameters shape, int max_results = 32);
+Array cast_motion(Physics2DShapeQueryParameters p_shape);
+Array collide_shape(Physics2DShapeQueryParameters p_shape, int p_max_results = (int) 32);
+Dictionary get_rest_info(Physics2DShapeQueryParameters p_shape);
+Array intersect_point(Vector2 p_point, int p_max_results = (int) 32, Array p_exclude = (Array) [], int p_collision_layer = (int) 2147483647, bool p_collide_with_bodies = (bool) True, bool p_collide_with_areas = (bool) False);
+Array intersect_point_on_canvas(Vector2 p_point, int p_canvas_instance_id, int p_max_results = (int) 32, Array p_exclude = (Array) [], int p_collision_layer = (int) 2147483647, bool p_collide_with_bodies = (bool) True, bool p_collide_with_areas = (bool) False);
+Dictionary intersect_ray(Vector2 p_from, Vector2 p_to, Array p_exclude = (Array) [], int p_collision_layer = (int) 2147483647, bool p_collide_with_bodies = (bool) True, bool p_collide_with_areas = (bool) False);
+Array intersect_shape(Physics2DShapeQueryParameters p_shape, int p_max_results = (int) 32);
 };
 #endif

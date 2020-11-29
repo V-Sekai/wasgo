@@ -70,7 +70,7 @@ public:
 	Object *lookup_object(WasGoID id);
 	Object *lookup_createdObject(WasGoID id);
 	Object *lookup_referencedObject(WasGoID id);
-	Variant lookup_variant(WasGoID id);
+	Variant *lookup_variant(WasGoID id);
 
 	bool is_active();
 
@@ -94,6 +94,8 @@ public:
 	WasGoID create_object(Object *obj);
 	WasGoID reference_object(Object *obj);
 	WasGoID reference_object(Ref<Object> ref);
+
+	WasGoID handle_return_variant(Variant var);
 
 private:
 	wasm_module_t module = NULL;

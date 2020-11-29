@@ -2,13 +2,12 @@
 #ifndef CONFIRMATIONDIALOG_H
 #define CONFIRMATIONDIALOG_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Button.h"
 #include "AcceptDialog.h"
+#include "Button.h"
 class ConfirmationDialog : public AcceptDialog{
 public: ConfirmationDialog();
-Button  get_cancel();
-Button  get_cancel();
+Button get_cancel();
 };
 #endif

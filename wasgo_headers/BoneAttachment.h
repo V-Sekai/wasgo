@@ -2,14 +2,13 @@
 #ifndef BONEATTACHMENT_H
 #define BONEATTACHMENT_H
 
-#include <stdint.h>
+#include "stdint.h"
 
+#include "Variant.h"
 #include "Spatial.h"
-#include "String.h"
 class BoneAttachment : public Spatial{
 public: BoneAttachment();
-String  get_bone_name();
-String  get_bone_name();
-void  set_bone_name(String bone_name);
+String get_bone_name();
+void set_bone_name(String p_bone_name);
 };
 #endif

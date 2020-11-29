@@ -2,11 +2,11 @@
 #ifndef PHASHTRANSLATION_H
 #define PHASHTRANSLATION_H
 
-#include <stdint.h>
+#include "stdint.h"
 
 #include "Translation.h"
 class PHashTranslation : public Translation{
 public: PHashTranslation();
-void  generate(Translation from);
+void generate(Translation p_from);
 };
 #endif

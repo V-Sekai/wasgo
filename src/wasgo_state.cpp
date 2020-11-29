@@ -1,5 +1,6 @@
 #include "core/os/file_access.h"
 #include "wasgo_state.h"
+#include "wasgo_runtime.h"
 
 //TEMP
 //TODO: Actually make a singleton
@@ -9,9 +10,11 @@ wasm_module_t wasm_singleton_load_module(Ref<WasmResource> wasm_script){
 	return wasm_runtime_load((uint8_t *)buffer.write().ptr(), buffer.size(), error_buf, sizeof(error_buf));
 }
 
-
 void WasGoState::_initialize() {
-	module = wasm_singleton_load_module(wasm_script);
+	if (wasm_script.is_valid()){
+		printf("bruh");
+	}
+	module = WasGoRuntime::get_singleton()->load_module(wasm_script);
 	char error_buf[128];
 	module_inst = wasm_runtime_instantiate(module,
 			stack_size,
@@ -45,13 +48,18 @@ void WasGoState::_validate_property(PropertyInfo &property) const{
 
 }
 void WasGoState::_notification(int p_what){
-
+	switch (p_what) {
+		case NOTIFICATION_READY:
+			// if (!Engine::get_singleton()->is_editor_hint()){ // only run in game
+				_initialize();
+			// }
+	}
 }
 
 WasGoState::WasGoState() {
 	properties = {};
 	stack_size = 8192;
-	heap_size = 8192;
+	heap_size = 8192;	
 }
 
 WasGoState::~WasGoState(){
@@ -84,11 +92,11 @@ Object *WasGoState::lookup_referencedObject(WasGoID id) {
 	}
 	return nullptr;
 }
-Variant WasGoState::lookup_variant(WasGoID id){
+Variant *WasGoState::lookup_variant(WasGoID id){
     if(createdVariantsReverse.has(id)){
-		return createdVariantsReverse[id];
+		return &createdVariantsReverse[id];
 	}
-	return Variant();
+	return nullptr;
 }
 
 bool WasGoState::is_active(){
@@ -217,6 +225,28 @@ WasGoState::WasGoID WasGoState::create_object(Object *obj) {
 WasGoState::WasGoID WasGoState::reference_object(Object *obj) {
 	//just dereference it for now
 	return reference_object(obj->get_instance_id());
+}
+
+WasGoState::WasGoID WasGoState::handle_return_variant(Variant var){
+	WasGoID id = 0;
+	if(var.is_ref()){
+		if(var.get_type() == Variant::OBJECT){
+			RefPtr ref = RefPtr(var);
+			Object *obj = (Object *)ref.get_data();
+			id = reference_object(obj->get_instance_id());
+		} else {
+			//We shouldn't be able to get here
+			printf("ERROR: unexpected ref type");
+		}
+	} else {
+		if (var.get_type() == Variant::OBJECT) {
+			Object *obj = (Object *)&var;
+			id = create_object(obj->get_instance_id());
+		} else {
+			id = create_variant(var);
+		}
+	}
+	return id;
 }
 
 //Regular Node Callbacks

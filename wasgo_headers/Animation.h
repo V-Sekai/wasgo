@@ -2,102 +2,95 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Vector2.h"
-#include "Quat.h"
-#include "NodePath.h"
-#include "String.h"
-#include "Resource.h"
-#include "PoolIntArray.h"
-#include "Vector3.h"
 #include "Variant.h"
+#include "Resource.h"
 class Animation : public Resource{
 public: Animation();
+enum InterpolationType{
+INTERPOLATION_NEAREST,
+INTERPOLATION_LINEAR,
+INTERPOLATION_CUBIC
+};
 enum TrackType{
-TYPE_VALUE: 0,
-TYPE_TRANSFORM: 1,
-TYPE_METHOD: 2,
-TYPE_BEZIER: 3,
-TYPE_AUDIO: 4,
+TYPE_VALUE,
+TYPE_TRANSFORM,
+TYPE_METHOD,
+TYPE_BEZIER,
+TYPE_AUDIO,
+TYPE_ANIMATION
 };
 enum UpdateMode{
-UPDATE_CONTINUOUS: 0,
-UPDATE_DISCRETE: 1,
-UPDATE_TRIGGER: 2,
+UPDATE_CONTINUOUS,
+UPDATE_DISCRETE,
+UPDATE_TRIGGER,
+UPDATE_CAPTURE
 };
-enum InterpolationType{
-INTERPOLATION_NEAREST: 0,
-INTERPOLATION_LINEAR: 1,
-};
-int  add_track(int type, int at_position = -1);
-String  animation_track_get_key_animation(int track_idx, int key_idx);
-int  animation_track_insert_key(int track_idx, float time, String animation);
-void  animation_track_set_key_animation(int track_idx, int key_idx, String animation);
-float  audio_track_get_key_end_offset(int track_idx, int key_idx);
-float  audio_track_get_key_start_offset(int track_idx, int key_idx);
-Resource  audio_track_get_key_stream(int track_idx, int key_idx);
-int  audio_track_insert_key(int track_idx, float time, Resource stream, float start_offset = 0, float end_offset = 0);
-void  audio_track_set_key_end_offset(int track_idx, int key_idx, float offset);
-void  audio_track_set_key_start_offset(int track_idx, int key_idx, float offset);
-void  audio_track_set_key_stream(int track_idx, int key_idx, Resource stream);
-Vector2  bezier_track_get_key_in_handle(int track_idx, int key_idx);
-Vector2  bezier_track_get_key_out_handle(int track_idx, int key_idx);
-float  bezier_track_get_key_value(int track_idx, int key_idx);
-int  bezier_track_insert_key(int track_idx, float time, float value, Vector2 in_handle = (0, 0), Vector2 out_handle = (0, 0));
-float  bezier_track_interpolate(int track_idx, float time);
-void  bezier_track_set_key_in_handle(int track_idx, int key_idx, Vector2 in_handle);
-void  bezier_track_set_key_out_handle(int track_idx, int key_idx, Vector2 out_handle);
-void  bezier_track_set_key_value(int track_idx, int key_idx, float value);
-void  clear();
-void  clear();
-void  copy_track(int track_idx, Animation to_animation);
-int  find_track(NodePath path);
-float  get_length();
-float  get_length();
-float  get_step();
-float  get_step();
-int  get_track_count();
-int  get_track_count();
-bool  has_loop();
-bool  has_loop();
-PoolIntArray  method_track_get_key_indices(int track_idx, float time_sec, float delta);
-String  method_track_get_name(int track_idx, int key_idx);
-Array  method_track_get_params(int track_idx, int key_idx);
-void  remove_track(int track_idx);
-void  set_length(float time_sec);
-void  set_loop(bool enabled);
-void  set_step(float size_sec);
-int  track_find_key(int track_idx, float time, bool exact = false);
-bool  track_get_interpolation_loop_wrap(int track_idx);
-enum.Animation::InterpolationType  track_get_interpolation_type(int track_idx);
-int  track_get_key_count(int track_idx);
-float  track_get_key_time(int track_idx, int key_idx);
-float  track_get_key_transition(int track_idx, int key_idx);
-Variant  track_get_key_value(int track_idx, int key_idx);
-NodePath  track_get_path(int track_idx);
-enum.Animation::TrackType  track_get_type(int track_idx);
-void  track_insert_key(int track_idx, float time, Variant key, float transition = 1);
-bool  track_is_enabled(int track_idx);
-bool  track_is_imported(int track_idx);
-void  track_move_down(int track_idx);
-void  track_move_to(int track_idx, int to_idx);
-void  track_move_up(int track_idx);
-void  track_remove_key(int track_idx, int key_idx);
-void  track_remove_key_at_position(int track_idx, float position);
-void  track_set_enabled(int track_idx, bool enabled);
-void  track_set_imported(int track_idx, bool imported);
-void  track_set_interpolation_loop_wrap(int track_idx, bool interpolation);
-void  track_set_interpolation_type(int track_idx, int interpolation);
-void  track_set_key_time(int track_idx, int key_idx, float time);
-void  track_set_key_transition(int track_idx, int key_idx, float transition);
-void  track_set_key_value(int track_idx, int key, Variant value);
-void  track_set_path(int track_idx, NodePath path);
-void  track_swap(int track_idx, int with_idx);
-int  transform_track_insert_key(int track_idx, float time, Vector3 location, Quat rotation, Vector3 scale);
-Array  transform_track_interpolate(int track_idx, float time_sec);
-PoolIntArray  value_track_get_key_indices(int track_idx, float time_sec, float delta);
-enum.Animation::UpdateMode  value_track_get_update_mode(int track_idx);
-void  value_track_set_update_mode(int track_idx, int mode);
+int add_track(Animation::TrackType p_type, int p_at_position = (int) -1);
+String animation_track_get_key_animation(int p_track_idx, int p_key_idx);
+int animation_track_insert_key(int p_track_idx, float p_time, String p_animation);
+void animation_track_set_key_animation(int p_track_idx, int p_key_idx, String p_animation);
+float audio_track_get_key_end_offset(int p_track_idx, int p_key_idx);
+float audio_track_get_key_start_offset(int p_track_idx, int p_key_idx);
+Resource audio_track_get_key_stream(int p_track_idx, int p_key_idx);
+int audio_track_insert_key(int p_track_idx, float p_time, Resource p_stream, float p_start_offset = (float) 0, float p_end_offset = (float) 0);
+void audio_track_set_key_end_offset(int p_track_idx, int p_key_idx, float p_offset);
+void audio_track_set_key_start_offset(int p_track_idx, int p_key_idx, float p_offset);
+void audio_track_set_key_stream(int p_track_idx, int p_key_idx, Resource p_stream);
+Vector2 bezier_track_get_key_in_handle(int p_track_idx, int p_key_idx);
+Vector2 bezier_track_get_key_out_handle(int p_track_idx, int p_key_idx);
+float bezier_track_get_key_value(int p_track_idx, int p_key_idx);
+int bezier_track_insert_key(int p_track_idx, float p_time, float p_value, Vector2 p_in_handle = (Vector2) (0, 0), Vector2 p_out_handle = (Vector2) (0, 0));
+float bezier_track_interpolate(int p_track_idx, float p_time);
+void bezier_track_set_key_in_handle(int p_track_idx, int p_key_idx, Vector2 p_in_handle);
+void bezier_track_set_key_out_handle(int p_track_idx, int p_key_idx, Vector2 p_out_handle);
+void bezier_track_set_key_value(int p_track_idx, int p_key_idx, float p_value);
+void clear();
+void copy_track(int p_track_idx, Animation p_to_animation);
+int find_track(NodePath p_path);
+float get_length();
+float get_step();
+int get_track_count();
+bool has_loop();
+PoolIntArray method_track_get_key_indices(int p_track_idx, float p_time_sec, float p_delta);
+String method_track_get_name(int p_track_idx, int p_key_idx);
+Array method_track_get_params(int p_track_idx, int p_key_idx);
+void remove_track(int p_track_idx);
+void set_length(float p_time_sec);
+void set_loop(bool p_enabled);
+void set_step(float p_size_sec);
+int track_find_key(int p_track_idx, float p_time, bool p_exact = (bool) False);
+bool track_get_interpolation_loop_wrap(int p_track_idx);
+Animation::InterpolationType track_get_interpolation_type(int p_track_idx);
+int track_get_key_count(int p_track_idx);
+float track_get_key_time(int p_track_idx, int p_key_idx);
+float track_get_key_transition(int p_track_idx, int p_key_idx);
+Variant track_get_key_value(int p_track_idx, int p_key_idx);
+NodePath track_get_path(int p_track_idx);
+Animation::TrackType track_get_type(int p_track_idx);
+void track_insert_key(int p_track_idx, float p_time, Variant p_key, float p_transition = (float) 1);
+bool track_is_enabled(int p_track_idx);
+bool track_is_imported(int p_track_idx);
+void track_move_down(int p_track_idx);
+void track_move_to(int p_track_idx, int p_to_idx);
+void track_move_up(int p_track_idx);
+void track_remove_key(int p_track_idx, int p_key_idx);
+void track_remove_key_at_position(int p_track_idx, float p_position);
+void track_set_enabled(int p_track_idx, bool p_enabled);
+void track_set_imported(int p_track_idx, bool p_imported);
+void track_set_interpolation_loop_wrap(int p_track_idx, bool p_interpolation);
+void track_set_interpolation_type(int p_track_idx, Animation::InterpolationType p_interpolation);
+void track_set_key_time(int p_track_idx, int p_key_idx, float p_time);
+void track_set_key_transition(int p_track_idx, int p_key_idx, float p_transition);
+void track_set_key_value(int p_track_idx, int p_key, Variant p_value);
+void track_set_path(int p_track_idx, NodePath p_path);
+void track_swap(int p_track_idx, int p_with_idx);
+int transform_track_insert_key(int p_track_idx, float p_time, Vector3 p_location, Quat p_rotation, Vector3 p_scale);
+Array transform_track_interpolate(int p_track_idx, float p_time_sec);
+PoolIntArray value_track_get_key_indices(int p_track_idx, float p_time_sec, float p_delta);
+Animation::UpdateMode value_track_get_update_mode(int p_track_idx);
+Variant value_track_interpolate(int p_track_idx, float p_time_sec);
+void value_track_set_update_mode(int p_track_idx, Animation::UpdateMode p_mode);
 };
 #endif

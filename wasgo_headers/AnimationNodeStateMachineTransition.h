@@ -2,33 +2,28 @@
 #ifndef ANIMATIONNODESTATEMACHINETRANSITION_H
 #define ANIMATIONNODESTATEMACHINETRANSITION_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "String.h"
+#include "Variant.h"
 #include "Resource.h"
 class AnimationNodeStateMachineTransition : public Resource{
 public: AnimationNodeStateMachineTransition();
 enum SwitchMode{
-SWITCH_MODE_IMMEDIATE: 0,
-SWITCH_MODE_SYNC: 1,
+SWITCH_MODE_IMMEDIATE,
+SWITCH_MODE_SYNC,
+SWITCH_MODE_AT_END
 };
-String  get_advance_condition();
-String  get_advance_condition();
-int  get_priority();
-int  get_priority();
-enum.AnimationNodeStateMachineTransition::SwitchMode  get_switch_mode();
-enum.AnimationNodeStateMachineTransition::SwitchMode  get_switch_mode();
-float  get_xfade_time();
-float  get_xfade_time();
-bool  has_auto_advance();
-bool  has_auto_advance();
-bool  is_disabled();
-bool  is_disabled();
-void  set_advance_condition(String name);
-void  set_auto_advance(bool auto_advance);
-void  set_disabled(bool disabled);
-void  set_priority(int priority);
-void  set_switch_mode(int mode);
-void  set_xfade_time(float secs);
+String get_advance_condition();
+int get_priority();
+AnimationNodeStateMachineTransition::SwitchMode get_switch_mode();
+float get_xfade_time();
+bool has_auto_advance();
+bool is_disabled();
+void set_advance_condition(String p_name);
+void set_auto_advance(bool p_auto_advance);
+void set_disabled(bool p_disabled);
+void set_priority(int p_priority);
+void set_switch_mode(AnimationNodeStateMachineTransition::SwitchMode p_mode);
+void set_xfade_time(float p_secs);
 };
 #endif

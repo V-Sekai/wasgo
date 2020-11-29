@@ -2,27 +2,20 @@
 #ifndef PACKEDSCENE_H
 #define PACKEDSCENE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "SceneState.h"
-#include "Dictionary.h"
 #include "Resource.h"
 #include "Node.h"
-#include "Erro.h"
+#include "Error.h"
 class PackedScene : public Resource{
 public: PackedScene();
 enum GenEditState{
-GEN_EDIT_STATE_DISABLED: 0,
-GEN_EDIT_STATE_INSTANCE: 1,
+GEN_EDIT_STATE_DISABLED,
+GEN_EDIT_STATE_INSTANCE,
+GEN_EDIT_STATE_MAIN
 };
-Dictionary  _get_bundled_scene();
-Dictionary  _get_bundled_scene();
-void  _set_bundled_scene(Dictionary arg0);
-bool  can_instance();
-bool  can_instance();
-SceneState  get_state();
-SceneState  get_state();
-Node  instance(int edit_state = 0);
-enum.Error  pack(Node path);
+bool can_instance();
+Node instance(PackedScene::GenEditState p_edit_state = (PackedScene::GenEditState) 0);
+Error pack(Node p_path);
 };
 #endif

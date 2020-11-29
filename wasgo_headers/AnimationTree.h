@@ -2,44 +2,28 @@
 #ifndef ANIMATIONTREE_H
 #define ANIMATIONTREE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
 #include "AnimationNode.h"
-#include "NodePath.h"
-#include "String.h"
+#include "Variant.h"
 #include "Node.h"
-#include "Transform.h"
 class AnimationTree : public Node{
 public: AnimationTree();
 enum AnimationProcessMode{
-ANIMATION_PROCESS_PHYSICS: 0,
-ANIMATION_PROCESS_IDLE: 1,
+ANIMATION_PROCESS_PHYSICS,
+ANIMATION_PROCESS_IDLE,
+ANIMATION_PROCESS_MANUAL
 };
-void  _clear_caches();
-void  _clear_caches();
-void  _node_removed(Node arg0);
-void  _tree_changed();
-void  _tree_changed();
-void  _update_properties();
-void  _update_properties();
-void  advance(float delta);
-NodePath  get_animation_player();
-NodePath  get_animation_player();
-enum.AnimationTree::AnimationProcessMode  get_process_mode();
-enum.AnimationTree::AnimationProcessMode  get_process_mode();
-NodePath  get_root_motion_track();
-NodePath  get_root_motion_track();
-Transform  get_root_motion_transform();
-Transform  get_root_motion_transform();
-AnimationNode  get_tree_root();
-AnimationNode  get_tree_root();
-bool  is_active();
-bool  is_active();
-void  rename_parameter(String old_name, String new_name);
-void  set_active(bool active);
-void  set_animation_player(NodePath root);
-void  set_process_mode(int mode);
-void  set_root_motion_track(NodePath path);
-void  set_tree_root(AnimationNode root);
+NodePath get_animation_player();
+AnimationTree::AnimationProcessMode get_process_mode();
+NodePath get_root_motion_track();
+Transform get_root_motion_transform();
+AnimationNode get_tree_root();
+bool is_active();
+void set_active(bool p_active);
+void set_animation_player(NodePath p_root);
+void set_process_mode(AnimationTree::AnimationProcessMode p_mode);
+void set_root_motion_track(NodePath p_path);
+void set_tree_root(AnimationNode p_root);
 };
 #endif

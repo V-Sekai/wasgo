@@ -2,14 +2,13 @@
 #ifndef BOXSHAPE_H
 #define BOXSHAPE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Vector3.h"
+#include "Variant.h"
 #include "Shape.h"
 class BoxShape : public Shape{
 public: BoxShape();
-Vector3  get_extents();
-Vector3  get_extents();
-void  set_extents(Vector3 extents);
+Vector3 get_extents();
+void set_extents(Vector3 p_extents);
 };
 #endif

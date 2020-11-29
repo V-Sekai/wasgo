@@ -2,35 +2,28 @@
 #ifndef MESHINSTANCE_H
 #define MESHINSTANCE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
+#include "Material.h"
+#include "GeometryInstance.h"
+#include "Variant.h"
 #include "Skin.h"
 #include "Mesh.h"
-#include "NodePath.h"
-#include "GeometryInstance.h"
-#include "Material.h"
 class MeshInstance : public GeometryInstance{
 public: MeshInstance();
-void  _mesh_changed();
-void  _mesh_changed();
-void  create_convex_collision();
-void  create_convex_collision();
-void  create_debug_tangents();
-void  create_debug_tangents();
-void  create_trimesh_collision();
-void  create_trimesh_collision();
-Mesh  get_mesh();
-Mesh  get_mesh();
-NodePath  get_skeleton_path();
-NodePath  get_skeleton_path();
-Skin  get_skin();
-Skin  get_skin();
-Material  get_surface_material(int surface);
-int  get_surface_material_count();
-int  get_surface_material_count();
-void  set_mesh(Mesh mesh);
-void  set_skeleton_path(NodePath skeleton_path);
-void  set_skin(Skin skin);
-void  set_surface_material(int surface, Material material);
+void create_convex_collision();
+void create_trimesh_collision();
+Material get_active_material(int p_surface);
+Mesh get_mesh();
+NodePath get_skeleton_path();
+Skin get_skin();
+Material get_surface_material(int p_surface);
+int get_surface_material_count();
+bool is_software_skinning_transform_normals_enabled();
+void set_mesh(Mesh p_mesh);
+void set_skeleton_path(NodePath p_skeleton_path);
+void set_skin(Skin p_skin);
+void set_software_skinning_transform_normals(bool p_enabled);
+void set_surface_material(int p_surface, Material p_material);
 };
 #endif

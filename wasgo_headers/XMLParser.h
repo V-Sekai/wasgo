@@ -2,47 +2,38 @@
 #ifndef XMLPARSER_H
 #define XMLPARSER_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "PoolByteArray.h"
-#include "Erro.h"
-#include "String.h"
 #include "Reference.h"
+#include "Variant.h"
+#include "Error.h"
 class XMLParser : public Reference{
 public: XMLParser();
 enum NodeType{
-NODE_NONE: 0,
-NODE_ELEMENT: 1,
-NODE_ELEMENT_END: 2,
-NODE_TEXT: 3,
-NODE_COMMENT: 4,
-NODE_CDATA: 5,
+NODE_NONE,
+NODE_ELEMENT,
+NODE_ELEMENT_END,
+NODE_TEXT,
+NODE_COMMENT,
+NODE_CDATA,
+NODE_UNKNOWN
 };
-int  get_attribute_count();
-int  get_attribute_count();
-String  get_attribute_name(int idx);
-String  get_attribute_value(int idx);
-int  get_current_line();
-int  get_current_line();
-String  get_named_attribute_value(String name);
-String  get_named_attribute_value_safe(String name);
-String  get_node_data();
-String  get_node_data();
-String  get_node_name();
-String  get_node_name();
-int  get_node_offset();
-int  get_node_offset();
-enum.XMLParser::NodeType  get_node_type();
-enum.XMLParser::NodeType  get_node_type();
-bool  has_attribute(String name);
-bool  is_empty();
-bool  is_empty();
-enum.Error  open(String file);
-enum.Error  open_buffer(PoolByteArray buffer);
-enum.Error  read();
-enum.Error  read();
-enum.Error  seek(int position);
-void  skip_section();
-void  skip_section();
+int get_attribute_count();
+String get_attribute_name(int p_idx);
+String get_attribute_value(int p_idx);
+int get_current_line();
+String get_named_attribute_value(String p_name);
+String get_named_attribute_value_safe(String p_name);
+String get_node_data();
+String get_node_name();
+int get_node_offset();
+XMLParser::NodeType get_node_type();
+bool has_attribute(String p_name);
+bool is_empty();
+Error open(String p_file);
+Error open_buffer(PoolByteArray p_buffer);
+Error read();
+Error seek(int p_position);
+void skip_section();
 };
 #endif

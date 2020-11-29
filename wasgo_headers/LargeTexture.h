@@ -2,25 +2,19 @@
 #ifndef LARGETEXTURE_H
 #define LARGETEXTURE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Vector2.h"
-#include "Texture.h"
 #include "Variant.h"
+#include "Texture.h"
 class LargeTexture : public Texture{
 public: LargeTexture();
-Array  _get_data();
-Array  _get_data();
-void  _set_data(Array data);
-int  add_piece(Vector2 ofs, Texture texture);
-void  clear();
-void  clear();
-int  get_piece_count();
-int  get_piece_count();
-Vector2  get_piece_offset(int idx);
-Texture  get_piece_texture(int idx);
-void  set_piece_offset(int idx, Vector2 ofs);
-void  set_piece_texture(int idx, Texture texture);
-void  set_size(Vector2 size);
+int add_piece(Vector2 p_ofs, Texture p_texture);
+void clear();
+int get_piece_count();
+Vector2 get_piece_offset(int p_idx);
+Texture get_piece_texture(int p_idx);
+void set_piece_offset(int p_idx, Vector2 p_ofs);
+void set_piece_texture(int p_idx, Texture p_texture);
+void set_size(Vector2 p_size);
 };
 #endif

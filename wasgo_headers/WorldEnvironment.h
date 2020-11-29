@@ -2,14 +2,13 @@
 #ifndef WORLDENVIRONMENT_H
 #define WORLDENVIRONMENT_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Node.h"
 #include "Environment.h"
+#include "Node.h"
 class WorldEnvironment : public Node{
 public: WorldEnvironment();
-Environment  get_environment();
-Environment  get_environment();
-void  set_environment(Environment env);
+Environment get_environment();
+void set_environment(Environment p_env);
 };
 #endif

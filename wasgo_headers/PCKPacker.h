@@ -2,15 +2,15 @@
 #ifndef PCKPACKER_H
 #define PCKPACKER_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Erro.h"
-#include "String.h"
 #include "Reference.h"
+#include "Variant.h"
+#include "Error.h"
 class PCKPacker : public Reference{
 public: PCKPacker();
-enum.Error  add_file(String pck_path, String source_path);
-enum.Error  flush(bool verbose = false);
-enum.Error  pck_start(String pck_name, int alignment = 0);
+Error add_file(String p_pck_path, String p_source_path);
+Error flush(bool p_verbose = (bool) False);
+Error pck_start(String p_pck_name, int p_alignment = (int) 0);
 };
 #endif

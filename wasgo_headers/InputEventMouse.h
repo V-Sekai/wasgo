@@ -2,20 +2,17 @@
 #ifndef INPUTEVENTMOUSE_H
 #define INPUTEVENTMOUSE_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Vector2.h"
 #include "InputEventWithModifiers.h"
+#include "Variant.h"
 class InputEventMouse : public InputEventWithModifiers{
 public: InputEventMouse();
-int  get_button_mask();
-int  get_button_mask();
-Vector2  get_global_position();
-Vector2  get_global_position();
-Vector2  get_position();
-Vector2  get_position();
-void  set_button_mask(int button_mask);
-void  set_global_position(Vector2 global_position);
-void  set_position(Vector2 position);
+int get_button_mask();
+Vector2 get_global_position();
+Vector2 get_position();
+void set_button_mask(int p_button_mask);
+void set_global_position(Vector2 p_global_position);
+void set_position(Vector2 p_position);
 };
 #endif

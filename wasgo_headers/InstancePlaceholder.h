@@ -2,18 +2,16 @@
 #ifndef INSTANCEPLACEHOLDER_H
 #define INSTANCEPLACEHOLDER_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Node.h"
-#include "Dictionary.h"
 #include "PackedScene.h"
-#include "String.h"
+#include "Node.h"
+#include "Variant.h"
 class InstancePlaceholder : public Node{
 public: InstancePlaceholder();
-Node  create_instance(bool replace = false, PackedScene custom_scene = null);
-String  get_instance_path();
-String  get_instance_path();
-Dictionary  get_stored_values(bool with_order = false);
-void  replace_by_instance(PackedScene custom_scene = null);
+Node create_instance(bool p_replace = (bool) False, PackedScene p_custom_scene = (PackedScene) "");
+String get_instance_path();
+Dictionary get_stored_values(bool p_with_order = (bool) False);
+void replace_by_instance(PackedScene p_custom_scene = (PackedScene) "");
 };
 #endif

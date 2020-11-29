@@ -2,21 +2,17 @@
 #ifndef AUDIOSTREAMGENERATORPLAYBACK_H
 #define AUDIOSTREAMGENERATORPLAYBACK_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Vector2.h"
-#include "PoolVector2Array.h"
+#include "Variant.h"
 #include "AudioStreamPlaybackResampled.h"
 class AudioStreamGeneratorPlayback : public AudioStreamPlaybackResampled{
 public: AudioStreamGeneratorPlayback();
-bool  can_push_buffer(int amount);
-void  clear_buffer();
-void  clear_buffer();
-int  get_frames_available();
-int  get_frames_available();
-int  get_skips();
-int  get_skips();
-bool  push_buffer(PoolVector2Array frames);
-bool  push_frame(Vector2 frame);
+bool can_push_buffer(int p_amount);
+void clear_buffer();
+int get_frames_available();
+int get_skips();
+bool push_buffer(PoolVector2Array p_frames);
+bool push_frame(Vector2 p_frame);
 };
 #endif

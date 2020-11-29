@@ -2,21 +2,17 @@
 #ifndef EXPRESSION_H
 #define EXPRESSION_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "PoolStringArray.h"
-#include "Reference.h"
-#include "String.h"
-#include "Erro.h"
+#include "Error.h"
 #include "Variant.h"
+#include "Reference.h"
 #include "Object.h"
 class Expression : public Reference{
 public: Expression();
-Variant  execute(Array inputs = [], Object base_instance = null, bool show_error = true);
-String  get_error_text();
-String  get_error_text();
-bool  has_execute_failed();
-bool  has_execute_failed();
-enum.Error  parse(String expression, PoolStringArray input_names = []);
+Variant execute(Array p_inputs = (Array) [], Object p_base_instance = (Object) "", bool p_show_error = (bool) True);
+String get_error_text();
+bool has_execute_failed();
+Error parse(String p_expression, PoolStringArray p_input_names = (PoolStringArray) []);
 };
 #endif

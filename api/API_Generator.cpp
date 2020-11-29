@@ -6,9 +6,9 @@
 
 static const char *VariantTypes[] = {
 	"Variant",//Same as Nil
-	"Bool",
-	"Int",
-	"Real",
+	"bool",
+	"int",
+	"float",
 	"String",
 	"Vector2",
 	"Rect2",
@@ -103,16 +103,33 @@ Dictionary WasGoAPIGen::api_dict(){
 		}
 		class_definition["singleton"] = singleton;
 
-		List<MethodInfo>
-				method_definitions;
+		List<MethodInfo> method_definitions;
 		ClassDB::get_method_list(class_list[i], &method_definitions, true);
 		Dictionary methods;
 		for (int j = 0; j < method_definitions.size(); j++){
 			// methods[j] = Dictionary(method_definitions[j]);
 			MethodInfo method_definition = method_definitions[j];
 			Dictionary method;
+
+			if(method_definition.name.size() > 0 && method_definition.name[0] == '_'){
+				//by convention protected methods start with an underscore
+				break;
+			}
+			
 			method["name"] = method_definition.name;
-			method["return_type"] = convert_type(method_definition.return_val.class_name, method_definition.return_val.type);
+			method["is_normal"] = (method_definition.flags & MethodFlags::METHOD_FLAG_NORMAL);
+			method["is_editor"] = (method_definition.flags & MethodFlags::METHOD_FLAG_EDITOR);
+			method["is_noscript"] = (method_definition.flags & MethodFlags::METHOD_FLAG_NOSCRIPT);
+			method["is_const"] = (method_definition.flags & MethodFlags::METHOD_FLAG_CONST);
+			method["is_reverse"] = (method_definition.flags & MethodFlags::METHOD_FLAG_REVERSE);
+			method["is_virtual"] = (method_definition.flags & MethodFlags::METHOD_FLAG_VIRTUAL);
+			method["is_from_script"] = (method_definition.flags & MethodFlags::METHOD_FLAG_FROM_SCRIPT);
+			method["has_vararg"] = (method_definition.flags & MethodFlags::METHOD_FLAG_VARARG);
+			if (method_definition.return_val == PropertyInfo()) {
+				method["return_type"] == "void";//Doesn't catch when they return a variant
+			} else {
+				method["return_type"] = convert_type(method_definition.return_val.class_name, method_definition.return_val.type);
+			}
 			Dictionary arguments;
 			for (int k = 0; k < method_definition.arguments.size(); k++){
 				PropertyInfo arg = method_definition.arguments[k];

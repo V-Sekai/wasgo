@@ -2,22 +2,21 @@
 #ifndef VISIBILITYENABLER2D_H
 #define VISIBILITYENABLER2D_H
 
-#include <stdint.h>
+#include "stdint.h"
 
-#include "Node.h"
 #include "VisibilityNotifier2D.h"
 class VisibilityEnabler2D : public VisibilityNotifier2D{
 public: VisibilityEnabler2D();
 enum Enabler{
-ENABLER_PAUSE_ANIMATIONS: 0,
-ENABLER_FREEZE_BODIES: 1,
-ENABLER_PAUSE_PARTICLES: 2,
-ENABLER_PARENT_PROCESS: 3,
-ENABLER_PARENT_PHYSICS_PROCESS: 4,
-ENABLER_PAUSE_ANIMATED_SPRITES: 5,
+ENABLER_PAUSE_ANIMATIONS,
+ENABLER_FREEZE_BODIES,
+ENABLER_PAUSE_PARTICLES,
+ENABLER_PARENT_PROCESS,
+ENABLER_PARENT_PHYSICS_PROCESS,
+ENABLER_PAUSE_ANIMATED_SPRITES,
+ENABLER_MAX
 };
-void  _node_removed(Node arg0);
-bool  is_enabler_enabled(int enabler);
-void  set_enabler(int enabler, bool enabled);
+bool is_enabler_enabled(VisibilityEnabler2D::Enabler p_enabler);
+void set_enabler(VisibilityEnabler2D::Enabler p_enabler, bool p_enabled);
 };
 #endif

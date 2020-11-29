@@ -2,16 +2,16 @@
 #ifndef VISUALSHADERNODECOLORFUNC_H
 #define VISUALSHADERNODECOLORFUNC_H
 
-#include <stdint.h>
+#include "stdint.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeColorFunc : public VisualShaderNode{
 public: VisualShaderNodeColorFunc();
 enum Function{
-FUNC_GRAYSCALE: 0,
+FUNC_GRAYSCALE,
+FUNC_SEPIA
 };
-enum.VisualShaderNodeColorFunc::Function  get_function();
-enum.VisualShaderNodeColorFunc::Function  get_function();
-void  set_function(int func);
+VisualShaderNodeColorFunc::Function get_function();
+void set_function(VisualShaderNodeColorFunc::Function p_func);
 };
 #endif

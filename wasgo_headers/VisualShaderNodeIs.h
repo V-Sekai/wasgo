@@ -2,16 +2,16 @@
 #ifndef VISUALSHADERNODEIS_H
 #define VISUALSHADERNODEIS_H
 
-#include <stdint.h>
+#include "stdint.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeIs : public VisualShaderNode{
 public: VisualShaderNodeIs();
 enum Function{
-FUNC_IS_INF: 0,
+FUNC_IS_INF,
+FUNC_IS_NAN
 };
-enum.VisualShaderNodeIs::Function  get_function();
-enum.VisualShaderNodeIs::Function  get_function();
-void  set_function(int func);
+VisualShaderNodeIs::Function get_function();
+void set_function(VisualShaderNodeIs::Function p_func);
 };
 #endif
