@@ -3,12 +3,12 @@
 #define TILEMAP_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Node2D.h"
-#include "Variant.h"
 #include "TileSet.h"
+#include "Variant.h"
+#include "Node2D.h"
 class TileMap : public Node2D{
-public: TileMap();
 enum HalfOffset{
 HALF_OFFSET_X,
 HALF_OFFSET_Y,
@@ -36,5 +36,24 @@ void set_custom_transform(Transform2D p_custom_transform);
 void set_half_offset(TileMap::HalfOffset p_half_offset);
 void set_mode(TileMap::Mode p_mode);
 void set_tileset(TileSet p_tileset);
+
+TileMap(WasGoId p_wasgo_id);
+~TileMap();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_TileMap_wrapper_get_cell_size(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_TileMap_wrapper_get_custom_transform(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_TileMap_wrapper_get_half_offset(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_TileMap_wrapper_get_mode(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_TileMap_wrapper_get_tileset(WasGoId wasgo_id);
+void _wasgo_TileMap_wrapper_set_cell_size(WasGoId wasgo_id, WasGo::WasGoId p_size);
+void _wasgo_TileMap_wrapper_set_custom_transform(WasGoId wasgo_id, WasGo::WasGoId p_custom_transform);
+void _wasgo_TileMap_wrapper_set_half_offset(WasGoId wasgo_id, WasGo::WasGoId p_half_offset);
+void _wasgo_TileMap_wrapper_set_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_TileMap_wrapper_set_tileset(WasGoId wasgo_id, WasGo::WasGoId p_tileset);
+}
 #endif

@@ -3,14 +3,14 @@
 #define MESH_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Material.h"
 #include "Resource.h"
-#include "Shape.h"
-#include "Variant.h"
 #include "TriangleMesh.h"
+#include "Variant.h"
+#include "Material.h"
+#include "Shape.h"
 class Mesh : public Resource{
-public: Mesh();
 enum ArrayFormat{
 ARRAY_FORMAT_VERTEX,
 ARRAY_FORMAT_NORMAL,
@@ -74,4 +74,22 @@ Array surface_get_blend_shape_arrays(int p_surf_idx);
 Material surface_get_material(int p_surf_idx);
 void surface_set_material(int p_surf_idx, Material p_material);
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_Mesh_wrapper_create_convex_shape(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Mesh_wrapper_create_outline(WasGoId wasgo_id, float p_margin);
+WasGo::WasGoId _wasgo_Mesh_wrapper_create_trimesh_shape(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Mesh_wrapper_generate_triangle_mesh(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Mesh_wrapper_get_aabb(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Mesh_wrapper_get_faces(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Mesh_wrapper_get_lightmap_size_hint(WasGoId wasgo_id);
+int _wasgo_Mesh_wrapper_get_surface_count(WasGoId wasgo_id);
+void _wasgo_Mesh_wrapper_set_lightmap_size_hint(WasGoId wasgo_id, WasGo::WasGoId p_size);
+WasGo::WasGoId _wasgo_Mesh_wrapper_surface_get_arrays(WasGoId wasgo_id, int p_surf_idx);
+WasGo::WasGoId _wasgo_Mesh_wrapper_surface_get_blend_shape_arrays(WasGoId wasgo_id, int p_surf_idx);
+WasGo::WasGoId _wasgo_Mesh_wrapper_surface_get_material(WasGoId wasgo_id, int p_surf_idx);
+void _wasgo_Mesh_wrapper_surface_set_material(WasGoId wasgo_id, int p_surf_idx, WasGo::WasGoId p_material);
+}
 #endif

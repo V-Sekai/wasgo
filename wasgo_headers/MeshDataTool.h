@@ -3,14 +3,14 @@
 #define MESHDATATOOL_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Material.h"
 #include "Error.h"
-#include "Reference.h"
 #include "ArrayMesh.h"
+#include "Reference.h"
 #include "Variant.h"
+#include "Material.h"
 class MeshDataTool : public Reference{
-public: MeshDataTool();
 void clear();
 Error commit_to_surface(ArrayMesh p_mesh);
 Error create_from_surface(ArrayMesh p_mesh, int p_surface);
@@ -49,5 +49,52 @@ void set_vertex_tangent(int p_idx, Plane p_tangent);
 void set_vertex_uv(int p_idx, Vector2 p_uv);
 void set_vertex_uv2(int p_idx, Vector2 p_uv2);
 void set_vertex_weights(int p_idx, PoolRealArray p_weights);
+
+MeshDataTool(WasGoId p_wasgo_id);
+~MeshDataTool();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+void _wasgo_MeshDataTool_wrapper_clear(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_commit_to_surface(WasGoId wasgo_id, WasGo::WasGoId p_mesh);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_create_from_surface(WasGoId wasgo_id, WasGo::WasGoId p_mesh, int p_surface);
+int _wasgo_MeshDataTool_wrapper_get_edge_count(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_edge_faces(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_edge_meta(WasGoId wasgo_id, int p_idx);
+int _wasgo_MeshDataTool_wrapper_get_edge_vertex(WasGoId wasgo_id, int p_idx, int p_vertex);
+int _wasgo_MeshDataTool_wrapper_get_face_count(WasGoId wasgo_id);
+int _wasgo_MeshDataTool_wrapper_get_face_edge(WasGoId wasgo_id, int p_idx, int p_edge);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_face_meta(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_face_normal(WasGoId wasgo_id, int p_idx);
+int _wasgo_MeshDataTool_wrapper_get_face_vertex(WasGoId wasgo_id, int p_idx, int p_vertex);
+int _wasgo_MeshDataTool_wrapper_get_format(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_material(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_vertex(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_vertex_bones(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_vertex_color(WasGoId wasgo_id, int p_idx);
+int _wasgo_MeshDataTool_wrapper_get_vertex_count(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_vertex_edges(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_vertex_faces(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_vertex_meta(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_vertex_normal(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_vertex_tangent(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_vertex_uv(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_vertex_uv2(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_MeshDataTool_wrapper_get_vertex_weights(WasGoId wasgo_id, int p_idx);
+void _wasgo_MeshDataTool_wrapper_set_edge_meta(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_meta);
+void _wasgo_MeshDataTool_wrapper_set_face_meta(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_meta);
+void _wasgo_MeshDataTool_wrapper_set_material(WasGoId wasgo_id, WasGo::WasGoId p_material);
+void _wasgo_MeshDataTool_wrapper_set_vertex(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_vertex);
+void _wasgo_MeshDataTool_wrapper_set_vertex_bones(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_bones);
+void _wasgo_MeshDataTool_wrapper_set_vertex_color(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_color);
+void _wasgo_MeshDataTool_wrapper_set_vertex_meta(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_meta);
+void _wasgo_MeshDataTool_wrapper_set_vertex_normal(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_normal);
+void _wasgo_MeshDataTool_wrapper_set_vertex_tangent(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_tangent);
+void _wasgo_MeshDataTool_wrapper_set_vertex_uv(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_uv);
+void _wasgo_MeshDataTool_wrapper_set_vertex_uv2(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_uv2);
+void _wasgo_MeshDataTool_wrapper_set_vertex_weights(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_weights);
+}
 #endif

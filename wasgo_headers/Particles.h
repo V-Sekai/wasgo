@@ -3,13 +3,13 @@
 #define PARTICLES_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Material.h"
 #include "Variant.h"
+#include "Material.h"
 #include "Mesh.h"
 #include "GeometryInstance.h"
 class Particles : public GeometryInstance{
-public: Particles();
 enum DrawOrder{
 DRAW_ORDER_INDEX,
 DRAW_ORDER_LIFETIME,
@@ -49,5 +49,48 @@ void set_randomness_ratio(float p_ratio);
 void set_speed_scale(float p_scale);
 void set_use_local_coordinates(bool p_enable);
 void set_visibility_aabb(AABB p_aabb);
+
+Particles(WasGoId p_wasgo_id);
+~Particles();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_Particles_wrapper_capture_aabb(WasGoId wasgo_id);
+int _wasgo_Particles_wrapper_get_amount(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Particles_wrapper_get_draw_order(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Particles_wrapper_get_draw_pass_mesh(WasGoId wasgo_id, int p_pass);
+int _wasgo_Particles_wrapper_get_draw_passes(WasGoId wasgo_id);
+float _wasgo_Particles_wrapper_get_explosiveness_ratio(WasGoId wasgo_id);
+int _wasgo_Particles_wrapper_get_fixed_fps(WasGoId wasgo_id);
+int _wasgo_Particles_wrapper_get_fractional_delta(WasGoId wasgo_id);
+float _wasgo_Particles_wrapper_get_lifetime(WasGoId wasgo_id);
+int _wasgo_Particles_wrapper_get_one_shot(WasGoId wasgo_id);
+float _wasgo_Particles_wrapper_get_pre_process_time(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Particles_wrapper_get_process_material(WasGoId wasgo_id);
+float _wasgo_Particles_wrapper_get_randomness_ratio(WasGoId wasgo_id);
+float _wasgo_Particles_wrapper_get_speed_scale(WasGoId wasgo_id);
+int _wasgo_Particles_wrapper_get_use_local_coordinates(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Particles_wrapper_get_visibility_aabb(WasGoId wasgo_id);
+int _wasgo_Particles_wrapper_is_emitting(WasGoId wasgo_id);
+void _wasgo_Particles_wrapper_restart(WasGoId wasgo_id);
+void _wasgo_Particles_wrapper_set_amount(WasGoId wasgo_id, int p_amount);
+void _wasgo_Particles_wrapper_set_draw_order(WasGoId wasgo_id, WasGo::WasGoId p_order);
+void _wasgo_Particles_wrapper_set_draw_pass_mesh(WasGoId wasgo_id, int p_pass, WasGo::WasGoId p_mesh);
+void _wasgo_Particles_wrapper_set_draw_passes(WasGoId wasgo_id, int p_passes);
+void _wasgo_Particles_wrapper_set_emitting(WasGoId wasgo_id, bool p_emitting);
+void _wasgo_Particles_wrapper_set_explosiveness_ratio(WasGoId wasgo_id, float p_ratio);
+void _wasgo_Particles_wrapper_set_fixed_fps(WasGoId wasgo_id, int p_fps);
+void _wasgo_Particles_wrapper_set_fractional_delta(WasGoId wasgo_id, bool p_enable);
+void _wasgo_Particles_wrapper_set_lifetime(WasGoId wasgo_id, float p_secs);
+void _wasgo_Particles_wrapper_set_one_shot(WasGoId wasgo_id, bool p_enable);
+void _wasgo_Particles_wrapper_set_pre_process_time(WasGoId wasgo_id, float p_secs);
+void _wasgo_Particles_wrapper_set_process_material(WasGoId wasgo_id, WasGo::WasGoId p_material);
+void _wasgo_Particles_wrapper_set_randomness_ratio(WasGoId wasgo_id, float p_ratio);
+void _wasgo_Particles_wrapper_set_speed_scale(WasGoId wasgo_id, float p_scale);
+void _wasgo_Particles_wrapper_set_use_local_coordinates(WasGoId wasgo_id, bool p_enable);
+void _wasgo_Particles_wrapper_set_visibility_aabb(WasGoId wasgo_id, WasGo::WasGoId p_aabb);
+}
 #endif

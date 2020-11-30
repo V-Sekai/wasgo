@@ -3,11 +3,11 @@
 #define ANIMATIONNODEBLENDSPACE2D_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "AnimationRootNode.h"
+#include "Variant.h"
 class AnimationNodeBlendSpace2D : public AnimationRootNode{
-public: AnimationNodeBlendSpace2D();
 enum BlendMode{
 BLEND_MODE_INTERPOLATED,
 BLEND_MODE_DISCRETE,
@@ -34,5 +34,35 @@ void set_min_space(Vector2 p_min_space);
 void set_snap(Vector2 p_snap);
 void set_x_label(String p_text);
 void set_y_label(String p_text);
+
+AnimationNodeBlendSpace2D(WasGoId p_wasgo_id);
+~AnimationNodeBlendSpace2D();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_add_blend_point(WasGoId wasgo_id, WasGo::WasGoId p_node, WasGo::WasGoId p_pos, int p_at_index);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_add_triangle(WasGoId wasgo_id, int p_x, int p_y, int p_z, int p_at_index);
+int _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_point_count(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_point_node(WasGoId wasgo_id, int p_point);
+WasGo::WasGoId _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_point_position(WasGoId wasgo_id, int p_point);
+WasGo::WasGoId _wasgo_AnimationNodeBlendSpace2D_wrapper_get_max_space(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AnimationNodeBlendSpace2D_wrapper_get_min_space(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AnimationNodeBlendSpace2D_wrapper_get_snap(WasGoId wasgo_id);
+int _wasgo_AnimationNodeBlendSpace2D_wrapper_get_triangle_count(WasGoId wasgo_id);
+int _wasgo_AnimationNodeBlendSpace2D_wrapper_get_triangle_point(WasGoId wasgo_id, int p_triangle, int p_point);
+WasGo::WasGoId _wasgo_AnimationNodeBlendSpace2D_wrapper_get_x_label(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AnimationNodeBlendSpace2D_wrapper_get_y_label(WasGoId wasgo_id);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_remove_blend_point(WasGoId wasgo_id, int p_point);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_remove_triangle(WasGoId wasgo_id, int p_triangle);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_blend_point_node(WasGoId wasgo_id, int p_point, WasGo::WasGoId p_node);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_blend_point_position(WasGoId wasgo_id, int p_point, WasGo::WasGoId p_pos);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_max_space(WasGoId wasgo_id, WasGo::WasGoId p_max_space);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_min_space(WasGoId wasgo_id, WasGo::WasGoId p_min_space);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_snap(WasGoId wasgo_id, WasGo::WasGoId p_snap);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_x_label(WasGoId wasgo_id, WasGo::WasGoId p_text);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_y_label(WasGoId wasgo_id, WasGo::WasGoId p_text);
+}
 #endif

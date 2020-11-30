@@ -3,11 +3,11 @@
 #define LIGHT_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Variant.h"
 #include "VisualInstance.h"
 class Light : public VisualInstance{
-public: Light();
 enum BakeMode{
 BAKE_DISABLED,
 BAKE_INDIRECT,
@@ -50,4 +50,27 @@ void set_shadow(bool p_enabled);
 void set_shadow_color(Color p_shadow_color);
 void set_shadow_reverse_cull_face(bool p_enable);
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_Light_wrapper_get_bake_mode(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Light_wrapper_get_color(WasGoId wasgo_id);
+int _wasgo_Light_wrapper_get_cull_mask(WasGoId wasgo_id);
+float _wasgo_Light_wrapper_get_param(WasGoId wasgo_id, WasGo::WasGoId p_param);
+WasGo::WasGoId _wasgo_Light_wrapper_get_shadow_color(WasGoId wasgo_id);
+int _wasgo_Light_wrapper_get_shadow_reverse_cull_face(WasGoId wasgo_id);
+int _wasgo_Light_wrapper_has_shadow(WasGoId wasgo_id);
+int _wasgo_Light_wrapper_is_editor_only(WasGoId wasgo_id);
+int _wasgo_Light_wrapper_is_negative(WasGoId wasgo_id);
+void _wasgo_Light_wrapper_set_bake_mode(WasGoId wasgo_id, WasGo::WasGoId p_bake_mode);
+void _wasgo_Light_wrapper_set_color(WasGoId wasgo_id, WasGo::WasGoId p_color);
+void _wasgo_Light_wrapper_set_cull_mask(WasGoId wasgo_id, int p_cull_mask);
+void _wasgo_Light_wrapper_set_editor_only(WasGoId wasgo_id, bool p_editor_only);
+void _wasgo_Light_wrapper_set_negative(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_Light_wrapper_set_param(WasGoId wasgo_id, WasGo::WasGoId p_param, float p_value);
+void _wasgo_Light_wrapper_set_shadow(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_Light_wrapper_set_shadow_color(WasGoId wasgo_id, WasGo::WasGoId p_shadow_color);
+void _wasgo_Light_wrapper_set_shadow_reverse_cull_face(WasGoId wasgo_id, bool p_enable);
+}
 #endif

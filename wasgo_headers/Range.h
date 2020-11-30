@@ -3,11 +3,11 @@
 #define RANGE_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Node.h"
 #include "Control.h"
 class Range : public Control{
-public: Range();
 float get_as_ratio();
 float get_max();
 float get_min();
@@ -31,4 +31,31 @@ void set_value(float p_value);
 void share(Node p_with);
 void unshare();
 };
+
+
+//Wrapper Functions
+extern "C"{
+float _wasgo_Range_wrapper_get_as_ratio(WasGoId wasgo_id);
+float _wasgo_Range_wrapper_get_max(WasGoId wasgo_id);
+float _wasgo_Range_wrapper_get_min(WasGoId wasgo_id);
+float _wasgo_Range_wrapper_get_page(WasGoId wasgo_id);
+float _wasgo_Range_wrapper_get_step(WasGoId wasgo_id);
+float _wasgo_Range_wrapper_get_value(WasGoId wasgo_id);
+int _wasgo_Range_wrapper_is_greater_allowed(WasGoId wasgo_id);
+int _wasgo_Range_wrapper_is_lesser_allowed(WasGoId wasgo_id);
+int _wasgo_Range_wrapper_is_ratio_exp(WasGoId wasgo_id);
+int _wasgo_Range_wrapper_is_using_rounded_values(WasGoId wasgo_id);
+void _wasgo_Range_wrapper_set_allow_greater(WasGoId wasgo_id, bool p_allow);
+void _wasgo_Range_wrapper_set_allow_lesser(WasGoId wasgo_id, bool p_allow);
+void _wasgo_Range_wrapper_set_as_ratio(WasGoId wasgo_id, float p_value);
+void _wasgo_Range_wrapper_set_exp_ratio(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_Range_wrapper_set_max(WasGoId wasgo_id, float p_maximum);
+void _wasgo_Range_wrapper_set_min(WasGoId wasgo_id, float p_minimum);
+void _wasgo_Range_wrapper_set_page(WasGoId wasgo_id, float p_pagesize);
+void _wasgo_Range_wrapper_set_step(WasGoId wasgo_id, float p_step);
+void _wasgo_Range_wrapper_set_use_rounded_values(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_Range_wrapper_set_value(WasGoId wasgo_id, float p_value);
+void _wasgo_Range_wrapper_share(WasGoId wasgo_id, WasGo::WasGoId p_with);
+void _wasgo_Range_wrapper_unshare(WasGoId wasgo_id);
+}
 #endif

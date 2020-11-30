@@ -3,10 +3,10 @@
 #define HINGEJOINT_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Joint.h"
 class HingeJoint : public Joint{
-public: HingeJoint();
 enum Flag{
 FLAG_USE_LIMIT,
 FLAG_ENABLE_MOTOR,
@@ -27,5 +27,18 @@ bool get_flag(HingeJoint::Flag p_flag);
 float get_param(HingeJoint::Param p_param);
 void set_flag(HingeJoint::Flag p_flag, bool p_enabled);
 void set_param(HingeJoint::Param p_param, float p_value);
+
+HingeJoint(WasGoId p_wasgo_id);
+~HingeJoint();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+int _wasgo_HingeJoint_wrapper_get_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag);
+float _wasgo_HingeJoint_wrapper_get_param(WasGoId wasgo_id, WasGo::WasGoId p_param);
+void _wasgo_HingeJoint_wrapper_set_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag, bool p_enabled);
+void _wasgo_HingeJoint_wrapper_set_param(WasGoId wasgo_id, WasGo::WasGoId p_param, float p_value);
+}
 #endif

@@ -3,12 +3,12 @@
 #define TEXTURE_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Variant.h"
-#include "Resource.h"
 #include "Image.h"
+#include "Resource.h"
 class Texture : public Resource{
-public: Texture();
 enum Flags{
 FLAGS_DEFAULT,
 FLAG_MIPMAPS,
@@ -30,4 +30,19 @@ int get_width();
 bool has_alpha();
 void set_flags(int p_flags);
 };
+
+
+//Wrapper Functions
+extern "C"{
+void _wasgo_Texture_wrapper_draw(WasGoId wasgo_id, WasGo::WasGoId p_canvas_item, WasGo::WasGoId p_position, WasGo::WasGoId p_modulate, bool p_transpose, WasGo::WasGoId p_normal_map);
+void _wasgo_Texture_wrapper_draw_rect(WasGoId wasgo_id, WasGo::WasGoId p_canvas_item, WasGo::WasGoId p_rect, bool p_tile, WasGo::WasGoId p_modulate, bool p_transpose, WasGo::WasGoId p_normal_map);
+void _wasgo_Texture_wrapper_draw_rect_region(WasGoId wasgo_id, WasGo::WasGoId p_canvas_item, WasGo::WasGoId p_rect, WasGo::WasGoId p_src_rect, WasGo::WasGoId p_modulate, bool p_transpose, WasGo::WasGoId p_normal_map, bool p_clip_uv);
+WasGo::WasGoId _wasgo_Texture_wrapper_get_data(WasGoId wasgo_id);
+int _wasgo_Texture_wrapper_get_flags(WasGoId wasgo_id);
+int _wasgo_Texture_wrapper_get_height(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Texture_wrapper_get_size(WasGoId wasgo_id);
+int _wasgo_Texture_wrapper_get_width(WasGoId wasgo_id);
+int _wasgo_Texture_wrapper_has_alpha(WasGoId wasgo_id);
+void _wasgo_Texture_wrapper_set_flags(WasGoId wasgo_id, int p_flags);
+}
 #endif

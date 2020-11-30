@@ -2,27 +2,24 @@
 #include "wasgo_state.h"
 #include "wasgo_runtime.h"
 
-//TEMP
-//TODO: Actually make a singleton
-wasm_module_t wasm_singleton_load_module(Ref<WasmResource> wasm_script){
-	char error_buf[128];
-	PoolByteArray buffer = wasm_script->get_buf();
-	return wasm_runtime_load((uint8_t *)buffer.write().ptr(), buffer.size(), error_buf, sizeof(error_buf));
-}
-
 void WasGoState::_initialize() {
-	if (wasm_script.is_valid()){
-		printf("bruh");
-	}
 	module = WasGoRuntime::get_singleton()->load_module(wasm_script);
-	char error_buf[128];
-	module_inst = wasm_runtime_instantiate(module,
-			stack_size,
-			heap_size,
-			error_buf,
-			sizeof(error_buf));
-	exec_env = wasm_runtime_create_exec_env(module_inst, stack_size);
-	wasm_runtime_set_user_data(exec_env, this);
+	if (module) {
+		char error_buf[128];
+		module_inst = wasm_runtime_instantiate(module,
+				stack_size,
+				heap_size,
+				error_buf,
+				sizeof(error_buf));
+		exec_env = wasm_runtime_create_exec_env(module_inst, stack_size);
+		wasm_runtime_set_user_data(exec_env, this);
+
+		if (!(notification_callback = wasm_runtime_lookup_function(module_inst, "_notification", NULL))) {
+			printf("The notification callback is not found in the wasm script\n");
+		}
+	} else {
+		printf("WASM FAILED TO LOAD");
+	}
 }
 
 void WasGoState::_bind_methods() {
@@ -50,10 +47,24 @@ void WasGoState::_validate_property(PropertyInfo &property) const{
 void WasGoState::_notification(int p_what){
 	switch (p_what) {
 		case NOTIFICATION_READY:
+			// TODO: Uncomment this
 			// if (!Engine::get_singleton()->is_editor_hint()){ // only run in game
 				_initialize();
 			// }
 	}
+
+	// TODO: Uncomment this
+	// if (!Engine::get_singleton()->is_editor_hint()){ // only run in game
+		if (notification_callback) {
+			uint32_t argv[2] = {0, p_what};//argv[0] is the return value
+			if (!wasm_runtime_call_wasm(exec_env, notification_callback, 1, argv)) {
+				printf("call wasm notification callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+			}
+		}
+	// }
+
+	// pass 4 elements for function arguments
+	
 }
 
 WasGoState::WasGoState() {

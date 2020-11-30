@@ -3,12 +3,12 @@
 #define TREEITEM_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Variant.h"
-#include "Texture.h"
 #include "Object.h"
+#include "Texture.h"
 class TreeItem : public Object{
-public: TreeItem();
 enum TextAlign{
 ALIGN_LEFT,
 ALIGN_CENTER,
@@ -90,4 +90,77 @@ void set_text(int p_column, String p_text);
 void set_text_align(int p_column, TreeItem::TextAlign p_text_align);
 void set_tooltip(int p_column, String p_tooltip);
 };
+
+
+//Wrapper Functions
+extern "C"{
+void _wasgo_TreeItem_wrapper_add_button(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_button, int p_button_idx, bool p_disabled, WasGo::WasGoId p_tooltip);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_call_recursive(WasGoId wasgo_id, WasGo::WasGoId p_method);
+void _wasgo_TreeItem_wrapper_clear_custom_bg_color(WasGoId wasgo_id, int p_column);
+void _wasgo_TreeItem_wrapper_clear_custom_color(WasGoId wasgo_id, int p_column);
+void _wasgo_TreeItem_wrapper_deselect(WasGoId wasgo_id, int p_column);
+void _wasgo_TreeItem_wrapper_erase_button(WasGoId wasgo_id, int p_column, int p_button_idx);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_button(WasGoId wasgo_id, int p_column, int p_button_idx);
+int _wasgo_TreeItem_wrapper_get_button_count(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_button_tooltip(WasGoId wasgo_id, int p_column, int p_button_idx);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_cell_mode(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_children(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_custom_bg_color(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_custom_color(WasGoId wasgo_id, int p_column);
+int _wasgo_TreeItem_wrapper_get_custom_minimum_height(WasGoId wasgo_id);
+int _wasgo_TreeItem_wrapper_get_expand_right(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_icon(WasGoId wasgo_id, int p_column);
+int _wasgo_TreeItem_wrapper_get_icon_max_width(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_icon_modulate(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_icon_region(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_metadata(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_next(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_next_visible(WasGoId wasgo_id, bool p_wrap);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_parent(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_prev(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_prev_visible(WasGoId wasgo_id, bool p_wrap);
+float _wasgo_TreeItem_wrapper_get_range(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_range_config(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_suffix(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_text(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_text_align(WasGoId wasgo_id, int p_column);
+WasGo::WasGoId _wasgo_TreeItem_wrapper_get_tooltip(WasGoId wasgo_id, int p_column);
+int _wasgo_TreeItem_wrapper_is_button_disabled(WasGoId wasgo_id, int p_column, int p_button_idx);
+int _wasgo_TreeItem_wrapper_is_checked(WasGoId wasgo_id, int p_column);
+int _wasgo_TreeItem_wrapper_is_collapsed(WasGoId wasgo_id);
+int _wasgo_TreeItem_wrapper_is_custom_set_as_button(WasGoId wasgo_id, int p_column);
+int _wasgo_TreeItem_wrapper_is_editable(WasGoId wasgo_id, int p_column);
+int _wasgo_TreeItem_wrapper_is_folding_disabled(WasGoId wasgo_id);
+int _wasgo_TreeItem_wrapper_is_selectable(WasGoId wasgo_id, int p_column);
+int _wasgo_TreeItem_wrapper_is_selected(WasGoId wasgo_id, int p_column);
+void _wasgo_TreeItem_wrapper_move_to_bottom(WasGoId wasgo_id);
+void _wasgo_TreeItem_wrapper_move_to_top(WasGoId wasgo_id);
+void _wasgo_TreeItem_wrapper_remove_child(WasGoId wasgo_id, WasGo::WasGoId p_child);
+void _wasgo_TreeItem_wrapper_select(WasGoId wasgo_id, int p_column);
+void _wasgo_TreeItem_wrapper_set_button(WasGoId wasgo_id, int p_column, int p_button_idx, WasGo::WasGoId p_button);
+void _wasgo_TreeItem_wrapper_set_button_disabled(WasGoId wasgo_id, int p_column, int p_button_idx, bool p_disabled);
+void _wasgo_TreeItem_wrapper_set_cell_mode(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_mode);
+void _wasgo_TreeItem_wrapper_set_checked(WasGoId wasgo_id, int p_column, bool p_checked);
+void _wasgo_TreeItem_wrapper_set_collapsed(WasGoId wasgo_id, bool p_enable);
+void _wasgo_TreeItem_wrapper_set_custom_as_button(WasGoId wasgo_id, int p_column, bool p_enable);
+void _wasgo_TreeItem_wrapper_set_custom_bg_color(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_color, bool p_just_outline);
+void _wasgo_TreeItem_wrapper_set_custom_color(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_color);
+void _wasgo_TreeItem_wrapper_set_custom_draw(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_object, WasGo::WasGoId p_callback);
+void _wasgo_TreeItem_wrapper_set_custom_minimum_height(WasGoId wasgo_id, int p_height);
+void _wasgo_TreeItem_wrapper_set_disable_folding(WasGoId wasgo_id, bool p_disable);
+void _wasgo_TreeItem_wrapper_set_editable(WasGoId wasgo_id, int p_column, bool p_enabled);
+void _wasgo_TreeItem_wrapper_set_expand_right(WasGoId wasgo_id, int p_column, bool p_enable);
+void _wasgo_TreeItem_wrapper_set_icon(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_texture);
+void _wasgo_TreeItem_wrapper_set_icon_max_width(WasGoId wasgo_id, int p_column, int p_width);
+void _wasgo_TreeItem_wrapper_set_icon_modulate(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_modulate);
+void _wasgo_TreeItem_wrapper_set_icon_region(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_region);
+void _wasgo_TreeItem_wrapper_set_metadata(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_meta);
+void _wasgo_TreeItem_wrapper_set_range(WasGoId wasgo_id, int p_column, float p_value);
+void _wasgo_TreeItem_wrapper_set_range_config(WasGoId wasgo_id, int p_column, float p_min, float p_max, float p_step, bool p_expr);
+void _wasgo_TreeItem_wrapper_set_selectable(WasGoId wasgo_id, int p_column, bool p_selectable);
+void _wasgo_TreeItem_wrapper_set_suffix(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_text);
+void _wasgo_TreeItem_wrapper_set_text(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_text);
+void _wasgo_TreeItem_wrapper_set_text_align(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_text_align);
+void _wasgo_TreeItem_wrapper_set_tooltip(WasGoId wasgo_id, int p_column, WasGo::WasGoId p_tooltip);
+}
 #endif

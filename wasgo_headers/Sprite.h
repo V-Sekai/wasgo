@@ -3,12 +3,12 @@
 #define SPRITE_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Variant.h"
+#include "Node2D.h"
 #include "Texture.h"
 class Sprite : public Node2D{
-public: Sprite();
 int get_frame();
 Vector2 get_frame_coords();
 int get_hframes();
@@ -37,5 +37,42 @@ void set_region_filter_clip(bool p_enabled);
 void set_region_rect(Rect2 p_rect);
 void set_texture(Texture p_texture);
 void set_vframes(int p_vframes);
+
+Sprite(WasGoId p_wasgo_id);
+~Sprite();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+int _wasgo_Sprite_wrapper_get_frame(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Sprite_wrapper_get_frame_coords(WasGoId wasgo_id);
+int _wasgo_Sprite_wrapper_get_hframes(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Sprite_wrapper_get_normal_map(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Sprite_wrapper_get_offset(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Sprite_wrapper_get_rect(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Sprite_wrapper_get_region_rect(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Sprite_wrapper_get_texture(WasGoId wasgo_id);
+int _wasgo_Sprite_wrapper_get_vframes(WasGoId wasgo_id);
+int _wasgo_Sprite_wrapper_is_centered(WasGoId wasgo_id);
+int _wasgo_Sprite_wrapper_is_flipped_h(WasGoId wasgo_id);
+int _wasgo_Sprite_wrapper_is_flipped_v(WasGoId wasgo_id);
+int _wasgo_Sprite_wrapper_is_pixel_opaque(WasGoId wasgo_id, WasGo::WasGoId p_pos);
+int _wasgo_Sprite_wrapper_is_region(WasGoId wasgo_id);
+int _wasgo_Sprite_wrapper_is_region_filter_clip_enabled(WasGoId wasgo_id);
+void _wasgo_Sprite_wrapper_set_centered(WasGoId wasgo_id, bool p_centered);
+void _wasgo_Sprite_wrapper_set_flip_h(WasGoId wasgo_id, bool p_flip_h);
+void _wasgo_Sprite_wrapper_set_flip_v(WasGoId wasgo_id, bool p_flip_v);
+void _wasgo_Sprite_wrapper_set_frame(WasGoId wasgo_id, int p_frame);
+void _wasgo_Sprite_wrapper_set_frame_coords(WasGoId wasgo_id, WasGo::WasGoId p_coords);
+void _wasgo_Sprite_wrapper_set_hframes(WasGoId wasgo_id, int p_hframes);
+void _wasgo_Sprite_wrapper_set_normal_map(WasGoId wasgo_id, WasGo::WasGoId p_normal_map);
+void _wasgo_Sprite_wrapper_set_offset(WasGoId wasgo_id, WasGo::WasGoId p_offset);
+void _wasgo_Sprite_wrapper_set_region(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_Sprite_wrapper_set_region_filter_clip(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_Sprite_wrapper_set_region_rect(WasGoId wasgo_id, WasGo::WasGoId p_rect);
+void _wasgo_Sprite_wrapper_set_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+void _wasgo_Sprite_wrapper_set_vframes(WasGoId wasgo_id, int p_vframes);
+}
 #endif

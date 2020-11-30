@@ -3,11 +3,11 @@
 #define INPUTEVENT_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Variant.h"
 #include "Resource.h"
 class InputEvent : public Resource{
-public: InputEvent();
 bool accumulate(InputEvent p_with_event);
 String as_text();
 float get_action_strength(String p_action);
@@ -22,4 +22,22 @@ void set_device(int p_device);
 bool shortcut_match(InputEvent p_event);
 InputEvent xformed_by(Transform2D p_xform, Vector2 p_local_ofs = (Vector2) (0, 0));
 };
+
+
+//Wrapper Functions
+extern "C"{
+int _wasgo_InputEvent_wrapper_accumulate(WasGoId wasgo_id, WasGo::WasGoId p_with_event);
+WasGo::WasGoId _wasgo_InputEvent_wrapper_as_text(WasGoId wasgo_id);
+float _wasgo_InputEvent_wrapper_get_action_strength(WasGoId wasgo_id, WasGo::WasGoId p_action);
+int _wasgo_InputEvent_wrapper_get_device(WasGoId wasgo_id);
+int _wasgo_InputEvent_wrapper_is_action(WasGoId wasgo_id, WasGo::WasGoId p_action);
+int _wasgo_InputEvent_wrapper_is_action_pressed(WasGoId wasgo_id, WasGo::WasGoId p_action, bool p_allow_echo);
+int _wasgo_InputEvent_wrapper_is_action_released(WasGoId wasgo_id, WasGo::WasGoId p_action);
+int _wasgo_InputEvent_wrapper_is_action_type(WasGoId wasgo_id);
+int _wasgo_InputEvent_wrapper_is_echo(WasGoId wasgo_id);
+int _wasgo_InputEvent_wrapper_is_pressed(WasGoId wasgo_id);
+void _wasgo_InputEvent_wrapper_set_device(WasGoId wasgo_id, int p_device);
+int _wasgo_InputEvent_wrapper_shortcut_match(WasGoId wasgo_id, WasGo::WasGoId p_event);
+WasGo::WasGoId _wasgo_InputEvent_wrapper_xformed_by(WasGoId wasgo_id, WasGo::WasGoId p_xform, WasGo::WasGoId p_local_ofs);
+}
 #endif

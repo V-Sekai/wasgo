@@ -107,6 +107,8 @@ private:
 
 	Ref<WasmResource> wasm_resource;
 
+	wasm_function_inst_t notification_callback = nullptr;
+
 	HashMap<ObjectID, WasGoID> createdObjects;
 	HashMap<WasGoID, ObjectID> createdObjectsReverse;
 	HashMap<ObjectID, WasGoID> referencedObjects;

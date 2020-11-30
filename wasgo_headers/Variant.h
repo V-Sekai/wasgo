@@ -3,15 +3,18 @@
 #define WASGO_VARIANT_H
 
 #include "wasgo/wasgo.h"
+// class WasGo;
+typedef uint32_t WasGoId;
+
 class Variant{
     protected:
-        Variant(WasGo::WasGoId id){
+        Variant(WasGoId id){
 			wasgo_id = id;
 		}
 
 	public:
-		WasGo::WasGoId wasgo_id;
-		static Variant from_wasgo_id(WasGo::WasGoId){
+		WasGoId wasgo_id;
+		static Variant from_wasgo_id(WasGoId id){
 			return Variant(id);
 		}
 };

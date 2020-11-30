@@ -3,12 +3,12 @@
 #define SCENESTATE_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "PackedScene.h"
 #include "Variant.h"
+#include "PackedScene.h"
 #include "Reference.h"
 class SceneState : public Reference{
-public: SceneState();
 enum GenEditState{
 GEN_EDIT_STATE_DISABLED,
 GEN_EDIT_STATE_INSTANCE,
@@ -35,4 +35,29 @@ Variant get_node_property_value(int p_idx, int p_prop_idx);
 String get_node_type(int p_idx);
 bool is_node_instance_placeholder(int p_idx);
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_connection_binds(WasGoId wasgo_id, int p_idx);
+int _wasgo_SceneState_wrapper_get_connection_count(WasGoId wasgo_id);
+int _wasgo_SceneState_wrapper_get_connection_flags(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_connection_method(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_connection_signal(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_connection_source(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_connection_target(WasGoId wasgo_id, int p_idx);
+int _wasgo_SceneState_wrapper_get_node_count(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_node_groups(WasGoId wasgo_id, int p_idx);
+int _wasgo_SceneState_wrapper_get_node_index(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_node_instance(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_node_instance_placeholder(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_node_name(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_node_owner_path(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_node_path(WasGoId wasgo_id, int p_idx, bool p_for_parent);
+int _wasgo_SceneState_wrapper_get_node_property_count(WasGoId wasgo_id, int p_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_node_property_name(WasGoId wasgo_id, int p_idx, int p_prop_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_node_property_value(WasGoId wasgo_id, int p_idx, int p_prop_idx);
+WasGo::WasGoId _wasgo_SceneState_wrapper_get_node_type(WasGoId wasgo_id, int p_idx);
+int _wasgo_SceneState_wrapper_is_node_instance_placeholder(WasGoId wasgo_id, int p_idx);
+}
 #endif

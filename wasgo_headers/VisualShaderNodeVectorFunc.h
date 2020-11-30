@@ -3,10 +3,10 @@
 #define VISUALSHADERNODEVECTORFUNC_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorFunc : public VisualShaderNode{
-public: VisualShaderNodeVectorFunc();
 enum Function{
 FUNC_NORMALIZE,
 FUNC_SATURATE,
@@ -46,5 +46,16 @@ FUNC_ONEMINUS
 };
 VisualShaderNodeVectorFunc::Function get_function();
 void set_function(VisualShaderNodeVectorFunc::Function p_func);
+
+VisualShaderNodeVectorFunc(WasGoId p_wasgo_id);
+~VisualShaderNodeVectorFunc();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_VisualShaderNodeVectorFunc_wrapper_get_function(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeVectorFunc_wrapper_set_function(WasGoId wasgo_id, WasGo::WasGoId p_func);
+}
 #endif

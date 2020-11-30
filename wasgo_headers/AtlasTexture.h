@@ -3,11 +3,11 @@
 #define ATLASTEXTURE_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Variant.h"
 #include "Texture.h"
 class AtlasTexture : public Texture{
-public: AtlasTexture();
 Texture get_atlas();
 Rect2 get_margin();
 Rect2 get_region();
@@ -16,5 +16,22 @@ void set_atlas(Texture p_atlas);
 void set_filter_clip(bool p_enable);
 void set_margin(Rect2 p_margin);
 void set_region(Rect2 p_region);
+
+AtlasTexture(WasGoId p_wasgo_id);
+~AtlasTexture();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_AtlasTexture_wrapper_get_atlas(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AtlasTexture_wrapper_get_margin(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AtlasTexture_wrapper_get_region(WasGoId wasgo_id);
+int _wasgo_AtlasTexture_wrapper_has_filter_clip(WasGoId wasgo_id);
+void _wasgo_AtlasTexture_wrapper_set_atlas(WasGoId wasgo_id, WasGo::WasGoId p_atlas);
+void _wasgo_AtlasTexture_wrapper_set_filter_clip(WasGoId wasgo_id, bool p_enable);
+void _wasgo_AtlasTexture_wrapper_set_margin(WasGoId wasgo_id, WasGo::WasGoId p_margin);
+void _wasgo_AtlasTexture_wrapper_set_region(WasGoId wasgo_id, WasGo::WasGoId p_region);
+}
 #endif

@@ -3,14 +3,14 @@
 #define SURFACETOOL_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Material.h"
-#include "Reference.h"
 #include "ArrayMesh.h"
-#include "Variant.h"
 #include "Mesh.h"
+#include "Reference.h"
+#include "Variant.h"
+#include "Material.h"
 class SurfaceTool : public Reference{
-public: SurfaceTool();
 void add_bones(PoolIntArray p_bones);
 void add_color(Color p_color);
 void add_index(int p_index);
@@ -34,5 +34,37 @@ void generate_normals(bool p_flip = (bool) False);
 void generate_tangents();
 void index();
 void set_material(Material p_material);
+
+SurfaceTool(WasGoId p_wasgo_id);
+~SurfaceTool();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+void _wasgo_SurfaceTool_wrapper_add_bones(WasGoId wasgo_id, WasGo::WasGoId p_bones);
+void _wasgo_SurfaceTool_wrapper_add_color(WasGoId wasgo_id, WasGo::WasGoId p_color);
+void _wasgo_SurfaceTool_wrapper_add_index(WasGoId wasgo_id, int p_index);
+void _wasgo_SurfaceTool_wrapper_add_normal(WasGoId wasgo_id, WasGo::WasGoId p_normal);
+void _wasgo_SurfaceTool_wrapper_add_smooth_group(WasGoId wasgo_id, bool p_smooth);
+void _wasgo_SurfaceTool_wrapper_add_tangent(WasGoId wasgo_id, WasGo::WasGoId p_tangent);
+void _wasgo_SurfaceTool_wrapper_add_triangle_fan(WasGoId wasgo_id, WasGo::WasGoId p_vertices, WasGo::WasGoId p_uvs, WasGo::WasGoId p_colors, WasGo::WasGoId p_uv2s, WasGo::WasGoId p_normals, WasGo::WasGoId p_tangents);
+void _wasgo_SurfaceTool_wrapper_add_uv(WasGoId wasgo_id, WasGo::WasGoId p_uv);
+void _wasgo_SurfaceTool_wrapper_add_uv2(WasGoId wasgo_id, WasGo::WasGoId p_uv2);
+void _wasgo_SurfaceTool_wrapper_add_vertex(WasGoId wasgo_id, WasGo::WasGoId p_vertex);
+void _wasgo_SurfaceTool_wrapper_add_weights(WasGoId wasgo_id, WasGo::WasGoId p_weights);
+void _wasgo_SurfaceTool_wrapper_append_from(WasGoId wasgo_id, WasGo::WasGoId p_existing, int p_surface, WasGo::WasGoId p_transform);
+void _wasgo_SurfaceTool_wrapper_begin(WasGoId wasgo_id, WasGo::WasGoId p_primitive);
+void _wasgo_SurfaceTool_wrapper_clear(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_SurfaceTool_wrapper_commit(WasGoId wasgo_id, WasGo::WasGoId p_existing, int p_flags);
+WasGo::WasGoId _wasgo_SurfaceTool_wrapper_commit_to_arrays(WasGoId wasgo_id);
+void _wasgo_SurfaceTool_wrapper_create_from(WasGoId wasgo_id, WasGo::WasGoId p_existing, int p_surface);
+void _wasgo_SurfaceTool_wrapper_create_from_blend_shape(WasGoId wasgo_id, WasGo::WasGoId p_existing, int p_surface, WasGo::WasGoId p_blend_shape);
+void _wasgo_SurfaceTool_wrapper_deindex(WasGoId wasgo_id);
+void _wasgo_SurfaceTool_wrapper_generate_normals(WasGoId wasgo_id, bool p_flip);
+void _wasgo_SurfaceTool_wrapper_generate_tangents(WasGoId wasgo_id);
+void _wasgo_SurfaceTool_wrapper_index(WasGoId wasgo_id);
+void _wasgo_SurfaceTool_wrapper_set_material(WasGoId wasgo_id, WasGo::WasGoId p_material);
+}
 #endif

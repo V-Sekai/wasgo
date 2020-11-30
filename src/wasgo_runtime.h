@@ -13,7 +13,6 @@
 
   class WasGoRuntime : public Object {
     GDCLASS(WasGoRuntime, Object);
-
     static WasGoRuntime *singleton;
 
 public:

@@ -3,13 +3,13 @@
 #define VIDEOPLAYER_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Variant.h"
-#include "Texture.h"
 #include "VideoStream.h"
+#include "Texture.h"
 #include "Control.h"
 class VideoPlayer : public Control{
-public: VideoPlayer();
 int get_audio_track();
 int get_buffering_msec();
 String get_bus();
@@ -35,5 +35,39 @@ void set_stream_position(float p_position);
 void set_volume(float p_volume);
 void set_volume_db(float p_db);
 void stop();
+
+VideoPlayer(WasGoId p_wasgo_id);
+~VideoPlayer();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+int _wasgo_VideoPlayer_wrapper_get_audio_track(WasGoId wasgo_id);
+int _wasgo_VideoPlayer_wrapper_get_buffering_msec(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_VideoPlayer_wrapper_get_bus(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_VideoPlayer_wrapper_get_stream(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_VideoPlayer_wrapper_get_stream_name(WasGoId wasgo_id);
+float _wasgo_VideoPlayer_wrapper_get_stream_position(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_VideoPlayer_wrapper_get_video_texture(WasGoId wasgo_id);
+float _wasgo_VideoPlayer_wrapper_get_volume(WasGoId wasgo_id);
+float _wasgo_VideoPlayer_wrapper_get_volume_db(WasGoId wasgo_id);
+int _wasgo_VideoPlayer_wrapper_has_autoplay(WasGoId wasgo_id);
+int _wasgo_VideoPlayer_wrapper_has_expand(WasGoId wasgo_id);
+int _wasgo_VideoPlayer_wrapper_is_paused(WasGoId wasgo_id);
+int _wasgo_VideoPlayer_wrapper_is_playing(WasGoId wasgo_id);
+void _wasgo_VideoPlayer_wrapper_play(WasGoId wasgo_id);
+void _wasgo_VideoPlayer_wrapper_set_audio_track(WasGoId wasgo_id, int p_track);
+void _wasgo_VideoPlayer_wrapper_set_autoplay(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_VideoPlayer_wrapper_set_buffering_msec(WasGoId wasgo_id, int p_msec);
+void _wasgo_VideoPlayer_wrapper_set_bus(WasGoId wasgo_id, WasGo::WasGoId p_bus);
+void _wasgo_VideoPlayer_wrapper_set_expand(WasGoId wasgo_id, bool p_enable);
+void _wasgo_VideoPlayer_wrapper_set_paused(WasGoId wasgo_id, bool p_paused);
+void _wasgo_VideoPlayer_wrapper_set_stream(WasGoId wasgo_id, WasGo::WasGoId p_stream);
+void _wasgo_VideoPlayer_wrapper_set_stream_position(WasGoId wasgo_id, float p_position);
+void _wasgo_VideoPlayer_wrapper_set_volume(WasGoId wasgo_id, float p_volume);
+void _wasgo_VideoPlayer_wrapper_set_volume_db(WasGoId wasgo_id, float p_db);
+void _wasgo_VideoPlayer_wrapper_stop(WasGoId wasgo_id);
+}
 #endif

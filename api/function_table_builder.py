@@ -441,10 +441,7 @@ def write_native_wrapper_header(file_path, api_dict):
         elif arg["type"] in variants:
             return "{0} *{1} = ({0} *)state->lookup_variant(p_{1});".format(arg["type"], arg["name"])
         else:
-            # if "::" not in arg["type"] and api_dict[arg["type"]]["is_reference"]:
-            #     return "Ref<{0}> {1} = (state->lookup_object(p_{1}));".format(arg["type"], arg["name"])
-            # else:
-                return "{0} *{1} = ({0} *) state->lookup_object(p_{1});".format(arg["type"], arg["name"])
+            return "{0} *{1} = ({0} *) state->lookup_object(p_{1});".format(arg["type"], arg["name"])
 
     for class_name in [api_class for api_class in api_dict if api_dict[api_class]["is_reference"] == False and api_class in class_whitelist]:
         for method in [api_method for api_method in api_dict[class_name]["methods"].values() if not api_method["is_virtual"] and not api_method["is_editor"]]:
@@ -599,7 +596,7 @@ def write_wasm_wrapper_functions(file_path, api_dict):
         fd.write('\n'.join(out))
 
 
-def write_wasm_classes(file_path, api_dict):
+def write_wasm_class_headers(file_path, api_dict):
     def generate_header_function_interface(name, contents):
         ret = []
         for content in contents.values():
@@ -620,6 +617,20 @@ def write_wasm_classes(file_path, api_dict):
 
         return ret
 
+    def single_wrapper(name, return_type, arguments):
+        arg_list = ["{0} p_{1}".format(wrapper_argument_types(
+            arg["type"], "WasGo::WasGoId"), arg["name"]) for arg in arguments]
+        return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGo::WasGoId"), name, ", ".join(["WasGoId wasgo_id"] + arg_list))
+    
+    def constructor_and_destructor(class_name):
+        out = [
+            """
+{0}(WasGoId p_wasgo_id);
+~{0}();
+            """.format(class_name)
+        ]
+        return out
+
     def write_wasm_class(file_path, class_dict):
         header_file_data = [
         "/* THIS FILE IS GENERATED */"
@@ -628,9 +639,14 @@ def write_wasm_classes(file_path, api_dict):
             "#define %s_H" % drop_underscore(class_dict["name"]).upper(),
             "",
             "#include \"stdint.h\"",
+            "#include \"wasgo\wasgo.h\"",
             "",
         ]
         includes = set()
+        n = drop_underscore(class_dict['name'])
+        if (n == "Object"):
+            includes.add("Variant")
+
         for method in class_dict['methods'].values():
             for args in method["arguments"].values():
                 if args["type"]:
@@ -653,35 +669,111 @@ def write_wasm_classes(file_path, api_dict):
             includes.add(class_dict["base_class"])
         for include in includes:
             header_file_data += ["#include \"%s.h\"" % include]
-        if class_dict['methods']:
-            n = drop_underscore(class_dict['name'])
-            if class_dict['base_class']:
-                header_file_data += ["class %s : public %s{" % (n, drop_underscore(class_dict["base_class"])),
-                                        "public: %s();" % (n)]  # Constructor
-            else:
-                header_file_data += ["class %s{" % n,
-                                        "public: %s();" % (n)]  # Constructor
+        if class_dict['base_class']:
+            header_file_data += ["class %s : public %s{" % (n, drop_underscore(class_dict["base_class"]))]
+        elif (n == "Object"):
+            header_file_data += ["class %s : public %s{" % (n, "Variant")]
+        else:
+            header_file_data += ["class %s{" % n]
 
-            for enum_name in class_dict['enums']:
-                header_file_data += ["enum %s{" % enum_name]
-                header_file_data += [",\n".join(class_dict['enums'][enum_name].values())]
-                # lastEnum = ""
-                # for enumKey, enumValue in class_dict['enums'][enum_name].items():
-                #     if (lastEnum):
-                #         header_file_data += [lastEnum + ","]
-                #     lastEnum = "%s: %s" % (enumValue, enumKey)
-                header_file_data += ["};"]
+        for enum_name in class_dict['enums']:
+            header_file_data += ["enum %s{" % enum_name]
+            header_file_data += [",\n".join(class_dict['enums'][enum_name].values())]
+            # lastEnum = ""
+            # for enumKey, enumValue in class_dict['enums'][enum_name].items():
+            #     if (lastEnum):
+            #         header_file_data += [lastEnum + ","]
+            #     lastEnum = "%s: %s" % (enumValue, enumKey)
+            header_file_data += ["};"]
 
-            header_file_data += generate_header_function_interface(
-                n, class_dict['methods'])
-            header_file_data += ["};",
-                                    "#endif"
-                                    ]
-            with open(file_path, 'w') as fd:  # to be included on the native side
-                fd.write('\n'.join(header_file_data))
+        header_file_data += generate_header_function_interface(
+            n, class_dict['methods'])
+
+        if (class_dict["instanciable"] and not class_dict["singleton"]):
+            header_file_data += constructor_and_destructor(n)
+
+        header_file_data += ["};"]
+        
+        header_file_data += ["\n\n//Wrapper Functions",
+        "extern \"C\"{"
+        ]
+        header_file_data += [single_wrapper(wrapper_method_names(n, method_name), api_dict[class_name]["methods"]
+                                            [method_name]["return_type"], api_dict[class_dict["name"]]["methods"][method_name]["arguments"].values()) for method_name in class_dict["methods"]]
+        header_file_data += ["}",
+                                "#endif"
+                                ]
+        with open(file_path, 'w') as fd:  # to be included on the native side
+            fd.write('\n'.join(header_file_data))
         
     for class_name in api_dict:
         write_wasm_class(file_path + "/" + class_name + ".h", api_dict[class_name])
+
+
+def write_wasm_classes(file_path, api_dict):
+    def arg_string(arguments):
+        args = []
+        for argument in arguments:
+            argument_type = argument['type']
+            argument_name = argument['name']
+            has_default_val = argument['has_default_value']
+            default_val = str(
+                argument['default_value']) if argument['default_value'] != None else '""'
+            if has_default_val:
+                args.append('{0} p_{1} = ({0}) {2}'.format(drop_underscore(
+                    void_if_null(argument_type)), argument_name, default_val))
+            else:
+                args.append('%s p_%s' % (drop_underscore(
+                    void_if_null(argument_type)), argument_name))
+        return ", ".join(args)
+
+    def converted_arg_string(arg_type, arg_name):
+        if (arg_type == "bool" or arg_type == "int" or arg_type == "float"):
+            return arg_name
+        else:
+            return "((Variant) {0}).get_wasgo_id()".format(arg_name)
+    def wrapper_body(class_name, method_name, return_type, arguments):
+        out = ["{0} {1}::{2}({3}){{".format(return_type, class_name, method_name, arg_string(arguments))]
+        if (return_type == "void"):
+            out += ["\t{0}({1});".format(wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))]
+        elif (return_type == "bool" or return_type == "int" or return_type == "float"):
+            out += ["\treturn ({0}) {1}({2}));".format(return_type, wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [ converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))]
+        else:
+            out += [
+                "\treturn {0}::from_wasgo_id({1}({2}));".format(return_type, wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))
+                ]
+
+        out += ["}"]
+        return out
+
+    def constructor_and_destructor(class_name):
+        out = [
+            """
+{0}::{0}(WasGoId p_wasgo_id) : Variant(p_wasgo_id){{
+}}
+{0}::~{0}(){{
+}}""".format(class_name)
+        ]
+        return out
+
+    def write_wasm_class(file_path, class_dict):
+        if(class_dict["methods"] or (class_dict["instanciable"] and not class_dict["singleton"])):
+            n = drop_underscore(class_dict["name"])
+            out = [
+                "/* THIS FILE IS GENERATED */"
+                ""
+            ]
+            out += ["#include \"{0}.h\"".format(n)]
+            for methods in class_dict["methods"].values():
+                
+                out += wrapper_body(n, methods['name'],
+                                    void_if_null(methods['return_type']), methods['arguments'].values())
+            if (class_dict["instanciable"] and not class_dict["singleton"]):
+                out += constructor_and_destructor(n)
+            with open(file_path, 'w') as fd:  # to be included on the native side
+                fd.write('\n'.join(out))
+
+    for class_name in api_dict:
+        write_wasm_class(file_path + "/" + class_name + ".cpp", api_dict[class_name])
 
 def write_wasgo_class(file_path):
     out = [
@@ -782,9 +874,9 @@ if __name__ == "__main__":
     write_native_wrapper_header("../include/wasgo_native_wrappers.h", api_dict)
     #Step 2 put the native wrappers in the function table
     write_function_table("../include/wasgo_function_table.h", api_dict)
-    #Step 3 define the wasm side function wrappers
-    write_wasm_wrapper_functions("../wasgo_headers/wasgo/wasgo_wasm_wrappers.h", api_dict)
-    #Step 4 define all classes and methods for the wasm side which will call the wrappers
+    #Step 3 declare all classes and methods for the wasm side which will call the wrappers
+    write_wasm_class_headers("../wasgo_headers", api_dict)
+    #Step 4 define all classes
     write_wasm_classes("../wasgo_headers", api_dict)
     #Step 5 create a Wasgo Class that holds properties and the wasgo ID type
     write_wasgo_class("../wasgo_headers/wasgo/wasgo.h")

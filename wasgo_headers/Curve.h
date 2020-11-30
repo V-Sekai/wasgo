@@ -3,11 +3,11 @@
 #define CURVE_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Variant.h"
 #include "Resource.h"
 class Curve : public Resource{
-public: Curve();
 enum TangentMode{
 TANGENT_FREE,
 TANGENT_LINEAR,
@@ -38,5 +38,39 @@ int set_point_offset(int p_index, float p_offset);
 void set_point_right_mode(int p_index, Curve::TangentMode p_mode);
 void set_point_right_tangent(int p_index, float p_tangent);
 void set_point_value(int p_index, float p_y);
+
+Curve(WasGoId p_wasgo_id);
+~Curve();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+int _wasgo_Curve_wrapper_add_point(WasGoId wasgo_id, WasGo::WasGoId p_position, float p_left_tangent, float p_right_tangent, WasGo::WasGoId p_left_mode, WasGo::WasGoId p_right_mode);
+void _wasgo_Curve_wrapper_bake(WasGoId wasgo_id);
+void _wasgo_Curve_wrapper_clean_dupes(WasGoId wasgo_id);
+void _wasgo_Curve_wrapper_clear_points(WasGoId wasgo_id);
+int _wasgo_Curve_wrapper_get_bake_resolution(WasGoId wasgo_id);
+float _wasgo_Curve_wrapper_get_max_value(WasGoId wasgo_id);
+float _wasgo_Curve_wrapper_get_min_value(WasGoId wasgo_id);
+int _wasgo_Curve_wrapper_get_point_count(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Curve_wrapper_get_point_left_mode(WasGoId wasgo_id, int p_index);
+float _wasgo_Curve_wrapper_get_point_left_tangent(WasGoId wasgo_id, int p_index);
+WasGo::WasGoId _wasgo_Curve_wrapper_get_point_position(WasGoId wasgo_id, int p_index);
+WasGo::WasGoId _wasgo_Curve_wrapper_get_point_right_mode(WasGoId wasgo_id, int p_index);
+float _wasgo_Curve_wrapper_get_point_right_tangent(WasGoId wasgo_id, int p_index);
+float _wasgo_Curve_wrapper_interpolate(WasGoId wasgo_id, float p_offset);
+float _wasgo_Curve_wrapper_interpolate_baked(WasGoId wasgo_id, float p_offset);
+void _wasgo_Curve_wrapper_remove_point(WasGoId wasgo_id, int p_index);
+void _wasgo_Curve_wrapper_set_bake_resolution(WasGoId wasgo_id, int p_resolution);
+void _wasgo_Curve_wrapper_set_max_value(WasGoId wasgo_id, float p_max);
+void _wasgo_Curve_wrapper_set_min_value(WasGoId wasgo_id, float p_min);
+void _wasgo_Curve_wrapper_set_point_left_mode(WasGoId wasgo_id, int p_index, WasGo::WasGoId p_mode);
+void _wasgo_Curve_wrapper_set_point_left_tangent(WasGoId wasgo_id, int p_index, float p_tangent);
+int _wasgo_Curve_wrapper_set_point_offset(WasGoId wasgo_id, int p_index, float p_offset);
+void _wasgo_Curve_wrapper_set_point_right_mode(WasGoId wasgo_id, int p_index, WasGo::WasGoId p_mode);
+void _wasgo_Curve_wrapper_set_point_right_tangent(WasGoId wasgo_id, int p_index, float p_tangent);
+void _wasgo_Curve_wrapper_set_point_value(WasGoId wasgo_id, int p_index, float p_y);
+}
 #endif

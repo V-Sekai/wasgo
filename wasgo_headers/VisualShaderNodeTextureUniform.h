@@ -3,10 +3,10 @@
 #define VISUALSHADERNODETEXTUREUNIFORM_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "VisualShaderNodeUniform.h"
 class VisualShaderNodeTextureUniform : public VisualShaderNodeUniform{
-public: VisualShaderNodeTextureUniform();
 enum ColorDefault{
 COLOR_DEFAULT_WHITE,
 COLOR_DEFAULT_BLACK
@@ -21,5 +21,18 @@ VisualShaderNodeTextureUniform::ColorDefault get_color_default();
 VisualShaderNodeTextureUniform::TextureType get_texture_type();
 void set_color_default(VisualShaderNodeTextureUniform::ColorDefault p_type);
 void set_texture_type(VisualShaderNodeTextureUniform::TextureType p_type);
+
+VisualShaderNodeTextureUniform(WasGoId p_wasgo_id);
+~VisualShaderNodeTextureUniform();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_VisualShaderNodeTextureUniform_wrapper_get_color_default(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_VisualShaderNodeTextureUniform_wrapper_get_texture_type(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeTextureUniform_wrapper_set_color_default(WasGoId wasgo_id, WasGo::WasGoId p_type);
+void _wasgo_VisualShaderNodeTextureUniform_wrapper_set_texture_type(WasGoId wasgo_id, WasGo::WasGoId p_type);
+}
 #endif

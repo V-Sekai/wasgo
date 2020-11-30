@@ -3,12 +3,12 @@
 #define AUDIOSTREAMPLAYER3D_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Spatial.h"
+#include "Variant.h"
 #include "AudioStream.h"
 class AudioStreamPlayer3D : public Spatial{
-public: AudioStreamPlayer3D();
 enum AttenuationModel{
 ATTENUATION_INVERSE_DISTANCE,
 ATTENUATION_INVERSE_SQUARE_DISTANCE,
@@ -43,5 +43,33 @@ void set_stream(AudioStream p_stream);
 void set_unit_db(float p_unit_db);
 void set_unit_size(float p_unit_size);
 void stop();
+
+AudioStreamPlayer3D(WasGoId p_wasgo_id);
+~AudioStreamPlayer3D();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_AudioStreamPlayer3D_wrapper_get_bus(WasGoId wasgo_id);
+float _wasgo_AudioStreamPlayer3D_wrapper_get_max_db(WasGoId wasgo_id);
+float _wasgo_AudioStreamPlayer3D_wrapper_get_pitch_scale(WasGoId wasgo_id);
+float _wasgo_AudioStreamPlayer3D_wrapper_get_playback_position(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AudioStreamPlayer3D_wrapper_get_stream(WasGoId wasgo_id);
+float _wasgo_AudioStreamPlayer3D_wrapper_get_unit_db(WasGoId wasgo_id);
+float _wasgo_AudioStreamPlayer3D_wrapper_get_unit_size(WasGoId wasgo_id);
+int _wasgo_AudioStreamPlayer3D_wrapper_is_autoplay_enabled(WasGoId wasgo_id);
+int _wasgo_AudioStreamPlayer3D_wrapper_is_playing(WasGoId wasgo_id);
+void _wasgo_AudioStreamPlayer3D_wrapper_play(WasGoId wasgo_id, float p_from_position);
+void _wasgo_AudioStreamPlayer3D_wrapper_seek(WasGoId wasgo_id, float p_to_position);
+void _wasgo_AudioStreamPlayer3D_wrapper_set_autoplay(WasGoId wasgo_id, bool p_enable);
+void _wasgo_AudioStreamPlayer3D_wrapper_set_bus(WasGoId wasgo_id, WasGo::WasGoId p_bus);
+void _wasgo_AudioStreamPlayer3D_wrapper_set_max_db(WasGoId wasgo_id, float p_max_db);
+void _wasgo_AudioStreamPlayer3D_wrapper_set_pitch_scale(WasGoId wasgo_id, float p_pitch_scale);
+void _wasgo_AudioStreamPlayer3D_wrapper_set_stream(WasGoId wasgo_id, WasGo::WasGoId p_stream);
+void _wasgo_AudioStreamPlayer3D_wrapper_set_unit_db(WasGoId wasgo_id, float p_unit_db);
+void _wasgo_AudioStreamPlayer3D_wrapper_set_unit_size(WasGoId wasgo_id, float p_unit_size);
+void _wasgo_AudioStreamPlayer3D_wrapper_stop(WasGoId wasgo_id);
+}
 #endif

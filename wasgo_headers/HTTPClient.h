@@ -3,13 +3,13 @@
 #define HTTPCLIENT_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "Variant.h"
 #include "StreamPeer.h"
+#include "Reference.h"
 #include "Error.h"
 class HTTPClient : public Reference{
-public: HTTPClient();
 enum Method{
 METHOD_GET,
 METHOD_HEAD,
@@ -117,5 +117,34 @@ Error request_raw(HTTPClient::Method p_method, String p_url, PoolStringArray p_h
 void set_blocking_mode(bool p_enabled);
 void set_connection(StreamPeer p_connection);
 void set_read_chunk_size(int p_bytes);
+
+HTTPClient(WasGoId p_wasgo_id);
+~HTTPClient();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+void _wasgo_HTTPClient_wrapper_close(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_HTTPClient_wrapper_connect_to_host(WasGoId wasgo_id, WasGo::WasGoId p_host, int p_port, bool p_use_ssl, bool p_verify_host);
+WasGo::WasGoId _wasgo_HTTPClient_wrapper_get_connection(WasGoId wasgo_id);
+int _wasgo_HTTPClient_wrapper_get_read_chunk_size(WasGoId wasgo_id);
+int _wasgo_HTTPClient_wrapper_get_response_body_length(WasGoId wasgo_id);
+int _wasgo_HTTPClient_wrapper_get_response_code(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_HTTPClient_wrapper_get_response_headers(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_HTTPClient_wrapper_get_response_headers_as_dictionary(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_HTTPClient_wrapper_get_status(WasGoId wasgo_id);
+int _wasgo_HTTPClient_wrapper_has_response(WasGoId wasgo_id);
+int _wasgo_HTTPClient_wrapper_is_blocking_mode_enabled(WasGoId wasgo_id);
+int _wasgo_HTTPClient_wrapper_is_response_chunked(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_HTTPClient_wrapper_poll(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_HTTPClient_wrapper_query_string_from_dict(WasGoId wasgo_id, WasGo::WasGoId p_fields);
+WasGo::WasGoId _wasgo_HTTPClient_wrapper_read_response_body_chunk(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_HTTPClient_wrapper_request(WasGoId wasgo_id, WasGo::WasGoId p_method, WasGo::WasGoId p_url, WasGo::WasGoId p_headers, WasGo::WasGoId p_body);
+WasGo::WasGoId _wasgo_HTTPClient_wrapper_request_raw(WasGoId wasgo_id, WasGo::WasGoId p_method, WasGo::WasGoId p_url, WasGo::WasGoId p_headers, WasGo::WasGoId p_body);
+void _wasgo_HTTPClient_wrapper_set_blocking_mode(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_HTTPClient_wrapper_set_connection(WasGoId wasgo_id, WasGo::WasGoId p_connection);
+void _wasgo_HTTPClient_wrapper_set_read_chunk_size(WasGoId wasgo_id, int p_bytes);
+}
 #endif

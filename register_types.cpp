@@ -1,11 +1,11 @@
 #include "register_types.h"
-#include "stdio.h"
+#include "api/API_Generator.h"
 #include "src/Test.h"
-#include "src/wasgo_state.h"
 #include "src/resource_loader_wasm.h"
 #include "src/resource_wasm.h"
 #include "src/wasgo_runtime.h"
-#include "api/API_Generator.h"
+#include "src/wasgo_state.h"
+#include "stdio.h"
 
 static Ref<ResourceFormatLoaderWasm> wasm_loader;
 static WasGoRuntime *wasgo_runtime = NULL;
@@ -16,6 +16,7 @@ void register_WasGo_types() {
 
 	wasgo_runtime = new(WasGoRuntime);
 
+	// wasgo_runtime->initialize(native_symbols);
 	// WasGoTest::test();
 
 	printf("DONE\n");

@@ -3,10 +3,10 @@
 #define VISUALSHADERNODESCALARFUNC_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeScalarFunc : public VisualShaderNode{
-public: VisualShaderNodeScalarFunc();
 enum Function{
 FUNC_SIN,
 FUNC_COS,
@@ -43,5 +43,16 @@ FUNC_ONEMINUS
 };
 VisualShaderNodeScalarFunc::Function get_function();
 void set_function(VisualShaderNodeScalarFunc::Function p_func);
+
+VisualShaderNodeScalarFunc(WasGoId p_wasgo_id);
+~VisualShaderNodeScalarFunc();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_VisualShaderNodeScalarFunc_wrapper_get_function(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeScalarFunc_wrapper_set_function(WasGoId wasgo_id, WasGo::WasGoId p_func);
+}
 #endif

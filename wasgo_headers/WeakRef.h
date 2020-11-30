@@ -3,11 +3,21 @@
 #define WEAKREF_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "Variant.h"
+#include "Reference.h"
 class WeakRef : public Reference{
-public: WeakRef();
 Variant get_ref();
+
+WeakRef(WasGoId p_wasgo_id);
+~WeakRef();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_WeakRef_wrapper_get_ref(WasGoId wasgo_id);
+}
 #endif

@@ -3,12 +3,12 @@
 #define PACKETPEER_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "Variant.h"
+#include "Reference.h"
 #include "Error.h"
 class PacketPeer : public Reference{
-public: PacketPeer();
 int get_available_packet_count();
 int get_encode_buffer_max_size();
 PoolByteArray get_packet();
@@ -20,4 +20,19 @@ Error put_var(Variant p_var, bool p_full_objects = (bool) False);
 void set_allow_object_decoding(bool p_enable);
 void set_encode_buffer_max_size(int p_max_size);
 };
+
+
+//Wrapper Functions
+extern "C"{
+int _wasgo_PacketPeer_wrapper_get_available_packet_count(WasGoId wasgo_id);
+int _wasgo_PacketPeer_wrapper_get_encode_buffer_max_size(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_PacketPeer_wrapper_get_packet(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_PacketPeer_wrapper_get_packet_error(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_PacketPeer_wrapper_get_var(WasGoId wasgo_id, bool p_allow_objects);
+int _wasgo_PacketPeer_wrapper_is_object_decoding_allowed(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_PacketPeer_wrapper_put_packet(WasGoId wasgo_id, WasGo::WasGoId p_buffer);
+WasGo::WasGoId _wasgo_PacketPeer_wrapper_put_var(WasGoId wasgo_id, WasGo::WasGoId p_var, bool p_full_objects);
+void _wasgo_PacketPeer_wrapper_set_allow_object_decoding(WasGoId wasgo_id, bool p_enable);
+void _wasgo_PacketPeer_wrapper_set_encode_buffer_max_size(WasGoId wasgo_id, int p_max_size);
+}
 #endif

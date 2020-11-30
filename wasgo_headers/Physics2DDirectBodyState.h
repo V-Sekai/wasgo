@@ -3,12 +3,12 @@
 #define PHYSICS2DDIRECTBODYSTATE_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Variant.h"
-#include "Physics2DDirectSpaceState.h"
 #include "Object.h"
+#include "Physics2DDirectSpaceState.h"
 class Physics2DDirectBodyState : public Object{
-public: Physics2DDirectBodyState();
 void add_central_force(Vector2 p_force);
 void add_force(Vector2 p_offset, Vector2 p_force);
 void add_torque(float p_torque);
@@ -43,4 +43,42 @@ void set_linear_velocity(Vector2 p_velocity);
 void set_sleep_state(bool p_enabled);
 void set_transform(Transform2D p_transform);
 };
+
+
+//Wrapper Functions
+extern "C"{
+void _wasgo_Physics2DDirectBodyState_wrapper_add_central_force(WasGoId wasgo_id, WasGo::WasGoId p_force);
+void _wasgo_Physics2DDirectBodyState_wrapper_add_force(WasGoId wasgo_id, WasGo::WasGoId p_offset, WasGo::WasGoId p_force);
+void _wasgo_Physics2DDirectBodyState_wrapper_add_torque(WasGoId wasgo_id, float p_torque);
+void _wasgo_Physics2DDirectBodyState_wrapper_apply_central_impulse(WasGoId wasgo_id, WasGo::WasGoId p_impulse);
+void _wasgo_Physics2DDirectBodyState_wrapper_apply_impulse(WasGoId wasgo_id, WasGo::WasGoId p_offset, WasGo::WasGoId p_impulse);
+void _wasgo_Physics2DDirectBodyState_wrapper_apply_torque_impulse(WasGoId wasgo_id, float p_impulse);
+float _wasgo_Physics2DDirectBodyState_wrapper_get_angular_velocity(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider(WasGoId wasgo_id, int p_contact_idx);
+int _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_id(WasGoId wasgo_id, int p_contact_idx);
+WasGo::WasGoId _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_object(WasGoId wasgo_id, int p_contact_idx);
+WasGo::WasGoId _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_position(WasGoId wasgo_id, int p_contact_idx);
+int _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_shape(WasGoId wasgo_id, int p_contact_idx);
+WasGo::WasGoId _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_shape_metadata(WasGoId wasgo_id, int p_contact_idx);
+WasGo::WasGoId _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_velocity_at_position(WasGoId wasgo_id, int p_contact_idx);
+int _wasgo_Physics2DDirectBodyState_wrapper_get_contact_count(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Physics2DDirectBodyState_wrapper_get_contact_local_normal(WasGoId wasgo_id, int p_contact_idx);
+WasGo::WasGoId _wasgo_Physics2DDirectBodyState_wrapper_get_contact_local_position(WasGoId wasgo_id, int p_contact_idx);
+int _wasgo_Physics2DDirectBodyState_wrapper_get_contact_local_shape(WasGoId wasgo_id, int p_contact_idx);
+float _wasgo_Physics2DDirectBodyState_wrapper_get_inverse_inertia(WasGoId wasgo_id);
+float _wasgo_Physics2DDirectBodyState_wrapper_get_inverse_mass(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Physics2DDirectBodyState_wrapper_get_linear_velocity(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Physics2DDirectBodyState_wrapper_get_space_state(WasGoId wasgo_id);
+float _wasgo_Physics2DDirectBodyState_wrapper_get_step(WasGoId wasgo_id);
+float _wasgo_Physics2DDirectBodyState_wrapper_get_total_angular_damp(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Physics2DDirectBodyState_wrapper_get_total_gravity(WasGoId wasgo_id);
+float _wasgo_Physics2DDirectBodyState_wrapper_get_total_linear_damp(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Physics2DDirectBodyState_wrapper_get_transform(WasGoId wasgo_id);
+void _wasgo_Physics2DDirectBodyState_wrapper_integrate_forces(WasGoId wasgo_id);
+int _wasgo_Physics2DDirectBodyState_wrapper_is_sleeping(WasGoId wasgo_id);
+void _wasgo_Physics2DDirectBodyState_wrapper_set_angular_velocity(WasGoId wasgo_id, float p_velocity);
+void _wasgo_Physics2DDirectBodyState_wrapper_set_linear_velocity(WasGoId wasgo_id, WasGo::WasGoId p_velocity);
+void _wasgo_Physics2DDirectBodyState_wrapper_set_sleep_state(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_Physics2DDirectBodyState_wrapper_set_transform(WasGoId wasgo_id, WasGo::WasGoId p_transform);
+}
 #endif

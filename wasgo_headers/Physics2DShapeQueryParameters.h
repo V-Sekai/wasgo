@@ -3,12 +3,12 @@
 #define PHYSICS2DSHAPEQUERYPARAMETERS_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "Variant.h"
+#include "Reference.h"
 #include "Resource.h"
 class Physics2DShapeQueryParameters : public Reference{
-public: Physics2DShapeQueryParameters();
 int get_collision_layer();
 Array get_exclude();
 float get_margin();
@@ -26,5 +26,31 @@ void set_motion(Vector2 p_motion);
 void set_shape(Resource p_shape);
 void set_shape_rid(RID p_shape);
 void set_transform(Transform2D p_transform);
+
+Physics2DShapeQueryParameters(WasGoId p_wasgo_id);
+~Physics2DShapeQueryParameters();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+int _wasgo_Physics2DShapeQueryParameters_wrapper_get_collision_layer(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Physics2DShapeQueryParameters_wrapper_get_exclude(WasGoId wasgo_id);
+float _wasgo_Physics2DShapeQueryParameters_wrapper_get_margin(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Physics2DShapeQueryParameters_wrapper_get_motion(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Physics2DShapeQueryParameters_wrapper_get_shape_rid(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Physics2DShapeQueryParameters_wrapper_get_transform(WasGoId wasgo_id);
+int _wasgo_Physics2DShapeQueryParameters_wrapper_is_collide_with_areas_enabled(WasGoId wasgo_id);
+int _wasgo_Physics2DShapeQueryParameters_wrapper_is_collide_with_bodies_enabled(WasGoId wasgo_id);
+void _wasgo_Physics2DShapeQueryParameters_wrapper_set_collide_with_areas(WasGoId wasgo_id, bool p_enable);
+void _wasgo_Physics2DShapeQueryParameters_wrapper_set_collide_with_bodies(WasGoId wasgo_id, bool p_enable);
+void _wasgo_Physics2DShapeQueryParameters_wrapper_set_collision_layer(WasGoId wasgo_id, int p_collision_layer);
+void _wasgo_Physics2DShapeQueryParameters_wrapper_set_exclude(WasGoId wasgo_id, WasGo::WasGoId p_exclude);
+void _wasgo_Physics2DShapeQueryParameters_wrapper_set_margin(WasGoId wasgo_id, float p_margin);
+void _wasgo_Physics2DShapeQueryParameters_wrapper_set_motion(WasGoId wasgo_id, WasGo::WasGoId p_motion);
+void _wasgo_Physics2DShapeQueryParameters_wrapper_set_shape(WasGoId wasgo_id, WasGo::WasGoId p_shape);
+void _wasgo_Physics2DShapeQueryParameters_wrapper_set_shape_rid(WasGoId wasgo_id, WasGo::WasGoId p_shape);
+void _wasgo_Physics2DShapeQueryParameters_wrapper_set_transform(WasGoId wasgo_id, WasGo::WasGoId p_transform);
+}
 #endif

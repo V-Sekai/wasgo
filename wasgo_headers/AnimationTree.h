@@ -3,12 +3,12 @@
 #define ANIMATIONTREE_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "AnimationNode.h"
 #include "Variant.h"
 #include "Node.h"
+#include "AnimationNode.h"
 class AnimationTree : public Node{
-public: AnimationTree();
 enum AnimationProcessMode{
 ANIMATION_PROCESS_PHYSICS,
 ANIMATION_PROCESS_IDLE,
@@ -25,5 +25,25 @@ void set_animation_player(NodePath p_root);
 void set_process_mode(AnimationTree::AnimationProcessMode p_mode);
 void set_root_motion_track(NodePath p_path);
 void set_tree_root(AnimationNode p_root);
+
+AnimationTree(WasGoId p_wasgo_id);
+~AnimationTree();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_AnimationTree_wrapper_get_animation_player(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AnimationTree_wrapper_get_process_mode(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AnimationTree_wrapper_get_root_motion_track(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AnimationTree_wrapper_get_root_motion_transform(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AnimationTree_wrapper_get_tree_root(WasGoId wasgo_id);
+int _wasgo_AnimationTree_wrapper_is_active(WasGoId wasgo_id);
+void _wasgo_AnimationTree_wrapper_set_active(WasGoId wasgo_id, bool p_active);
+void _wasgo_AnimationTree_wrapper_set_animation_player(WasGoId wasgo_id, WasGo::WasGoId p_root);
+void _wasgo_AnimationTree_wrapper_set_process_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_AnimationTree_wrapper_set_root_motion_track(WasGoId wasgo_id, WasGo::WasGoId p_path);
+void _wasgo_AnimationTree_wrapper_set_tree_root(WasGoId wasgo_id, WasGo::WasGoId p_root);
+}
 #endif

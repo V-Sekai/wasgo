@@ -3,11 +3,22 @@
 #define YSORT_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Node2D.h"
 class YSort : public Node2D{
-public: YSort();
 bool is_sort_enabled();
 void set_sort_enabled(bool p_enabled);
+
+YSort(WasGoId p_wasgo_id);
+~YSort();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+int _wasgo_YSort_wrapper_is_sort_enabled(WasGoId wasgo_id);
+void _wasgo_YSort_wrapper_set_sort_enabled(WasGoId wasgo_id, bool p_enabled);
+}
 #endif

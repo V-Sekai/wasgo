@@ -3,11 +3,11 @@
 #define POLYGONPATHFINDER_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Variant.h"
 #include "Resource.h"
 class PolygonPathFinder : public Resource{
-public: PolygonPathFinder();
 PoolVector2Array find_path(Vector2 p_from, Vector2 p_to);
 Rect2 get_bounds();
 Vector2 get_closest_point(Vector2 p_point);
@@ -16,5 +16,22 @@ float get_point_penalty(int p_idx);
 bool is_point_inside(Vector2 p_point);
 void set_point_penalty(int p_idx, float p_penalty);
 void setup(PoolVector2Array p_points, PoolIntArray p_connections);
+
+PolygonPathFinder(WasGoId p_wasgo_id);
+~PolygonPathFinder();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_PolygonPathFinder_wrapper_find_path(WasGoId wasgo_id, WasGo::WasGoId p_from, WasGo::WasGoId p_to);
+WasGo::WasGoId _wasgo_PolygonPathFinder_wrapper_get_bounds(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_PolygonPathFinder_wrapper_get_closest_point(WasGoId wasgo_id, WasGo::WasGoId p_point);
+WasGo::WasGoId _wasgo_PolygonPathFinder_wrapper_get_intersections(WasGoId wasgo_id, WasGo::WasGoId p_from, WasGo::WasGoId p_to);
+float _wasgo_PolygonPathFinder_wrapper_get_point_penalty(WasGoId wasgo_id, int p_idx);
+int _wasgo_PolygonPathFinder_wrapper_is_point_inside(WasGoId wasgo_id, WasGo::WasGoId p_point);
+void _wasgo_PolygonPathFinder_wrapper_set_point_penalty(WasGoId wasgo_id, int p_idx, float p_penalty);
+void _wasgo_PolygonPathFinder_wrapper_setup(WasGoId wasgo_id, WasGo::WasGoId p_points, WasGo::WasGoId p_connections);
+}
 #endif

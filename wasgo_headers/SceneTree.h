@@ -3,17 +3,17 @@
 #define SCENETREE_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "PackedScene.h"
-#include "MainLoop.h"
-#include "Error.h"
-#include "Object.h"
 #include "SceneTreeTimer.h"
+#include "Object.h"
+#include "Error.h"
+#include "MainLoop.h"
+#include "Node.h"
 #include "Viewport.h"
 #include "Variant.h"
-#include "Node.h"
+#include "PackedScene.h"
 class SceneTree : public MainLoop{
-public: SceneTree();
 enum GroupCallFlags{
 GROUP_CALL_DEFAULT,
 GROUP_CALL_REVERSE,
@@ -64,5 +64,46 @@ void set_input_as_handled();
 void set_pause(bool p_enable);
 void set_quit_on_go_back(bool p_enabled);
 void set_screen_stretch(SceneTree::StretchMode p_mode, SceneTree::StretchAspect p_aspect, Vector2 p_minsize, float p_shrink = (float) 1);
+
+SceneTree(WasGoId p_wasgo_id);
+~SceneTree();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_SceneTree_wrapper_call_group(WasGoId wasgo_id, WasGo::WasGoId p_group, WasGo::WasGoId p_method);
+WasGo::WasGoId _wasgo_SceneTree_wrapper_call_group_flags(WasGoId wasgo_id, int p_flags, WasGo::WasGoId p_group, WasGo::WasGoId p_method);
+WasGo::WasGoId _wasgo_SceneTree_wrapper_change_scene(WasGoId wasgo_id, WasGo::WasGoId p_path);
+WasGo::WasGoId _wasgo_SceneTree_wrapper_change_scene_to(WasGoId wasgo_id, WasGo::WasGoId p_packed_scene);
+WasGo::WasGoId _wasgo_SceneTree_wrapper_create_timer(WasGoId wasgo_id, float p_time_sec, bool p_pause_mode_process);
+WasGo::WasGoId _wasgo_SceneTree_wrapper_get_current_scene(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_SceneTree_wrapper_get_edited_scene_root(WasGoId wasgo_id);
+int _wasgo_SceneTree_wrapper_get_frame(WasGoId wasgo_id);
+int _wasgo_SceneTree_wrapper_get_node_count(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_SceneTree_wrapper_get_nodes_in_group(WasGoId wasgo_id, WasGo::WasGoId p_group);
+WasGo::WasGoId _wasgo_SceneTree_wrapper_get_root(WasGoId wasgo_id);
+int _wasgo_SceneTree_wrapper_has_group(WasGoId wasgo_id, WasGo::WasGoId p_name);
+int _wasgo_SceneTree_wrapper_is_debugging_collisions_hint(WasGoId wasgo_id);
+int _wasgo_SceneTree_wrapper_is_debugging_navigation_hint(WasGoId wasgo_id);
+int _wasgo_SceneTree_wrapper_is_input_handled(WasGoId wasgo_id);
+int _wasgo_SceneTree_wrapper_is_paused(WasGoId wasgo_id);
+void _wasgo_SceneTree_wrapper_notify_group(WasGoId wasgo_id, WasGo::WasGoId p_group, int p_notification);
+void _wasgo_SceneTree_wrapper_notify_group_flags(WasGoId wasgo_id, int p_call_flags, WasGo::WasGoId p_group, int p_notification);
+void _wasgo_SceneTree_wrapper_queue_delete(WasGoId wasgo_id, WasGo::WasGoId p_obj);
+void _wasgo_SceneTree_wrapper_quit(WasGoId wasgo_id, int p_exit_code);
+WasGo::WasGoId _wasgo_SceneTree_wrapper_reload_current_scene(WasGoId wasgo_id);
+void _wasgo_SceneTree_wrapper_set_auto_accept_quit(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_SceneTree_wrapper_set_current_scene(WasGoId wasgo_id, WasGo::WasGoId p_child_node);
+void _wasgo_SceneTree_wrapper_set_debug_collisions_hint(WasGoId wasgo_id, bool p_enable);
+void _wasgo_SceneTree_wrapper_set_debug_navigation_hint(WasGoId wasgo_id, bool p_enable);
+void _wasgo_SceneTree_wrapper_set_edited_scene_root(WasGoId wasgo_id, WasGo::WasGoId p_scene);
+void _wasgo_SceneTree_wrapper_set_group(WasGoId wasgo_id, WasGo::WasGoId p_group, WasGo::WasGoId p_property, WasGo::WasGoId p_value);
+void _wasgo_SceneTree_wrapper_set_group_flags(WasGoId wasgo_id, int p_call_flags, WasGo::WasGoId p_group, WasGo::WasGoId p_property, WasGo::WasGoId p_value);
+void _wasgo_SceneTree_wrapper_set_input_as_handled(WasGoId wasgo_id);
+void _wasgo_SceneTree_wrapper_set_pause(WasGoId wasgo_id, bool p_enable);
+void _wasgo_SceneTree_wrapper_set_quit_on_go_back(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_SceneTree_wrapper_set_screen_stretch(WasGoId wasgo_id, WasGo::WasGoId p_mode, WasGo::WasGoId p_aspect, WasGo::WasGoId p_minsize, float p_shrink);
+}
 #endif

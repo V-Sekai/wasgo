@@ -3,14 +3,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "wasgo/wasgo.h"
 
 extern "C" {
-int intToStr(int x, char *str, int str_len, int digit);
-int get_pow(int x, int y);
-int32_t calculate_native(int32_t n, int32_t func1, int32_t func2);
-
 int test(){
-	// printf("this is my new test function");
+	printf("this is my new test function 2");
 	return 57;
 }
+}
+
+void _notification(int p_what) {
+	printf("it worked");
 }

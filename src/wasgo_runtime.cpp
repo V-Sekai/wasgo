@@ -3,7 +3,7 @@
 
 char WasGoRuntime::global_heap_buf[512 * 1024 * 100];
 WasGoRuntime *WasGoRuntime::singleton = NULL;
-RuntimeInitArgs init_args;
+RuntimeInitArgs WasGoRuntime::init_args;
 
 WasGoRuntime *WasGoRuntime::get_singleton() {
   return singleton;
@@ -46,8 +46,8 @@ wasm_module_t WasGoRuntime::load_module(Ref<WasmResource> wasm){
 }
 
 WasGoRuntime::WasGoRuntime() {
-  singleton = this;
-  singleton->initialize(native_symbols);
+	singleton = this;
+	singleton->initialize(native_symbols);
 }
 
 WasGoRuntime::~WasGoRuntime() {

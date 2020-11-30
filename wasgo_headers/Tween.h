@@ -3,12 +3,12 @@
 #define TWEEN_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
+#include "Variant.h"
 #include "Object.h"
 #include "Node.h"
-#include "Variant.h"
 class Tween : public Node{
-public: Tween();
 enum EaseType{
 EASE_IN,
 EASE_OUT,
@@ -48,5 +48,30 @@ void set_tween_process_mode(Tween::TweenProcessMode p_mode);
 bool start();
 bool stop(Object p_object, String p_key = (String) );
 bool stop_all();
+
+Tween(WasGoId p_wasgo_id);
+~Tween();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+float _wasgo_Tween_wrapper_get_speed_scale(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Tween_wrapper_get_tween_process_mode(WasGoId wasgo_id);
+int _wasgo_Tween_wrapper_is_active(WasGoId wasgo_id);
+int _wasgo_Tween_wrapper_is_repeat(WasGoId wasgo_id);
+int _wasgo_Tween_wrapper_remove(WasGoId wasgo_id, WasGo::WasGoId p_object, WasGo::WasGoId p_key);
+int _wasgo_Tween_wrapper_reset(WasGoId wasgo_id, WasGo::WasGoId p_object, WasGo::WasGoId p_key);
+int _wasgo_Tween_wrapper_reset_all(WasGoId wasgo_id);
+int _wasgo_Tween_wrapper_resume(WasGoId wasgo_id, WasGo::WasGoId p_object, WasGo::WasGoId p_key);
+int _wasgo_Tween_wrapper_resume_all(WasGoId wasgo_id);
+void _wasgo_Tween_wrapper_set_active(WasGoId wasgo_id, bool p_active);
+void _wasgo_Tween_wrapper_set_repeat(WasGoId wasgo_id, bool p_repeat);
+void _wasgo_Tween_wrapper_set_speed_scale(WasGoId wasgo_id, float p_speed);
+void _wasgo_Tween_wrapper_set_tween_process_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+int _wasgo_Tween_wrapper_start(WasGoId wasgo_id);
+int _wasgo_Tween_wrapper_stop(WasGoId wasgo_id, WasGo::WasGoId p_object, WasGo::WasGoId p_key);
+int _wasgo_Tween_wrapper_stop_all(WasGoId wasgo_id);
+}
 #endif

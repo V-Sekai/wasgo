@@ -3,10 +3,10 @@
 #define CANVASITEMMATERIAL_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Material.h"
 class CanvasItemMaterial : public Material{
-public: CanvasItemMaterial();
 enum BlendMode{
 BLEND_MODE_MIX,
 BLEND_MODE_ADD,
@@ -31,5 +31,26 @@ void set_particles_anim_h_frames(int p_frames);
 void set_particles_anim_loop(bool p_loop);
 void set_particles_anim_v_frames(int p_frames);
 void set_particles_animation(bool p_particles_anim);
+
+CanvasItemMaterial(WasGoId p_wasgo_id);
+~CanvasItemMaterial();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_CanvasItemMaterial_wrapper_get_blend_mode(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_CanvasItemMaterial_wrapper_get_light_mode(WasGoId wasgo_id);
+int _wasgo_CanvasItemMaterial_wrapper_get_particles_anim_h_frames(WasGoId wasgo_id);
+int _wasgo_CanvasItemMaterial_wrapper_get_particles_anim_loop(WasGoId wasgo_id);
+int _wasgo_CanvasItemMaterial_wrapper_get_particles_anim_v_frames(WasGoId wasgo_id);
+int _wasgo_CanvasItemMaterial_wrapper_get_particles_animation(WasGoId wasgo_id);
+void _wasgo_CanvasItemMaterial_wrapper_set_blend_mode(WasGoId wasgo_id, WasGo::WasGoId p_blend_mode);
+void _wasgo_CanvasItemMaterial_wrapper_set_light_mode(WasGoId wasgo_id, WasGo::WasGoId p_light_mode);
+void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_h_frames(WasGoId wasgo_id, int p_frames);
+void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_loop(WasGoId wasgo_id, bool p_loop);
+void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_v_frames(WasGoId wasgo_id, int p_frames);
+void _wasgo_CanvasItemMaterial_wrapper_set_particles_animation(WasGoId wasgo_id, bool p_particles_anim);
+}
 #endif

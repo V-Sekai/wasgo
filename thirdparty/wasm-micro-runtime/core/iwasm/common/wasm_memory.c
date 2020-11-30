@@ -173,19 +173,23 @@ wasm_runtime_free_internal(void *ptr)
 void *
 wasm_runtime_malloc(unsigned int size)
 {
-    return wasm_runtime_malloc_internal(size);
+    return malloc(size);
+    //
+    // return wasm_runtime_malloc_internal(size);
 }
 
 void *
 wasm_runtime_realloc(void *ptr, unsigned int size)
 {
-    return wasm_runtime_realloc_internal(ptr, size);
+    return realloc(ptr, size);
+    //return wasm_runtime_realloc_internal(ptr, size);
 }
 
 void
 wasm_runtime_free(void *ptr)
 {
-    wasm_runtime_free_internal(ptr);
+    return free(ptr);
+    // wasm_runtime_free_internal(ptr);
 }
 
 #if 0

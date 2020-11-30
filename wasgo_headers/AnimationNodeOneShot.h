@@ -3,10 +3,10 @@
 #define ANIMATIONNODEONESHOT_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "AnimationNode.h"
 class AnimationNodeOneShot : public AnimationNode{
-public: AnimationNodeOneShot();
 enum MixMode{
 MIX_MODE_BLEND,
 MIX_MODE_ADD
@@ -25,5 +25,28 @@ void set_fadein_time(float p_time);
 void set_fadeout_time(float p_time);
 void set_mix_mode(AnimationNodeOneShot::MixMode p_mode);
 void set_use_sync(bool p_enable);
+
+AnimationNodeOneShot(WasGoId p_wasgo_id);
+~AnimationNodeOneShot();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+float _wasgo_AnimationNodeOneShot_wrapper_get_autorestart_delay(WasGoId wasgo_id);
+float _wasgo_AnimationNodeOneShot_wrapper_get_autorestart_random_delay(WasGoId wasgo_id);
+float _wasgo_AnimationNodeOneShot_wrapper_get_fadein_time(WasGoId wasgo_id);
+float _wasgo_AnimationNodeOneShot_wrapper_get_fadeout_time(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_AnimationNodeOneShot_wrapper_get_mix_mode(WasGoId wasgo_id);
+int _wasgo_AnimationNodeOneShot_wrapper_has_autorestart(WasGoId wasgo_id);
+int _wasgo_AnimationNodeOneShot_wrapper_is_using_sync(WasGoId wasgo_id);
+void _wasgo_AnimationNodeOneShot_wrapper_set_autorestart(WasGoId wasgo_id, bool p_enable);
+void _wasgo_AnimationNodeOneShot_wrapper_set_autorestart_delay(WasGoId wasgo_id, float p_enable);
+void _wasgo_AnimationNodeOneShot_wrapper_set_autorestart_random_delay(WasGoId wasgo_id, float p_enable);
+void _wasgo_AnimationNodeOneShot_wrapper_set_fadein_time(WasGoId wasgo_id, float p_time);
+void _wasgo_AnimationNodeOneShot_wrapper_set_fadeout_time(WasGoId wasgo_id, float p_time);
+void _wasgo_AnimationNodeOneShot_wrapper_set_mix_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_AnimationNodeOneShot_wrapper_set_use_sync(WasGoId wasgo_id, bool p_enable);
+}
 #endif

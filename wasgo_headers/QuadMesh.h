@@ -3,12 +3,23 @@
 #define QUADMESH_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Variant.h"
 #include "PrimitiveMesh.h"
 class QuadMesh : public PrimitiveMesh{
-public: QuadMesh();
 Vector2 get_size();
 void set_size(Vector2 p_size);
+
+QuadMesh(WasGoId p_wasgo_id);
+~QuadMesh();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_QuadMesh_wrapper_get_size(WasGoId wasgo_id);
+void _wasgo_QuadMesh_wrapper_set_size(WasGoId wasgo_id, WasGo::WasGoId p_size);
+}
 #endif

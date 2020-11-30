@@ -3,14 +3,14 @@
 #define MESHINSTANCE_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Material.h"
 #include "GeometryInstance.h"
-#include "Variant.h"
-#include "Skin.h"
 #include "Mesh.h"
+#include "Variant.h"
+#include "Material.h"
+#include "Skin.h"
 class MeshInstance : public GeometryInstance{
-public: MeshInstance();
 void create_convex_collision();
 void create_trimesh_collision();
 Material get_active_material(int p_surface);
@@ -25,5 +25,28 @@ void set_skeleton_path(NodePath p_skeleton_path);
 void set_skin(Skin p_skin);
 void set_software_skinning_transform_normals(bool p_enabled);
 void set_surface_material(int p_surface, Material p_material);
+
+MeshInstance(WasGoId p_wasgo_id);
+~MeshInstance();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+void _wasgo_MeshInstance_wrapper_create_convex_collision(WasGoId wasgo_id);
+void _wasgo_MeshInstance_wrapper_create_trimesh_collision(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_MeshInstance_wrapper_get_active_material(WasGoId wasgo_id, int p_surface);
+WasGo::WasGoId _wasgo_MeshInstance_wrapper_get_mesh(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_MeshInstance_wrapper_get_skeleton_path(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_MeshInstance_wrapper_get_skin(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_MeshInstance_wrapper_get_surface_material(WasGoId wasgo_id, int p_surface);
+int _wasgo_MeshInstance_wrapper_get_surface_material_count(WasGoId wasgo_id);
+int _wasgo_MeshInstance_wrapper_is_software_skinning_transform_normals_enabled(WasGoId wasgo_id);
+void _wasgo_MeshInstance_wrapper_set_mesh(WasGoId wasgo_id, WasGo::WasGoId p_mesh);
+void _wasgo_MeshInstance_wrapper_set_skeleton_path(WasGoId wasgo_id, WasGo::WasGoId p_skeleton_path);
+void _wasgo_MeshInstance_wrapper_set_skin(WasGoId wasgo_id, WasGo::WasGoId p_skin);
+void _wasgo_MeshInstance_wrapper_set_software_skinning_transform_normals(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_MeshInstance_wrapper_set_surface_material(WasGoId wasgo_id, int p_surface, WasGo::WasGoId p_material);
+}
 #endif

@@ -3,12 +3,12 @@
 #define LIGHT2D_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Variant.h"
+#include "Node2D.h"
 #include "Texture.h"
 class Light2D : public Node2D{
-public: Light2D();
 enum Mode{
 MODE_ADD,
 MODE_SUB,
@@ -65,5 +65,56 @@ void set_texture_offset(Vector2 p_texture_offset);
 void set_texture_scale(float p_texture_scale);
 void set_z_range_max(int p_z);
 void set_z_range_min(int p_z);
+
+Light2D(WasGoId p_wasgo_id);
+~Light2D();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_Light2D_wrapper_get_color(WasGoId wasgo_id);
+float _wasgo_Light2D_wrapper_get_energy(WasGoId wasgo_id);
+float _wasgo_Light2D_wrapper_get_height(WasGoId wasgo_id);
+int _wasgo_Light2D_wrapper_get_item_cull_mask(WasGoId wasgo_id);
+int _wasgo_Light2D_wrapper_get_item_shadow_cull_mask(WasGoId wasgo_id);
+int _wasgo_Light2D_wrapper_get_layer_range_max(WasGoId wasgo_id);
+int _wasgo_Light2D_wrapper_get_layer_range_min(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Light2D_wrapper_get_mode(WasGoId wasgo_id);
+int _wasgo_Light2D_wrapper_get_shadow_buffer_size(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Light2D_wrapper_get_shadow_color(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Light2D_wrapper_get_shadow_filter(WasGoId wasgo_id);
+float _wasgo_Light2D_wrapper_get_shadow_gradient_length(WasGoId wasgo_id);
+float _wasgo_Light2D_wrapper_get_shadow_smooth(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Light2D_wrapper_get_texture(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Light2D_wrapper_get_texture_offset(WasGoId wasgo_id);
+float _wasgo_Light2D_wrapper_get_texture_scale(WasGoId wasgo_id);
+int _wasgo_Light2D_wrapper_get_z_range_max(WasGoId wasgo_id);
+int _wasgo_Light2D_wrapper_get_z_range_min(WasGoId wasgo_id);
+int _wasgo_Light2D_wrapper_is_editor_only(WasGoId wasgo_id);
+int _wasgo_Light2D_wrapper_is_enabled(WasGoId wasgo_id);
+int _wasgo_Light2D_wrapper_is_shadow_enabled(WasGoId wasgo_id);
+void _wasgo_Light2D_wrapper_set_color(WasGoId wasgo_id, WasGo::WasGoId p_color);
+void _wasgo_Light2D_wrapper_set_editor_only(WasGoId wasgo_id, bool p_editor_only);
+void _wasgo_Light2D_wrapper_set_enabled(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_Light2D_wrapper_set_energy(WasGoId wasgo_id, float p_energy);
+void _wasgo_Light2D_wrapper_set_height(WasGoId wasgo_id, float p_height);
+void _wasgo_Light2D_wrapper_set_item_cull_mask(WasGoId wasgo_id, int p_item_cull_mask);
+void _wasgo_Light2D_wrapper_set_item_shadow_cull_mask(WasGoId wasgo_id, int p_item_shadow_cull_mask);
+void _wasgo_Light2D_wrapper_set_layer_range_max(WasGoId wasgo_id, int p_layer);
+void _wasgo_Light2D_wrapper_set_layer_range_min(WasGoId wasgo_id, int p_layer);
+void _wasgo_Light2D_wrapper_set_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_Light2D_wrapper_set_shadow_buffer_size(WasGoId wasgo_id, int p_size);
+void _wasgo_Light2D_wrapper_set_shadow_color(WasGoId wasgo_id, WasGo::WasGoId p_shadow_color);
+void _wasgo_Light2D_wrapper_set_shadow_enabled(WasGoId wasgo_id, bool p_enabled);
+void _wasgo_Light2D_wrapper_set_shadow_filter(WasGoId wasgo_id, WasGo::WasGoId p_filter);
+void _wasgo_Light2D_wrapper_set_shadow_gradient_length(WasGoId wasgo_id, float p_multiplier);
+void _wasgo_Light2D_wrapper_set_shadow_smooth(WasGoId wasgo_id, float p_smooth);
+void _wasgo_Light2D_wrapper_set_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+void _wasgo_Light2D_wrapper_set_texture_offset(WasGoId wasgo_id, WasGo::WasGoId p_texture_offset);
+void _wasgo_Light2D_wrapper_set_texture_scale(WasGoId wasgo_id, float p_texture_scale);
+void _wasgo_Light2D_wrapper_set_z_range_max(WasGoId wasgo_id, int p_z);
+void _wasgo_Light2D_wrapper_set_z_range_min(WasGoId wasgo_id, int p_z);
+}
 #endif

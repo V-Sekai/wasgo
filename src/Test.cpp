@@ -103,7 +103,7 @@ extern "C" void print_usage(void) {
 int WasGoTest::test() {
 	printf("We got to the test\n");
 
-	static char global_heap_buf[512 * 1024 * 100];
+	static char test_global_heap_buf[512 * 1024 * 100];
 	char *buffer = nullptr, error_buf[128];
 	int opt;
 	char *wasm_path = "test.wasm";
@@ -126,7 +126,7 @@ int WasGoTest::test() {
 	// For the function signature specifications, goto the link:
 	// https://github.com/bytecodealliance/wasm-micro-runtime/blob/main/doc/export_native_api.md
 
-	static NativeSymbol native_symbols[] = {
+	static NativeSymbol test_native_symbols[] = {
 		{
 				"intToStr", // the name of WASM function name
 				intToStr, // the native function pointer
@@ -146,13 +146,13 @@ int WasGoTest::test() {
 	};
 
 	init_args.mem_alloc_type = Alloc_With_Pool;
-	init_args.mem_alloc_option.pool.heap_buf = global_heap_buf;
-	init_args.mem_alloc_option.pool.heap_size = sizeof(global_heap_buf);
+	init_args.mem_alloc_option.pool.heap_buf = test_global_heap_buf;
+	init_args.mem_alloc_option.pool.heap_size = sizeof(test_global_heap_buf);
 
 	// Native symbols need below registration phase
-	init_args.n_native_symbols = sizeof(native_symbols) / sizeof(NativeSymbol);
+	init_args.n_native_symbols = sizeof(test_native_symbols) / sizeof(NativeSymbol);
 	init_args.native_module_name = "env";
-	init_args.native_symbols = native_symbols;
+	init_args.native_symbols = test_native_symbols;
 
 	if (!wasm_runtime_full_init(&init_args)) {
 		printf("Init runtime environment failed.\n");

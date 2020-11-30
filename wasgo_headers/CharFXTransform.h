@@ -3,11 +3,11 @@
 #define CHARFXTRANSFORM_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "Variant.h"
+#include "Reference.h"
 class CharFXTransform : public Reference{
-public: CharFXTransform();
 int get_absolute_index();
 int get_character();
 Color get_color();
@@ -24,5 +24,30 @@ void set_environment(Dictionary p_environment);
 void set_offset(Vector2 p_offset);
 void set_relative_index(int p_index);
 void set_visibility(bool p_visibility);
+
+CharFXTransform(WasGoId p_wasgo_id);
+~CharFXTransform();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+int _wasgo_CharFXTransform_wrapper_get_absolute_index(WasGoId wasgo_id);
+int _wasgo_CharFXTransform_wrapper_get_character(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_CharFXTransform_wrapper_get_color(WasGoId wasgo_id);
+float _wasgo_CharFXTransform_wrapper_get_elapsed_time(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_CharFXTransform_wrapper_get_environment(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_CharFXTransform_wrapper_get_offset(WasGoId wasgo_id);
+int _wasgo_CharFXTransform_wrapper_get_relative_index(WasGoId wasgo_id);
+int _wasgo_CharFXTransform_wrapper_is_visible(WasGoId wasgo_id);
+void _wasgo_CharFXTransform_wrapper_set_absolute_index(WasGoId wasgo_id, int p_index);
+void _wasgo_CharFXTransform_wrapper_set_character(WasGoId wasgo_id, int p_character);
+void _wasgo_CharFXTransform_wrapper_set_color(WasGoId wasgo_id, WasGo::WasGoId p_color);
+void _wasgo_CharFXTransform_wrapper_set_elapsed_time(WasGoId wasgo_id, float p_time);
+void _wasgo_CharFXTransform_wrapper_set_environment(WasGoId wasgo_id, WasGo::WasGoId p_environment);
+void _wasgo_CharFXTransform_wrapper_set_offset(WasGoId wasgo_id, WasGo::WasGoId p_offset);
+void _wasgo_CharFXTransform_wrapper_set_relative_index(WasGoId wasgo_id, int p_index);
+void _wasgo_CharFXTransform_wrapper_set_visibility(WasGoId wasgo_id, bool p_visibility);
+}
 #endif

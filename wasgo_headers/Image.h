@@ -3,12 +3,12 @@
 #define IMAGE_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Variant.h"
 #include "Resource.h"
 #include "Error.h"
 class Image : public Resource{
-public: Image();
 enum AlphaMode{
 ALPHA_NONE,
 ALPHA_BIT,
@@ -116,5 +116,57 @@ Error save_png(String p_path);
 PoolByteArray save_png_to_buffer();
 void shrink_x2();
 void srgb_to_linear();
+
+Image(WasGoId p_wasgo_id);
+~Image();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+void _wasgo_Image_wrapper_blend_rect(WasGoId wasgo_id, WasGo::WasGoId p_src, WasGo::WasGoId p_src_rect, WasGo::WasGoId p_dst);
+void _wasgo_Image_wrapper_blend_rect_mask(WasGoId wasgo_id, WasGo::WasGoId p_src, WasGo::WasGoId p_mask, WasGo::WasGoId p_src_rect, WasGo::WasGoId p_dst);
+void _wasgo_Image_wrapper_blit_rect(WasGoId wasgo_id, WasGo::WasGoId p_src, WasGo::WasGoId p_src_rect, WasGo::WasGoId p_dst);
+void _wasgo_Image_wrapper_blit_rect_mask(WasGoId wasgo_id, WasGo::WasGoId p_src, WasGo::WasGoId p_mask, WasGo::WasGoId p_src_rect, WasGo::WasGoId p_dst);
+void _wasgo_Image_wrapper_bumpmap_to_normalmap(WasGoId wasgo_id, float p_bump_scale);
+void _wasgo_Image_wrapper_clear_mipmaps(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Image_wrapper_compress(WasGoId wasgo_id, WasGo::WasGoId p_mode, WasGo::WasGoId p_source, float p_lossy_quality);
+void _wasgo_Image_wrapper_convert(WasGoId wasgo_id, WasGo::WasGoId p_format);
+void _wasgo_Image_wrapper_copy_from(WasGoId wasgo_id, WasGo::WasGoId p_src);
+void _wasgo_Image_wrapper_create(WasGoId wasgo_id, int p_width, int p_height, bool p_use_mipmaps, WasGo::WasGoId p_format);
+void _wasgo_Image_wrapper_create_from_data(WasGoId wasgo_id, int p_width, int p_height, bool p_use_mipmaps, WasGo::WasGoId p_format, WasGo::WasGoId p_data);
+void _wasgo_Image_wrapper_crop(WasGoId wasgo_id, int p_width, int p_height);
+WasGo::WasGoId _wasgo_Image_wrapper_decompress(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Image_wrapper_detect_alpha(WasGoId wasgo_id);
+void _wasgo_Image_wrapper_expand_x2_hq2x(WasGoId wasgo_id);
+void _wasgo_Image_wrapper_fill(WasGoId wasgo_id, WasGo::WasGoId p_color);
+void _wasgo_Image_wrapper_fix_alpha_edges(WasGoId wasgo_id);
+void _wasgo_Image_wrapper_flip_x(WasGoId wasgo_id);
+void _wasgo_Image_wrapper_flip_y(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Image_wrapper_generate_mipmaps(WasGoId wasgo_id, bool p_renormalize);
+WasGo::WasGoId _wasgo_Image_wrapper_get_data(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Image_wrapper_get_format(WasGoId wasgo_id);
+int _wasgo_Image_wrapper_get_height(WasGoId wasgo_id);
+int _wasgo_Image_wrapper_get_mipmap_offset(WasGoId wasgo_id, int p_mipmap);
+WasGo::WasGoId _wasgo_Image_wrapper_get_rect(WasGoId wasgo_id, WasGo::WasGoId p_rect);
+WasGo::WasGoId _wasgo_Image_wrapper_get_size(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Image_wrapper_get_used_rect(WasGoId wasgo_id);
+int _wasgo_Image_wrapper_get_width(WasGoId wasgo_id);
+int _wasgo_Image_wrapper_has_mipmaps(WasGoId wasgo_id);
+int _wasgo_Image_wrapper_is_compressed(WasGoId wasgo_id);
+int _wasgo_Image_wrapper_is_empty(WasGoId wasgo_id);
+int _wasgo_Image_wrapper_is_invisible(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Image_wrapper_load(WasGoId wasgo_id, WasGo::WasGoId p_path);
+void _wasgo_Image_wrapper_normalmap_to_xy(WasGoId wasgo_id);
+void _wasgo_Image_wrapper_premultiply_alpha(WasGoId wasgo_id);
+void _wasgo_Image_wrapper_resize(WasGoId wasgo_id, int p_width, int p_height, WasGo::WasGoId p_interpolation);
+void _wasgo_Image_wrapper_resize_to_po2(WasGoId wasgo_id, bool p_square);
+WasGo::WasGoId _wasgo_Image_wrapper_rgbe_to_srgb(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_Image_wrapper_save_exr(WasGoId wasgo_id, WasGo::WasGoId p_path, bool p_grayscale);
+WasGo::WasGoId _wasgo_Image_wrapper_save_png(WasGoId wasgo_id, WasGo::WasGoId p_path);
+WasGo::WasGoId _wasgo_Image_wrapper_save_png_to_buffer(WasGoId wasgo_id);
+void _wasgo_Image_wrapper_shrink_x2(WasGoId wasgo_id);
+void _wasgo_Image_wrapper_srgb_to_linear(WasGoId wasgo_id);
+}
 #endif

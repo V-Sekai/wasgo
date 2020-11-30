@@ -3,14 +3,14 @@
 #define MULTIPLAYERAPI_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Error.h"
+#include "Node.h"
 #include "Reference.h"
 #include "NetworkedMultiplayerPeer.h"
 #include "Variant.h"
-#include "Node.h"
 class MultiplayerAPI : public Reference{
-public: MultiplayerAPI();
 enum RPCMode{
 RPC_MODE_DISABLED,
 RPC_MODE_REMOTE,
@@ -29,5 +29,21 @@ bool has_network_peer();
 bool is_network_server();
 Error send_bytes(PoolByteArray p_bytes, int p_id = (int) 0, NetworkedMultiplayerPeer::TransferMode p_mode = (NetworkedMultiplayerPeer::TransferMode) 2);
 void set_root_node(Node p_node);
+
+MultiplayerAPI(WasGoId p_wasgo_id);
+~MultiplayerAPI();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+WasGo::WasGoId _wasgo_MultiplayerAPI_wrapper_get_network_peer(WasGoId wasgo_id);
+int _wasgo_MultiplayerAPI_wrapper_get_network_unique_id(WasGoId wasgo_id);
+int _wasgo_MultiplayerAPI_wrapper_get_rpc_sender_id(WasGoId wasgo_id);
+int _wasgo_MultiplayerAPI_wrapper_has_network_peer(WasGoId wasgo_id);
+int _wasgo_MultiplayerAPI_wrapper_is_network_server(WasGoId wasgo_id);
+WasGo::WasGoId _wasgo_MultiplayerAPI_wrapper_send_bytes(WasGoId wasgo_id, WasGo::WasGoId p_bytes, int p_id, WasGo::WasGoId p_mode);
+void _wasgo_MultiplayerAPI_wrapper_set_root_node(WasGoId wasgo_id, WasGo::WasGoId p_node);
+}
 #endif

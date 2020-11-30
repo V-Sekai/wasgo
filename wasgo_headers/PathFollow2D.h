@@ -3,10 +3,10 @@
 #define PATHFOLLOW2D_H
 
 #include "stdint.h"
+#include "wasgo\wasgo.h"
 
 #include "Node2D.h"
 class PathFollow2D : public Node2D{
-public: PathFollow2D();
 bool get_cubic_interpolation();
 float get_h_offset();
 float get_lookahead();
@@ -23,5 +23,30 @@ void set_offset(float p_offset);
 void set_rotate(bool p_enable);
 void set_unit_offset(float p_unit_offset);
 void set_v_offset(float p_v_offset);
+
+PathFollow2D(WasGoId p_wasgo_id);
+~PathFollow2D();
+            
 };
+
+
+//Wrapper Functions
+extern "C"{
+int _wasgo_PathFollow2D_wrapper_get_cubic_interpolation(WasGoId wasgo_id);
+float _wasgo_PathFollow2D_wrapper_get_h_offset(WasGoId wasgo_id);
+float _wasgo_PathFollow2D_wrapper_get_lookahead(WasGoId wasgo_id);
+float _wasgo_PathFollow2D_wrapper_get_offset(WasGoId wasgo_id);
+float _wasgo_PathFollow2D_wrapper_get_unit_offset(WasGoId wasgo_id);
+float _wasgo_PathFollow2D_wrapper_get_v_offset(WasGoId wasgo_id);
+int _wasgo_PathFollow2D_wrapper_has_loop(WasGoId wasgo_id);
+int _wasgo_PathFollow2D_wrapper_is_rotating(WasGoId wasgo_id);
+void _wasgo_PathFollow2D_wrapper_set_cubic_interpolation(WasGoId wasgo_id, bool p_enable);
+void _wasgo_PathFollow2D_wrapper_set_h_offset(WasGoId wasgo_id, float p_h_offset);
+void _wasgo_PathFollow2D_wrapper_set_lookahead(WasGoId wasgo_id, float p_lookahead);
+void _wasgo_PathFollow2D_wrapper_set_loop(WasGoId wasgo_id, bool p_loop);
+void _wasgo_PathFollow2D_wrapper_set_offset(WasGoId wasgo_id, float p_offset);
+void _wasgo_PathFollow2D_wrapper_set_rotate(WasGoId wasgo_id, bool p_enable);
+void _wasgo_PathFollow2D_wrapper_set_unit_offset(WasGoId wasgo_id, float p_unit_offset);
+void _wasgo_PathFollow2D_wrapper_set_v_offset(WasGoId wasgo_id, float p_v_offset);
+}
 #endif
