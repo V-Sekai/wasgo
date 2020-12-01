@@ -5,11 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "ustring.h"
 #include "Spatial.h"
-#include "Variant.h"
 #include "Mesh.h"
 #include "ARVRPositionalTracker.h"
 class ARVRController : public Spatial{
+public:
 int get_controller_id();
 String get_controller_name();
 ARVRPositionalTracker::TrackerHand get_hand();
@@ -31,12 +32,12 @@ ARVRController(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 int _wasgo_ARVRController_wrapper_get_controller_id(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ARVRController_wrapper_get_controller_name(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ARVRController_wrapper_get_hand(WasGoId wasgo_id);
+WasGoId _wasgo_ARVRController_wrapper_get_controller_name(WasGoId wasgo_id);
+WasGoId _wasgo_ARVRController_wrapper_get_hand(WasGoId wasgo_id);
 int _wasgo_ARVRController_wrapper_get_is_active(WasGoId wasgo_id);
 float _wasgo_ARVRController_wrapper_get_joystick_axis(WasGoId wasgo_id, int p_axis);
 int _wasgo_ARVRController_wrapper_get_joystick_id(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ARVRController_wrapper_get_mesh(WasGoId wasgo_id);
+WasGoId _wasgo_ARVRController_wrapper_get_mesh(WasGoId wasgo_id);
 float _wasgo_ARVRController_wrapper_get_rumble(WasGoId wasgo_id);
 int _wasgo_ARVRController_wrapper_is_button_pressed(WasGoId wasgo_id, int p_button);
 void _wasgo_ARVRController_wrapper_set_controller_id(WasGoId wasgo_id, int p_controller_id);

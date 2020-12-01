@@ -7,6 +7,7 @@
 
 #include "Input.h"
 class InputDefault : public Input{
+public:
 };
 
 

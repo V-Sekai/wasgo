@@ -7,6 +7,7 @@
 
 #include "IP.h"
 class IP_Unix : public IP{
+public:
 };
 
 

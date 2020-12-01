@@ -6,10 +6,12 @@
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
-#include "Object.h"
+#include "error_list.h"
 #include "Reference.h"
-#include "Error.h"
+#include "Object.h"
+#include "ustring.h"
 class Thread : public Reference{
+public:
 enum Priority{
 PRIORITY_LOW,
 PRIORITY_NORMAL,
@@ -28,9 +30,9 @@ Thread(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_Thread_wrapper_get_id(WasGoId wasgo_id);
+WasGoId _wasgo_Thread_wrapper_get_id(WasGoId wasgo_id);
 int _wasgo_Thread_wrapper_is_active(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Thread_wrapper_start(WasGoId wasgo_id, WasGo::WasGoId p_instance, WasGo::WasGoId p_method, WasGo::WasGoId p_userdata, WasGo::WasGoId p_priority);
-WasGo::WasGoId _wasgo_Thread_wrapper_wait_to_finish(WasGoId wasgo_id);
+WasGoId _wasgo_Thread_wrapper_start(WasGoId wasgo_id, WasGoId p_instance, WasGoId p_method, WasGoId p_userdata, WasGoId p_priority);
+WasGoId _wasgo_Thread_wrapper_wait_to_finish(WasGoId wasgo_id);
 }
 #endif

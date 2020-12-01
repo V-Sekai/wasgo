@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "ustring.h"
 #include "Resource.h"
 class DynamicFontData : public Resource{
+public:
 enum Hinting{
 HINTING_NONE,
 HINTING_LIGHT,
@@ -28,11 +29,11 @@ DynamicFontData(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_DynamicFontData_wrapper_get_font_path(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_DynamicFontData_wrapper_get_hinting(WasGoId wasgo_id);
+WasGoId _wasgo_DynamicFontData_wrapper_get_font_path(WasGoId wasgo_id);
+WasGoId _wasgo_DynamicFontData_wrapper_get_hinting(WasGoId wasgo_id);
 int _wasgo_DynamicFontData_wrapper_is_antialiased(WasGoId wasgo_id);
 void _wasgo_DynamicFontData_wrapper_set_antialiased(WasGoId wasgo_id, bool p_antialiased);
-void _wasgo_DynamicFontData_wrapper_set_font_path(WasGoId wasgo_id, WasGo::WasGoId p_path);
-void _wasgo_DynamicFontData_wrapper_set_hinting(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_DynamicFontData_wrapper_set_font_path(WasGoId wasgo_id, WasGoId p_path);
+void _wasgo_DynamicFontData_wrapper_set_hinting(WasGoId wasgo_id, WasGoId p_mode);
 }
 #endif

@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Vector2.h"
 #include "Texture.h"
 class ExternalTexture : public Texture{
+public:
 int get_external_texture_id();
 void set_size(Vector2 p_size);
 
@@ -20,6 +21,6 @@ ExternalTexture(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 int _wasgo_ExternalTexture_wrapper_get_external_texture_id(WasGoId wasgo_id);
-void _wasgo_ExternalTexture_wrapper_set_size(WasGoId wasgo_id, WasGo::WasGoId p_size);
+void _wasgo_ExternalTexture_wrapper_set_size(WasGoId wasgo_id, WasGoId p_size);
 }
 #endif

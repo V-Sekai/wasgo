@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Texture.h"
+#include "Rect2.h"
 class AtlasTexture : public Texture{
+public:
 Texture get_atlas();
 Rect2 get_margin();
 Rect2 get_region();
@@ -25,13 +26,13 @@ AtlasTexture(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_AtlasTexture_wrapper_get_atlas(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_AtlasTexture_wrapper_get_margin(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_AtlasTexture_wrapper_get_region(WasGoId wasgo_id);
+WasGoId _wasgo_AtlasTexture_wrapper_get_atlas(WasGoId wasgo_id);
+WasGoId _wasgo_AtlasTexture_wrapper_get_margin(WasGoId wasgo_id);
+WasGoId _wasgo_AtlasTexture_wrapper_get_region(WasGoId wasgo_id);
 int _wasgo_AtlasTexture_wrapper_has_filter_clip(WasGoId wasgo_id);
-void _wasgo_AtlasTexture_wrapper_set_atlas(WasGoId wasgo_id, WasGo::WasGoId p_atlas);
+void _wasgo_AtlasTexture_wrapper_set_atlas(WasGoId wasgo_id, WasGoId p_atlas);
 void _wasgo_AtlasTexture_wrapper_set_filter_clip(WasGoId wasgo_id, bool p_enable);
-void _wasgo_AtlasTexture_wrapper_set_margin(WasGoId wasgo_id, WasGo::WasGoId p_margin);
-void _wasgo_AtlasTexture_wrapper_set_region(WasGoId wasgo_id, WasGo::WasGoId p_region);
+void _wasgo_AtlasTexture_wrapper_set_margin(WasGoId wasgo_id, WasGoId p_margin);
+void _wasgo_AtlasTexture_wrapper_set_region(WasGoId wasgo_id, WasGoId p_region);
 }
 #endif

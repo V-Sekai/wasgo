@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Color.h"
 #include "VisualShaderNode.h"
 class VisualShaderNodeColorConstant : public VisualShaderNode{
+public:
 Color get_constant();
 void set_constant(Color p_value);
 
@@ -19,7 +20,7 @@ VisualShaderNodeColorConstant(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_VisualShaderNodeColorConstant_wrapper_get_constant(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeColorConstant_wrapper_set_constant(WasGoId wasgo_id, WasGo::WasGoId p_value);
+WasGoId _wasgo_VisualShaderNodeColorConstant_wrapper_get_constant(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeColorConstant_wrapper_set_constant(WasGoId wasgo_id, WasGoId p_value);
 }
 #endif

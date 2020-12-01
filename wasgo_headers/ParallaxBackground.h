@@ -7,6 +7,7 @@
 
 #include "CanvasLayer.h"
 class ParallaxBackground : public CanvasLayer{
+public:
 
 ParallaxBackground(WasGoId p_wasgo_id);
 ~ParallaxBackground();

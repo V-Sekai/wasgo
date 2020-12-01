@@ -7,6 +7,7 @@
 
 #include "BoxContainer.h"
 class VBoxContainer : public BoxContainer{
+public:
 
 VBoxContainer(WasGoId p_wasgo_id);
 ~VBoxContainer();

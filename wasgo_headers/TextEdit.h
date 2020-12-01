@@ -7,6 +7,7 @@
 
 #include "Control.h"
 class TextEdit : public Control{
+public:
 enum MenuItems{
 MENU_CUT,
 MENU_COPY,

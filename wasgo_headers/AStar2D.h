@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class AStar2D : public Reference{
+public:
 
 AStar2D(WasGoId p_wasgo_id);
 ~AStar2D();

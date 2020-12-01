@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "ustring.h"
 #include "AudioEffect.h"
 class AudioEffectCompressor : public AudioEffect{
+public:
 float get_attack_us();
 float get_gain();
 float get_mix();
@@ -36,14 +37,14 @@ float _wasgo_AudioEffectCompressor_wrapper_get_gain(WasGoId wasgo_id);
 float _wasgo_AudioEffectCompressor_wrapper_get_mix(WasGoId wasgo_id);
 float _wasgo_AudioEffectCompressor_wrapper_get_ratio(WasGoId wasgo_id);
 float _wasgo_AudioEffectCompressor_wrapper_get_release_ms(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_AudioEffectCompressor_wrapper_get_sidechain(WasGoId wasgo_id);
+WasGoId _wasgo_AudioEffectCompressor_wrapper_get_sidechain(WasGoId wasgo_id);
 float _wasgo_AudioEffectCompressor_wrapper_get_threshold(WasGoId wasgo_id);
 void _wasgo_AudioEffectCompressor_wrapper_set_attack_us(WasGoId wasgo_id, float p_attack_us);
 void _wasgo_AudioEffectCompressor_wrapper_set_gain(WasGoId wasgo_id, float p_gain);
 void _wasgo_AudioEffectCompressor_wrapper_set_mix(WasGoId wasgo_id, float p_mix);
 void _wasgo_AudioEffectCompressor_wrapper_set_ratio(WasGoId wasgo_id, float p_ratio);
 void _wasgo_AudioEffectCompressor_wrapper_set_release_ms(WasGoId wasgo_id, float p_release_ms);
-void _wasgo_AudioEffectCompressor_wrapper_set_sidechain(WasGoId wasgo_id, WasGo::WasGoId p_sidechain);
+void _wasgo_AudioEffectCompressor_wrapper_set_sidechain(WasGoId wasgo_id, WasGoId p_sidechain);
 void _wasgo_AudioEffectCompressor_wrapper_set_threshold(WasGoId wasgo_id, float p_threshold);
 }
 #endif

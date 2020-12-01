@@ -7,6 +7,7 @@
 
 #include "Node2D.h"
 class YSort : public Node2D{
+public:
 bool is_sort_enabled();
 void set_sort_enabled(bool p_enabled);
 

@@ -7,6 +7,7 @@
 
 #include "Shape2D.h"
 class CapsuleShape2D : public Shape2D{
+public:
 float get_height();
 float get_radius();
 void set_height(float p_height);

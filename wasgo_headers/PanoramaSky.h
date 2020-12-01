@@ -8,6 +8,7 @@
 #include "Texture.h"
 #include "Sky.h"
 class PanoramaSky : public Sky{
+public:
 Texture get_panorama();
 void set_panorama(Texture p_texture);
 
@@ -19,7 +20,7 @@ PanoramaSky(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_PanoramaSky_wrapper_get_panorama(WasGoId wasgo_id);
-void _wasgo_PanoramaSky_wrapper_set_panorama(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+WasGoId _wasgo_PanoramaSky_wrapper_get_panorama(WasGoId wasgo_id);
+void _wasgo_PanoramaSky_wrapper_set_panorama(WasGoId wasgo_id, WasGoId p_texture);
 }
 #endif

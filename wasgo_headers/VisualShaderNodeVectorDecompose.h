@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorDecompose : public VisualShaderNode{
+public:
 
 VisualShaderNodeVectorDecompose(WasGoId p_wasgo_id);
 ~VisualShaderNodeVectorDecompose();

@@ -7,6 +7,7 @@
 
 #include "VisualShaderNodeUniform.h"
 class VisualShaderNodeTextureUniform : public VisualShaderNodeUniform{
+public:
 enum ColorDefault{
 COLOR_DEFAULT_WHITE,
 COLOR_DEFAULT_BLACK
@@ -30,9 +31,9 @@ VisualShaderNodeTextureUniform(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_VisualShaderNodeTextureUniform_wrapper_get_color_default(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_VisualShaderNodeTextureUniform_wrapper_get_texture_type(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeTextureUniform_wrapper_set_color_default(WasGoId wasgo_id, WasGo::WasGoId p_type);
-void _wasgo_VisualShaderNodeTextureUniform_wrapper_set_texture_type(WasGoId wasgo_id, WasGo::WasGoId p_type);
+WasGoId _wasgo_VisualShaderNodeTextureUniform_wrapper_get_color_default(WasGoId wasgo_id);
+WasGoId _wasgo_VisualShaderNodeTextureUniform_wrapper_get_texture_type(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeTextureUniform_wrapper_set_color_default(WasGoId wasgo_id, WasGoId p_type);
+void _wasgo_VisualShaderNodeTextureUniform_wrapper_set_texture_type(WasGoId wasgo_id, WasGoId p_type);
 }
 #endif

@@ -5,10 +5,15 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
+#include "Transform.h"
+#include "RID.h"
 #include "Variant.h"
+#include "Vector2.h"
 #include "Environment.h"
+#include "Vector3.h"
+#include "Spatial.h"
 class Camera : public Spatial{
+public:
 enum DopplerTracking{
 DOPPLER_TRACKING_DISABLED,
 DOPPLER_TRACKING_IDLE_STEP,
@@ -23,7 +28,7 @@ PROJECTION_PERSPECTIVE,
 PROJECTION_ORTHOGONAL,
 PROJECTION_FRUSTUM
 };
-void clear_current(bool p_enable_next = (bool) True);
+void clear_current(bool p_enable_next = (bool) true);
 RID get_camera_rid();
 Transform get_camera_transform();
 int get_cull_mask();
@@ -75,46 +80,46 @@ Camera(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 void _wasgo_Camera_wrapper_clear_current(WasGoId wasgo_id, bool p_enable_next);
-WasGo::WasGoId _wasgo_Camera_wrapper_get_camera_rid(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Camera_wrapper_get_camera_transform(WasGoId wasgo_id);
+WasGoId _wasgo_Camera_wrapper_get_camera_rid(WasGoId wasgo_id);
+WasGoId _wasgo_Camera_wrapper_get_camera_transform(WasGoId wasgo_id);
 int _wasgo_Camera_wrapper_get_cull_mask(WasGoId wasgo_id);
 int _wasgo_Camera_wrapper_get_cull_mask_bit(WasGoId wasgo_id, int p_layer);
-WasGo::WasGoId _wasgo_Camera_wrapper_get_doppler_tracking(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Camera_wrapper_get_environment(WasGoId wasgo_id);
+WasGoId _wasgo_Camera_wrapper_get_doppler_tracking(WasGoId wasgo_id);
+WasGoId _wasgo_Camera_wrapper_get_environment(WasGoId wasgo_id);
 float _wasgo_Camera_wrapper_get_fov(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Camera_wrapper_get_frustum(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Camera_wrapper_get_frustum_offset(WasGoId wasgo_id);
+WasGoId _wasgo_Camera_wrapper_get_frustum(WasGoId wasgo_id);
+WasGoId _wasgo_Camera_wrapper_get_frustum_offset(WasGoId wasgo_id);
 float _wasgo_Camera_wrapper_get_h_offset(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Camera_wrapper_get_keep_aspect_mode(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Camera_wrapper_get_projection(WasGoId wasgo_id);
+WasGoId _wasgo_Camera_wrapper_get_keep_aspect_mode(WasGoId wasgo_id);
+WasGoId _wasgo_Camera_wrapper_get_projection(WasGoId wasgo_id);
 float _wasgo_Camera_wrapper_get_size(WasGoId wasgo_id);
 float _wasgo_Camera_wrapper_get_v_offset(WasGoId wasgo_id);
 float _wasgo_Camera_wrapper_get_zfar(WasGoId wasgo_id);
 float _wasgo_Camera_wrapper_get_znear(WasGoId wasgo_id);
 int _wasgo_Camera_wrapper_is_current(WasGoId wasgo_id);
-int _wasgo_Camera_wrapper_is_position_behind(WasGoId wasgo_id, WasGo::WasGoId p_world_point);
+int _wasgo_Camera_wrapper_is_position_behind(WasGoId wasgo_id, WasGoId p_world_point);
 void _wasgo_Camera_wrapper_make_current(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Camera_wrapper_project_local_ray_normal(WasGoId wasgo_id, WasGo::WasGoId p_screen_point);
-WasGo::WasGoId _wasgo_Camera_wrapper_project_position(WasGoId wasgo_id, WasGo::WasGoId p_screen_point, float p_z_depth);
-WasGo::WasGoId _wasgo_Camera_wrapper_project_ray_normal(WasGoId wasgo_id, WasGo::WasGoId p_screen_point);
-WasGo::WasGoId _wasgo_Camera_wrapper_project_ray_origin(WasGoId wasgo_id, WasGo::WasGoId p_screen_point);
+WasGoId _wasgo_Camera_wrapper_project_local_ray_normal(WasGoId wasgo_id, WasGoId p_screen_point);
+WasGoId _wasgo_Camera_wrapper_project_position(WasGoId wasgo_id, WasGoId p_screen_point, float p_z_depth);
+WasGoId _wasgo_Camera_wrapper_project_ray_normal(WasGoId wasgo_id, WasGoId p_screen_point);
+WasGoId _wasgo_Camera_wrapper_project_ray_origin(WasGoId wasgo_id, WasGoId p_screen_point);
 void _wasgo_Camera_wrapper_set_cull_mask(WasGoId wasgo_id, int p_mask);
 void _wasgo_Camera_wrapper_set_cull_mask_bit(WasGoId wasgo_id, int p_layer, bool p_enable);
 void _wasgo_Camera_wrapper_set_current(WasGoId wasgo_id, bool p_arg0);
-void _wasgo_Camera_wrapper_set_doppler_tracking(WasGoId wasgo_id, WasGo::WasGoId p_mode);
-void _wasgo_Camera_wrapper_set_environment(WasGoId wasgo_id, WasGo::WasGoId p_env);
+void _wasgo_Camera_wrapper_set_doppler_tracking(WasGoId wasgo_id, WasGoId p_mode);
+void _wasgo_Camera_wrapper_set_environment(WasGoId wasgo_id, WasGoId p_env);
 void _wasgo_Camera_wrapper_set_fov(WasGoId wasgo_id, float p_arg0);
-void _wasgo_Camera_wrapper_set_frustum(WasGoId wasgo_id, float p_size, WasGo::WasGoId p_offset, float p_z_near, float p_z_far);
-void _wasgo_Camera_wrapper_set_frustum_offset(WasGoId wasgo_id, WasGo::WasGoId p_arg0);
+void _wasgo_Camera_wrapper_set_frustum(WasGoId wasgo_id, float p_size, WasGoId p_offset, float p_z_near, float p_z_far);
+void _wasgo_Camera_wrapper_set_frustum_offset(WasGoId wasgo_id, WasGoId p_arg0);
 void _wasgo_Camera_wrapper_set_h_offset(WasGoId wasgo_id, float p_ofs);
-void _wasgo_Camera_wrapper_set_keep_aspect_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_Camera_wrapper_set_keep_aspect_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_Camera_wrapper_set_orthogonal(WasGoId wasgo_id, float p_size, float p_z_near, float p_z_far);
 void _wasgo_Camera_wrapper_set_perspective(WasGoId wasgo_id, float p_fov, float p_z_near, float p_z_far);
-void _wasgo_Camera_wrapper_set_projection(WasGoId wasgo_id, WasGo::WasGoId p_arg0);
+void _wasgo_Camera_wrapper_set_projection(WasGoId wasgo_id, WasGoId p_arg0);
 void _wasgo_Camera_wrapper_set_size(WasGoId wasgo_id, float p_arg0);
 void _wasgo_Camera_wrapper_set_v_offset(WasGoId wasgo_id, float p_ofs);
 void _wasgo_Camera_wrapper_set_zfar(WasGoId wasgo_id, float p_arg0);
 void _wasgo_Camera_wrapper_set_znear(WasGoId wasgo_id, float p_arg0);
-WasGo::WasGoId _wasgo_Camera_wrapper_unproject_position(WasGoId wasgo_id, WasGo::WasGoId p_world_point);
+WasGoId _wasgo_Camera_wrapper_unproject_position(WasGoId wasgo_id, WasGoId p_world_point);
 }
 #endif

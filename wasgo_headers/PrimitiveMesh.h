@@ -7,6 +7,7 @@
 
 #include "Mesh.h"
 class PrimitiveMesh : public Mesh{
+public:
 };
 
 

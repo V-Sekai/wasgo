@@ -7,6 +7,7 @@
 
 #include "PrimitiveMesh.h"
 class CylinderMesh : public PrimitiveMesh{
+public:
 float get_bottom_radius();
 float get_height();
 int get_radial_segments();

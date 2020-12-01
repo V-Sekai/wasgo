@@ -5,9 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Reference.h"
+#include "ustring.h"
+#include "Vector2.h"
 class ARVRInterface : public Reference{
+public:
 enum Capabilities{
 ARVR_NONE,
 ARVR_MONO,
@@ -49,9 +51,9 @@ extern "C"{
 int _wasgo_ARVRInterface_wrapper_get_anchor_detection_is_enabled(WasGoId wasgo_id);
 int _wasgo_ARVRInterface_wrapper_get_camera_feed_id(WasGoId wasgo_id);
 int _wasgo_ARVRInterface_wrapper_get_capabilities(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ARVRInterface_wrapper_get_name(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ARVRInterface_wrapper_get_render_targetsize(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ARVRInterface_wrapper_get_tracking_status(WasGoId wasgo_id);
+WasGoId _wasgo_ARVRInterface_wrapper_get_name(WasGoId wasgo_id);
+WasGoId _wasgo_ARVRInterface_wrapper_get_render_targetsize(WasGoId wasgo_id);
+WasGoId _wasgo_ARVRInterface_wrapper_get_tracking_status(WasGoId wasgo_id);
 int _wasgo_ARVRInterface_wrapper_initialize(WasGoId wasgo_id);
 int _wasgo_ARVRInterface_wrapper_is_initialized(WasGoId wasgo_id);
 int _wasgo_ARVRInterface_wrapper_is_primary(WasGoId wasgo_id);

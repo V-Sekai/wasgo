@@ -7,6 +7,7 @@
 
 #include "Light.h"
 class SpotLight : public Light{
+public:
 
 SpotLight(WasGoId p_wasgo_id);
 ~SpotLight();

@@ -7,6 +7,7 @@
 
 #include "InputEventWithModifiers.h"
 class InputEventKey : public InputEventWithModifiers{
+public:
 int get_scancode();
 int get_scancode_with_modifiers();
 int get_unicode();

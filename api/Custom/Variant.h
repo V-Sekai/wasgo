@@ -50,7 +50,7 @@
 #include "RID.h"
 #include "Ustring.h"
 
-#include "wasgo/wasgo.h"
+// #include "wasgo/wasgo.h"
 
 class Object;
 class ObjectRC;
@@ -128,13 +128,13 @@ public:
 		ARRAY,
 
 		// arrays
-		// POOL_BYTE_ARRAY, // 20
-		// POOL_INT_ARRAY,
-		// POOL_REAL_ARRAY,
-		// POOL_STRING_ARRAY,
-		// POOL_VECTOR2_ARRAY,
-		// POOL_VECTOR3_ARRAY, // 25
-		// POOL_COLOR_ARRAY,
+		POOL_BYTE_ARRAY, // 20
+		POOL_INT_ARRAY,
+		POOL_REAL_ARRAY,
+		POOL_STRING_ARRAY,
+		POOL_VECTOR2_ARRAY,
+		POOL_VECTOR3_ARRAY, // 25
+		POOL_COLOR_ARRAY,
 
 		VARIANT_MAX
 
@@ -158,7 +158,7 @@ private:
 #endif
 		// Always initialized, but will be null if the Ref<> assigned was null
 		// or this Variant is not even holding a Reference-derived object
-		RefPtr ref;
+		// RefPtr ref;
 	};
 
 	_FORCE_INLINE_ ObjData &_get_obj();
@@ -224,7 +224,7 @@ public:
 
 	operator Color() const;
 	operator NodePath() const;
-	operator RefPtr() const;
+	// operator RefPtr() const;
 	operator RID() const;
 
 	operator Object *() const;
@@ -293,7 +293,7 @@ public:
 	Variant(const Transform &p_transform);
 	Variant(const Color &p_color);
 	Variant(const NodePath &p_node_path);
-	Variant(const RefPtr &p_resource);
+	// Variant(const RefPtr &p_resource);
 	Variant(const RID &p_rid);
 	Variant(const Object *p_object);
 	Variant(const Dictionary &p_dictionary);
@@ -448,18 +448,12 @@ public:
 		if (type != Variant::NIL) clear();
 	}
 
-	static Variant _from_wasgo_id(WasGoId p_wasgo_id) {
-		return Variant(Type::NIL, p_wasgo_id);
-	}
-	WasGoId _get_wasgo_id() {
-		return wasgo_id;
-	}
+	static Variant _from_wasgo_id(WasGoId p_wasgo_id);
+	WasGoId _get_wasgo_id();
 
-private:
+protected:
 	WasGoId wasgo_id;
-	Variant(Type p_type, WasGoId p_wasgo_id){
-		//TODO delete
-	}
+	Variant(Type p_type, WasGoId p_wasgo_id);
 };
 
 //typedef Dictionary Dictionary; no

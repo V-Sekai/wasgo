@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class TriangleMesh : public Reference{
+public:
 
 TriangleMesh(WasGoId p_wasgo_id);
 ~TriangleMesh();

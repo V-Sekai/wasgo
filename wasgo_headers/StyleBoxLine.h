@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Color.h"
 #include "StyleBox.h"
 class StyleBoxLine : public StyleBox{
+public:
 Color get_color();
 float get_grow_begin();
 float get_grow_end();
@@ -27,12 +28,12 @@ StyleBoxLine(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_StyleBoxLine_wrapper_get_color(WasGoId wasgo_id);
+WasGoId _wasgo_StyleBoxLine_wrapper_get_color(WasGoId wasgo_id);
 float _wasgo_StyleBoxLine_wrapper_get_grow_begin(WasGoId wasgo_id);
 float _wasgo_StyleBoxLine_wrapper_get_grow_end(WasGoId wasgo_id);
 int _wasgo_StyleBoxLine_wrapper_get_thickness(WasGoId wasgo_id);
 int _wasgo_StyleBoxLine_wrapper_is_vertical(WasGoId wasgo_id);
-void _wasgo_StyleBoxLine_wrapper_set_color(WasGoId wasgo_id, WasGo::WasGoId p_color);
+void _wasgo_StyleBoxLine_wrapper_set_color(WasGoId wasgo_id, WasGoId p_color);
 void _wasgo_StyleBoxLine_wrapper_set_grow_begin(WasGoId wasgo_id, float p_offset);
 void _wasgo_StyleBoxLine_wrapper_set_grow_end(WasGoId wasgo_id, float p_offset);
 void _wasgo_StyleBoxLine_wrapper_set_thickness(WasGoId wasgo_id, int p_thickness);

@@ -7,6 +7,7 @@
 
 #include "AudioEffect.h"
 class AudioEffectDelay : public AudioEffect{
+public:
 float get_dry();
 float get_feedback_delay_ms();
 float get_feedback_level_db();

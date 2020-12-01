@@ -7,6 +7,7 @@
 
 #include "VisibilityNotifier2D.h"
 class VisibilityEnabler2D : public VisibilityNotifier2D{
+public:
 enum Enabler{
 ENABLER_PAUSE_ANIMATIONS,
 ENABLER_FREEZE_BODIES,
@@ -27,7 +28,7 @@ VisibilityEnabler2D(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_VisibilityEnabler2D_wrapper_is_enabler_enabled(WasGoId wasgo_id, WasGo::WasGoId p_enabler);
-void _wasgo_VisibilityEnabler2D_wrapper_set_enabler(WasGoId wasgo_id, WasGo::WasGoId p_enabler, bool p_enabled);
+int _wasgo_VisibilityEnabler2D_wrapper_is_enabler_enabled(WasGoId wasgo_id, WasGoId p_enabler);
+void _wasgo_VisibilityEnabler2D_wrapper_set_enabler(WasGoId wasgo_id, WasGoId p_enabler, bool p_enabled);
 }
 #endif

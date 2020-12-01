@@ -7,6 +7,7 @@
 
 #include "Object.h"
 class Reference : public Object{
+public:
 bool init_ref();
 bool reference();
 bool unreference();

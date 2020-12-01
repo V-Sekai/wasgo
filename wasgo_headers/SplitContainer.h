@@ -7,6 +7,7 @@
 
 #include "Container.h"
 class SplitContainer : public Container{
+public:
 enum DraggerVisibility{
 DRAGGER_VISIBLE,
 DRAGGER_HIDDEN,

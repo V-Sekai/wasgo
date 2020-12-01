@@ -5,10 +5,14 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "Transform.h"
 #include "Variant.h"
+#include "error_list.h"
+#include "AABB.h"
+#include "ustring.h"
 #include "Mesh.h"
-#include "Error.h"
 class ArrayMesh : public Mesh{
+public:
 enum ArrayFormat{
 ARRAY_FORMAT_VERTEX,
 ARRAY_FORMAT_NORMAL,
@@ -61,25 +65,25 @@ ArrayMesh(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ArrayMesh_wrapper_add_blend_shape(WasGoId wasgo_id, WasGo::WasGoId p_name);
-void _wasgo_ArrayMesh_wrapper_add_surface_from_arrays(WasGoId wasgo_id, WasGo::WasGoId p_primitive, WasGo::WasGoId p_arrays, WasGo::WasGoId p_blend_shapes, int p_compress_flags);
+void _wasgo_ArrayMesh_wrapper_add_blend_shape(WasGoId wasgo_id, WasGoId p_name);
+void _wasgo_ArrayMesh_wrapper_add_surface_from_arrays(WasGoId wasgo_id, WasGoId p_primitive, WasGoId p_arrays, WasGoId p_blend_shapes, int p_compress_flags);
 void _wasgo_ArrayMesh_wrapper_clear_blend_shapes(WasGoId wasgo_id);
 int _wasgo_ArrayMesh_wrapper_get_blend_shape_count(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ArrayMesh_wrapper_get_blend_shape_mode(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ArrayMesh_wrapper_get_blend_shape_name(WasGoId wasgo_id, int p_index);
-WasGo::WasGoId _wasgo_ArrayMesh_wrapper_get_custom_aabb(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ArrayMesh_wrapper_lightmap_unwrap(WasGoId wasgo_id, WasGo::WasGoId p_transform, float p_texel_size);
+WasGoId _wasgo_ArrayMesh_wrapper_get_blend_shape_mode(WasGoId wasgo_id);
+WasGoId _wasgo_ArrayMesh_wrapper_get_blend_shape_name(WasGoId wasgo_id, int p_index);
+WasGoId _wasgo_ArrayMesh_wrapper_get_custom_aabb(WasGoId wasgo_id);
+WasGoId _wasgo_ArrayMesh_wrapper_lightmap_unwrap(WasGoId wasgo_id, WasGoId p_transform, float p_texel_size);
 void _wasgo_ArrayMesh_wrapper_regen_normalmaps(WasGoId wasgo_id);
-void _wasgo_ArrayMesh_wrapper_set_blend_shape_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
-void _wasgo_ArrayMesh_wrapper_set_custom_aabb(WasGoId wasgo_id, WasGo::WasGoId p_aabb);
-int _wasgo_ArrayMesh_wrapper_surface_find_by_name(WasGoId wasgo_id, WasGo::WasGoId p_name);
+void _wasgo_ArrayMesh_wrapper_set_blend_shape_mode(WasGoId wasgo_id, WasGoId p_mode);
+void _wasgo_ArrayMesh_wrapper_set_custom_aabb(WasGoId wasgo_id, WasGoId p_aabb);
+int _wasgo_ArrayMesh_wrapper_surface_find_by_name(WasGoId wasgo_id, WasGoId p_name);
 int _wasgo_ArrayMesh_wrapper_surface_get_array_index_len(WasGoId wasgo_id, int p_surf_idx);
 int _wasgo_ArrayMesh_wrapper_surface_get_array_len(WasGoId wasgo_id, int p_surf_idx);
 int _wasgo_ArrayMesh_wrapper_surface_get_format(WasGoId wasgo_id, int p_surf_idx);
-WasGo::WasGoId _wasgo_ArrayMesh_wrapper_surface_get_name(WasGoId wasgo_id, int p_surf_idx);
-WasGo::WasGoId _wasgo_ArrayMesh_wrapper_surface_get_primitive_type(WasGoId wasgo_id, int p_surf_idx);
+WasGoId _wasgo_ArrayMesh_wrapper_surface_get_name(WasGoId wasgo_id, int p_surf_idx);
+WasGoId _wasgo_ArrayMesh_wrapper_surface_get_primitive_type(WasGoId wasgo_id, int p_surf_idx);
 void _wasgo_ArrayMesh_wrapper_surface_remove(WasGoId wasgo_id, int p_surf_idx);
-void _wasgo_ArrayMesh_wrapper_surface_set_name(WasGoId wasgo_id, int p_surf_idx, WasGo::WasGoId p_name);
-void _wasgo_ArrayMesh_wrapper_surface_update_region(WasGoId wasgo_id, int p_surf_idx, int p_offset, WasGo::WasGoId p_data);
+void _wasgo_ArrayMesh_wrapper_surface_set_name(WasGoId wasgo_id, int p_surf_idx, WasGoId p_name);
+void _wasgo_ArrayMesh_wrapper_surface_update_region(WasGoId wasgo_id, int p_surf_idx, int p_offset, WasGoId p_data);
 }
 #endif

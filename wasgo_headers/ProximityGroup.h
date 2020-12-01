@@ -5,9 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "ustring.h"
 #include "Spatial.h"
 #include "Variant.h"
+#include "Vector3.h"
 class ProximityGroup : public Spatial{
+public:
 enum DispatchMode{
 MODE_PROXY,
 MODE_SIGNAL
@@ -28,12 +31,12 @@ ProximityGroup(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ProximityGroup_wrapper_broadcast(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_parameters);
-WasGo::WasGoId _wasgo_ProximityGroup_wrapper_get_dispatch_mode(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ProximityGroup_wrapper_get_grid_radius(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ProximityGroup_wrapper_get_group_name(WasGoId wasgo_id);
-void _wasgo_ProximityGroup_wrapper_set_dispatch_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
-void _wasgo_ProximityGroup_wrapper_set_grid_radius(WasGoId wasgo_id, WasGo::WasGoId p_radius);
-void _wasgo_ProximityGroup_wrapper_set_group_name(WasGoId wasgo_id, WasGo::WasGoId p_name);
+void _wasgo_ProximityGroup_wrapper_broadcast(WasGoId wasgo_id, WasGoId p_name, WasGoId p_parameters);
+WasGoId _wasgo_ProximityGroup_wrapper_get_dispatch_mode(WasGoId wasgo_id);
+WasGoId _wasgo_ProximityGroup_wrapper_get_grid_radius(WasGoId wasgo_id);
+WasGoId _wasgo_ProximityGroup_wrapper_get_group_name(WasGoId wasgo_id);
+void _wasgo_ProximityGroup_wrapper_set_dispatch_mode(WasGoId wasgo_id, WasGoId p_mode);
+void _wasgo_ProximityGroup_wrapper_set_grid_radius(WasGoId wasgo_id, WasGoId p_radius);
+void _wasgo_ProximityGroup_wrapper_set_group_name(WasGoId wasgo_id, WasGoId p_name);
 }
 #endif

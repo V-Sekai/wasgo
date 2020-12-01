@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeFresnel : public VisualShaderNode{
+public:
 
 VisualShaderNodeFresnel(WasGoId p_wasgo_id);
 ~VisualShaderNodeFresnel();

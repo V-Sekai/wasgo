@@ -6,9 +6,12 @@
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
+#include "Vector2.h"
+#include "error_list.h"
+#include "ustring.h"
 #include "Control.h"
-#include "Error.h"
 class GraphEdit : public Control{
+public:
 void add_valid_connection_type(int p_from_type, int p_to_type);
 void add_valid_left_disconnect_type(int p_type);
 void add_valid_right_disconnect_type(int p_type);
@@ -45,22 +48,22 @@ void _wasgo_GraphEdit_wrapper_add_valid_connection_type(WasGoId wasgo_id, int p_
 void _wasgo_GraphEdit_wrapper_add_valid_left_disconnect_type(WasGoId wasgo_id, int p_type);
 void _wasgo_GraphEdit_wrapper_add_valid_right_disconnect_type(WasGoId wasgo_id, int p_type);
 void _wasgo_GraphEdit_wrapper_clear_connections(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_GraphEdit_wrapper_connect_node(WasGoId wasgo_id, WasGo::WasGoId p_from, int p_from_port, WasGo::WasGoId p_to, int p_to_port);
-void _wasgo_GraphEdit_wrapper_disconnect_node(WasGoId wasgo_id, WasGo::WasGoId p_from, int p_from_port, WasGo::WasGoId p_to, int p_to_port);
-WasGo::WasGoId _wasgo_GraphEdit_wrapper_get_connection_list(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_GraphEdit_wrapper_get_scroll_ofs(WasGoId wasgo_id);
+WasGoId _wasgo_GraphEdit_wrapper_connect_node(WasGoId wasgo_id, WasGoId p_from, int p_from_port, WasGoId p_to, int p_to_port);
+void _wasgo_GraphEdit_wrapper_disconnect_node(WasGoId wasgo_id, WasGoId p_from, int p_from_port, WasGoId p_to, int p_to_port);
+WasGoId _wasgo_GraphEdit_wrapper_get_connection_list(WasGoId wasgo_id);
+WasGoId _wasgo_GraphEdit_wrapper_get_scroll_ofs(WasGoId wasgo_id);
 int _wasgo_GraphEdit_wrapper_get_snap(WasGoId wasgo_id);
 float _wasgo_GraphEdit_wrapper_get_zoom(WasGoId wasgo_id);
-int _wasgo_GraphEdit_wrapper_is_node_connected(WasGoId wasgo_id, WasGo::WasGoId p_from, int p_from_port, WasGo::WasGoId p_to, int p_to_port);
+int _wasgo_GraphEdit_wrapper_is_node_connected(WasGoId wasgo_id, WasGoId p_from, int p_from_port, WasGoId p_to, int p_to_port);
 int _wasgo_GraphEdit_wrapper_is_right_disconnects_enabled(WasGoId wasgo_id);
 int _wasgo_GraphEdit_wrapper_is_using_snap(WasGoId wasgo_id);
 int _wasgo_GraphEdit_wrapper_is_valid_connection_type(WasGoId wasgo_id, int p_from_type, int p_to_type);
 void _wasgo_GraphEdit_wrapper_remove_valid_connection_type(WasGoId wasgo_id, int p_from_type, int p_to_type);
 void _wasgo_GraphEdit_wrapper_remove_valid_left_disconnect_type(WasGoId wasgo_id, int p_type);
 void _wasgo_GraphEdit_wrapper_remove_valid_right_disconnect_type(WasGoId wasgo_id, int p_type);
-void _wasgo_GraphEdit_wrapper_set_connection_activity(WasGoId wasgo_id, WasGo::WasGoId p_from, int p_from_port, WasGo::WasGoId p_to, int p_to_port, float p_amount);
+void _wasgo_GraphEdit_wrapper_set_connection_activity(WasGoId wasgo_id, WasGoId p_from, int p_from_port, WasGoId p_to, int p_to_port, float p_amount);
 void _wasgo_GraphEdit_wrapper_set_right_disconnects(WasGoId wasgo_id, bool p_enable);
-void _wasgo_GraphEdit_wrapper_set_scroll_ofs(WasGoId wasgo_id, WasGo::WasGoId p_ofs);
+void _wasgo_GraphEdit_wrapper_set_scroll_ofs(WasGoId wasgo_id, WasGoId p_ofs);
 void _wasgo_GraphEdit_wrapper_set_snap(WasGoId wasgo_id, int p_pixels);
 void _wasgo_GraphEdit_wrapper_set_use_snap(WasGoId wasgo_id, bool p_enable);
 void _wasgo_GraphEdit_wrapper_set_zoom(WasGoId wasgo_id, float p_p_zoom);

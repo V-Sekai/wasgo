@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
 #include "Environment.h"
+#include "Node.h"
 class WorldEnvironment : public Node{
+public:
 Environment get_environment();
 void set_environment(Environment p_env);
 
@@ -19,7 +20,7 @@ WorldEnvironment(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_WorldEnvironment_wrapper_get_environment(WasGoId wasgo_id);
-void _wasgo_WorldEnvironment_wrapper_set_environment(WasGoId wasgo_id, WasGo::WasGoId p_env);
+WasGoId _wasgo_WorldEnvironment_wrapper_get_environment(WasGoId wasgo_id);
+void _wasgo_WorldEnvironment_wrapper_set_environment(WasGoId wasgo_id, WasGoId p_env);
 }
 #endif

@@ -7,6 +7,7 @@
 
 #include "InputEvent.h"
 class InputEventJoypadMotion : public InputEvent{
+public:
 int get_axis();
 float get_axis_value();
 void set_axis(int p_axis);

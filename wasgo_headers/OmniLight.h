@@ -7,6 +7,7 @@
 
 #include "Light.h"
 class OmniLight : public Light{
+public:
 enum ShadowDetail{
 SHADOW_DETAIL_VERTICAL,
 SHADOW_DETAIL_HORIZONTAL
@@ -28,9 +29,9 @@ OmniLight(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_OmniLight_wrapper_get_shadow_detail(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_OmniLight_wrapper_get_shadow_mode(WasGoId wasgo_id);
-void _wasgo_OmniLight_wrapper_set_shadow_detail(WasGoId wasgo_id, WasGo::WasGoId p_detail);
-void _wasgo_OmniLight_wrapper_set_shadow_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+WasGoId _wasgo_OmniLight_wrapper_get_shadow_detail(WasGoId wasgo_id);
+WasGoId _wasgo_OmniLight_wrapper_get_shadow_mode(WasGoId wasgo_id);
+void _wasgo_OmniLight_wrapper_set_shadow_detail(WasGoId wasgo_id, WasGoId p_detail);
+void _wasgo_OmniLight_wrapper_set_shadow_mode(WasGoId wasgo_id, WasGoId p_mode);
 }
 #endif

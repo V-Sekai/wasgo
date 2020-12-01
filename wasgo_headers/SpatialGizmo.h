@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class SpatialGizmo : public Reference{
+public:
 };
 
 

@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeSwitch : public VisualShaderNode{
+public:
 
 VisualShaderNodeSwitch(WasGoId p_wasgo_id);
 ~VisualShaderNodeSwitch();

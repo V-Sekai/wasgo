@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "VisualShaderNode.h"
 #include "CubeMap.h"
+#include "VisualShaderNode.h"
 class VisualShaderNodeCubeMap : public VisualShaderNode{
+public:
 enum Source{
 SOURCE_TEXTURE,
 SOURCE_PORT
@@ -32,11 +33,11 @@ VisualShaderNodeCubeMap(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_VisualShaderNodeCubeMap_wrapper_get_cube_map(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_VisualShaderNodeCubeMap_wrapper_get_source(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_VisualShaderNodeCubeMap_wrapper_get_texture_type(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeCubeMap_wrapper_set_cube_map(WasGoId wasgo_id, WasGo::WasGoId p_value);
-void _wasgo_VisualShaderNodeCubeMap_wrapper_set_source(WasGoId wasgo_id, WasGo::WasGoId p_value);
-void _wasgo_VisualShaderNodeCubeMap_wrapper_set_texture_type(WasGoId wasgo_id, WasGo::WasGoId p_value);
+WasGoId _wasgo_VisualShaderNodeCubeMap_wrapper_get_cube_map(WasGoId wasgo_id);
+WasGoId _wasgo_VisualShaderNodeCubeMap_wrapper_get_source(WasGoId wasgo_id);
+WasGoId _wasgo_VisualShaderNodeCubeMap_wrapper_get_texture_type(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeCubeMap_wrapper_set_cube_map(WasGoId wasgo_id, WasGoId p_value);
+void _wasgo_VisualShaderNodeCubeMap_wrapper_set_source(WasGoId wasgo_id, WasGoId p_value);
+void _wasgo_VisualShaderNodeCubeMap_wrapper_set_texture_type(WasGoId wasgo_id, WasGoId p_value);
 }
 #endif

@@ -7,6 +7,7 @@
 
 #include "Object.h"
 class WasGoRuntime : public Object{
+public:
 
 WasGoRuntime(WasGoId p_wasgo_id);
 ~WasGoRuntime();

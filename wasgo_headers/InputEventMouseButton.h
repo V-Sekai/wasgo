@@ -7,6 +7,7 @@
 
 #include "InputEventMouse.h"
 class InputEventMouseButton : public InputEventMouse{
+public:
 int get_button_index();
 float get_factor();
 bool is_doubleclick();

@@ -7,6 +7,7 @@
 
 #include "Light.h"
 class DirectionalLight : public Light{
+public:
 enum ShadowDepthRange{
 SHADOW_DEPTH_RANGE_STABLE,
 SHADOW_DEPTH_RANGE_OPTIMIZED
@@ -31,11 +32,11 @@ DirectionalLight(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_DirectionalLight_wrapper_get_shadow_depth_range(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_DirectionalLight_wrapper_get_shadow_mode(WasGoId wasgo_id);
+WasGoId _wasgo_DirectionalLight_wrapper_get_shadow_depth_range(WasGoId wasgo_id);
+WasGoId _wasgo_DirectionalLight_wrapper_get_shadow_mode(WasGoId wasgo_id);
 int _wasgo_DirectionalLight_wrapper_is_blend_splits_enabled(WasGoId wasgo_id);
 void _wasgo_DirectionalLight_wrapper_set_blend_splits(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_DirectionalLight_wrapper_set_shadow_depth_range(WasGoId wasgo_id, WasGo::WasGoId p_mode);
-void _wasgo_DirectionalLight_wrapper_set_shadow_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_DirectionalLight_wrapper_set_shadow_depth_range(WasGoId wasgo_id, WasGoId p_mode);
+void _wasgo_DirectionalLight_wrapper_set_shadow_mode(WasGoId wasgo_id, WasGoId p_mode);
 }
 #endif

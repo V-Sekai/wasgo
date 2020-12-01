@@ -7,6 +7,7 @@
 
 #include "Control.h"
 class BaseButton : public Control{
+public:
 enum ActionMode{
 ACTION_MODE_BUTTON_PRESS,
 ACTION_MODE_BUTTON_RELEASE

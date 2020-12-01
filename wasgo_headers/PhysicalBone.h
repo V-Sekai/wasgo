@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "PhysicsBody.h"
+#include "Vector3.h"
 class PhysicalBone : public PhysicsBody{
+public:
 enum JointType{
 JOINT_TYPE_NONE,
 JOINT_TYPE_PIN,
@@ -27,7 +28,7 @@ PhysicalBone(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_PhysicalBone_wrapper_apply_central_impulse(WasGoId wasgo_id, WasGo::WasGoId p_impulse);
-void _wasgo_PhysicalBone_wrapper_apply_impulse(WasGoId wasgo_id, WasGo::WasGoId p_position, WasGo::WasGoId p_impulse);
+void _wasgo_PhysicalBone_wrapper_apply_central_impulse(WasGoId wasgo_id, WasGoId p_impulse);
+void _wasgo_PhysicalBone_wrapper_apply_impulse(WasGoId wasgo_id, WasGoId p_position, WasGoId p_impulse);
 }
 #endif

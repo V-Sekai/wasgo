@@ -7,6 +7,7 @@
 
 #include "VisualShaderNodeTextureUniform.h"
 class VisualShaderNodeCubeMapUniform : public VisualShaderNodeTextureUniform{
+public:
 
 VisualShaderNodeCubeMapUniform(WasGoId p_wasgo_id);
 ~VisualShaderNodeCubeMapUniform();

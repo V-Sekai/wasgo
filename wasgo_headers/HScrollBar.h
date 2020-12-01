@@ -7,6 +7,7 @@
 
 #include "ScrollBar.h"
 class HScrollBar : public ScrollBar{
+public:
 
 HScrollBar(WasGoId p_wasgo_id);
 ~HScrollBar();

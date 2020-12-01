@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class TextFile : public Resource{
+public:
 
 TextFile(WasGoId p_wasgo_id);
 ~TextFile();

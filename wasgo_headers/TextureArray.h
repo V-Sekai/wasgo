@@ -7,6 +7,7 @@
 
 #include "TextureLayered.h"
 class TextureArray : public TextureLayered{
+public:
 
 TextureArray(WasGoId p_wasgo_id);
 ~TextureArray();

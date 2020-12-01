@@ -8,6 +8,7 @@
 #include "Variant.h"
 #include "Resource.h"
 class WasmResource : public Resource{
+public:
 PoolByteArray get_buf();
 
 WasmResource(WasGoId p_wasgo_id);
@@ -18,6 +19,6 @@ WasmResource(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_WasmResource_wrapper_get_buf(WasGoId wasgo_id);
+WasGoId _wasgo_WasmResource_wrapper_get_buf(WasGoId wasgo_id);
 }
 #endif

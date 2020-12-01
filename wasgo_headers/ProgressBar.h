@@ -7,6 +7,7 @@
 
 #include "Range.h"
 class ProgressBar : public Range{
+public:
 bool is_percent_visible();
 void set_percent_visible(bool p_visible);
 

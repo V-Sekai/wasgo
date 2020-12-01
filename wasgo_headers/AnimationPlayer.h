@@ -7,6 +7,7 @@
 
 #include "Node.h"
 class AnimationPlayer : public Node{
+public:
 enum AnimationMethodCallMode{
 ANIMATION_METHOD_CALL_DEFERRED,
 ANIMATION_METHOD_CALL_IMMEDIATE

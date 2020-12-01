@@ -7,6 +7,7 @@
 
 #include "AudioStream.h"
 class AudioStreamRandomPitch : public AudioStream{
+public:
 AudioStream get_audio_stream();
 float get_random_pitch();
 void set_audio_stream(AudioStream p_stream);
@@ -20,9 +21,9 @@ AudioStreamRandomPitch(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_AudioStreamRandomPitch_wrapper_get_audio_stream(WasGoId wasgo_id);
+WasGoId _wasgo_AudioStreamRandomPitch_wrapper_get_audio_stream(WasGoId wasgo_id);
 float _wasgo_AudioStreamRandomPitch_wrapper_get_random_pitch(WasGoId wasgo_id);
-void _wasgo_AudioStreamRandomPitch_wrapper_set_audio_stream(WasGoId wasgo_id, WasGo::WasGoId p_stream);
+void _wasgo_AudioStreamRandomPitch_wrapper_set_audio_stream(WasGoId wasgo_id, WasGoId p_stream);
 void _wasgo_AudioStreamRandomPitch_wrapper_set_random_pitch(WasGoId wasgo_id, float p_scale);
 }
 #endif

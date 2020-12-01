@@ -7,6 +7,7 @@
 
 #include "Range.h"
 class ScrollBar : public Range{
+public:
 };
 
 

@@ -5,12 +5,15 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "Vector2.h"
+#include "Rect2.h"
 #include "GeometryInstance.h"
-#include "TriangleMesh.h"
-#include "Variant.h"
 #include "Vector3.h"
+#include "TriangleMesh.h"
+#include "Color.h"
 #include "SpatialMaterial.h"
 class SpriteBase3D : public GeometryInstance{
+public:
 enum AlphaCutMode{
 ALPHA_CUT_DISABLED,
 ALPHA_CUT_DISCARD,
@@ -51,28 +54,28 @@ void set_pixel_size(float p_pixel_size);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_SpriteBase3D_wrapper_generate_triangle_mesh(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_SpriteBase3D_wrapper_get_alpha_cut_mode(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_SpriteBase3D_wrapper_get_axis(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_SpriteBase3D_wrapper_get_billboard_mode(WasGoId wasgo_id);
-int _wasgo_SpriteBase3D_wrapper_get_draw_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag);
-WasGo::WasGoId _wasgo_SpriteBase3D_wrapper_get_item_rect(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_SpriteBase3D_wrapper_get_modulate(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_SpriteBase3D_wrapper_get_offset(WasGoId wasgo_id);
+WasGoId _wasgo_SpriteBase3D_wrapper_generate_triangle_mesh(WasGoId wasgo_id);
+WasGoId _wasgo_SpriteBase3D_wrapper_get_alpha_cut_mode(WasGoId wasgo_id);
+WasGoId _wasgo_SpriteBase3D_wrapper_get_axis(WasGoId wasgo_id);
+WasGoId _wasgo_SpriteBase3D_wrapper_get_billboard_mode(WasGoId wasgo_id);
+int _wasgo_SpriteBase3D_wrapper_get_draw_flag(WasGoId wasgo_id, WasGoId p_flag);
+WasGoId _wasgo_SpriteBase3D_wrapper_get_item_rect(WasGoId wasgo_id);
+WasGoId _wasgo_SpriteBase3D_wrapper_get_modulate(WasGoId wasgo_id);
+WasGoId _wasgo_SpriteBase3D_wrapper_get_offset(WasGoId wasgo_id);
 float _wasgo_SpriteBase3D_wrapper_get_opacity(WasGoId wasgo_id);
 float _wasgo_SpriteBase3D_wrapper_get_pixel_size(WasGoId wasgo_id);
 int _wasgo_SpriteBase3D_wrapper_is_centered(WasGoId wasgo_id);
 int _wasgo_SpriteBase3D_wrapper_is_flipped_h(WasGoId wasgo_id);
 int _wasgo_SpriteBase3D_wrapper_is_flipped_v(WasGoId wasgo_id);
-void _wasgo_SpriteBase3D_wrapper_set_alpha_cut_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
-void _wasgo_SpriteBase3D_wrapper_set_axis(WasGoId wasgo_id, WasGo::WasGoId p_axis);
-void _wasgo_SpriteBase3D_wrapper_set_billboard_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_SpriteBase3D_wrapper_set_alpha_cut_mode(WasGoId wasgo_id, WasGoId p_mode);
+void _wasgo_SpriteBase3D_wrapper_set_axis(WasGoId wasgo_id, WasGoId p_axis);
+void _wasgo_SpriteBase3D_wrapper_set_billboard_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_SpriteBase3D_wrapper_set_centered(WasGoId wasgo_id, bool p_centered);
-void _wasgo_SpriteBase3D_wrapper_set_draw_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag, bool p_enabled);
+void _wasgo_SpriteBase3D_wrapper_set_draw_flag(WasGoId wasgo_id, WasGoId p_flag, bool p_enabled);
 void _wasgo_SpriteBase3D_wrapper_set_flip_h(WasGoId wasgo_id, bool p_flip_h);
 void _wasgo_SpriteBase3D_wrapper_set_flip_v(WasGoId wasgo_id, bool p_flip_v);
-void _wasgo_SpriteBase3D_wrapper_set_modulate(WasGoId wasgo_id, WasGo::WasGoId p_modulate);
-void _wasgo_SpriteBase3D_wrapper_set_offset(WasGoId wasgo_id, WasGo::WasGoId p_offset);
+void _wasgo_SpriteBase3D_wrapper_set_modulate(WasGoId wasgo_id, WasGoId p_modulate);
+void _wasgo_SpriteBase3D_wrapper_set_offset(WasGoId wasgo_id, WasGoId p_offset);
 void _wasgo_SpriteBase3D_wrapper_set_opacity(WasGoId wasgo_id, float p_opacity);
 void _wasgo_SpriteBase3D_wrapper_set_pixel_size(WasGoId wasgo_id, float p_pixel_size);
 }

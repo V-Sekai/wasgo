@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class PackedDataContainerRef : public Reference{
+public:
 int size();
 };
 

@@ -7,6 +7,7 @@
 
 #include "AnimationNode.h"
 class AnimationNodeAdd3 : public AnimationNode{
+public:
 bool is_using_sync();
 void set_use_sync(bool p_enable);
 

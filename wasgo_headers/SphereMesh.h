@@ -7,6 +7,7 @@
 
 #include "PrimitiveMesh.h"
 class SphereMesh : public PrimitiveMesh{
+public:
 float get_height();
 bool get_is_hemisphere();
 int get_radial_segments();

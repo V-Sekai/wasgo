@@ -7,6 +7,7 @@
 
 #include "Spatial.h"
 class CollisionObject : public Spatial{
+public:
 };
 
 

@@ -5,9 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "ustring.h"
 #include "Resource.h"
+#include "Variant.h"
 class AnimationNodeStateMachinePlayback : public Resource{
+public:
 String get_current_node();
 PoolStringArray get_travel_path();
 bool is_playing();
@@ -23,11 +25,11 @@ AnimationNodeStateMachinePlayback(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_AnimationNodeStateMachinePlayback_wrapper_get_current_node(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_AnimationNodeStateMachinePlayback_wrapper_get_travel_path(WasGoId wasgo_id);
+WasGoId _wasgo_AnimationNodeStateMachinePlayback_wrapper_get_current_node(WasGoId wasgo_id);
+WasGoId _wasgo_AnimationNodeStateMachinePlayback_wrapper_get_travel_path(WasGoId wasgo_id);
 int _wasgo_AnimationNodeStateMachinePlayback_wrapper_is_playing(WasGoId wasgo_id);
-void _wasgo_AnimationNodeStateMachinePlayback_wrapper_start(WasGoId wasgo_id, WasGo::WasGoId p_node);
+void _wasgo_AnimationNodeStateMachinePlayback_wrapper_start(WasGoId wasgo_id, WasGoId p_node);
 void _wasgo_AnimationNodeStateMachinePlayback_wrapper_stop(WasGoId wasgo_id);
-void _wasgo_AnimationNodeStateMachinePlayback_wrapper_travel(WasGoId wasgo_id, WasGo::WasGoId p_to_node);
+void _wasgo_AnimationNodeStateMachinePlayback_wrapper_travel(WasGoId wasgo_id, WasGoId p_to_node);
 }
 #endif

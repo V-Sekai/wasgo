@@ -5,11 +5,13 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "Vector2.h"
 #include "Variant.h"
 #include "Shader.h"
 #include "VisualShaderNode.h"
-#include "Error.h"
+#include "error_list.h"
 class VisualShader : public Shader{
+public:
 enum Type{
 TYPE_VERTEX,
 TYPE_FRAGMENT,
@@ -41,21 +43,21 @@ VisualShader(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_VisualShader_wrapper_add_node(WasGoId wasgo_id, WasGo::WasGoId p_type, WasGo::WasGoId p_node, WasGo::WasGoId p_position, int p_id);
-int _wasgo_VisualShader_wrapper_can_connect_nodes(WasGoId wasgo_id, WasGo::WasGoId p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
-WasGo::WasGoId _wasgo_VisualShader_wrapper_connect_nodes(WasGoId wasgo_id, WasGo::WasGoId p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
-void _wasgo_VisualShader_wrapper_connect_nodes_forced(WasGoId wasgo_id, WasGo::WasGoId p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
-void _wasgo_VisualShader_wrapper_disconnect_nodes(WasGoId wasgo_id, WasGo::WasGoId p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
-WasGo::WasGoId _wasgo_VisualShader_wrapper_get_graph_offset(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_VisualShader_wrapper_get_node(WasGoId wasgo_id, WasGo::WasGoId p_type, int p_id);
-WasGo::WasGoId _wasgo_VisualShader_wrapper_get_node_connections(WasGoId wasgo_id, WasGo::WasGoId p_type);
-WasGo::WasGoId _wasgo_VisualShader_wrapper_get_node_list(WasGoId wasgo_id, WasGo::WasGoId p_type);
-WasGo::WasGoId _wasgo_VisualShader_wrapper_get_node_position(WasGoId wasgo_id, WasGo::WasGoId p_type, int p_id);
-int _wasgo_VisualShader_wrapper_get_valid_node_id(WasGoId wasgo_id, WasGo::WasGoId p_type);
-int _wasgo_VisualShader_wrapper_is_node_connection(WasGoId wasgo_id, WasGo::WasGoId p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
-void _wasgo_VisualShader_wrapper_remove_node(WasGoId wasgo_id, WasGo::WasGoId p_type, int p_id);
-void _wasgo_VisualShader_wrapper_set_graph_offset(WasGoId wasgo_id, WasGo::WasGoId p_offset);
-void _wasgo_VisualShader_wrapper_set_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
-void _wasgo_VisualShader_wrapper_set_node_position(WasGoId wasgo_id, WasGo::WasGoId p_type, int p_id, WasGo::WasGoId p_position);
+void _wasgo_VisualShader_wrapper_add_node(WasGoId wasgo_id, WasGoId p_type, WasGoId p_node, WasGoId p_position, int p_id);
+int _wasgo_VisualShader_wrapper_can_connect_nodes(WasGoId wasgo_id, WasGoId p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
+WasGoId _wasgo_VisualShader_wrapper_connect_nodes(WasGoId wasgo_id, WasGoId p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
+void _wasgo_VisualShader_wrapper_connect_nodes_forced(WasGoId wasgo_id, WasGoId p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
+void _wasgo_VisualShader_wrapper_disconnect_nodes(WasGoId wasgo_id, WasGoId p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
+WasGoId _wasgo_VisualShader_wrapper_get_graph_offset(WasGoId wasgo_id);
+WasGoId _wasgo_VisualShader_wrapper_get_node(WasGoId wasgo_id, WasGoId p_type, int p_id);
+WasGoId _wasgo_VisualShader_wrapper_get_node_connections(WasGoId wasgo_id, WasGoId p_type);
+WasGoId _wasgo_VisualShader_wrapper_get_node_list(WasGoId wasgo_id, WasGoId p_type);
+WasGoId _wasgo_VisualShader_wrapper_get_node_position(WasGoId wasgo_id, WasGoId p_type, int p_id);
+int _wasgo_VisualShader_wrapper_get_valid_node_id(WasGoId wasgo_id, WasGoId p_type);
+int _wasgo_VisualShader_wrapper_is_node_connection(WasGoId wasgo_id, WasGoId p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
+void _wasgo_VisualShader_wrapper_remove_node(WasGoId wasgo_id, WasGoId p_type, int p_id);
+void _wasgo_VisualShader_wrapper_set_graph_offset(WasGoId wasgo_id, WasGoId p_offset);
+void _wasgo_VisualShader_wrapper_set_mode(WasGoId wasgo_id, WasGoId p_mode);
+void _wasgo_VisualShader_wrapper_set_node_position(WasGoId wasgo_id, WasGoId p_type, int p_id, WasGoId p_position);
 }
 #endif

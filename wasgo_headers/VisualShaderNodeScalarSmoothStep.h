@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeScalarSmoothStep : public VisualShaderNode{
+public:
 
 VisualShaderNodeScalarSmoothStep(WasGoId p_wasgo_id);
 ~VisualShaderNodeScalarSmoothStep();

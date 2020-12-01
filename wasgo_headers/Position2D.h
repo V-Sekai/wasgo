@@ -7,6 +7,7 @@
 
 #include "Node2D.h"
 class Position2D : public Node2D{
+public:
 
 Position2D(WasGoId p_wasgo_id);
 ~Position2D();

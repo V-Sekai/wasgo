@@ -7,6 +7,7 @@
 
 #include "Container.h"
 class MarginContainer : public Container{
+public:
 
 MarginContainer(WasGoId p_wasgo_id);
 ~MarginContainer();

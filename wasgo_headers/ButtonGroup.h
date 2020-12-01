@@ -9,6 +9,7 @@
 #include "BaseButton.h"
 #include "Resource.h"
 class ButtonGroup : public Resource{
+public:
 Array get_buttons();
 BaseButton get_pressed_button();
 
@@ -20,7 +21,7 @@ ButtonGroup(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_ButtonGroup_wrapper_get_buttons(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ButtonGroup_wrapper_get_pressed_button(WasGoId wasgo_id);
+WasGoId _wasgo_ButtonGroup_wrapper_get_buttons(WasGoId wasgo_id);
+WasGoId _wasgo_ButtonGroup_wrapper_get_pressed_button(WasGoId wasgo_id);
 }
 #endif

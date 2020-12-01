@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class Resource : public Reference{
+public:
 
 Resource(WasGoId p_wasgo_id);
 ~Resource();

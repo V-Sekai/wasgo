@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "ustring.h"
 #include "Spatial.h"
-#include "Variant.h"
 class BoneAttachment : public Spatial{
+public:
 String get_bone_name();
 void set_bone_name(String p_bone_name);
 
@@ -19,7 +20,7 @@ BoneAttachment(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_BoneAttachment_wrapper_get_bone_name(WasGoId wasgo_id);
-void _wasgo_BoneAttachment_wrapper_set_bone_name(WasGoId wasgo_id, WasGo::WasGoId p_bone_name);
+WasGoId _wasgo_BoneAttachment_wrapper_get_bone_name(WasGoId wasgo_id);
+void _wasgo_BoneAttachment_wrapper_set_bone_name(WasGoId wasgo_id, WasGoId p_bone_name);
 }
 #endif

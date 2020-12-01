@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Vector2.h"
 #include "Shape2D.h"
 class RectangleShape2D : public Shape2D{
+public:
 Vector2 get_extents();
 void set_extents(Vector2 p_extents);
 
@@ -19,7 +20,7 @@ RectangleShape2D(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_RectangleShape2D_wrapper_get_extents(WasGoId wasgo_id);
-void _wasgo_RectangleShape2D_wrapper_set_extents(WasGoId wasgo_id, WasGo::WasGoId p_extents);
+WasGoId _wasgo_RectangleShape2D_wrapper_get_extents(WasGoId wasgo_id);
+void _wasgo_RectangleShape2D_wrapper_set_extents(WasGoId wasgo_id, WasGoId p_extents);
 }
 #endif

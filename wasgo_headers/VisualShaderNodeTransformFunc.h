@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeTransformFunc : public VisualShaderNode{
+public:
 enum Function{
 FUNC_INVERSE,
 FUNC_TRANSPOSE
@@ -22,7 +23,7 @@ VisualShaderNodeTransformFunc(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_VisualShaderNodeTransformFunc_wrapper_get_function(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeTransformFunc_wrapper_set_function(WasGoId wasgo_id, WasGo::WasGoId p_func);
+WasGoId _wasgo_VisualShaderNodeTransformFunc_wrapper_get_function(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeTransformFunc_wrapper_set_function(WasGoId wasgo_id, WasGoId p_func);
 }
 #endif

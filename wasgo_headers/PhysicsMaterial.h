@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class PhysicsMaterial : public Resource{
+public:
 float get_bounce();
 float get_friction();
 bool is_absorbent();

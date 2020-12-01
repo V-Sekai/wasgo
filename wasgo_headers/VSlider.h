@@ -7,6 +7,7 @@
 
 #include "Slider.h"
 class VSlider : public Slider{
+public:
 
 VSlider(WasGoId p_wasgo_id);
 ~VSlider();

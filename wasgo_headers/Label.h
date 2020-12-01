@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "ustring.h"
 #include "Control.h"
 class Label : public Control{
+public:
 enum Align{
 ALIGN_LEFT,
 ALIGN_CENTER,
@@ -53,29 +54,29 @@ Label(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_Label_wrapper_get_align(WasGoId wasgo_id);
+WasGoId _wasgo_Label_wrapper_get_align(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_get_line_count(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_get_line_height(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_get_lines_skipped(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_get_max_lines_visible(WasGoId wasgo_id);
 float _wasgo_Label_wrapper_get_percent_visible(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Label_wrapper_get_text(WasGoId wasgo_id);
+WasGoId _wasgo_Label_wrapper_get_text(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_get_total_character_count(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Label_wrapper_get_valign(WasGoId wasgo_id);
+WasGoId _wasgo_Label_wrapper_get_valign(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_get_visible_characters(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_get_visible_line_count(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_has_autowrap(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_is_clipping_text(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_is_uppercase(WasGoId wasgo_id);
-void _wasgo_Label_wrapper_set_align(WasGoId wasgo_id, WasGo::WasGoId p_align);
+void _wasgo_Label_wrapper_set_align(WasGoId wasgo_id, WasGoId p_align);
 void _wasgo_Label_wrapper_set_autowrap(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Label_wrapper_set_clip_text(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Label_wrapper_set_lines_skipped(WasGoId wasgo_id, int p_lines_skipped);
 void _wasgo_Label_wrapper_set_max_lines_visible(WasGoId wasgo_id, int p_lines_visible);
 void _wasgo_Label_wrapper_set_percent_visible(WasGoId wasgo_id, float p_percent_visible);
-void _wasgo_Label_wrapper_set_text(WasGoId wasgo_id, WasGo::WasGoId p_text);
+void _wasgo_Label_wrapper_set_text(WasGoId wasgo_id, WasGoId p_text);
 void _wasgo_Label_wrapper_set_uppercase(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Label_wrapper_set_valign(WasGoId wasgo_id, WasGo::WasGoId p_valign);
+void _wasgo_Label_wrapper_set_valign(WasGoId wasgo_id, WasGoId p_valign);
 void _wasgo_Label_wrapper_set_visible_characters(WasGoId wasgo_id, int p_amount);
 }
 #endif

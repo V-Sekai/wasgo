@@ -7,6 +7,7 @@
 
 #include "AnimationNode.h"
 class AnimationNodeOutput : public AnimationNode{
+public:
 
 AnimationNodeOutput(WasGoId p_wasgo_id);
 ~AnimationNodeOutput();

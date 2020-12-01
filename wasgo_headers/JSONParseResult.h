@@ -5,10 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Reference.h"
-#include "Error.h"
+#include "error_list.h"
+#include "ustring.h"
+#include "Variant.h"
 class JSONParseResult : public Reference{
+public:
 Error get_error();
 int get_error_line();
 String get_error_string();
@@ -26,13 +28,13 @@ JSONParseResult(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_JSONParseResult_wrapper_get_error(WasGoId wasgo_id);
+WasGoId _wasgo_JSONParseResult_wrapper_get_error(WasGoId wasgo_id);
 int _wasgo_JSONParseResult_wrapper_get_error_line(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_JSONParseResult_wrapper_get_error_string(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_JSONParseResult_wrapper_get_result(WasGoId wasgo_id);
-void _wasgo_JSONParseResult_wrapper_set_error(WasGoId wasgo_id, WasGo::WasGoId p_error);
+WasGoId _wasgo_JSONParseResult_wrapper_get_error_string(WasGoId wasgo_id);
+WasGoId _wasgo_JSONParseResult_wrapper_get_result(WasGoId wasgo_id);
+void _wasgo_JSONParseResult_wrapper_set_error(WasGoId wasgo_id, WasGoId p_error);
 void _wasgo_JSONParseResult_wrapper_set_error_line(WasGoId wasgo_id, int p_error_line);
-void _wasgo_JSONParseResult_wrapper_set_error_string(WasGoId wasgo_id, WasGo::WasGoId p_error_string);
-void _wasgo_JSONParseResult_wrapper_set_result(WasGoId wasgo_id, WasGo::WasGoId p_result);
+void _wasgo_JSONParseResult_wrapper_set_error_string(WasGoId wasgo_id, WasGoId p_error_string);
+void _wasgo_JSONParseResult_wrapper_set_result(WasGoId wasgo_id, WasGoId p_result);
 }
 #endif

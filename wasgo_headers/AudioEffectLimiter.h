@@ -7,6 +7,7 @@
 
 #include "AudioEffect.h"
 class AudioEffectLimiter : public AudioEffect{
+public:
 float get_ceiling_db();
 float get_soft_clip_db();
 float get_soft_clip_ratio();

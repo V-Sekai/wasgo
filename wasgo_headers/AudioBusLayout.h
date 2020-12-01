@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class AudioBusLayout : public Resource{
+public:
 
 AudioBusLayout(WasGoId p_wasgo_id);
 ~AudioBusLayout();

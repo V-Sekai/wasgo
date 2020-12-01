@@ -7,6 +7,7 @@
 
 #include "PhysicsBody2D.h"
 class RigidBody2D : public PhysicsBody2D{
+public:
 enum CCDMode{
 CCD_MODE_DISABLED,
 CCD_MODE_CAST_RAY,

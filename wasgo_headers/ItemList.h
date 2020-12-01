@@ -5,11 +5,16 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "VScrollBar.h"
-#include "Variant.h"
+#include "Vector2.h"
 #include "Texture.h"
+#include "Rect2.h"
+#include "Variant.h"
+#include "VScrollBar.h"
+#include "Color.h"
+#include "ustring.h"
 #include "Control.h"
 class ItemList : public Control{
+public:
 enum IconMode{
 ICON_MODE_TOP,
 ICON_MODE_LEFT
@@ -18,8 +23,8 @@ enum SelectMode{
 SELECT_SINGLE,
 SELECT_MULTI
 };
-void add_icon_item(Texture p_icon, bool p_selectable = (bool) True);
-void add_item(String p_text, Texture p_icon = (Texture) "", bool p_selectable = (bool) True);
+void add_icon_item(Texture p_icon, bool p_selectable = (bool) true);
+void add_item(String p_text, Texture p_icon = (Texture) "", bool p_selectable = (bool) true);
 void clear();
 void ensure_current_is_visible();
 bool get_allow_reselect();
@@ -28,7 +33,7 @@ int get_fixed_column_width();
 Vector2 get_fixed_icon_size();
 ItemList::IconMode get_icon_mode();
 float get_icon_scale();
-int get_item_at_position(Vector2 p_position, bool p_exact = (bool) False);
+int get_item_at_position(Vector2 p_position, bool p_exact = (bool) false);
 int get_item_count();
 Color get_item_custom_bg_color(int p_idx);
 Color get_item_custom_fg_color(int p_idx);
@@ -53,7 +58,7 @@ bool is_same_column_width();
 bool is_selected(int p_idx);
 void move_item(int p_from_idx, int p_to_idx);
 void remove_item(int p_idx);
-void select(int p_idx, bool p_single = (bool) True);
+void select(int p_idx, bool p_single = (bool) true);
 void set_allow_reselect(bool p_allow);
 void set_allow_rmb_select(bool p_allow);
 void set_auto_height(bool p_enable);
@@ -89,31 +94,31 @@ ItemList(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ItemList_wrapper_add_icon_item(WasGoId wasgo_id, WasGo::WasGoId p_icon, bool p_selectable);
-void _wasgo_ItemList_wrapper_add_item(WasGoId wasgo_id, WasGo::WasGoId p_text, WasGo::WasGoId p_icon, bool p_selectable);
+void _wasgo_ItemList_wrapper_add_icon_item(WasGoId wasgo_id, WasGoId p_icon, bool p_selectable);
+void _wasgo_ItemList_wrapper_add_item(WasGoId wasgo_id, WasGoId p_text, WasGoId p_icon, bool p_selectable);
 void _wasgo_ItemList_wrapper_clear(WasGoId wasgo_id);
 void _wasgo_ItemList_wrapper_ensure_current_is_visible(WasGoId wasgo_id);
 int _wasgo_ItemList_wrapper_get_allow_reselect(WasGoId wasgo_id);
 int _wasgo_ItemList_wrapper_get_allow_rmb_select(WasGoId wasgo_id);
 int _wasgo_ItemList_wrapper_get_fixed_column_width(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_fixed_icon_size(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_icon_mode(WasGoId wasgo_id);
+WasGoId _wasgo_ItemList_wrapper_get_fixed_icon_size(WasGoId wasgo_id);
+WasGoId _wasgo_ItemList_wrapper_get_icon_mode(WasGoId wasgo_id);
 float _wasgo_ItemList_wrapper_get_icon_scale(WasGoId wasgo_id);
-int _wasgo_ItemList_wrapper_get_item_at_position(WasGoId wasgo_id, WasGo::WasGoId p_position, bool p_exact);
+int _wasgo_ItemList_wrapper_get_item_at_position(WasGoId wasgo_id, WasGoId p_position, bool p_exact);
 int _wasgo_ItemList_wrapper_get_item_count(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_item_custom_bg_color(WasGoId wasgo_id, int p_idx);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_item_custom_fg_color(WasGoId wasgo_id, int p_idx);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_item_icon(WasGoId wasgo_id, int p_idx);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_item_icon_modulate(WasGoId wasgo_id, int p_idx);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_item_icon_region(WasGoId wasgo_id, int p_idx);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_item_metadata(WasGoId wasgo_id, int p_idx);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_item_text(WasGoId wasgo_id, int p_idx);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_item_tooltip(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_ItemList_wrapper_get_item_custom_bg_color(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_ItemList_wrapper_get_item_custom_fg_color(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_ItemList_wrapper_get_item_icon(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_ItemList_wrapper_get_item_icon_modulate(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_ItemList_wrapper_get_item_icon_region(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_ItemList_wrapper_get_item_metadata(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_ItemList_wrapper_get_item_text(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_ItemList_wrapper_get_item_tooltip(WasGoId wasgo_id, int p_idx);
 int _wasgo_ItemList_wrapper_get_max_columns(WasGoId wasgo_id);
 int _wasgo_ItemList_wrapper_get_max_text_lines(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_select_mode(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_selected_items(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ItemList_wrapper_get_v_scroll(WasGoId wasgo_id);
+WasGoId _wasgo_ItemList_wrapper_get_select_mode(WasGoId wasgo_id);
+WasGoId _wasgo_ItemList_wrapper_get_selected_items(WasGoId wasgo_id);
+WasGoId _wasgo_ItemList_wrapper_get_v_scroll(WasGoId wasgo_id);
 int _wasgo_ItemList_wrapper_has_auto_height(WasGoId wasgo_id);
 int _wasgo_ItemList_wrapper_is_anything_selected(WasGoId wasgo_id);
 int _wasgo_ItemList_wrapper_is_item_disabled(WasGoId wasgo_id, int p_idx);
@@ -129,25 +134,25 @@ void _wasgo_ItemList_wrapper_set_allow_reselect(WasGoId wasgo_id, bool p_allow);
 void _wasgo_ItemList_wrapper_set_allow_rmb_select(WasGoId wasgo_id, bool p_allow);
 void _wasgo_ItemList_wrapper_set_auto_height(WasGoId wasgo_id, bool p_enable);
 void _wasgo_ItemList_wrapper_set_fixed_column_width(WasGoId wasgo_id, int p_width);
-void _wasgo_ItemList_wrapper_set_fixed_icon_size(WasGoId wasgo_id, WasGo::WasGoId p_size);
-void _wasgo_ItemList_wrapper_set_icon_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_ItemList_wrapper_set_fixed_icon_size(WasGoId wasgo_id, WasGoId p_size);
+void _wasgo_ItemList_wrapper_set_icon_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_ItemList_wrapper_set_icon_scale(WasGoId wasgo_id, float p_scale);
-void _wasgo_ItemList_wrapper_set_item_custom_bg_color(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_custom_bg_color);
-void _wasgo_ItemList_wrapper_set_item_custom_fg_color(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_custom_fg_color);
+void _wasgo_ItemList_wrapper_set_item_custom_bg_color(WasGoId wasgo_id, int p_idx, WasGoId p_custom_bg_color);
+void _wasgo_ItemList_wrapper_set_item_custom_fg_color(WasGoId wasgo_id, int p_idx, WasGoId p_custom_fg_color);
 void _wasgo_ItemList_wrapper_set_item_disabled(WasGoId wasgo_id, int p_idx, bool p_disabled);
-void _wasgo_ItemList_wrapper_set_item_icon(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_icon);
-void _wasgo_ItemList_wrapper_set_item_icon_modulate(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_modulate);
-void _wasgo_ItemList_wrapper_set_item_icon_region(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_rect);
+void _wasgo_ItemList_wrapper_set_item_icon(WasGoId wasgo_id, int p_idx, WasGoId p_icon);
+void _wasgo_ItemList_wrapper_set_item_icon_modulate(WasGoId wasgo_id, int p_idx, WasGoId p_modulate);
+void _wasgo_ItemList_wrapper_set_item_icon_region(WasGoId wasgo_id, int p_idx, WasGoId p_rect);
 void _wasgo_ItemList_wrapper_set_item_icon_transposed(WasGoId wasgo_id, int p_idx, bool p_transposed);
-void _wasgo_ItemList_wrapper_set_item_metadata(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_metadata);
+void _wasgo_ItemList_wrapper_set_item_metadata(WasGoId wasgo_id, int p_idx, WasGoId p_metadata);
 void _wasgo_ItemList_wrapper_set_item_selectable(WasGoId wasgo_id, int p_idx, bool p_selectable);
-void _wasgo_ItemList_wrapper_set_item_text(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_text);
-void _wasgo_ItemList_wrapper_set_item_tooltip(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_tooltip);
+void _wasgo_ItemList_wrapper_set_item_text(WasGoId wasgo_id, int p_idx, WasGoId p_text);
+void _wasgo_ItemList_wrapper_set_item_tooltip(WasGoId wasgo_id, int p_idx, WasGoId p_tooltip);
 void _wasgo_ItemList_wrapper_set_item_tooltip_enabled(WasGoId wasgo_id, int p_idx, bool p_enable);
 void _wasgo_ItemList_wrapper_set_max_columns(WasGoId wasgo_id, int p_amount);
 void _wasgo_ItemList_wrapper_set_max_text_lines(WasGoId wasgo_id, int p_lines);
 void _wasgo_ItemList_wrapper_set_same_column_width(WasGoId wasgo_id, bool p_enable);
-void _wasgo_ItemList_wrapper_set_select_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_ItemList_wrapper_set_select_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_ItemList_wrapper_sort_items_by_text(WasGoId wasgo_id);
 void _wasgo_ItemList_wrapper_unselect(WasGoId wasgo_id, int p_idx);
 void _wasgo_ItemList_wrapper_unselect_all(WasGoId wasgo_id);

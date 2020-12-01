@@ -7,6 +7,7 @@
 
 #include "Popup.h"
 class PopupPanel : public Popup{
+public:
 
 PopupPanel(WasGoId p_wasgo_id);
 ~PopupPanel();

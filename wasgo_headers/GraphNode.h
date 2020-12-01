@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "ustring.h"
 #include "Container.h"
-#include "Variant.h"
 class GraphNode : public Container{
+public:
 enum Overlay{
 OVERLAY_DISABLED,
 OVERLAY_BREAKPOINT,
@@ -24,7 +25,7 @@ GraphNode(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_GraphNode_wrapper_get_title(WasGoId wasgo_id);
-void _wasgo_GraphNode_wrapper_set_title(WasGoId wasgo_id, WasGo::WasGoId p_title);
+WasGoId _wasgo_GraphNode_wrapper_get_title(WasGoId wasgo_id);
+void _wasgo_GraphNode_wrapper_set_title(WasGoId wasgo_id, WasGoId p_title);
 }
 #endif

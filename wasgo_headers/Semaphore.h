@@ -6,8 +6,9 @@
 #include "wasgo\wasgo.h"
 
 #include "Reference.h"
-#include "Error.h"
+#include "error_list.h"
 class Semaphore : public Reference{
+public:
 Error post();
 Error wait();
 
@@ -19,7 +20,7 @@ Semaphore(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_Semaphore_wrapper_post(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Semaphore_wrapper_wait(WasGoId wasgo_id);
+WasGoId _wasgo_Semaphore_wrapper_post(WasGoId wasgo_id);
+WasGoId _wasgo_Semaphore_wrapper_wait(WasGoId wasgo_id);
 }
 #endif

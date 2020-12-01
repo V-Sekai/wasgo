@@ -7,6 +7,7 @@
 
 #include "InputEvent.h"
 class InputEventJoypadButton : public InputEvent{
+public:
 int get_button_index();
 float get_pressure();
 void set_button_index(int p_button_index);

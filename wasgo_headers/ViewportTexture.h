@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Texture.h"
+#include "NodePath.h"
 class ViewportTexture : public Texture{
+public:
 NodePath get_viewport_path_in_scene();
 void set_viewport_path_in_scene(NodePath p_path);
 
@@ -19,7 +20,7 @@ ViewportTexture(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_ViewportTexture_wrapper_get_viewport_path_in_scene(WasGoId wasgo_id);
-void _wasgo_ViewportTexture_wrapper_set_viewport_path_in_scene(WasGoId wasgo_id, WasGo::WasGoId p_path);
+WasGoId _wasgo_ViewportTexture_wrapper_get_viewport_path_in_scene(WasGoId wasgo_id);
+void _wasgo_ViewportTexture_wrapper_set_viewport_path_in_scene(WasGoId wasgo_id, WasGoId p_path);
 }
 #endif

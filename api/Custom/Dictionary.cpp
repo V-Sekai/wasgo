@@ -265,9 +265,9 @@ void Dictionary::operator=(const Dictionary &p_dictionary) {
 	_ref(p_dictionary);
 }
 
-const void *Dictionary::id() const {
-	return _p->variant_map.id();
-}
+// const void *Dictionary::id() const {
+// 	return _p->variant_map.id();
+// }
 
 Dictionary::Dictionary(const Dictionary &p_from) {
 	_p = NULL;

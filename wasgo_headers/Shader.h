@@ -5,10 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "Resource.h"
+#include "ustring.h"
 #include "Texture.h"
+#include "Resource.h"
 class Shader : public Resource{
+public:
 enum Mode{
 MODE_SPATIAL,
 MODE_CANVAS_ITEM,
@@ -31,13 +32,13 @@ Shader(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_Shader_wrapper_get_code(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Shader_wrapper_get_custom_defines(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Shader_wrapper_get_default_texture_param(WasGoId wasgo_id, WasGo::WasGoId p_param);
-WasGo::WasGoId _wasgo_Shader_wrapper_get_mode(WasGoId wasgo_id);
-int _wasgo_Shader_wrapper_has_param(WasGoId wasgo_id, WasGo::WasGoId p_name);
-void _wasgo_Shader_wrapper_set_code(WasGoId wasgo_id, WasGo::WasGoId p_code);
-void _wasgo_Shader_wrapper_set_custom_defines(WasGoId wasgo_id, WasGo::WasGoId p_custom_defines);
-void _wasgo_Shader_wrapper_set_default_texture_param(WasGoId wasgo_id, WasGo::WasGoId p_param, WasGo::WasGoId p_texture);
+WasGoId _wasgo_Shader_wrapper_get_code(WasGoId wasgo_id);
+WasGoId _wasgo_Shader_wrapper_get_custom_defines(WasGoId wasgo_id);
+WasGoId _wasgo_Shader_wrapper_get_default_texture_param(WasGoId wasgo_id, WasGoId p_param);
+WasGoId _wasgo_Shader_wrapper_get_mode(WasGoId wasgo_id);
+int _wasgo_Shader_wrapper_has_param(WasGoId wasgo_id, WasGoId p_name);
+void _wasgo_Shader_wrapper_set_code(WasGoId wasgo_id, WasGoId p_code);
+void _wasgo_Shader_wrapper_set_custom_defines(WasGoId wasgo_id, WasGoId p_custom_defines);
+void _wasgo_Shader_wrapper_set_default_texture_param(WasGoId wasgo_id, WasGoId p_param, WasGoId p_texture);
 }
 #endif

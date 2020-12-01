@@ -7,6 +7,7 @@
 
 #include "Node2D.h"
 class Skeleton2D : public Node2D{
+public:
 
 Skeleton2D(WasGoId p_wasgo_id);
 ~Skeleton2D();

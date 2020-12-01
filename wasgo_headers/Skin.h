@@ -5,9 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Transform.h"
+#include "ustring.h"
 #include "Resource.h"
 class Skin : public Resource{
+public:
 void add_bind(int p_bone, Transform p_pose);
 void clear_binds();
 int get_bind_bone(int p_bind_index);
@@ -27,15 +29,15 @@ Skin(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Skin_wrapper_add_bind(WasGoId wasgo_id, int p_bone, WasGo::WasGoId p_pose);
+void _wasgo_Skin_wrapper_add_bind(WasGoId wasgo_id, int p_bone, WasGoId p_pose);
 void _wasgo_Skin_wrapper_clear_binds(WasGoId wasgo_id);
 int _wasgo_Skin_wrapper_get_bind_bone(WasGoId wasgo_id, int p_bind_index);
 int _wasgo_Skin_wrapper_get_bind_count(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Skin_wrapper_get_bind_name(WasGoId wasgo_id, int p_bind_index);
-WasGo::WasGoId _wasgo_Skin_wrapper_get_bind_pose(WasGoId wasgo_id, int p_bind_index);
+WasGoId _wasgo_Skin_wrapper_get_bind_name(WasGoId wasgo_id, int p_bind_index);
+WasGoId _wasgo_Skin_wrapper_get_bind_pose(WasGoId wasgo_id, int p_bind_index);
 void _wasgo_Skin_wrapper_set_bind_bone(WasGoId wasgo_id, int p_bind_index, int p_bone);
 void _wasgo_Skin_wrapper_set_bind_count(WasGoId wasgo_id, int p_bind_count);
-void _wasgo_Skin_wrapper_set_bind_name(WasGoId wasgo_id, int p_bind_index, WasGo::WasGoId p_name);
-void _wasgo_Skin_wrapper_set_bind_pose(WasGoId wasgo_id, int p_bind_index, WasGo::WasGoId p_pose);
+void _wasgo_Skin_wrapper_set_bind_name(WasGoId wasgo_id, int p_bind_index, WasGoId p_name);
+void _wasgo_Skin_wrapper_set_bind_pose(WasGoId wasgo_id, int p_bind_index, WasGoId p_pose);
 }
 #endif

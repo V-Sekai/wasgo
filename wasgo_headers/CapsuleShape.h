@@ -7,6 +7,7 @@
 
 #include "Shape.h"
 class CapsuleShape : public Shape{
+public:
 float get_height();
 float get_radius();
 void set_height(float p_height);

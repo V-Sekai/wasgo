@@ -5,11 +5,14 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Vector2.h"
+#include "Transform2D.h"
+#include "Rect2.h"
+#include "World.h"
 #include "World2D.h"
 #include "Node.h"
-#include "World.h"
 class Viewport : public Node{
+public:
 enum ClearMode{
 CLEAR_MODE_ALWAYS,
 CLEAR_MODE_NEVER,
@@ -88,23 +91,23 @@ Viewport(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_Viewport_wrapper_find_world(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Viewport_wrapper_find_world_2d(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Viewport_wrapper_get_canvas_transform(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Viewport_wrapper_get_final_transform(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Viewport_wrapper_get_global_canvas_transform(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Viewport_wrapper_get_size(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Viewport_wrapper_get_visible_rect(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Viewport_wrapper_get_world(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Viewport_wrapper_get_world_2d(WasGoId wasgo_id);
+WasGoId _wasgo_Viewport_wrapper_find_world(WasGoId wasgo_id);
+WasGoId _wasgo_Viewport_wrapper_find_world_2d(WasGoId wasgo_id);
+WasGoId _wasgo_Viewport_wrapper_get_canvas_transform(WasGoId wasgo_id);
+WasGoId _wasgo_Viewport_wrapper_get_final_transform(WasGoId wasgo_id);
+WasGoId _wasgo_Viewport_wrapper_get_global_canvas_transform(WasGoId wasgo_id);
+WasGoId _wasgo_Viewport_wrapper_get_size(WasGoId wasgo_id);
+WasGoId _wasgo_Viewport_wrapper_get_visible_rect(WasGoId wasgo_id);
+WasGoId _wasgo_Viewport_wrapper_get_world(WasGoId wasgo_id);
+WasGoId _wasgo_Viewport_wrapper_get_world_2d(WasGoId wasgo_id);
 int _wasgo_Viewport_wrapper_has_transparent_background(WasGoId wasgo_id);
-void _wasgo_Viewport_wrapper_set_canvas_transform(WasGoId wasgo_id, WasGo::WasGoId p_xform);
-void _wasgo_Viewport_wrapper_set_global_canvas_transform(WasGoId wasgo_id, WasGo::WasGoId p_xform);
-void _wasgo_Viewport_wrapper_set_size(WasGoId wasgo_id, WasGo::WasGoId p_size);
+void _wasgo_Viewport_wrapper_set_canvas_transform(WasGoId wasgo_id, WasGoId p_xform);
+void _wasgo_Viewport_wrapper_set_global_canvas_transform(WasGoId wasgo_id, WasGoId p_xform);
+void _wasgo_Viewport_wrapper_set_size(WasGoId wasgo_id, WasGoId p_size);
 void _wasgo_Viewport_wrapper_set_transparent_background(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Viewport_wrapper_set_use_arvr(WasGoId wasgo_id, bool p_use);
-void _wasgo_Viewport_wrapper_set_world(WasGoId wasgo_id, WasGo::WasGoId p_world);
-void _wasgo_Viewport_wrapper_set_world_2d(WasGoId wasgo_id, WasGo::WasGoId p_world_2d);
+void _wasgo_Viewport_wrapper_set_world(WasGoId wasgo_id, WasGoId p_world);
+void _wasgo_Viewport_wrapper_set_world_2d(WasGoId wasgo_id, WasGoId p_world_2d);
 int _wasgo_Viewport_wrapper_use_arvr(WasGoId wasgo_id);
 }
 #endif

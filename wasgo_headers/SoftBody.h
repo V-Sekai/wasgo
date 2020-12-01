@@ -7,6 +7,7 @@
 
 #include "MeshInstance.h"
 class SoftBody : public MeshInstance{
+public:
 
 SoftBody(WasGoId p_wasgo_id);
 ~SoftBody();

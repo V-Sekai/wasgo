@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorCompose : public VisualShaderNode{
+public:
 
 VisualShaderNodeVectorCompose(WasGoId p_wasgo_id);
 ~VisualShaderNodeVectorCompose();

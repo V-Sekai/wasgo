@@ -7,6 +7,7 @@
 
 #include "Spatial.h"
 class ARVROrigin : public Spatial{
+public:
 float get_world_scale();
 void set_world_scale(float p_world_scale);
 

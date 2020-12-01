@@ -5,10 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "Mesh.h"
+#include "Vector2.h"
 #include "Texture.h"
+#include "Mesh.h"
 class MeshTexture : public Texture{
+public:
 Texture get_base_texture();
 Vector2 get_image_size();
 Mesh get_mesh();
@@ -24,11 +25,11 @@ MeshTexture(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_MeshTexture_wrapper_get_base_texture(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_MeshTexture_wrapper_get_image_size(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_MeshTexture_wrapper_get_mesh(WasGoId wasgo_id);
-void _wasgo_MeshTexture_wrapper_set_base_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
-void _wasgo_MeshTexture_wrapper_set_image_size(WasGoId wasgo_id, WasGo::WasGoId p_size);
-void _wasgo_MeshTexture_wrapper_set_mesh(WasGoId wasgo_id, WasGo::WasGoId p_mesh);
+WasGoId _wasgo_MeshTexture_wrapper_get_base_texture(WasGoId wasgo_id);
+WasGoId _wasgo_MeshTexture_wrapper_get_image_size(WasGoId wasgo_id);
+WasGoId _wasgo_MeshTexture_wrapper_get_mesh(WasGoId wasgo_id);
+void _wasgo_MeshTexture_wrapper_set_base_texture(WasGoId wasgo_id, WasGoId p_texture);
+void _wasgo_MeshTexture_wrapper_set_image_size(WasGoId wasgo_id, WasGoId p_size);
+void _wasgo_MeshTexture_wrapper_set_mesh(WasGoId wasgo_id, WasGoId p_mesh);
 }
 #endif

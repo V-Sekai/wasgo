@@ -7,6 +7,7 @@
 
 #include "AudioEffect.h"
 class AudioEffectAmplify : public AudioEffect{
+public:
 float get_volume_db();
 void set_volume_db(float p_volume);
 

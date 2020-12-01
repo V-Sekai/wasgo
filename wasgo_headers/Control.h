@@ -7,6 +7,7 @@
 
 #include "CanvasItem.h"
 class Control : public CanvasItem{
+public:
 enum Anchor{
 ANCHOR_BEGIN,
 ANCHOR_END

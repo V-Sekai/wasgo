@@ -7,6 +7,7 @@
 
 #include "Control.h"
 class Container : public Control{
+public:
 
 Container(WasGoId p_wasgo_id);
 ~Container();

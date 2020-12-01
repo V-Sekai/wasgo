@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class VideoStream : public Resource{
+public:
 };
 
 

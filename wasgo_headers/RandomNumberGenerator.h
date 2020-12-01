@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class RandomNumberGenerator : public Reference{
+public:
 int get_seed();
 float randf();
 float randf_range(float p_from, float p_to);

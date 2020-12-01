@@ -7,6 +7,7 @@
 
 #include "AudioEffect.h"
 class AudioEffectReverb : public AudioEffect{
+public:
 float get_damping();
 float get_dry();
 float get_hpf();

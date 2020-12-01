@@ -5,11 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "RID.h"
 #include "Environment.h"
 #include "Resource.h"
 #include "PhysicsDirectSpaceState.h"
 class World : public Resource{
+public:
 PhysicsDirectSpaceState get_direct_space_state();
 Environment get_environment();
 Environment get_fallback_environment();
@@ -26,12 +27,12 @@ World(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_World_wrapper_get_direct_space_state(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_World_wrapper_get_environment(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_World_wrapper_get_fallback_environment(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_World_wrapper_get_scenario(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_World_wrapper_get_space(WasGoId wasgo_id);
-void _wasgo_World_wrapper_set_environment(WasGoId wasgo_id, WasGo::WasGoId p_env);
-void _wasgo_World_wrapper_set_fallback_environment(WasGoId wasgo_id, WasGo::WasGoId p_env);
+WasGoId _wasgo_World_wrapper_get_direct_space_state(WasGoId wasgo_id);
+WasGoId _wasgo_World_wrapper_get_environment(WasGoId wasgo_id);
+WasGoId _wasgo_World_wrapper_get_fallback_environment(WasGoId wasgo_id);
+WasGoId _wasgo_World_wrapper_get_scenario(WasGoId wasgo_id);
+WasGoId _wasgo_World_wrapper_get_space(WasGoId wasgo_id);
+void _wasgo_World_wrapper_set_environment(WasGoId wasgo_id, WasGoId p_env);
+void _wasgo_World_wrapper_set_fallback_environment(WasGoId wasgo_id, WasGoId p_env);
 }
 #endif

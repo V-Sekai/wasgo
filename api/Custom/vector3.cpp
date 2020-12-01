@@ -30,7 +30,7 @@
 
 #include "vector3.h"
 
-#include "core/math/basis.h"
+#include "basis.h"
 
 void Vector3::rotate(const Vector3 &p_axis, real_t p_phi) {
 

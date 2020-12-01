@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorLen : public VisualShaderNode{
+public:
 
 VisualShaderNodeVectorLen(WasGoId p_wasgo_id);
 ~VisualShaderNodeVectorLen();

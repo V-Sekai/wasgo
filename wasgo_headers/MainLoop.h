@@ -7,6 +7,7 @@
 
 #include "Object.h"
 class MainLoop : public Object{
+public:
 
 MainLoop(WasGoId p_wasgo_id);
 ~MainLoop();

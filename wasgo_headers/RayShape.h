@@ -7,6 +7,7 @@
 
 #include "Shape.h"
 class RayShape : public Shape{
+public:
 float get_length();
 bool get_slips_on_slope();
 void set_length(float p_length);

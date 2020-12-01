@@ -7,6 +7,7 @@
 
 #include "BoxContainer.h"
 class HBoxContainer : public BoxContainer{
+public:
 
 HBoxContainer(WasGoId p_wasgo_id);
 ~HBoxContainer();

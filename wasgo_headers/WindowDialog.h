@@ -7,6 +7,7 @@
 
 #include "Popup.h"
 class WindowDialog : public Popup{
+public:
 
 WindowDialog(WasGoId p_wasgo_id);
 ~WindowDialog();

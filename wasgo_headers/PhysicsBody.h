@@ -7,6 +7,7 @@
 
 #include "CollisionObject.h"
 class PhysicsBody : public CollisionObject{
+public:
 int get_collision_layer();
 bool get_collision_layer_bit(int p_bit);
 int get_collision_mask();

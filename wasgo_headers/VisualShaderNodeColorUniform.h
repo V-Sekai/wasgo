@@ -7,6 +7,7 @@
 
 #include "VisualShaderNodeUniform.h"
 class VisualShaderNodeColorUniform : public VisualShaderNodeUniform{
+public:
 
 VisualShaderNodeColorUniform(WasGoId p_wasgo_id);
 ~VisualShaderNodeColorUniform();

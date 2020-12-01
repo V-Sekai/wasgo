@@ -7,6 +7,7 @@
 
 #include "StyleBox.h"
 class StyleBoxEmpty : public StyleBox{
+public:
 
 StyleBoxEmpty(WasGoId p_wasgo_id);
 ~StyleBoxEmpty();

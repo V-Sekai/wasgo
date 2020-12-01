@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorRefract : public VisualShaderNode{
+public:
 
 VisualShaderNodeVectorRefract(WasGoId p_wasgo_id);
 ~VisualShaderNodeVectorRefract();

@@ -8,6 +8,7 @@
 #include "CameraServer.h"
 #include "Texture.h"
 class CameraTexture : public Texture{
+public:
 bool get_camera_active();
 int get_camera_feed_id();
 CameraServer::FeedImage get_which_feed();
@@ -25,9 +26,9 @@ CameraTexture(WasGoId p_wasgo_id);
 extern "C"{
 int _wasgo_CameraTexture_wrapper_get_camera_active(WasGoId wasgo_id);
 int _wasgo_CameraTexture_wrapper_get_camera_feed_id(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CameraTexture_wrapper_get_which_feed(WasGoId wasgo_id);
+WasGoId _wasgo_CameraTexture_wrapper_get_which_feed(WasGoId wasgo_id);
 void _wasgo_CameraTexture_wrapper_set_camera_active(WasGoId wasgo_id, bool p_active);
 void _wasgo_CameraTexture_wrapper_set_camera_feed_id(WasGoId wasgo_id, int p_feed_id);
-void _wasgo_CameraTexture_wrapper_set_which_feed(WasGoId wasgo_id, WasGo::WasGoId p_which_feed);
+void _wasgo_CameraTexture_wrapper_set_which_feed(WasGoId wasgo_id, WasGoId p_which_feed);
 }
 #endif

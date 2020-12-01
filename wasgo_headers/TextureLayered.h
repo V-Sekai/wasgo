@@ -8,6 +8,7 @@
 #include "Image.h"
 #include "Resource.h"
 class TextureLayered : public Resource{
+public:
 enum Flags{
 FLAG_MIPMAPS,
 FLAG_REPEAT,
@@ -29,15 +30,15 @@ void set_layer_data(Image p_image, int p_layer);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_TextureLayered_wrapper_create(WasGoId wasgo_id, int p_width, int p_height, int p_depth, WasGo::WasGoId p_format, int p_flags);
+void _wasgo_TextureLayered_wrapper_create(WasGoId wasgo_id, int p_width, int p_height, int p_depth, WasGoId p_format, int p_flags);
 int _wasgo_TextureLayered_wrapper_get_depth(WasGoId wasgo_id);
 int _wasgo_TextureLayered_wrapper_get_flags(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_TextureLayered_wrapper_get_format(WasGoId wasgo_id);
+WasGoId _wasgo_TextureLayered_wrapper_get_format(WasGoId wasgo_id);
 int _wasgo_TextureLayered_wrapper_get_height(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_TextureLayered_wrapper_get_layer_data(WasGoId wasgo_id, int p_layer);
+WasGoId _wasgo_TextureLayered_wrapper_get_layer_data(WasGoId wasgo_id, int p_layer);
 int _wasgo_TextureLayered_wrapper_get_width(WasGoId wasgo_id);
-void _wasgo_TextureLayered_wrapper_set_data_partial(WasGoId wasgo_id, WasGo::WasGoId p_image, int p_x_offset, int p_y_offset, int p_layer, int p_mipmap);
+void _wasgo_TextureLayered_wrapper_set_data_partial(WasGoId wasgo_id, WasGoId p_image, int p_x_offset, int p_y_offset, int p_layer, int p_mipmap);
 void _wasgo_TextureLayered_wrapper_set_flags(WasGoId wasgo_id, int p_flags);
-void _wasgo_TextureLayered_wrapper_set_layer_data(WasGoId wasgo_id, WasGo::WasGoId p_image, int p_layer);
+void _wasgo_TextureLayered_wrapper_set_layer_data(WasGoId wasgo_id, WasGoId p_image, int p_layer);
 }
 #endif

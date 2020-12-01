@@ -6,8 +6,9 @@
 #include "wasgo\wasgo.h"
 
 #include "Spatial.h"
-#include "Variant.h"
+#include "NodePath.h"
 class RemoteTransform : public Spatial{
+public:
 void force_update_cache();
 NodePath get_remote_node();
 bool get_update_position();
@@ -29,12 +30,12 @@ RemoteTransform(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 void _wasgo_RemoteTransform_wrapper_force_update_cache(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_RemoteTransform_wrapper_get_remote_node(WasGoId wasgo_id);
+WasGoId _wasgo_RemoteTransform_wrapper_get_remote_node(WasGoId wasgo_id);
 int _wasgo_RemoteTransform_wrapper_get_update_position(WasGoId wasgo_id);
 int _wasgo_RemoteTransform_wrapper_get_update_rotation(WasGoId wasgo_id);
 int _wasgo_RemoteTransform_wrapper_get_update_scale(WasGoId wasgo_id);
 int _wasgo_RemoteTransform_wrapper_get_use_global_coordinates(WasGoId wasgo_id);
-void _wasgo_RemoteTransform_wrapper_set_remote_node(WasGoId wasgo_id, WasGo::WasGoId p_path);
+void _wasgo_RemoteTransform_wrapper_set_remote_node(WasGoId wasgo_id, WasGoId p_path);
 void _wasgo_RemoteTransform_wrapper_set_update_position(WasGoId wasgo_id, bool p_update_remote_position);
 void _wasgo_RemoteTransform_wrapper_set_update_rotation(WasGoId wasgo_id, bool p_update_remote_rotation);
 void _wasgo_RemoteTransform_wrapper_set_update_scale(WasGoId wasgo_id, bool p_update_remote_scale);

@@ -5,12 +5,14 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "GradientTexture.h"
-#include "CurveTexture.h"
 #include "Texture.h"
-#include "Variant.h"
+#include "CurveTexture.h"
+#include "Vector3.h"
 #include "Material.h"
+#include "Color.h"
+#include "GradientTexture.h"
 class ParticlesMaterial : public Material{
+public:
 enum EmissionShape{
 EMISSION_SHAPE_POINT,
 EMISSION_SHAPE_SPHERE,
@@ -91,47 +93,47 @@ ParticlesMaterial(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_color(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_color_ramp(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_direction(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_emission_box_extents(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_emission_color_texture(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_emission_normal_texture(WasGoId wasgo_id);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_color(WasGoId wasgo_id);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_color_ramp(WasGoId wasgo_id);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_direction(WasGoId wasgo_id);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_emission_box_extents(WasGoId wasgo_id);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_emission_color_texture(WasGoId wasgo_id);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_emission_normal_texture(WasGoId wasgo_id);
 int _wasgo_ParticlesMaterial_wrapper_get_emission_point_count(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_emission_point_texture(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_emission_shape(WasGoId wasgo_id);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_emission_point_texture(WasGoId wasgo_id);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_emission_shape(WasGoId wasgo_id);
 float _wasgo_ParticlesMaterial_wrapper_get_emission_sphere_radius(WasGoId wasgo_id);
-int _wasgo_ParticlesMaterial_wrapper_get_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag);
+int _wasgo_ParticlesMaterial_wrapper_get_flag(WasGoId wasgo_id, WasGoId p_flag);
 float _wasgo_ParticlesMaterial_wrapper_get_flatness(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_gravity(WasGoId wasgo_id);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_gravity(WasGoId wasgo_id);
 float _wasgo_ParticlesMaterial_wrapper_get_lifetime_randomness(WasGoId wasgo_id);
-float _wasgo_ParticlesMaterial_wrapper_get_param(WasGoId wasgo_id, WasGo::WasGoId p_param);
-float _wasgo_ParticlesMaterial_wrapper_get_param_randomness(WasGoId wasgo_id, WasGo::WasGoId p_param);
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_param_texture(WasGoId wasgo_id, WasGo::WasGoId p_param);
+float _wasgo_ParticlesMaterial_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
+float _wasgo_ParticlesMaterial_wrapper_get_param_randomness(WasGoId wasgo_id, WasGoId p_param);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_param_texture(WasGoId wasgo_id, WasGoId p_param);
 float _wasgo_ParticlesMaterial_wrapper_get_spread(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_trail_color_modifier(WasGoId wasgo_id);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_trail_color_modifier(WasGoId wasgo_id);
 int _wasgo_ParticlesMaterial_wrapper_get_trail_divisor(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ParticlesMaterial_wrapper_get_trail_size_modifier(WasGoId wasgo_id);
-void _wasgo_ParticlesMaterial_wrapper_set_color(WasGoId wasgo_id, WasGo::WasGoId p_color);
-void _wasgo_ParticlesMaterial_wrapper_set_color_ramp(WasGoId wasgo_id, WasGo::WasGoId p_ramp);
-void _wasgo_ParticlesMaterial_wrapper_set_direction(WasGoId wasgo_id, WasGo::WasGoId p_degrees);
-void _wasgo_ParticlesMaterial_wrapper_set_emission_box_extents(WasGoId wasgo_id, WasGo::WasGoId p_extents);
-void _wasgo_ParticlesMaterial_wrapper_set_emission_color_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
-void _wasgo_ParticlesMaterial_wrapper_set_emission_normal_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+WasGoId _wasgo_ParticlesMaterial_wrapper_get_trail_size_modifier(WasGoId wasgo_id);
+void _wasgo_ParticlesMaterial_wrapper_set_color(WasGoId wasgo_id, WasGoId p_color);
+void _wasgo_ParticlesMaterial_wrapper_set_color_ramp(WasGoId wasgo_id, WasGoId p_ramp);
+void _wasgo_ParticlesMaterial_wrapper_set_direction(WasGoId wasgo_id, WasGoId p_degrees);
+void _wasgo_ParticlesMaterial_wrapper_set_emission_box_extents(WasGoId wasgo_id, WasGoId p_extents);
+void _wasgo_ParticlesMaterial_wrapper_set_emission_color_texture(WasGoId wasgo_id, WasGoId p_texture);
+void _wasgo_ParticlesMaterial_wrapper_set_emission_normal_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_ParticlesMaterial_wrapper_set_emission_point_count(WasGoId wasgo_id, int p_point_count);
-void _wasgo_ParticlesMaterial_wrapper_set_emission_point_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
-void _wasgo_ParticlesMaterial_wrapper_set_emission_shape(WasGoId wasgo_id, WasGo::WasGoId p_shape);
+void _wasgo_ParticlesMaterial_wrapper_set_emission_point_texture(WasGoId wasgo_id, WasGoId p_texture);
+void _wasgo_ParticlesMaterial_wrapper_set_emission_shape(WasGoId wasgo_id, WasGoId p_shape);
 void _wasgo_ParticlesMaterial_wrapper_set_emission_sphere_radius(WasGoId wasgo_id, float p_radius);
-void _wasgo_ParticlesMaterial_wrapper_set_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag, bool p_enable);
+void _wasgo_ParticlesMaterial_wrapper_set_flag(WasGoId wasgo_id, WasGoId p_flag, bool p_enable);
 void _wasgo_ParticlesMaterial_wrapper_set_flatness(WasGoId wasgo_id, float p_amount);
-void _wasgo_ParticlesMaterial_wrapper_set_gravity(WasGoId wasgo_id, WasGo::WasGoId p_accel_vec);
+void _wasgo_ParticlesMaterial_wrapper_set_gravity(WasGoId wasgo_id, WasGoId p_accel_vec);
 void _wasgo_ParticlesMaterial_wrapper_set_lifetime_randomness(WasGoId wasgo_id, float p_randomness);
-void _wasgo_ParticlesMaterial_wrapper_set_param(WasGoId wasgo_id, WasGo::WasGoId p_param, float p_value);
-void _wasgo_ParticlesMaterial_wrapper_set_param_randomness(WasGoId wasgo_id, WasGo::WasGoId p_param, float p_randomness);
-void _wasgo_ParticlesMaterial_wrapper_set_param_texture(WasGoId wasgo_id, WasGo::WasGoId p_param, WasGo::WasGoId p_texture);
+void _wasgo_ParticlesMaterial_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
+void _wasgo_ParticlesMaterial_wrapper_set_param_randomness(WasGoId wasgo_id, WasGoId p_param, float p_randomness);
+void _wasgo_ParticlesMaterial_wrapper_set_param_texture(WasGoId wasgo_id, WasGoId p_param, WasGoId p_texture);
 void _wasgo_ParticlesMaterial_wrapper_set_spread(WasGoId wasgo_id, float p_degrees);
-void _wasgo_ParticlesMaterial_wrapper_set_trail_color_modifier(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+void _wasgo_ParticlesMaterial_wrapper_set_trail_color_modifier(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_ParticlesMaterial_wrapper_set_trail_divisor(WasGoId wasgo_id, int p_divisor);
-void _wasgo_ParticlesMaterial_wrapper_set_trail_size_modifier(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+void _wasgo_ParticlesMaterial_wrapper_set_trail_size_modifier(WasGoId wasgo_id, WasGoId p_texture);
 }
 #endif

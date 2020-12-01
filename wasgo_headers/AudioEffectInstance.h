@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class AudioEffectInstance : public Reference{
+public:
 };
 
 

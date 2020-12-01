@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class BakedLightmapData : public Resource{
+public:
 
 BakedLightmapData(WasGoId p_wasgo_id);
 ~BakedLightmapData();

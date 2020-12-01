@@ -10,16 +10,11 @@ VisualShaderNodeCubeMap::TextureType VisualShaderNodeCubeMap::get_texture_type()
 	return VisualShaderNodeCubeMap::TextureType::from_wasgo_id(_wasgo_VisualShaderNodeCubeMap_wrapper_get_texture_type(wasgo_id));
 }
 void VisualShaderNodeCubeMap::set_cube_map(CubeMap p_value){
-	_wasgo_VisualShaderNodeCubeMap_wrapper_set_cube_map(wasgo_id, ((Variant) value).get_wasgo_id());
+	_wasgo_VisualShaderNodeCubeMap_wrapper_set_cube_map(wasgo_id, ((Variant) p_value).get_wasgo_id());
 }
 void VisualShaderNodeCubeMap::set_source(VisualShaderNodeCubeMap::Source p_value){
-	_wasgo_VisualShaderNodeCubeMap_wrapper_set_source(wasgo_id, ((Variant) value).get_wasgo_id());
+	_wasgo_VisualShaderNodeCubeMap_wrapper_set_source(wasgo_id, ((Variant) p_value).get_wasgo_id());
 }
 void VisualShaderNodeCubeMap::set_texture_type(VisualShaderNodeCubeMap::TextureType p_value){
-	_wasgo_VisualShaderNodeCubeMap_wrapper_set_texture_type(wasgo_id, ((Variant) value).get_wasgo_id());
-}
-
-VisualShaderNodeCubeMap::VisualShaderNodeCubeMap(WasGoId p_wasgo_id) : Variant(p_wasgo_id){
-}
-VisualShaderNodeCubeMap::~VisualShaderNodeCubeMap(){
+	_wasgo_VisualShaderNodeCubeMap_wrapper_set_texture_type(wasgo_id, ((Variant) p_value).get_wasgo_id());
 }

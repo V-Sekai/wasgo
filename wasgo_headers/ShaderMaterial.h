@@ -5,10 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Material.h"
 #include "Shader.h"
+#include "ustring.h"
+#include "Variant.h"
 class ShaderMaterial : public Material{
+public:
 Shader get_shader();
 Variant get_shader_param(String p_param);
 void set_shader(Shader p_shader);
@@ -22,9 +24,9 @@ ShaderMaterial(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_ShaderMaterial_wrapper_get_shader(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ShaderMaterial_wrapper_get_shader_param(WasGoId wasgo_id, WasGo::WasGoId p_param);
-void _wasgo_ShaderMaterial_wrapper_set_shader(WasGoId wasgo_id, WasGo::WasGoId p_shader);
-void _wasgo_ShaderMaterial_wrapper_set_shader_param(WasGoId wasgo_id, WasGo::WasGoId p_param, WasGo::WasGoId p_value);
+WasGoId _wasgo_ShaderMaterial_wrapper_get_shader(WasGoId wasgo_id);
+WasGoId _wasgo_ShaderMaterial_wrapper_get_shader_param(WasGoId wasgo_id, WasGoId p_param);
+void _wasgo_ShaderMaterial_wrapper_set_shader(WasGoId wasgo_id, WasGoId p_shader);
+void _wasgo_ShaderMaterial_wrapper_set_shader_param(WasGoId wasgo_id, WasGoId p_param, WasGoId p_value);
 }
 #endif

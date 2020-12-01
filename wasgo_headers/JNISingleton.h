@@ -7,6 +7,7 @@
 
 #include "Object.h"
 class JNISingleton : public Object{
+public:
 
 JNISingleton(WasGoId p_wasgo_id);
 ~JNISingleton();

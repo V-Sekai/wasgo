@@ -5,21 +5,21 @@ from pathlib import Path
 variants = ["Bool",
             "Int",
             "Real",
-            "String",
-            "string",
-            "Vector2",
-            "Rect2",
-            "Vector3",
-            "Transform2d",
-            "Transform2D",#account for inconsistencies in the api.json
-            "Plane",
-            "Quat",
-            "AABB",
-            "Basis",
-            "Transform",
-            "Color",
-            "NodePath",
-            "RID",
+            # "String",
+            # "string",
+            # "Vector2",
+            # "Rect2",
+            # "Vector3",
+            # "Transform2d",
+            # "Transform2D",#account for inconsistencies in the api.json
+            # "Plane",
+            # "Quat",
+            # "AABB",
+            # "Basis",
+            # "Transform",
+            # "Color",
+            # "NodePath",
+            # "RID",
             # "Object",
             "Dictionary",
             "Array",
@@ -393,6 +393,24 @@ def void_if_null(name):
     else:
         return name
 
+def diff_header_names(name):
+    unique_headers = {
+        "String" : "ustring",
+        "Error" : "error_list"
+    }
+    if name in unique_headers:
+        return unique_headers[name]
+    else:
+        return name
+
+def diff_type_names(name):
+    unique_types = {
+        "AABB" : "::AABB"
+    }
+    if name in unique_types:
+        return unique_types[name]
+    else:
+        return drop_underscore(name)
 
 def wrapper_return_types(return_type, id_type = "WasGoState::WasGoID"):
     if (return_type == None):
@@ -579,12 +597,12 @@ def write_wasm_wrapper_functions(file_path, api_dict):
         "#ifndef WASM_WRAPPERS_H",
         "#define WASM_WRAPPER_H",
         "#include \"Variant.h\"",
-        "#include \"wasgo/wasgo.h\"",
+        "#include \"wasgo/wasgoid.h\"",
         "extern \"C\" {"
     ]
     def single_wrapper(name, return_type, arguments):
-        arg_list = ["{0} p_{1}".format(wrapper_argument_types(arg["type"], "WasGo::WasGoId"), arg["name"]) for arg in arguments]
-        return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGo::WasGoId"), name, ", ".join(arg_list))
+        arg_list = ["{0} p_{1}".format(wrapper_argument_types(arg["type"], "WasGoId"), arg["name"]) for arg in arguments]
+        return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGoId"), name, ", ".join(arg_list))
 
     for class_name in api_dict:
         for method_name in api_dict[class_name]["methods"]:
@@ -606,10 +624,14 @@ def write_wasm_class_headers(file_path, api_dict):
                     argument_type = argument['type']
                     argument_name = argument['name']
                     has_default_val = argument['has_default_value']
-                    default_val = str(argument['default_value']) if argument['default_value'] != None else '""'
+                    default_val = str(argument['default_value']).lower() if argument['default_value'] != None else '""'
                     if has_default_val:
-                        args.append('{0} p_{1} = ({0}) {2}'.format(
-                            drop_underscore(void_if_null(argument_type)), argument_name, default_val))
+                        if ("," in default_val):
+                            args.append('{0} p_{1} = {0}({2})'.format(
+                                drop_underscore(void_if_null(argument_type)), argument_name, default_val))
+                        else:
+                            args.append('{0} p_{1} = ({0}) {2}'.format(
+                                drop_underscore(void_if_null(argument_type)), argument_name, default_val))
                     else:
                         args.append('%s p_%s' % (drop_underscore(void_if_null(argument_type)), argument_name))
             ret.append('%s %s(%s);' % (
@@ -619,8 +641,8 @@ def write_wasm_class_headers(file_path, api_dict):
 
     def single_wrapper(name, return_type, arguments):
         arg_list = ["{0} p_{1}".format(wrapper_argument_types(
-            arg["type"], "WasGo::WasGoId"), arg["name"]) for arg in arguments]
-        return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGo::WasGoId"), name, ", ".join(["WasGoId wasgo_id"] + arg_list))
+            arg["type"], "WasGoId"), arg["name"]) for arg in arguments]
+        return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGoId"), name, ", ".join(["WasGoId wasgo_id"] + arg_list))
     
     def constructor_and_destructor(class_name):
         out = [
@@ -644,6 +666,8 @@ def write_wasm_class_headers(file_path, api_dict):
         ]
         includes = set()
         n = drop_underscore(class_dict['name'])
+
+        #TODO review this weird exception
         if (n == "Object"):
             includes.add("Variant")
 
@@ -668,13 +692,15 @@ def write_wasm_class_headers(file_path, api_dict):
         if class_dict["base_class"]:
             includes.add(class_dict["base_class"])
         for include in includes:
-            header_file_data += ["#include \"%s.h\"" % include]
+            header_file_data += ["#include \"%s.h\"" % diff_header_names(include)]
         if class_dict['base_class']:
             header_file_data += ["class %s : public %s{" % (n, drop_underscore(class_dict["base_class"]))]
         elif (n == "Object"):
             header_file_data += ["class %s : public %s{" % (n, "Variant")]
         else:
             header_file_data += ["class %s{" % n]
+        
+        header_file_data += ["public:"]
 
         for enum_name in class_dict['enums']:
             header_file_data += ["enum %s{" % enum_name]
@@ -716,30 +742,31 @@ def write_wasm_classes(file_path, api_dict):
             argument_type = argument['type']
             argument_name = argument['name']
             has_default_val = argument['has_default_value']
-            default_val = str(
-                argument['default_value']) if argument['default_value'] != None else '""'
+            default_val = str(argument['default_value']).lower() if argument['default_value'] != None else '""'
             if has_default_val:
-                args.append('{0} p_{1} = ({0}) {2}'.format(drop_underscore(
-                    void_if_null(argument_type)), argument_name, default_val))
+                if ("," in default_val):
+                    args.append('{0} p_{1} = {0}({2})'.format(diff_type_names(
+                        void_if_null(argument_type)), argument_name, str(default_val).lower()))
+                else:
+                    args.append('{0} p_{1} = ({0}) {2}'.format(diff_type_names(void_if_null(argument_type)), argument_name, str(default_val).lower()))
             else:
-                args.append('%s p_%s' % (drop_underscore(
-                    void_if_null(argument_type)), argument_name))
+                args.append('%s p_%s' % (diff_type_names(void_if_null(argument_type)), argument_name))
         return ", ".join(args)
 
     def converted_arg_string(arg_type, arg_name):
         if (arg_type == "bool" or arg_type == "int" or arg_type == "float"):
-            return arg_name
+            return "p_" + arg_name
         else:
-            return "((Variant) {0}).get_wasgo_id()".format(arg_name)
+            return "((Variant) p_{0}).get_wasgo_id()".format(arg_name)
     def wrapper_body(class_name, method_name, return_type, arguments):
-        out = ["{0} {1}::{2}({3}){{".format(return_type, class_name, method_name, arg_string(arguments))]
+        out = ["{0} {1}::{2}({3}){{".format(diff_type_names(return_type), class_name, method_name, arg_string(arguments))]
         if (return_type == "void"):
             out += ["\t{0}({1});".format(wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))]
         elif (return_type == "bool" or return_type == "int" or return_type == "float"):
-            out += ["\treturn ({0}) {1}({2}));".format(return_type, wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [ converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))]
+            out += ["\treturn ({0}) {1}({2});".format(diff_type_names(return_type), wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [ converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))]
         else:
             out += [
-                "\treturn {0}::from_wasgo_id({1}({2}));".format(return_type, wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))
+                "\treturn {0}::from_wasgo_id({1}({2}));".format(diff_type_names(return_type), wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))
                 ]
 
         out += ["}"]
@@ -765,47 +792,47 @@ def write_wasm_classes(file_path, api_dict):
             out += ["#include \"{0}.h\"".format(n)]
             for methods in class_dict["methods"].values():
                 
-                out += wrapper_body(n, methods['name'],
-                                    void_if_null(methods['return_type']), methods['arguments'].values())
-            if (class_dict["instanciable"] and not class_dict["singleton"]):
-                out += constructor_and_destructor(n)
+                out += wrapper_body(n, methods['name'], void_if_null(methods['return_type']), methods['arguments'].values())
+            
+            # if (class_dict["instanciable"] and not class_dict["singleton"]):
+            #     out += constructor_and_destructor(n)
             with open(file_path, 'w') as fd:  # to be included on the native side
                 fd.write('\n'.join(out))
 
     for class_name in api_dict:
         write_wasm_class(file_path + "/" + class_name + ".cpp", api_dict[class_name])
 
-def write_wasgo_class(file_path):
-    out = [
-        """
-#ifndef WASGO_H
-#define WASGO_H
+# def write_wasgo_class(file_path):
+#     out = [
+#         """
+# #ifndef WASGO_H
+# #define WASGO_H
 
-#include "Variant.h"
-#include "stdint.h"
+# #include "Variant.h"
+# #include "wasgo/wasgoid.h"
 
-extern "C" {
-WasGo::WasGoId _wasgo_get_property(const char *property);
-void _wasgo_set_property(const char *property, WasGo::WasGoId);
-}
+# extern "C" {
+# WasGoId _wasgo_get_property(const char *property);
+# void _wasgo_set_property(const char *property, WasGoId);
+# }
 
-class WasGo {
-public:
-	typedef uint32_t WasGoId;
+# class WasGo {
+# public:
+# 	typedef uint32_t WasGoId;
 
-	static Variant get_property(const char * property) {
-        return Variant::from_id(_wasgo_get_property(property));
-	};
-	static void set_property(const char *property, Variant value) {
-		_wasgo_set_property(property, value.wasgo_id);
-	};
-};
+# 	static Variant get_property(const char * property) {
+#         return Variant::from_id(_wasgo_get_property(property));
+# 	};
+# 	static void set_property(const char *property, Variant value) {
+# 		_wasgo_set_property(property, value.wasgo_id);
+# 	};
+# };
 
-#endif
-        """
-    ]
-    with open(file_path, 'w') as fd:
-        fd.write('\n'.join(out))
+# #endif
+#         """
+#     ]
+#     with open(file_path, 'w') as fd:
+#         fd.write('\n'.join(out))
 
 
 #TODO get rid of the whitelist. Right now it's helping me ignore errors tho lol
@@ -878,5 +905,5 @@ if __name__ == "__main__":
     write_wasm_class_headers("../wasgo_headers", api_dict)
     #Step 4 define all classes
     write_wasm_classes("../wasgo_headers", api_dict)
-    #Step 5 create a Wasgo Class that holds properties and the wasgo ID type
-    write_wasgo_class("../wasgo_headers/wasgo/wasgo.h")
+    # #Step 5 create a Wasgo Class that holds properties and the wasgo ID type
+    # write_wasgo_class("../wasgo_headers/wasgo/wasgo.h")

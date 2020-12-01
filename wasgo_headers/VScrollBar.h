@@ -7,6 +7,7 @@
 
 #include "ScrollBar.h"
 class VScrollBar : public ScrollBar{
+public:
 
 VScrollBar(WasGoId p_wasgo_id);
 ~VScrollBar();

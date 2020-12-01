@@ -7,6 +7,7 @@
 
 #include "Sky.h"
 class ProceduralSky : public Sky{
+public:
 enum TextureSize{
 TEXTURE_SIZE_256,
 TEXTURE_SIZE_512,

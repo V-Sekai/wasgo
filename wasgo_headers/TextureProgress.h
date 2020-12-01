@@ -5,11 +5,13 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "Range.h"
 #include "Margin.h"
+#include "Vector2.h"
 #include "Texture.h"
+#include "Range.h"
+#include "Color.h"
 class TextureProgress : public Range{
+public:
 enum FillMode{
 FILL_LEFT_TO_RIGHT,
 FILL_RIGHT_TO_LEFT,
@@ -57,26 +59,26 @@ extern "C"{
 float _wasgo_TextureProgress_wrapper_get_fill_degrees(WasGoId wasgo_id);
 int _wasgo_TextureProgress_wrapper_get_fill_mode(WasGoId wasgo_id);
 int _wasgo_TextureProgress_wrapper_get_nine_patch_stretch(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_TextureProgress_wrapper_get_over_texture(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_TextureProgress_wrapper_get_progress_texture(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_TextureProgress_wrapper_get_radial_center_offset(WasGoId wasgo_id);
+WasGoId _wasgo_TextureProgress_wrapper_get_over_texture(WasGoId wasgo_id);
+WasGoId _wasgo_TextureProgress_wrapper_get_progress_texture(WasGoId wasgo_id);
+WasGoId _wasgo_TextureProgress_wrapper_get_radial_center_offset(WasGoId wasgo_id);
 float _wasgo_TextureProgress_wrapper_get_radial_initial_angle(WasGoId wasgo_id);
-int _wasgo_TextureProgress_wrapper_get_stretch_margin(WasGoId wasgo_id, WasGo::WasGoId p_margin);
-WasGo::WasGoId _wasgo_TextureProgress_wrapper_get_tint_over(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_TextureProgress_wrapper_get_tint_progress(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_TextureProgress_wrapper_get_tint_under(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_TextureProgress_wrapper_get_under_texture(WasGoId wasgo_id);
+int _wasgo_TextureProgress_wrapper_get_stretch_margin(WasGoId wasgo_id, WasGoId p_margin);
+WasGoId _wasgo_TextureProgress_wrapper_get_tint_over(WasGoId wasgo_id);
+WasGoId _wasgo_TextureProgress_wrapper_get_tint_progress(WasGoId wasgo_id);
+WasGoId _wasgo_TextureProgress_wrapper_get_tint_under(WasGoId wasgo_id);
+WasGoId _wasgo_TextureProgress_wrapper_get_under_texture(WasGoId wasgo_id);
 void _wasgo_TextureProgress_wrapper_set_fill_degrees(WasGoId wasgo_id, float p_mode);
 void _wasgo_TextureProgress_wrapper_set_fill_mode(WasGoId wasgo_id, int p_mode);
 void _wasgo_TextureProgress_wrapper_set_nine_patch_stretch(WasGoId wasgo_id, bool p_stretch);
-void _wasgo_TextureProgress_wrapper_set_over_texture(WasGoId wasgo_id, WasGo::WasGoId p_tex);
-void _wasgo_TextureProgress_wrapper_set_progress_texture(WasGoId wasgo_id, WasGo::WasGoId p_tex);
-void _wasgo_TextureProgress_wrapper_set_radial_center_offset(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_TextureProgress_wrapper_set_over_texture(WasGoId wasgo_id, WasGoId p_tex);
+void _wasgo_TextureProgress_wrapper_set_progress_texture(WasGoId wasgo_id, WasGoId p_tex);
+void _wasgo_TextureProgress_wrapper_set_radial_center_offset(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_TextureProgress_wrapper_set_radial_initial_angle(WasGoId wasgo_id, float p_mode);
-void _wasgo_TextureProgress_wrapper_set_stretch_margin(WasGoId wasgo_id, WasGo::WasGoId p_margin, int p_value);
-void _wasgo_TextureProgress_wrapper_set_tint_over(WasGoId wasgo_id, WasGo::WasGoId p_tint);
-void _wasgo_TextureProgress_wrapper_set_tint_progress(WasGoId wasgo_id, WasGo::WasGoId p_tint);
-void _wasgo_TextureProgress_wrapper_set_tint_under(WasGoId wasgo_id, WasGo::WasGoId p_tint);
-void _wasgo_TextureProgress_wrapper_set_under_texture(WasGoId wasgo_id, WasGo::WasGoId p_tex);
+void _wasgo_TextureProgress_wrapper_set_stretch_margin(WasGoId wasgo_id, WasGoId p_margin, int p_value);
+void _wasgo_TextureProgress_wrapper_set_tint_over(WasGoId wasgo_id, WasGoId p_tint);
+void _wasgo_TextureProgress_wrapper_set_tint_progress(WasGoId wasgo_id, WasGoId p_tint);
+void _wasgo_TextureProgress_wrapper_set_tint_under(WasGoId wasgo_id, WasGoId p_tint);
+void _wasgo_TextureProgress_wrapper_set_under_texture(WasGoId wasgo_id, WasGoId p_tex);
 }
 #endif

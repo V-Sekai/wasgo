@@ -7,6 +7,7 @@
 
 #include "AudioEffect.h"
 class AudioEffectPanner : public AudioEffect{
+public:
 float get_pan();
 void set_pan(float p_cpanume);
 

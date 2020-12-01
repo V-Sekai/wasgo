@@ -5,10 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "ustring.h"
+#include "error_list.h"
 #include "PacketPeer.h"
-#include "Error.h"
 class PacketPeerUDP : public PacketPeer{
+public:
 void close();
 Error connect_to_host(String p_host, int p_port);
 String get_packet_ip();
@@ -31,16 +32,16 @@ PacketPeerUDP(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 void _wasgo_PacketPeerUDP_wrapper_close(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_PacketPeerUDP_wrapper_connect_to_host(WasGoId wasgo_id, WasGo::WasGoId p_host, int p_port);
-WasGo::WasGoId _wasgo_PacketPeerUDP_wrapper_get_packet_ip(WasGoId wasgo_id);
+WasGoId _wasgo_PacketPeerUDP_wrapper_connect_to_host(WasGoId wasgo_id, WasGoId p_host, int p_port);
+WasGoId _wasgo_PacketPeerUDP_wrapper_get_packet_ip(WasGoId wasgo_id);
 int _wasgo_PacketPeerUDP_wrapper_get_packet_port(WasGoId wasgo_id);
 int _wasgo_PacketPeerUDP_wrapper_is_connected_to_host(WasGoId wasgo_id);
 int _wasgo_PacketPeerUDP_wrapper_is_listening(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_PacketPeerUDP_wrapper_join_multicast_group(WasGoId wasgo_id, WasGo::WasGoId p_multicast_address, WasGo::WasGoId p_interface_name);
-WasGo::WasGoId _wasgo_PacketPeerUDP_wrapper_leave_multicast_group(WasGoId wasgo_id, WasGo::WasGoId p_multicast_address, WasGo::WasGoId p_interface_name);
-WasGo::WasGoId _wasgo_PacketPeerUDP_wrapper_listen(WasGoId wasgo_id, int p_port, WasGo::WasGoId p_bind_address, int p_recv_buf_size);
+WasGoId _wasgo_PacketPeerUDP_wrapper_join_multicast_group(WasGoId wasgo_id, WasGoId p_multicast_address, WasGoId p_interface_name);
+WasGoId _wasgo_PacketPeerUDP_wrapper_leave_multicast_group(WasGoId wasgo_id, WasGoId p_multicast_address, WasGoId p_interface_name);
+WasGoId _wasgo_PacketPeerUDP_wrapper_listen(WasGoId wasgo_id, int p_port, WasGoId p_bind_address, int p_recv_buf_size);
 void _wasgo_PacketPeerUDP_wrapper_set_broadcast_enabled(WasGoId wasgo_id, bool p_enabled);
-WasGo::WasGoId _wasgo_PacketPeerUDP_wrapper_set_dest_address(WasGoId wasgo_id, WasGo::WasGoId p_host, int p_port);
-WasGo::WasGoId _wasgo_PacketPeerUDP_wrapper_wait(WasGoId wasgo_id);
+WasGoId _wasgo_PacketPeerUDP_wrapper_set_dest_address(WasGoId wasgo_id, WasGoId p_host, int p_port);
+WasGoId _wasgo_PacketPeerUDP_wrapper_wait(WasGoId wasgo_id);
 }
 #endif

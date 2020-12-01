@@ -8,6 +8,7 @@
 #include "Variant.h"
 #include "Shape.h"
 class ConcavePolygonShape : public Shape{
+public:
 PoolVector3Array get_faces();
 void set_faces(PoolVector3Array p_faces);
 
@@ -19,7 +20,7 @@ ConcavePolygonShape(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_ConcavePolygonShape_wrapper_get_faces(WasGoId wasgo_id);
-void _wasgo_ConcavePolygonShape_wrapper_set_faces(WasGoId wasgo_id, WasGo::WasGoId p_faces);
+WasGoId _wasgo_ConcavePolygonShape_wrapper_get_faces(WasGoId wasgo_id);
+void _wasgo_ConcavePolygonShape_wrapper_set_faces(WasGoId wasgo_id, WasGoId p_faces);
 }
 #endif

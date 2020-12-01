@@ -7,6 +7,7 @@
 
 #include "CollisionObject.h"
 class Area : public CollisionObject{
+public:
 enum SpaceOverride{
 SPACE_OVERRIDE_DISABLED,
 SPACE_OVERRIDE_COMBINE,

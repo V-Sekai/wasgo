@@ -7,6 +7,7 @@
 
 #include "Container.h"
 class GridContainer : public Container{
+public:
 int get_columns();
 void set_columns(int p_columns);
 

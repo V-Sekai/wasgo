@@ -7,6 +7,7 @@
 
 #include "Container.h"
 class TabContainer : public Container{
+public:
 enum TabAlign{
 ALIGN_LEFT,
 ALIGN_CENTER,

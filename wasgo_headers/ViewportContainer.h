@@ -7,6 +7,7 @@
 
 #include "Container.h"
 class ViewportContainer : public Container{
+public:
 
 ViewportContainer(WasGoId p_wasgo_id);
 ~ViewportContainer();

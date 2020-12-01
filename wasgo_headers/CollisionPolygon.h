@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
 #include "Variant.h"
+#include "Spatial.h"
 class CollisionPolygon : public Spatial{
+public:
 float get_depth();
 PoolVector2Array get_polygon();
 bool is_disabled();
@@ -24,10 +25,10 @@ CollisionPolygon(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 float _wasgo_CollisionPolygon_wrapper_get_depth(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CollisionPolygon_wrapper_get_polygon(WasGoId wasgo_id);
+WasGoId _wasgo_CollisionPolygon_wrapper_get_polygon(WasGoId wasgo_id);
 int _wasgo_CollisionPolygon_wrapper_is_disabled(WasGoId wasgo_id);
 void _wasgo_CollisionPolygon_wrapper_set_depth(WasGoId wasgo_id, float p_depth);
 void _wasgo_CollisionPolygon_wrapper_set_disabled(WasGoId wasgo_id, bool p_disabled);
-void _wasgo_CollisionPolygon_wrapper_set_polygon(WasGoId wasgo_id, WasGo::WasGoId p_polygon);
+void _wasgo_CollisionPolygon_wrapper_set_polygon(WasGoId wasgo_id, WasGoId p_polygon);
 }
 #endif

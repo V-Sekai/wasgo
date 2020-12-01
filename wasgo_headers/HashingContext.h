@@ -5,10 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Reference.h"
-#include "Error.h"
+#include "Variant.h"
+#include "error_list.h"
 class HashingContext : public Reference{
+public:
 enum HashType{
 HASH_MD5,
 HASH_SHA1,
@@ -26,8 +27,8 @@ HashingContext(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_HashingContext_wrapper_finish(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_HashingContext_wrapper_start(WasGoId wasgo_id, WasGo::WasGoId p_type);
-WasGo::WasGoId _wasgo_HashingContext_wrapper_update(WasGoId wasgo_id, WasGo::WasGoId p_chunk);
+WasGoId _wasgo_HashingContext_wrapper_finish(WasGoId wasgo_id);
+WasGoId _wasgo_HashingContext_wrapper_start(WasGoId wasgo_id, WasGoId p_type);
+WasGoId _wasgo_HashingContext_wrapper_update(WasGoId wasgo_id, WasGoId p_chunk);
 }
 #endif

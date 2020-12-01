@@ -7,6 +7,7 @@
 
 #include "AudioEffect.h"
 class AudioEffectChorus : public AudioEffect{
+public:
 float get_dry();
 int get_voice_count();
 float get_voice_cutoff_hz(int p_voice_idx);

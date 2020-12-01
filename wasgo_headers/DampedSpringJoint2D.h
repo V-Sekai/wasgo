@@ -7,6 +7,7 @@
 
 #include "Joint2D.h"
 class DampedSpringJoint2D : public Joint2D{
+public:
 float get_damping();
 float get_length();
 float get_rest_length();

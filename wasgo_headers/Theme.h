@@ -6,11 +6,14 @@
 #include "wasgo\wasgo.h"
 
 #include "StyleBox.h"
-#include "Resource.h"
-#include "Font.h"
-#include "Texture.h"
 #include "Variant.h"
+#include "Texture.h"
+#include "Font.h"
+#include "Resource.h"
+#include "Color.h"
+#include "ustring.h"
 class Theme : public Resource{
+public:
 void clear();
 void clear_color(String p_name, String p_node_type);
 void clear_constant(String p_name, String p_node_type);
@@ -51,34 +54,34 @@ Theme(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 void _wasgo_Theme_wrapper_clear(WasGoId wasgo_id);
-void _wasgo_Theme_wrapper_clear_color(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-void _wasgo_Theme_wrapper_clear_constant(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-void _wasgo_Theme_wrapper_clear_font(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-void _wasgo_Theme_wrapper_clear_icon(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-void _wasgo_Theme_wrapper_clear_stylebox(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_color(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_color_list(WasGoId wasgo_id, WasGo::WasGoId p_node_type);
-int _wasgo_Theme_wrapper_get_constant(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_constant_list(WasGoId wasgo_id, WasGo::WasGoId p_node_type);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_default_font(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_font(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_font_list(WasGoId wasgo_id, WasGo::WasGoId p_node_type);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_icon(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_icon_list(WasGoId wasgo_id, WasGo::WasGoId p_node_type);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_stylebox(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_stylebox_list(WasGoId wasgo_id, WasGo::WasGoId p_node_type);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_stylebox_types(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Theme_wrapper_get_type_list(WasGoId wasgo_id, WasGo::WasGoId p_node_type);
-int _wasgo_Theme_wrapper_has_color(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-int _wasgo_Theme_wrapper_has_constant(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-int _wasgo_Theme_wrapper_has_font(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-int _wasgo_Theme_wrapper_has_icon(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-int _wasgo_Theme_wrapper_has_stylebox(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type);
-void _wasgo_Theme_wrapper_set_color(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type, WasGo::WasGoId p_color);
-void _wasgo_Theme_wrapper_set_constant(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type, int p_constant);
-void _wasgo_Theme_wrapper_set_default_font(WasGoId wasgo_id, WasGo::WasGoId p_font);
-void _wasgo_Theme_wrapper_set_font(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type, WasGo::WasGoId p_font);
-void _wasgo_Theme_wrapper_set_icon(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type, WasGo::WasGoId p_texture);
-void _wasgo_Theme_wrapper_set_stylebox(WasGoId wasgo_id, WasGo::WasGoId p_name, WasGo::WasGoId p_node_type, WasGo::WasGoId p_texture);
+void _wasgo_Theme_wrapper_clear_color(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+void _wasgo_Theme_wrapper_clear_constant(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+void _wasgo_Theme_wrapper_clear_font(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+void _wasgo_Theme_wrapper_clear_icon(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+void _wasgo_Theme_wrapper_clear_stylebox(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+WasGoId _wasgo_Theme_wrapper_get_color(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+WasGoId _wasgo_Theme_wrapper_get_color_list(WasGoId wasgo_id, WasGoId p_node_type);
+int _wasgo_Theme_wrapper_get_constant(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+WasGoId _wasgo_Theme_wrapper_get_constant_list(WasGoId wasgo_id, WasGoId p_node_type);
+WasGoId _wasgo_Theme_wrapper_get_default_font(WasGoId wasgo_id);
+WasGoId _wasgo_Theme_wrapper_get_font(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+WasGoId _wasgo_Theme_wrapper_get_font_list(WasGoId wasgo_id, WasGoId p_node_type);
+WasGoId _wasgo_Theme_wrapper_get_icon(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+WasGoId _wasgo_Theme_wrapper_get_icon_list(WasGoId wasgo_id, WasGoId p_node_type);
+WasGoId _wasgo_Theme_wrapper_get_stylebox(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+WasGoId _wasgo_Theme_wrapper_get_stylebox_list(WasGoId wasgo_id, WasGoId p_node_type);
+WasGoId _wasgo_Theme_wrapper_get_stylebox_types(WasGoId wasgo_id);
+WasGoId _wasgo_Theme_wrapper_get_type_list(WasGoId wasgo_id, WasGoId p_node_type);
+int _wasgo_Theme_wrapper_has_color(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+int _wasgo_Theme_wrapper_has_constant(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+int _wasgo_Theme_wrapper_has_font(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+int _wasgo_Theme_wrapper_has_icon(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+int _wasgo_Theme_wrapper_has_stylebox(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type);
+void _wasgo_Theme_wrapper_set_color(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type, WasGoId p_color);
+void _wasgo_Theme_wrapper_set_constant(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type, int p_constant);
+void _wasgo_Theme_wrapper_set_default_font(WasGoId wasgo_id, WasGoId p_font);
+void _wasgo_Theme_wrapper_set_font(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type, WasGoId p_font);
+void _wasgo_Theme_wrapper_set_icon(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type, WasGoId p_texture);
+void _wasgo_Theme_wrapper_set_stylebox(WasGoId wasgo_id, WasGoId p_name, WasGoId p_node_type, WasGoId p_texture);
 }
 #endif

@@ -7,6 +7,7 @@
 
 #include "Shape2D.h"
 class RayShape2D : public Shape2D{
+public:
 float get_length();
 bool get_slips_on_slope();
 void set_length(float p_length);

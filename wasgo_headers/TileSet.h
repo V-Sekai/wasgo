@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class TileSet : public Resource{
+public:
 enum AutotileBindings{
 BIND_TOPLEFT,
 BIND_TOP,

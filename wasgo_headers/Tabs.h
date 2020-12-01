@@ -7,6 +7,7 @@
 
 #include "Control.h"
 class Tabs : public Control{
+public:
 enum CloseButtonDisplayPolicy{
 CLOSE_BUTTON_SHOW_NEVER,
 CLOSE_BUTTON_SHOW_ACTIVE_ONLY,

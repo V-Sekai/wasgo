@@ -7,6 +7,7 @@
 
 #include "Control.h"
 class Tree : public Control{
+public:
 enum DropModeFlags{
 DROP_MODE_DISABLED,
 DROP_MODE_ON_ITEM,

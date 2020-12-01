@@ -6,10 +6,12 @@
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
-#include "Object.h"
+#include "error_list.h"
 #include "Resource.h"
-#include "Error.h"
+#include "Object.h"
+#include "ustring.h"
 class Script : public Resource{
+public:
 bool can_instance();
 Script get_base_script();
 String get_instance_base_type();
@@ -23,7 +25,7 @@ bool has_script_signal(String p_signal_name);
 bool has_source_code();
 bool instance_has(Object p_base_object);
 bool is_tool();
-Error reload(bool p_keep_state = (bool) False);
+Error reload(bool p_keep_state = (bool) false);
 void set_source_code(String p_source);
 };
 
@@ -31,19 +33,19 @@ void set_source_code(String p_source);
 //Wrapper Functions
 extern "C"{
 int _wasgo_Script_wrapper_can_instance(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Script_wrapper_get_base_script(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Script_wrapper_get_instance_base_type(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Script_wrapper_get_property_default_value(WasGoId wasgo_id, WasGo::WasGoId p_property);
-WasGo::WasGoId _wasgo_Script_wrapper_get_script_constant_map(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Script_wrapper_get_script_method_list(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Script_wrapper_get_script_property_list(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Script_wrapper_get_script_signal_list(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Script_wrapper_get_source_code(WasGoId wasgo_id);
-int _wasgo_Script_wrapper_has_script_signal(WasGoId wasgo_id, WasGo::WasGoId p_signal_name);
+WasGoId _wasgo_Script_wrapper_get_base_script(WasGoId wasgo_id);
+WasGoId _wasgo_Script_wrapper_get_instance_base_type(WasGoId wasgo_id);
+WasGoId _wasgo_Script_wrapper_get_property_default_value(WasGoId wasgo_id, WasGoId p_property);
+WasGoId _wasgo_Script_wrapper_get_script_constant_map(WasGoId wasgo_id);
+WasGoId _wasgo_Script_wrapper_get_script_method_list(WasGoId wasgo_id);
+WasGoId _wasgo_Script_wrapper_get_script_property_list(WasGoId wasgo_id);
+WasGoId _wasgo_Script_wrapper_get_script_signal_list(WasGoId wasgo_id);
+WasGoId _wasgo_Script_wrapper_get_source_code(WasGoId wasgo_id);
+int _wasgo_Script_wrapper_has_script_signal(WasGoId wasgo_id, WasGoId p_signal_name);
 int _wasgo_Script_wrapper_has_source_code(WasGoId wasgo_id);
-int _wasgo_Script_wrapper_instance_has(WasGoId wasgo_id, WasGo::WasGoId p_base_object);
+int _wasgo_Script_wrapper_instance_has(WasGoId wasgo_id, WasGoId p_base_object);
 int _wasgo_Script_wrapper_is_tool(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Script_wrapper_reload(WasGoId wasgo_id, bool p_keep_state);
-void _wasgo_Script_wrapper_set_source_code(WasGoId wasgo_id, WasGo::WasGoId p_source);
+WasGoId _wasgo_Script_wrapper_reload(WasGoId wasgo_id, bool p_keep_state);
+void _wasgo_Script_wrapper_set_source_code(WasGoId wasgo_id, WasGoId p_source);
 }
 #endif

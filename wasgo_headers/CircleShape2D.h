@@ -7,6 +7,7 @@
 
 #include "Shape2D.h"
 class CircleShape2D : public Shape2D{
+public:
 float get_radius();
 void set_radius(float p_radius);
 

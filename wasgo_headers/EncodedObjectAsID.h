@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class EncodedObjectAsID : public Reference{
+public:
 int get_object_id();
 void set_object_id(int p_id);
 

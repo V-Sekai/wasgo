@@ -7,6 +7,7 @@
 
 #include "AudioEffectEQ.h"
 class AudioEffectEQ6 : public AudioEffectEQ{
+public:
 
 AudioEffectEQ6(WasGoId p_wasgo_id);
 ~AudioEffectEQ6();

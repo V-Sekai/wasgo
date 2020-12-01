@@ -6,9 +6,10 @@
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
-#include "WasmResource.h"
 #include "Node.h"
+#include "WasmResource.h"
 class WasGoState : public Node{
+public:
 int get_heap_size();
 Dictionary get_properties();
 int get_stack_size();
@@ -27,12 +28,12 @@ WasGoState(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 int _wasgo_WasGoState_wrapper_get_heap_size(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_WasGoState_wrapper_get_properties(WasGoId wasgo_id);
+WasGoId _wasgo_WasGoState_wrapper_get_properties(WasGoId wasgo_id);
 int _wasgo_WasGoState_wrapper_get_stack_size(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_WasGoState_wrapper_get_wasm_script(WasGoId wasgo_id);
+WasGoId _wasgo_WasGoState_wrapper_get_wasm_script(WasGoId wasgo_id);
 void _wasgo_WasGoState_wrapper_set_heap_size(WasGoId wasgo_id, int p_p_heap_size);
-void _wasgo_WasGoState_wrapper_set_properties(WasGoId wasgo_id, WasGo::WasGoId p_p_properties);
+void _wasgo_WasGoState_wrapper_set_properties(WasGoId wasgo_id, WasGoId p_p_properties);
 void _wasgo_WasGoState_wrapper_set_stack_size(WasGoId wasgo_id, int p_p_stack_size);
-void _wasgo_WasGoState_wrapper_set_wasm_script(WasGoId wasgo_id, WasGo::WasGoId p_p_wasm_script);
+void _wasgo_WasGoState_wrapper_set_wasm_script(WasGoId wasgo_id, WasGoId p_p_wasm_script);
 }
 #endif

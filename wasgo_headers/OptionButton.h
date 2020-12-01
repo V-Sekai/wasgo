@@ -7,6 +7,7 @@
 
 #include "Button.h"
 class OptionButton : public Button{
+public:
 
 OptionButton(WasGoId p_wasgo_id);
 ~OptionButton();

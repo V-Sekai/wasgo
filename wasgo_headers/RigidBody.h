@@ -7,6 +7,7 @@
 
 #include "PhysicsBody.h"
 class RigidBody : public PhysicsBody{
+public:
 enum Mode{
 MODE_RIGID,
 MODE_STATIC,

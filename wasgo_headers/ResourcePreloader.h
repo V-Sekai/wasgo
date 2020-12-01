@@ -7,6 +7,7 @@
 
 #include "Node.h"
 class ResourcePreloader : public Node{
+public:
 
 ResourcePreloader(WasGoId p_wasgo_id);
 ~ResourcePreloader();

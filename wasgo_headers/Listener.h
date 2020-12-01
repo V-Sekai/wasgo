@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "Transform.h"
 #include "Spatial.h"
-#include "Variant.h"
 class Listener : public Spatial{
+public:
 void clear_current();
 Transform get_listener_transform();
 bool is_current();
@@ -22,7 +23,7 @@ Listener(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 void _wasgo_Listener_wrapper_clear_current(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Listener_wrapper_get_listener_transform(WasGoId wasgo_id);
+WasGoId _wasgo_Listener_wrapper_get_listener_transform(WasGoId wasgo_id);
 int _wasgo_Listener_wrapper_is_current(WasGoId wasgo_id);
 void _wasgo_Listener_wrapper_make_current(WasGoId wasgo_id);
 }

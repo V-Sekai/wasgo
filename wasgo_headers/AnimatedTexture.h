@@ -7,6 +7,7 @@
 
 #include "Texture.h"
 class AnimatedTexture : public Texture{
+public:
 int get_current_frame();
 float get_fps();
 float get_frame_delay(int p_frame);
@@ -33,14 +34,14 @@ extern "C"{
 int _wasgo_AnimatedTexture_wrapper_get_current_frame(WasGoId wasgo_id);
 float _wasgo_AnimatedTexture_wrapper_get_fps(WasGoId wasgo_id);
 float _wasgo_AnimatedTexture_wrapper_get_frame_delay(WasGoId wasgo_id, int p_frame);
-WasGo::WasGoId _wasgo_AnimatedTexture_wrapper_get_frame_texture(WasGoId wasgo_id, int p_frame);
+WasGoId _wasgo_AnimatedTexture_wrapper_get_frame_texture(WasGoId wasgo_id, int p_frame);
 int _wasgo_AnimatedTexture_wrapper_get_frames(WasGoId wasgo_id);
 int _wasgo_AnimatedTexture_wrapper_get_oneshot(WasGoId wasgo_id);
 int _wasgo_AnimatedTexture_wrapper_get_pause(WasGoId wasgo_id);
 void _wasgo_AnimatedTexture_wrapper_set_current_frame(WasGoId wasgo_id, int p_frame);
 void _wasgo_AnimatedTexture_wrapper_set_fps(WasGoId wasgo_id, float p_fps);
 void _wasgo_AnimatedTexture_wrapper_set_frame_delay(WasGoId wasgo_id, int p_frame, float p_delay);
-void _wasgo_AnimatedTexture_wrapper_set_frame_texture(WasGoId wasgo_id, int p_frame, WasGo::WasGoId p_texture);
+void _wasgo_AnimatedTexture_wrapper_set_frame_texture(WasGoId wasgo_id, int p_frame, WasGoId p_texture);
 void _wasgo_AnimatedTexture_wrapper_set_frames(WasGoId wasgo_id, int p_frames);
 void _wasgo_AnimatedTexture_wrapper_set_oneshot(WasGoId wasgo_id, bool p_oneshot);
 void _wasgo_AnimatedTexture_wrapper_set_pause(WasGoId wasgo_id, bool p_pause);

@@ -5,10 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Color.h"
+#include "ustring.h"
 #include "DynamicFontData.h"
 #include "Font.h"
 class DynamicFont : public Font{
+public:
 enum SpacingType{
 SPACING_TOP,
 SPACING_BOTTOM,
@@ -44,21 +46,21 @@ DynamicFont(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_DynamicFont_wrapper_add_fallback(WasGoId wasgo_id, WasGo::WasGoId p_data);
-WasGo::WasGoId _wasgo_DynamicFont_wrapper_get_available_chars(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_DynamicFont_wrapper_get_fallback(WasGoId wasgo_id, int p_idx);
+void _wasgo_DynamicFont_wrapper_add_fallback(WasGoId wasgo_id, WasGoId p_data);
+WasGoId _wasgo_DynamicFont_wrapper_get_available_chars(WasGoId wasgo_id);
+WasGoId _wasgo_DynamicFont_wrapper_get_fallback(WasGoId wasgo_id, int p_idx);
 int _wasgo_DynamicFont_wrapper_get_fallback_count(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_DynamicFont_wrapper_get_font_data(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_DynamicFont_wrapper_get_outline_color(WasGoId wasgo_id);
+WasGoId _wasgo_DynamicFont_wrapper_get_font_data(WasGoId wasgo_id);
+WasGoId _wasgo_DynamicFont_wrapper_get_outline_color(WasGoId wasgo_id);
 int _wasgo_DynamicFont_wrapper_get_outline_size(WasGoId wasgo_id);
 int _wasgo_DynamicFont_wrapper_get_size(WasGoId wasgo_id);
 int _wasgo_DynamicFont_wrapper_get_spacing(WasGoId wasgo_id, int p_type);
 int _wasgo_DynamicFont_wrapper_get_use_filter(WasGoId wasgo_id);
 int _wasgo_DynamicFont_wrapper_get_use_mipmaps(WasGoId wasgo_id);
 void _wasgo_DynamicFont_wrapper_remove_fallback(WasGoId wasgo_id, int p_idx);
-void _wasgo_DynamicFont_wrapper_set_fallback(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_data);
-void _wasgo_DynamicFont_wrapper_set_font_data(WasGoId wasgo_id, WasGo::WasGoId p_data);
-void _wasgo_DynamicFont_wrapper_set_outline_color(WasGoId wasgo_id, WasGo::WasGoId p_color);
+void _wasgo_DynamicFont_wrapper_set_fallback(WasGoId wasgo_id, int p_idx, WasGoId p_data);
+void _wasgo_DynamicFont_wrapper_set_font_data(WasGoId wasgo_id, WasGoId p_data);
+void _wasgo_DynamicFont_wrapper_set_outline_color(WasGoId wasgo_id, WasGoId p_color);
 void _wasgo_DynamicFont_wrapper_set_outline_size(WasGoId wasgo_id, int p_size);
 void _wasgo_DynamicFont_wrapper_set_size(WasGoId wasgo_id, int p_data);
 void _wasgo_DynamicFont_wrapper_set_spacing(WasGoId wasgo_id, int p_type, int p_value);

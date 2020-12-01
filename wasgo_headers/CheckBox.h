@@ -7,6 +7,7 @@
 
 #include "Button.h"
 class CheckBox : public Button{
+public:
 
 CheckBox(WasGoId p_wasgo_id);
 ~CheckBox();

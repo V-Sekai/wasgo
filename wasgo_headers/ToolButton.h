@@ -7,6 +7,7 @@
 
 #include "Button.h"
 class ToolButton : public Button{
+public:
 
 ToolButton(WasGoId p_wasgo_id);
 ~ToolButton();

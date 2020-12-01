@@ -39,7 +39,6 @@
  * AABB / AABB (Axis Aligned Bounding Box)
  * This is implemented by a point (position) and the box size
  */
-
 class AABB {
 public:
 	Vector3 position;

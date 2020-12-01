@@ -7,6 +7,7 @@
 
 #include "VisualShaderNodeTextureUniform.h"
 class VisualShaderNodeTextureUniformTriplanar : public VisualShaderNodeTextureUniform{
+public:
 
 VisualShaderNodeTextureUniformTriplanar(WasGoId p_wasgo_id);
 ~VisualShaderNodeTextureUniformTriplanar();

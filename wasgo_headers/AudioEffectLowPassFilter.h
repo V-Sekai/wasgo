@@ -7,6 +7,7 @@
 
 #include "AudioEffectFilter.h"
 class AudioEffectLowPassFilter : public AudioEffectFilter{
+public:
 
 AudioEffectLowPassFilter(WasGoId p_wasgo_id);
 ~AudioEffectLowPassFilter();

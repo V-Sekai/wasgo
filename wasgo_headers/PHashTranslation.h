@@ -7,6 +7,7 @@
 
 #include "Translation.h"
 class PHashTranslation : public Translation{
+public:
 void generate(Translation p_from);
 
 PHashTranslation(WasGoId p_wasgo_id);
@@ -17,6 +18,6 @@ PHashTranslation(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_PHashTranslation_wrapper_generate(WasGoId wasgo_id, WasGo::WasGoId p_from);
+void _wasgo_PHashTranslation_wrapper_generate(WasGoId wasgo_id, WasGoId p_from);
 }
 #endif

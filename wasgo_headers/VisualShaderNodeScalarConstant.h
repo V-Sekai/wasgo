@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeScalarConstant : public VisualShaderNode{
+public:
 float get_constant();
 void set_constant(float p_value);
 

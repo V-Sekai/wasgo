@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class Sky : public Resource{
+public:
 enum RadianceSize{
 RADIANCE_SIZE_32,
 RADIANCE_SIZE_64,
@@ -24,7 +25,7 @@ void set_radiance_size(Sky::RadianceSize p_size);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_Sky_wrapper_get_radiance_size(WasGoId wasgo_id);
-void _wasgo_Sky_wrapper_set_radiance_size(WasGoId wasgo_id, WasGo::WasGoId p_size);
+WasGoId _wasgo_Sky_wrapper_get_radiance_size(WasGoId wasgo_id);
+void _wasgo_Sky_wrapper_set_radiance_size(WasGoId wasgo_id, WasGoId p_size);
 }
 #endif

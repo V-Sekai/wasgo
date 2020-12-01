@@ -5,10 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Transform.h"
 #include "Node.h"
 #include "World.h"
+#include "Vector3.h"
 class Spatial : public Node{
+public:
 void force_update_transform();
 Transform get_global_transform();
 Spatial get_parent_spatial();
@@ -39,24 +41,24 @@ Spatial(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 void _wasgo_Spatial_wrapper_force_update_transform(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Spatial_wrapper_get_global_transform(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Spatial_wrapper_get_parent_spatial(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Spatial_wrapper_get_rotation(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Spatial_wrapper_get_rotation_degrees(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Spatial_wrapper_get_scale(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Spatial_wrapper_get_transform(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Spatial_wrapper_get_translation(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Spatial_wrapper_get_world(WasGoId wasgo_id);
+WasGoId _wasgo_Spatial_wrapper_get_global_transform(WasGoId wasgo_id);
+WasGoId _wasgo_Spatial_wrapper_get_parent_spatial(WasGoId wasgo_id);
+WasGoId _wasgo_Spatial_wrapper_get_rotation(WasGoId wasgo_id);
+WasGoId _wasgo_Spatial_wrapper_get_rotation_degrees(WasGoId wasgo_id);
+WasGoId _wasgo_Spatial_wrapper_get_scale(WasGoId wasgo_id);
+WasGoId _wasgo_Spatial_wrapper_get_transform(WasGoId wasgo_id);
+WasGoId _wasgo_Spatial_wrapper_get_translation(WasGoId wasgo_id);
+WasGoId _wasgo_Spatial_wrapper_get_world(WasGoId wasgo_id);
 int _wasgo_Spatial_wrapper_is_scale_disabled(WasGoId wasgo_id);
 int _wasgo_Spatial_wrapper_is_set_as_toplevel(WasGoId wasgo_id);
 void _wasgo_Spatial_wrapper_set_as_toplevel(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Spatial_wrapper_set_disable_scale(WasGoId wasgo_id, bool p_disable);
-void _wasgo_Spatial_wrapper_set_global_transform(WasGoId wasgo_id, WasGo::WasGoId p_global);
+void _wasgo_Spatial_wrapper_set_global_transform(WasGoId wasgo_id, WasGoId p_global);
 void _wasgo_Spatial_wrapper_set_ignore_transform_notification(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Spatial_wrapper_set_rotation(WasGoId wasgo_id, WasGo::WasGoId p_euler);
-void _wasgo_Spatial_wrapper_set_rotation_degrees(WasGoId wasgo_id, WasGo::WasGoId p_euler_degrees);
-void _wasgo_Spatial_wrapper_set_scale(WasGoId wasgo_id, WasGo::WasGoId p_scale);
-void _wasgo_Spatial_wrapper_set_transform(WasGoId wasgo_id, WasGo::WasGoId p_local);
-void _wasgo_Spatial_wrapper_set_translation(WasGoId wasgo_id, WasGo::WasGoId p_translation);
+void _wasgo_Spatial_wrapper_set_rotation(WasGoId wasgo_id, WasGoId p_euler);
+void _wasgo_Spatial_wrapper_set_rotation_degrees(WasGoId wasgo_id, WasGoId p_euler_degrees);
+void _wasgo_Spatial_wrapper_set_scale(WasGoId wasgo_id, WasGoId p_scale);
+void _wasgo_Spatial_wrapper_set_transform(WasGoId wasgo_id, WasGoId p_local);
+void _wasgo_Spatial_wrapper_set_translation(WasGoId wasgo_id, WasGoId p_translation);
 }
 #endif

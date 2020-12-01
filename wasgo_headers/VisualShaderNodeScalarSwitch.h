@@ -7,6 +7,7 @@
 
 #include "VisualShaderNodeSwitch.h"
 class VisualShaderNodeScalarSwitch : public VisualShaderNodeSwitch{
+public:
 
 VisualShaderNodeScalarSwitch(WasGoId p_wasgo_id);
 ~VisualShaderNodeScalarSwitch();

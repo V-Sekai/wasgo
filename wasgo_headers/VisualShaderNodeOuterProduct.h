@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeOuterProduct : public VisualShaderNode{
+public:
 
 VisualShaderNodeOuterProduct(WasGoId p_wasgo_id);
 ~VisualShaderNodeOuterProduct();

@@ -7,6 +7,7 @@
 
 #include "AudioEffect.h"
 class AudioEffectFilter : public AudioEffect{
+public:
 enum FilterDB{
 FILTER_6DB,
 FILTER_12DB,
@@ -31,11 +32,11 @@ AudioEffectFilter(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 float _wasgo_AudioEffectFilter_wrapper_get_cutoff(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_AudioEffectFilter_wrapper_get_db(WasGoId wasgo_id);
+WasGoId _wasgo_AudioEffectFilter_wrapper_get_db(WasGoId wasgo_id);
 float _wasgo_AudioEffectFilter_wrapper_get_gain(WasGoId wasgo_id);
 float _wasgo_AudioEffectFilter_wrapper_get_resonance(WasGoId wasgo_id);
 void _wasgo_AudioEffectFilter_wrapper_set_cutoff(WasGoId wasgo_id, float p_freq);
-void _wasgo_AudioEffectFilter_wrapper_set_db(WasGoId wasgo_id, WasGo::WasGoId p_amount);
+void _wasgo_AudioEffectFilter_wrapper_set_db(WasGoId wasgo_id, WasGoId p_amount);
 void _wasgo_AudioEffectFilter_wrapper_set_gain(WasGoId wasgo_id, float p_amount);
 void _wasgo_AudioEffectFilter_wrapper_set_resonance(WasGoId wasgo_id, float p_amount);
 }

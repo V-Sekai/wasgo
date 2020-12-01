@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class Shape : public Resource{
+public:
 float get_margin();
 void set_margin(float p_margin);
 };

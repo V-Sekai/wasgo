@@ -7,6 +7,7 @@
 
 #include "AudioEffectFilter.h"
 class AudioEffectNotchFilter : public AudioEffectFilter{
+public:
 
 AudioEffectNotchFilter(WasGoId p_wasgo_id);
 ~AudioEffectNotchFilter();

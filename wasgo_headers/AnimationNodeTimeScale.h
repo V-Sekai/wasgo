@@ -7,6 +7,7 @@
 
 #include "AnimationNode.h"
 class AnimationNodeTimeScale : public AnimationNode{
+public:
 
 AnimationNodeTimeScale(WasGoId p_wasgo_id);
 ~AnimationNodeTimeScale();

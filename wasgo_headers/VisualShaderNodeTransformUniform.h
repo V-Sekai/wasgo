@@ -7,6 +7,7 @@
 
 #include "VisualShaderNodeUniform.h"
 class VisualShaderNodeTransformUniform : public VisualShaderNodeUniform{
+public:
 
 VisualShaderNodeTransformUniform(WasGoId p_wasgo_id);
 ~VisualShaderNodeTransformUniform();

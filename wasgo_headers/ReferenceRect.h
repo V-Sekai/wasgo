@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Color.h"
 #include "Control.h"
 class ReferenceRect : public Control{
+public:
 Color get_border_color();
 float get_border_width();
 bool get_editor_only();
@@ -23,10 +24,10 @@ ReferenceRect(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_ReferenceRect_wrapper_get_border_color(WasGoId wasgo_id);
+WasGoId _wasgo_ReferenceRect_wrapper_get_border_color(WasGoId wasgo_id);
 float _wasgo_ReferenceRect_wrapper_get_border_width(WasGoId wasgo_id);
 int _wasgo_ReferenceRect_wrapper_get_editor_only(WasGoId wasgo_id);
-void _wasgo_ReferenceRect_wrapper_set_border_color(WasGoId wasgo_id, WasGo::WasGoId p_color);
+void _wasgo_ReferenceRect_wrapper_set_border_color(WasGoId wasgo_id, WasGoId p_color);
 void _wasgo_ReferenceRect_wrapper_set_border_width(WasGoId wasgo_id, float p_width);
 void _wasgo_ReferenceRect_wrapper_set_editor_only(WasGoId wasgo_id, bool p_enabled);
 }

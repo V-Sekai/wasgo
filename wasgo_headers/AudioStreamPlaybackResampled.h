@@ -7,6 +7,7 @@
 
 #include "AudioStreamPlayback.h"
 class AudioStreamPlaybackResampled : public AudioStreamPlayback{
+public:
 };
 
 

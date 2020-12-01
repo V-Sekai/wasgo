@@ -7,6 +7,7 @@
 
 #include "PrimitiveMesh.h"
 class CapsuleMesh : public PrimitiveMesh{
+public:
 float get_mid_height();
 int get_radial_segments();
 float get_radius();

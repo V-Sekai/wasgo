@@ -4,10 +4,5 @@ VisualShaderNodeTransformFunc::Function VisualShaderNodeTransformFunc::get_funct
 	return VisualShaderNodeTransformFunc::Function::from_wasgo_id(_wasgo_VisualShaderNodeTransformFunc_wrapper_get_function(wasgo_id));
 }
 void VisualShaderNodeTransformFunc::set_function(VisualShaderNodeTransformFunc::Function p_func){
-	_wasgo_VisualShaderNodeTransformFunc_wrapper_set_function(wasgo_id, ((Variant) func).get_wasgo_id());
-}
-
-VisualShaderNodeTransformFunc::VisualShaderNodeTransformFunc(WasGoId p_wasgo_id) : Variant(p_wasgo_id){
-}
-VisualShaderNodeTransformFunc::~VisualShaderNodeTransformFunc(){
+	_wasgo_VisualShaderNodeTransformFunc_wrapper_set_function(wasgo_id, ((Variant) p_func).get_wasgo_id());
 }

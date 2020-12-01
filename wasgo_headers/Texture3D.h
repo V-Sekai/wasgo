@@ -7,6 +7,7 @@
 
 #include "TextureLayered.h"
 class Texture3D : public TextureLayered{
+public:
 
 Texture3D(WasGoId p_wasgo_id);
 ~Texture3D();

@@ -7,6 +7,7 @@
 
 #include "Node2D.h"
 class CollisionObject2D : public Node2D{
+public:
 };
 
 

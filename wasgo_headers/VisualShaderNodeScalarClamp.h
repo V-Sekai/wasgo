@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeScalarClamp : public VisualShaderNode{
+public:
 
 VisualShaderNodeScalarClamp(WasGoId p_wasgo_id);
 ~VisualShaderNodeScalarClamp();

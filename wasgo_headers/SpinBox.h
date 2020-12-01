@@ -7,6 +7,7 @@
 
 #include "Range.h"
 class SpinBox : public Range{
+public:
 
 SpinBox(WasGoId p_wasgo_id);
 ~SpinBox();

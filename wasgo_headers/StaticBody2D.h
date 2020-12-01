@@ -5,10 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "PhysicsMaterial.h"
+#include "Vector2.h"
 #include "PhysicsBody2D.h"
+#include "PhysicsMaterial.h"
 class StaticBody2D : public PhysicsBody2D{
+public:
 float get_bounce();
 float get_constant_angular_velocity();
 Vector2 get_constant_linear_velocity();
@@ -30,13 +31,13 @@ StaticBody2D(WasGoId p_wasgo_id);
 extern "C"{
 float _wasgo_StaticBody2D_wrapper_get_bounce(WasGoId wasgo_id);
 float _wasgo_StaticBody2D_wrapper_get_constant_angular_velocity(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_StaticBody2D_wrapper_get_constant_linear_velocity(WasGoId wasgo_id);
+WasGoId _wasgo_StaticBody2D_wrapper_get_constant_linear_velocity(WasGoId wasgo_id);
 float _wasgo_StaticBody2D_wrapper_get_friction(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_StaticBody2D_wrapper_get_physics_material_override(WasGoId wasgo_id);
+WasGoId _wasgo_StaticBody2D_wrapper_get_physics_material_override(WasGoId wasgo_id);
 void _wasgo_StaticBody2D_wrapper_set_bounce(WasGoId wasgo_id, float p_bounce);
 void _wasgo_StaticBody2D_wrapper_set_constant_angular_velocity(WasGoId wasgo_id, float p_vel);
-void _wasgo_StaticBody2D_wrapper_set_constant_linear_velocity(WasGoId wasgo_id, WasGo::WasGoId p_vel);
+void _wasgo_StaticBody2D_wrapper_set_constant_linear_velocity(WasGoId wasgo_id, WasGoId p_vel);
 void _wasgo_StaticBody2D_wrapper_set_friction(WasGoId wasgo_id, float p_friction);
-void _wasgo_StaticBody2D_wrapper_set_physics_material_override(WasGoId wasgo_id, WasGo::WasGoId p_physics_material_override);
+void _wasgo_StaticBody2D_wrapper_set_physics_material_override(WasGoId wasgo_id, WasGoId p_physics_material_override);
 }
 #endif

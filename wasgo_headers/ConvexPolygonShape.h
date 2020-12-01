@@ -8,6 +8,7 @@
 #include "Variant.h"
 #include "Shape.h"
 class ConvexPolygonShape : public Shape{
+public:
 PoolVector3Array get_points();
 void set_points(PoolVector3Array p_points);
 
@@ -19,7 +20,7 @@ ConvexPolygonShape(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_ConvexPolygonShape_wrapper_get_points(WasGoId wasgo_id);
-void _wasgo_ConvexPolygonShape_wrapper_set_points(WasGoId wasgo_id, WasGo::WasGoId p_points);
+WasGoId _wasgo_ConvexPolygonShape_wrapper_get_points(WasGoId wasgo_id);
+void _wasgo_ConvexPolygonShape_wrapper_set_points(WasGoId wasgo_id, WasGoId p_points);
 }
 #endif

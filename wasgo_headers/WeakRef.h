@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Reference.h"
+#include "Variant.h"
 class WeakRef : public Reference{
+public:
 Variant get_ref();
 
 WeakRef(WasGoId p_wasgo_id);
@@ -18,6 +19,6 @@ WeakRef(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_WeakRef_wrapper_get_ref(WasGoId wasgo_id);
+WasGoId _wasgo_WeakRef_wrapper_get_ref(WasGoId wasgo_id);
 }
 #endif

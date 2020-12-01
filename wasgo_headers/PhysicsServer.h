@@ -5,12 +5,16 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Object.h"
-#include "PhysicsDirectBodyState.h"
+#include "Transform.h"
+#include "RID.h"
 #include "Variant.h"
+#include "PhysicsDirectBodyState.h"
 #include "Vector3.h"
+#include "Object.h"
+#include "ustring.h"
 #include "PhysicsDirectSpaceState.h"
 class PhysicsServer : public Object{
+public:
 enum AreaBodyStatus{
 AREA_BODY_ADDED,
 AREA_BODY_REMOVED
@@ -172,7 +176,7 @@ SPACE_PARAM_BODY_ANGULAR_VELOCITY_DAMP_RATIO,
 SPACE_PARAM_CONSTRAINT_DEFAULT_BIAS,
 SPACE_PARAM_TEST_MOTION_MIN_CONTACT_DEPTH
 };
-void area_add_shape(RID p_area, RID p_shape, Transform p_transform = (Transform) 1, 0, 0, 0, 1, 0, 0, 0, 1 - 0, 0, 0, bool p_disabled = (bool) False);
+void area_add_shape(RID p_area, RID p_shape, Transform p_transform = Transform(1, 0, 0, 0, 1, 0, 0, 0, 1 - 0, 0, 0), bool p_disabled = (bool) false);
 void area_attach_object_instance_id(RID p_area, int p_id);
 void area_clear_shapes(RID p_area);
 RID area_create();
@@ -202,14 +206,14 @@ void area_set_transform(RID p_area, Transform p_transform);
 void body_add_central_force(RID p_body, Vector3 p_force);
 void body_add_collision_exception(RID p_body, RID p_excepted_body);
 void body_add_force(RID p_body, Vector3 p_force, Vector3 p_position);
-void body_add_shape(RID p_body, RID p_shape, Transform p_transform = (Transform) 1, 0, 0, 0, 1, 0, 0, 0, 1 - 0, 0, 0, bool p_disabled = (bool) False);
+void body_add_shape(RID p_body, RID p_shape, Transform p_transform = Transform(1, 0, 0, 0, 1, 0, 0, 0, 1 - 0, 0, 0), bool p_disabled = (bool) false);
 void body_add_torque(RID p_body, Vector3 p_torque);
 void body_apply_central_impulse(RID p_body, Vector3 p_impulse);
 void body_apply_impulse(RID p_body, Vector3 p_position, Vector3 p_impulse);
 void body_apply_torque_impulse(RID p_body, Vector3 p_impulse);
 void body_attach_object_instance_id(RID p_body, int p_id);
 void body_clear_shapes(RID p_body);
-RID body_create(PhysicsServer::BodyMode p_mode = (PhysicsServer::BodyMode) 2, bool p_init_sleeping = (bool) False);
+RID body_create(PhysicsServer::BodyMode p_mode = (PhysicsServer::BodyMode) 2, bool p_init_sleeping = (bool) false);
 int body_get_collision_layer(RID p_body);
 int body_get_collision_mask(RID p_body);
 PhysicsDirectBodyState body_get_direct_state(RID p_body);
@@ -290,118 +294,118 @@ void space_set_param(RID p_space, PhysicsServer::SpaceParameter p_param, float p
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_PhysicsServer_wrapper_area_add_shape(WasGoId wasgo_id, WasGo::WasGoId p_area, WasGo::WasGoId p_shape, WasGo::WasGoId p_transform, bool p_disabled);
-void _wasgo_PhysicsServer_wrapper_area_attach_object_instance_id(WasGoId wasgo_id, WasGo::WasGoId p_area, int p_id);
-void _wasgo_PhysicsServer_wrapper_area_clear_shapes(WasGoId wasgo_id, WasGo::WasGoId p_area);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_area_create(WasGoId wasgo_id);
-int _wasgo_PhysicsServer_wrapper_area_get_object_instance_id(WasGoId wasgo_id, WasGo::WasGoId p_area);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_area_get_param(WasGoId wasgo_id, WasGo::WasGoId p_area, WasGo::WasGoId p_param);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_area_get_shape(WasGoId wasgo_id, WasGo::WasGoId p_area, int p_shape_idx);
-int _wasgo_PhysicsServer_wrapper_area_get_shape_count(WasGoId wasgo_id, WasGo::WasGoId p_area);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_area_get_shape_transform(WasGoId wasgo_id, WasGo::WasGoId p_area, int p_shape_idx);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_area_get_space(WasGoId wasgo_id, WasGo::WasGoId p_area);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_area_get_space_override_mode(WasGoId wasgo_id, WasGo::WasGoId p_area);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_area_get_transform(WasGoId wasgo_id, WasGo::WasGoId p_area);
-int _wasgo_PhysicsServer_wrapper_area_is_ray_pickable(WasGoId wasgo_id, WasGo::WasGoId p_area);
-void _wasgo_PhysicsServer_wrapper_area_remove_shape(WasGoId wasgo_id, WasGo::WasGoId p_area, int p_shape_idx);
-void _wasgo_PhysicsServer_wrapper_area_set_area_monitor_callback(WasGoId wasgo_id, WasGo::WasGoId p_area, WasGo::WasGoId p_receiver, WasGo::WasGoId p_method);
-void _wasgo_PhysicsServer_wrapper_area_set_collision_layer(WasGoId wasgo_id, WasGo::WasGoId p_area, int p_layer);
-void _wasgo_PhysicsServer_wrapper_area_set_collision_mask(WasGoId wasgo_id, WasGo::WasGoId p_area, int p_mask);
-void _wasgo_PhysicsServer_wrapper_area_set_monitor_callback(WasGoId wasgo_id, WasGo::WasGoId p_area, WasGo::WasGoId p_receiver, WasGo::WasGoId p_method);
-void _wasgo_PhysicsServer_wrapper_area_set_monitorable(WasGoId wasgo_id, WasGo::WasGoId p_area, bool p_monitorable);
-void _wasgo_PhysicsServer_wrapper_area_set_param(WasGoId wasgo_id, WasGo::WasGoId p_area, WasGo::WasGoId p_param, WasGo::WasGoId p_value);
-void _wasgo_PhysicsServer_wrapper_area_set_ray_pickable(WasGoId wasgo_id, WasGo::WasGoId p_area, bool p_enable);
-void _wasgo_PhysicsServer_wrapper_area_set_shape(WasGoId wasgo_id, WasGo::WasGoId p_area, int p_shape_idx, WasGo::WasGoId p_shape);
-void _wasgo_PhysicsServer_wrapper_area_set_shape_disabled(WasGoId wasgo_id, WasGo::WasGoId p_area, int p_shape_idx, bool p_disabled);
-void _wasgo_PhysicsServer_wrapper_area_set_shape_transform(WasGoId wasgo_id, WasGo::WasGoId p_area, int p_shape_idx, WasGo::WasGoId p_transform);
-void _wasgo_PhysicsServer_wrapper_area_set_space(WasGoId wasgo_id, WasGo::WasGoId p_area, WasGo::WasGoId p_space);
-void _wasgo_PhysicsServer_wrapper_area_set_space_override_mode(WasGoId wasgo_id, WasGo::WasGoId p_area, WasGo::WasGoId p_mode);
-void _wasgo_PhysicsServer_wrapper_area_set_transform(WasGoId wasgo_id, WasGo::WasGoId p_area, WasGo::WasGoId p_transform);
-void _wasgo_PhysicsServer_wrapper_body_add_central_force(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_force);
-void _wasgo_PhysicsServer_wrapper_body_add_collision_exception(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_excepted_body);
-void _wasgo_PhysicsServer_wrapper_body_add_force(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_force, WasGo::WasGoId p_position);
-void _wasgo_PhysicsServer_wrapper_body_add_shape(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_shape, WasGo::WasGoId p_transform, bool p_disabled);
-void _wasgo_PhysicsServer_wrapper_body_add_torque(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_torque);
-void _wasgo_PhysicsServer_wrapper_body_apply_central_impulse(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_impulse);
-void _wasgo_PhysicsServer_wrapper_body_apply_impulse(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_position, WasGo::WasGoId p_impulse);
-void _wasgo_PhysicsServer_wrapper_body_apply_torque_impulse(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_impulse);
-void _wasgo_PhysicsServer_wrapper_body_attach_object_instance_id(WasGoId wasgo_id, WasGo::WasGoId p_body, int p_id);
-void _wasgo_PhysicsServer_wrapper_body_clear_shapes(WasGoId wasgo_id, WasGo::WasGoId p_body);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_body_create(WasGoId wasgo_id, WasGo::WasGoId p_mode, bool p_init_sleeping);
-int _wasgo_PhysicsServer_wrapper_body_get_collision_layer(WasGoId wasgo_id, WasGo::WasGoId p_body);
-int _wasgo_PhysicsServer_wrapper_body_get_collision_mask(WasGoId wasgo_id, WasGo::WasGoId p_body);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_body_get_direct_state(WasGoId wasgo_id, WasGo::WasGoId p_body);
-float _wasgo_PhysicsServer_wrapper_body_get_kinematic_safe_margin(WasGoId wasgo_id, WasGo::WasGoId p_body);
-int _wasgo_PhysicsServer_wrapper_body_get_max_contacts_reported(WasGoId wasgo_id, WasGo::WasGoId p_body);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_body_get_mode(WasGoId wasgo_id, WasGo::WasGoId p_body);
-int _wasgo_PhysicsServer_wrapper_body_get_object_instance_id(WasGoId wasgo_id, WasGo::WasGoId p_body);
-float _wasgo_PhysicsServer_wrapper_body_get_param(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_param);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_body_get_shape(WasGoId wasgo_id, WasGo::WasGoId p_body, int p_shape_idx);
-int _wasgo_PhysicsServer_wrapper_body_get_shape_count(WasGoId wasgo_id, WasGo::WasGoId p_body);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_body_get_shape_transform(WasGoId wasgo_id, WasGo::WasGoId p_body, int p_shape_idx);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_body_get_space(WasGoId wasgo_id, WasGo::WasGoId p_body);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_body_get_state(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_state);
-int _wasgo_PhysicsServer_wrapper_body_is_axis_locked(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_axis);
-int _wasgo_PhysicsServer_wrapper_body_is_continuous_collision_detection_enabled(WasGoId wasgo_id, WasGo::WasGoId p_body);
-int _wasgo_PhysicsServer_wrapper_body_is_omitting_force_integration(WasGoId wasgo_id, WasGo::WasGoId p_body);
-int _wasgo_PhysicsServer_wrapper_body_is_ray_pickable(WasGoId wasgo_id, WasGo::WasGoId p_body);
-void _wasgo_PhysicsServer_wrapper_body_remove_collision_exception(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_excepted_body);
-void _wasgo_PhysicsServer_wrapper_body_remove_shape(WasGoId wasgo_id, WasGo::WasGoId p_body, int p_shape_idx);
-void _wasgo_PhysicsServer_wrapper_body_set_axis_lock(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_axis, bool p_lock);
-void _wasgo_PhysicsServer_wrapper_body_set_axis_velocity(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_axis_velocity);
-void _wasgo_PhysicsServer_wrapper_body_set_collision_layer(WasGoId wasgo_id, WasGo::WasGoId p_body, int p_layer);
-void _wasgo_PhysicsServer_wrapper_body_set_collision_mask(WasGoId wasgo_id, WasGo::WasGoId p_body, int p_mask);
-void _wasgo_PhysicsServer_wrapper_body_set_enable_continuous_collision_detection(WasGoId wasgo_id, WasGo::WasGoId p_body, bool p_enable);
-void _wasgo_PhysicsServer_wrapper_body_set_force_integration_callback(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_receiver, WasGo::WasGoId p_method, WasGo::WasGoId p_userdata);
-void _wasgo_PhysicsServer_wrapper_body_set_kinematic_safe_margin(WasGoId wasgo_id, WasGo::WasGoId p_body, float p_margin);
-void _wasgo_PhysicsServer_wrapper_body_set_max_contacts_reported(WasGoId wasgo_id, WasGo::WasGoId p_body, int p_amount);
-void _wasgo_PhysicsServer_wrapper_body_set_mode(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_mode);
-void _wasgo_PhysicsServer_wrapper_body_set_omit_force_integration(WasGoId wasgo_id, WasGo::WasGoId p_body, bool p_enable);
-void _wasgo_PhysicsServer_wrapper_body_set_param(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_param, float p_value);
-void _wasgo_PhysicsServer_wrapper_body_set_ray_pickable(WasGoId wasgo_id, WasGo::WasGoId p_body, bool p_enable);
-void _wasgo_PhysicsServer_wrapper_body_set_shape(WasGoId wasgo_id, WasGo::WasGoId p_body, int p_shape_idx, WasGo::WasGoId p_shape);
-void _wasgo_PhysicsServer_wrapper_body_set_shape_disabled(WasGoId wasgo_id, WasGo::WasGoId p_body, int p_shape_idx, bool p_disabled);
-void _wasgo_PhysicsServer_wrapper_body_set_shape_transform(WasGoId wasgo_id, WasGo::WasGoId p_body, int p_shape_idx, WasGo::WasGoId p_transform);
-void _wasgo_PhysicsServer_wrapper_body_set_space(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_space);
-void _wasgo_PhysicsServer_wrapper_body_set_state(WasGoId wasgo_id, WasGo::WasGoId p_body, WasGo::WasGoId p_state, WasGo::WasGoId p_value);
-float _wasgo_PhysicsServer_wrapper_cone_twist_joint_get_param(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_param);
-void _wasgo_PhysicsServer_wrapper_cone_twist_joint_set_param(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_param, float p_value);
-void _wasgo_PhysicsServer_wrapper_free_rid(WasGoId wasgo_id, WasGo::WasGoId p_rid);
-int _wasgo_PhysicsServer_wrapper_generic_6dof_joint_get_flag(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_axis, WasGo::WasGoId p_flag);
-float _wasgo_PhysicsServer_wrapper_generic_6dof_joint_get_param(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_axis, WasGo::WasGoId p_param);
-void _wasgo_PhysicsServer_wrapper_generic_6dof_joint_set_flag(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_axis, WasGo::WasGoId p_flag, bool p_enable);
-void _wasgo_PhysicsServer_wrapper_generic_6dof_joint_set_param(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_axis, WasGo::WasGoId p_param, float p_value);
-int _wasgo_PhysicsServer_wrapper_get_process_info(WasGoId wasgo_id, WasGo::WasGoId p_process_info);
-int _wasgo_PhysicsServer_wrapper_hinge_joint_get_flag(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_flag);
-float _wasgo_PhysicsServer_wrapper_hinge_joint_get_param(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_param);
-void _wasgo_PhysicsServer_wrapper_hinge_joint_set_flag(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_flag, bool p_enabled);
-void _wasgo_PhysicsServer_wrapper_hinge_joint_set_param(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_param, float p_value);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_joint_create_cone_twist(WasGoId wasgo_id, WasGo::WasGoId p_body_A, WasGo::WasGoId p_local_ref_A, WasGo::WasGoId p_body_B, WasGo::WasGoId p_local_ref_B);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_joint_create_generic_6dof(WasGoId wasgo_id, WasGo::WasGoId p_body_A, WasGo::WasGoId p_local_ref_A, WasGo::WasGoId p_body_B, WasGo::WasGoId p_local_ref_B);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_joint_create_hinge(WasGoId wasgo_id, WasGo::WasGoId p_body_A, WasGo::WasGoId p_hinge_A, WasGo::WasGoId p_body_B, WasGo::WasGoId p_hinge_B);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_joint_create_pin(WasGoId wasgo_id, WasGo::WasGoId p_body_A, WasGo::WasGoId p_local_A, WasGo::WasGoId p_body_B, WasGo::WasGoId p_local_B);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_joint_create_slider(WasGoId wasgo_id, WasGo::WasGoId p_body_A, WasGo::WasGoId p_local_ref_A, WasGo::WasGoId p_body_B, WasGo::WasGoId p_local_ref_B);
-int _wasgo_PhysicsServer_wrapper_joint_get_solver_priority(WasGoId wasgo_id, WasGo::WasGoId p_joint);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_joint_get_type(WasGoId wasgo_id, WasGo::WasGoId p_joint);
-void _wasgo_PhysicsServer_wrapper_joint_set_solver_priority(WasGoId wasgo_id, WasGo::WasGoId p_joint, int p_priority);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_pin_joint_get_local_a(WasGoId wasgo_id, WasGo::WasGoId p_joint);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_pin_joint_get_local_b(WasGoId wasgo_id, WasGo::WasGoId p_joint);
-float _wasgo_PhysicsServer_wrapper_pin_joint_get_param(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_param);
-void _wasgo_PhysicsServer_wrapper_pin_joint_set_local_a(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_local_A);
-void _wasgo_PhysicsServer_wrapper_pin_joint_set_local_b(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_local_B);
-void _wasgo_PhysicsServer_wrapper_pin_joint_set_param(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_param, float p_value);
+void _wasgo_PhysicsServer_wrapper_area_add_shape(WasGoId wasgo_id, WasGoId p_area, WasGoId p_shape, WasGoId p_transform, bool p_disabled);
+void _wasgo_PhysicsServer_wrapper_area_attach_object_instance_id(WasGoId wasgo_id, WasGoId p_area, int p_id);
+void _wasgo_PhysicsServer_wrapper_area_clear_shapes(WasGoId wasgo_id, WasGoId p_area);
+WasGoId _wasgo_PhysicsServer_wrapper_area_create(WasGoId wasgo_id);
+int _wasgo_PhysicsServer_wrapper_area_get_object_instance_id(WasGoId wasgo_id, WasGoId p_area);
+WasGoId _wasgo_PhysicsServer_wrapper_area_get_param(WasGoId wasgo_id, WasGoId p_area, WasGoId p_param);
+WasGoId _wasgo_PhysicsServer_wrapper_area_get_shape(WasGoId wasgo_id, WasGoId p_area, int p_shape_idx);
+int _wasgo_PhysicsServer_wrapper_area_get_shape_count(WasGoId wasgo_id, WasGoId p_area);
+WasGoId _wasgo_PhysicsServer_wrapper_area_get_shape_transform(WasGoId wasgo_id, WasGoId p_area, int p_shape_idx);
+WasGoId _wasgo_PhysicsServer_wrapper_area_get_space(WasGoId wasgo_id, WasGoId p_area);
+WasGoId _wasgo_PhysicsServer_wrapper_area_get_space_override_mode(WasGoId wasgo_id, WasGoId p_area);
+WasGoId _wasgo_PhysicsServer_wrapper_area_get_transform(WasGoId wasgo_id, WasGoId p_area);
+int _wasgo_PhysicsServer_wrapper_area_is_ray_pickable(WasGoId wasgo_id, WasGoId p_area);
+void _wasgo_PhysicsServer_wrapper_area_remove_shape(WasGoId wasgo_id, WasGoId p_area, int p_shape_idx);
+void _wasgo_PhysicsServer_wrapper_area_set_area_monitor_callback(WasGoId wasgo_id, WasGoId p_area, WasGoId p_receiver, WasGoId p_method);
+void _wasgo_PhysicsServer_wrapper_area_set_collision_layer(WasGoId wasgo_id, WasGoId p_area, int p_layer);
+void _wasgo_PhysicsServer_wrapper_area_set_collision_mask(WasGoId wasgo_id, WasGoId p_area, int p_mask);
+void _wasgo_PhysicsServer_wrapper_area_set_monitor_callback(WasGoId wasgo_id, WasGoId p_area, WasGoId p_receiver, WasGoId p_method);
+void _wasgo_PhysicsServer_wrapper_area_set_monitorable(WasGoId wasgo_id, WasGoId p_area, bool p_monitorable);
+void _wasgo_PhysicsServer_wrapper_area_set_param(WasGoId wasgo_id, WasGoId p_area, WasGoId p_param, WasGoId p_value);
+void _wasgo_PhysicsServer_wrapper_area_set_ray_pickable(WasGoId wasgo_id, WasGoId p_area, bool p_enable);
+void _wasgo_PhysicsServer_wrapper_area_set_shape(WasGoId wasgo_id, WasGoId p_area, int p_shape_idx, WasGoId p_shape);
+void _wasgo_PhysicsServer_wrapper_area_set_shape_disabled(WasGoId wasgo_id, WasGoId p_area, int p_shape_idx, bool p_disabled);
+void _wasgo_PhysicsServer_wrapper_area_set_shape_transform(WasGoId wasgo_id, WasGoId p_area, int p_shape_idx, WasGoId p_transform);
+void _wasgo_PhysicsServer_wrapper_area_set_space(WasGoId wasgo_id, WasGoId p_area, WasGoId p_space);
+void _wasgo_PhysicsServer_wrapper_area_set_space_override_mode(WasGoId wasgo_id, WasGoId p_area, WasGoId p_mode);
+void _wasgo_PhysicsServer_wrapper_area_set_transform(WasGoId wasgo_id, WasGoId p_area, WasGoId p_transform);
+void _wasgo_PhysicsServer_wrapper_body_add_central_force(WasGoId wasgo_id, WasGoId p_body, WasGoId p_force);
+void _wasgo_PhysicsServer_wrapper_body_add_collision_exception(WasGoId wasgo_id, WasGoId p_body, WasGoId p_excepted_body);
+void _wasgo_PhysicsServer_wrapper_body_add_force(WasGoId wasgo_id, WasGoId p_body, WasGoId p_force, WasGoId p_position);
+void _wasgo_PhysicsServer_wrapper_body_add_shape(WasGoId wasgo_id, WasGoId p_body, WasGoId p_shape, WasGoId p_transform, bool p_disabled);
+void _wasgo_PhysicsServer_wrapper_body_add_torque(WasGoId wasgo_id, WasGoId p_body, WasGoId p_torque);
+void _wasgo_PhysicsServer_wrapper_body_apply_central_impulse(WasGoId wasgo_id, WasGoId p_body, WasGoId p_impulse);
+void _wasgo_PhysicsServer_wrapper_body_apply_impulse(WasGoId wasgo_id, WasGoId p_body, WasGoId p_position, WasGoId p_impulse);
+void _wasgo_PhysicsServer_wrapper_body_apply_torque_impulse(WasGoId wasgo_id, WasGoId p_body, WasGoId p_impulse);
+void _wasgo_PhysicsServer_wrapper_body_attach_object_instance_id(WasGoId wasgo_id, WasGoId p_body, int p_id);
+void _wasgo_PhysicsServer_wrapper_body_clear_shapes(WasGoId wasgo_id, WasGoId p_body);
+WasGoId _wasgo_PhysicsServer_wrapper_body_create(WasGoId wasgo_id, WasGoId p_mode, bool p_init_sleeping);
+int _wasgo_PhysicsServer_wrapper_body_get_collision_layer(WasGoId wasgo_id, WasGoId p_body);
+int _wasgo_PhysicsServer_wrapper_body_get_collision_mask(WasGoId wasgo_id, WasGoId p_body);
+WasGoId _wasgo_PhysicsServer_wrapper_body_get_direct_state(WasGoId wasgo_id, WasGoId p_body);
+float _wasgo_PhysicsServer_wrapper_body_get_kinematic_safe_margin(WasGoId wasgo_id, WasGoId p_body);
+int _wasgo_PhysicsServer_wrapper_body_get_max_contacts_reported(WasGoId wasgo_id, WasGoId p_body);
+WasGoId _wasgo_PhysicsServer_wrapper_body_get_mode(WasGoId wasgo_id, WasGoId p_body);
+int _wasgo_PhysicsServer_wrapper_body_get_object_instance_id(WasGoId wasgo_id, WasGoId p_body);
+float _wasgo_PhysicsServer_wrapper_body_get_param(WasGoId wasgo_id, WasGoId p_body, WasGoId p_param);
+WasGoId _wasgo_PhysicsServer_wrapper_body_get_shape(WasGoId wasgo_id, WasGoId p_body, int p_shape_idx);
+int _wasgo_PhysicsServer_wrapper_body_get_shape_count(WasGoId wasgo_id, WasGoId p_body);
+WasGoId _wasgo_PhysicsServer_wrapper_body_get_shape_transform(WasGoId wasgo_id, WasGoId p_body, int p_shape_idx);
+WasGoId _wasgo_PhysicsServer_wrapper_body_get_space(WasGoId wasgo_id, WasGoId p_body);
+WasGoId _wasgo_PhysicsServer_wrapper_body_get_state(WasGoId wasgo_id, WasGoId p_body, WasGoId p_state);
+int _wasgo_PhysicsServer_wrapper_body_is_axis_locked(WasGoId wasgo_id, WasGoId p_body, WasGoId p_axis);
+int _wasgo_PhysicsServer_wrapper_body_is_continuous_collision_detection_enabled(WasGoId wasgo_id, WasGoId p_body);
+int _wasgo_PhysicsServer_wrapper_body_is_omitting_force_integration(WasGoId wasgo_id, WasGoId p_body);
+int _wasgo_PhysicsServer_wrapper_body_is_ray_pickable(WasGoId wasgo_id, WasGoId p_body);
+void _wasgo_PhysicsServer_wrapper_body_remove_collision_exception(WasGoId wasgo_id, WasGoId p_body, WasGoId p_excepted_body);
+void _wasgo_PhysicsServer_wrapper_body_remove_shape(WasGoId wasgo_id, WasGoId p_body, int p_shape_idx);
+void _wasgo_PhysicsServer_wrapper_body_set_axis_lock(WasGoId wasgo_id, WasGoId p_body, WasGoId p_axis, bool p_lock);
+void _wasgo_PhysicsServer_wrapper_body_set_axis_velocity(WasGoId wasgo_id, WasGoId p_body, WasGoId p_axis_velocity);
+void _wasgo_PhysicsServer_wrapper_body_set_collision_layer(WasGoId wasgo_id, WasGoId p_body, int p_layer);
+void _wasgo_PhysicsServer_wrapper_body_set_collision_mask(WasGoId wasgo_id, WasGoId p_body, int p_mask);
+void _wasgo_PhysicsServer_wrapper_body_set_enable_continuous_collision_detection(WasGoId wasgo_id, WasGoId p_body, bool p_enable);
+void _wasgo_PhysicsServer_wrapper_body_set_force_integration_callback(WasGoId wasgo_id, WasGoId p_body, WasGoId p_receiver, WasGoId p_method, WasGoId p_userdata);
+void _wasgo_PhysicsServer_wrapper_body_set_kinematic_safe_margin(WasGoId wasgo_id, WasGoId p_body, float p_margin);
+void _wasgo_PhysicsServer_wrapper_body_set_max_contacts_reported(WasGoId wasgo_id, WasGoId p_body, int p_amount);
+void _wasgo_PhysicsServer_wrapper_body_set_mode(WasGoId wasgo_id, WasGoId p_body, WasGoId p_mode);
+void _wasgo_PhysicsServer_wrapper_body_set_omit_force_integration(WasGoId wasgo_id, WasGoId p_body, bool p_enable);
+void _wasgo_PhysicsServer_wrapper_body_set_param(WasGoId wasgo_id, WasGoId p_body, WasGoId p_param, float p_value);
+void _wasgo_PhysicsServer_wrapper_body_set_ray_pickable(WasGoId wasgo_id, WasGoId p_body, bool p_enable);
+void _wasgo_PhysicsServer_wrapper_body_set_shape(WasGoId wasgo_id, WasGoId p_body, int p_shape_idx, WasGoId p_shape);
+void _wasgo_PhysicsServer_wrapper_body_set_shape_disabled(WasGoId wasgo_id, WasGoId p_body, int p_shape_idx, bool p_disabled);
+void _wasgo_PhysicsServer_wrapper_body_set_shape_transform(WasGoId wasgo_id, WasGoId p_body, int p_shape_idx, WasGoId p_transform);
+void _wasgo_PhysicsServer_wrapper_body_set_space(WasGoId wasgo_id, WasGoId p_body, WasGoId p_space);
+void _wasgo_PhysicsServer_wrapper_body_set_state(WasGoId wasgo_id, WasGoId p_body, WasGoId p_state, WasGoId p_value);
+float _wasgo_PhysicsServer_wrapper_cone_twist_joint_get_param(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_param);
+void _wasgo_PhysicsServer_wrapper_cone_twist_joint_set_param(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_param, float p_value);
+void _wasgo_PhysicsServer_wrapper_free_rid(WasGoId wasgo_id, WasGoId p_rid);
+int _wasgo_PhysicsServer_wrapper_generic_6dof_joint_get_flag(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_axis, WasGoId p_flag);
+float _wasgo_PhysicsServer_wrapper_generic_6dof_joint_get_param(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_axis, WasGoId p_param);
+void _wasgo_PhysicsServer_wrapper_generic_6dof_joint_set_flag(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_axis, WasGoId p_flag, bool p_enable);
+void _wasgo_PhysicsServer_wrapper_generic_6dof_joint_set_param(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_axis, WasGoId p_param, float p_value);
+int _wasgo_PhysicsServer_wrapper_get_process_info(WasGoId wasgo_id, WasGoId p_process_info);
+int _wasgo_PhysicsServer_wrapper_hinge_joint_get_flag(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_flag);
+float _wasgo_PhysicsServer_wrapper_hinge_joint_get_param(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_param);
+void _wasgo_PhysicsServer_wrapper_hinge_joint_set_flag(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_flag, bool p_enabled);
+void _wasgo_PhysicsServer_wrapper_hinge_joint_set_param(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_param, float p_value);
+WasGoId _wasgo_PhysicsServer_wrapper_joint_create_cone_twist(WasGoId wasgo_id, WasGoId p_body_A, WasGoId p_local_ref_A, WasGoId p_body_B, WasGoId p_local_ref_B);
+WasGoId _wasgo_PhysicsServer_wrapper_joint_create_generic_6dof(WasGoId wasgo_id, WasGoId p_body_A, WasGoId p_local_ref_A, WasGoId p_body_B, WasGoId p_local_ref_B);
+WasGoId _wasgo_PhysicsServer_wrapper_joint_create_hinge(WasGoId wasgo_id, WasGoId p_body_A, WasGoId p_hinge_A, WasGoId p_body_B, WasGoId p_hinge_B);
+WasGoId _wasgo_PhysicsServer_wrapper_joint_create_pin(WasGoId wasgo_id, WasGoId p_body_A, WasGoId p_local_A, WasGoId p_body_B, WasGoId p_local_B);
+WasGoId _wasgo_PhysicsServer_wrapper_joint_create_slider(WasGoId wasgo_id, WasGoId p_body_A, WasGoId p_local_ref_A, WasGoId p_body_B, WasGoId p_local_ref_B);
+int _wasgo_PhysicsServer_wrapper_joint_get_solver_priority(WasGoId wasgo_id, WasGoId p_joint);
+WasGoId _wasgo_PhysicsServer_wrapper_joint_get_type(WasGoId wasgo_id, WasGoId p_joint);
+void _wasgo_PhysicsServer_wrapper_joint_set_solver_priority(WasGoId wasgo_id, WasGoId p_joint, int p_priority);
+WasGoId _wasgo_PhysicsServer_wrapper_pin_joint_get_local_a(WasGoId wasgo_id, WasGoId p_joint);
+WasGoId _wasgo_PhysicsServer_wrapper_pin_joint_get_local_b(WasGoId wasgo_id, WasGoId p_joint);
+float _wasgo_PhysicsServer_wrapper_pin_joint_get_param(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_param);
+void _wasgo_PhysicsServer_wrapper_pin_joint_set_local_a(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_local_A);
+void _wasgo_PhysicsServer_wrapper_pin_joint_set_local_b(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_local_B);
+void _wasgo_PhysicsServer_wrapper_pin_joint_set_param(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_param, float p_value);
 void _wasgo_PhysicsServer_wrapper_set_active(WasGoId wasgo_id, bool p_active);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_shape_create(WasGoId wasgo_id, WasGo::WasGoId p_type);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_shape_get_data(WasGoId wasgo_id, WasGo::WasGoId p_shape);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_shape_get_type(WasGoId wasgo_id, WasGo::WasGoId p_shape);
-void _wasgo_PhysicsServer_wrapper_shape_set_data(WasGoId wasgo_id, WasGo::WasGoId p_shape, WasGo::WasGoId p_data);
-float _wasgo_PhysicsServer_wrapper_slider_joint_get_param(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_param);
-void _wasgo_PhysicsServer_wrapper_slider_joint_set_param(WasGoId wasgo_id, WasGo::WasGoId p_joint, WasGo::WasGoId p_param, float p_value);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_space_create(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_PhysicsServer_wrapper_space_get_direct_state(WasGoId wasgo_id, WasGo::WasGoId p_space);
-float _wasgo_PhysicsServer_wrapper_space_get_param(WasGoId wasgo_id, WasGo::WasGoId p_space, WasGo::WasGoId p_param);
-int _wasgo_PhysicsServer_wrapper_space_is_active(WasGoId wasgo_id, WasGo::WasGoId p_space);
-void _wasgo_PhysicsServer_wrapper_space_set_active(WasGoId wasgo_id, WasGo::WasGoId p_space, bool p_active);
-void _wasgo_PhysicsServer_wrapper_space_set_param(WasGoId wasgo_id, WasGo::WasGoId p_space, WasGo::WasGoId p_param, float p_value);
+WasGoId _wasgo_PhysicsServer_wrapper_shape_create(WasGoId wasgo_id, WasGoId p_type);
+WasGoId _wasgo_PhysicsServer_wrapper_shape_get_data(WasGoId wasgo_id, WasGoId p_shape);
+WasGoId _wasgo_PhysicsServer_wrapper_shape_get_type(WasGoId wasgo_id, WasGoId p_shape);
+void _wasgo_PhysicsServer_wrapper_shape_set_data(WasGoId wasgo_id, WasGoId p_shape, WasGoId p_data);
+float _wasgo_PhysicsServer_wrapper_slider_joint_get_param(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_param);
+void _wasgo_PhysicsServer_wrapper_slider_joint_set_param(WasGoId wasgo_id, WasGoId p_joint, WasGoId p_param, float p_value);
+WasGoId _wasgo_PhysicsServer_wrapper_space_create(WasGoId wasgo_id);
+WasGoId _wasgo_PhysicsServer_wrapper_space_get_direct_state(WasGoId wasgo_id, WasGoId p_space);
+float _wasgo_PhysicsServer_wrapper_space_get_param(WasGoId wasgo_id, WasGoId p_space, WasGoId p_param);
+int _wasgo_PhysicsServer_wrapper_space_is_active(WasGoId wasgo_id, WasGoId p_space);
+void _wasgo_PhysicsServer_wrapper_space_set_active(WasGoId wasgo_id, WasGoId p_space, bool p_active);
+void _wasgo_PhysicsServer_wrapper_space_set_param(WasGoId wasgo_id, WasGoId p_space, WasGoId p_param, float p_value);
 }
 #endif

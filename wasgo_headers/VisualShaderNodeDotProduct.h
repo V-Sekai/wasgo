@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeDotProduct : public VisualShaderNode{
+public:
 
 VisualShaderNodeDotProduct(WasGoId p_wasgo_id);
 ~VisualShaderNodeDotProduct();

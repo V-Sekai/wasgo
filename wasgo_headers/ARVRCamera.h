@@ -7,6 +7,7 @@
 
 #include "Camera.h"
 class ARVRCamera : public Camera{
+public:
 
 ARVRCamera(WasGoId p_wasgo_id);
 ~ARVRCamera();

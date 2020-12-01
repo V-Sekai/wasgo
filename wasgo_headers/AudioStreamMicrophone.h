@@ -7,6 +7,7 @@
 
 #include "AudioStream.h"
 class AudioStreamMicrophone : public AudioStream{
+public:
 
 AudioStreamMicrophone(WasGoId p_wasgo_id);
 ~AudioStreamMicrophone();

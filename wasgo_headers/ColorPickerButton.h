@@ -5,11 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "ColorPicker.h"
+#include "Color.h"
 #include "Button.h"
 #include "PopupPanel.h"
+#include "ColorPicker.h"
 class ColorPickerButton : public Button{
+public:
 Color get_pick_color();
 ColorPicker get_picker();
 PopupPanel get_popup();
@@ -25,11 +26,11 @@ ColorPickerButton(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_ColorPickerButton_wrapper_get_pick_color(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ColorPickerButton_wrapper_get_picker(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_ColorPickerButton_wrapper_get_popup(WasGoId wasgo_id);
+WasGoId _wasgo_ColorPickerButton_wrapper_get_pick_color(WasGoId wasgo_id);
+WasGoId _wasgo_ColorPickerButton_wrapper_get_picker(WasGoId wasgo_id);
+WasGoId _wasgo_ColorPickerButton_wrapper_get_popup(WasGoId wasgo_id);
 int _wasgo_ColorPickerButton_wrapper_is_editing_alpha(WasGoId wasgo_id);
 void _wasgo_ColorPickerButton_wrapper_set_edit_alpha(WasGoId wasgo_id, bool p_show);
-void _wasgo_ColorPickerButton_wrapper_set_pick_color(WasGoId wasgo_id, WasGo::WasGoId p_color);
+void _wasgo_ColorPickerButton_wrapper_set_pick_color(WasGoId wasgo_id, WasGoId p_color);
 }
 #endif

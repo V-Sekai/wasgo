@@ -30,7 +30,7 @@
 
 #include "face3.h"
 
-#include "core/math/geometry.h"
+// #include "geometry.h"
 
 int Face3::split_by_plane(const Plane &p_plane, Face3 p_res[3], bool p_is_point_over[3]) const {
 
@@ -113,15 +113,15 @@ int Face3::split_by_plane(const Plane &p_plane, Face3 p_res[3], bool p_is_point_
 	return polygons_created;
 }
 
-bool Face3::intersects_ray(const Vector3 &p_from, const Vector3 &p_dir, Vector3 *p_intersection) const {
+// bool Face3::intersects_ray(const Vector3 &p_from, const Vector3 &p_dir, Vector3 *p_intersection) const {
 
-	return Geometry::ray_intersects_triangle(p_from, p_dir, vertex[0], vertex[1], vertex[2], p_intersection);
-}
+// 	return Geometry::ray_intersects_triangle(p_from, p_dir, vertex[0], vertex[1], vertex[2], p_intersection);
+// }
 
-bool Face3::intersects_segment(const Vector3 &p_from, const Vector3 &p_dir, Vector3 *p_intersection) const {
+// bool Face3::intersects_segment(const Vector3 &p_from, const Vector3 &p_dir, Vector3 *p_intersection) const {
 
-	return Geometry::segment_intersects_triangle(p_from, p_dir, vertex[0], vertex[1], vertex[2], p_intersection);
-}
+// 	return Geometry::segment_intersects_triangle(p_from, p_dir, vertex[0], vertex[1], vertex[2], p_intersection);
+// }
 
 bool Face3::is_degenerate() const {
 
@@ -158,16 +158,16 @@ Face3::Side Face3::get_side_of(const Face3 &p_face, ClockDirection p_clock_dir) 
 		return SIDE_SPANNING;
 }
 
-Vector3 Face3::get_random_point_inside() const {
+// Vector3 Face3::get_random_point_inside() const {
 
-	real_t a = Math::random(0, 1);
-	real_t b = Math::random(0, 1);
-	if (a > b) {
-		SWAP(a, b);
-	}
+// 	real_t a = Math::random(0, 1);
+// 	real_t b = Math::random(0, 1);
+// 	if (a > b) {
+// 		SWAP(a, b);
+// 	}
 
-	return vertex[0] * a + vertex[1] * (b - a) + vertex[2] * (1.0 - b);
-}
+// 	return vertex[0] * a + vertex[1] * (b - a) + vertex[2] * (1.0 - b);
+// }
 
 Plane Face3::get_plane(ClockDirection p_dir) const {
 

@@ -8,6 +8,7 @@
 #include "Variant.h"
 #include "Resource.h"
 class NavigationPolygon : public Resource{
+public:
 void add_outline(PoolVector2Array p_outline);
 void add_outline_at_index(PoolVector2Array p_outline, int p_index);
 void add_polygon(PoolIntArray p_polygon);
@@ -31,19 +32,19 @@ NavigationPolygon(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_NavigationPolygon_wrapper_add_outline(WasGoId wasgo_id, WasGo::WasGoId p_outline);
-void _wasgo_NavigationPolygon_wrapper_add_outline_at_index(WasGoId wasgo_id, WasGo::WasGoId p_outline, int p_index);
-void _wasgo_NavigationPolygon_wrapper_add_polygon(WasGoId wasgo_id, WasGo::WasGoId p_polygon);
+void _wasgo_NavigationPolygon_wrapper_add_outline(WasGoId wasgo_id, WasGoId p_outline);
+void _wasgo_NavigationPolygon_wrapper_add_outline_at_index(WasGoId wasgo_id, WasGoId p_outline, int p_index);
+void _wasgo_NavigationPolygon_wrapper_add_polygon(WasGoId wasgo_id, WasGoId p_polygon);
 void _wasgo_NavigationPolygon_wrapper_clear_outlines(WasGoId wasgo_id);
 void _wasgo_NavigationPolygon_wrapper_clear_polygons(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_NavigationPolygon_wrapper_get_outline(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_NavigationPolygon_wrapper_get_outline(WasGoId wasgo_id, int p_idx);
 int _wasgo_NavigationPolygon_wrapper_get_outline_count(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_NavigationPolygon_wrapper_get_polygon(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_NavigationPolygon_wrapper_get_polygon(WasGoId wasgo_id, int p_idx);
 int _wasgo_NavigationPolygon_wrapper_get_polygon_count(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_NavigationPolygon_wrapper_get_vertices(WasGoId wasgo_id);
+WasGoId _wasgo_NavigationPolygon_wrapper_get_vertices(WasGoId wasgo_id);
 void _wasgo_NavigationPolygon_wrapper_make_polygons_from_outlines(WasGoId wasgo_id);
 void _wasgo_NavigationPolygon_wrapper_remove_outline(WasGoId wasgo_id, int p_idx);
-void _wasgo_NavigationPolygon_wrapper_set_outline(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_outline);
-void _wasgo_NavigationPolygon_wrapper_set_vertices(WasGoId wasgo_id, WasGo::WasGoId p_vertices);
+void _wasgo_NavigationPolygon_wrapper_set_outline(WasGoId wasgo_id, int p_idx, WasGoId p_outline);
+void _wasgo_NavigationPolygon_wrapper_set_vertices(WasGoId wasgo_id, WasGoId p_vertices);
 }
 #endif

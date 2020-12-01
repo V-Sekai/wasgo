@@ -8,6 +8,7 @@
 #include "PacketPeer.h"
 #include "StreamPeer.h"
 class PacketPeerStream : public PacketPeer{
+public:
 int get_input_buffer_max_size();
 int get_output_buffer_max_size();
 StreamPeer get_stream_peer();
@@ -25,9 +26,9 @@ PacketPeerStream(WasGoId p_wasgo_id);
 extern "C"{
 int _wasgo_PacketPeerStream_wrapper_get_input_buffer_max_size(WasGoId wasgo_id);
 int _wasgo_PacketPeerStream_wrapper_get_output_buffer_max_size(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_PacketPeerStream_wrapper_get_stream_peer(WasGoId wasgo_id);
+WasGoId _wasgo_PacketPeerStream_wrapper_get_stream_peer(WasGoId wasgo_id);
 void _wasgo_PacketPeerStream_wrapper_set_input_buffer_max_size(WasGoId wasgo_id, int p_max_size_bytes);
 void _wasgo_PacketPeerStream_wrapper_set_output_buffer_max_size(WasGoId wasgo_id, int p_max_size_bytes);
-void _wasgo_PacketPeerStream_wrapper_set_stream_peer(WasGoId wasgo_id, WasGo::WasGoId p_peer);
+void _wasgo_PacketPeerStream_wrapper_set_stream_peer(WasGoId wasgo_id, WasGoId p_peer);
 }
 #endif

@@ -7,6 +7,7 @@
 
 #include "Variant.h"
 class Object : public Variant{
+public:
 enum ConnectFlags{
 CONNECT_DEFERRED,
 CONNECT_PERSIST,

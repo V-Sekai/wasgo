@@ -7,6 +7,7 @@
 
 #include "Spatial.h"
 class VisualInstance : public Spatial{
+public:
 };
 
 

@@ -7,6 +7,7 @@
 
 #include "Range.h"
 class Slider : public Range{
+public:
 };
 
 

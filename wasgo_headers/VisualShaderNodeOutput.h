@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeOutput : public VisualShaderNode{
+public:
 };
 
 

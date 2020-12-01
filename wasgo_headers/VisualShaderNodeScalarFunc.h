@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeScalarFunc : public VisualShaderNode{
+public:
 enum Function{
 FUNC_SIN,
 FUNC_COS,
@@ -52,7 +53,7 @@ VisualShaderNodeScalarFunc(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_VisualShaderNodeScalarFunc_wrapper_get_function(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeScalarFunc_wrapper_set_function(WasGoId wasgo_id, WasGo::WasGoId p_func);
+WasGoId _wasgo_VisualShaderNodeScalarFunc_wrapper_get_function(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeScalarFunc_wrapper_set_function(WasGoId wasgo_id, WasGoId p_func);
 }
 #endif

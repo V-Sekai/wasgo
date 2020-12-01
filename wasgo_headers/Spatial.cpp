@@ -28,40 +28,35 @@ World Spatial::get_world(){
 	return World::from_wasgo_id(_wasgo_Spatial_wrapper_get_world(wasgo_id));
 }
 bool Spatial::is_scale_disabled(){
-	return (bool) _wasgo_Spatial_wrapper_is_scale_disabled(wasgo_id));
+	return (bool) _wasgo_Spatial_wrapper_is_scale_disabled(wasgo_id);
 }
 bool Spatial::is_set_as_toplevel(){
-	return (bool) _wasgo_Spatial_wrapper_is_set_as_toplevel(wasgo_id));
+	return (bool) _wasgo_Spatial_wrapper_is_set_as_toplevel(wasgo_id);
 }
 void Spatial::set_as_toplevel(bool p_enable){
-	_wasgo_Spatial_wrapper_set_as_toplevel(wasgo_id, enable);
+	_wasgo_Spatial_wrapper_set_as_toplevel(wasgo_id, p_enable);
 }
 void Spatial::set_disable_scale(bool p_disable){
-	_wasgo_Spatial_wrapper_set_disable_scale(wasgo_id, disable);
+	_wasgo_Spatial_wrapper_set_disable_scale(wasgo_id, p_disable);
 }
 void Spatial::set_global_transform(Transform p_global){
-	_wasgo_Spatial_wrapper_set_global_transform(wasgo_id, ((Variant) global).get_wasgo_id());
+	_wasgo_Spatial_wrapper_set_global_transform(wasgo_id, ((Variant) p_global).get_wasgo_id());
 }
 void Spatial::set_ignore_transform_notification(bool p_enabled){
-	_wasgo_Spatial_wrapper_set_ignore_transform_notification(wasgo_id, enabled);
+	_wasgo_Spatial_wrapper_set_ignore_transform_notification(wasgo_id, p_enabled);
 }
 void Spatial::set_rotation(Vector3 p_euler){
-	_wasgo_Spatial_wrapper_set_rotation(wasgo_id, ((Variant) euler).get_wasgo_id());
+	_wasgo_Spatial_wrapper_set_rotation(wasgo_id, ((Variant) p_euler).get_wasgo_id());
 }
 void Spatial::set_rotation_degrees(Vector3 p_euler_degrees){
-	_wasgo_Spatial_wrapper_set_rotation_degrees(wasgo_id, ((Variant) euler_degrees).get_wasgo_id());
+	_wasgo_Spatial_wrapper_set_rotation_degrees(wasgo_id, ((Variant) p_euler_degrees).get_wasgo_id());
 }
 void Spatial::set_scale(Vector3 p_scale){
-	_wasgo_Spatial_wrapper_set_scale(wasgo_id, ((Variant) scale).get_wasgo_id());
+	_wasgo_Spatial_wrapper_set_scale(wasgo_id, ((Variant) p_scale).get_wasgo_id());
 }
 void Spatial::set_transform(Transform p_local){
-	_wasgo_Spatial_wrapper_set_transform(wasgo_id, ((Variant) local).get_wasgo_id());
+	_wasgo_Spatial_wrapper_set_transform(wasgo_id, ((Variant) p_local).get_wasgo_id());
 }
 void Spatial::set_translation(Vector3 p_translation){
-	_wasgo_Spatial_wrapper_set_translation(wasgo_id, ((Variant) translation).get_wasgo_id());
-}
-
-Spatial::Spatial(WasGoId p_wasgo_id) : Variant(p_wasgo_id){
-}
-Spatial::~Spatial(){
+	_wasgo_Spatial_wrapper_set_translation(wasgo_id, ((Variant) p_translation).get_wasgo_id());
 }

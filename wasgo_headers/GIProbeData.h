@@ -5,9 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "Transform.h"
 #include "Variant.h"
+#include "AABB.h"
 #include "Resource.h"
 class GIProbeData : public Resource{
+public:
 float get_bias();
 AABB get_bounds();
 float get_cell_size();
@@ -40,26 +43,26 @@ GIProbeData(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 float _wasgo_GIProbeData_wrapper_get_bias(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_GIProbeData_wrapper_get_bounds(WasGoId wasgo_id);
+WasGoId _wasgo_GIProbeData_wrapper_get_bounds(WasGoId wasgo_id);
 float _wasgo_GIProbeData_wrapper_get_cell_size(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_GIProbeData_wrapper_get_dynamic_data(WasGoId wasgo_id);
+WasGoId _wasgo_GIProbeData_wrapper_get_dynamic_data(WasGoId wasgo_id);
 int _wasgo_GIProbeData_wrapper_get_dynamic_range(WasGoId wasgo_id);
 float _wasgo_GIProbeData_wrapper_get_energy(WasGoId wasgo_id);
 float _wasgo_GIProbeData_wrapper_get_normal_bias(WasGoId wasgo_id);
 float _wasgo_GIProbeData_wrapper_get_propagation(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_GIProbeData_wrapper_get_to_cell_xform(WasGoId wasgo_id);
+WasGoId _wasgo_GIProbeData_wrapper_get_to_cell_xform(WasGoId wasgo_id);
 int _wasgo_GIProbeData_wrapper_is_compressed(WasGoId wasgo_id);
 int _wasgo_GIProbeData_wrapper_is_interior(WasGoId wasgo_id);
 void _wasgo_GIProbeData_wrapper_set_bias(WasGoId wasgo_id, float p_bias);
-void _wasgo_GIProbeData_wrapper_set_bounds(WasGoId wasgo_id, WasGo::WasGoId p_bounds);
+void _wasgo_GIProbeData_wrapper_set_bounds(WasGoId wasgo_id, WasGoId p_bounds);
 void _wasgo_GIProbeData_wrapper_set_cell_size(WasGoId wasgo_id, float p_cell_size);
 void _wasgo_GIProbeData_wrapper_set_compress(WasGoId wasgo_id, bool p_compress);
-void _wasgo_GIProbeData_wrapper_set_dynamic_data(WasGoId wasgo_id, WasGo::WasGoId p_dynamic_data);
+void _wasgo_GIProbeData_wrapper_set_dynamic_data(WasGoId wasgo_id, WasGoId p_dynamic_data);
 void _wasgo_GIProbeData_wrapper_set_dynamic_range(WasGoId wasgo_id, int p_dynamic_range);
 void _wasgo_GIProbeData_wrapper_set_energy(WasGoId wasgo_id, float p_energy);
 void _wasgo_GIProbeData_wrapper_set_interior(WasGoId wasgo_id, bool p_interior);
 void _wasgo_GIProbeData_wrapper_set_normal_bias(WasGoId wasgo_id, float p_bias);
 void _wasgo_GIProbeData_wrapper_set_propagation(WasGoId wasgo_id, float p_propagation);
-void _wasgo_GIProbeData_wrapper_set_to_cell_xform(WasGoId wasgo_id, WasGo::WasGoId p_to_cell_xform);
+void _wasgo_GIProbeData_wrapper_set_to_cell_xform(WasGoId wasgo_id, WasGoId p_to_cell_xform);
 }
 #endif

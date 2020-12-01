@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class RichTextEffect : public Resource{
+public:
 
 RichTextEffect(WasGoId p_wasgo_id);
 ~RichTextEffect();

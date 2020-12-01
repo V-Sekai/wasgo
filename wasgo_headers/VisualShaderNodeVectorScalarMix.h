@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorScalarMix : public VisualShaderNode{
+public:
 
 VisualShaderNodeVectorScalarMix(WasGoId p_wasgo_id);
 ~VisualShaderNodeVectorScalarMix();

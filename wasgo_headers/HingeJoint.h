@@ -7,6 +7,7 @@
 
 #include "Joint.h"
 class HingeJoint : public Joint{
+public:
 enum Flag{
 FLAG_USE_LIMIT,
 FLAG_ENABLE_MOTOR,
@@ -36,9 +37,9 @@ HingeJoint(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_HingeJoint_wrapper_get_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag);
-float _wasgo_HingeJoint_wrapper_get_param(WasGoId wasgo_id, WasGo::WasGoId p_param);
-void _wasgo_HingeJoint_wrapper_set_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag, bool p_enabled);
-void _wasgo_HingeJoint_wrapper_set_param(WasGoId wasgo_id, WasGo::WasGoId p_param, float p_value);
+int _wasgo_HingeJoint_wrapper_get_flag(WasGoId wasgo_id, WasGoId p_flag);
+float _wasgo_HingeJoint_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
+void _wasgo_HingeJoint_wrapper_set_flag(WasGoId wasgo_id, WasGoId p_flag, bool p_enabled);
+void _wasgo_HingeJoint_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
 }
 #endif

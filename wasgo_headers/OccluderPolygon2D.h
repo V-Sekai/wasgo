@@ -8,6 +8,7 @@
 #include "Variant.h"
 #include "Resource.h"
 class OccluderPolygon2D : public Resource{
+public:
 enum CullMode{
 CULL_DISABLED,
 CULL_CLOCKWISE,
@@ -28,11 +29,11 @@ OccluderPolygon2D(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_OccluderPolygon2D_wrapper_get_cull_mode(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_OccluderPolygon2D_wrapper_get_polygon(WasGoId wasgo_id);
+WasGoId _wasgo_OccluderPolygon2D_wrapper_get_cull_mode(WasGoId wasgo_id);
+WasGoId _wasgo_OccluderPolygon2D_wrapper_get_polygon(WasGoId wasgo_id);
 int _wasgo_OccluderPolygon2D_wrapper_is_closed(WasGoId wasgo_id);
 void _wasgo_OccluderPolygon2D_wrapper_set_closed(WasGoId wasgo_id, bool p_closed);
-void _wasgo_OccluderPolygon2D_wrapper_set_cull_mode(WasGoId wasgo_id, WasGo::WasGoId p_cull_mode);
-void _wasgo_OccluderPolygon2D_wrapper_set_polygon(WasGoId wasgo_id, WasGo::WasGoId p_polygon);
+void _wasgo_OccluderPolygon2D_wrapper_set_cull_mode(WasGoId wasgo_id, WasGoId p_cull_mode);
+void _wasgo_OccluderPolygon2D_wrapper_set_polygon(WasGoId wasgo_id, WasGoId p_polygon);
 }
 #endif

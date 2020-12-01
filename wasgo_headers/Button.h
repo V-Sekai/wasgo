@@ -5,10 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "BaseButton.h"
+#include "ustring.h"
 #include "Texture.h"
+#include "BaseButton.h"
 class Button : public BaseButton{
+public:
 enum TextAlign{
 ALIGN_LEFT,
 ALIGN_CENTER,
@@ -35,17 +36,17 @@ Button(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_Button_wrapper_get_button_icon(WasGoId wasgo_id);
+WasGoId _wasgo_Button_wrapper_get_button_icon(WasGoId wasgo_id);
 int _wasgo_Button_wrapper_get_clip_text(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Button_wrapper_get_text(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Button_wrapper_get_text_align(WasGoId wasgo_id);
+WasGoId _wasgo_Button_wrapper_get_text(WasGoId wasgo_id);
+WasGoId _wasgo_Button_wrapper_get_text_align(WasGoId wasgo_id);
 int _wasgo_Button_wrapper_is_expand_icon(WasGoId wasgo_id);
 int _wasgo_Button_wrapper_is_flat(WasGoId wasgo_id);
-void _wasgo_Button_wrapper_set_button_icon(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+void _wasgo_Button_wrapper_set_button_icon(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_Button_wrapper_set_clip_text(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_Button_wrapper_set_expand_icon(WasGoId wasgo_id, bool p_arg0);
 void _wasgo_Button_wrapper_set_flat(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Button_wrapper_set_text(WasGoId wasgo_id, WasGo::WasGoId p_text);
-void _wasgo_Button_wrapper_set_text_align(WasGoId wasgo_id, WasGo::WasGoId p_align);
+void _wasgo_Button_wrapper_set_text(WasGoId wasgo_id, WasGoId p_text);
+void _wasgo_Button_wrapper_set_text_align(WasGoId wasgo_id, WasGoId p_align);
 }
 #endif

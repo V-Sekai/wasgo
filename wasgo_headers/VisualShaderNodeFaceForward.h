@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeFaceForward : public VisualShaderNode{
+public:
 
 VisualShaderNodeFaceForward(WasGoId p_wasgo_id);
 ~VisualShaderNodeFaceForward();

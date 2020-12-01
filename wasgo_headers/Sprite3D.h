@@ -5,10 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "SpriteBase3D.h"
+#include "Vector2.h"
 #include "Texture.h"
+#include "Rect2.h"
+#include "SpriteBase3D.h"
 class Sprite3D : public SpriteBase3D{
+public:
 int get_frame();
 Vector2 get_frame_coords();
 int get_hframes();
@@ -33,18 +35,18 @@ Sprite3D(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 int _wasgo_Sprite3D_wrapper_get_frame(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Sprite3D_wrapper_get_frame_coords(WasGoId wasgo_id);
+WasGoId _wasgo_Sprite3D_wrapper_get_frame_coords(WasGoId wasgo_id);
 int _wasgo_Sprite3D_wrapper_get_hframes(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Sprite3D_wrapper_get_region_rect(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Sprite3D_wrapper_get_texture(WasGoId wasgo_id);
+WasGoId _wasgo_Sprite3D_wrapper_get_region_rect(WasGoId wasgo_id);
+WasGoId _wasgo_Sprite3D_wrapper_get_texture(WasGoId wasgo_id);
 int _wasgo_Sprite3D_wrapper_get_vframes(WasGoId wasgo_id);
 int _wasgo_Sprite3D_wrapper_is_region(WasGoId wasgo_id);
 void _wasgo_Sprite3D_wrapper_set_frame(WasGoId wasgo_id, int p_frame);
-void _wasgo_Sprite3D_wrapper_set_frame_coords(WasGoId wasgo_id, WasGo::WasGoId p_coords);
+void _wasgo_Sprite3D_wrapper_set_frame_coords(WasGoId wasgo_id, WasGoId p_coords);
 void _wasgo_Sprite3D_wrapper_set_hframes(WasGoId wasgo_id, int p_hframes);
 void _wasgo_Sprite3D_wrapper_set_region(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Sprite3D_wrapper_set_region_rect(WasGoId wasgo_id, WasGo::WasGoId p_rect);
-void _wasgo_Sprite3D_wrapper_set_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+void _wasgo_Sprite3D_wrapper_set_region_rect(WasGoId wasgo_id, WasGoId p_rect);
+void _wasgo_Sprite3D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_Sprite3D_wrapper_set_vframes(WasGoId wasgo_id, int p_vframes);
 }
 #endif

@@ -7,6 +7,7 @@
 
 #include "AnimationNode.h"
 class AnimationRootNode : public AnimationNode{
+public:
 
 AnimationRootNode(WasGoId p_wasgo_id);
 ~AnimationRootNode();

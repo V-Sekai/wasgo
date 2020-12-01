@@ -5,10 +5,13 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "Transform.h"
 #include "Variant.h"
-#include "Reference.h"
+#include "RID.h"
 #include "Resource.h"
+#include "Reference.h"
 class PhysicsShapeQueryParameters : public Reference{
+public:
 int get_collision_mask();
 Array get_exclude();
 float get_margin();
@@ -34,19 +37,19 @@ PhysicsShapeQueryParameters(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 int _wasgo_PhysicsShapeQueryParameters_wrapper_get_collision_mask(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_PhysicsShapeQueryParameters_wrapper_get_exclude(WasGoId wasgo_id);
+WasGoId _wasgo_PhysicsShapeQueryParameters_wrapper_get_exclude(WasGoId wasgo_id);
 float _wasgo_PhysicsShapeQueryParameters_wrapper_get_margin(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_PhysicsShapeQueryParameters_wrapper_get_shape_rid(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_PhysicsShapeQueryParameters_wrapper_get_transform(WasGoId wasgo_id);
+WasGoId _wasgo_PhysicsShapeQueryParameters_wrapper_get_shape_rid(WasGoId wasgo_id);
+WasGoId _wasgo_PhysicsShapeQueryParameters_wrapper_get_transform(WasGoId wasgo_id);
 int _wasgo_PhysicsShapeQueryParameters_wrapper_is_collide_with_areas_enabled(WasGoId wasgo_id);
 int _wasgo_PhysicsShapeQueryParameters_wrapper_is_collide_with_bodies_enabled(WasGoId wasgo_id);
 void _wasgo_PhysicsShapeQueryParameters_wrapper_set_collide_with_areas(WasGoId wasgo_id, bool p_enable);
 void _wasgo_PhysicsShapeQueryParameters_wrapper_set_collide_with_bodies(WasGoId wasgo_id, bool p_enable);
 void _wasgo_PhysicsShapeQueryParameters_wrapper_set_collision_mask(WasGoId wasgo_id, int p_collision_mask);
-void _wasgo_PhysicsShapeQueryParameters_wrapper_set_exclude(WasGoId wasgo_id, WasGo::WasGoId p_exclude);
+void _wasgo_PhysicsShapeQueryParameters_wrapper_set_exclude(WasGoId wasgo_id, WasGoId p_exclude);
 void _wasgo_PhysicsShapeQueryParameters_wrapper_set_margin(WasGoId wasgo_id, float p_margin);
-void _wasgo_PhysicsShapeQueryParameters_wrapper_set_shape(WasGoId wasgo_id, WasGo::WasGoId p_shape);
-void _wasgo_PhysicsShapeQueryParameters_wrapper_set_shape_rid(WasGoId wasgo_id, WasGo::WasGoId p_shape);
-void _wasgo_PhysicsShapeQueryParameters_wrapper_set_transform(WasGoId wasgo_id, WasGo::WasGoId p_transform);
+void _wasgo_PhysicsShapeQueryParameters_wrapper_set_shape(WasGoId wasgo_id, WasGoId p_shape);
+void _wasgo_PhysicsShapeQueryParameters_wrapper_set_shape_rid(WasGoId wasgo_id, WasGoId p_shape);
+void _wasgo_PhysicsShapeQueryParameters_wrapper_set_transform(WasGoId wasgo_id, WasGoId p_transform);
 }
 #endif

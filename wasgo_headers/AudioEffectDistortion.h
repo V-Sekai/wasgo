@@ -7,6 +7,7 @@
 
 #include "AudioEffect.h"
 class AudioEffectDistortion : public AudioEffect{
+public:
 enum Mode{
 MODE_CLIP,
 MODE_ATAN,
@@ -35,12 +36,12 @@ AudioEffectDistortion(WasGoId p_wasgo_id);
 extern "C"{
 float _wasgo_AudioEffectDistortion_wrapper_get_drive(WasGoId wasgo_id);
 float _wasgo_AudioEffectDistortion_wrapper_get_keep_hf_hz(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_AudioEffectDistortion_wrapper_get_mode(WasGoId wasgo_id);
+WasGoId _wasgo_AudioEffectDistortion_wrapper_get_mode(WasGoId wasgo_id);
 float _wasgo_AudioEffectDistortion_wrapper_get_post_gain(WasGoId wasgo_id);
 float _wasgo_AudioEffectDistortion_wrapper_get_pre_gain(WasGoId wasgo_id);
 void _wasgo_AudioEffectDistortion_wrapper_set_drive(WasGoId wasgo_id, float p_drive);
 void _wasgo_AudioEffectDistortion_wrapper_set_keep_hf_hz(WasGoId wasgo_id, float p_keep_hf_hz);
-void _wasgo_AudioEffectDistortion_wrapper_set_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_AudioEffectDistortion_wrapper_set_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_AudioEffectDistortion_wrapper_set_post_gain(WasGoId wasgo_id, float p_post_gain);
 void _wasgo_AudioEffectDistortion_wrapper_set_pre_gain(WasGoId wasgo_id, float p_pre_gain);
 }

@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class AudioEffect : public Resource{
+public:
 };
 
 

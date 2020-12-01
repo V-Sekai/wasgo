@@ -7,8 +7,10 @@
 
 #include "Variant.h"
 #include "Resource.h"
+#include "Vector3.h"
 class Curve3D : public Resource{
-void add_point(Vector3 p_position, Vector3 p_in = (Vector3) (0, 0, 0), Vector3 p_out = (Vector3) (0, 0, 0), int p_at_position = (int) -1);
+public:
+void add_point(Vector3 p_position, Vector3 p_in = Vector3((0, 0, 0)), Vector3 p_out = Vector3((0, 0, 0)), int p_at_position = (int) -1);
 void clear_points();
 float get_bake_interval();
 float get_baked_length();
@@ -23,8 +25,8 @@ Vector3 get_point_out(int p_idx);
 Vector3 get_point_position(int p_idx);
 float get_point_tilt(int p_idx);
 Vector3 interpolate(int p_idx, float p_t);
-Vector3 interpolate_baked(float p_offset, bool p_cubic = (bool) False);
-Vector3 interpolate_baked_up_vector(float p_offset, bool p_apply_tilt = (bool) False);
+Vector3 interpolate_baked(float p_offset, bool p_cubic = (bool) false);
+Vector3 interpolate_baked_up_vector(float p_offset, bool p_apply_tilt = (bool) false);
 Vector3 interpolatef(float p_fofs);
 bool is_up_vector_enabled();
 void remove_point(int p_idx);
@@ -44,32 +46,32 @@ Curve3D(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Curve3D_wrapper_add_point(WasGoId wasgo_id, WasGo::WasGoId p_position, WasGo::WasGoId p_in, WasGo::WasGoId p_out, int p_at_position);
+void _wasgo_Curve3D_wrapper_add_point(WasGoId wasgo_id, WasGoId p_position, WasGoId p_in, WasGoId p_out, int p_at_position);
 void _wasgo_Curve3D_wrapper_clear_points(WasGoId wasgo_id);
 float _wasgo_Curve3D_wrapper_get_bake_interval(WasGoId wasgo_id);
 float _wasgo_Curve3D_wrapper_get_baked_length(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_get_baked_points(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_get_baked_tilts(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_get_baked_up_vectors(WasGoId wasgo_id);
-float _wasgo_Curve3D_wrapper_get_closest_offset(WasGoId wasgo_id, WasGo::WasGoId p_to_point);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_get_closest_point(WasGoId wasgo_id, WasGo::WasGoId p_to_point);
+WasGoId _wasgo_Curve3D_wrapper_get_baked_points(WasGoId wasgo_id);
+WasGoId _wasgo_Curve3D_wrapper_get_baked_tilts(WasGoId wasgo_id);
+WasGoId _wasgo_Curve3D_wrapper_get_baked_up_vectors(WasGoId wasgo_id);
+float _wasgo_Curve3D_wrapper_get_closest_offset(WasGoId wasgo_id, WasGoId p_to_point);
+WasGoId _wasgo_Curve3D_wrapper_get_closest_point(WasGoId wasgo_id, WasGoId p_to_point);
 int _wasgo_Curve3D_wrapper_get_point_count(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_get_point_in(WasGoId wasgo_id, int p_idx);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_get_point_out(WasGoId wasgo_id, int p_idx);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_get_point_position(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_Curve3D_wrapper_get_point_in(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_Curve3D_wrapper_get_point_out(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_Curve3D_wrapper_get_point_position(WasGoId wasgo_id, int p_idx);
 float _wasgo_Curve3D_wrapper_get_point_tilt(WasGoId wasgo_id, int p_idx);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_interpolate(WasGoId wasgo_id, int p_idx, float p_t);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_interpolate_baked(WasGoId wasgo_id, float p_offset, bool p_cubic);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_interpolate_baked_up_vector(WasGoId wasgo_id, float p_offset, bool p_apply_tilt);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_interpolatef(WasGoId wasgo_id, float p_fofs);
+WasGoId _wasgo_Curve3D_wrapper_interpolate(WasGoId wasgo_id, int p_idx, float p_t);
+WasGoId _wasgo_Curve3D_wrapper_interpolate_baked(WasGoId wasgo_id, float p_offset, bool p_cubic);
+WasGoId _wasgo_Curve3D_wrapper_interpolate_baked_up_vector(WasGoId wasgo_id, float p_offset, bool p_apply_tilt);
+WasGoId _wasgo_Curve3D_wrapper_interpolatef(WasGoId wasgo_id, float p_fofs);
 int _wasgo_Curve3D_wrapper_is_up_vector_enabled(WasGoId wasgo_id);
 void _wasgo_Curve3D_wrapper_remove_point(WasGoId wasgo_id, int p_idx);
 void _wasgo_Curve3D_wrapper_set_bake_interval(WasGoId wasgo_id, float p_distance);
-void _wasgo_Curve3D_wrapper_set_point_in(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_position);
-void _wasgo_Curve3D_wrapper_set_point_out(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_position);
-void _wasgo_Curve3D_wrapper_set_point_position(WasGoId wasgo_id, int p_idx, WasGo::WasGoId p_position);
+void _wasgo_Curve3D_wrapper_set_point_in(WasGoId wasgo_id, int p_idx, WasGoId p_position);
+void _wasgo_Curve3D_wrapper_set_point_out(WasGoId wasgo_id, int p_idx, WasGoId p_position);
+void _wasgo_Curve3D_wrapper_set_point_position(WasGoId wasgo_id, int p_idx, WasGoId p_position);
 void _wasgo_Curve3D_wrapper_set_point_tilt(WasGoId wasgo_id, int p_idx, float p_tilt);
 void _wasgo_Curve3D_wrapper_set_up_vector_enabled(WasGoId wasgo_id, bool p_enable);
-WasGo::WasGoId _wasgo_Curve3D_wrapper_tessellate(WasGoId wasgo_id, int p_max_stages, float p_tolerance_degrees);
+WasGoId _wasgo_Curve3D_wrapper_tessellate(WasGoId wasgo_id, int p_max_stages, float p_tolerance_degrees);
 }
 #endif

@@ -7,6 +7,7 @@
 
 #include "Control.h"
 class Separator : public Control{
+public:
 };
 
 

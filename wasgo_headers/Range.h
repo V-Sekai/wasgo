@@ -8,6 +8,7 @@
 #include "Node.h"
 #include "Control.h"
 class Range : public Control{
+public:
 float get_as_ratio();
 float get_max();
 float get_min();
@@ -55,7 +56,7 @@ void _wasgo_Range_wrapper_set_page(WasGoId wasgo_id, float p_pagesize);
 void _wasgo_Range_wrapper_set_step(WasGoId wasgo_id, float p_step);
 void _wasgo_Range_wrapper_set_use_rounded_values(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_Range_wrapper_set_value(WasGoId wasgo_id, float p_value);
-void _wasgo_Range_wrapper_share(WasGoId wasgo_id, WasGo::WasGoId p_with);
+void _wasgo_Range_wrapper_share(WasGoId wasgo_id, WasGoId p_with);
 void _wasgo_Range_wrapper_unshare(WasGoId wasgo_id);
 }
 #endif

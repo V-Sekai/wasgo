@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeScalarOp : public VisualShaderNode{
+public:
 enum Operator{
 OP_ADD,
 OP_SUB,
@@ -30,7 +31,7 @@ VisualShaderNodeScalarOp(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_VisualShaderNodeScalarOp_wrapper_get_operator(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeScalarOp_wrapper_set_operator(WasGoId wasgo_id, WasGo::WasGoId p_op);
+WasGoId _wasgo_VisualShaderNodeScalarOp_wrapper_get_operator(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeScalarOp_wrapper_set_operator(WasGoId wasgo_id, WasGoId p_op);
 }
 #endif

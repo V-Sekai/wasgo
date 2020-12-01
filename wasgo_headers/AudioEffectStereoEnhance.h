@@ -7,6 +7,7 @@
 
 #include "AudioEffect.h"
 class AudioEffectStereoEnhance : public AudioEffect{
+public:
 float get_pan_pullout();
 float get_surround();
 float get_time_pullout();

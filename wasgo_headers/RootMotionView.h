@@ -7,6 +7,7 @@
 
 #include "VisualInstance.h"
 class RootMotionView : public VisualInstance{
+public:
 };
 
 

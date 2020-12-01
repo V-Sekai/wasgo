@@ -7,6 +7,7 @@
 
 #include "InputEvent.h"
 class InputEventMIDI : public InputEvent{
+public:
 int get_channel();
 int get_controller_number();
 int get_controller_value();

@@ -7,6 +7,7 @@
 
 #include "Control.h"
 class Panel : public Control{
+public:
 
 Panel(WasGoId p_wasgo_id);
 ~Panel();

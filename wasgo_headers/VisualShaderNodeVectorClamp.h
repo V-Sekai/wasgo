@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorClamp : public VisualShaderNode{
+public:
 
 VisualShaderNodeVectorClamp(WasGoId p_wasgo_id);
 ~VisualShaderNodeVectorClamp();

@@ -7,6 +7,7 @@
 
 #include "PacketPeer.h"
 class NetworkedMultiplayerPeer : public PacketPeer{
+public:
 enum ConnectionStatus{
 CONNECTION_DISCONNECTED,
 CONNECTION_CONNECTING,
@@ -31,14 +32,14 @@ void set_transfer_mode(NetworkedMultiplayerPeer::TransferMode p_mode);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_NetworkedMultiplayerPeer_wrapper_get_connection_status(WasGoId wasgo_id);
+WasGoId _wasgo_NetworkedMultiplayerPeer_wrapper_get_connection_status(WasGoId wasgo_id);
 int _wasgo_NetworkedMultiplayerPeer_wrapper_get_packet_peer(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_NetworkedMultiplayerPeer_wrapper_get_transfer_mode(WasGoId wasgo_id);
+WasGoId _wasgo_NetworkedMultiplayerPeer_wrapper_get_transfer_mode(WasGoId wasgo_id);
 int _wasgo_NetworkedMultiplayerPeer_wrapper_get_unique_id(WasGoId wasgo_id);
 int _wasgo_NetworkedMultiplayerPeer_wrapper_is_refusing_new_connections(WasGoId wasgo_id);
 void _wasgo_NetworkedMultiplayerPeer_wrapper_poll(WasGoId wasgo_id);
 void _wasgo_NetworkedMultiplayerPeer_wrapper_set_refuse_new_connections(WasGoId wasgo_id, bool p_enable);
 void _wasgo_NetworkedMultiplayerPeer_wrapper_set_target_peer(WasGoId wasgo_id, int p_id);
-void _wasgo_NetworkedMultiplayerPeer_wrapper_set_transfer_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_NetworkedMultiplayerPeer_wrapper_set_transfer_mode(WasGoId wasgo_id, WasGoId p_mode);
 }
 #endif

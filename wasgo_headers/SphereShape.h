@@ -7,6 +7,7 @@
 
 #include "Shape.h"
 class SphereShape : public Shape{
+public:
 float get_radius();
 void set_radius(float p_radius);
 

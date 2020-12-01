@@ -5,10 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "Object.h"
 #include "Reference.h"
+#include "RID.h"
+#include "Object.h"
+#include "Vector2.h"
 class Physics2DTestMotionResult : public Reference{
+public:
 Object get_collider();
 int get_collider_id();
 RID get_collider_rid();
@@ -27,14 +29,14 @@ Physics2DTestMotionResult(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_collider(WasGoId wasgo_id);
+WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_collider(WasGoId wasgo_id);
 int _wasgo_Physics2DTestMotionResult_wrapper_get_collider_id(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_collider_rid(WasGoId wasgo_id);
+WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_collider_rid(WasGoId wasgo_id);
 int _wasgo_Physics2DTestMotionResult_wrapper_get_collider_shape(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_collider_velocity(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_collision_normal(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_collision_point(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_motion(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_motion_remainder(WasGoId wasgo_id);
+WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_collider_velocity(WasGoId wasgo_id);
+WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_collision_normal(WasGoId wasgo_id);
+WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_collision_point(WasGoId wasgo_id);
+WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_motion(WasGoId wasgo_id);
+WasGoId _wasgo_Physics2DTestMotionResult_wrapper_get_motion_remainder(WasGoId wasgo_id);
 }
 #endif

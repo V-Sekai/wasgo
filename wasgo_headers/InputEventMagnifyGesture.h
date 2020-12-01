@@ -7,6 +7,7 @@
 
 #include "InputEventGesture.h"
 class InputEventMagnifyGesture : public InputEventGesture{
+public:
 float get_factor();
 void set_factor(float p_factor);
 

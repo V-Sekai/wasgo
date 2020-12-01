@@ -6,8 +6,14 @@
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
+#include "Vector2.h"
+#include "NodePath.h"
+#include "Quat.h"
 #include "Resource.h"
+#include "Vector3.h"
+#include "ustring.h"
 class Animation : public Resource{
+public:
 enum InterpolationType{
 INTERPOLATION_NEAREST,
 INTERPOLATION_LINEAR,
@@ -41,7 +47,7 @@ void audio_track_set_key_stream(int p_track_idx, int p_key_idx, Resource p_strea
 Vector2 bezier_track_get_key_in_handle(int p_track_idx, int p_key_idx);
 Vector2 bezier_track_get_key_out_handle(int p_track_idx, int p_key_idx);
 float bezier_track_get_key_value(int p_track_idx, int p_key_idx);
-int bezier_track_insert_key(int p_track_idx, float p_time, float p_value, Vector2 p_in_handle = (Vector2) (0, 0), Vector2 p_out_handle = (Vector2) (0, 0));
+int bezier_track_insert_key(int p_track_idx, float p_time, float p_value, Vector2 p_in_handle = Vector2((0, 0)), Vector2 p_out_handle = Vector2((0, 0)));
 float bezier_track_interpolate(int p_track_idx, float p_time);
 void bezier_track_set_key_in_handle(int p_track_idx, int p_key_idx, Vector2 p_in_handle);
 void bezier_track_set_key_out_handle(int p_track_idx, int p_key_idx, Vector2 p_out_handle);
@@ -60,7 +66,7 @@ void remove_track(int p_track_idx);
 void set_length(float p_time_sec);
 void set_loop(bool p_enabled);
 void set_step(float p_size_sec);
-int track_find_key(int p_track_idx, float p_time, bool p_exact = (bool) False);
+int track_find_key(int p_track_idx, float p_time, bool p_exact = (bool) false);
 bool track_get_interpolation_loop_wrap(int p_track_idx);
 Animation::InterpolationType track_get_interpolation_type(int p_track_idx);
 int track_get_key_count(int p_track_idx);
@@ -101,49 +107,49 @@ Animation(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_Animation_wrapper_add_track(WasGoId wasgo_id, WasGo::WasGoId p_type, int p_at_position);
-WasGo::WasGoId _wasgo_Animation_wrapper_animation_track_get_key_animation(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
-int _wasgo_Animation_wrapper_animation_track_insert_key(WasGoId wasgo_id, int p_track_idx, float p_time, WasGo::WasGoId p_animation);
-void _wasgo_Animation_wrapper_animation_track_set_key_animation(WasGoId wasgo_id, int p_track_idx, int p_key_idx, WasGo::WasGoId p_animation);
+int _wasgo_Animation_wrapper_add_track(WasGoId wasgo_id, WasGoId p_type, int p_at_position);
+WasGoId _wasgo_Animation_wrapper_animation_track_get_key_animation(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
+int _wasgo_Animation_wrapper_animation_track_insert_key(WasGoId wasgo_id, int p_track_idx, float p_time, WasGoId p_animation);
+void _wasgo_Animation_wrapper_animation_track_set_key_animation(WasGoId wasgo_id, int p_track_idx, int p_key_idx, WasGoId p_animation);
 float _wasgo_Animation_wrapper_audio_track_get_key_end_offset(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
 float _wasgo_Animation_wrapper_audio_track_get_key_start_offset(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
-WasGo::WasGoId _wasgo_Animation_wrapper_audio_track_get_key_stream(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
-int _wasgo_Animation_wrapper_audio_track_insert_key(WasGoId wasgo_id, int p_track_idx, float p_time, WasGo::WasGoId p_stream, float p_start_offset, float p_end_offset);
+WasGoId _wasgo_Animation_wrapper_audio_track_get_key_stream(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
+int _wasgo_Animation_wrapper_audio_track_insert_key(WasGoId wasgo_id, int p_track_idx, float p_time, WasGoId p_stream, float p_start_offset, float p_end_offset);
 void _wasgo_Animation_wrapper_audio_track_set_key_end_offset(WasGoId wasgo_id, int p_track_idx, int p_key_idx, float p_offset);
 void _wasgo_Animation_wrapper_audio_track_set_key_start_offset(WasGoId wasgo_id, int p_track_idx, int p_key_idx, float p_offset);
-void _wasgo_Animation_wrapper_audio_track_set_key_stream(WasGoId wasgo_id, int p_track_idx, int p_key_idx, WasGo::WasGoId p_stream);
-WasGo::WasGoId _wasgo_Animation_wrapper_bezier_track_get_key_in_handle(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
-WasGo::WasGoId _wasgo_Animation_wrapper_bezier_track_get_key_out_handle(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
+void _wasgo_Animation_wrapper_audio_track_set_key_stream(WasGoId wasgo_id, int p_track_idx, int p_key_idx, WasGoId p_stream);
+WasGoId _wasgo_Animation_wrapper_bezier_track_get_key_in_handle(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
+WasGoId _wasgo_Animation_wrapper_bezier_track_get_key_out_handle(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
 float _wasgo_Animation_wrapper_bezier_track_get_key_value(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
-int _wasgo_Animation_wrapper_bezier_track_insert_key(WasGoId wasgo_id, int p_track_idx, float p_time, float p_value, WasGo::WasGoId p_in_handle, WasGo::WasGoId p_out_handle);
+int _wasgo_Animation_wrapper_bezier_track_insert_key(WasGoId wasgo_id, int p_track_idx, float p_time, float p_value, WasGoId p_in_handle, WasGoId p_out_handle);
 float _wasgo_Animation_wrapper_bezier_track_interpolate(WasGoId wasgo_id, int p_track_idx, float p_time);
-void _wasgo_Animation_wrapper_bezier_track_set_key_in_handle(WasGoId wasgo_id, int p_track_idx, int p_key_idx, WasGo::WasGoId p_in_handle);
-void _wasgo_Animation_wrapper_bezier_track_set_key_out_handle(WasGoId wasgo_id, int p_track_idx, int p_key_idx, WasGo::WasGoId p_out_handle);
+void _wasgo_Animation_wrapper_bezier_track_set_key_in_handle(WasGoId wasgo_id, int p_track_idx, int p_key_idx, WasGoId p_in_handle);
+void _wasgo_Animation_wrapper_bezier_track_set_key_out_handle(WasGoId wasgo_id, int p_track_idx, int p_key_idx, WasGoId p_out_handle);
 void _wasgo_Animation_wrapper_bezier_track_set_key_value(WasGoId wasgo_id, int p_track_idx, int p_key_idx, float p_value);
 void _wasgo_Animation_wrapper_clear(WasGoId wasgo_id);
-void _wasgo_Animation_wrapper_copy_track(WasGoId wasgo_id, int p_track_idx, WasGo::WasGoId p_to_animation);
-int _wasgo_Animation_wrapper_find_track(WasGoId wasgo_id, WasGo::WasGoId p_path);
+void _wasgo_Animation_wrapper_copy_track(WasGoId wasgo_id, int p_track_idx, WasGoId p_to_animation);
+int _wasgo_Animation_wrapper_find_track(WasGoId wasgo_id, WasGoId p_path);
 float _wasgo_Animation_wrapper_get_length(WasGoId wasgo_id);
 float _wasgo_Animation_wrapper_get_step(WasGoId wasgo_id);
 int _wasgo_Animation_wrapper_get_track_count(WasGoId wasgo_id);
 int _wasgo_Animation_wrapper_has_loop(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Animation_wrapper_method_track_get_key_indices(WasGoId wasgo_id, int p_track_idx, float p_time_sec, float p_delta);
-WasGo::WasGoId _wasgo_Animation_wrapper_method_track_get_name(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
-WasGo::WasGoId _wasgo_Animation_wrapper_method_track_get_params(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
+WasGoId _wasgo_Animation_wrapper_method_track_get_key_indices(WasGoId wasgo_id, int p_track_idx, float p_time_sec, float p_delta);
+WasGoId _wasgo_Animation_wrapper_method_track_get_name(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
+WasGoId _wasgo_Animation_wrapper_method_track_get_params(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
 void _wasgo_Animation_wrapper_remove_track(WasGoId wasgo_id, int p_track_idx);
 void _wasgo_Animation_wrapper_set_length(WasGoId wasgo_id, float p_time_sec);
 void _wasgo_Animation_wrapper_set_loop(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_Animation_wrapper_set_step(WasGoId wasgo_id, float p_size_sec);
 int _wasgo_Animation_wrapper_track_find_key(WasGoId wasgo_id, int p_track_idx, float p_time, bool p_exact);
 int _wasgo_Animation_wrapper_track_get_interpolation_loop_wrap(WasGoId wasgo_id, int p_track_idx);
-WasGo::WasGoId _wasgo_Animation_wrapper_track_get_interpolation_type(WasGoId wasgo_id, int p_track_idx);
+WasGoId _wasgo_Animation_wrapper_track_get_interpolation_type(WasGoId wasgo_id, int p_track_idx);
 int _wasgo_Animation_wrapper_track_get_key_count(WasGoId wasgo_id, int p_track_idx);
 float _wasgo_Animation_wrapper_track_get_key_time(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
 float _wasgo_Animation_wrapper_track_get_key_transition(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
-WasGo::WasGoId _wasgo_Animation_wrapper_track_get_key_value(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
-WasGo::WasGoId _wasgo_Animation_wrapper_track_get_path(WasGoId wasgo_id, int p_track_idx);
-WasGo::WasGoId _wasgo_Animation_wrapper_track_get_type(WasGoId wasgo_id, int p_track_idx);
-void _wasgo_Animation_wrapper_track_insert_key(WasGoId wasgo_id, int p_track_idx, float p_time, WasGo::WasGoId p_key, float p_transition);
+WasGoId _wasgo_Animation_wrapper_track_get_key_value(WasGoId wasgo_id, int p_track_idx, int p_key_idx);
+WasGoId _wasgo_Animation_wrapper_track_get_path(WasGoId wasgo_id, int p_track_idx);
+WasGoId _wasgo_Animation_wrapper_track_get_type(WasGoId wasgo_id, int p_track_idx);
+void _wasgo_Animation_wrapper_track_insert_key(WasGoId wasgo_id, int p_track_idx, float p_time, WasGoId p_key, float p_transition);
 int _wasgo_Animation_wrapper_track_is_enabled(WasGoId wasgo_id, int p_track_idx);
 int _wasgo_Animation_wrapper_track_is_imported(WasGoId wasgo_id, int p_track_idx);
 void _wasgo_Animation_wrapper_track_move_down(WasGoId wasgo_id, int p_track_idx);
@@ -154,17 +160,17 @@ void _wasgo_Animation_wrapper_track_remove_key_at_position(WasGoId wasgo_id, int
 void _wasgo_Animation_wrapper_track_set_enabled(WasGoId wasgo_id, int p_track_idx, bool p_enabled);
 void _wasgo_Animation_wrapper_track_set_imported(WasGoId wasgo_id, int p_track_idx, bool p_imported);
 void _wasgo_Animation_wrapper_track_set_interpolation_loop_wrap(WasGoId wasgo_id, int p_track_idx, bool p_interpolation);
-void _wasgo_Animation_wrapper_track_set_interpolation_type(WasGoId wasgo_id, int p_track_idx, WasGo::WasGoId p_interpolation);
+void _wasgo_Animation_wrapper_track_set_interpolation_type(WasGoId wasgo_id, int p_track_idx, WasGoId p_interpolation);
 void _wasgo_Animation_wrapper_track_set_key_time(WasGoId wasgo_id, int p_track_idx, int p_key_idx, float p_time);
 void _wasgo_Animation_wrapper_track_set_key_transition(WasGoId wasgo_id, int p_track_idx, int p_key_idx, float p_transition);
-void _wasgo_Animation_wrapper_track_set_key_value(WasGoId wasgo_id, int p_track_idx, int p_key, WasGo::WasGoId p_value);
-void _wasgo_Animation_wrapper_track_set_path(WasGoId wasgo_id, int p_track_idx, WasGo::WasGoId p_path);
+void _wasgo_Animation_wrapper_track_set_key_value(WasGoId wasgo_id, int p_track_idx, int p_key, WasGoId p_value);
+void _wasgo_Animation_wrapper_track_set_path(WasGoId wasgo_id, int p_track_idx, WasGoId p_path);
 void _wasgo_Animation_wrapper_track_swap(WasGoId wasgo_id, int p_track_idx, int p_with_idx);
-int _wasgo_Animation_wrapper_transform_track_insert_key(WasGoId wasgo_id, int p_track_idx, float p_time, WasGo::WasGoId p_location, WasGo::WasGoId p_rotation, WasGo::WasGoId p_scale);
-WasGo::WasGoId _wasgo_Animation_wrapper_transform_track_interpolate(WasGoId wasgo_id, int p_track_idx, float p_time_sec);
-WasGo::WasGoId _wasgo_Animation_wrapper_value_track_get_key_indices(WasGoId wasgo_id, int p_track_idx, float p_time_sec, float p_delta);
-WasGo::WasGoId _wasgo_Animation_wrapper_value_track_get_update_mode(WasGoId wasgo_id, int p_track_idx);
-WasGo::WasGoId _wasgo_Animation_wrapper_value_track_interpolate(WasGoId wasgo_id, int p_track_idx, float p_time_sec);
-void _wasgo_Animation_wrapper_value_track_set_update_mode(WasGoId wasgo_id, int p_track_idx, WasGo::WasGoId p_mode);
+int _wasgo_Animation_wrapper_transform_track_insert_key(WasGoId wasgo_id, int p_track_idx, float p_time, WasGoId p_location, WasGoId p_rotation, WasGoId p_scale);
+WasGoId _wasgo_Animation_wrapper_transform_track_interpolate(WasGoId wasgo_id, int p_track_idx, float p_time_sec);
+WasGoId _wasgo_Animation_wrapper_value_track_get_key_indices(WasGoId wasgo_id, int p_track_idx, float p_time_sec, float p_delta);
+WasGoId _wasgo_Animation_wrapper_value_track_get_update_mode(WasGoId wasgo_id, int p_track_idx);
+WasGoId _wasgo_Animation_wrapper_value_track_interpolate(WasGoId wasgo_id, int p_track_idx, float p_time_sec);
+void _wasgo_Animation_wrapper_value_track_set_update_mode(WasGoId wasgo_id, int p_track_idx, WasGoId p_mode);
 }
 #endif

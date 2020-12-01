@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "PrimitiveMesh.h"
+#include "Vector3.h"
 class CubeMesh : public PrimitiveMesh{
+public:
 Vector3 get_size();
 int get_subdivide_depth();
 int get_subdivide_height();
@@ -25,11 +26,11 @@ CubeMesh(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_CubeMesh_wrapper_get_size(WasGoId wasgo_id);
+WasGoId _wasgo_CubeMesh_wrapper_get_size(WasGoId wasgo_id);
 int _wasgo_CubeMesh_wrapper_get_subdivide_depth(WasGoId wasgo_id);
 int _wasgo_CubeMesh_wrapper_get_subdivide_height(WasGoId wasgo_id);
 int _wasgo_CubeMesh_wrapper_get_subdivide_width(WasGoId wasgo_id);
-void _wasgo_CubeMesh_wrapper_set_size(WasGoId wasgo_id, WasGo::WasGoId p_size);
+void _wasgo_CubeMesh_wrapper_set_size(WasGoId wasgo_id, WasGoId p_size);
 void _wasgo_CubeMesh_wrapper_set_subdivide_depth(WasGoId wasgo_id, int p_divisions);
 void _wasgo_CubeMesh_wrapper_set_subdivide_height(WasGoId wasgo_id, int p_divisions);
 void _wasgo_CubeMesh_wrapper_set_subdivide_width(WasGoId wasgo_id, int p_subdivide);

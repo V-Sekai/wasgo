@@ -8,6 +8,7 @@
 #include "Variant.h"
 #include "Resource.h"
 class VisualShaderNode : public Resource{
+public:
 enum PortType{
 PORT_TYPE_SCALAR,
 PORT_TYPE_VECTOR,
@@ -27,11 +28,11 @@ void set_output_port_for_preview(int p_port);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_VisualShaderNode_wrapper_get_default_input_values(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_VisualShaderNode_wrapper_get_input_port_default_value(WasGoId wasgo_id, int p_port);
+WasGoId _wasgo_VisualShaderNode_wrapper_get_default_input_values(WasGoId wasgo_id);
+WasGoId _wasgo_VisualShaderNode_wrapper_get_input_port_default_value(WasGoId wasgo_id, int p_port);
 int _wasgo_VisualShaderNode_wrapper_get_output_port_for_preview(WasGoId wasgo_id);
-void _wasgo_VisualShaderNode_wrapper_set_default_input_values(WasGoId wasgo_id, WasGo::WasGoId p_values);
-void _wasgo_VisualShaderNode_wrapper_set_input_port_default_value(WasGoId wasgo_id, int p_port, WasGo::WasGoId p_value);
+void _wasgo_VisualShaderNode_wrapper_set_default_input_values(WasGoId wasgo_id, WasGoId p_values);
+void _wasgo_VisualShaderNode_wrapper_set_input_port_default_value(WasGoId wasgo_id, int p_port, WasGoId p_value);
 void _wasgo_VisualShaderNode_wrapper_set_output_port_for_preview(WasGoId wasgo_id, int p_port);
 }
 #endif

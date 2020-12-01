@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class AudioStream : public Resource{
+public:
 float get_length();
 };
 

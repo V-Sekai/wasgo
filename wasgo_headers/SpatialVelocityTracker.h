@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Reference.h"
+#include "Vector3.h"
 class SpatialVelocityTracker : public Reference{
+public:
 Vector3 get_tracked_linear_velocity();
 bool is_tracking_physics_step();
 void reset(Vector3 p_position);
@@ -22,10 +23,10 @@ SpatialVelocityTracker(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_SpatialVelocityTracker_wrapper_get_tracked_linear_velocity(WasGoId wasgo_id);
+WasGoId _wasgo_SpatialVelocityTracker_wrapper_get_tracked_linear_velocity(WasGoId wasgo_id);
 int _wasgo_SpatialVelocityTracker_wrapper_is_tracking_physics_step(WasGoId wasgo_id);
-void _wasgo_SpatialVelocityTracker_wrapper_reset(WasGoId wasgo_id, WasGo::WasGoId p_position);
+void _wasgo_SpatialVelocityTracker_wrapper_reset(WasGoId wasgo_id, WasGoId p_position);
 void _wasgo_SpatialVelocityTracker_wrapper_set_track_physics_step(WasGoId wasgo_id, bool p_enable);
-void _wasgo_SpatialVelocityTracker_wrapper_update_position(WasGoId wasgo_id, WasGo::WasGoId p_position);
+void _wasgo_SpatialVelocityTracker_wrapper_update_position(WasGoId wasgo_id, WasGoId p_position);
 }
 #endif

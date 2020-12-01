@@ -7,6 +7,7 @@
 
 #include "Container.h"
 class CenterContainer : public Container{
+public:
 bool is_using_top_left();
 void set_use_top_left(bool p_enable);
 

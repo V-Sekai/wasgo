@@ -7,6 +7,7 @@
 
 #include "Container.h"
 class ScrollContainer : public Container{
+public:
 
 ScrollContainer(WasGoId p_wasgo_id);
 ~ScrollContainer();

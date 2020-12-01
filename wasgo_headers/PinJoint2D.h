@@ -7,6 +7,7 @@
 
 #include "Joint2D.h"
 class PinJoint2D : public Joint2D{
+public:
 float get_softness();
 void set_softness(float p_softness);
 

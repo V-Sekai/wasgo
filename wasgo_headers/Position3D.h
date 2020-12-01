@@ -7,6 +7,7 @@
 
 #include "Spatial.h"
 class Position3D : public Spatial{
+public:
 
 Position3D(WasGoId p_wasgo_id);
 ~Position3D();

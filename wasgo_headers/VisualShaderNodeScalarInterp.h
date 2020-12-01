@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeScalarInterp : public VisualShaderNode{
+public:
 
 VisualShaderNodeScalarInterp(WasGoId p_wasgo_id);
 ~VisualShaderNodeScalarInterp();

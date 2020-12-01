@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Vector2.h"
 #include "Shape2D.h"
 class LineShape2D : public Shape2D{
+public:
 float get_d();
 Vector2 get_normal();
 void set_d(float p_d);
@@ -22,8 +23,8 @@ LineShape2D(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 float _wasgo_LineShape2D_wrapper_get_d(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_LineShape2D_wrapper_get_normal(WasGoId wasgo_id);
+WasGoId _wasgo_LineShape2D_wrapper_get_normal(WasGoId wasgo_id);
 void _wasgo_LineShape2D_wrapper_set_d(WasGoId wasgo_id, float p_d);
-void _wasgo_LineShape2D_wrapper_set_normal(WasGoId wasgo_id, WasGo::WasGoId p_normal);
+void _wasgo_LineShape2D_wrapper_set_normal(WasGoId wasgo_id, WasGoId p_normal);
 }
 #endif

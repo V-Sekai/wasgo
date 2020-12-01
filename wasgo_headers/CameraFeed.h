@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Reference.h"
+#include "ustring.h"
 class CameraFeed : public Reference{
+public:
 enum FeedDataType{
 FEED_NOIMAGE,
 FEED_RGB,
@@ -31,6 +32,6 @@ CameraFeed(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 int _wasgo_CameraFeed_wrapper_get_id(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CameraFeed_wrapper_get_name(WasGoId wasgo_id);
+WasGoId _wasgo_CameraFeed_wrapper_get_name(WasGoId wasgo_id);
 }
 #endif

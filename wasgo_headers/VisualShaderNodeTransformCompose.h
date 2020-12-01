@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeTransformCompose : public VisualShaderNode{
+public:
 
 VisualShaderNodeTransformCompose(WasGoId p_wasgo_id);
 ~VisualShaderNodeTransformCompose();

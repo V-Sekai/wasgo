@@ -9,8 +9,3 @@ Error Mutex::try_lock(){
 void Mutex::unlock(){
 	_wasgo_Mutex_wrapper_unlock(wasgo_id);
 }
-
-Mutex::Mutex(WasGoId p_wasgo_id) : Variant(p_wasgo_id){
-}
-Mutex::~Mutex(){
-}

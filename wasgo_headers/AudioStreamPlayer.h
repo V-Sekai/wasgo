@@ -5,10 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "Node.h"
+#include "ustring.h"
 #include "AudioStream.h"
+#include "Node.h"
 class AudioStreamPlayer : public Node{
+public:
 enum MixTarget{
 MIX_TARGET_STEREO,
 MIX_TARGET_SURROUND,
@@ -40,21 +41,21 @@ AudioStreamPlayer(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_AudioStreamPlayer_wrapper_get_bus(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_AudioStreamPlayer_wrapper_get_mix_target(WasGoId wasgo_id);
+WasGoId _wasgo_AudioStreamPlayer_wrapper_get_bus(WasGoId wasgo_id);
+WasGoId _wasgo_AudioStreamPlayer_wrapper_get_mix_target(WasGoId wasgo_id);
 float _wasgo_AudioStreamPlayer_wrapper_get_pitch_scale(WasGoId wasgo_id);
 float _wasgo_AudioStreamPlayer_wrapper_get_playback_position(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_AudioStreamPlayer_wrapper_get_stream(WasGoId wasgo_id);
+WasGoId _wasgo_AudioStreamPlayer_wrapper_get_stream(WasGoId wasgo_id);
 float _wasgo_AudioStreamPlayer_wrapper_get_volume_db(WasGoId wasgo_id);
 int _wasgo_AudioStreamPlayer_wrapper_is_autoplay_enabled(WasGoId wasgo_id);
 int _wasgo_AudioStreamPlayer_wrapper_is_playing(WasGoId wasgo_id);
 void _wasgo_AudioStreamPlayer_wrapper_play(WasGoId wasgo_id, float p_from_position);
 void _wasgo_AudioStreamPlayer_wrapper_seek(WasGoId wasgo_id, float p_to_position);
 void _wasgo_AudioStreamPlayer_wrapper_set_autoplay(WasGoId wasgo_id, bool p_enable);
-void _wasgo_AudioStreamPlayer_wrapper_set_bus(WasGoId wasgo_id, WasGo::WasGoId p_bus);
-void _wasgo_AudioStreamPlayer_wrapper_set_mix_target(WasGoId wasgo_id, WasGo::WasGoId p_mix_target);
+void _wasgo_AudioStreamPlayer_wrapper_set_bus(WasGoId wasgo_id, WasGoId p_bus);
+void _wasgo_AudioStreamPlayer_wrapper_set_mix_target(WasGoId wasgo_id, WasGoId p_mix_target);
 void _wasgo_AudioStreamPlayer_wrapper_set_pitch_scale(WasGoId wasgo_id, float p_pitch_scale);
-void _wasgo_AudioStreamPlayer_wrapper_set_stream(WasGoId wasgo_id, WasGo::WasGoId p_stream);
+void _wasgo_AudioStreamPlayer_wrapper_set_stream(WasGoId wasgo_id, WasGoId p_stream);
 void _wasgo_AudioStreamPlayer_wrapper_set_volume_db(WasGoId wasgo_id, float p_volume_db);
 void _wasgo_AudioStreamPlayer_wrapper_stop(WasGoId wasgo_id);
 }

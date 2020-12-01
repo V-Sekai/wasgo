@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class SceneTreeTimer : public Reference{
+public:
 float get_time_left();
 void set_time_left(float p_time);
 };

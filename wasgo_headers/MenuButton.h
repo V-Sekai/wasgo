@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "PopupMenu.h"
 #include "Button.h"
+#include "PopupMenu.h"
 class MenuButton : public Button{
+public:
 PopupMenu get_popup();
 
 MenuButton(WasGoId p_wasgo_id);
@@ -18,6 +19,6 @@ MenuButton(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_MenuButton_wrapper_get_popup(WasGoId wasgo_id);
+WasGoId _wasgo_MenuButton_wrapper_get_popup(WasGoId wasgo_id);
 }
 #endif

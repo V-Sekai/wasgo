@@ -5,11 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Margin.h"
 #include "Texture.h"
+#include "Rect2.h"
 #include "Control.h"
 class NinePatchRect : public Control{
+public:
 enum AxisStretchMode{
 AXIS_STRETCH_MODE_STRETCH,
 AXIS_STRETCH_MODE_TILE,
@@ -36,17 +37,17 @@ NinePatchRect(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_NinePatchRect_wrapper_get_h_axis_stretch_mode(WasGoId wasgo_id);
-int _wasgo_NinePatchRect_wrapper_get_patch_margin(WasGoId wasgo_id, WasGo::WasGoId p_margin);
-WasGo::WasGoId _wasgo_NinePatchRect_wrapper_get_region_rect(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_NinePatchRect_wrapper_get_texture(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_NinePatchRect_wrapper_get_v_axis_stretch_mode(WasGoId wasgo_id);
+WasGoId _wasgo_NinePatchRect_wrapper_get_h_axis_stretch_mode(WasGoId wasgo_id);
+int _wasgo_NinePatchRect_wrapper_get_patch_margin(WasGoId wasgo_id, WasGoId p_margin);
+WasGoId _wasgo_NinePatchRect_wrapper_get_region_rect(WasGoId wasgo_id);
+WasGoId _wasgo_NinePatchRect_wrapper_get_texture(WasGoId wasgo_id);
+WasGoId _wasgo_NinePatchRect_wrapper_get_v_axis_stretch_mode(WasGoId wasgo_id);
 int _wasgo_NinePatchRect_wrapper_is_draw_center_enabled(WasGoId wasgo_id);
 void _wasgo_NinePatchRect_wrapper_set_draw_center(WasGoId wasgo_id, bool p_draw_center);
-void _wasgo_NinePatchRect_wrapper_set_h_axis_stretch_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
-void _wasgo_NinePatchRect_wrapper_set_patch_margin(WasGoId wasgo_id, WasGo::WasGoId p_margin, int p_value);
-void _wasgo_NinePatchRect_wrapper_set_region_rect(WasGoId wasgo_id, WasGo::WasGoId p_rect);
-void _wasgo_NinePatchRect_wrapper_set_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
-void _wasgo_NinePatchRect_wrapper_set_v_axis_stretch_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_NinePatchRect_wrapper_set_h_axis_stretch_mode(WasGoId wasgo_id, WasGoId p_mode);
+void _wasgo_NinePatchRect_wrapper_set_patch_margin(WasGoId wasgo_id, WasGoId p_margin, int p_value);
+void _wasgo_NinePatchRect_wrapper_set_region_rect(WasGoId wasgo_id, WasGoId p_rect);
+void _wasgo_NinePatchRect_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
+void _wasgo_NinePatchRect_wrapper_set_v_axis_stretch_mode(WasGoId wasgo_id, WasGoId p_mode);
 }
 #endif

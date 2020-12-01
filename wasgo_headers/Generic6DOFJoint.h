@@ -7,6 +7,7 @@
 
 #include "Joint.h"
 class Generic6DOFJoint : public Joint{
+public:
 enum Flag{
 FLAG_ENABLE_LINEAR_LIMIT,
 FLAG_ENABLE_ANGULAR_LIMIT,

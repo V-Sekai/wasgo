@@ -7,6 +7,7 @@
 
 #include "AudioEffect.h"
 class AudioEffectPhaser : public AudioEffect{
+public:
 float get_depth();
 float get_feedback();
 float get_range_max_hz();

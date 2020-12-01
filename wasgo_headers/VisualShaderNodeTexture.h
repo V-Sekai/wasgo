@@ -8,6 +8,7 @@
 #include "VisualShaderNode.h"
 #include "Texture.h"
 class VisualShaderNodeTexture : public VisualShaderNode{
+public:
 enum Source{
 SOURCE_TEXTURE,
 SOURCE_SCREEN,
@@ -36,11 +37,11 @@ VisualShaderNodeTexture(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_VisualShaderNodeTexture_wrapper_get_source(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_VisualShaderNodeTexture_wrapper_get_texture(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_VisualShaderNodeTexture_wrapper_get_texture_type(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeTexture_wrapper_set_source(WasGoId wasgo_id, WasGo::WasGoId p_value);
-void _wasgo_VisualShaderNodeTexture_wrapper_set_texture(WasGoId wasgo_id, WasGo::WasGoId p_value);
-void _wasgo_VisualShaderNodeTexture_wrapper_set_texture_type(WasGoId wasgo_id, WasGo::WasGoId p_value);
+WasGoId _wasgo_VisualShaderNodeTexture_wrapper_get_source(WasGoId wasgo_id);
+WasGoId _wasgo_VisualShaderNodeTexture_wrapper_get_texture(WasGoId wasgo_id);
+WasGoId _wasgo_VisualShaderNodeTexture_wrapper_get_texture_type(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeTexture_wrapper_set_source(WasGoId wasgo_id, WasGoId p_value);
+void _wasgo_VisualShaderNodeTexture_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_value);
+void _wasgo_VisualShaderNodeTexture_wrapper_set_texture_type(WasGoId wasgo_id, WasGoId p_value);
 }
 #endif

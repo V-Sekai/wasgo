@@ -7,6 +7,7 @@
 
 #include "ResourceFormatLoader.h"
 class ResourceFormatLoaderWasm : public ResourceFormatLoader{
+public:
 
 ResourceFormatLoaderWasm(WasGoId p_wasgo_id);
 ~ResourceFormatLoaderWasm();

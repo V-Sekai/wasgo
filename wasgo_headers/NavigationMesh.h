@@ -6,9 +6,11 @@
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
+#include "ustring.h"
 #include "Mesh.h"
 #include "Resource.h"
 class NavigationMesh : public Resource{
+public:
 void add_polygon(PoolIntArray p_polygon);
 void clear_polygons();
 void create_from_mesh(Mesh p_mesh);
@@ -69,9 +71,9 @@ NavigationMesh(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_NavigationMesh_wrapper_add_polygon(WasGoId wasgo_id, WasGo::WasGoId p_polygon);
+void _wasgo_NavigationMesh_wrapper_add_polygon(WasGoId wasgo_id, WasGoId p_polygon);
 void _wasgo_NavigationMesh_wrapper_clear_polygons(WasGoId wasgo_id);
-void _wasgo_NavigationMesh_wrapper_create_from_mesh(WasGoId wasgo_id, WasGo::WasGoId p_mesh);
+void _wasgo_NavigationMesh_wrapper_create_from_mesh(WasGoId wasgo_id, WasGoId p_mesh);
 float _wasgo_NavigationMesh_wrapper_get_agent_height(WasGoId wasgo_id);
 float _wasgo_NavigationMesh_wrapper_get_agent_max_climb(WasGoId wasgo_id);
 float _wasgo_NavigationMesh_wrapper_get_agent_max_slope(WasGoId wasgo_id);
@@ -88,14 +90,14 @@ int _wasgo_NavigationMesh_wrapper_get_filter_ledge_spans(WasGoId wasgo_id);
 int _wasgo_NavigationMesh_wrapper_get_filter_low_hanging_obstacles(WasGoId wasgo_id);
 int _wasgo_NavigationMesh_wrapper_get_filter_walkable_low_height_spans(WasGoId wasgo_id);
 int _wasgo_NavigationMesh_wrapper_get_parsed_geometry_type(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_NavigationMesh_wrapper_get_polygon(WasGoId wasgo_id, int p_idx);
+WasGoId _wasgo_NavigationMesh_wrapper_get_polygon(WasGoId wasgo_id, int p_idx);
 int _wasgo_NavigationMesh_wrapper_get_polygon_count(WasGoId wasgo_id);
 float _wasgo_NavigationMesh_wrapper_get_region_merge_size(WasGoId wasgo_id);
 float _wasgo_NavigationMesh_wrapper_get_region_min_size(WasGoId wasgo_id);
 int _wasgo_NavigationMesh_wrapper_get_sample_partition_type(WasGoId wasgo_id);
 int _wasgo_NavigationMesh_wrapper_get_source_geometry_mode(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_NavigationMesh_wrapper_get_source_group_name(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_NavigationMesh_wrapper_get_vertices(WasGoId wasgo_id);
+WasGoId _wasgo_NavigationMesh_wrapper_get_source_group_name(WasGoId wasgo_id);
+WasGoId _wasgo_NavigationMesh_wrapper_get_vertices(WasGoId wasgo_id);
 float _wasgo_NavigationMesh_wrapper_get_verts_per_poly(WasGoId wasgo_id);
 void _wasgo_NavigationMesh_wrapper_set_agent_height(WasGoId wasgo_id, float p_agent_height);
 void _wasgo_NavigationMesh_wrapper_set_agent_max_climb(WasGoId wasgo_id, float p_agent_max_climb);
@@ -117,8 +119,8 @@ void _wasgo_NavigationMesh_wrapper_set_region_merge_size(WasGoId wasgo_id, float
 void _wasgo_NavigationMesh_wrapper_set_region_min_size(WasGoId wasgo_id, float p_region_min_size);
 void _wasgo_NavigationMesh_wrapper_set_sample_partition_type(WasGoId wasgo_id, int p_sample_partition_type);
 void _wasgo_NavigationMesh_wrapper_set_source_geometry_mode(WasGoId wasgo_id, int p_mask);
-void _wasgo_NavigationMesh_wrapper_set_source_group_name(WasGoId wasgo_id, WasGo::WasGoId p_mask);
-void _wasgo_NavigationMesh_wrapper_set_vertices(WasGoId wasgo_id, WasGo::WasGoId p_vertices);
+void _wasgo_NavigationMesh_wrapper_set_source_group_name(WasGoId wasgo_id, WasGoId p_mask);
+void _wasgo_NavigationMesh_wrapper_set_vertices(WasGoId wasgo_id, WasGoId p_vertices);
 void _wasgo_NavigationMesh_wrapper_set_verts_per_poly(WasGoId wasgo_id, float p_verts_per_poly);
 }
 #endif

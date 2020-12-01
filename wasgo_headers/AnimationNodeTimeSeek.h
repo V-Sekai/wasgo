@@ -7,6 +7,7 @@
 
 #include "AnimationNode.h"
 class AnimationNodeTimeSeek : public AnimationNode{
+public:
 
 AnimationNodeTimeSeek(WasGoId p_wasgo_id);
 ~AnimationNodeTimeSeek();

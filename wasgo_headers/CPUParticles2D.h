@@ -5,13 +5,16 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Gradient.h"
-#include "Curve.h"
-#include "Node.h"
-#include "Texture.h"
+#include "Vector2.h"
 #include "Variant.h"
+#include "Texture.h"
 #include "Node2D.h"
+#include "Curve.h"
+#include "Gradient.h"
+#include "Color.h"
+#include "Node.h"
 class CPUParticles2D : public Node2D{
+public:
 enum DrawOrder{
 DRAW_ORDER_INDEX,
 DRAW_ORDER_LIFETIME
@@ -116,67 +119,67 @@ CPUParticles2D(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_CPUParticles2D_wrapper_convert_from_particles(WasGoId wasgo_id, WasGo::WasGoId p_particles);
+void _wasgo_CPUParticles2D_wrapper_convert_from_particles(WasGoId wasgo_id, WasGoId p_particles);
 int _wasgo_CPUParticles2D_wrapper_get_amount(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_color(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_color_ramp(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_direction(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_draw_order(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_emission_colors(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_emission_normals(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_emission_points(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_emission_rect_extents(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_emission_shape(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_color(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_color_ramp(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_direction(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_draw_order(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_emission_colors(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_emission_normals(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_emission_points(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_emission_rect_extents(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_emission_shape(WasGoId wasgo_id);
 float _wasgo_CPUParticles2D_wrapper_get_emission_sphere_radius(WasGoId wasgo_id);
 float _wasgo_CPUParticles2D_wrapper_get_explosiveness_ratio(WasGoId wasgo_id);
 int _wasgo_CPUParticles2D_wrapper_get_fixed_fps(WasGoId wasgo_id);
 int _wasgo_CPUParticles2D_wrapper_get_fractional_delta(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_gravity(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_gravity(WasGoId wasgo_id);
 float _wasgo_CPUParticles2D_wrapper_get_lifetime(WasGoId wasgo_id);
 float _wasgo_CPUParticles2D_wrapper_get_lifetime_randomness(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_normalmap(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_normalmap(WasGoId wasgo_id);
 int _wasgo_CPUParticles2D_wrapper_get_one_shot(WasGoId wasgo_id);
-float _wasgo_CPUParticles2D_wrapper_get_param(WasGoId wasgo_id, WasGo::WasGoId p_param);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_param_curve(WasGoId wasgo_id, WasGo::WasGoId p_param);
-float _wasgo_CPUParticles2D_wrapper_get_param_randomness(WasGoId wasgo_id, WasGo::WasGoId p_param);
-int _wasgo_CPUParticles2D_wrapper_get_particle_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag);
+float _wasgo_CPUParticles2D_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_param_curve(WasGoId wasgo_id, WasGoId p_param);
+float _wasgo_CPUParticles2D_wrapper_get_param_randomness(WasGoId wasgo_id, WasGoId p_param);
+int _wasgo_CPUParticles2D_wrapper_get_particle_flag(WasGoId wasgo_id, WasGoId p_flag);
 float _wasgo_CPUParticles2D_wrapper_get_pre_process_time(WasGoId wasgo_id);
 float _wasgo_CPUParticles2D_wrapper_get_randomness_ratio(WasGoId wasgo_id);
 float _wasgo_CPUParticles2D_wrapper_get_speed_scale(WasGoId wasgo_id);
 float _wasgo_CPUParticles2D_wrapper_get_spread(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CPUParticles2D_wrapper_get_texture(WasGoId wasgo_id);
+WasGoId _wasgo_CPUParticles2D_wrapper_get_texture(WasGoId wasgo_id);
 int _wasgo_CPUParticles2D_wrapper_get_use_local_coordinates(WasGoId wasgo_id);
 int _wasgo_CPUParticles2D_wrapper_is_emitting(WasGoId wasgo_id);
 void _wasgo_CPUParticles2D_wrapper_restart(WasGoId wasgo_id);
 void _wasgo_CPUParticles2D_wrapper_set_amount(WasGoId wasgo_id, int p_amount);
-void _wasgo_CPUParticles2D_wrapper_set_color(WasGoId wasgo_id, WasGo::WasGoId p_color);
-void _wasgo_CPUParticles2D_wrapper_set_color_ramp(WasGoId wasgo_id, WasGo::WasGoId p_ramp);
-void _wasgo_CPUParticles2D_wrapper_set_direction(WasGoId wasgo_id, WasGo::WasGoId p_direction);
-void _wasgo_CPUParticles2D_wrapper_set_draw_order(WasGoId wasgo_id, WasGo::WasGoId p_order);
-void _wasgo_CPUParticles2D_wrapper_set_emission_colors(WasGoId wasgo_id, WasGo::WasGoId p_array);
-void _wasgo_CPUParticles2D_wrapper_set_emission_normals(WasGoId wasgo_id, WasGo::WasGoId p_array);
-void _wasgo_CPUParticles2D_wrapper_set_emission_points(WasGoId wasgo_id, WasGo::WasGoId p_array);
-void _wasgo_CPUParticles2D_wrapper_set_emission_rect_extents(WasGoId wasgo_id, WasGo::WasGoId p_extents);
-void _wasgo_CPUParticles2D_wrapper_set_emission_shape(WasGoId wasgo_id, WasGo::WasGoId p_shape);
+void _wasgo_CPUParticles2D_wrapper_set_color(WasGoId wasgo_id, WasGoId p_color);
+void _wasgo_CPUParticles2D_wrapper_set_color_ramp(WasGoId wasgo_id, WasGoId p_ramp);
+void _wasgo_CPUParticles2D_wrapper_set_direction(WasGoId wasgo_id, WasGoId p_direction);
+void _wasgo_CPUParticles2D_wrapper_set_draw_order(WasGoId wasgo_id, WasGoId p_order);
+void _wasgo_CPUParticles2D_wrapper_set_emission_colors(WasGoId wasgo_id, WasGoId p_array);
+void _wasgo_CPUParticles2D_wrapper_set_emission_normals(WasGoId wasgo_id, WasGoId p_array);
+void _wasgo_CPUParticles2D_wrapper_set_emission_points(WasGoId wasgo_id, WasGoId p_array);
+void _wasgo_CPUParticles2D_wrapper_set_emission_rect_extents(WasGoId wasgo_id, WasGoId p_extents);
+void _wasgo_CPUParticles2D_wrapper_set_emission_shape(WasGoId wasgo_id, WasGoId p_shape);
 void _wasgo_CPUParticles2D_wrapper_set_emission_sphere_radius(WasGoId wasgo_id, float p_radius);
 void _wasgo_CPUParticles2D_wrapper_set_emitting(WasGoId wasgo_id, bool p_emitting);
 void _wasgo_CPUParticles2D_wrapper_set_explosiveness_ratio(WasGoId wasgo_id, float p_ratio);
 void _wasgo_CPUParticles2D_wrapper_set_fixed_fps(WasGoId wasgo_id, int p_fps);
 void _wasgo_CPUParticles2D_wrapper_set_fractional_delta(WasGoId wasgo_id, bool p_enable);
-void _wasgo_CPUParticles2D_wrapper_set_gravity(WasGoId wasgo_id, WasGo::WasGoId p_accel_vec);
+void _wasgo_CPUParticles2D_wrapper_set_gravity(WasGoId wasgo_id, WasGoId p_accel_vec);
 void _wasgo_CPUParticles2D_wrapper_set_lifetime(WasGoId wasgo_id, float p_secs);
 void _wasgo_CPUParticles2D_wrapper_set_lifetime_randomness(WasGoId wasgo_id, float p_random);
-void _wasgo_CPUParticles2D_wrapper_set_normalmap(WasGoId wasgo_id, WasGo::WasGoId p_normalmap);
+void _wasgo_CPUParticles2D_wrapper_set_normalmap(WasGoId wasgo_id, WasGoId p_normalmap);
 void _wasgo_CPUParticles2D_wrapper_set_one_shot(WasGoId wasgo_id, bool p_enable);
-void _wasgo_CPUParticles2D_wrapper_set_param(WasGoId wasgo_id, WasGo::WasGoId p_param, float p_value);
-void _wasgo_CPUParticles2D_wrapper_set_param_curve(WasGoId wasgo_id, WasGo::WasGoId p_param, WasGo::WasGoId p_curve);
-void _wasgo_CPUParticles2D_wrapper_set_param_randomness(WasGoId wasgo_id, WasGo::WasGoId p_param, float p_randomness);
-void _wasgo_CPUParticles2D_wrapper_set_particle_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag, bool p_enable);
+void _wasgo_CPUParticles2D_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
+void _wasgo_CPUParticles2D_wrapper_set_param_curve(WasGoId wasgo_id, WasGoId p_param, WasGoId p_curve);
+void _wasgo_CPUParticles2D_wrapper_set_param_randomness(WasGoId wasgo_id, WasGoId p_param, float p_randomness);
+void _wasgo_CPUParticles2D_wrapper_set_particle_flag(WasGoId wasgo_id, WasGoId p_flag, bool p_enable);
 void _wasgo_CPUParticles2D_wrapper_set_pre_process_time(WasGoId wasgo_id, float p_secs);
 void _wasgo_CPUParticles2D_wrapper_set_randomness_ratio(WasGoId wasgo_id, float p_ratio);
 void _wasgo_CPUParticles2D_wrapper_set_speed_scale(WasGoId wasgo_id, float p_scale);
 void _wasgo_CPUParticles2D_wrapper_set_spread(WasGoId wasgo_id, float p_degrees);
-void _wasgo_CPUParticles2D_wrapper_set_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+void _wasgo_CPUParticles2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_CPUParticles2D_wrapper_set_use_local_coordinates(WasGoId wasgo_id, bool p_enable);
 }
 #endif

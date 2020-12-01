@@ -6,9 +6,13 @@
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
-#include "Node2D.h"
 #include "Texture.h"
+#include "Vector2.h"
+#include "Node2D.h"
+#include "NodePath.h"
+#include "Color.h"
 class Polygon2D : public Node2D{
+public:
 void add_bone(NodePath p_path, PoolRealArray p_weights);
 void clear_bones();
 void erase_bone(int p_index);
@@ -58,45 +62,45 @@ Polygon2D(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Polygon2D_wrapper_add_bone(WasGoId wasgo_id, WasGo::WasGoId p_path, WasGo::WasGoId p_weights);
+void _wasgo_Polygon2D_wrapper_add_bone(WasGoId wasgo_id, WasGoId p_path, WasGoId p_weights);
 void _wasgo_Polygon2D_wrapper_clear_bones(WasGoId wasgo_id);
 void _wasgo_Polygon2D_wrapper_erase_bone(WasGoId wasgo_id, int p_index);
 int _wasgo_Polygon2D_wrapper_get_antialiased(WasGoId wasgo_id);
 int _wasgo_Polygon2D_wrapper_get_bone_count(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_bone_path(WasGoId wasgo_id, int p_index);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_bone_weights(WasGoId wasgo_id, int p_index);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_color(WasGoId wasgo_id);
+WasGoId _wasgo_Polygon2D_wrapper_get_bone_path(WasGoId wasgo_id, int p_index);
+WasGoId _wasgo_Polygon2D_wrapper_get_bone_weights(WasGoId wasgo_id, int p_index);
+WasGoId _wasgo_Polygon2D_wrapper_get_color(WasGoId wasgo_id);
 int _wasgo_Polygon2D_wrapper_get_internal_vertex_count(WasGoId wasgo_id);
 int _wasgo_Polygon2D_wrapper_get_invert(WasGoId wasgo_id);
 float _wasgo_Polygon2D_wrapper_get_invert_border(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_offset(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_polygon(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_polygons(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_skeleton(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_texture(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_texture_offset(WasGoId wasgo_id);
+WasGoId _wasgo_Polygon2D_wrapper_get_offset(WasGoId wasgo_id);
+WasGoId _wasgo_Polygon2D_wrapper_get_polygon(WasGoId wasgo_id);
+WasGoId _wasgo_Polygon2D_wrapper_get_polygons(WasGoId wasgo_id);
+WasGoId _wasgo_Polygon2D_wrapper_get_skeleton(WasGoId wasgo_id);
+WasGoId _wasgo_Polygon2D_wrapper_get_texture(WasGoId wasgo_id);
+WasGoId _wasgo_Polygon2D_wrapper_get_texture_offset(WasGoId wasgo_id);
 float _wasgo_Polygon2D_wrapper_get_texture_rotation(WasGoId wasgo_id);
 float _wasgo_Polygon2D_wrapper_get_texture_rotation_degrees(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_texture_scale(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_uv(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Polygon2D_wrapper_get_vertex_colors(WasGoId wasgo_id);
+WasGoId _wasgo_Polygon2D_wrapper_get_texture_scale(WasGoId wasgo_id);
+WasGoId _wasgo_Polygon2D_wrapper_get_uv(WasGoId wasgo_id);
+WasGoId _wasgo_Polygon2D_wrapper_get_vertex_colors(WasGoId wasgo_id);
 void _wasgo_Polygon2D_wrapper_set_antialiased(WasGoId wasgo_id, bool p_antialiased);
-void _wasgo_Polygon2D_wrapper_set_bone_path(WasGoId wasgo_id, int p_index, WasGo::WasGoId p_path);
-void _wasgo_Polygon2D_wrapper_set_bone_weights(WasGoId wasgo_id, int p_index, WasGo::WasGoId p_weights);
-void _wasgo_Polygon2D_wrapper_set_color(WasGoId wasgo_id, WasGo::WasGoId p_color);
+void _wasgo_Polygon2D_wrapper_set_bone_path(WasGoId wasgo_id, int p_index, WasGoId p_path);
+void _wasgo_Polygon2D_wrapper_set_bone_weights(WasGoId wasgo_id, int p_index, WasGoId p_weights);
+void _wasgo_Polygon2D_wrapper_set_color(WasGoId wasgo_id, WasGoId p_color);
 void _wasgo_Polygon2D_wrapper_set_internal_vertex_count(WasGoId wasgo_id, int p_internal_vertex_count);
 void _wasgo_Polygon2D_wrapper_set_invert(WasGoId wasgo_id, bool p_invert);
 void _wasgo_Polygon2D_wrapper_set_invert_border(WasGoId wasgo_id, float p_invert_border);
-void _wasgo_Polygon2D_wrapper_set_offset(WasGoId wasgo_id, WasGo::WasGoId p_offset);
-void _wasgo_Polygon2D_wrapper_set_polygon(WasGoId wasgo_id, WasGo::WasGoId p_polygon);
-void _wasgo_Polygon2D_wrapper_set_polygons(WasGoId wasgo_id, WasGo::WasGoId p_polygons);
-void _wasgo_Polygon2D_wrapper_set_skeleton(WasGoId wasgo_id, WasGo::WasGoId p_skeleton);
-void _wasgo_Polygon2D_wrapper_set_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
-void _wasgo_Polygon2D_wrapper_set_texture_offset(WasGoId wasgo_id, WasGo::WasGoId p_texture_offset);
+void _wasgo_Polygon2D_wrapper_set_offset(WasGoId wasgo_id, WasGoId p_offset);
+void _wasgo_Polygon2D_wrapper_set_polygon(WasGoId wasgo_id, WasGoId p_polygon);
+void _wasgo_Polygon2D_wrapper_set_polygons(WasGoId wasgo_id, WasGoId p_polygons);
+void _wasgo_Polygon2D_wrapper_set_skeleton(WasGoId wasgo_id, WasGoId p_skeleton);
+void _wasgo_Polygon2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
+void _wasgo_Polygon2D_wrapper_set_texture_offset(WasGoId wasgo_id, WasGoId p_texture_offset);
 void _wasgo_Polygon2D_wrapper_set_texture_rotation(WasGoId wasgo_id, float p_texture_rotation);
 void _wasgo_Polygon2D_wrapper_set_texture_rotation_degrees(WasGoId wasgo_id, float p_texture_rotation);
-void _wasgo_Polygon2D_wrapper_set_texture_scale(WasGoId wasgo_id, WasGo::WasGoId p_texture_scale);
-void _wasgo_Polygon2D_wrapper_set_uv(WasGoId wasgo_id, WasGo::WasGoId p_uv);
-void _wasgo_Polygon2D_wrapper_set_vertex_colors(WasGoId wasgo_id, WasGo::WasGoId p_vertex_colors);
+void _wasgo_Polygon2D_wrapper_set_texture_scale(WasGoId wasgo_id, WasGoId p_texture_scale);
+void _wasgo_Polygon2D_wrapper_set_uv(WasGoId wasgo_id, WasGoId p_uv);
+void _wasgo_Polygon2D_wrapper_set_vertex_colors(WasGoId wasgo_id, WasGoId p_vertex_colors);
 }
 #endif

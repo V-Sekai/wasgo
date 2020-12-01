@@ -8,6 +8,7 @@
 #include "Texture.h"
 #include "Control.h"
 class TextureRect : public Control{
+public:
 enum StretchMode{
 STRETCH_SCALE_ON_EXPAND,
 STRETCH_SCALE,
@@ -37,15 +38,15 @@ TextureRect(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_TextureRect_wrapper_get_stretch_mode(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_TextureRect_wrapper_get_texture(WasGoId wasgo_id);
+WasGoId _wasgo_TextureRect_wrapper_get_stretch_mode(WasGoId wasgo_id);
+WasGoId _wasgo_TextureRect_wrapper_get_texture(WasGoId wasgo_id);
 int _wasgo_TextureRect_wrapper_has_expand(WasGoId wasgo_id);
 int _wasgo_TextureRect_wrapper_is_flipped_h(WasGoId wasgo_id);
 int _wasgo_TextureRect_wrapper_is_flipped_v(WasGoId wasgo_id);
 void _wasgo_TextureRect_wrapper_set_expand(WasGoId wasgo_id, bool p_enable);
 void _wasgo_TextureRect_wrapper_set_flip_h(WasGoId wasgo_id, bool p_enable);
 void _wasgo_TextureRect_wrapper_set_flip_v(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextureRect_wrapper_set_stretch_mode(WasGoId wasgo_id, WasGo::WasGoId p_stretch_mode);
-void _wasgo_TextureRect_wrapper_set_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+void _wasgo_TextureRect_wrapper_set_stretch_mode(WasGoId wasgo_id, WasGoId p_stretch_mode);
+void _wasgo_TextureRect_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 }
 #endif

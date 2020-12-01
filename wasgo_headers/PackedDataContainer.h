@@ -7,6 +7,7 @@
 
 #include "Resource.h"
 class PackedDataContainer : public Resource{
+public:
 
 PackedDataContainer(WasGoId p_wasgo_id);
 ~PackedDataContainer();

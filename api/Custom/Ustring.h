@@ -240,7 +240,7 @@ public:
 	static String num_int64(int64_t p_num, int base = 10, bool capitalize_hex = false);
 	static String num_uint64(uint64_t p_num, int base = 10, bool capitalize_hex = false);
 	static String chr(CharType p_char);
-	static String md5(const uint8_t *p_md5);
+	// static String md5(const uint8_t *p_md5);
 	static String hex_encode_buffer(const uint8_t *p_buffer, int p_len);
 	bool is_numeric() const;
 	double to_double() const;
@@ -305,12 +305,12 @@ public:
 	static uint32_t hash(const char *p_cstr); /* hash the string */
 	uint32_t hash() const; /* hash the string */
 	uint64_t hash64() const; /* hash the string */
-	String md5_text() const;
-	String sha1_text() const;
-	String sha256_text() const;
-	Vector<uint8_t> md5_buffer() const;
-	Vector<uint8_t> sha1_buffer() const;
-	Vector<uint8_t> sha256_buffer() const;
+	// String md5_text() const;
+	// String sha1_text() const;
+	// String sha256_text() const;
+	// Vector<uint8_t> md5_buffer() const;
+	// Vector<uint8_t> sha1_buffer() const;
+	// Vector<uint8_t> sha256_buffer() const;
 
 	_FORCE_INLINE_ bool empty() const { return length() == 0; }
 
@@ -322,7 +322,7 @@ public:
 	String path_to_file(const String &p_path) const;
 	String get_base_dir() const;
 	String get_file() const;
-	static String humanize_size(uint64_t p_size);
+	// static String humanize_size(uint64_t p_size);
 	String simplify_path() const;
 
 	String xml_escape(bool p_escape_quotes = false) const;
@@ -433,7 +433,7 @@ String TTR(const String &);
 #endif
 
 //tool or regular translate
-String RTR(const String &);
+// String RTR(const String &);
 
 bool is_symbol(CharType c);
 bool select_word(const String &p_s, int p_col, int &r_beg, int &r_end);

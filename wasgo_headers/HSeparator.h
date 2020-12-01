@@ -7,6 +7,7 @@
 
 #include "Separator.h"
 class HSeparator : public Separator{
+public:
 
 HSeparator(WasGoId p_wasgo_id);
 ~HSeparator();

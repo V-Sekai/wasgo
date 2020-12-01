@@ -5,10 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Material.h"
 #include "VisualInstance.h"
+#include "AABB.h"
 class GeometryInstance : public VisualInstance{
+public:
 enum Flags{
 FLAG_USE_BAKED_LIGHT,
 FLAG_DRAW_NEXT_FRAME_IF_VISIBLE,
@@ -42,22 +43,22 @@ void set_material_override(Material p_material);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_GeometryInstance_wrapper_get_cast_shadows_setting(WasGoId wasgo_id);
+WasGoId _wasgo_GeometryInstance_wrapper_get_cast_shadows_setting(WasGoId wasgo_id);
 float _wasgo_GeometryInstance_wrapper_get_extra_cull_margin(WasGoId wasgo_id);
-int _wasgo_GeometryInstance_wrapper_get_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag);
+int _wasgo_GeometryInstance_wrapper_get_flag(WasGoId wasgo_id, WasGoId p_flag);
 float _wasgo_GeometryInstance_wrapper_get_lod_max_distance(WasGoId wasgo_id);
 float _wasgo_GeometryInstance_wrapper_get_lod_max_hysteresis(WasGoId wasgo_id);
 float _wasgo_GeometryInstance_wrapper_get_lod_min_distance(WasGoId wasgo_id);
 float _wasgo_GeometryInstance_wrapper_get_lod_min_hysteresis(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_GeometryInstance_wrapper_get_material_override(WasGoId wasgo_id);
-void _wasgo_GeometryInstance_wrapper_set_cast_shadows_setting(WasGoId wasgo_id, WasGo::WasGoId p_shadow_casting_setting);
-void _wasgo_GeometryInstance_wrapper_set_custom_aabb(WasGoId wasgo_id, WasGo::WasGoId p_aabb);
+WasGoId _wasgo_GeometryInstance_wrapper_get_material_override(WasGoId wasgo_id);
+void _wasgo_GeometryInstance_wrapper_set_cast_shadows_setting(WasGoId wasgo_id, WasGoId p_shadow_casting_setting);
+void _wasgo_GeometryInstance_wrapper_set_custom_aabb(WasGoId wasgo_id, WasGoId p_aabb);
 void _wasgo_GeometryInstance_wrapper_set_extra_cull_margin(WasGoId wasgo_id, float p_margin);
-void _wasgo_GeometryInstance_wrapper_set_flag(WasGoId wasgo_id, WasGo::WasGoId p_flag, bool p_value);
+void _wasgo_GeometryInstance_wrapper_set_flag(WasGoId wasgo_id, WasGoId p_flag, bool p_value);
 void _wasgo_GeometryInstance_wrapper_set_lod_max_distance(WasGoId wasgo_id, float p_mode);
 void _wasgo_GeometryInstance_wrapper_set_lod_max_hysteresis(WasGoId wasgo_id, float p_mode);
 void _wasgo_GeometryInstance_wrapper_set_lod_min_distance(WasGoId wasgo_id, float p_mode);
 void _wasgo_GeometryInstance_wrapper_set_lod_min_hysteresis(WasGoId wasgo_id, float p_mode);
-void _wasgo_GeometryInstance_wrapper_set_material_override(WasGoId wasgo_id, WasGo::WasGoId p_material);
+void _wasgo_GeometryInstance_wrapper_set_material_override(WasGoId wasgo_id, WasGoId p_material);
 }
 #endif

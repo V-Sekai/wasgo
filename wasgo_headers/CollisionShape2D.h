@@ -8,6 +8,7 @@
 #include "Node2D.h"
 #include "Shape2D.h"
 class CollisionShape2D : public Node2D{
+public:
 float get_one_way_collision_margin();
 Shape2D get_shape();
 bool is_disabled();
@@ -26,12 +27,12 @@ CollisionShape2D(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 float _wasgo_CollisionShape2D_wrapper_get_one_way_collision_margin(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_CollisionShape2D_wrapper_get_shape(WasGoId wasgo_id);
+WasGoId _wasgo_CollisionShape2D_wrapper_get_shape(WasGoId wasgo_id);
 int _wasgo_CollisionShape2D_wrapper_is_disabled(WasGoId wasgo_id);
 int _wasgo_CollisionShape2D_wrapper_is_one_way_collision_enabled(WasGoId wasgo_id);
 void _wasgo_CollisionShape2D_wrapper_set_disabled(WasGoId wasgo_id, bool p_disabled);
 void _wasgo_CollisionShape2D_wrapper_set_one_way_collision(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_CollisionShape2D_wrapper_set_one_way_collision_margin(WasGoId wasgo_id, float p_margin);
-void _wasgo_CollisionShape2D_wrapper_set_shape(WasGoId wasgo_id, WasGo::WasGoId p_shape);
+void _wasgo_CollisionShape2D_wrapper_set_shape(WasGoId wasgo_id, WasGoId p_shape);
 }
 #endif

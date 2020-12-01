@@ -7,6 +7,7 @@
 
 #include "AudioStream.h"
 class AudioStreamGenerator : public AudioStream{
+public:
 float get_buffer_length();
 float get_mix_rate();
 void set_buffer_length(float p_seconds);

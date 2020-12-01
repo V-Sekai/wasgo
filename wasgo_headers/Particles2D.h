@@ -5,11 +5,12 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Material.h"
-#include "Node2D.h"
 #include "Texture.h"
+#include "Rect2.h"
+#include "Node2D.h"
 class Particles2D : public Node2D{
+public:
 enum DrawOrder{
 DRAW_ORDER_INDEX,
 DRAW_ORDER_LIFETIME
@@ -57,39 +58,39 @@ Particles2D(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_Particles2D_wrapper_capture_rect(WasGoId wasgo_id);
+WasGoId _wasgo_Particles2D_wrapper_capture_rect(WasGoId wasgo_id);
 int _wasgo_Particles2D_wrapper_get_amount(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Particles2D_wrapper_get_draw_order(WasGoId wasgo_id);
+WasGoId _wasgo_Particles2D_wrapper_get_draw_order(WasGoId wasgo_id);
 float _wasgo_Particles2D_wrapper_get_explosiveness_ratio(WasGoId wasgo_id);
 int _wasgo_Particles2D_wrapper_get_fixed_fps(WasGoId wasgo_id);
 int _wasgo_Particles2D_wrapper_get_fractional_delta(WasGoId wasgo_id);
 float _wasgo_Particles2D_wrapper_get_lifetime(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Particles2D_wrapper_get_normal_map(WasGoId wasgo_id);
+WasGoId _wasgo_Particles2D_wrapper_get_normal_map(WasGoId wasgo_id);
 int _wasgo_Particles2D_wrapper_get_one_shot(WasGoId wasgo_id);
 float _wasgo_Particles2D_wrapper_get_pre_process_time(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Particles2D_wrapper_get_process_material(WasGoId wasgo_id);
+WasGoId _wasgo_Particles2D_wrapper_get_process_material(WasGoId wasgo_id);
 float _wasgo_Particles2D_wrapper_get_randomness_ratio(WasGoId wasgo_id);
 float _wasgo_Particles2D_wrapper_get_speed_scale(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Particles2D_wrapper_get_texture(WasGoId wasgo_id);
+WasGoId _wasgo_Particles2D_wrapper_get_texture(WasGoId wasgo_id);
 int _wasgo_Particles2D_wrapper_get_use_local_coordinates(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Particles2D_wrapper_get_visibility_rect(WasGoId wasgo_id);
+WasGoId _wasgo_Particles2D_wrapper_get_visibility_rect(WasGoId wasgo_id);
 int _wasgo_Particles2D_wrapper_is_emitting(WasGoId wasgo_id);
 void _wasgo_Particles2D_wrapper_restart(WasGoId wasgo_id);
 void _wasgo_Particles2D_wrapper_set_amount(WasGoId wasgo_id, int p_amount);
-void _wasgo_Particles2D_wrapper_set_draw_order(WasGoId wasgo_id, WasGo::WasGoId p_order);
+void _wasgo_Particles2D_wrapper_set_draw_order(WasGoId wasgo_id, WasGoId p_order);
 void _wasgo_Particles2D_wrapper_set_emitting(WasGoId wasgo_id, bool p_emitting);
 void _wasgo_Particles2D_wrapper_set_explosiveness_ratio(WasGoId wasgo_id, float p_ratio);
 void _wasgo_Particles2D_wrapper_set_fixed_fps(WasGoId wasgo_id, int p_fps);
 void _wasgo_Particles2D_wrapper_set_fractional_delta(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Particles2D_wrapper_set_lifetime(WasGoId wasgo_id, float p_secs);
-void _wasgo_Particles2D_wrapper_set_normal_map(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+void _wasgo_Particles2D_wrapper_set_normal_map(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_Particles2D_wrapper_set_one_shot(WasGoId wasgo_id, bool p_secs);
 void _wasgo_Particles2D_wrapper_set_pre_process_time(WasGoId wasgo_id, float p_secs);
-void _wasgo_Particles2D_wrapper_set_process_material(WasGoId wasgo_id, WasGo::WasGoId p_material);
+void _wasgo_Particles2D_wrapper_set_process_material(WasGoId wasgo_id, WasGoId p_material);
 void _wasgo_Particles2D_wrapper_set_randomness_ratio(WasGoId wasgo_id, float p_ratio);
 void _wasgo_Particles2D_wrapper_set_speed_scale(WasGoId wasgo_id, float p_scale);
-void _wasgo_Particles2D_wrapper_set_texture(WasGoId wasgo_id, WasGo::WasGoId p_texture);
+void _wasgo_Particles2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_Particles2D_wrapper_set_use_local_coordinates(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Particles2D_wrapper_set_visibility_rect(WasGoId wasgo_id, WasGo::WasGoId p_visibility_rect);
+void _wasgo_Particles2D_wrapper_set_visibility_rect(WasGoId wasgo_id, WasGoId p_visibility_rect);
 }
 #endif

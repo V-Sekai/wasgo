@@ -75,24 +75,24 @@ public:
 	bool operator==(const Transform &p_transform) const;
 	bool operator!=(const Transform &p_transform) const;
 
-	Vector3 xform(const Vector3 &p_vector) const;
-	Vector3 xform_inv(const Vector3 &p_vector) const;
+	_FORCE_INLINE_ Vector3 xform(const Vector3 &p_vector) const;
+	_FORCE_INLINE_ Vector3 xform_inv(const Vector3 &p_vector) const;
 
-	Plane xform(const Plane &p_plane) const;
-	Plane xform_inv(const Plane &p_plane) const;
+	_FORCE_INLINE_ Plane xform(const Plane &p_plane) const;
+	_FORCE_INLINE_ Plane xform_inv(const Plane &p_plane) const;
 
-	AABB xform(const AABB &p_aabb) const;
-	AABB xform_inv(const AABB &p_aabb) const;
+	_FORCE_INLINE_ AABB xform(const AABB &p_aabb) const;
+	_FORCE_INLINE_ AABB xform_inv(const AABB &p_aabb) const;
 
-	// PoolVector<Vector3> xform(const PoolVector<Vector3> &p_array) const;
-	// PoolVector<Vector3> xform_inv(const PoolVector<Vector3> &p_array) const;
+	// _FORCE_INLINE_ PoolVector<Vector3> xform(const PoolVector<Vector3> &p_array) const;
+	// _FORCE_INLINE_ PoolVector<Vector3> xform_inv(const PoolVector<Vector3> &p_array) const;
 
 	void operator*=(const Transform &p_transform);
 	Transform operator*(const Transform &p_transform) const;
 
 	Transform interpolate_with(const Transform &p_transform, real_t p_c) const;
 
-	Transform inverse_xform(const Transform &t) const {
+	_FORCE_INLINE_ Transform inverse_xform(const Transform &t) const {
 
 		Vector3 v = t.origin - origin;
 		return Transform(basis.transpose_xform(t.basis),
@@ -114,14 +114,14 @@ public:
 	Transform() {}
 };
 
-Vector3 Transform::xform(const Vector3 &p_vector) const {
+_FORCE_INLINE_ Vector3 Transform::xform(const Vector3 &p_vector) const {
 
 	return Vector3(
 			basis[0].dot(p_vector) + origin.x,
 			basis[1].dot(p_vector) + origin.y,
 			basis[2].dot(p_vector) + origin.z);
 }
-Vector3 Transform::xform_inv(const Vector3 &p_vector) const {
+_FORCE_INLINE_ Vector3 Transform::xform_inv(const Vector3 &p_vector) const {
 
 	Vector3 v = p_vector - origin;
 
@@ -131,7 +131,7 @@ Vector3 Transform::xform_inv(const Vector3 &p_vector) const {
 			(basis.elements[0][2] * v.x) + (basis.elements[1][2] * v.y) + (basis.elements[2][2] * v.z));
 }
 
-Plane Transform::xform(const Plane &p_plane) const {
+_FORCE_INLINE_ Plane Transform::xform(const Plane &p_plane) const {
 
 	Vector3 point = p_plane.normal * p_plane.d;
 	Vector3 point_dir = point + p_plane.normal;
@@ -144,7 +144,7 @@ Plane Transform::xform(const Plane &p_plane) const {
 
 	return Plane(normal, d);
 }
-Plane Transform::xform_inv(const Plane &p_plane) const {
+_FORCE_INLINE_ Plane Transform::xform_inv(const Plane &p_plane) const {
 
 	Vector3 point = p_plane.normal * p_plane.d;
 	Vector3 point_dir = point + p_plane.normal;
@@ -158,7 +158,7 @@ Plane Transform::xform_inv(const Plane &p_plane) const {
 	return Plane(normal, d);
 }
 
-AABB Transform::xform(const AABB &p_aabb) const {
+_FORCE_INLINE_ AABB Transform::xform(const AABB &p_aabb) const {
 
 	/* http://dev.theomader.com/transform-bounding-boxes/ */
 	Vector3 min = p_aabb.position;
@@ -184,7 +184,7 @@ AABB Transform::xform(const AABB &p_aabb) const {
 	return r_aabb;
 }
 
-AABB Transform::xform_inv(const AABB &p_aabb) const {
+_FORCE_INLINE_ AABB Transform::xform_inv(const AABB &p_aabb) const {
 
 	/* define vertices */
 	Vector3 vertices[8] = {

@@ -7,6 +7,7 @@
 
 #include "PrimitiveMesh.h"
 class PointMesh : public PrimitiveMesh{
+public:
 
 PointMesh(WasGoId p_wasgo_id);
 ~PointMesh();

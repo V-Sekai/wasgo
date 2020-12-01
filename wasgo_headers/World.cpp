@@ -16,13 +16,8 @@ RID World::get_space(){
 	return RID::from_wasgo_id(_wasgo_World_wrapper_get_space(wasgo_id));
 }
 void World::set_environment(Environment p_env){
-	_wasgo_World_wrapper_set_environment(wasgo_id, ((Variant) env).get_wasgo_id());
+	_wasgo_World_wrapper_set_environment(wasgo_id, ((Variant) p_env).get_wasgo_id());
 }
 void World::set_fallback_environment(Environment p_env){
-	_wasgo_World_wrapper_set_fallback_environment(wasgo_id, ((Variant) env).get_wasgo_id());
-}
-
-World::World(WasGoId p_wasgo_id) : Variant(p_wasgo_id){
-}
-World::~World(){
+	_wasgo_World_wrapper_set_fallback_environment(wasgo_id, ((Variant) p_env).get_wasgo_id());
 }

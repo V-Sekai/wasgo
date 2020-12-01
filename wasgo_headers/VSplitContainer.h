@@ -7,6 +7,7 @@
 
 #include "SplitContainer.h"
 class VSplitContainer : public SplitContainer{
+public:
 
 VSplitContainer(WasGoId p_wasgo_id);
 ~VSplitContainer();

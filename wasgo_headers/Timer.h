@@ -7,6 +7,7 @@
 
 #include "Node.h"
 class Timer : public Node{
+public:
 enum TimerProcessMode{
 TIMER_PROCESS_PHYSICS,
 TIMER_PROCESS_IDLE
@@ -35,7 +36,7 @@ Timer(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 float _wasgo_Timer_wrapper_get_time_left(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_Timer_wrapper_get_timer_process_mode(WasGoId wasgo_id);
+WasGoId _wasgo_Timer_wrapper_get_timer_process_mode(WasGoId wasgo_id);
 float _wasgo_Timer_wrapper_get_wait_time(WasGoId wasgo_id);
 int _wasgo_Timer_wrapper_has_autostart(WasGoId wasgo_id);
 int _wasgo_Timer_wrapper_is_one_shot(WasGoId wasgo_id);
@@ -44,7 +45,7 @@ int _wasgo_Timer_wrapper_is_stopped(WasGoId wasgo_id);
 void _wasgo_Timer_wrapper_set_autostart(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Timer_wrapper_set_one_shot(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Timer_wrapper_set_paused(WasGoId wasgo_id, bool p_paused);
-void _wasgo_Timer_wrapper_set_timer_process_mode(WasGoId wasgo_id, WasGo::WasGoId p_mode);
+void _wasgo_Timer_wrapper_set_timer_process_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_Timer_wrapper_set_wait_time(WasGoId wasgo_id, float p_time_sec);
 void _wasgo_Timer_wrapper_start(WasGoId wasgo_id, float p_time_sec);
 void _wasgo_Timer_wrapper_stop(WasGoId wasgo_id);

@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeIf : public VisualShaderNode{
+public:
 
 VisualShaderNodeIf(WasGoId p_wasgo_id);
 ~VisualShaderNodeIf();

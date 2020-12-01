@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorOp : public VisualShaderNode{
+public:
 enum Operator{
 OP_ADD,
 OP_SUB,
@@ -32,7 +33,7 @@ VisualShaderNodeVectorOp(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_VisualShaderNodeVectorOp_wrapper_get_operator(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeVectorOp_wrapper_set_operator(WasGoId wasgo_id, WasGo::WasGoId p_op);
+WasGoId _wasgo_VisualShaderNodeVectorOp_wrapper_get_operator(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeVectorOp_wrapper_set_operator(WasGoId wasgo_id, WasGoId p_op);
 }
 #endif

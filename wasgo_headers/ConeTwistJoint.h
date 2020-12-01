@@ -7,6 +7,7 @@
 
 #include "Joint.h"
 class ConeTwistJoint : public Joint{
+public:
 enum Param{
 PARAM_SWING_SPAN,
 PARAM_TWIST_SPAN,
@@ -26,7 +27,7 @@ ConeTwistJoint(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_ConeTwistJoint_wrapper_get_param(WasGoId wasgo_id, WasGo::WasGoId p_param);
-void _wasgo_ConeTwistJoint_wrapper_set_param(WasGoId wasgo_id, WasGo::WasGoId p_param, float p_value);
+float _wasgo_ConeTwistJoint_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
+void _wasgo_ConeTwistJoint_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
 }
 #endif

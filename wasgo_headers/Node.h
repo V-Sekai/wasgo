@@ -7,6 +7,7 @@
 
 #include "Object.h"
 class Node : public Object{
+public:
 enum DuplicateFlags{
 DUPLICATE_SIGNALS,
 DUPLICATE_GROUPS,

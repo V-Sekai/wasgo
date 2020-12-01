@@ -7,6 +7,7 @@
 
 #include "ConfirmationDialog.h"
 class FileDialog : public ConfirmationDialog{
+public:
 enum Access{
 ACCESS_RESOURCES,
 ACCESS_USERDATA,

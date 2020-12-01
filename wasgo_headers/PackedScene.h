@@ -5,10 +5,11 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "error_list.h"
 #include "Resource.h"
 #include "Node.h"
-#include "Error.h"
 class PackedScene : public Resource{
+public:
 enum GenEditState{
 GEN_EDIT_STATE_DISABLED,
 GEN_EDIT_STATE_INSTANCE,
@@ -27,7 +28,7 @@ PackedScene(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 int _wasgo_PackedScene_wrapper_can_instance(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_PackedScene_wrapper_instance(WasGoId wasgo_id, WasGo::WasGoId p_edit_state);
-WasGo::WasGoId _wasgo_PackedScene_wrapper_pack(WasGoId wasgo_id, WasGo::WasGoId p_path);
+WasGoId _wasgo_PackedScene_wrapper_instance(WasGoId wasgo_id, WasGoId p_edit_state);
+WasGoId _wasgo_PackedScene_wrapper_pack(WasGoId wasgo_id, WasGoId p_path);
 }
 #endif

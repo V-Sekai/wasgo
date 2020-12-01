@@ -8,6 +8,7 @@
 #include "AcceptDialog.h"
 #include "Button.h"
 class ConfirmationDialog : public AcceptDialog{
+public:
 Button get_cancel();
 
 ConfirmationDialog(WasGoId p_wasgo_id);
@@ -18,6 +19,6 @@ ConfirmationDialog(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_ConfirmationDialog_wrapper_get_cancel(WasGoId wasgo_id);
+WasGoId _wasgo_ConfirmationDialog_wrapper_get_cancel(WasGoId wasgo_id);
 }
 #endif

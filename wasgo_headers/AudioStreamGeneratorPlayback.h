@@ -7,7 +7,9 @@
 
 #include "Variant.h"
 #include "AudioStreamPlaybackResampled.h"
+#include "Vector2.h"
 class AudioStreamGeneratorPlayback : public AudioStreamPlaybackResampled{
+public:
 bool can_push_buffer(int p_amount);
 void clear_buffer();
 int get_frames_available();
@@ -23,7 +25,7 @@ int _wasgo_AudioStreamGeneratorPlayback_wrapper_can_push_buffer(WasGoId wasgo_id
 void _wasgo_AudioStreamGeneratorPlayback_wrapper_clear_buffer(WasGoId wasgo_id);
 int _wasgo_AudioStreamGeneratorPlayback_wrapper_get_frames_available(WasGoId wasgo_id);
 int _wasgo_AudioStreamGeneratorPlayback_wrapper_get_skips(WasGoId wasgo_id);
-int _wasgo_AudioStreamGeneratorPlayback_wrapper_push_buffer(WasGoId wasgo_id, WasGo::WasGoId p_frames);
-int _wasgo_AudioStreamGeneratorPlayback_wrapper_push_frame(WasGoId wasgo_id, WasGo::WasGoId p_frame);
+int _wasgo_AudioStreamGeneratorPlayback_wrapper_push_buffer(WasGoId wasgo_id, WasGoId p_frames);
+int _wasgo_AudioStreamGeneratorPlayback_wrapper_push_frame(WasGoId wasgo_id, WasGoId p_frame);
 }
 #endif

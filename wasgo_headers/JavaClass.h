@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class JavaClass : public Reference{
+public:
 
 JavaClass(WasGoId p_wasgo_id);
 ~JavaClass();

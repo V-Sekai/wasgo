@@ -7,6 +7,7 @@
 
 #include "Spatial.h"
 class VehicleWheel : public Spatial{
+public:
 float get_brake();
 float get_damping_compression();
 float get_damping_relaxation();

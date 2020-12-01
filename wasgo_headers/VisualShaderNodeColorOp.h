@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeColorOp : public VisualShaderNode{
+public:
 enum Operator{
 OP_SCREEN,
 OP_DIFFERENCE,
@@ -29,7 +30,7 @@ VisualShaderNodeColorOp(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_VisualShaderNodeColorOp_wrapper_get_operator(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeColorOp_wrapper_set_operator(WasGoId wasgo_id, WasGo::WasGoId p_op);
+WasGoId _wasgo_VisualShaderNodeColorOp_wrapper_get_operator(WasGoId wasgo_id);
+void _wasgo_VisualShaderNodeColorOp_wrapper_set_operator(WasGoId wasgo_id, WasGoId p_op);
 }
 #endif

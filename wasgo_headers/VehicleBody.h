@@ -7,6 +7,7 @@
 
 #include "RigidBody.h"
 class VehicleBody : public RigidBody{
+public:
 float get_brake();
 float get_engine_force();
 float get_steering();

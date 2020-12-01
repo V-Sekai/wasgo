@@ -7,6 +7,7 @@
 
 #include "WindowDialog.h"
 class AcceptDialog : public WindowDialog{
+public:
 
 AcceptDialog(WasGoId p_wasgo_id);
 ~AcceptDialog();

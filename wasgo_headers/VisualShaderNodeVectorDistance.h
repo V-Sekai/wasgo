@@ -7,6 +7,7 @@
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorDistance : public VisualShaderNode{
+public:
 
 VisualShaderNodeVectorDistance(WasGoId p_wasgo_id);
 ~VisualShaderNodeVectorDistance();

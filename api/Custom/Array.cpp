@@ -277,63 +277,63 @@ Array Array::slice(int p_begin, int p_end, int p_step, bool p_deep) const { // l
 	return new_arr;
 }
 
-struct _ArrayVariantSort {
+// struct _ArrayVariantSort {
 
-	_FORCE_INLINE_ bool operator()(const Variant &p_l, const Variant &p_r) const {
-		bool valid = false;
-		Variant res;
-		Variant::evaluate(Variant::OP_LESS, p_l, p_r, res, valid);
-		if (!valid)
-			res = false;
-		return res;
-	}
-};
+// 	_FORCE_INLINE_ bool operator()(const Variant &p_l, const Variant &p_r) const {
+// 		bool valid = false;
+// 		Variant res;
+// 		Variant::evaluate(Variant::OP_LESS, p_l, p_r, res, valid);
+// 		if (!valid)
+// 			res = false;
+// 		return res;
+// 	}
+// };
 
-Array &Array::sort() {
+// Array &Array::sort() {
 
-	_p->array.sort_custom<_ArrayVariantSort>();
-	return *this;
-}
+// 	_p->array.sort_custom<_ArrayVariantSort>();
+// 	return *this;
+// }
 
-struct _ArrayVariantSortCustom {
+// struct _ArrayVariantSortCustom {
 
-	Object *obj;
-	StringName func;
+// 	Object *obj;
+// 	StringName func;
 
-	_FORCE_INLINE_ bool operator()(const Variant &p_l, const Variant &p_r) const {
+// 	_FORCE_INLINE_ bool operator()(const Variant &p_l, const Variant &p_r) const {
 
-		const Variant *args[2] = { &p_l, &p_r };
-		Variant::CallError err;
-		bool res = obj->call(func, args, 2, err);
-		if (err.error != Variant::CallError::CALL_OK)
-			res = false;
-		return res;
-	}
-};
-Array &Array::sort_custom(Object *p_obj, const StringName &p_function) {
+// 		const Variant *args[2] = { &p_l, &p_r };
+// 		Variant::CallError err;
+// 		bool res = obj->call(func, args, 2, err);
+// 		if (err.error != Variant::CallError::CALL_OK)
+// 			res = false;
+// 		return res;
+// 	}
+// };
+// Array &Array::sort_custom(Object *p_obj, const StringName &p_function) {
 
-	ERR_FAIL_NULL_V(p_obj, *this);
+// 	ERR_FAIL_NULL_V(p_obj, *this);
 
-	SortArray<Variant, _ArrayVariantSortCustom, true> avs;
-	avs.compare.obj = p_obj;
-	avs.compare.func = p_function;
-	avs.sort(_p->array.ptrw(), _p->array.size());
-	return *this;
-}
+// 	SortArray<Variant, _ArrayVariantSortCustom, true> avs;
+// 	avs.compare.obj = p_obj;
+// 	avs.compare.func = p_function;
+// 	avs.sort(_p->array.ptrw(), _p->array.size());
+// 	return *this;
+// }
 
-void Array::shuffle() {
+// void Array::shuffle() {
 
-	const int n = _p->array.size();
-	if (n < 2)
-		return;
-	Variant *data = _p->array.ptrw();
-	for (int i = n - 1; i >= 1; i--) {
-		const int j = Math::rand() % (i + 1);
-		const Variant tmp = data[j];
-		data[j] = data[i];
-		data[i] = tmp;
-	}
-}
+// 	const int n = _p->array.size();
+// 	if (n < 2)
+// 		return;
+// 	Variant *data = _p->array.ptrw();
+// 	for (int i = n - 1; i >= 1; i--) {
+// 		const int j = Math::rand() % (i + 1);
+// 		const Variant tmp = data[j];
+// 		data[j] = data[i];
+// 		data[i] = tmp;
+// 	}
+// }
 
 template <typename Less>
 _FORCE_INLINE_ int bisect(const Vector<Variant> &p_array, const Variant &p_value, bool p_before, const Less &p_less) {
@@ -362,21 +362,21 @@ _FORCE_INLINE_ int bisect(const Vector<Variant> &p_array, const Variant &p_value
 	return lo;
 }
 
-int Array::bsearch(const Variant &p_value, bool p_before) {
+// int Array::bsearch(const Variant &p_value, bool p_before) {
 
-	return bisect(_p->array, p_value, p_before, _ArrayVariantSort());
-}
+// 	return bisect(_p->array, p_value, p_before, _ArrayVariantSort());
+// }
 
-int Array::bsearch_custom(const Variant &p_value, Object *p_obj, const StringName &p_function, bool p_before) {
+// int Array::bsearch_custom(const Variant &p_value, Object *p_obj, const StringName &p_function, bool p_before) {
 
-	ERR_FAIL_NULL_V(p_obj, 0);
+// 	ERR_FAIL_NULL_V(p_obj, 0);
 
-	_ArrayVariantSortCustom less;
-	less.obj = p_obj;
-	less.func = p_function;
+// 	_ArrayVariantSortCustom less;
+// 	less.obj = p_obj;
+// 	less.func = p_function;
 
-	return bisect(_p->array, p_value, p_before, less);
-}
+// 	return bisect(_p->array, p_value, p_before, less);
+// }
 
 Array &Array::invert() {
 

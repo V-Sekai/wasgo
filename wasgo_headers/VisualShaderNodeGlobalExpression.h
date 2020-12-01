@@ -7,6 +7,7 @@
 
 #include "VisualShaderNodeExpression.h"
 class VisualShaderNodeGlobalExpression : public VisualShaderNodeExpression{
+public:
 
 VisualShaderNodeGlobalExpression(WasGoId p_wasgo_id);
 ~VisualShaderNodeGlobalExpression();

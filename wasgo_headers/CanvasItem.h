@@ -7,6 +7,7 @@
 
 #include "Node.h"
 class CanvasItem : public Node{
+public:
 enum BlendMode{
 BLEND_MODE_MIX,
 BLEND_MODE_ADD,

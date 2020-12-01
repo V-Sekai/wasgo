@@ -39,20 +39,20 @@ public:
 	real_t d;
 
 	void set_normal(const Vector3 &p_normal);
-	Vector3 get_normal() const { return normal; }; ///Point is coplanar, CMP_EPSILON for precision
+	_FORCE_INLINE_ Vector3 get_normal() const { return normal; }; ///Point is coplanar, CMP_EPSILON for precision
 
 	void normalize();
 	Plane normalized() const;
 
 	/* Plane-Point operations */
 
-	Vector3 center() const { return normal * d; }
+	_FORCE_INLINE_ Vector3 center() const { return normal * d; }
 	Vector3 get_any_point() const;
 	Vector3 get_any_perpendicular_normal() const;
 
-	bool is_point_over(const Vector3 &p_point) const; ///< Point is over plane
-	real_t distance_to(const Vector3 &p_point) const;
-	bool has_point(const Vector3 &p_point, real_t _epsilon = CMP_EPSILON) const;
+	_FORCE_INLINE_ bool is_point_over(const Vector3 &p_point) const; ///< Point is over plane
+	_FORCE_INLINE_ real_t distance_to(const Vector3 &p_point) const;
+	_FORCE_INLINE_ bool has_point(const Vector3 &p_point, real_t _epsilon = CMP_EPSILON) const;
 
 	/* intersections */
 
@@ -60,7 +60,7 @@ public:
 	bool intersects_ray(const Vector3 &p_from, const Vector3 &p_dir, Vector3 *p_intersection) const;
 	bool intersects_segment(const Vector3 &p_begin, const Vector3 &p_end, Vector3 *p_intersection) const;
 
-	Vector3 project(const Vector3 &p_point) const {
+	_FORCE_INLINE_ Vector3 project(const Vector3 &p_point) const {
 
 		return p_point - normal * distance_to(p_point);
 	}
@@ -70,19 +70,19 @@ public:
 	Plane operator-() const { return Plane(-normal, -d); }
 	bool is_equal_approx(const Plane &p_plane) const;
 
-	bool operator==(const Plane &p_plane) const;
-	bool operator!=(const Plane &p_plane) const;
+	_FORCE_INLINE_ bool operator==(const Plane &p_plane) const;
+	_FORCE_INLINE_ bool operator!=(const Plane &p_plane) const;
 	operator String() const;
 
-	Plane() :
+	_FORCE_INLINE_ Plane() :
 			d(0) {}
-	Plane(real_t p_a, real_t p_b, real_t p_c, real_t p_d) :
+	_FORCE_INLINE_ Plane(real_t p_a, real_t p_b, real_t p_c, real_t p_d) :
 			normal(p_a, p_b, p_c),
 			d(p_d) {}
 
-	Plane(const Vector3 &p_normal, real_t p_d);
-	Plane(const Vector3 &p_point, const Vector3 &p_normal);
-	Plane(const Vector3 &p_point1, const Vector3 &p_point2, const Vector3 &p_point3, ClockDirection p_dir = CLOCKWISE);
+	_FORCE_INLINE_ Plane(const Vector3 &p_normal, real_t p_d);
+	_FORCE_INLINE_ Plane(const Vector3 &p_point, const Vector3 &p_normal);
+	_FORCE_INLINE_ Plane(const Vector3 &p_point1, const Vector3 &p_point2, const Vector3 &p_point3, ClockDirection p_dir = CLOCKWISE);
 };
 
 bool Plane::is_point_over(const Vector3 &p_point) const {

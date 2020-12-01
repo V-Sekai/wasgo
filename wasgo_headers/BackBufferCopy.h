@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Rect2.h"
 #include "Node2D.h"
 class BackBufferCopy : public Node2D{
+public:
 enum CopyMode{
 COPY_MODE_DISABLED,
 COPY_MODE_RECT,
@@ -26,9 +27,9 @@ BackBufferCopy(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGo::WasGoId _wasgo_BackBufferCopy_wrapper_get_copy_mode(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_BackBufferCopy_wrapper_get_rect(WasGoId wasgo_id);
-void _wasgo_BackBufferCopy_wrapper_set_copy_mode(WasGoId wasgo_id, WasGo::WasGoId p_copy_mode);
-void _wasgo_BackBufferCopy_wrapper_set_rect(WasGoId wasgo_id, WasGo::WasGoId p_rect);
+WasGoId _wasgo_BackBufferCopy_wrapper_get_copy_mode(WasGoId wasgo_id);
+WasGoId _wasgo_BackBufferCopy_wrapper_get_rect(WasGoId wasgo_id);
+void _wasgo_BackBufferCopy_wrapper_set_copy_mode(WasGoId wasgo_id, WasGoId p_copy_mode);
+void _wasgo_BackBufferCopy_wrapper_set_rect(WasGoId wasgo_id, WasGoId p_rect);
 }
 #endif

@@ -7,6 +7,7 @@
 
 #include "Container.h"
 class PanelContainer : public Container{
+public:
 
 PanelContainer(WasGoId p_wasgo_id);
 ~PanelContainer();

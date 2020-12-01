@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class DynamicFontAtSize : public Reference{
+public:
 };
 
 

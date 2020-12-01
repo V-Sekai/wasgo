@@ -314,7 +314,7 @@ void _wasgo_AnimationTree_wrapper_set_animation_player(wasm_exec_env_t exec_env,
 	if(state){
 		AnimationTree *caller = (AnimationTree *) state->lookup_object(caller_id);
 		if(caller){
-			NodePath *root = (NodePath *)state->lookup_variant(p_root);
+			NodePath *root = (NodePath *) state->lookup_object(p_root);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)root};
 			Variant ret = caller->call((String)"set_animation_player", varargs, 1, error);
@@ -344,7 +344,7 @@ void _wasgo_AnimationTree_wrapper_set_root_motion_track(wasm_exec_env_t exec_env
 	if(state){
 		AnimationTree *caller = (AnimationTree *) state->lookup_object(caller_id);
 		if(caller){
-			NodePath *path = (NodePath *)state->lookup_variant(p_path);
+			NodePath *path = (NodePath *) state->lookup_object(p_path);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)path};
 			Variant ret = caller->call((String)"set_root_motion_track", varargs, 1, error);
@@ -375,7 +375,7 @@ void _wasgo_AnimationTreePlayer_wrapper_add_node(wasm_exec_env_t exec_env, WasGo
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
 			AnimationTreePlayer::NodeType *type = (AnimationTreePlayer::NodeType *) state->lookup_object(p_type);
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)&type, (Variant *)id};
 			Variant ret = caller->call((String)"add_node", varargs, 2, error);
@@ -405,7 +405,7 @@ WasGoState::WasGoID _wasgo_AnimationTreePlayer_wrapper_animation_node_get_animat
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			Variant ret = caller->call((String)"animation_node_get_animation", varargs, 1, error);
@@ -421,7 +421,7 @@ WasGoState::WasGoID _wasgo_AnimationTreePlayer_wrapper_animation_node_get_master
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			Variant ret = caller->call((String)"animation_node_get_master_animation", varargs, 1, error);
@@ -437,7 +437,7 @@ float _wasgo_AnimationTreePlayer_wrapper_animation_node_get_position(wasm_exec_e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			float ret = (float) caller->call((String)"animation_node_get_position", varargs, 1, error);
@@ -453,7 +453,7 @@ void _wasgo_AnimationTreePlayer_wrapper_animation_node_set_animation(wasm_exec_e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Animation *animation = (Animation *) state->lookup_object(p_animation);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)animation};
@@ -469,8 +469,8 @@ void _wasgo_AnimationTreePlayer_wrapper_animation_node_set_filter_path(wasm_exec
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
-			NodePath *path = (NodePath *)state->lookup_variant(p_path);
+			String *id = (String *) state->lookup_object(p_id);
+			NodePath *path = (NodePath *) state->lookup_object(p_path);
 			bool enable = (bool) p_enable;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)path, (Variant *)&enable};
@@ -486,8 +486,8 @@ void _wasgo_AnimationTreePlayer_wrapper_animation_node_set_master_animation(wasm
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
-			String *source = (String *)state->lookup_variant(p_source);
+			String *id = (String *) state->lookup_object(p_id);
+			String *source = (String *) state->lookup_object(p_source);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)source};
 			Variant ret = caller->call((String)"animation_node_set_master_animation", varargs, 2, error);
@@ -502,8 +502,8 @@ int _wasgo_AnimationTreePlayer_wrapper_are_nodes_connected(wasm_exec_env_t exec_
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
-			String *dst_id = (String *)state->lookup_variant(p_dst_id);
+			String *id = (String *) state->lookup_object(p_id);
+			String *dst_id = (String *) state->lookup_object(p_dst_id);
 			int dst_input_idx = (int) p_dst_input_idx;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)dst_id, (Variant *)&dst_input_idx};
@@ -520,7 +520,7 @@ float _wasgo_AnimationTreePlayer_wrapper_blend2_node_get_amount(wasm_exec_env_t 
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			float ret = (float) caller->call((String)"blend2_node_get_amount", varargs, 1, error);
@@ -536,7 +536,7 @@ void _wasgo_AnimationTreePlayer_wrapper_blend2_node_set_amount(wasm_exec_env_t e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			float blend = (float) p_blend;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&blend};
@@ -552,8 +552,8 @@ void _wasgo_AnimationTreePlayer_wrapper_blend2_node_set_filter_path(wasm_exec_en
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
-			NodePath *path = (NodePath *)state->lookup_variant(p_path);
+			String *id = (String *) state->lookup_object(p_id);
+			NodePath *path = (NodePath *) state->lookup_object(p_path);
 			bool enable = (bool) p_enable;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)path, (Variant *)&enable};
@@ -569,7 +569,7 @@ float _wasgo_AnimationTreePlayer_wrapper_blend3_node_get_amount(wasm_exec_env_t 
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			float ret = (float) caller->call((String)"blend3_node_get_amount", varargs, 1, error);
@@ -585,7 +585,7 @@ void _wasgo_AnimationTreePlayer_wrapper_blend3_node_set_amount(wasm_exec_env_t e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			float blend = (float) p_blend;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&blend};
@@ -601,7 +601,7 @@ WasGoState::WasGoID _wasgo_AnimationTreePlayer_wrapper_blend4_node_get_amount(wa
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			Variant ret = caller->call((String)"blend4_node_get_amount", varargs, 1, error);
@@ -617,8 +617,8 @@ void _wasgo_AnimationTreePlayer_wrapper_blend4_node_set_amount(wasm_exec_env_t e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
-			Vector2 *blend = (Vector2 *)state->lookup_variant(p_blend);
+			String *id = (String *) state->lookup_object(p_id);
+			Vector2 *blend = (Vector2 *) state->lookup_object(p_blend);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)blend};
 			Variant ret = caller->call((String)"blend4_node_set_amount", varargs, 2, error);
@@ -633,8 +633,8 @@ WasGoState::WasGoID _wasgo_AnimationTreePlayer_wrapper_connect_nodes(wasm_exec_e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
-			String *dst_id = (String *)state->lookup_variant(p_dst_id);
+			String *id = (String *) state->lookup_object(p_id);
+			String *dst_id = (String *) state->lookup_object(p_dst_id);
 			int dst_input_idx = (int) p_dst_input_idx;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)dst_id, (Variant *)&dst_input_idx};
@@ -651,7 +651,7 @@ void _wasgo_AnimationTreePlayer_wrapper_disconnect_nodes(wasm_exec_env_t exec_en
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			int dst_input_idx = (int) p_dst_input_idx;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&dst_input_idx};
@@ -742,7 +742,7 @@ float _wasgo_AnimationTreePlayer_wrapper_mix_node_get_amount(wasm_exec_env_t exe
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			float ret = (float) caller->call((String)"mix_node_get_amount", varargs, 1, error);
@@ -758,7 +758,7 @@ void _wasgo_AnimationTreePlayer_wrapper_mix_node_set_amount(wasm_exec_env_t exec
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			float ratio = (float) p_ratio;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&ratio};
@@ -774,7 +774,7 @@ int _wasgo_AnimationTreePlayer_wrapper_node_exists(wasm_exec_env_t exec_env, Was
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *node = (String *)state->lookup_variant(p_node);
+			String *node = (String *) state->lookup_object(p_node);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)node};
 			int ret = (int) caller->call((String)"node_exists", varargs, 1, error);
@@ -790,7 +790,7 @@ int _wasgo_AnimationTreePlayer_wrapper_node_get_input_count(wasm_exec_env_t exec
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			int ret = (int) caller->call((String)"node_get_input_count", varargs, 1, error);
@@ -806,7 +806,7 @@ WasGoState::WasGoID _wasgo_AnimationTreePlayer_wrapper_node_get_input_source(was
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			int idx = (int) p_idx;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&idx};
@@ -823,7 +823,7 @@ WasGoState::WasGoID _wasgo_AnimationTreePlayer_wrapper_node_get_position(wasm_ex
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			Variant ret = caller->call((String)"node_get_position", varargs, 1, error);
@@ -839,7 +839,7 @@ WasGoState::WasGoID _wasgo_AnimationTreePlayer_wrapper_node_get_type(wasm_exec_e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			Variant ret = caller->call((String)"node_get_type", varargs, 1, error);
@@ -855,8 +855,8 @@ WasGoState::WasGoID _wasgo_AnimationTreePlayer_wrapper_node_rename(wasm_exec_env
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *node = (String *)state->lookup_variant(p_node);
-			String *new_name = (String *)state->lookup_variant(p_new_name);
+			String *node = (String *) state->lookup_object(p_node);
+			String *new_name = (String *) state->lookup_object(p_new_name);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)node, (Variant *)new_name};
 			Variant ret = caller->call((String)"node_rename", varargs, 2, error);
@@ -872,8 +872,8 @@ void _wasgo_AnimationTreePlayer_wrapper_node_set_position(wasm_exec_env_t exec_e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
-			Vector2 *screen_position = (Vector2 *)state->lookup_variant(p_screen_position);
+			String *id = (String *) state->lookup_object(p_id);
+			Vector2 *screen_position = (Vector2 *) state->lookup_object(p_screen_position);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)screen_position};
 			Variant ret = caller->call((String)"node_set_position", varargs, 2, error);
@@ -888,7 +888,7 @@ float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_autorestart_delay(wasm
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			float ret = (float) caller->call((String)"oneshot_node_get_autorestart_delay", varargs, 1, error);
@@ -904,7 +904,7 @@ float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_autorestart_random_del
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			float ret = (float) caller->call((String)"oneshot_node_get_autorestart_random_delay", varargs, 1, error);
@@ -920,7 +920,7 @@ float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_fadein_time(wasm_exec_
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			float ret = (float) caller->call((String)"oneshot_node_get_fadein_time", varargs, 1, error);
@@ -936,7 +936,7 @@ float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_fadeout_time(wasm_exec
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			float ret = (float) caller->call((String)"oneshot_node_get_fadeout_time", varargs, 1, error);
@@ -952,7 +952,7 @@ int _wasgo_AnimationTreePlayer_wrapper_oneshot_node_has_autorestart(wasm_exec_en
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			int ret = (int) caller->call((String)"oneshot_node_has_autorestart", varargs, 1, error);
@@ -968,7 +968,7 @@ int _wasgo_AnimationTreePlayer_wrapper_oneshot_node_is_active(wasm_exec_env_t ex
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			int ret = (int) caller->call((String)"oneshot_node_is_active", varargs, 1, error);
@@ -984,7 +984,7 @@ void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_autorestart(wasm_exec_e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			bool enable = (bool) p_enable;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&enable};
@@ -1000,7 +1000,7 @@ void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_autorestart_delay(wasm_
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			float delay_sec = (float) p_delay_sec;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&delay_sec};
@@ -1016,7 +1016,7 @@ void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_autorestart_random_dela
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			float rand_sec = (float) p_rand_sec;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&rand_sec};
@@ -1032,7 +1032,7 @@ void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_fadein_time(wasm_exec_e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			float time_sec = (float) p_time_sec;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&time_sec};
@@ -1048,7 +1048,7 @@ void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_fadeout_time(wasm_exec_
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			float time_sec = (float) p_time_sec;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&time_sec};
@@ -1064,8 +1064,8 @@ void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_filter_path(wasm_exec_e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
-			NodePath *path = (NodePath *)state->lookup_variant(p_path);
+			String *id = (String *) state->lookup_object(p_id);
+			NodePath *path = (NodePath *) state->lookup_object(p_path);
 			bool enable = (bool) p_enable;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)path, (Variant *)&enable};
@@ -1081,7 +1081,7 @@ void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_start(wasm_exec_env_t exec_
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			Variant ret = caller->call((String)"oneshot_node_start", varargs, 1, error);
@@ -1096,7 +1096,7 @@ void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_stop(wasm_exec_env_t exec_e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			Variant ret = caller->call((String)"oneshot_node_stop", varargs, 1, error);
@@ -1125,7 +1125,7 @@ void _wasgo_AnimationTreePlayer_wrapper_remove_node(wasm_exec_env_t exec_env, Wa
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			Variant ret = caller->call((String)"remove_node", varargs, 1, error);
@@ -1184,7 +1184,7 @@ void _wasgo_AnimationTreePlayer_wrapper_set_base_path(wasm_exec_env_t exec_env, 
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			NodePath *path = (NodePath *)state->lookup_variant(p_path);
+			NodePath *path = (NodePath *) state->lookup_object(p_path);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)path};
 			Variant ret = caller->call((String)"set_base_path", varargs, 1, error);
@@ -1199,7 +1199,7 @@ void _wasgo_AnimationTreePlayer_wrapper_set_master_player(wasm_exec_env_t exec_e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			NodePath *nodepath = (NodePath *)state->lookup_variant(p_nodepath);
+			NodePath *nodepath = (NodePath *) state->lookup_object(p_nodepath);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)nodepath};
 			Variant ret = caller->call((String)"set_master_player", varargs, 1, error);
@@ -1214,7 +1214,7 @@ float _wasgo_AnimationTreePlayer_wrapper_timescale_node_get_scale(wasm_exec_env_
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			float ret = (float) caller->call((String)"timescale_node_get_scale", varargs, 1, error);
@@ -1230,7 +1230,7 @@ void _wasgo_AnimationTreePlayer_wrapper_timescale_node_set_scale(wasm_exec_env_t
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			float scale = (float) p_scale;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&scale};
@@ -1246,7 +1246,7 @@ void _wasgo_AnimationTreePlayer_wrapper_timeseek_node_seek(wasm_exec_env_t exec_
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			float seconds = (float) p_seconds;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&seconds};
@@ -1262,7 +1262,7 @@ void _wasgo_AnimationTreePlayer_wrapper_transition_node_delete_input(wasm_exec_e
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			int input_idx = (int) p_input_idx;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&input_idx};
@@ -1278,7 +1278,7 @@ int _wasgo_AnimationTreePlayer_wrapper_transition_node_get_current(wasm_exec_env
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			int ret = (int) caller->call((String)"transition_node_get_current", varargs, 1, error);
@@ -1294,7 +1294,7 @@ int _wasgo_AnimationTreePlayer_wrapper_transition_node_get_input_count(wasm_exec
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			int ret = (int) caller->call((String)"transition_node_get_input_count", varargs, 1, error);
@@ -1310,7 +1310,7 @@ float _wasgo_AnimationTreePlayer_wrapper_transition_node_get_xfade_time(wasm_exe
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id};
 			float ret = (float) caller->call((String)"transition_node_get_xfade_time", varargs, 1, error);
@@ -1326,7 +1326,7 @@ int _wasgo_AnimationTreePlayer_wrapper_transition_node_has_input_auto_advance(wa
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			int input_idx = (int) p_input_idx;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&input_idx};
@@ -1343,7 +1343,7 @@ void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_current(wasm_exec_en
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			int input_idx = (int) p_input_idx;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&input_idx};
@@ -1359,7 +1359,7 @@ void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_input_auto_advance(w
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			int input_idx = (int) p_input_idx;
 			bool enable = (bool) p_enable;
 			Variant::CallError error;
@@ -1376,7 +1376,7 @@ void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_input_count(wasm_exe
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			int count = (int) p_count;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&count};
@@ -1392,7 +1392,7 @@ void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_xfade_time(wasm_exec
 	if(state){
 		AnimationTreePlayer *caller = (AnimationTreePlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *id = (String *)state->lookup_variant(p_id);
+			String *id = (String *) state->lookup_object(p_id);
 			float time_sec = (float) p_time_sec;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)id, (Variant *)&time_sec};
@@ -1573,7 +1573,7 @@ void _wasgo_AudioStreamPlayer_wrapper_set_bus(wasm_exec_env_t exec_env, WasGoSta
 	if(state){
 		AudioStreamPlayer *caller = (AudioStreamPlayer *) state->lookup_object(caller_id);
 		if(caller){
-			String *bus = (String *)state->lookup_variant(p_bus);
+			String *bus = (String *) state->lookup_object(p_bus);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)bus};
 			Variant ret = caller->call((String)"set_bus", varargs, 1, error);
@@ -1842,7 +1842,7 @@ void _wasgo_AudioStreamPlayer3D_wrapper_set_bus(wasm_exec_env_t exec_env, WasGoS
 	if(state){
 		AudioStreamPlayer3D *caller = (AudioStreamPlayer3D *) state->lookup_object(caller_id);
 		if(caller){
-			String *bus = (String *)state->lookup_variant(p_bus);
+			String *bus = (String *) state->lookup_object(p_bus);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)bus};
 			Variant ret = caller->call((String)"set_bus", varargs, 1, error);
@@ -1961,7 +1961,7 @@ void _wasgo_BoneAttachment_wrapper_set_bone_name(wasm_exec_env_t exec_env, WasGo
 	if(state){
 		BoneAttachment *caller = (BoneAttachment *) state->lookup_object(caller_id);
 		if(caller){
-			String *bone_name = (String *)state->lookup_variant(p_bone_name);
+			String *bone_name = (String *) state->lookup_object(p_bone_name);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)bone_name};
 			Variant ret = caller->call((String)"set_bone_name", varargs, 1, error);
@@ -2247,7 +2247,7 @@ int _wasgo_Camera_wrapper_is_position_behind(wasm_exec_env_t exec_env, WasGoStat
 	if(state){
 		Camera *caller = (Camera *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *world_point = (Vector3 *)state->lookup_variant(p_world_point);
+			Vector3 *world_point = (Vector3 *) state->lookup_object(p_world_point);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)world_point};
 			int ret = (int) caller->call((String)"is_position_behind", varargs, 1, error);
@@ -2277,7 +2277,7 @@ WasGoState::WasGoID _wasgo_Camera_wrapper_project_local_ray_normal(wasm_exec_env
 	if(state){
 		Camera *caller = (Camera *) state->lookup_object(caller_id);
 		if(caller){
-			Vector2 *screen_point = (Vector2 *)state->lookup_variant(p_screen_point);
+			Vector2 *screen_point = (Vector2 *) state->lookup_object(p_screen_point);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)screen_point};
 			Variant ret = caller->call((String)"project_local_ray_normal", varargs, 1, error);
@@ -2293,7 +2293,7 @@ WasGoState::WasGoID _wasgo_Camera_wrapper_project_position(wasm_exec_env_t exec_
 	if(state){
 		Camera *caller = (Camera *) state->lookup_object(caller_id);
 		if(caller){
-			Vector2 *screen_point = (Vector2 *)state->lookup_variant(p_screen_point);
+			Vector2 *screen_point = (Vector2 *) state->lookup_object(p_screen_point);
 			float z_depth = (float) p_z_depth;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)screen_point, (Variant *)&z_depth};
@@ -2310,7 +2310,7 @@ WasGoState::WasGoID _wasgo_Camera_wrapper_project_ray_normal(wasm_exec_env_t exe
 	if(state){
 		Camera *caller = (Camera *) state->lookup_object(caller_id);
 		if(caller){
-			Vector2 *screen_point = (Vector2 *)state->lookup_variant(p_screen_point);
+			Vector2 *screen_point = (Vector2 *) state->lookup_object(p_screen_point);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)screen_point};
 			Variant ret = caller->call((String)"project_ray_normal", varargs, 1, error);
@@ -2326,7 +2326,7 @@ WasGoState::WasGoID _wasgo_Camera_wrapper_project_ray_origin(wasm_exec_env_t exe
 	if(state){
 		Camera *caller = (Camera *) state->lookup_object(caller_id);
 		if(caller){
-			Vector2 *screen_point = (Vector2 *)state->lookup_variant(p_screen_point);
+			Vector2 *screen_point = (Vector2 *) state->lookup_object(p_screen_point);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)screen_point};
 			Variant ret = caller->call((String)"project_ray_origin", varargs, 1, error);
@@ -2434,7 +2434,7 @@ void _wasgo_Camera_wrapper_set_frustum(wasm_exec_env_t exec_env, WasGoState::Was
 		Camera *caller = (Camera *) state->lookup_object(caller_id);
 		if(caller){
 			float size = (float) p_size;
-			Vector2 *offset = (Vector2 *)state->lookup_variant(p_offset);
+			Vector2 *offset = (Vector2 *) state->lookup_object(p_offset);
 			float z_near = (float) p_z_near;
 			float z_far = (float) p_z_far;
 			Variant::CallError error;
@@ -2451,7 +2451,7 @@ void _wasgo_Camera_wrapper_set_frustum_offset(wasm_exec_env_t exec_env, WasGoSta
 	if(state){
 		Camera *caller = (Camera *) state->lookup_object(caller_id);
 		if(caller){
-			Vector2 *arg0 = (Vector2 *)state->lookup_variant(p_arg0);
+			Vector2 *arg0 = (Vector2 *) state->lookup_object(p_arg0);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)arg0};
 			Variant ret = caller->call((String)"set_frustum_offset", varargs, 1, error);
@@ -2605,7 +2605,7 @@ WasGoState::WasGoID _wasgo_Camera_wrapper_unproject_position(wasm_exec_env_t exe
 	if(state){
 		Camera *caller = (Camera *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *world_point = (Vector3 *)state->lookup_variant(p_world_point);
+			Vector3 *world_point = (Vector3 *) state->lookup_object(p_world_point);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)world_point};
 			Variant ret = caller->call((String)"unproject_position", varargs, 1, error);
@@ -2951,7 +2951,7 @@ void _wasgo_Joint_wrapper_set_node_a(wasm_exec_env_t exec_env, WasGoState::WasGo
 	if(state){
 		Joint *caller = (Joint *) state->lookup_object(caller_id);
 		if(caller){
-			NodePath *node = (NodePath *)state->lookup_variant(p_node);
+			NodePath *node = (NodePath *) state->lookup_object(p_node);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)node};
 			Variant ret = caller->call((String)"set_node_a", varargs, 1, error);
@@ -2966,7 +2966,7 @@ void _wasgo_Joint_wrapper_set_node_b(wasm_exec_env_t exec_env, WasGoState::WasGo
 	if(state){
 		Joint *caller = (Joint *) state->lookup_object(caller_id);
 		if(caller){
-			NodePath *node = (NodePath *)state->lookup_variant(p_node);
+			NodePath *node = (NodePath *) state->lookup_object(p_node);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)node};
 			Variant ret = caller->call((String)"set_node_b", varargs, 1, error);
@@ -3133,7 +3133,7 @@ WasGoState::WasGoID _wasgo_KinematicBody_wrapper_move_and_collide(wasm_exec_env_
 	if(state){
 		KinematicBody *caller = (KinematicBody *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *rel_vec = (Vector3 *)state->lookup_variant(p_rel_vec);
+			Vector3 *rel_vec = (Vector3 *) state->lookup_object(p_rel_vec);
 			bool infinite_inertia = (bool) p_infinite_inertia;
 			bool exclude_raycast_shapes = (bool) p_exclude_raycast_shapes;
 			bool test_only = (bool) p_test_only;
@@ -3152,8 +3152,8 @@ WasGoState::WasGoID _wasgo_KinematicBody_wrapper_move_and_slide(wasm_exec_env_t 
 	if(state){
 		KinematicBody *caller = (KinematicBody *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *linear_velocity = (Vector3 *)state->lookup_variant(p_linear_velocity);
-			Vector3 *up_direction = (Vector3 *)state->lookup_variant(p_up_direction);
+			Vector3 *linear_velocity = (Vector3 *) state->lookup_object(p_linear_velocity);
+			Vector3 *up_direction = (Vector3 *) state->lookup_object(p_up_direction);
 			bool stop_on_slope = (bool) p_stop_on_slope;
 			int max_slides = (int) p_max_slides;
 			float floor_max_angle = (float) p_floor_max_angle;
@@ -3173,9 +3173,9 @@ WasGoState::WasGoID _wasgo_KinematicBody_wrapper_move_and_slide_with_snap(wasm_e
 	if(state){
 		KinematicBody *caller = (KinematicBody *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *linear_velocity = (Vector3 *)state->lookup_variant(p_linear_velocity);
-			Vector3 *snap = (Vector3 *)state->lookup_variant(p_snap);
-			Vector3 *up_direction = (Vector3 *)state->lookup_variant(p_up_direction);
+			Vector3 *linear_velocity = (Vector3 *) state->lookup_object(p_linear_velocity);
+			Vector3 *snap = (Vector3 *) state->lookup_object(p_snap);
+			Vector3 *up_direction = (Vector3 *) state->lookup_object(p_up_direction);
 			bool stop_on_slope = (bool) p_stop_on_slope;
 			int max_slides = (int) p_max_slides;
 			float floor_max_angle = (float) p_floor_max_angle;
@@ -3226,8 +3226,8 @@ int _wasgo_KinematicBody_wrapper_test_move(wasm_exec_env_t exec_env, WasGoState:
 	if(state){
 		KinematicBody *caller = (KinematicBody *) state->lookup_object(caller_id);
 		if(caller){
-			Transform *from = (Transform *)state->lookup_variant(p_from);
-			Vector3 *rel_vec = (Vector3 *)state->lookup_variant(p_rel_vec);
+			Transform *from = (Transform *) state->lookup_object(p_from);
+			Vector3 *rel_vec = (Vector3 *) state->lookup_object(p_rel_vec);
 			bool infinite_inertia = (bool) p_infinite_inertia;
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)from, (Variant *)rel_vec, (Variant *)&infinite_inertia};
@@ -3395,7 +3395,7 @@ void _wasgo_Light_wrapper_set_color(wasm_exec_env_t exec_env, WasGoState::WasGoI
 	if(state){
 		Light *caller = (Light *) state->lookup_object(caller_id);
 		if(caller){
-			Color *color = (Color *)state->lookup_variant(p_color);
+			Color *color = (Color *) state->lookup_object(p_color);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)color};
 			Variant ret = caller->call((String)"set_color", varargs, 1, error);
@@ -3486,7 +3486,7 @@ void _wasgo_Light_wrapper_set_shadow_color(wasm_exec_env_t exec_env, WasGoState:
 	if(state){
 		Light *caller = (Light *) state->lookup_object(caller_id);
 		if(caller){
-			Color *shadow_color = (Color *)state->lookup_variant(p_shadow_color);
+			Color *shadow_color = (Color *) state->lookup_object(p_shadow_color);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)shadow_color};
 			Variant ret = caller->call((String)"set_shadow_color", varargs, 1, error);
@@ -3666,7 +3666,7 @@ void _wasgo_MeshInstance_wrapper_set_skeleton_path(wasm_exec_env_t exec_env, Was
 	if(state){
 		MeshInstance *caller = (MeshInstance *) state->lookup_object(caller_id);
 		if(caller){
-			NodePath *skeleton_path = (NodePath *)state->lookup_variant(p_skeleton_path);
+			NodePath *skeleton_path = (NodePath *) state->lookup_object(p_skeleton_path);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)skeleton_path};
 			Variant ret = caller->call((String)"set_skeleton_path", varargs, 1, error);
@@ -4283,7 +4283,7 @@ void _wasgo_Particles_wrapper_set_visibility_aabb(wasm_exec_env_t exec_env, WasG
 	if(state){
 		Particles *caller = (Particles *) state->lookup_object(caller_id);
 		if(caller){
-			AABB *aabb = (AABB *)state->lookup_variant(p_aabb);
+			AABB *aabb = (AABB *) state->lookup_object(p_aabb);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)aabb};
 			Variant ret = caller->call((String)"set_visibility_aabb", varargs, 1, error);
@@ -4298,7 +4298,7 @@ void _wasgo_PhysicalBone_wrapper_apply_central_impulse(wasm_exec_env_t exec_env,
 	if(state){
 		PhysicalBone *caller = (PhysicalBone *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *impulse = (Vector3 *)state->lookup_variant(p_impulse);
+			Vector3 *impulse = (Vector3 *) state->lookup_object(p_impulse);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)impulse};
 			Variant ret = caller->call((String)"apply_central_impulse", varargs, 1, error);
@@ -4313,8 +4313,8 @@ void _wasgo_PhysicalBone_wrapper_apply_impulse(wasm_exec_env_t exec_env, WasGoSt
 	if(state){
 		PhysicalBone *caller = (PhysicalBone *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *position = (Vector3 *)state->lookup_variant(p_position);
-			Vector3 *impulse = (Vector3 *)state->lookup_variant(p_impulse);
+			Vector3 *position = (Vector3 *) state->lookup_object(p_position);
+			Vector3 *impulse = (Vector3 *) state->lookup_object(p_impulse);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)position, (Variant *)impulse};
 			Variant ret = caller->call((String)"apply_impulse", varargs, 2, error);
@@ -4468,7 +4468,7 @@ void _wasgo_RayCast_wrapper_add_exception_rid(wasm_exec_env_t exec_env, WasGoSta
 	if(state){
 		RayCast *caller = (RayCast *) state->lookup_object(caller_id);
 		if(caller){
-			RID *rid = (RID *)state->lookup_variant(p_rid);
+			RID *rid = (RID *) state->lookup_object(p_rid);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)rid};
 			Variant ret = caller->call((String)"add_exception_rid", varargs, 1, error);
@@ -4707,7 +4707,7 @@ void _wasgo_RayCast_wrapper_remove_exception_rid(wasm_exec_env_t exec_env, WasGo
 	if(state){
 		RayCast *caller = (RayCast *) state->lookup_object(caller_id);
 		if(caller){
-			RID *rid = (RID *)state->lookup_variant(p_rid);
+			RID *rid = (RID *) state->lookup_object(p_rid);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)rid};
 			Variant ret = caller->call((String)"remove_exception_rid", varargs, 1, error);
@@ -4722,7 +4722,7 @@ void _wasgo_RayCast_wrapper_set_cast_to(wasm_exec_env_t exec_env, WasGoState::Wa
 	if(state){
 		RayCast *caller = (RayCast *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *local_point = (Vector3 *)state->lookup_variant(p_local_point);
+			Vector3 *local_point = (Vector3 *) state->lookup_object(p_local_point);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)local_point};
 			Variant ret = caller->call((String)"set_cast_to", varargs, 1, error);
@@ -4828,7 +4828,7 @@ void _wasgo_Skeleton_wrapper_add_bone(wasm_exec_env_t exec_env, WasGoState::WasG
 	if(state){
 		Skeleton *caller = (Skeleton *) state->lookup_object(caller_id);
 		if(caller){
-			String *name = (String *)state->lookup_variant(p_name);
+			String *name = (String *) state->lookup_object(p_name);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)name};
 			Variant ret = caller->call((String)"add_bone", varargs, 1, error);
@@ -4887,7 +4887,7 @@ int _wasgo_Skeleton_wrapper_find_bone(wasm_exec_env_t exec_env, WasGoState::WasG
 	if(state){
 		Skeleton *caller = (Skeleton *) state->lookup_object(caller_id);
 		if(caller){
-			String *name = (String *)state->lookup_variant(p_name);
+			String *name = (String *) state->lookup_object(p_name);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)name};
 			int ret = (int) caller->call((String)"find_bone", varargs, 1, error);
@@ -5060,7 +5060,7 @@ void _wasgo_Skeleton_wrapper_physical_bones_add_collision_exception(wasm_exec_en
 	if(state){
 		Skeleton *caller = (Skeleton *) state->lookup_object(caller_id);
 		if(caller){
-			RID *exception = (RID *)state->lookup_variant(p_exception);
+			RID *exception = (RID *) state->lookup_object(p_exception);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)exception};
 			Variant ret = caller->call((String)"physical_bones_add_collision_exception", varargs, 1, error);
@@ -5075,7 +5075,7 @@ void _wasgo_Skeleton_wrapper_physical_bones_remove_collision_exception(wasm_exec
 	if(state){
 		Skeleton *caller = (Skeleton *) state->lookup_object(caller_id);
 		if(caller){
-			RID *exception = (RID *)state->lookup_variant(p_exception);
+			RID *exception = (RID *) state->lookup_object(p_exception);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)exception};
 			Variant ret = caller->call((String)"physical_bones_remove_collision_exception", varargs, 1, error);
@@ -5136,7 +5136,7 @@ void _wasgo_Skeleton_wrapper_set_bone_custom_pose(wasm_exec_env_t exec_env, WasG
 		Skeleton *caller = (Skeleton *) state->lookup_object(caller_id);
 		if(caller){
 			int bone_idx = (int) p_bone_idx;
-			Transform *custom_pose = (Transform *)state->lookup_variant(p_custom_pose);
+			Transform *custom_pose = (Transform *) state->lookup_object(p_custom_pose);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)&bone_idx, (Variant *)custom_pose};
 			Variant ret = caller->call((String)"set_bone_custom_pose", varargs, 2, error);
@@ -5168,7 +5168,7 @@ void _wasgo_Skeleton_wrapper_set_bone_global_pose_override(wasm_exec_env_t exec_
 		Skeleton *caller = (Skeleton *) state->lookup_object(caller_id);
 		if(caller){
 			int bone_idx = (int) p_bone_idx;
-			Transform *pose = (Transform *)state->lookup_variant(p_pose);
+			Transform *pose = (Transform *) state->lookup_object(p_pose);
 			float amount = (float) p_amount;
 			bool persistent = (bool) p_persistent;
 			Variant::CallError error;
@@ -5202,7 +5202,7 @@ void _wasgo_Skeleton_wrapper_set_bone_pose(wasm_exec_env_t exec_env, WasGoState:
 		Skeleton *caller = (Skeleton *) state->lookup_object(caller_id);
 		if(caller){
 			int bone_idx = (int) p_bone_idx;
-			Transform *pose = (Transform *)state->lookup_variant(p_pose);
+			Transform *pose = (Transform *) state->lookup_object(p_pose);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)&bone_idx, (Variant *)pose};
 			Variant ret = caller->call((String)"set_bone_pose", varargs, 2, error);
@@ -5218,7 +5218,7 @@ void _wasgo_Skeleton_wrapper_set_bone_rest(wasm_exec_env_t exec_env, WasGoState:
 		Skeleton *caller = (Skeleton *) state->lookup_object(caller_id);
 		if(caller){
 			int bone_idx = (int) p_bone_idx;
-			Transform *rest = (Transform *)state->lookup_variant(p_rest);
+			Transform *rest = (Transform *) state->lookup_object(p_rest);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)&bone_idx, (Variant *)rest};
 			Variant ret = caller->call((String)"set_bone_rest", varargs, 2, error);
@@ -5458,7 +5458,7 @@ void _wasgo_Spatial_wrapper_set_global_transform(wasm_exec_env_t exec_env, WasGo
 	if(state){
 		Spatial *caller = (Spatial *) state->lookup_object(caller_id);
 		if(caller){
-			Transform *global = (Transform *)state->lookup_variant(p_global);
+			Transform *global = (Transform *) state->lookup_object(p_global);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)global};
 			Variant ret = caller->call((String)"set_global_transform", varargs, 1, error);
@@ -5488,7 +5488,7 @@ void _wasgo_Spatial_wrapper_set_rotation(wasm_exec_env_t exec_env, WasGoState::W
 	if(state){
 		Spatial *caller = (Spatial *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *euler = (Vector3 *)state->lookup_variant(p_euler);
+			Vector3 *euler = (Vector3 *) state->lookup_object(p_euler);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)euler};
 			Variant ret = caller->call((String)"set_rotation", varargs, 1, error);
@@ -5503,7 +5503,7 @@ void _wasgo_Spatial_wrapper_set_rotation_degrees(wasm_exec_env_t exec_env, WasGo
 	if(state){
 		Spatial *caller = (Spatial *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *euler_degrees = (Vector3 *)state->lookup_variant(p_euler_degrees);
+			Vector3 *euler_degrees = (Vector3 *) state->lookup_object(p_euler_degrees);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)euler_degrees};
 			Variant ret = caller->call((String)"set_rotation_degrees", varargs, 1, error);
@@ -5518,7 +5518,7 @@ void _wasgo_Spatial_wrapper_set_scale(wasm_exec_env_t exec_env, WasGoState::WasG
 	if(state){
 		Spatial *caller = (Spatial *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *scale = (Vector3 *)state->lookup_variant(p_scale);
+			Vector3 *scale = (Vector3 *) state->lookup_object(p_scale);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)scale};
 			Variant ret = caller->call((String)"set_scale", varargs, 1, error);
@@ -5533,7 +5533,7 @@ void _wasgo_Spatial_wrapper_set_transform(wasm_exec_env_t exec_env, WasGoState::
 	if(state){
 		Spatial *caller = (Spatial *) state->lookup_object(caller_id);
 		if(caller){
-			Transform *local = (Transform *)state->lookup_variant(p_local);
+			Transform *local = (Transform *) state->lookup_object(p_local);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)local};
 			Variant ret = caller->call((String)"set_transform", varargs, 1, error);
@@ -5548,7 +5548,7 @@ void _wasgo_Spatial_wrapper_set_translation(wasm_exec_env_t exec_env, WasGoState
 	if(state){
 		Spatial *caller = (Spatial *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *translation = (Vector3 *)state->lookup_variant(p_translation);
+			Vector3 *translation = (Vector3 *) state->lookup_object(p_translation);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)translation};
 			Variant ret = caller->call((String)"set_translation", varargs, 1, error);
@@ -5653,7 +5653,7 @@ void _wasgo_StaticBody_wrapper_set_constant_angular_velocity(wasm_exec_env_t exe
 	if(state){
 		StaticBody *caller = (StaticBody *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *vel = (Vector3 *)state->lookup_variant(p_vel);
+			Vector3 *vel = (Vector3 *) state->lookup_object(p_vel);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)vel};
 			Variant ret = caller->call((String)"set_constant_angular_velocity", varargs, 1, error);
@@ -5668,7 +5668,7 @@ void _wasgo_StaticBody_wrapper_set_constant_linear_velocity(wasm_exec_env_t exec
 	if(state){
 		StaticBody *caller = (StaticBody *) state->lookup_object(caller_id);
 		if(caller){
-			Vector3 *vel = (Vector3 *)state->lookup_variant(p_vel);
+			Vector3 *vel = (Vector3 *) state->lookup_object(p_vel);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)vel};
 			Variant ret = caller->call((String)"set_constant_linear_velocity", varargs, 1, error);
@@ -5743,7 +5743,7 @@ void _wasgo_VisibilityNotifier_wrapper_set_aabb(wasm_exec_env_t exec_env, WasGoS
 	if(state){
 		VisibilityNotifier *caller = (VisibilityNotifier *) state->lookup_object(caller_id);
 		if(caller){
-			AABB *rect = (AABB *)state->lookup_variant(p_rect);
+			AABB *rect = (AABB *) state->lookup_object(p_rect);
 			Variant::CallError error;
 			const Variant* varargs[] = {(Variant *)rect};
 			Variant ret = caller->call((String)"set_aabb", varargs, 1, error);

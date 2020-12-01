@@ -7,6 +7,7 @@
 
 #include "Control.h"
 class RichTextLabel : public Control{
+public:
 enum Align{
 ALIGN_LEFT,
 ALIGN_CENTER,

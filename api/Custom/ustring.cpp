@@ -34,14 +34,14 @@
 
 #include "ustring.h"
 
-#include "core/color.h"
-#include "core/crypto/crypto_core.h"
-#include "core/math/math_funcs.h"
-#include "core/os/memory.h"
-#include "core/print_string.h"
-#include "core/translation.h"
-#include "core/ucaps.h"
-#include "core/variant.h"
+#include "color.h"
+// #include "crypto/crypto_core.h"
+#include "math_funcs.h"
+#include "memory.h"
+#include "print_string.h"
+// #include "translation.h"
+#include "ucaps.h"
+#include "variant.h"
 
 #include <wchar.h>
 #include <cstdint>
@@ -1023,9 +1023,9 @@ const CharType *String::c_str() const {
 	return size() ? &operator[](0) : &zero;
 }
 
-String String::md5(const uint8_t *p_md5) {
-	return String::hex_encode_buffer(p_md5, 16);
-}
+// String String::md5(const uint8_t *p_md5) {
+// 	return String::hex_encode_buffer(p_md5, 16);
+// }
 
 String String::hex_encode_buffer(const uint8_t *p_buffer, int p_len) {
 	static const char hex[16] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
@@ -2297,68 +2297,68 @@ uint64_t String::hash64() const {
 	return hashv;
 }
 
-String String::md5_text() const {
+// String String::md5_text() const {
 
-	CharString cs = utf8();
-	unsigned char hash[16];
-	CryptoCore::md5((unsigned char *)cs.ptr(), cs.length(), hash);
-	return String::hex_encode_buffer(hash, 16);
-}
+// 	CharString cs = utf8();
+// 	unsigned char hash[16];
+// 	CryptoCore::md5((unsigned char *)cs.ptr(), cs.length(), hash);
+// 	return String::hex_encode_buffer(hash, 16);
+// }
 
-String String::sha1_text() const {
-	CharString cs = utf8();
-	unsigned char hash[20];
-	CryptoCore::sha1((unsigned char *)cs.ptr(), cs.length(), hash);
-	return String::hex_encode_buffer(hash, 20);
-}
+// String String::sha1_text() const {
+// 	CharString cs = utf8();
+// 	unsigned char hash[20];
+// 	CryptoCore::sha1((unsigned char *)cs.ptr(), cs.length(), hash);
+// 	return String::hex_encode_buffer(hash, 20);
+// }
 
-String String::sha256_text() const {
-	CharString cs = utf8();
-	unsigned char hash[32];
-	CryptoCore::sha256((unsigned char *)cs.ptr(), cs.length(), hash);
-	return String::hex_encode_buffer(hash, 32);
-}
+// String String::sha256_text() const {
+// 	CharString cs = utf8();
+// 	unsigned char hash[32];
+// 	CryptoCore::sha256((unsigned char *)cs.ptr(), cs.length(), hash);
+// 	return String::hex_encode_buffer(hash, 32);
+// }
 
-Vector<uint8_t> String::md5_buffer() const {
+// Vector<uint8_t> String::md5_buffer() const {
 
-	CharString cs = utf8();
-	unsigned char hash[16];
-	CryptoCore::md5((unsigned char *)cs.ptr(), cs.length(), hash);
+// 	CharString cs = utf8();
+// 	unsigned char hash[16];
+// 	CryptoCore::md5((unsigned char *)cs.ptr(), cs.length(), hash);
 
-	Vector<uint8_t> ret;
-	ret.resize(16);
-	for (int i = 0; i < 16; i++) {
-		ret.write[i] = hash[i];
-	}
-	return ret;
-};
+// 	Vector<uint8_t> ret;
+// 	ret.resize(16);
+// 	for (int i = 0; i < 16; i++) {
+// 		ret.write[i] = hash[i];
+// 	}
+// 	return ret;
+// };
 
-Vector<uint8_t> String::sha1_buffer() const {
-	CharString cs = utf8();
-	unsigned char hash[20];
-	CryptoCore::sha1((unsigned char *)cs.ptr(), cs.length(), hash);
+// Vector<uint8_t> String::sha1_buffer() const {
+// 	CharString cs = utf8();
+// 	unsigned char hash[20];
+// 	CryptoCore::sha1((unsigned char *)cs.ptr(), cs.length(), hash);
 
-	Vector<uint8_t> ret;
-	ret.resize(20);
-	for (int i = 0; i < 20; i++) {
-		ret.write[i] = hash[i];
-	}
+// 	Vector<uint8_t> ret;
+// 	ret.resize(20);
+// 	for (int i = 0; i < 20; i++) {
+// 		ret.write[i] = hash[i];
+// 	}
 
-	return ret;
-}
+// 	return ret;
+// }
 
-Vector<uint8_t> String::sha256_buffer() const {
-	CharString cs = utf8();
-	unsigned char hash[32];
-	CryptoCore::sha256((unsigned char *)cs.ptr(), cs.length(), hash);
+// Vector<uint8_t> String::sha256_buffer() const {
+// 	CharString cs = utf8();
+// 	unsigned char hash[32];
+// 	CryptoCore::sha256((unsigned char *)cs.ptr(), cs.length(), hash);
 
-	Vector<uint8_t> ret;
-	ret.resize(32);
-	for (int i = 0; i < 32; i++) {
-		ret.write[i] = hash[i];
-	}
-	return ret;
-}
+// 	Vector<uint8_t> ret;
+// 	ret.resize(32);
+// 	for (int i = 0; i < 32; i++) {
+// 		ret.write[i] = hash[i];
+// 	}
+// 	return ret;
+// }
 
 String String::insert(int p_at_pos, const String &p_string) const {
 
@@ -3330,30 +3330,30 @@ static int _humanize_digits(int p_num) {
 		return 0;
 }
 
-String String::humanize_size(uint64_t p_size) {
+// String String::humanize_size(uint64_t p_size) {
 
-	uint64_t _div = 1;
-	Vector<String> prefixes;
-	prefixes.push_back(RTR("B"));
-	prefixes.push_back(RTR("KiB"));
-	prefixes.push_back(RTR("MiB"));
-	prefixes.push_back(RTR("GiB"));
-	prefixes.push_back(RTR("TiB"));
-	prefixes.push_back(RTR("PiB"));
-	prefixes.push_back(RTR("EiB"));
+// 	uint64_t _div = 1;
+// 	Vector<String> prefixes;
+// 	prefixes.push_back(RTR("B"));
+// 	prefixes.push_back(RTR("KiB"));
+// 	prefixes.push_back(RTR("MiB"));
+// 	prefixes.push_back(RTR("GiB"));
+// 	prefixes.push_back(RTR("TiB"));
+// 	prefixes.push_back(RTR("PiB"));
+// 	prefixes.push_back(RTR("EiB"));
 
-	int prefix_idx = 0;
+// 	int prefix_idx = 0;
 
-	while (prefix_idx < prefixes.size() - 1 && p_size > (_div * 1024)) {
-		_div *= 1024;
-		prefix_idx++;
-	}
+// 	while (prefix_idx < prefixes.size() - 1 && p_size > (_div * 1024)) {
+// 		_div *= 1024;
+// 		prefix_idx++;
+// 	}
 
-	const int digits = prefix_idx > 0 ? _humanize_digits(p_size / _div) : 0;
-	const double divisor = prefix_idx > 0 ? _div : 1;
+// 	const int digits = prefix_idx > 0 ? _humanize_digits(p_size / _div) : 0;
+// 	const double divisor = prefix_idx > 0 ? _div : 1;
 
-	return String::num(p_size / divisor).pad_decimals(digits) + " " + prefixes[prefix_idx];
-}
+// 	return String::num(p_size / divisor).pad_decimals(digits) + " " + prefixes[prefix_idx];
+// }
 bool String::is_abs_path() const {
 
 	if (length() > 1)
@@ -4442,16 +4442,16 @@ String TTR(const String &p_text) {
 
 #endif
 
-String RTR(const String &p_text) {
+// String RTR(const String &p_text) {
 
-	if (TranslationServer::get_singleton()) {
-		String rtr = TranslationServer::get_singleton()->tool_translate(p_text);
-		if (rtr == String() || rtr == p_text) {
-			return TranslationServer::get_singleton()->translate(p_text);
-		} else {
-			return rtr;
-		}
-	}
+// 	if (TranslationServer::get_singleton()) {
+// 		String rtr = TranslationServer::get_singleton()->tool_translate(p_text);
+// 		if (rtr == String() || rtr == p_text) {
+// 			return TranslationServer::get_singleton()->translate(p_text);
+// 		} else {
+// 			return rtr;
+// 		}
+// 	}
 
-	return p_text;
-}
+// 	return p_text;
+// }

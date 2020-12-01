@@ -7,6 +7,7 @@
 
 #include "Node2D.h"
 class PathFollow2D : public Node2D{
+public:
 bool get_cubic_interpolation();
 float get_h_offset();
 float get_lookahead();

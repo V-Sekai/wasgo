@@ -7,6 +7,7 @@
 
 #include "Reference.h"
 class AudioStreamPlayback : public Reference{
+public:
 };
 
 

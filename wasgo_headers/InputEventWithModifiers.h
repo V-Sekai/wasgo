@@ -7,6 +7,7 @@
 
 #include "InputEvent.h"
 class InputEventWithModifiers : public InputEvent{
+public:
 bool get_alt();
 bool get_command();
 bool get_control();

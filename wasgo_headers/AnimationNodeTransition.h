@@ -5,9 +5,10 @@
 #include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "ustring.h"
 #include "AnimationNode.h"
 class AnimationNodeTransition : public AnimationNode{
+public:
 float get_cross_fade_time();
 int get_enabled_inputs();
 String get_input_caption(int p_input);
@@ -27,11 +28,11 @@ AnimationNodeTransition(WasGoId p_wasgo_id);
 extern "C"{
 float _wasgo_AnimationNodeTransition_wrapper_get_cross_fade_time(WasGoId wasgo_id);
 int _wasgo_AnimationNodeTransition_wrapper_get_enabled_inputs(WasGoId wasgo_id);
-WasGo::WasGoId _wasgo_AnimationNodeTransition_wrapper_get_input_caption(WasGoId wasgo_id, int p_input);
+WasGoId _wasgo_AnimationNodeTransition_wrapper_get_input_caption(WasGoId wasgo_id, int p_input);
 int _wasgo_AnimationNodeTransition_wrapper_is_input_set_as_auto_advance(WasGoId wasgo_id, int p_input);
 void _wasgo_AnimationNodeTransition_wrapper_set_cross_fade_time(WasGoId wasgo_id, float p_time);
 void _wasgo_AnimationNodeTransition_wrapper_set_enabled_inputs(WasGoId wasgo_id, int p_amount);
 void _wasgo_AnimationNodeTransition_wrapper_set_input_as_auto_advance(WasGoId wasgo_id, int p_input, bool p_enable);
-void _wasgo_AnimationNodeTransition_wrapper_set_input_caption(WasGoId wasgo_id, int p_input, WasGo::WasGoId p_caption);
+void _wasgo_AnimationNodeTransition_wrapper_set_input_caption(WasGoId wasgo_id, int p_input, WasGoId p_caption);
 }
 #endif
