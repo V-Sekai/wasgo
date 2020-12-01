@@ -11,10 +11,10 @@ WasGoRuntime *WasGoRuntime::get_singleton() {
 
 //wasm_module_t WasGoRuntime::load_module(String script_path){
 wasm_module_t WasGoRuntime::load_module(Ref<WasmResource> wasm){
-
-  if(script_module_map.has(wasm->get_path())){
-    return script_module_map[wasm->get_path()];
-  }
+if (wasm != nullptr){
+  	if(script_module_map.has(wasm->get_path())){
+    	return script_module_map[wasm->get_path()];
+ }
 
   PoolByteArray array = wasm->get_buf(); //gets the binary data
   int buf_size = array.size(); //buffer_length
@@ -43,6 +43,8 @@ wasm_module_t WasGoRuntime::load_module(Ref<WasmResource> wasm){
 
   script_module_map.set(wasm->get_path(), wasm_runtime_load(buffer, buf_size, error_buf, sizeof(error_buf)));
 	return script_module_map[wasm->get_path()];
+ }
+ return nullptr;
 }
 
 WasGoRuntime::WasGoRuntime() {
