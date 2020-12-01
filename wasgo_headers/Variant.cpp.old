@@ -930,7 +930,6 @@ Variant::operator String() const {
 
 String Variant::stringify(List<const void *> &stack) const {
 	switch (type) {
-
 		case NIL: return "Null";
 		case BOOL: return _data._bool ? "True" : "False";
 		case INT: return itos(_data._int);

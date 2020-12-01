@@ -1,88 +1,72 @@
+/*************************************************************************/
+/*  variant.h                                                            */
+/*************************************************************************/
+/*                       This file is part of:                           */
+/*                           GODOT ENGINE                                */
+/*                      https://godotengine.org                          */
+/*************************************************************************/
+/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
+/*                                                                       */
+/* Permission is hereby granted, free of charge, to any person obtaining */
+/* a copy of this software and associated documentation files (the       */
+/* "Software"), to deal in the Software without restriction, including   */
+/* without limitation the rights to use, copy, modify, merge, publish,   */
+/* distribute, sublicense, and/or sell copies of the Software, and to    */
+/* permit persons to whom the Software is furnished to do so, subject to */
+/* the following conditions:                                             */
+/*                                                                       */
+/* The above copyright notice and this permission notice shall be        */
+/* included in all copies or substantial portions of the Software.       */
+/*                                                                       */
+/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
+/* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
+/* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
+/* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
+/* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
+/* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
+/* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
+/*************************************************************************/
+
+#ifndef VARIANT_H
+#define VARIANT_H
+
+#include "Array.h"
+#include "Color.h"
+#include "Dictionary.h"
+// #include "io/ip_address.h"
+#include "AABB.h"
+#include "Basis.h"
+#include "Face3.h"
+#include "Plane.h"
+#include "Quat.h"
+#include "Transform.h"
+#include "Transform2D.h"
+#include "Vector3.h"
+#include "NodePath.h"
+// #include "object_id.h"
+// #include "pool_vector.h"
+#include "RefPtr.h"
+#include "RID.h"
+#include "Ustring.h"
+
 #include "wasgo/wasgo.h"
-// class WasGo;
-typedef uint32_t WasGoId;
 
-class Variant{
-    protected:
-        Variant(WasGoId id){
-			wasgo_id = id;
-		}
-
-	public:
-		WasGoId wasgo_id;
-		static Variant from_wasgo_id(WasGoId id){
-			return Variant(id);
-		}
-};
-
-
-class String;
-class StringName;
-class Vector2;
-class Rect2;
-class Vector3;
-class Plane;
-class AABB;
-class Quat;
-class Basis;
-class Transform;
-class Transform2D;
-class Color;
-class NodePath;
-class RefPtr;
-class RID;
 class Object;
-class Node;
-class Control;
-class Dictionary;
-class Array;
-class Face3;
-class real_t;
-class RefPtr;
+class ObjectRC;
+class Node; // helper
+class Control; // helper
 
-template <class T>
-class PoolVector;
-class CharType;
-
-struct IP_Address;
 struct PropertyInfo;
 struct MethodInfo;
 
-template <class T>
-class Vector;
-
-class DefaultAllocator;
-template <class T, class A = DefaultAllocator>
-class List;
-
-enum Margin {
-	MARGIN_LEFT,
-	MARGIN_TOP,
-	MARGIN_RIGHT,
-	MARGIN_BOTTOM
-};
-
-enum Orientation {
-	HORIZONTAL,
-	VERTICAL
-};
-
-#ifndef NULL
-    #ifdef __cplusplus
-        #define NULL 0
-    #else
-        #define NULL ((void *)0)
-    #endif
-#endif
-
-typedef PoolVector<uint8_t> PoolByteArray;
-typedef PoolVector<int> PoolIntArray;
-typedef PoolVector<real_t> PoolRealArray;
-typedef PoolVector<String> PoolStringArray;
-typedef PoolVector<Vector2> PoolVector2Array;
-typedef PoolVector<Vector3> PoolVector3Array;
-typedef PoolVector<Color> PoolColorArray;
-
+// typedef PoolVector<uint8_t> PoolByteArray;
+// typedef PoolVector<int> PoolIntArray;
+// typedef PoolVector<real_t> PoolRealArray;
+// typedef PoolVector<String> PoolStringArray;
+// typedef PoolVector<Vector2> PoolVector2Array;
+// typedef PoolVector<Vector3> PoolVector3Array;
+// typedef PoolVector<Color> PoolColorArray;
 
 // Temporary workaround until c++11 alignas()
 #ifdef __GNUC__
@@ -91,9 +75,26 @@ typedef PoolVector<Color> PoolColorArray;
 #define GCC_ALIGNED_8
 #endif
 
+// With DEBUG_ENABLED, the pointer to a deleted object stored in ObjectRC is set to nullptr,
+// so _OBJ_PTR is not useful for checks in which we want to act as if we still believed the
+// object is alive; e.g., comparing a Variant that points to a deleted object with NIL,
+// should return false regardless DEBUG_ENABLED is defined or not.
+// So in cases like that we use _UNSAFE_OBJ_PROXY_PTR, which serves that purpose. With DEBUG_ENABLED
+// it won't be the real pointer to the object for non-Reference types, but that's fine.
+// We just need it to be unique for each object, to be comparable and not to be forced to NULL
+// when the object is freed.
+#ifdef DEBUG_ENABLED
+#define _REF_OBJ_PTR(m_variant) (reinterpret_cast<Ref<Reference> *>((m_variant)._get_obj().ref.get_data())->ptr())
+#define _OBJ_PTR(m_variant) ((m_variant)._get_obj().rc ? (m_variant)._get_obj().rc->get_ptr() : _REF_OBJ_PTR(m_variant))
+#define _UNSAFE_OBJ_PROXY_PTR(m_variant) ((m_variant)._get_obj().rc ? reinterpret_cast<uint8_t *>((m_variant)._get_obj().rc) : reinterpret_cast<uint8_t *>(_REF_OBJ_PTR(m_variant)))
+#else
+#define _OBJ_PTR(m_variant) ((m_variant)._get_obj().obj)
+#define _UNSAFE_OBJ_PROXY_PTR(m_variant) _OBJ_PTR(m_variant)
+#endif
+
+typedef uint32_t WasGoId;
 class Variant {
-protected:
-    WasGo::WasGoId wasgo_id;
+
 public:
 	// If this changes the table in variant_op must be updated
 	enum Type {
@@ -127,56 +128,66 @@ public:
 		ARRAY,
 
 		// arrays
-		POOL_BYTE_ARRAY, // 20
-		POOL_INT_ARRAY,
-		POOL_REAL_ARRAY,
-		POOL_STRING_ARRAY,
-		POOL_VECTOR2_ARRAY,
-		POOL_VECTOR3_ARRAY, // 25
-		POOL_COLOR_ARRAY,
+		// POOL_BYTE_ARRAY, // 20
+		// POOL_INT_ARRAY,
+		// POOL_REAL_ARRAY,
+		// POOL_STRING_ARRAY,
+		// POOL_VECTOR2_ARRAY,
+		// POOL_VECTOR3_ARRAY, // 25
+		// POOL_COLOR_ARRAY,
 
 		VARIANT_MAX
 
 	};
 
-    private:
-        Type type;
-        
-		struct ObjData {
+private:
+	friend struct _VariantCall;
+	// Variant takes 20 bytes when real_t is float, and 36 if double
+	// it only allocates extra memory for aabb/matrix.
 
-	#ifdef DEBUG_ENABLED
-			// Will be null for every type deriving from Reference as they have their
-			// own reference count mechanism
-			ObjectRC *rc;
-	#else
-			Object *obj;
-	#endif
-			// Always initialized, but will be null if the Ref<> assigned was null
-			// or this Variant is not even holding a Reference-derived object
-			RefPtr ref;
+	Type type;
+
+	struct ObjData {
+
+#ifdef DEBUG_ENABLED
+		// Will be null for every type deriving from Reference as they have their
+		// own reference count mechanism
+		ObjectRC *rc;
+#else
+		Object *obj;
+#endif
+		// Always initialized, but will be null if the Ref<> assigned was null
+		// or this Variant is not even holding a Reference-derived object
+		RefPtr ref;
 	};
 
-	ObjData &_get_obj();
-	const ObjData &_get_obj() const;
+	_FORCE_INLINE_ ObjData &_get_obj();
+	_FORCE_INLINE_ const ObjData &_get_obj() const;
 
-        union {
+	union {
 		bool _bool;
 		int64_t _int;
 		double _real;
+		Transform2D *_transform2d;
+		::AABB *_aabb;
+		Basis *_basis;
+		Transform *_transform;
+		void *_ptr; //generic pointer
+		uint8_t _mem[sizeof(ObjData) > (sizeof(real_t) * 4) ? sizeof(ObjData) : (sizeof(real_t) * 4)];
 	} _data GCC_ALIGNED_8;
 
 	void reference(const Variant &p_variant);
 	void clear();
 
-    public:
-	Type get_type() const { return type; }
+public:
+	_FORCE_INLINE_ Type get_type() const { return type; }
 	static String get_type_name(Variant::Type p_type);
 	static bool can_convert(Type p_type_from, Type p_type_to);
 	static bool can_convert_strict(Type p_type_from, Type p_type_to);
 
 	bool is_ref() const;
-	bool is_num() const { return type == INT || type == REAL; };
-	bool is_array() const { return type >= ARRAY; };
+	_FORCE_INLINE_ bool is_num() const { return type == INT || type == REAL; };
+	_FORCE_INLINE_ bool is_array() const { return type >= ARRAY; };
 	bool is_shared() const;
 	bool is_zero() const;
 	bool is_one() const;
@@ -196,7 +207,7 @@ public:
 	operator unsigned long() const;
 #endif
 
-//	operator CharType() const;
+	operator CharType() const;
 	operator float() const;
 	operator double() const;
 	operator String() const;
@@ -223,14 +234,14 @@ public:
 	operator Dictionary() const;
 	operator Array() const;
 
-	operator PoolVector<uint8_t>() const;
-	operator PoolVector<int>() const;
-	operator PoolVector<real_t>() const;
-	operator PoolVector<String>() const;
-	operator PoolVector<Vector3>() const;
-	operator PoolVector<Color>() const;
-	operator PoolVector<Plane>() const;
-	operator PoolVector<Face3>() const;
+	// operator PoolVector<uint8_t>() const;
+	// operator PoolVector<int>() const;
+	// operator PoolVector<real_t>() const;
+	// operator PoolVector<String>() const;
+	// operator PoolVector<Vector3>() const;
+	// operator PoolVector<Color>() const;
+	// operator PoolVector<Plane>() const;
+	// operator PoolVector<Face3>() const;
 
 	operator Vector<Variant>() const;
 	operator Vector<uint8_t>() const;
@@ -242,14 +253,14 @@ public:
 	operator Vector<Color>() const;
 	operator Vector<RID>() const;
 	operator Vector<Vector2>() const;
-	operator PoolVector<Vector2>() const;
+	// operator PoolVector<Vector2>() const;
 	operator Vector<Plane>() const;
 
 	// some core type enums to convert to
 	operator Margin() const;
 	operator Orientation() const;
 
-	operator IP_Address() const;
+	// operator IP_Address() const;
 
 	Variant(bool p_bool);
 	Variant(signed int p_int); // real one
@@ -288,14 +299,14 @@ public:
 	Variant(const Dictionary &p_dictionary);
 
 	Variant(const Array &p_array);
-	Variant(const PoolVector<Plane> &p_array); // helper
-	Variant(const PoolVector<uint8_t> &p_raw_array);
-	Variant(const PoolVector<int> &p_int_array);
-	Variant(const PoolVector<real_t> &p_real_array);
-	Variant(const PoolVector<String> &p_string_array);
-	Variant(const PoolVector<Vector3> &p_vector3_array);
-	Variant(const PoolVector<Color> &p_color_array);
-	Variant(const PoolVector<Face3> &p_face_array);
+	// Variant(const PoolVector<Plane> &p_array); // helper
+	// Variant(const PoolVector<uint8_t> &p_raw_array);
+	// Variant(const PoolVector<int> &p_int_array);
+	// Variant(const PoolVector<real_t> &p_real_array);
+	// Variant(const PoolVector<String> &p_string_array);
+	// Variant(const PoolVector<Vector3> &p_vector3_array);
+	// Variant(const PoolVector<Color> &p_color_array);
+	// Variant(const PoolVector<Face3> &p_face_array);
 
 	Variant(const Vector<Variant> &p_array);
 	Variant(const Vector<uint8_t> &p_array);
@@ -308,9 +319,9 @@ public:
 	Variant(const Vector<Plane> &p_array); // helper
 	Variant(const Vector<RID> &p_array); // helper
 	Variant(const Vector<Vector2> &p_array); // helper
-	Variant(const PoolVector<Vector2> &p_vector2_array); // helper
+	// Variant(const PoolVector<Vector2> &p_vector2_array); // helper
 
-	Variant(const IP_Address &p_address);
+	// Variant(const IP_Address &p_address);
 
 	// If this changes the table in variant_op must be updated
 	enum Operator {
@@ -351,7 +362,7 @@ public:
 
 	static String get_operator_name(Operator p_op);
 	static void evaluate(const Operator &p_op, const Variant &p_a, const Variant &p_b, Variant &r_ret, bool &r_valid);
-	static Variant evaluate(const Operator &p_op, const Variant &p_a, const Variant &p_b) {
+	static _FORCE_INLINE_ Variant evaluate(const Operator &p_op, const Variant &p_a, const Variant &p_b) {
 
 		bool valid = true;
 		Variant res;
@@ -432,8 +443,54 @@ public:
 
 	void operator=(const Variant &p_variant); // only this is enough for all the other types
 	Variant(const Variant &p_variant);
-	Variant() { type = NIL; }
-	~Variant() {
+	_FORCE_INLINE_ Variant() { type = NIL; }
+	_FORCE_INLINE_ ~Variant() {
 		if (type != Variant::NIL) clear();
 	}
+
+	static Variant _from_wasgo_id(WasGoId p_wasgo_id) {
+		return Variant(Type::NIL, p_wasgo_id);
+	}
+	WasGoId _get_wasgo_id() {
+		return wasgo_id;
+	}
+
+private:
+	WasGoId wasgo_id;
+	Variant(Type p_type, WasGoId p_wasgo_id){
+		//TODO delete
+	}
 };
+
+//typedef Dictionary Dictionary; no
+//typedef Array Array;
+
+Vector<Variant> varray();
+Vector<Variant> varray(const Variant &p_arg1);
+Vector<Variant> varray(const Variant &p_arg1, const Variant &p_arg2);
+Vector<Variant> varray(const Variant &p_arg1, const Variant &p_arg2, const Variant &p_arg3);
+Vector<Variant> varray(const Variant &p_arg1, const Variant &p_arg2, const Variant &p_arg3, const Variant &p_arg4);
+Vector<Variant> varray(const Variant &p_arg1, const Variant &p_arg2, const Variant &p_arg3, const Variant &p_arg4, const Variant &p_arg5);
+
+struct VariantHasher {
+
+	static _FORCE_INLINE_ uint32_t hash(const Variant &p_variant) { return p_variant.hash(); }
+};
+
+struct VariantComparator {
+
+	static _FORCE_INLINE_ bool compare(const Variant &p_lhs, const Variant &p_rhs) { return p_lhs.hash_compare(p_rhs); }
+};
+
+Variant::ObjData &Variant::_get_obj() {
+
+	return *reinterpret_cast<ObjData *>(&_data._mem[0]);
+}
+
+const Variant::ObjData &Variant::_get_obj() const {
+
+	return *reinterpret_cast<const ObjData *>(&_data._mem[0]);
+}
+
+String vformat(const String &p_text, const Variant &p1 = Variant(), const Variant &p2 = Variant(), const Variant &p3 = Variant(), const Variant &p4 = Variant(), const Variant &p5 = Variant());
+#endif

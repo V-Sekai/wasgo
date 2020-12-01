@@ -40,6 +40,7 @@ public:
 	~WasGoState();
 
 	void _initialize();
+	void _stop();
 
 	virtual void _validate_property(PropertyInfo &property) const;
 	void _notification(int p_what);
@@ -56,6 +57,8 @@ public:
 
 	void set_properties(Dictionary p_properties);
 	Dictionary get_properties();
+	void set_property(String key, Variant value);
+	Variant get_property(String key);
 
 	void init(wasm_module_t instance);
 

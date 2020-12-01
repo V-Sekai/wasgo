@@ -1,25 +1,36 @@
-#include "core/os/file_access.h"
 #include "wasgo_state.h"
 #include "wasgo_runtime.h"
 
 void WasGoState::_initialize() {
-	module = WasGoRuntime::get_singleton()->load_module(wasm_script);
-	if (module) {
-		char error_buf[128];
-		module_inst = wasm_runtime_instantiate(module,
-				stack_size,
-				heap_size,
-				error_buf,
-				sizeof(error_buf));
-		exec_env = wasm_runtime_create_exec_env(module_inst, stack_size);
-		wasm_runtime_set_user_data(exec_env, this);
+	if (wasm_script.is_valid()) {
+		module = WasGoRuntime::get_singleton()->load_module(wasm_script);
+		if (module) {
+			char error_buf[128];
+			module_inst = wasm_runtime_instantiate(module,
+					stack_size,
+					heap_size,
+					error_buf,
+					sizeof(error_buf));
+			exec_env = wasm_runtime_create_exec_env(module_inst, stack_size);
+			wasm_runtime_set_user_data(exec_env, this);
 
-		if (!(notification_callback = wasm_runtime_lookup_function(module_inst, "_notification", NULL))) {
-			printf("The notification callback is not found in the wasm script\n");
+			if (!(notification_callback = wasm_runtime_lookup_function(module_inst, "_notification", NULL))) {
+				printf("The notification callback is not found in the wasm script\n");
+			}
+		} else {
+			printf("WASM FAILED TO LOAD");
 		}
-	} else {
-		printf("WASM FAILED TO LOAD");
 	}
+}
+
+void WasGoState::_stop() {
+	if (exec_env) wasm_runtime_destroy_exec_env(exec_env);
+	if (module_inst) {
+		if (wasm_buffer) wasm_runtime_module_free(module_inst, wasm_buffer);
+		wasm_runtime_deinstantiate(module_inst);
+	}
+	exec_env = nullptr;
+	module_inst = nullptr;
 }
 
 void WasGoState::_bind_methods() {
@@ -27,6 +38,8 @@ void WasGoState::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("get_wasm_script"), &WasGoState::get_wasm_script);
 	ClassDB::bind_method(D_METHOD("set_properties", "p_properties"), &WasGoState::set_properties);
 	ClassDB::bind_method(D_METHOD("get_properties"), &WasGoState::get_properties);
+	ClassDB::bind_method(D_METHOD("set_property", "p_property"), &WasGoState::set_property);
+	ClassDB::bind_method(D_METHOD("get_property"), &WasGoState::get_property);
 	ClassDB::bind_method(D_METHOD("set_stack_size", "p_stack_size"), &WasGoState::set_stack_size);
 	ClassDB::bind_method(D_METHOD("get_stack_size"), &WasGoState::get_stack_size);
 	ClassDB::bind_method(D_METHOD("set_heap_size", "p_heap_size"), &WasGoState::set_heap_size);
@@ -74,12 +87,7 @@ WasGoState::WasGoState() {
 }
 
 WasGoState::~WasGoState(){
-	if (exec_env) wasm_runtime_destroy_exec_env(exec_env);
-	if (module_inst) {
-		if (wasm_buffer) wasm_runtime_module_free(module_inst, wasm_buffer);
-		wasm_runtime_deinstantiate(module_inst);
-	}
-	if (module) wasm_runtime_unload(module);
+	_stop();
 }
 
 Object *WasGoState::lookup_object(WasGoID id) {
@@ -138,8 +146,10 @@ int WasGoState::get_heap_size(){
 void WasGoState::set_wasm_script(Ref<WasmResource> p_wasm_script) {
 	//Only change it if the wasm module is not active
 	if (!is_active()) {
-		wasm_script = p_wasm_script;
+		_stop();
 	}
+	wasm_script = p_wasm_script;
+	_initialize();
 }
 Ref<WasmResource> WasGoState::get_wasm_script() {
 	return wasm_script;
@@ -153,6 +163,15 @@ void WasGoState::set_properties(Dictionary p_properties) {
 }
 Dictionary WasGoState::get_properties() {
 	return properties;
+}
+void WasGoState::set_property(String key, Variant value) {
+	//I don't think you can dynamically change the stack and heap sizes, so we're gonna only change it if the wasm module is not active
+	if (!is_active()) {
+		properties[key] = value;
+	}
+}
+Variant WasGoState::get_property(String key) {
+	return properties[key];
 }
 
 WasGoState::WasGoID WasGoState::generate_id(){
