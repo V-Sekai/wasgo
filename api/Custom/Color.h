@@ -32,7 +32,7 @@
 #define COLOR_H
 
 #include "math_funcs.h"
-#include "ustring.h"
+#include "Ustring.h"
 
 struct Color {
 

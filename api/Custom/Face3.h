@@ -31,10 +31,10 @@
 #ifndef FACE3_H
 #define FACE3_H
 
-#include "aabb.h"
-#include "plane.h"
-#include "transform.h"
-#include "vector3.h"
+#include "AABB.h"
+#include "Plane.h"
+#include "Transform.h"
+#include "Vector3.h"
 
 class Face3 {
 public:

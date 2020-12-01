@@ -32,7 +32,7 @@
 #define NODE_PATH_H
 
 #include "StringName.h"
-#include "ustring.h"
+#include "Ustring.h"
 
 class NodePath {
 

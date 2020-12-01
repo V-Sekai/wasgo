@@ -32,7 +32,7 @@
 #define VECTOR2_H
 
 #include "math_funcs.h"
-#include "ustring.h"
+#include "Ustring.h"
 
 struct Vector2i;
 
