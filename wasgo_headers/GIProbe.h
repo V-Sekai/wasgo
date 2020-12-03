@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "GIProbeData.h"
-#include "VisualInstance.h"
 #include "Vector3.h"
+#include "VisualInstance.h"
 #include "Node.h"
+#include "GIProbeData.h"
 class GIProbe : public VisualInstance{
 public:
 enum Subdiv{

@@ -39,7 +39,11 @@ test.cpp.o: test.cpp \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Object.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\wasgo\wasgoid.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\ustring.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\NodePath.h
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\NodePath.h \
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Generated\Spatial.h \
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector3.h \
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Transform.h \
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Generated\Node.h
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\wasgo\wasgo.h:
 
@@ -122,3 +126,11 @@ C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\was
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\ustring.h:
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\NodePath.h:
+
+C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Generated\Spatial.h:
+
+C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector3.h:
+
+C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Transform.h:
+
+C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Generated\Node.h:

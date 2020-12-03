@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "PhysicsMaterial.h"
-#include "Basis.h"
-#include "PhysicsServer.h"
-#include "Variant.h"
 #include "PhysicsBody.h"
+#include "PhysicsMaterial.h"
+#include "Variant.h"
+#include "PhysicsServer.h"
 #include "Vector3.h"
+#include "Basis.h"
 class RigidBody : public PhysicsBody{
 public:
 enum Mode{

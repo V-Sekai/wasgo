@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "Vector3.h"
+#include "Reference.h"
 class SpatialVelocityTracker : public Reference{
 public:
 Vector3 get_tracked_linear_velocity();

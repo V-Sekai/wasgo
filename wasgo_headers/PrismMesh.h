@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "PrimitiveMesh.h"
 #include "Vector3.h"
+#include "PrimitiveMesh.h"
 class PrismMesh : public PrimitiveMesh{
 public:
 float get_left_to_right();

@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Transform.h"
-#include "Resource.h"
-#include "NavigationMesh.h"
-#include "Variant.h"
-#include "Texture.h"
 #include "ustring.h"
 #include "Mesh.h"
+#include "Variant.h"
+#include "Resource.h"
+#include "NavigationMesh.h"
+#include "Texture.h"
+#include "Transform.h"
 class MeshLibrary : public Resource{
 public:
 void clear();

@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Vector2.h"
-#include "error_list.h"
-#include "Resource.h"
-#include "Variant.h"
 #include "ustring.h"
+#include "Color.h"
+#include "Variant.h"
+#include "Resource.h"
+#include "error_list.h"
+#include "Vector2.h"
 #include "Rect2.h"
 class Image : public Resource{
 public:

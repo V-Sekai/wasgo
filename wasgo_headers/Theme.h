@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Font.h"
-#include "Resource.h"
-#include "StyleBox.h"
-#include "Variant.h"
-#include "Texture.h"
 #include "ustring.h"
+#include "Font.h"
+#include "StyleBox.h"
+#include "Color.h"
+#include "Variant.h"
+#include "Resource.h"
+#include "Texture.h"
 class Theme : public Resource{
 public:
 void clear();

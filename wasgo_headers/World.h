@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Environment.h"
-#include "RID.h"
 #include "PhysicsDirectSpaceState.h"
+#include "RID.h"
 #include "Resource.h"
 class World : public Resource{
 public:

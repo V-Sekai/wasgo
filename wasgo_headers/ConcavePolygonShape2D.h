@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Shape2D.h"
+#include "Variant.h"
 class ConcavePolygonShape2D : public Shape2D{
 public:
 PoolVector2Array get_segments();

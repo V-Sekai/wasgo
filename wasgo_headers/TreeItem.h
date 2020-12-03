@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
+#include "ustring.h"
 #include "Color.h"
 #include "Object.h"
 #include "Variant.h"
 #include "Texture.h"
-#include "ustring.h"
 #include "Rect2.h"
 class TreeItem : public Object{
 public:

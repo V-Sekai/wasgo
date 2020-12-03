@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "CollisionObject2D.h"
 #include "Node.h"
+#include "Variant.h"
 class PhysicsBody2D : public CollisionObject2D{
 public:
 void add_collision_exception_with(Node p_body);

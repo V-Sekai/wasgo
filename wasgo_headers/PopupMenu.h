@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ShortCut.h"
-#include "Variant.h"
-#include "Texture.h"
 #include "ustring.h"
 #include "Popup.h"
+#include "Variant.h"
+#include "ShortCut.h"
+#include "Texture.h"
 class PopupMenu : public Popup{
 public:
 void add_check_item(String p_label, int p_id = (int) -1, int p_accel = (int) 0);

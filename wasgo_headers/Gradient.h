@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Resource.h"
 #include "Color.h"
 #include "Variant.h"
-#include "Resource.h"
 class Gradient : public Resource{
 public:
 void add_point(float p_offset, Color p_color);

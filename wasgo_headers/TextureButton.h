@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "BaseButton.h"
 #include "BitMap.h"
 #include "Texture.h"
-#include "BaseButton.h"
 class TextureButton : public BaseButton{
 public:
 enum StretchMode{

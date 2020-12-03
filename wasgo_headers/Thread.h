@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "Object.h"
-#include "Variant.h"
-#include "Reference.h"
 #include "ustring.h"
+#include "Variant.h"
+#include "error_list.h"
+#include "Reference.h"
+#include "Object.h"
 class Thread : public Reference{
 public:
 enum Priority{

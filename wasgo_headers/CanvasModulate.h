@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
 #include "Node2D.h"
+#include "Color.h"
 class CanvasModulate : public Node2D{
 public:
 Color get_color();

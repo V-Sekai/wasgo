@@ -52,7 +52,7 @@ class Memory {
 
 public:
 	static void *alloc_static(size_t p_bytes, bool p_pad_align = false);
-	static void *realloc_static(void *p_memory, size_t p_bytes, bool p_pad_align = false);
+	static void *realloc_static2(void *p_memory, size_t p_old_bytes, size_t p_bytes, bool p_pad_align = false);
 	static void free_static(void *p_ptr, bool p_pad_align = false);
 
 	static uint64_t get_mem_available();
@@ -80,7 +80,7 @@ void operator delete(void *p_mem, void *p_pointer, size_t check, const char *p_d
 #endif
 
 #define memalloc(m_size) Memory::alloc_static(m_size)
-#define memrealloc(m_mem, m_size) Memory::realloc_static(m_mem, m_size)
+#define memrealloc2(m_mem, m_old_size, m_size) Memory::realloc_static2(m_mem, m_old_size, m_size)
 #define memfree(m_size) Memory::free_static(m_size)
 
 _ALWAYS_INLINE_ void postinitialize_handler(void *) {}

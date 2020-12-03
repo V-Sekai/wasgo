@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "AnimationNode.h"
 #include "ustring.h"
+#include "AnimationNode.h"
 class AnimationNodeTransition : public AnimationNode{
 public:
 float get_cross_fade_time();

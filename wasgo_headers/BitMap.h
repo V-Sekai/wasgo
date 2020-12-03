@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
-#include "Image.h"
 #include "Resource.h"
 #include "Variant.h"
+#include "Image.h"
+#include "Vector2.h"
 #include "Rect2.h"
 class BitMap : public Resource{
 public:

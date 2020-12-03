@@ -40,6 +40,7 @@
 #include "cowdata.h"
 #include "error_macros.h"
 #include "memory.h"
+#include <stdio.h>
 // #include "sort_array.h"
 
 template <class T>
@@ -148,7 +149,6 @@ void Vector<T>::append_array(Vector<T> p_other) {
 
 template <class T>
 bool Vector<T>::push_back(T p_elem) {
-
 	Error err = resize(size() + 1);
 	ERR_FAIL_COND_V(err, true);
 	set(size() - 1, p_elem);

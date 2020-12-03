@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "Curve.h"
+#include "Texture.h"
 class CurveTexture : public Texture{
 public:
 Curve get_curve();

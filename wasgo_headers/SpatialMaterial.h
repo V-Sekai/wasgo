@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Texture.h"
 #include "Vector3.h"
+#include "Texture.h"
+#include "Color.h"
 #include "Material.h"
 class SpatialMaterial : public Material{
 public:

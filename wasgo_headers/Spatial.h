@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Transform.h"
-#include "World.h"
 #include "SpatialGizmo.h"
+#include "World.h"
 #include "Node.h"
 #include "Vector3.h"
+#include "Transform.h"
 class Spatial : public Node{
 public:
 void force_update_transform();

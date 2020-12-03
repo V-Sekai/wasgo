@@ -6,6 +6,7 @@ BUILD_DIR ?= .
 COPY_DEST := C:/Users/Michael/Documents/_Active/V-Sekai/groups/
 
 CXX := "C:/Program Files/LLVM/bin/clang.exe"
+# CXX := "C:/Users/Michael/Documents/_Active/godot-wasm/godot/modules/WasGo/thirdparty/wasm-micro-runtime/wamr-sdk/opt/wasi-sdk/bin/clang.exe"
 
 SRCS := $(wildcard *.cpp ../api/Custom/*.cpp ../api/Custom/wasgo/*.cpp ../api/Generated/*.cpp)
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
@@ -21,13 +22,14 @@ CPPFLAGS += -O3
 CPPFLAGS += -z
 CPPFLAGS += stack-size=4096
 CPPFLAGS += -Wl,--initial-memory=6553600
-CPPFLAGS += --sysroot=C:\\wasi-sdk-11.0\\wasi-sysroot
 CPPFLAGS += -std=c++11
-# CPPFLAGS += "--sysroot=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\thirdparty\\wasm-micro-runtime\\wamr-sdk\\app\\libc-builtin-sysroot
-# CPPFLAGS += "-Wl,--allow-undefined-file=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\thirdparty\\wasm-micro-runtime\\wamr-sdk\\app\\libc-builtin-sysroot\\share\\defined-symbols.txt
+CPPFLAGS += --sysroot=C:\\wasi-sdk-11.0\\wasi-sysroot
+# CPPFLAGS += --sysroot=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\thirdparty\\wasm-micro-runtime\\wamr-sdk\\app\\libc-builtin-sysroot
+# CPPFLAGS += -Wl,--allow-undefined-file=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\thirdparty\\wasm-micro-runtime\\wamr-sdk\\app\\libc-builtin-sysroot\\share\\defined-symbols.txt
 CPPFLAGS += -Wl,--strip-all
 CPPFLAGS += -Wl,--no-entry
 CPPFLAGS += -nostdlib
+# CPPFLAGS += -Wl,--no-threads
 # CPPFLAGS += -Wl,--export-all
 CPPFLAGS += -Wl,--export=_notification
 CPPFLAGS += -Wl,--allow-undefined
@@ -37,6 +39,7 @@ CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wa
 CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\api\\Generated
 CPPFLAGS += --include-directory=C:\\wasi-sdk-11.0\\wasi-sysroot\\include
 CPPFLAGS += --include-directory=C:\\wasi-sdk-11.0\\wasi-sysroot\\include\\c++\\v1
+CPPFLAGS += -DNO_THREADS
 # CPPFLAGS += -oC:\\Users\\Michael\\Documents\\_Active\\V-Sekai\\groups\\test.wasm
 # CPPFLAGS += -v
 

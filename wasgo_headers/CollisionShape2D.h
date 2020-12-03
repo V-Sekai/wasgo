@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Shape2D.h"
+#include "Node2D.h"
 class CollisionShape2D : public Node2D{
 public:
 float get_one_way_collision_margin();

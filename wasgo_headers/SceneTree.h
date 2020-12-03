@@ -4,18 +4,18 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "Vector2.h"
+#include "ustring.h"
 #include "PackedScene.h"
-#include "Object.h"
 #include "Viewport.h"
 #include "SceneTreeTimer.h"
-#include "Variant.h"
-#include "MultiplayerAPI.h"
 #include "MainLoop.h"
+#include "MultiplayerAPI.h"
+#include "Variant.h"
 #include "Node.h"
 #include "NetworkedMultiplayerPeer.h"
-#include "ustring.h"
+#include "error_list.h"
+#include "Vector2.h"
+#include "Object.h"
 class SceneTree : public MainLoop{
 public:
 enum GroupCallFlags{

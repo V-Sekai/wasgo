@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Object.h"
-#include "AudioEffectInstance.h"
+#include "ustring.h"
 #include "AudioBusLayout.h"
+#include "AudioEffectInstance.h"
 #include "Variant.h"
 #include "AudioEffect.h"
-#include "ustring.h"
+#include "Object.h"
 class AudioServer : public Object{
 public:
 enum SpeakerMode{

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "Texture.h"
+#include "Vector2.h"
 class ExternalTexture : public Texture{
 public:
 int get_external_texture_id();

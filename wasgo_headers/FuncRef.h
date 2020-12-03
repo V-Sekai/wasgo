@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "Reference.h"
 #include "ustring.h"
+#include "Reference.h"
 #include "Object.h"
+#include "Variant.h"
 class FuncRef : public Reference{
 public:
 Variant call_func();

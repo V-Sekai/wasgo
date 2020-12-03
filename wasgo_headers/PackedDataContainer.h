@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Resource.h"
 #include "error_list.h"
 #include "Variant.h"
-#include "Resource.h"
 class PackedDataContainer : public Resource{
 public:
 Error pack(Variant p_value);

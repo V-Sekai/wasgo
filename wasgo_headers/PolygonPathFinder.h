@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
-#include "Variant.h"
-#include "Rect2.h"
 #include "Resource.h"
+#include "Vector2.h"
+#include "Rect2.h"
+#include "Variant.h"
 class PolygonPathFinder : public Resource{
 public:
 PoolVector2Array find_path(Vector2 p_from, Vector2 p_to);

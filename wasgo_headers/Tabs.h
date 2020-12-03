@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Rect2.h"
 #include "Texture.h"
 #include "Control.h"
+#include "Rect2.h"
 class Tabs : public Control{
 public:
 enum CloseButtonDisplayPolicy{

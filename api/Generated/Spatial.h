@@ -62,11 +62,13 @@ void translate_object_local(Vector3 p_offset);
 void update_gizmo();
 
 protected:
-Spatial(WasGoId p_wasgo_id);
+// Spatial(WasGoId p_wasgo_id);
 public:
-Spatial();
-~Spatial();
-            
+// Spatial();
+// ~Spatial();
+explicit Spatial(WasGoId p_wasgo_id);
+explicit Spatial(Node node);
+static Spatial new_instance();
 };
 
 

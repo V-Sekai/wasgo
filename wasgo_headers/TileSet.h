@@ -4,18 +4,18 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Vector2.h"
-#include "OccluderPolygon2D.h"
-#include "Resource.h"
-#include "Rect2.h"
-#include "Variant.h"
-#include "Texture.h"
-#include "Transform2D.h"
-#include "NavigationPolygon.h"
-#include "ShaderMaterial.h"
 #include "ustring.h"
 #include "Shape2D.h"
+#include "OccluderPolygon2D.h"
+#include "NavigationPolygon.h"
+#include "Transform2D.h"
+#include "Color.h"
+#include "Variant.h"
+#include "Resource.h"
+#include "ShaderMaterial.h"
+#include "Texture.h"
+#include "Vector2.h"
+#include "Rect2.h"
 class TileSet : public Resource{
 public:
 enum AutotileBindings{

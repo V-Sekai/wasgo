@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "Object.h"
-#include "NodePath.h"
-#include "Variant.h"
 #include "ustring.h"
+#include "Object.h"
+#include "Resource.h"
+#include "Variant.h"
+#include "NodePath.h"
 class AnimationNode : public Resource{
 public:
 enum FilterAction{

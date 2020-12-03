@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Vector2.h"
-#include "Image.h"
 #include "RID.h"
+#include "Color.h"
 #include "Resource.h"
+#include "Image.h"
+#include "Vector2.h"
 #include "Rect2.h"
 class Texture : public Resource{
 public:

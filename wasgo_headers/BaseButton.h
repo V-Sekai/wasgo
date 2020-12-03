@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "ButtonGroup.h"
 #include "Control.h"
 #include "ShortCut.h"
-#include "ButtonGroup.h"
 class BaseButton : public Control{
 public:
 enum ActionMode{

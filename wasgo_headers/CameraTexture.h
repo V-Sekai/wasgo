@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "CameraServer.h"
+#include "Texture.h"
 class CameraTexture : public Texture{
 public:
 bool get_camera_active();

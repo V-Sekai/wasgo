@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
 #include "StyleBox.h"
+#include "Color.h"
 class StyleBoxLine : public StyleBox{
 public:
 Color get_color();

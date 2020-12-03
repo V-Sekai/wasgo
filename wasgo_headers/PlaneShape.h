@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Shape.h"
 #include "Plane.h"
+#include "Shape.h"
 class PlaneShape : public Shape{
 public:
 Plane get_plane();

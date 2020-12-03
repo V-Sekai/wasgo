@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Vector2.h"
-#include "Gradient.h"
-#include "Node2D.h"
-#include "Variant.h"
-#include "Texture.h"
 #include "Curve.h"
+#include "Node2D.h"
+#include "Color.h"
+#include "Variant.h"
+#include "Gradient.h"
+#include "Texture.h"
+#include "Vector2.h"
 class Line2D : public Node2D{
 public:
 enum LineCapMode{

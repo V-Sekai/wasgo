@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "AABB.h"
 #include "Material.h"
 #include "VisualInstance.h"
-#include "AABB.h"
 class GeometryInstance : public VisualInstance{
 public:
 enum Flags{

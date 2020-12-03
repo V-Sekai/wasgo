@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "Node2D.h"
+#include "Texture.h"
 #include "Vector2.h"
 #include "Rect2.h"
-#include "Texture.h"
 class Sprite : public Node2D{
 public:
 int get_frame();

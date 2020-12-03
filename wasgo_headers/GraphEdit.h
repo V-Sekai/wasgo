@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "Vector2.h"
+#include "ustring.h"
 #include "Control.h"
 #include "Variant.h"
 #include "Node.h"
-#include "ustring.h"
+#include "error_list.h"
+#include "Vector2.h"
 #include "HBoxContainer.h"
 class GraphEdit : public Control{
 public:

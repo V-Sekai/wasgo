@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Material.h"
 #include "GeometryInstance.h"
 #include "AABB.h"
+#include "Material.h"
 #include "Mesh.h"
 class Particles : public GeometryInstance{
 public:

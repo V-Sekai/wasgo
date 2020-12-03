@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "NodePath.h"
 #include "Spatial.h"
+#include "NodePath.h"
 class Joint : public Spatial{
 public:
 bool get_exclude_nodes_from_collision();

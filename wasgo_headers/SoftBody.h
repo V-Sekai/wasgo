@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "MeshInstance.h"
-#include "Variant.h"
-#include "NodePath.h"
 #include "Node.h"
+#include "NodePath.h"
+#include "Variant.h"
 class SoftBody : public MeshInstance{
 public:
 void add_collision_exception_with(Node p_body);

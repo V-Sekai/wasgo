@@ -284,7 +284,7 @@ Error CowData<T>::resize(int p_size) {
 				_ptr = (T *)ptr;
 
 			} else {
-				void *_ptrnew = (T *)Memory::realloc_static(_ptr, alloc_size, true);
+				void *_ptrnew = (T *)Memory::realloc_static2(_ptr, current_alloc_size, alloc_size, true);
 				ERR_FAIL_COND_V(!_ptrnew, ERR_OUT_OF_MEMORY);
 				_ptr = (T *)(_ptrnew);
 			}
@@ -313,7 +313,7 @@ Error CowData<T>::resize(int p_size) {
 		}
 
 		if (alloc_size != current_alloc_size) {
-			void *_ptrnew = (T *)Memory::realloc_static(_ptr, alloc_size, true);
+			void *_ptrnew = (T *)Memory::realloc_static2(_ptr, current_alloc_size, alloc_size, true);
 			ERR_FAIL_COND_V(!_ptrnew, ERR_OUT_OF_MEMORY);
 
 			_ptr = (T *)(_ptrnew);

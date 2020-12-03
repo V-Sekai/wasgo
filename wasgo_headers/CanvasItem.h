@@ -4,22 +4,22 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Vector2.h"
+#include "ustring.h"
 #include "Font.h"
 #include "RID.h"
-#include "MultiMesh.h"
 #include "StyleBox.h"
 #include "Material.h"
-#include "Variant.h"
-#include "Texture.h"
-#include "Transform2D.h"
-#include "Node.h"
-#include "ustring.h"
-#include "Rect2.h"
 #include "Mesh.h"
 #include "World2D.h"
 #include "InputEvent.h"
+#include "Transform2D.h"
+#include "Color.h"
+#include "Variant.h"
+#include "Node.h"
+#include "MultiMesh.h"
+#include "Texture.h"
+#include "Vector2.h"
+#include "Rect2.h"
 class CanvasItem : public Node{
 public:
 enum BlendMode{

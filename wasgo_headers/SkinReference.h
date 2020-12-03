@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Skin.h"
 #include "Reference.h"
 #include "RID.h"
-#include "Skin.h"
 class SkinReference : public Reference{
 public:
 RID get_skeleton();

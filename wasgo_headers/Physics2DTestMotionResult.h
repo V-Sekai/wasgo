@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "Reference.h"
 #include "RID.h"
+#include "Vector2.h"
 #include "Object.h"
 class Physics2DTestMotionResult : public Reference{
 public:

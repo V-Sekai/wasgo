@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Rect2.h"
 #include "Texture.h"
+#include "Rect2.h"
 class AtlasTexture : public Texture{
 public:
 Texture get_atlas();

@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Transform.h"
-#include "AABB.h"
-#include "Resource.h"
-#include "Variant.h"
-#include "Transform2D.h"
 #include "Mesh.h"
+#include "Transform2D.h"
+#include "Color.h"
+#include "Variant.h"
+#include "Resource.h"
+#include "AABB.h"
+#include "Transform.h"
 class MultiMesh : public Resource{
 public:
 enum ColorFormat{

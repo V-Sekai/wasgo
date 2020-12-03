@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "AudioStreamPlaybackResampled.h"
 #include "Vector2.h"
 #include "Variant.h"
-#include "AudioStreamPlaybackResampled.h"
 class AudioStreamGeneratorPlayback : public AudioStreamPlaybackResampled{
 public:
 bool can_push_buffer(int p_amount);

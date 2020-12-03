@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Resource.h"
+#include "Variant.h"
 class OccluderPolygon2D : public Resource{
 public:
 enum CullMode{

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
 #include "StyleBox.h"
-#include "Texture.h"
+#include "Color.h"
 #include "Margin.h"
+#include "Texture.h"
 #include "Rect2.h"
 class StyleBoxTexture : public StyleBox{
 public:

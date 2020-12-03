@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "SpriteBase3D.h"
 #include "ustring.h"
 #include "SpriteFrames.h"
+#include "SpriteBase3D.h"
 class AnimatedSprite3D : public SpriteBase3D{
 public:
 String get_animation();

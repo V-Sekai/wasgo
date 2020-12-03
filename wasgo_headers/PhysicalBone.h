@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Transform.h"
-#include "PhysicsBody.h"
 #include "Vector3.h"
+#include "PhysicsBody.h"
+#include "Transform.h"
 class PhysicalBone : public PhysicsBody{
 public:
 enum JointType{

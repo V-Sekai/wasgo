@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
 #include "Material.h"
-#include "CurveTexture.h"
+#include "GradientTexture.h"
+#include "Color.h"
 #include "Texture.h"
 #include "Vector3.h"
-#include "GradientTexture.h"
+#include "CurveTexture.h"
 class ParticlesMaterial : public Material{
 public:
 enum EmissionShape{

@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Texture.h"
 #include "Vector2.h"
 #include "Rect2.h"
-#include "Texture.h"
 #include "SpriteBase3D.h"
 class Sprite3D : public SpriteBase3D{
 public:

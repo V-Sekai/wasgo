@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
-#include "PhysicsMaterial.h"
-#include "Physics2DTestMotionResult.h"
 #include "PhysicsBody2D.h"
+#include "PhysicsMaterial.h"
 #include "Variant.h"
+#include "Vector2.h"
+#include "Physics2DTestMotionResult.h"
 class RigidBody2D : public PhysicsBody2D{
 public:
 enum CCDMode{

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
+#include "Node2D.h"
 #include "Vector2.h"
 #include "Texture.h"
-#include "Node2D.h"
+#include "Color.h"
 class Light2D : public Node2D{
 public:
 enum Mode{

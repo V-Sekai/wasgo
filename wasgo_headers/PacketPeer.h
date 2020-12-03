@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Reference.h"
 #include "error_list.h"
 #include "Variant.h"
-#include "Reference.h"
 class PacketPeer : public Reference{
 public:
 int get_available_packet_count();

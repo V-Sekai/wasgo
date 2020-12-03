@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Resource.h"
+#include "Variant.h"
 class WasmResource : public Resource{
 public:
 PoolByteArray get_buf();

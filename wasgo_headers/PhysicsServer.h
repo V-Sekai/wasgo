@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Transform.h"
-#include "PhysicsDirectBodyState.h"
-#include "RID.h"
-#include "Object.h"
-#include "Variant.h"
-#include "Vector3.h"
 #include "ustring.h"
 #include "PhysicsDirectSpaceState.h"
+#include "RID.h"
+#include "Variant.h"
+#include "PhysicsDirectBodyState.h"
+#include "Vector3.h"
+#include "Transform.h"
+#include "Object.h"
 class PhysicsServer : public Object{
 public:
 enum AreaBodyStatus{

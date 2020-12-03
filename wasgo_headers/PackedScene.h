@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Node.h"
 #include "SceneState.h"
 #include "error_list.h"
-#include "Node.h"
 #include "Resource.h"
 class PackedScene : public Resource{
 public:

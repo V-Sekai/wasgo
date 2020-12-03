@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ConfirmationDialog.h"
-#include "VBoxContainer.h"
-#include "LineEdit.h"
-#include "Variant.h"
 #include "ustring.h"
+#include "VBoxContainer.h"
+#include "Variant.h"
+#include "LineEdit.h"
+#include "ConfirmationDialog.h"
 class FileDialog : public ConfirmationDialog{
 public:
 enum Access{

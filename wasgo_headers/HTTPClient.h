@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
+#include "ustring.h"
 #include "StreamPeer.h"
 #include "Variant.h"
+#include "error_list.h"
 #include "Reference.h"
-#include "ustring.h"
 class HTTPClient : public Reference{
 public:
 enum Method{

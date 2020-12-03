@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Resource.h"
+#include "Variant.h"
 class VisualShaderNode : public Resource{
 public:
 enum PortType{

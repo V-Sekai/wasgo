@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Sky.h"
 #include "Texture.h"
+#include "Sky.h"
 class PanoramaSky : public Sky{
 public:
 Texture get_panorama();

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Label.h"
+#include "ustring.h"
 #include "WindowDialog.h"
+#include "Label.h"
 #include "Node.h"
 #include "Button.h"
-#include "ustring.h"
 class AcceptDialog : public WindowDialog{
 public:
 Button add_button(String p_text, bool p_right = (bool) false, String p_action = (String) );

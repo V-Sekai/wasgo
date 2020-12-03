@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
-#include "error_list.h"
+#include "Shader.h"
 #include "Variant.h"
 #include "VisualShaderNode.h"
-#include "Shader.h"
+#include "error_list.h"
+#include "Vector2.h"
 class VisualShader : public Shader{
 public:
 enum Type{

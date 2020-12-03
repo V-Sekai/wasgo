@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "RID.h"
-#include "Resource.h"
 #include "CanvasItem.h"
+#include "Resource.h"
 #include "Margin.h"
+#include "Vector2.h"
 #include "Rect2.h"
 class StyleBox : public Resource{
 public:

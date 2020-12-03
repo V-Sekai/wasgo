@@ -6,8 +6,8 @@
 
 #include "ustring.h"
 #include "Vector3.h"
-#include "Variant.h"
 #include "Spatial.h"
+#include "Variant.h"
 class ProximityGroup : public Spatial{
 public:
 enum DispatchMode{

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
-#include "error_list.h"
-#include "Font.h"
-#include "Texture.h"
 #include "ustring.h"
+#include "Font.h"
+#include "error_list.h"
+#include "Texture.h"
+#include "Vector2.h"
 #include "Rect2.h"
 class BitmapFont : public Font{
 public:

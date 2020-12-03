@@ -74,6 +74,7 @@ uint64_t Memory::alloc_count = 0;
 
 void *Memory::alloc_static(size_t p_bytes, bool p_pad_align) {
 
+
 #ifdef DEBUG_ENABLED
 	bool prepad = true;
 #else
@@ -102,7 +103,7 @@ void *Memory::alloc_static(size_t p_bytes, bool p_pad_align) {
 	}
 }
 
-void *Memory::realloc_static(void *p_memory, size_t p_bytes, bool p_pad_align) {
+void *Memory::realloc_static2(void *p_memory, size_t p_old_bytes, size_t p_bytes, bool p_pad_align) {
 
 	if (p_memory == NULL) {
 		return alloc_static(p_bytes, p_pad_align);
@@ -135,7 +136,12 @@ void *Memory::realloc_static(void *p_memory, size_t p_bytes, bool p_pad_align) {
 		} else {
 			*s = p_bytes;
 
-			mem = (uint8_t *)realloc(mem, p_bytes + PAD_ALIGN);
+			// mem = (uint8_t *)realloc(mem, p_bytes + PAD_ALIGN);
+
+			uint8_t *new_mem = (uint8_t *) malloc(p_bytes + PAD_ALIGN);
+			memcpy(new_mem, mem, MIN(p_bytes, p_old_bytes) + PAD_ALIGN);
+			free(mem);
+			mem = new_mem;
 			ERR_FAIL_COND_V(!mem, NULL);
 
 			s = (uint64_t *)mem;
@@ -146,7 +152,10 @@ void *Memory::realloc_static(void *p_memory, size_t p_bytes, bool p_pad_align) {
 		}
 	} else {
 
-		mem = (uint8_t *)realloc(mem, p_bytes);
+		uint8_t *new_mem = (uint8_t *)malloc(p_bytes);
+		memcpy(new_mem, mem, MIN(p_bytes, p_old_bytes));
+		free(mem);
+		mem = new_mem;
 
 		ERR_FAIL_COND_V(mem == NULL && p_bytes > 0, NULL);
 

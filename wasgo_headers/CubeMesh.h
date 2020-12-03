@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "PrimitiveMesh.h"
 #include "Vector3.h"
+#include "PrimitiveMesh.h"
 class CubeMesh : public PrimitiveMesh{
 public:
 Vector3 get_size();

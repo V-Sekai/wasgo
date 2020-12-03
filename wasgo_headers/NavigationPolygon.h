@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Resource.h"
+#include "Variant.h"
 class NavigationPolygon : public Resource{
 public:
 void add_outline(PoolVector2Array p_outline);

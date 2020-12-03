@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Reference.h"
+#include "Variant.h"
 class WeakRef : public Reference{
 public:
 Variant get_ref();

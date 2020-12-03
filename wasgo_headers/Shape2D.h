@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Vector2.h"
 #include "RID.h"
-#include "Resource.h"
-#include "Variant.h"
 #include "Transform2D.h"
+#include "Color.h"
+#include "Variant.h"
+#include "Resource.h"
+#include "Vector2.h"
 class Shape2D : public Resource{
 public:
 bool collide(Transform2D p_local_xform, Shape2D p_with_shape, Transform2D p_shape_xform);

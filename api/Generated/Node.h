@@ -115,8 +115,10 @@ void update_configuration_warning();
 protected:
 public:
 	explicit Node(WasGoId p_wasgo_id);
-	Node();
-	~Node();
+	explicit Node(Object obj);
+	static Node new_instance();
+	// Node();
+	// ~Node();
 };
 
 

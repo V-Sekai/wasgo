@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Variant.h"
 #include "Object.h"
+#include "Variant.h"
 class UndoRedo : public Object{
 public:
 enum MergeMode{

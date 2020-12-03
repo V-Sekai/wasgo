@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Gradient.h"
-#include "Variant.h"
 #include "GeometryInstance.h"
-#include "Vector3.h"
-#include "Node.h"
 #include "Curve.h"
+#include "Color.h"
+#include "Variant.h"
+#include "Gradient.h"
+#include "Node.h"
+#include "Vector3.h"
 #include "Mesh.h"
 class CPUParticles : public GeometryInstance{
 public:

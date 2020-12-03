@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Object.h"
 #include "Vector2.h"
 #include "Variant.h"
+#include "Object.h"
 #include "Physics2DShapeQueryParameters.h"
 class Physics2DDirectSpaceState : public Object{
 public:

@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "ustring.h"
 #include "AnimationNode.h"
 #include "Vector2.h"
-#include "ustring.h"
 #include "AnimationRootNode.h"
 class AnimationNodeBlendTree : public AnimationRootNode{
 public:

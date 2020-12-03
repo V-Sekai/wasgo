@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
+#include "ustring.h"
 #include "Variant.h"
 #include "Node.h"
 #include "Vector3.h"
 #include "CollisionObject.h"
-#include "ustring.h"
 class Area : public CollisionObject{
 public:
 enum SpaceOverride{

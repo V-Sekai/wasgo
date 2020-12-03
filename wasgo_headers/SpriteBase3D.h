@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Vector2.h"
-#include "SpatialMaterial.h"
-#include "GeometryInstance.h"
-#include "Vector3.h"
 #include "TriangleMesh.h"
+#include "GeometryInstance.h"
+#include "Color.h"
+#include "SpatialMaterial.h"
+#include "Vector3.h"
+#include "Vector2.h"
 #include "Rect2.h"
 class SpriteBase3D : public GeometryInstance{
 public:

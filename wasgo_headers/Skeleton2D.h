@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Bone2D.h"
 #include "RID.h"
+#include "Node2D.h"
 class Skeleton2D : public Node2D{
 public:
 Bone2D get_bone(int p_idx);

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "Resource.h"
-#include "Object.h"
-#include "Variant.h"
 #include "ustring.h"
+#include "Resource.h"
+#include "Variant.h"
+#include "error_list.h"
+#include "Object.h"
 class Script : public Resource{
 public:
 bool can_instance();

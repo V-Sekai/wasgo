@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Resource.h"
 #include "Vector2.h"
 #include "Variant.h"
-#include "Resource.h"
 class Curve2D : public Resource{
 public:
 void add_point(Vector2 p_position, Vector2 p_in = Vector2((0, 0)), Vector2 p_out = Vector2((0, 0)), int p_at_position = (int) -1);

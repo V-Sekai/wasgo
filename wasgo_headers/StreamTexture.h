@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
 #include "ustring.h"
 #include "Texture.h"
+#include "error_list.h"
 class StreamTexture : public Texture{
 public:
 String get_load_path();

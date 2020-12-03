@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Camera.h"
 #include "RID.h"
+#include "Camera.h"
 #include "Object.h"
 class ClippedCamera : public Camera{
 public:

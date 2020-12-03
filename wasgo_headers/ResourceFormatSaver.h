@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "Reference.h"
 #include "ustring.h"
+#include "Reference.h"
+#include "Variant.h"
 #include "Resource.h"
 class ResourceFormatSaver : public Reference{
 public:

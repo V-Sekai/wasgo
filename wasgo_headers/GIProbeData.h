@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Resource.h"
+#include "AABB.h"
 #include "Transform.h"
 #include "Variant.h"
-#include "AABB.h"
-#include "Resource.h"
 class GIProbeData : public Resource{
 public:
 float get_bias();

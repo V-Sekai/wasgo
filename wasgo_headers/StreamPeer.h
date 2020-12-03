@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
+#include "ustring.h"
+#include "Reference.h"
 #include "error_list.h"
 #include "Variant.h"
-#include "Reference.h"
-#include "ustring.h"
 class StreamPeer : public Reference{
 public:
 int get_16();

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "Vector2.h"
-#include "Texture.h"
 #include "ustring.h"
 #include "Container.h"
+#include "Color.h"
+#include "Texture.h"
+#include "Vector2.h"
 class GraphNode : public Container{
 public:
 enum Overlay{

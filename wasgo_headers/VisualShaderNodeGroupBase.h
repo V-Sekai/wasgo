@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "ustring.h"
+#include "Vector2.h"
 #include "VisualShaderNode.h"
 class VisualShaderNodeGroupBase : public VisualShaderNode{
 public:

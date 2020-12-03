@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
 #include "Reference.h"
+#include "error_list.h"
 #include "Resource.h"
 class ResourceInteractiveLoader : public Reference{
 public:
