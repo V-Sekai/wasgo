@@ -2,7 +2,6 @@
 #ifndef VISUALSHADERNODEVECTORFUNC_H
 #define VISUALSHADERNODEVECTORFUNC_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "VisualShaderNode.h"
@@ -48,7 +47,10 @@ FUNC_ONEMINUS
 VisualShaderNodeVectorFunc::Function get_function();
 void set_function(VisualShaderNodeVectorFunc::Function p_func);
 
+protected:
 VisualShaderNodeVectorFunc(WasGoId p_wasgo_id);
+public:
+VisualShaderNodeVectorFunc();
 ~VisualShaderNodeVectorFunc();
             
 };
@@ -58,5 +60,10 @@ VisualShaderNodeVectorFunc(WasGoId p_wasgo_id);
 extern "C"{
 WasGoId _wasgo_VisualShaderNodeVectorFunc_wrapper_get_function(WasGoId wasgo_id);
 void _wasgo_VisualShaderNodeVectorFunc_wrapper_set_function(WasGoId wasgo_id, WasGoId p_func);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VisualShaderNodeVectorFunc_constructor();
+    void _wasgo_VisualShaderNodeVectorFunc_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,11 +2,10 @@
 #ifndef BACKBUFFERCOPY_H
 #define BACKBUFFERCOPY_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Rect2.h"
 #include "Node2D.h"
+#include "Rect2.h"
 class BackBufferCopy : public Node2D{
 public:
 enum CopyMode{
@@ -19,7 +18,10 @@ Rect2 get_rect();
 void set_copy_mode(BackBufferCopy::CopyMode p_copy_mode);
 void set_rect(Rect2 p_rect);
 
+protected:
 BackBufferCopy(WasGoId p_wasgo_id);
+public:
+BackBufferCopy();
 ~BackBufferCopy();
             
 };
@@ -28,8 +30,13 @@ BackBufferCopy(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 WasGoId _wasgo_BackBufferCopy_wrapper_get_copy_mode(WasGoId wasgo_id);
-WasGoId _wasgo_BackBufferCopy_wrapper_get_rect(WasGoId wasgo_id);
+void _wasgo_BackBufferCopy_wrapper_get_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_BackBufferCopy_wrapper_set_copy_mode(WasGoId wasgo_id, WasGoId p_copy_mode);
-void _wasgo_BackBufferCopy_wrapper_set_rect(WasGoId wasgo_id, WasGoId p_rect);
+void _wasgo_BackBufferCopy_wrapper_set_rect(WasGoId wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_BackBufferCopy_constructor();
+    void _wasgo_BackBufferCopy_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

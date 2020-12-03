@@ -2,7 +2,6 @@
 #ifndef OCCLUDERPOLYGON2D_H
 #define OCCLUDERPOLYGON2D_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
@@ -21,7 +20,10 @@ void set_closed(bool p_closed);
 void set_cull_mode(OccluderPolygon2D::CullMode p_cull_mode);
 void set_polygon(PoolVector2Array p_polygon);
 
+protected:
 OccluderPolygon2D(WasGoId p_wasgo_id);
+public:
+OccluderPolygon2D();
 ~OccluderPolygon2D();
             
 };
@@ -35,5 +37,10 @@ int _wasgo_OccluderPolygon2D_wrapper_is_closed(WasGoId wasgo_id);
 void _wasgo_OccluderPolygon2D_wrapper_set_closed(WasGoId wasgo_id, bool p_closed);
 void _wasgo_OccluderPolygon2D_wrapper_set_cull_mode(WasGoId wasgo_id, WasGoId p_cull_mode);
 void _wasgo_OccluderPolygon2D_wrapper_set_polygon(WasGoId wasgo_id, WasGoId p_polygon);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_OccluderPolygon2D_constructor();
+    void _wasgo_OccluderPolygon2D_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,12 +2,11 @@
 #ifndef UNDOREDO_H
 #define UNDOREDO_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Object.h"
 #include "Variant.h"
+#include "Object.h"
 class UndoRedo : public Object{
 public:
 enum MergeMode{
@@ -32,7 +31,10 @@ bool is_commiting_action();
 bool redo();
 bool undo();
 
+protected:
 UndoRedo(WasGoId p_wasgo_id);
+public:
+UndoRedo();
 ~UndoRedo();
             
 };
@@ -40,21 +42,26 @@ UndoRedo(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_UndoRedo_wrapper_add_do_method(WasGoId wasgo_id, WasGoId p_object, WasGoId p_method);
-void _wasgo_UndoRedo_wrapper_add_do_property(WasGoId wasgo_id, WasGoId p_object, WasGoId p_property, WasGoId p_value);
+void _wasgo_UndoRedo_wrapper_add_do_method(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+void _wasgo_UndoRedo_wrapper_add_do_property(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_value);
 void _wasgo_UndoRedo_wrapper_add_do_reference(WasGoId wasgo_id, WasGoId p_object);
-void _wasgo_UndoRedo_wrapper_add_undo_method(WasGoId wasgo_id, WasGoId p_object, WasGoId p_method);
-void _wasgo_UndoRedo_wrapper_add_undo_property(WasGoId wasgo_id, WasGoId p_object, WasGoId p_property, WasGoId p_value);
+void _wasgo_UndoRedo_wrapper_add_undo_method(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+void _wasgo_UndoRedo_wrapper_add_undo_property(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_value);
 void _wasgo_UndoRedo_wrapper_add_undo_reference(WasGoId wasgo_id, WasGoId p_object);
 void _wasgo_UndoRedo_wrapper_clear_history(WasGoId wasgo_id, bool p_increase_version);
 void _wasgo_UndoRedo_wrapper_commit_action(WasGoId wasgo_id);
-void _wasgo_UndoRedo_wrapper_create_action(WasGoId wasgo_id, WasGoId p_name, WasGoId p_merge_mode);
-WasGoId _wasgo_UndoRedo_wrapper_get_current_action_name(WasGoId wasgo_id);
+void _wasgo_UndoRedo_wrapper_create_action(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoId p_merge_mode);
+void _wasgo_UndoRedo_wrapper_get_current_action_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_UndoRedo_wrapper_get_version(WasGoId wasgo_id);
 int _wasgo_UndoRedo_wrapper_has_redo(WasGoId wasgo_id);
 int _wasgo_UndoRedo_wrapper_has_undo(WasGoId wasgo_id);
 int _wasgo_UndoRedo_wrapper_is_commiting_action(WasGoId wasgo_id);
 int _wasgo_UndoRedo_wrapper_redo(WasGoId wasgo_id);
 int _wasgo_UndoRedo_wrapper_undo(WasGoId wasgo_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_UndoRedo_constructor();
+    void _wasgo_UndoRedo_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,7 +2,6 @@
 #ifndef NETWORKEDMULTIPLAYERPEER_H
 #define NETWORKEDMULTIPLAYERPEER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "PacketPeer.h"
@@ -41,5 +40,10 @@ void _wasgo_NetworkedMultiplayerPeer_wrapper_poll(WasGoId wasgo_id);
 void _wasgo_NetworkedMultiplayerPeer_wrapper_set_refuse_new_connections(WasGoId wasgo_id, bool p_enable);
 void _wasgo_NetworkedMultiplayerPeer_wrapper_set_target_peer(WasGoId wasgo_id, int p_id);
 void _wasgo_NetworkedMultiplayerPeer_wrapper_set_transfer_mode(WasGoId wasgo_id, WasGoId p_mode);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_NetworkedMultiplayerPeer_constructor();
+    void _wasgo_NetworkedMultiplayerPeer_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

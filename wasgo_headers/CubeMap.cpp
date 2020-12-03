@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "CubeMap.h"
 int CubeMap::get_flags(){
 	return (int) _wasgo_CubeMap_wrapper_get_flags(wasgo_id);
@@ -10,10 +11,10 @@ float CubeMap::get_lossy_storage_quality(){
 	return (float) _wasgo_CubeMap_wrapper_get_lossy_storage_quality(wasgo_id);
 }
 Image CubeMap::get_side(CubeMap::Side p_side){
-	return Image::from_wasgo_id(_wasgo_CubeMap_wrapper_get_side(wasgo_id, ((Variant) p_side).get_wasgo_id()));
+	return Image(_wasgo_CubeMap_wrapper_get_side(wasgo_id, p_side._get_wasgo_id()));
 }
 CubeMap::Storage CubeMap::get_storage(){
-	return CubeMap::Storage::from_wasgo_id(_wasgo_CubeMap_wrapper_get_storage(wasgo_id));
+	return CubeMap::Storage(_wasgo_CubeMap_wrapper_get_storage(wasgo_id));
 }
 int CubeMap::get_width(){
 	return (int) _wasgo_CubeMap_wrapper_get_width(wasgo_id);
@@ -25,8 +26,17 @@ void CubeMap::set_lossy_storage_quality(float p_quality){
 	_wasgo_CubeMap_wrapper_set_lossy_storage_quality(wasgo_id, p_quality);
 }
 void CubeMap::set_side(CubeMap::Side p_side, Image p_image){
-	_wasgo_CubeMap_wrapper_set_side(wasgo_id, ((Variant) p_side).get_wasgo_id(), ((Variant) p_image).get_wasgo_id());
+	_wasgo_CubeMap_wrapper_set_side(wasgo_id, p_side._get_wasgo_id(), p_image._get_wasgo_id());
 }
 void CubeMap::set_storage(CubeMap::Storage p_mode){
-	_wasgo_CubeMap_wrapper_set_storage(wasgo_id, ((Variant) p_mode).get_wasgo_id());
+	_wasgo_CubeMap_wrapper_set_storage(wasgo_id, p_mode._get_wasgo_id());
+}
+
+CubeMap::CubeMap(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+}
+CubeMap::CubeMap(){
+    wasgo_id = _wasgo_CubeMap_constructor();
+}
+CubeMap::~CubeMap(){
+    _wasgo_CubeMap_destructor(wasgo_id);
 }

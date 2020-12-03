@@ -2,14 +2,16 @@
 #ifndef VISUALSHADERNODEVECTORSCALARSTEP_H
 #define VISUALSHADERNODEVECTORSCALARSTEP_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorScalarStep : public VisualShaderNode{
 public:
 
+protected:
 VisualShaderNodeVectorScalarStep(WasGoId p_wasgo_id);
+public:
+VisualShaderNodeVectorScalarStep();
 ~VisualShaderNodeVectorScalarStep();
             
 };
@@ -17,5 +19,10 @@ VisualShaderNodeVectorScalarStep(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VisualShaderNodeVectorScalarStep_constructor();
+    void _wasgo_VisualShaderNodeVectorScalarStep_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

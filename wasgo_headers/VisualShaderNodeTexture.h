@@ -2,11 +2,10 @@
 #ifndef VISUALSHADERNODETEXTURE_H
 #define VISUALSHADERNODETEXTURE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "VisualShaderNode.h"
 #include "Texture.h"
+#include "VisualShaderNode.h"
 class VisualShaderNodeTexture : public VisualShaderNode{
 public:
 enum Source{
@@ -29,7 +28,10 @@ void set_source(VisualShaderNodeTexture::Source p_value);
 void set_texture(Texture p_value);
 void set_texture_type(VisualShaderNodeTexture::TextureType p_value);
 
+protected:
 VisualShaderNodeTexture(WasGoId p_wasgo_id);
+public:
+VisualShaderNodeTexture();
 ~VisualShaderNodeTexture();
             
 };
@@ -43,5 +45,10 @@ WasGoId _wasgo_VisualShaderNodeTexture_wrapper_get_texture_type(WasGoId wasgo_id
 void _wasgo_VisualShaderNodeTexture_wrapper_set_source(WasGoId wasgo_id, WasGoId p_value);
 void _wasgo_VisualShaderNodeTexture_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_value);
 void _wasgo_VisualShaderNodeTexture_wrapper_set_texture_type(WasGoId wasgo_id, WasGoId p_value);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VisualShaderNodeTexture_constructor();
+    void _wasgo_VisualShaderNodeTexture_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

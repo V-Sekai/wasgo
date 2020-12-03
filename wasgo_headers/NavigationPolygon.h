@@ -2,7 +2,6 @@
 #ifndef NAVIGATIONPOLYGON_H
 #define NAVIGATIONPOLYGON_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
@@ -24,7 +23,10 @@ void remove_outline(int p_idx);
 void set_outline(int p_idx, PoolVector2Array p_outline);
 void set_vertices(PoolVector2Array p_vertices);
 
+protected:
 NavigationPolygon(WasGoId p_wasgo_id);
+public:
+NavigationPolygon();
 ~NavigationPolygon();
             
 };
@@ -46,5 +48,10 @@ void _wasgo_NavigationPolygon_wrapper_make_polygons_from_outlines(WasGoId wasgo_
 void _wasgo_NavigationPolygon_wrapper_remove_outline(WasGoId wasgo_id, int p_idx);
 void _wasgo_NavigationPolygon_wrapper_set_outline(WasGoId wasgo_id, int p_idx, WasGoId p_outline);
 void _wasgo_NavigationPolygon_wrapper_set_vertices(WasGoId wasgo_id, WasGoId p_vertices);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_NavigationPolygon_constructor();
+    void _wasgo_NavigationPolygon_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

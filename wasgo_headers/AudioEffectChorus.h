@@ -2,7 +2,6 @@
 #ifndef AUDIOEFFECTCHORUS_H
 #define AUDIOEFFECTCHORUS_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AudioEffect.h"
@@ -27,7 +26,10 @@ void set_voice_pan(int p_voice_idx, float p_pan);
 void set_voice_rate_hz(int p_voice_idx, float p_rate_hz);
 void set_wet(float p_amount);
 
+protected:
 AudioEffectChorus(WasGoId p_wasgo_id);
+public:
+AudioEffectChorus();
 ~AudioEffectChorus();
             
 };
@@ -53,5 +55,10 @@ void _wasgo_AudioEffectChorus_wrapper_set_voice_level_db(WasGoId wasgo_id, int p
 void _wasgo_AudioEffectChorus_wrapper_set_voice_pan(WasGoId wasgo_id, int p_voice_idx, float p_pan);
 void _wasgo_AudioEffectChorus_wrapper_set_voice_rate_hz(WasGoId wasgo_id, int p_voice_idx, float p_rate_hz);
 void _wasgo_AudioEffectChorus_wrapper_set_wet(WasGoId wasgo_id, float p_amount);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioEffectChorus_constructor();
+    void _wasgo_AudioEffectChorus_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

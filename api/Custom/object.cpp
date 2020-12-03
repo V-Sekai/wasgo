@@ -38,6 +38,17 @@ WasGoId Object::_get_wasgo_id(){
 	return wasgo_id;
 }
 
+Object::Object(WasGoId p_wasgo_id) {
+	wasgo_id = p_wasgo_id;
+}
+
+Object::Object() {
+	//TODO call wrapper function that makes a new object file and returns the new id. Then put that id in the object
+}
+Object::~Object(){
+
+}
+
 // // #include "class_db.h"
 // // #include "core_string_names.h"
 // // #include "message_queue.h"

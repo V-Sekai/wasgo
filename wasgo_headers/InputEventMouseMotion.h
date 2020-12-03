@@ -2,11 +2,10 @@
 #ifndef INPUTEVENTMOUSEMOTION_H
 #define INPUTEVENTMOUSEMOTION_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "InputEventMouse.h"
+#include "Vector2.h"
 class InputEventMouseMotion : public InputEventMouse{
 public:
 float get_pressure();
@@ -18,7 +17,10 @@ void set_relative(Vector2 p_relative);
 void set_speed(Vector2 p_speed);
 void set_tilt(Vector2 p_tilt);
 
+protected:
 InputEventMouseMotion(WasGoId p_wasgo_id);
+public:
+InputEventMouseMotion();
 ~InputEventMouseMotion();
             
 };
@@ -27,12 +29,17 @@ InputEventMouseMotion(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 float _wasgo_InputEventMouseMotion_wrapper_get_pressure(WasGoId wasgo_id);
-WasGoId _wasgo_InputEventMouseMotion_wrapper_get_relative(WasGoId wasgo_id);
-WasGoId _wasgo_InputEventMouseMotion_wrapper_get_speed(WasGoId wasgo_id);
-WasGoId _wasgo_InputEventMouseMotion_wrapper_get_tilt(WasGoId wasgo_id);
+void _wasgo_InputEventMouseMotion_wrapper_get_relative(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_InputEventMouseMotion_wrapper_get_speed(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_InputEventMouseMotion_wrapper_get_tilt(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_InputEventMouseMotion_wrapper_set_pressure(WasGoId wasgo_id, float p_pressure);
-void _wasgo_InputEventMouseMotion_wrapper_set_relative(WasGoId wasgo_id, WasGoId p_relative);
-void _wasgo_InputEventMouseMotion_wrapper_set_speed(WasGoId wasgo_id, WasGoId p_speed);
-void _wasgo_InputEventMouseMotion_wrapper_set_tilt(WasGoId wasgo_id, WasGoId p_tilt);
+void _wasgo_InputEventMouseMotion_wrapper_set_relative(WasGoId wasgo_id, const uint8_t * p_relative, int p_relative_wasgo_buffer_size);
+void _wasgo_InputEventMouseMotion_wrapper_set_speed(WasGoId wasgo_id, const uint8_t * p_speed, int p_speed_wasgo_buffer_size);
+void _wasgo_InputEventMouseMotion_wrapper_set_tilt(WasGoId wasgo_id, const uint8_t * p_tilt, int p_tilt_wasgo_buffer_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_InputEventMouseMotion_constructor();
+    void _wasgo_InputEventMouseMotion_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

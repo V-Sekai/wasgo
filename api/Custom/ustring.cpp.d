@@ -2,24 +2,9 @@
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\ustring.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Array.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\typedefs.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\c++\v1\stddef.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\c++\v1\__config \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\int_types.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\stdint.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\bits\alltypes.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_timeval.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__typedef_time_t.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__typedef_suseconds_t.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_timespec.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_iovec.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\bits\stdint.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_list.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\cowdata.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\string.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__header_string.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__functions_memcpy.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\features.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\strings.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_macros.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\memory.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\safe_refcount.h \
@@ -28,8 +13,6 @@
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\color.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_funcs.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_defs.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\float.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\bits\float.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Ustring.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\print_string.h \
@@ -53,16 +36,7 @@
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\StringName.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\RefPtr.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\RID.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\set.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\wchar.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\c++\v1\cstdint \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\stdio.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__seek.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\wasi\api.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\stdlib.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__functions_malloc.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__header_stdlib.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\alloca.h
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\set.h
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\ustring.h:
 
@@ -70,41 +44,11 @@ C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Arr
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\typedefs.h:
 
-C:\wasi-sdk-11.0\wasi-sysroot\include\c++\v1\stddef.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\c++\v1\__config:
-
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\int_types.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\stdint.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\bits\alltypes.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_timeval.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__typedef_time_t.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__typedef_suseconds_t.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_timespec.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_iovec.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\bits\stdint.h:
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_list.h:
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\cowdata.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\string.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__header_string.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__functions_memcpy.h:
-
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\features.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\strings.h:
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_macros.h:
 
@@ -121,10 +65,6 @@ C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\col
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_funcs.h:
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_defs.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\float.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\bits\float.h:
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math.h:
 
@@ -173,21 +113,3 @@ C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Ref
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\RID.h:
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\set.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\wchar.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\c++\v1\cstdint:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\stdio.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__seek.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\wasi\api.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\stdlib.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__functions_malloc.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__header_stdlib.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\alloca.h:

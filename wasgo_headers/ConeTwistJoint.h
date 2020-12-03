@@ -2,7 +2,6 @@
 #ifndef CONETWISTJOINT_H
 #define CONETWISTJOINT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Joint.h"
@@ -19,7 +18,10 @@ PARAM_MAX
 float get_param(ConeTwistJoint::Param p_param);
 void set_param(ConeTwistJoint::Param p_param, float p_value);
 
+protected:
 ConeTwistJoint(WasGoId p_wasgo_id);
+public:
+ConeTwistJoint();
 ~ConeTwistJoint();
             
 };
@@ -29,5 +31,10 @@ ConeTwistJoint(WasGoId p_wasgo_id);
 extern "C"{
 float _wasgo_ConeTwistJoint_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
 void _wasgo_ConeTwistJoint_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_ConeTwistJoint_constructor();
+    void _wasgo_ConeTwistJoint_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

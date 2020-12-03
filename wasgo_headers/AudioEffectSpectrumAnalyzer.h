@@ -2,7 +2,6 @@
 #ifndef AUDIOEFFECTSPECTRUMANALYZER_H
 #define AUDIOEFFECTSPECTRUMANALYZER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AudioEffect.h"
@@ -23,7 +22,10 @@ void set_buffer_length(float p_seconds);
 void set_fft_size(AudioEffectSpectrumAnalyzer::FFT_Size p_size);
 void set_tap_back_pos(float p_seconds);
 
+protected:
 AudioEffectSpectrumAnalyzer(WasGoId p_wasgo_id);
+public:
+AudioEffectSpectrumAnalyzer();
 ~AudioEffectSpectrumAnalyzer();
             
 };
@@ -37,5 +39,10 @@ float _wasgo_AudioEffectSpectrumAnalyzer_wrapper_get_tap_back_pos(WasGoId wasgo_
 void _wasgo_AudioEffectSpectrumAnalyzer_wrapper_set_buffer_length(WasGoId wasgo_id, float p_seconds);
 void _wasgo_AudioEffectSpectrumAnalyzer_wrapper_set_fft_size(WasGoId wasgo_id, WasGoId p_size);
 void _wasgo_AudioEffectSpectrumAnalyzer_wrapper_set_tap_back_pos(WasGoId wasgo_id, float p_seconds);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioEffectSpectrumAnalyzer_constructor();
+    void _wasgo_AudioEffectSpectrumAnalyzer_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,7 +2,6 @@
 #ifndef AUDIOEFFECTPHASER_H
 #define AUDIOEFFECTPHASER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AudioEffect.h"
@@ -19,7 +18,10 @@ void set_range_max_hz(float p_hz);
 void set_range_min_hz(float p_hz);
 void set_rate_hz(float p_hz);
 
+protected:
 AudioEffectPhaser(WasGoId p_wasgo_id);
+public:
+AudioEffectPhaser();
 ~AudioEffectPhaser();
             
 };
@@ -37,5 +39,10 @@ void _wasgo_AudioEffectPhaser_wrapper_set_feedback(WasGoId wasgo_id, float p_fbk
 void _wasgo_AudioEffectPhaser_wrapper_set_range_max_hz(WasGoId wasgo_id, float p_hz);
 void _wasgo_AudioEffectPhaser_wrapper_set_range_min_hz(WasGoId wasgo_id, float p_hz);
 void _wasgo_AudioEffectPhaser_wrapper_set_rate_hz(WasGoId wasgo_id, float p_hz);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioEffectPhaser_constructor();
+    void _wasgo_AudioEffectPhaser_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

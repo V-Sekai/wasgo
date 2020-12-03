@@ -2,7 +2,6 @@
 #ifndef VIDEOPLAYER_H
 #define VIDEOPLAYER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
@@ -37,7 +36,10 @@ void set_volume(float p_volume);
 void set_volume_db(float p_db);
 void stop();
 
+protected:
 VideoPlayer(WasGoId p_wasgo_id);
+public:
+VideoPlayer();
 ~VideoPlayer();
             
 };
@@ -47,9 +49,9 @@ VideoPlayer(WasGoId p_wasgo_id);
 extern "C"{
 int _wasgo_VideoPlayer_wrapper_get_audio_track(WasGoId wasgo_id);
 int _wasgo_VideoPlayer_wrapper_get_buffering_msec(WasGoId wasgo_id);
-WasGoId _wasgo_VideoPlayer_wrapper_get_bus(WasGoId wasgo_id);
+void _wasgo_VideoPlayer_wrapper_get_bus(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoId _wasgo_VideoPlayer_wrapper_get_stream(WasGoId wasgo_id);
-WasGoId _wasgo_VideoPlayer_wrapper_get_stream_name(WasGoId wasgo_id);
+void _wasgo_VideoPlayer_wrapper_get_stream_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_VideoPlayer_wrapper_get_stream_position(WasGoId wasgo_id);
 WasGoId _wasgo_VideoPlayer_wrapper_get_video_texture(WasGoId wasgo_id);
 float _wasgo_VideoPlayer_wrapper_get_volume(WasGoId wasgo_id);
@@ -62,7 +64,7 @@ void _wasgo_VideoPlayer_wrapper_play(WasGoId wasgo_id);
 void _wasgo_VideoPlayer_wrapper_set_audio_track(WasGoId wasgo_id, int p_track);
 void _wasgo_VideoPlayer_wrapper_set_autoplay(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_VideoPlayer_wrapper_set_buffering_msec(WasGoId wasgo_id, int p_msec);
-void _wasgo_VideoPlayer_wrapper_set_bus(WasGoId wasgo_id, WasGoId p_bus);
+void _wasgo_VideoPlayer_wrapper_set_bus(WasGoId wasgo_id, const uint8_t * p_bus, int p_bus_wasgo_buffer_size);
 void _wasgo_VideoPlayer_wrapper_set_expand(WasGoId wasgo_id, bool p_enable);
 void _wasgo_VideoPlayer_wrapper_set_paused(WasGoId wasgo_id, bool p_paused);
 void _wasgo_VideoPlayer_wrapper_set_stream(WasGoId wasgo_id, WasGoId p_stream);
@@ -70,5 +72,10 @@ void _wasgo_VideoPlayer_wrapper_set_stream_position(WasGoId wasgo_id, float p_po
 void _wasgo_VideoPlayer_wrapper_set_volume(WasGoId wasgo_id, float p_volume);
 void _wasgo_VideoPlayer_wrapper_set_volume_db(WasGoId wasgo_id, float p_db);
 void _wasgo_VideoPlayer_wrapper_stop(WasGoId wasgo_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VideoPlayer_constructor();
+    void _wasgo_VideoPlayer_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

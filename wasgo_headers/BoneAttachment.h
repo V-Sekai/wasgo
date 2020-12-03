@@ -2,7 +2,6 @@
 #ifndef BONEATTACHMENT_H
 #define BONEATTACHMENT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
@@ -12,7 +11,10 @@ public:
 String get_bone_name();
 void set_bone_name(String p_bone_name);
 
+protected:
 BoneAttachment(WasGoId p_wasgo_id);
+public:
+BoneAttachment();
 ~BoneAttachment();
             
 };
@@ -20,7 +22,12 @@ BoneAttachment(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_BoneAttachment_wrapper_get_bone_name(WasGoId wasgo_id);
-void _wasgo_BoneAttachment_wrapper_set_bone_name(WasGoId wasgo_id, WasGoId p_bone_name);
+void _wasgo_BoneAttachment_wrapper_get_bone_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_BoneAttachment_wrapper_set_bone_name(WasGoId wasgo_id, const uint8_t * p_bone_name, int p_bone_name_wasgo_buffer_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_BoneAttachment_constructor();
+    void _wasgo_BoneAttachment_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,11 +2,10 @@
 #ifndef TEXTURERECT_H
 #define TEXTURERECT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "Control.h"
+#include "Texture.h"
 class TextureRect : public Control{
 public:
 enum StretchMode{
@@ -30,7 +29,10 @@ void set_flip_v(bool p_enable);
 void set_stretch_mode(TextureRect::StretchMode p_stretch_mode);
 void set_texture(Texture p_texture);
 
+protected:
 TextureRect(WasGoId p_wasgo_id);
+public:
+TextureRect();
 ~TextureRect();
             
 };
@@ -48,5 +50,10 @@ void _wasgo_TextureRect_wrapper_set_flip_h(WasGoId wasgo_id, bool p_enable);
 void _wasgo_TextureRect_wrapper_set_flip_v(WasGoId wasgo_id, bool p_enable);
 void _wasgo_TextureRect_wrapper_set_stretch_mode(WasGoId wasgo_id, WasGoId p_stretch_mode);
 void _wasgo_TextureRect_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_TextureRect_constructor();
+    void _wasgo_TextureRect_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

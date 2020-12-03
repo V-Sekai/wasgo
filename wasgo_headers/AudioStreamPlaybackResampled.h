@@ -2,7 +2,6 @@
 #ifndef AUDIOSTREAMPLAYBACKRESAMPLED_H
 #define AUDIOSTREAMPLAYBACKRESAMPLED_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AudioStreamPlayback.h"
@@ -13,5 +12,10 @@ public:
 
 //Wrapper Functions
 extern "C"{
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioStreamPlaybackResampled_constructor();
+    void _wasgo_AudioStreamPlaybackResampled_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

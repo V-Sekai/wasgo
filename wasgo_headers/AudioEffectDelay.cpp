@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "AudioEffectDelay.h"
 float AudioEffectDelay::get_dry(){
 	return (float) _wasgo_AudioEffectDelay_wrapper_get_dry(wasgo_id);
@@ -77,4 +78,13 @@ void AudioEffectDelay::set_tap2_level_db(float p_amount){
 }
 void AudioEffectDelay::set_tap2_pan(float p_amount){
 	_wasgo_AudioEffectDelay_wrapper_set_tap2_pan(wasgo_id, p_amount);
+}
+
+AudioEffectDelay::AudioEffectDelay(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+}
+AudioEffectDelay::AudioEffectDelay(){
+    wasgo_id = _wasgo_AudioEffectDelay_constructor();
+}
+AudioEffectDelay::~AudioEffectDelay(){
+    _wasgo_AudioEffectDelay_destructor(wasgo_id);
 }

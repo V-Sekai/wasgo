@@ -2,7 +2,6 @@
 #ifndef VISUALSHADERNODECOMPARE_H
 #define VISUALSHADERNODECOMPARE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "VisualShaderNode.h"
@@ -33,7 +32,10 @@ void set_comparison_type(VisualShaderNodeCompare::ComparisonType p_type);
 void set_condition(VisualShaderNodeCompare::Condition p_condition);
 void set_function(VisualShaderNodeCompare::Function p_func);
 
+protected:
 VisualShaderNodeCompare(WasGoId p_wasgo_id);
+public:
+VisualShaderNodeCompare();
 ~VisualShaderNodeCompare();
             
 };
@@ -47,5 +49,10 @@ WasGoId _wasgo_VisualShaderNodeCompare_wrapper_get_function(WasGoId wasgo_id);
 void _wasgo_VisualShaderNodeCompare_wrapper_set_comparison_type(WasGoId wasgo_id, WasGoId p_type);
 void _wasgo_VisualShaderNodeCompare_wrapper_set_condition(WasGoId wasgo_id, WasGoId p_condition);
 void _wasgo_VisualShaderNodeCompare_wrapper_set_function(WasGoId wasgo_id, WasGoId p_func);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VisualShaderNodeCompare_constructor();
+    void _wasgo_VisualShaderNodeCompare_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

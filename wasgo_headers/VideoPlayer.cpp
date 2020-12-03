@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "VideoPlayer.h"
 int VideoPlayer::get_audio_track(){
 	return (int) _wasgo_VideoPlayer_wrapper_get_audio_track(wasgo_id);
@@ -7,19 +8,33 @@ int VideoPlayer::get_buffering_msec(){
 	return (int) _wasgo_VideoPlayer_wrapper_get_buffering_msec(wasgo_id);
 }
 String VideoPlayer::get_bus(){
-	return String::from_wasgo_id(_wasgo_VideoPlayer_wrapper_get_bus(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_VideoPlayer_wrapper_get_bus(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 VideoStream VideoPlayer::get_stream(){
-	return VideoStream::from_wasgo_id(_wasgo_VideoPlayer_wrapper_get_stream(wasgo_id));
+	return VideoStream(_wasgo_VideoPlayer_wrapper_get_stream(wasgo_id));
 }
 String VideoPlayer::get_stream_name(){
-	return String::from_wasgo_id(_wasgo_VideoPlayer_wrapper_get_stream_name(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_VideoPlayer_wrapper_get_stream_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 float VideoPlayer::get_stream_position(){
 	return (float) _wasgo_VideoPlayer_wrapper_get_stream_position(wasgo_id);
 }
 Texture VideoPlayer::get_video_texture(){
-	return Texture::from_wasgo_id(_wasgo_VideoPlayer_wrapper_get_video_texture(wasgo_id));
+	return Texture(_wasgo_VideoPlayer_wrapper_get_video_texture(wasgo_id));
 }
 float VideoPlayer::get_volume(){
 	return (float) _wasgo_VideoPlayer_wrapper_get_volume(wasgo_id);
@@ -52,7 +67,13 @@ void VideoPlayer::set_buffering_msec(int p_msec){
 	_wasgo_VideoPlayer_wrapper_set_buffering_msec(wasgo_id, p_msec);
 }
 void VideoPlayer::set_bus(String p_bus){
-	_wasgo_VideoPlayer_wrapper_set_bus(wasgo_id, ((Variant) p_bus).get_wasgo_id());
+
+    Variant wasgo_var_bus = p_bus;
+    uint8_t wasgo_buffer_bus[256];
+    int wasgo_size_bus = 256;
+    encode_variant(wasgo_var_bus, wasgo_buffer_bus, wasgo_size_bus);
+    
+	_wasgo_VideoPlayer_wrapper_set_bus(wasgo_id, wasgo_buffer_bus, wasgo_size_bus);
 }
 void VideoPlayer::set_expand(bool p_enable){
 	_wasgo_VideoPlayer_wrapper_set_expand(wasgo_id, p_enable);
@@ -61,7 +82,7 @@ void VideoPlayer::set_paused(bool p_paused){
 	_wasgo_VideoPlayer_wrapper_set_paused(wasgo_id, p_paused);
 }
 void VideoPlayer::set_stream(VideoStream p_stream){
-	_wasgo_VideoPlayer_wrapper_set_stream(wasgo_id, ((Variant) p_stream).get_wasgo_id());
+	_wasgo_VideoPlayer_wrapper_set_stream(wasgo_id, p_stream._get_wasgo_id());
 }
 void VideoPlayer::set_stream_position(float p_position){
 	_wasgo_VideoPlayer_wrapper_set_stream_position(wasgo_id, p_position);
@@ -74,4 +95,13 @@ void VideoPlayer::set_volume_db(float p_db){
 }
 void VideoPlayer::stop(){
 	_wasgo_VideoPlayer_wrapper_stop(wasgo_id);
+}
+
+VideoPlayer::VideoPlayer(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+}
+VideoPlayer::VideoPlayer(){
+    wasgo_id = _wasgo_VideoPlayer_constructor();
+}
+VideoPlayer::~VideoPlayer(){
+    _wasgo_VideoPlayer_destructor(wasgo_id);
 }

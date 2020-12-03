@@ -1,23 +1,47 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "World.h"
 PhysicsDirectSpaceState World::get_direct_space_state(){
-	return PhysicsDirectSpaceState::from_wasgo_id(_wasgo_World_wrapper_get_direct_space_state(wasgo_id));
+	return PhysicsDirectSpaceState(_wasgo_World_wrapper_get_direct_space_state(wasgo_id));
 }
 Environment World::get_environment(){
-	return Environment::from_wasgo_id(_wasgo_World_wrapper_get_environment(wasgo_id));
+	return Environment(_wasgo_World_wrapper_get_environment(wasgo_id));
 }
 Environment World::get_fallback_environment(){
-	return Environment::from_wasgo_id(_wasgo_World_wrapper_get_fallback_environment(wasgo_id));
+	return Environment(_wasgo_World_wrapper_get_fallback_environment(wasgo_id));
 }
 RID World::get_scenario(){
-	return RID::from_wasgo_id(_wasgo_World_wrapper_get_scenario(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 0;
+    uint8_t wasgo_ret_buffer[0];
+    _wasgo_World_wrapper_get_scenario(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (RID) wasgo_ret;
+    
 }
 RID World::get_space(){
-	return RID::from_wasgo_id(_wasgo_World_wrapper_get_space(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 0;
+    uint8_t wasgo_ret_buffer[0];
+    _wasgo_World_wrapper_get_space(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (RID) wasgo_ret;
+    
 }
 void World::set_environment(Environment p_env){
-	_wasgo_World_wrapper_set_environment(wasgo_id, ((Variant) p_env).get_wasgo_id());
+	_wasgo_World_wrapper_set_environment(wasgo_id, p_env._get_wasgo_id());
 }
 void World::set_fallback_environment(Environment p_env){
-	_wasgo_World_wrapper_set_fallback_environment(wasgo_id, ((Variant) p_env).get_wasgo_id());
+	_wasgo_World_wrapper_set_fallback_environment(wasgo_id, p_env._get_wasgo_id());
+}
+
+World::World(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+}
+World::World(){
+    wasgo_id = _wasgo_World_constructor();
+}
+World::~World(){
+    _wasgo_World_destructor(wasgo_id);
 }

@@ -2,12 +2,11 @@
 #ifndef NINEPATCHRECT_H
 #define NINEPATCHRECT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Margin.h"
-#include "Texture.h"
 #include "Rect2.h"
+#include "Texture.h"
 #include "Control.h"
 class NinePatchRect : public Control{
 public:
@@ -29,7 +28,10 @@ void set_region_rect(Rect2 p_rect);
 void set_texture(Texture p_texture);
 void set_v_axis_stretch_mode(NinePatchRect::AxisStretchMode p_mode);
 
+protected:
 NinePatchRect(WasGoId p_wasgo_id);
+public:
+NinePatchRect();
 ~NinePatchRect();
             
 };
@@ -39,15 +41,20 @@ NinePatchRect(WasGoId p_wasgo_id);
 extern "C"{
 WasGoId _wasgo_NinePatchRect_wrapper_get_h_axis_stretch_mode(WasGoId wasgo_id);
 int _wasgo_NinePatchRect_wrapper_get_patch_margin(WasGoId wasgo_id, WasGoId p_margin);
-WasGoId _wasgo_NinePatchRect_wrapper_get_region_rect(WasGoId wasgo_id);
+void _wasgo_NinePatchRect_wrapper_get_region_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoId _wasgo_NinePatchRect_wrapper_get_texture(WasGoId wasgo_id);
 WasGoId _wasgo_NinePatchRect_wrapper_get_v_axis_stretch_mode(WasGoId wasgo_id);
 int _wasgo_NinePatchRect_wrapper_is_draw_center_enabled(WasGoId wasgo_id);
 void _wasgo_NinePatchRect_wrapper_set_draw_center(WasGoId wasgo_id, bool p_draw_center);
 void _wasgo_NinePatchRect_wrapper_set_h_axis_stretch_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_NinePatchRect_wrapper_set_patch_margin(WasGoId wasgo_id, WasGoId p_margin, int p_value);
-void _wasgo_NinePatchRect_wrapper_set_region_rect(WasGoId wasgo_id, WasGoId p_rect);
+void _wasgo_NinePatchRect_wrapper_set_region_rect(WasGoId wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size);
 void _wasgo_NinePatchRect_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_NinePatchRect_wrapper_set_v_axis_stretch_mode(WasGoId wasgo_id, WasGoId p_mode);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_NinePatchRect_constructor();
+    void _wasgo_NinePatchRect_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

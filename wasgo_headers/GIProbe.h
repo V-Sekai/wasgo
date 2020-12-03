@@ -2,13 +2,12 @@
 #ifndef GIPROBE_H
 #define GIPROBE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "VisualInstance.h"
 #include "GIProbeData.h"
-#include "Node.h"
+#include "VisualInstance.h"
 #include "Vector3.h"
+#include "Node.h"
 class GIProbe : public VisualInstance{
 public:
 enum Subdiv{
@@ -41,7 +40,10 @@ void set_probe_data(GIProbeData p_data);
 void set_propagation(float p_max);
 void set_subdiv(GIProbe::Subdiv p_subdiv);
 
+protected:
 GIProbe(WasGoId p_wasgo_id);
+public:
+GIProbe();
 ~GIProbe();
             
 };
@@ -54,7 +56,7 @@ void _wasgo_GIProbe_wrapper_debug_bake(WasGoId wasgo_id);
 float _wasgo_GIProbe_wrapper_get_bias(WasGoId wasgo_id);
 int _wasgo_GIProbe_wrapper_get_dynamic_range(WasGoId wasgo_id);
 float _wasgo_GIProbe_wrapper_get_energy(WasGoId wasgo_id);
-WasGoId _wasgo_GIProbe_wrapper_get_extents(WasGoId wasgo_id);
+void _wasgo_GIProbe_wrapper_get_extents(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_GIProbe_wrapper_get_normal_bias(WasGoId wasgo_id);
 WasGoId _wasgo_GIProbe_wrapper_get_probe_data(WasGoId wasgo_id);
 float _wasgo_GIProbe_wrapper_get_propagation(WasGoId wasgo_id);
@@ -65,11 +67,16 @@ void _wasgo_GIProbe_wrapper_set_bias(WasGoId wasgo_id, float p_max);
 void _wasgo_GIProbe_wrapper_set_compress(WasGoId wasgo_id, bool p_enable);
 void _wasgo_GIProbe_wrapper_set_dynamic_range(WasGoId wasgo_id, int p_max);
 void _wasgo_GIProbe_wrapper_set_energy(WasGoId wasgo_id, float p_max);
-void _wasgo_GIProbe_wrapper_set_extents(WasGoId wasgo_id, WasGoId p_extents);
+void _wasgo_GIProbe_wrapper_set_extents(WasGoId wasgo_id, const uint8_t * p_extents, int p_extents_wasgo_buffer_size);
 void _wasgo_GIProbe_wrapper_set_interior(WasGoId wasgo_id, bool p_enable);
 void _wasgo_GIProbe_wrapper_set_normal_bias(WasGoId wasgo_id, float p_max);
 void _wasgo_GIProbe_wrapper_set_probe_data(WasGoId wasgo_id, WasGoId p_data);
 void _wasgo_GIProbe_wrapper_set_propagation(WasGoId wasgo_id, float p_max);
 void _wasgo_GIProbe_wrapper_set_subdiv(WasGoId wasgo_id, WasGoId p_subdiv);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_GIProbe_constructor();
+    void _wasgo_GIProbe_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

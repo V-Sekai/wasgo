@@ -1,10 +1,11 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "AudioEffectFilter.h"
 float AudioEffectFilter::get_cutoff(){
 	return (float) _wasgo_AudioEffectFilter_wrapper_get_cutoff(wasgo_id);
 }
 AudioEffectFilter::FilterDB AudioEffectFilter::get_db(){
-	return AudioEffectFilter::FilterDB::from_wasgo_id(_wasgo_AudioEffectFilter_wrapper_get_db(wasgo_id));
+	return AudioEffectFilter::FilterDB(_wasgo_AudioEffectFilter_wrapper_get_db(wasgo_id));
 }
 float AudioEffectFilter::get_gain(){
 	return (float) _wasgo_AudioEffectFilter_wrapper_get_gain(wasgo_id);
@@ -16,11 +17,20 @@ void AudioEffectFilter::set_cutoff(float p_freq){
 	_wasgo_AudioEffectFilter_wrapper_set_cutoff(wasgo_id, p_freq);
 }
 void AudioEffectFilter::set_db(AudioEffectFilter::FilterDB p_amount){
-	_wasgo_AudioEffectFilter_wrapper_set_db(wasgo_id, ((Variant) p_amount).get_wasgo_id());
+	_wasgo_AudioEffectFilter_wrapper_set_db(wasgo_id, p_amount._get_wasgo_id());
 }
 void AudioEffectFilter::set_gain(float p_amount){
 	_wasgo_AudioEffectFilter_wrapper_set_gain(wasgo_id, p_amount);
 }
 void AudioEffectFilter::set_resonance(float p_amount){
 	_wasgo_AudioEffectFilter_wrapper_set_resonance(wasgo_id, p_amount);
+}
+
+AudioEffectFilter::AudioEffectFilter(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+}
+AudioEffectFilter::AudioEffectFilter(){
+    wasgo_id = _wasgo_AudioEffectFilter_constructor();
+}
+AudioEffectFilter::~AudioEffectFilter(){
+    _wasgo_AudioEffectFilter_destructor(wasgo_id);
 }

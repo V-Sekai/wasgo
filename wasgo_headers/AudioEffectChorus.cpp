@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "AudioEffectChorus.h"
 float AudioEffectChorus::get_dry(){
 	return (float) _wasgo_AudioEffectChorus_wrapper_get_dry(wasgo_id);
@@ -53,4 +54,13 @@ void AudioEffectChorus::set_voice_rate_hz(int p_voice_idx, float p_rate_hz){
 }
 void AudioEffectChorus::set_wet(float p_amount){
 	_wasgo_AudioEffectChorus_wrapper_set_wet(wasgo_id, p_amount);
+}
+
+AudioEffectChorus::AudioEffectChorus(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+}
+AudioEffectChorus::AudioEffectChorus(){
+    wasgo_id = _wasgo_AudioEffectChorus_constructor();
+}
+AudioEffectChorus::~AudioEffectChorus(){
+    _wasgo_AudioEffectChorus_destructor(wasgo_id);
 }

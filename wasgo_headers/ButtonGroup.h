@@ -2,7 +2,6 @@
 #ifndef BUTTONGROUP_H
 #define BUTTONGROUP_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
@@ -13,7 +12,10 @@ public:
 Array get_buttons();
 BaseButton get_pressed_button();
 
+protected:
 ButtonGroup(WasGoId p_wasgo_id);
+public:
+ButtonGroup();
 ~ButtonGroup();
             
 };
@@ -23,5 +25,10 @@ ButtonGroup(WasGoId p_wasgo_id);
 extern "C"{
 WasGoId _wasgo_ButtonGroup_wrapper_get_buttons(WasGoId wasgo_id);
 WasGoId _wasgo_ButtonGroup_wrapper_get_pressed_button(WasGoId wasgo_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_ButtonGroup_constructor();
+    void _wasgo_ButtonGroup_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "VehicleWheel.h"
 float VehicleWheel::get_brake(){
 	return (float) _wasgo_VehicleWheel_wrapper_get_brake(wasgo_id);
@@ -92,4 +93,13 @@ void VehicleWheel::set_use_as_steering(bool p_enable){
 }
 void VehicleWheel::set_use_as_traction(bool p_enable){
 	_wasgo_VehicleWheel_wrapper_set_use_as_traction(wasgo_id, p_enable);
+}
+
+VehicleWheel::VehicleWheel(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
+}
+VehicleWheel::VehicleWheel(){
+    wasgo_id = _wasgo_VehicleWheel_constructor();
+}
+VehicleWheel::~VehicleWheel(){
+    _wasgo_VehicleWheel_destructor(wasgo_id);
 }

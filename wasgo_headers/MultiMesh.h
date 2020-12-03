@@ -2,15 +2,14 @@
 #ifndef MULTIMESH_H
 #define MULTIMESH_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "Color.h"
 #include "Transform.h"
-#include "Variant.h"
-#include "Transform2D.h"
 #include "AABB.h"
 #include "Resource.h"
-#include "Color.h"
+#include "Variant.h"
+#include "Transform2D.h"
 #include "Mesh.h"
 class MultiMesh : public Resource{
 public:
@@ -51,7 +50,10 @@ void set_mesh(Mesh p_mesh);
 void set_transform_format(MultiMesh::TransformFormat p_format);
 void set_visible_instance_count(int p_count);
 
+protected:
 MultiMesh(WasGoId p_wasgo_id);
+public:
+MultiMesh();
 ~MultiMesh();
             
 };
@@ -59,27 +61,32 @@ MultiMesh(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_MultiMesh_wrapper_get_aabb(WasGoId wasgo_id);
+void _wasgo_MultiMesh_wrapper_get_aabb(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoId _wasgo_MultiMesh_wrapper_get_color_format(WasGoId wasgo_id);
 WasGoId _wasgo_MultiMesh_wrapper_get_custom_data_format(WasGoId wasgo_id);
-WasGoId _wasgo_MultiMesh_wrapper_get_instance_color(WasGoId wasgo_id, int p_instance);
+void _wasgo_MultiMesh_wrapper_get_instance_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_instance);
 int _wasgo_MultiMesh_wrapper_get_instance_count(WasGoId wasgo_id);
-WasGoId _wasgo_MultiMesh_wrapper_get_instance_custom_data(WasGoId wasgo_id, int p_instance);
-WasGoId _wasgo_MultiMesh_wrapper_get_instance_transform(WasGoId wasgo_id, int p_instance);
-WasGoId _wasgo_MultiMesh_wrapper_get_instance_transform_2d(WasGoId wasgo_id, int p_instance);
+void _wasgo_MultiMesh_wrapper_get_instance_custom_data(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_instance);
+void _wasgo_MultiMesh_wrapper_get_instance_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_instance);
+void _wasgo_MultiMesh_wrapper_get_instance_transform_2d(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_instance);
 WasGoId _wasgo_MultiMesh_wrapper_get_mesh(WasGoId wasgo_id);
 WasGoId _wasgo_MultiMesh_wrapper_get_transform_format(WasGoId wasgo_id);
 int _wasgo_MultiMesh_wrapper_get_visible_instance_count(WasGoId wasgo_id);
 void _wasgo_MultiMesh_wrapper_set_as_bulk_array(WasGoId wasgo_id, WasGoId p_array);
 void _wasgo_MultiMesh_wrapper_set_color_format(WasGoId wasgo_id, WasGoId p_format);
 void _wasgo_MultiMesh_wrapper_set_custom_data_format(WasGoId wasgo_id, WasGoId p_format);
-void _wasgo_MultiMesh_wrapper_set_instance_color(WasGoId wasgo_id, int p_instance, WasGoId p_color);
+void _wasgo_MultiMesh_wrapper_set_instance_color(WasGoId wasgo_id, int p_instance, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 void _wasgo_MultiMesh_wrapper_set_instance_count(WasGoId wasgo_id, int p_count);
-void _wasgo_MultiMesh_wrapper_set_instance_custom_data(WasGoId wasgo_id, int p_instance, WasGoId p_custom_data);
-void _wasgo_MultiMesh_wrapper_set_instance_transform(WasGoId wasgo_id, int p_instance, WasGoId p_transform);
-void _wasgo_MultiMesh_wrapper_set_instance_transform_2d(WasGoId wasgo_id, int p_instance, WasGoId p_transform);
+void _wasgo_MultiMesh_wrapper_set_instance_custom_data(WasGoId wasgo_id, int p_instance, const uint8_t * p_custom_data, int p_custom_data_wasgo_buffer_size);
+void _wasgo_MultiMesh_wrapper_set_instance_transform(WasGoId wasgo_id, int p_instance, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
+void _wasgo_MultiMesh_wrapper_set_instance_transform_2d(WasGoId wasgo_id, int p_instance, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 void _wasgo_MultiMesh_wrapper_set_mesh(WasGoId wasgo_id, WasGoId p_mesh);
 void _wasgo_MultiMesh_wrapper_set_transform_format(WasGoId wasgo_id, WasGoId p_format);
 void _wasgo_MultiMesh_wrapper_set_visible_instance_count(WasGoId wasgo_id, int p_count);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_MultiMesh_constructor();
+    void _wasgo_MultiMesh_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

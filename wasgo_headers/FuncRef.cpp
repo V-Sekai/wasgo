@@ -1,20 +1,43 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "FuncRef.h"
 Variant FuncRef::call_func(){
-	return Variant::from_wasgo_id(_wasgo_FuncRef_wrapper_call_func(wasgo_id));
+	return Variant(_wasgo_FuncRef_wrapper_call_func(wasgo_id));
 }
 Variant FuncRef::call_funcv(Array p_arg_array){
-	return Variant::from_wasgo_id(_wasgo_FuncRef_wrapper_call_funcv(wasgo_id, ((Variant) p_arg_array).get_wasgo_id()));
+	return Variant(_wasgo_FuncRef_wrapper_call_funcv(wasgo_id, p_arg_array._get_wasgo_id()));
 }
 String FuncRef::get_function(){
-	return String::from_wasgo_id(_wasgo_FuncRef_wrapper_get_function(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_FuncRef_wrapper_get_function(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 bool FuncRef::is_valid(){
 	return (bool) _wasgo_FuncRef_wrapper_is_valid(wasgo_id);
 }
 void FuncRef::set_function(String p_name){
-	_wasgo_FuncRef_wrapper_set_function(wasgo_id, ((Variant) p_name).get_wasgo_id());
+
+    Variant wasgo_var_name = p_name;
+    uint8_t wasgo_buffer_name[256];
+    int wasgo_size_name = 256;
+    encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
+    
+	_wasgo_FuncRef_wrapper_set_function(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
 void FuncRef::set_instance(Object p_instance){
-	_wasgo_FuncRef_wrapper_set_instance(wasgo_id, ((Variant) p_instance).get_wasgo_id());
+	_wasgo_FuncRef_wrapper_set_instance(wasgo_id, p_instance._get_wasgo_id());
+}
+
+FuncRef::FuncRef(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+}
+FuncRef::FuncRef(){
+    wasgo_id = _wasgo_FuncRef_constructor();
+}
+FuncRef::~FuncRef(){
+    _wasgo_FuncRef_destructor(wasgo_id);
 }

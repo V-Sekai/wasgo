@@ -2,7 +2,6 @@
 #ifndef WASMRESOURCE_H
 #define WASMRESOURCE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
@@ -11,7 +10,10 @@ class WasmResource : public Resource{
 public:
 PoolByteArray get_buf();
 
+protected:
 WasmResource(WasGoId p_wasgo_id);
+public:
+WasmResource();
 ~WasmResource();
             
 };
@@ -20,5 +22,10 @@ WasmResource(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 WasGoId _wasgo_WasmResource_wrapper_get_buf(WasGoId wasgo_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_WasmResource_constructor();
+    void _wasgo_WasmResource_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,7 +2,6 @@
 #ifndef IP_UNIX_H
 #define IP_UNIX_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "IP.h"
@@ -13,5 +12,10 @@ public:
 
 //Wrapper Functions
 extern "C"{
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_IP_Unix_constructor();
+    void _wasgo_IP_Unix_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

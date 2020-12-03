@@ -2,15 +2,14 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "RID.h"
-#include "Vector2.h"
-#include "Rect2.h"
-#include "Resource.h"
 #include "Color.h"
+#include "Vector2.h"
 #include "Image.h"
+#include "RID.h"
+#include "Resource.h"
+#include "Rect2.h"
 class Texture : public Resource{
 public:
 enum Flags{
@@ -38,15 +37,20 @@ void set_flags(int p_flags);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Texture_wrapper_draw(WasGoId wasgo_id, WasGoId p_canvas_item, WasGoId p_position, WasGoId p_modulate, bool p_transpose, WasGoId p_normal_map);
-void _wasgo_Texture_wrapper_draw_rect(WasGoId wasgo_id, WasGoId p_canvas_item, WasGoId p_rect, bool p_tile, WasGoId p_modulate, bool p_transpose, WasGoId p_normal_map);
-void _wasgo_Texture_wrapper_draw_rect_region(WasGoId wasgo_id, WasGoId p_canvas_item, WasGoId p_rect, WasGoId p_src_rect, WasGoId p_modulate, bool p_transpose, WasGoId p_normal_map, bool p_clip_uv);
+void _wasgo_Texture_wrapper_draw(WasGoId wasgo_id, const uint8_t * p_canvas_item, int p_canvas_item_wasgo_buffer_size, const uint8_t * p_position, int p_position_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size, bool p_transpose, WasGoId p_normal_map);
+void _wasgo_Texture_wrapper_draw_rect(WasGoId wasgo_id, const uint8_t * p_canvas_item, int p_canvas_item_wasgo_buffer_size, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, bool p_tile, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size, bool p_transpose, WasGoId p_normal_map);
+void _wasgo_Texture_wrapper_draw_rect_region(WasGoId wasgo_id, const uint8_t * p_canvas_item, int p_canvas_item_wasgo_buffer_size, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, const uint8_t * p_src_rect, int p_src_rect_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size, bool p_transpose, WasGoId p_normal_map, bool p_clip_uv);
 WasGoId _wasgo_Texture_wrapper_get_data(WasGoId wasgo_id);
 int _wasgo_Texture_wrapper_get_flags(WasGoId wasgo_id);
 int _wasgo_Texture_wrapper_get_height(WasGoId wasgo_id);
-WasGoId _wasgo_Texture_wrapper_get_size(WasGoId wasgo_id);
+void _wasgo_Texture_wrapper_get_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Texture_wrapper_get_width(WasGoId wasgo_id);
 int _wasgo_Texture_wrapper_has_alpha(WasGoId wasgo_id);
 void _wasgo_Texture_wrapper_set_flags(WasGoId wasgo_id, int p_flags);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Texture_constructor();
+    void _wasgo_Texture_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

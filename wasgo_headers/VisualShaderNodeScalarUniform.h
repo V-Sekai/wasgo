@@ -2,14 +2,16 @@
 #ifndef VISUALSHADERNODESCALARUNIFORM_H
 #define VISUALSHADERNODESCALARUNIFORM_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "VisualShaderNodeUniform.h"
 class VisualShaderNodeScalarUniform : public VisualShaderNodeUniform{
 public:
 
+protected:
 VisualShaderNodeScalarUniform(WasGoId p_wasgo_id);
+public:
+VisualShaderNodeScalarUniform();
 ~VisualShaderNodeScalarUniform();
             
 };
@@ -17,5 +19,10 @@ VisualShaderNodeScalarUniform(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VisualShaderNodeScalarUniform_constructor();
+    void _wasgo_VisualShaderNodeScalarUniform_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

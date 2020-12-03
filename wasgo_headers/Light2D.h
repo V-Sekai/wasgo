@@ -2,7 +2,6 @@
 #ifndef LIGHT2D_H
 #define LIGHT2D_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Color.h"
@@ -68,7 +67,10 @@ void set_texture_scale(float p_texture_scale);
 void set_z_range_max(int p_z);
 void set_z_range_min(int p_z);
 
+protected:
 Light2D(WasGoId p_wasgo_id);
+public:
+Light2D();
 ~Light2D();
             
 };
@@ -76,7 +78,7 @@ Light2D(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Light2D_wrapper_get_color(WasGoId wasgo_id);
+void _wasgo_Light2D_wrapper_get_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_Light2D_wrapper_get_energy(WasGoId wasgo_id);
 float _wasgo_Light2D_wrapper_get_height(WasGoId wasgo_id);
 int _wasgo_Light2D_wrapper_get_item_cull_mask(WasGoId wasgo_id);
@@ -85,19 +87,19 @@ int _wasgo_Light2D_wrapper_get_layer_range_max(WasGoId wasgo_id);
 int _wasgo_Light2D_wrapper_get_layer_range_min(WasGoId wasgo_id);
 WasGoId _wasgo_Light2D_wrapper_get_mode(WasGoId wasgo_id);
 int _wasgo_Light2D_wrapper_get_shadow_buffer_size(WasGoId wasgo_id);
-WasGoId _wasgo_Light2D_wrapper_get_shadow_color(WasGoId wasgo_id);
+void _wasgo_Light2D_wrapper_get_shadow_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoId _wasgo_Light2D_wrapper_get_shadow_filter(WasGoId wasgo_id);
 float _wasgo_Light2D_wrapper_get_shadow_gradient_length(WasGoId wasgo_id);
 float _wasgo_Light2D_wrapper_get_shadow_smooth(WasGoId wasgo_id);
 WasGoId _wasgo_Light2D_wrapper_get_texture(WasGoId wasgo_id);
-WasGoId _wasgo_Light2D_wrapper_get_texture_offset(WasGoId wasgo_id);
+void _wasgo_Light2D_wrapper_get_texture_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_Light2D_wrapper_get_texture_scale(WasGoId wasgo_id);
 int _wasgo_Light2D_wrapper_get_z_range_max(WasGoId wasgo_id);
 int _wasgo_Light2D_wrapper_get_z_range_min(WasGoId wasgo_id);
 int _wasgo_Light2D_wrapper_is_editor_only(WasGoId wasgo_id);
 int _wasgo_Light2D_wrapper_is_enabled(WasGoId wasgo_id);
 int _wasgo_Light2D_wrapper_is_shadow_enabled(WasGoId wasgo_id);
-void _wasgo_Light2D_wrapper_set_color(WasGoId wasgo_id, WasGoId p_color);
+void _wasgo_Light2D_wrapper_set_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 void _wasgo_Light2D_wrapper_set_editor_only(WasGoId wasgo_id, bool p_editor_only);
 void _wasgo_Light2D_wrapper_set_enabled(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_Light2D_wrapper_set_energy(WasGoId wasgo_id, float p_energy);
@@ -108,15 +110,20 @@ void _wasgo_Light2D_wrapper_set_layer_range_max(WasGoId wasgo_id, int p_layer);
 void _wasgo_Light2D_wrapper_set_layer_range_min(WasGoId wasgo_id, int p_layer);
 void _wasgo_Light2D_wrapper_set_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_Light2D_wrapper_set_shadow_buffer_size(WasGoId wasgo_id, int p_size);
-void _wasgo_Light2D_wrapper_set_shadow_color(WasGoId wasgo_id, WasGoId p_shadow_color);
+void _wasgo_Light2D_wrapper_set_shadow_color(WasGoId wasgo_id, const uint8_t * p_shadow_color, int p_shadow_color_wasgo_buffer_size);
 void _wasgo_Light2D_wrapper_set_shadow_enabled(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_Light2D_wrapper_set_shadow_filter(WasGoId wasgo_id, WasGoId p_filter);
 void _wasgo_Light2D_wrapper_set_shadow_gradient_length(WasGoId wasgo_id, float p_multiplier);
 void _wasgo_Light2D_wrapper_set_shadow_smooth(WasGoId wasgo_id, float p_smooth);
 void _wasgo_Light2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
-void _wasgo_Light2D_wrapper_set_texture_offset(WasGoId wasgo_id, WasGoId p_texture_offset);
+void _wasgo_Light2D_wrapper_set_texture_offset(WasGoId wasgo_id, const uint8_t * p_texture_offset, int p_texture_offset_wasgo_buffer_size);
 void _wasgo_Light2D_wrapper_set_texture_scale(WasGoId wasgo_id, float p_texture_scale);
 void _wasgo_Light2D_wrapper_set_z_range_max(WasGoId wasgo_id, int p_z);
 void _wasgo_Light2D_wrapper_set_z_range_min(WasGoId wasgo_id, int p_z);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Light2D_constructor();
+    void _wasgo_Light2D_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "Shape.h"
 float Shape::get_margin(){
 	return (float) _wasgo_Shape_wrapper_get_margin(wasgo_id);

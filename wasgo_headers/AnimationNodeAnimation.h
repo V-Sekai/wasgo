@@ -2,7 +2,6 @@
 #ifndef ANIMATIONNODEANIMATION_H
 #define ANIMATIONNODEANIMATION_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
@@ -12,7 +11,10 @@ public:
 String get_animation();
 void set_animation(String p_name);
 
+protected:
 AnimationNodeAnimation(WasGoId p_wasgo_id);
+public:
+AnimationNodeAnimation();
 ~AnimationNodeAnimation();
             
 };
@@ -20,7 +22,12 @@ AnimationNodeAnimation(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_AnimationNodeAnimation_wrapper_get_animation(WasGoId wasgo_id);
-void _wasgo_AnimationNodeAnimation_wrapper_set_animation(WasGoId wasgo_id, WasGoId p_name);
+void _wasgo_AnimationNodeAnimation_wrapper_get_animation(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_AnimationNodeAnimation_wrapper_set_animation(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AnimationNodeAnimation_constructor();
+    void _wasgo_AnimationNodeAnimation_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

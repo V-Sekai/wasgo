@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "AnimationNodeOneShot.h"
 float AnimationNodeOneShot::get_autorestart_delay(){
 	return (float) _wasgo_AnimationNodeOneShot_wrapper_get_autorestart_delay(wasgo_id);
@@ -13,7 +14,7 @@ float AnimationNodeOneShot::get_fadeout_time(){
 	return (float) _wasgo_AnimationNodeOneShot_wrapper_get_fadeout_time(wasgo_id);
 }
 AnimationNodeOneShot::MixMode AnimationNodeOneShot::get_mix_mode(){
-	return AnimationNodeOneShot::MixMode::from_wasgo_id(_wasgo_AnimationNodeOneShot_wrapper_get_mix_mode(wasgo_id));
+	return AnimationNodeOneShot::MixMode(_wasgo_AnimationNodeOneShot_wrapper_get_mix_mode(wasgo_id));
 }
 bool AnimationNodeOneShot::has_autorestart(){
 	return (bool) _wasgo_AnimationNodeOneShot_wrapper_has_autorestart(wasgo_id);
@@ -37,8 +38,17 @@ void AnimationNodeOneShot::set_fadeout_time(float p_time){
 	_wasgo_AnimationNodeOneShot_wrapper_set_fadeout_time(wasgo_id, p_time);
 }
 void AnimationNodeOneShot::set_mix_mode(AnimationNodeOneShot::MixMode p_mode){
-	_wasgo_AnimationNodeOneShot_wrapper_set_mix_mode(wasgo_id, ((Variant) p_mode).get_wasgo_id());
+	_wasgo_AnimationNodeOneShot_wrapper_set_mix_mode(wasgo_id, p_mode._get_wasgo_id());
 }
 void AnimationNodeOneShot::set_use_sync(bool p_enable){
 	_wasgo_AnimationNodeOneShot_wrapper_set_use_sync(wasgo_id, p_enable);
+}
+
+AnimationNodeOneShot::AnimationNodeOneShot(WasGoId p_wasgo_id) : AnimationNode(p_wasgo_id){
+}
+AnimationNodeOneShot::AnimationNodeOneShot(){
+    wasgo_id = _wasgo_AnimationNodeOneShot_constructor();
+}
+AnimationNodeOneShot::~AnimationNodeOneShot(){
+    _wasgo_AnimationNodeOneShot_destructor(wasgo_id);
 }

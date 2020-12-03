@@ -2,7 +2,6 @@
 #ifndef VISUALSHADERNODEVECTOROP_H
 #define VISUALSHADERNODEVECTOROP_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "VisualShaderNode.h"
@@ -25,7 +24,10 @@ OP_STEP
 VisualShaderNodeVectorOp::Operator get_operator();
 void set_operator(VisualShaderNodeVectorOp::Operator p_op);
 
+protected:
 VisualShaderNodeVectorOp(WasGoId p_wasgo_id);
+public:
+VisualShaderNodeVectorOp();
 ~VisualShaderNodeVectorOp();
             
 };
@@ -35,5 +37,10 @@ VisualShaderNodeVectorOp(WasGoId p_wasgo_id);
 extern "C"{
 WasGoId _wasgo_VisualShaderNodeVectorOp_wrapper_get_operator(WasGoId wasgo_id);
 void _wasgo_VisualShaderNodeVectorOp_wrapper_set_operator(WasGoId wasgo_id, WasGoId p_op);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VisualShaderNodeVectorOp_constructor();
+    void _wasgo_VisualShaderNodeVectorOp_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

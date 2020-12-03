@@ -2,7 +2,6 @@
 #ifndef CAPSULEMESH_H
 #define CAPSULEMESH_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "PrimitiveMesh.h"
@@ -17,7 +16,10 @@ void set_radial_segments(int p_segments);
 void set_radius(float p_radius);
 void set_rings(int p_rings);
 
+protected:
 CapsuleMesh(WasGoId p_wasgo_id);
+public:
+CapsuleMesh();
 ~CapsuleMesh();
             
 };
@@ -33,5 +35,10 @@ void _wasgo_CapsuleMesh_wrapper_set_mid_height(WasGoId wasgo_id, float p_mid_hei
 void _wasgo_CapsuleMesh_wrapper_set_radial_segments(WasGoId wasgo_id, int p_segments);
 void _wasgo_CapsuleMesh_wrapper_set_radius(WasGoId wasgo_id, float p_radius);
 void _wasgo_CapsuleMesh_wrapper_set_rings(WasGoId wasgo_id, int p_rings);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_CapsuleMesh_constructor();
+    void _wasgo_CapsuleMesh_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

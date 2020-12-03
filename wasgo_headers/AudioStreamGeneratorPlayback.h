@@ -2,12 +2,11 @@
 #ifndef AUDIOSTREAMGENERATORPLAYBACK_H
 #define AUDIOSTREAMGENERATORPLAYBACK_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "Vector2.h"
 #include "Variant.h"
 #include "AudioStreamPlaybackResampled.h"
-#include "Vector2.h"
 class AudioStreamGeneratorPlayback : public AudioStreamPlaybackResampled{
 public:
 bool can_push_buffer(int p_amount);
@@ -26,6 +25,11 @@ void _wasgo_AudioStreamGeneratorPlayback_wrapper_clear_buffer(WasGoId wasgo_id);
 int _wasgo_AudioStreamGeneratorPlayback_wrapper_get_frames_available(WasGoId wasgo_id);
 int _wasgo_AudioStreamGeneratorPlayback_wrapper_get_skips(WasGoId wasgo_id);
 int _wasgo_AudioStreamGeneratorPlayback_wrapper_push_buffer(WasGoId wasgo_id, WasGoId p_frames);
-int _wasgo_AudioStreamGeneratorPlayback_wrapper_push_frame(WasGoId wasgo_id, WasGoId p_frame);
+int _wasgo_AudioStreamGeneratorPlayback_wrapper_push_frame(WasGoId wasgo_id, const uint8_t * p_frame, int p_frame_wasgo_buffer_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioStreamGeneratorPlayback_constructor();
+    void _wasgo_AudioStreamGeneratorPlayback_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

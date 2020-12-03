@@ -2,13 +2,12 @@
 #ifndef SCRIPT_H
 #define SCRIPT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "error_list.h"
 #include "Resource.h"
 #include "Object.h"
+#include "Variant.h"
 #include "ustring.h"
 class Script : public Resource{
 public:
@@ -34,18 +33,23 @@ void set_source_code(String p_source);
 extern "C"{
 int _wasgo_Script_wrapper_can_instance(WasGoId wasgo_id);
 WasGoId _wasgo_Script_wrapper_get_base_script(WasGoId wasgo_id);
-WasGoId _wasgo_Script_wrapper_get_instance_base_type(WasGoId wasgo_id);
-WasGoId _wasgo_Script_wrapper_get_property_default_value(WasGoId wasgo_id, WasGoId p_property);
+void _wasgo_Script_wrapper_get_instance_base_type(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoId _wasgo_Script_wrapper_get_property_default_value(WasGoId wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size);
 WasGoId _wasgo_Script_wrapper_get_script_constant_map(WasGoId wasgo_id);
 WasGoId _wasgo_Script_wrapper_get_script_method_list(WasGoId wasgo_id);
 WasGoId _wasgo_Script_wrapper_get_script_property_list(WasGoId wasgo_id);
 WasGoId _wasgo_Script_wrapper_get_script_signal_list(WasGoId wasgo_id);
-WasGoId _wasgo_Script_wrapper_get_source_code(WasGoId wasgo_id);
-int _wasgo_Script_wrapper_has_script_signal(WasGoId wasgo_id, WasGoId p_signal_name);
+void _wasgo_Script_wrapper_get_source_code(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Script_wrapper_has_script_signal(WasGoId wasgo_id, const uint8_t * p_signal_name, int p_signal_name_wasgo_buffer_size);
 int _wasgo_Script_wrapper_has_source_code(WasGoId wasgo_id);
 int _wasgo_Script_wrapper_instance_has(WasGoId wasgo_id, WasGoId p_base_object);
 int _wasgo_Script_wrapper_is_tool(WasGoId wasgo_id);
 WasGoId _wasgo_Script_wrapper_reload(WasGoId wasgo_id, bool p_keep_state);
-void _wasgo_Script_wrapper_set_source_code(WasGoId wasgo_id, WasGoId p_source);
+void _wasgo_Script_wrapper_set_source_code(WasGoId wasgo_id, const uint8_t * p_source, int p_source_wasgo_buffer_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Script_constructor();
+    void _wasgo_Script_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,7 +2,6 @@
 #ifndef VISUALSHADERNODECOLOROP_H
 #define VISUALSHADERNODECOLOROP_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "VisualShaderNode.h"
@@ -22,7 +21,10 @@ OP_HARD_LIGHT
 VisualShaderNodeColorOp::Operator get_operator();
 void set_operator(VisualShaderNodeColorOp::Operator p_op);
 
+protected:
 VisualShaderNodeColorOp(WasGoId p_wasgo_id);
+public:
+VisualShaderNodeColorOp();
 ~VisualShaderNodeColorOp();
             
 };
@@ -32,5 +34,10 @@ VisualShaderNodeColorOp(WasGoId p_wasgo_id);
 extern "C"{
 WasGoId _wasgo_VisualShaderNodeColorOp_wrapper_get_operator(WasGoId wasgo_id);
 void _wasgo_VisualShaderNodeColorOp_wrapper_set_operator(WasGoId wasgo_id, WasGoId p_op);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VisualShaderNodeColorOp_constructor();
+    void _wasgo_VisualShaderNodeColorOp_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

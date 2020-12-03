@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "VehicleBody.h"
 float VehicleBody::get_brake(){
 	return (float) _wasgo_VehicleBody_wrapper_get_brake(wasgo_id);
@@ -17,4 +18,13 @@ void VehicleBody::set_engine_force(float p_engine_force){
 }
 void VehicleBody::set_steering(float p_steering){
 	_wasgo_VehicleBody_wrapper_set_steering(wasgo_id, p_steering);
+}
+
+VehicleBody::VehicleBody(WasGoId p_wasgo_id) : RigidBody(p_wasgo_id){
+}
+VehicleBody::VehicleBody(){
+    wasgo_id = _wasgo_VehicleBody_constructor();
+}
+VehicleBody::~VehicleBody(){
+    _wasgo_VehicleBody_destructor(wasgo_id);
 }

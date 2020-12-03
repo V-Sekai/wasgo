@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "Range.h"
 float Range::get_as_ratio(){
 	return (float) _wasgo_Range_wrapper_get_as_ratio(wasgo_id);
@@ -61,7 +62,7 @@ void Range::set_value(float p_value){
 	_wasgo_Range_wrapper_set_value(wasgo_id, p_value);
 }
 void Range::share(Node p_with){
-	_wasgo_Range_wrapper_share(wasgo_id, ((Variant) p_with).get_wasgo_id());
+	_wasgo_Range_wrapper_share(wasgo_id, p_with._get_wasgo_id());
 }
 void Range::unshare(){
 	_wasgo_Range_wrapper_unshare(wasgo_id);

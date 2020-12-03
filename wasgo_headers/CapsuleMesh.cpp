@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "CapsuleMesh.h"
 float CapsuleMesh::get_mid_height(){
 	return (float) _wasgo_CapsuleMesh_wrapper_get_mid_height(wasgo_id);
@@ -23,4 +24,13 @@ void CapsuleMesh::set_radius(float p_radius){
 }
 void CapsuleMesh::set_rings(int p_rings){
 	_wasgo_CapsuleMesh_wrapper_set_rings(wasgo_id, p_rings);
+}
+
+CapsuleMesh::CapsuleMesh(WasGoId p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
+}
+CapsuleMesh::CapsuleMesh(){
+    wasgo_id = _wasgo_CapsuleMesh_constructor();
+}
+CapsuleMesh::~CapsuleMesh(){
+    _wasgo_CapsuleMesh_destructor(wasgo_id);
 }

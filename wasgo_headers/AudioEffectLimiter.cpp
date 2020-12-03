@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "AudioEffectLimiter.h"
 float AudioEffectLimiter::get_ceiling_db(){
 	return (float) _wasgo_AudioEffectLimiter_wrapper_get_ceiling_db(wasgo_id);
@@ -23,4 +24,13 @@ void AudioEffectLimiter::set_soft_clip_ratio(float p_soft_clip){
 }
 void AudioEffectLimiter::set_threshold_db(float p_threshold){
 	_wasgo_AudioEffectLimiter_wrapper_set_threshold_db(wasgo_id, p_threshold);
+}
+
+AudioEffectLimiter::AudioEffectLimiter(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+}
+AudioEffectLimiter::AudioEffectLimiter(){
+    wasgo_id = _wasgo_AudioEffectLimiter_constructor();
+}
+AudioEffectLimiter::~AudioEffectLimiter(){
+    _wasgo_AudioEffectLimiter_destructor(wasgo_id);
 }

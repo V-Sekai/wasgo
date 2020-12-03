@@ -2,17 +2,19 @@
 #ifndef SEMAPHORE_H
 #define SEMAPHORE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "error_list.h"
+#include "Reference.h"
 class Semaphore : public Reference{
 public:
 Error post();
 Error wait();
 
+protected:
 Semaphore(WasGoId p_wasgo_id);
+public:
+Semaphore();
 ~Semaphore();
             
 };
@@ -22,5 +24,10 @@ Semaphore(WasGoId p_wasgo_id);
 extern "C"{
 WasGoId _wasgo_Semaphore_wrapper_post(WasGoId wasgo_id);
 WasGoId _wasgo_Semaphore_wrapper_wait(WasGoId wasgo_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Semaphore_constructor();
+    void _wasgo_Semaphore_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

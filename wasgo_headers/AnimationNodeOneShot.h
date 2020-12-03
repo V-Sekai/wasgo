@@ -2,7 +2,6 @@
 #ifndef ANIMATIONNODEONESHOT_H
 #define ANIMATIONNODEONESHOT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AnimationNode.h"
@@ -27,7 +26,10 @@ void set_fadeout_time(float p_time);
 void set_mix_mode(AnimationNodeOneShot::MixMode p_mode);
 void set_use_sync(bool p_enable);
 
+protected:
 AnimationNodeOneShot(WasGoId p_wasgo_id);
+public:
+AnimationNodeOneShot();
 ~AnimationNodeOneShot();
             
 };
@@ -49,5 +51,10 @@ void _wasgo_AnimationNodeOneShot_wrapper_set_fadein_time(WasGoId wasgo_id, float
 void _wasgo_AnimationNodeOneShot_wrapper_set_fadeout_time(WasGoId wasgo_id, float p_time);
 void _wasgo_AnimationNodeOneShot_wrapper_set_mix_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_AnimationNodeOneShot_wrapper_set_use_sync(WasGoId wasgo_id, bool p_enable);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AnimationNodeOneShot_constructor();
+    void _wasgo_AnimationNodeOneShot_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

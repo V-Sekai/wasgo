@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "ARVRInterface.h"
 bool ARVRInterface::get_anchor_detection_is_enabled(){
 	return (bool) _wasgo_ARVRInterface_wrapper_get_anchor_detection_is_enabled(wasgo_id);
@@ -10,13 +11,27 @@ int ARVRInterface::get_capabilities(){
 	return (int) _wasgo_ARVRInterface_wrapper_get_capabilities(wasgo_id);
 }
 String ARVRInterface::get_name(){
-	return String::from_wasgo_id(_wasgo_ARVRInterface_wrapper_get_name(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_ARVRInterface_wrapper_get_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 Vector2 ARVRInterface::get_render_targetsize(){
-	return Vector2::from_wasgo_id(_wasgo_ARVRInterface_wrapper_get_render_targetsize(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 12;
+    uint8_t wasgo_ret_buffer[12];
+    _wasgo_ARVRInterface_wrapper_get_render_targetsize(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (Vector2) wasgo_ret;
+    
 }
 ARVRInterface::Tracking_status ARVRInterface::get_tracking_status(){
-	return ARVRInterface::Tracking_status::from_wasgo_id(_wasgo_ARVRInterface_wrapper_get_tracking_status(wasgo_id));
+	return ARVRInterface::Tracking_status(_wasgo_ARVRInterface_wrapper_get_tracking_status(wasgo_id));
 }
 bool ARVRInterface::initialize(){
 	return (bool) _wasgo_ARVRInterface_wrapper_initialize(wasgo_id);

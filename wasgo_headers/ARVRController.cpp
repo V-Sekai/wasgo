@@ -1,13 +1,21 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "ARVRController.h"
 int ARVRController::get_controller_id(){
 	return (int) _wasgo_ARVRController_wrapper_get_controller_id(wasgo_id);
 }
 String ARVRController::get_controller_name(){
-	return String::from_wasgo_id(_wasgo_ARVRController_wrapper_get_controller_name(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_ARVRController_wrapper_get_controller_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 ARVRPositionalTracker::TrackerHand ARVRController::get_hand(){
-	return ARVRPositionalTracker::TrackerHand::from_wasgo_id(_wasgo_ARVRController_wrapper_get_hand(wasgo_id));
+	return ARVRPositionalTracker::TrackerHand(_wasgo_ARVRController_wrapper_get_hand(wasgo_id));
 }
 bool ARVRController::get_is_active(){
 	return (bool) _wasgo_ARVRController_wrapper_get_is_active(wasgo_id);
@@ -19,7 +27,7 @@ int ARVRController::get_joystick_id(){
 	return (int) _wasgo_ARVRController_wrapper_get_joystick_id(wasgo_id);
 }
 Mesh ARVRController::get_mesh(){
-	return Mesh::from_wasgo_id(_wasgo_ARVRController_wrapper_get_mesh(wasgo_id));
+	return Mesh(_wasgo_ARVRController_wrapper_get_mesh(wasgo_id));
 }
 float ARVRController::get_rumble(){
 	return (float) _wasgo_ARVRController_wrapper_get_rumble(wasgo_id);
@@ -32,4 +40,13 @@ void ARVRController::set_controller_id(int p_controller_id){
 }
 void ARVRController::set_rumble(float p_rumble){
 	_wasgo_ARVRController_wrapper_set_rumble(wasgo_id, p_rumble);
+}
+
+ARVRController::ARVRController(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
+}
+ARVRController::ARVRController(){
+    wasgo_id = _wasgo_ARVRController_constructor();
+}
+ARVRController::~ARVRController(){
+    _wasgo_ARVRController_destructor(wasgo_id);
 }

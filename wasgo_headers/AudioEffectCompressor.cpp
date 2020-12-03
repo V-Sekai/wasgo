@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "AudioEffectCompressor.h"
 float AudioEffectCompressor::get_attack_us(){
 	return (float) _wasgo_AudioEffectCompressor_wrapper_get_attack_us(wasgo_id);
@@ -16,7 +17,14 @@ float AudioEffectCompressor::get_release_ms(){
 	return (float) _wasgo_AudioEffectCompressor_wrapper_get_release_ms(wasgo_id);
 }
 String AudioEffectCompressor::get_sidechain(){
-	return String::from_wasgo_id(_wasgo_AudioEffectCompressor_wrapper_get_sidechain(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_AudioEffectCompressor_wrapper_get_sidechain(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 float AudioEffectCompressor::get_threshold(){
 	return (float) _wasgo_AudioEffectCompressor_wrapper_get_threshold(wasgo_id);
@@ -37,8 +45,23 @@ void AudioEffectCompressor::set_release_ms(float p_release_ms){
 	_wasgo_AudioEffectCompressor_wrapper_set_release_ms(wasgo_id, p_release_ms);
 }
 void AudioEffectCompressor::set_sidechain(String p_sidechain){
-	_wasgo_AudioEffectCompressor_wrapper_set_sidechain(wasgo_id, ((Variant) p_sidechain).get_wasgo_id());
+
+    Variant wasgo_var_sidechain = p_sidechain;
+    uint8_t wasgo_buffer_sidechain[256];
+    int wasgo_size_sidechain = 256;
+    encode_variant(wasgo_var_sidechain, wasgo_buffer_sidechain, wasgo_size_sidechain);
+    
+	_wasgo_AudioEffectCompressor_wrapper_set_sidechain(wasgo_id, wasgo_buffer_sidechain, wasgo_size_sidechain);
 }
 void AudioEffectCompressor::set_threshold(float p_threshold){
 	_wasgo_AudioEffectCompressor_wrapper_set_threshold(wasgo_id, p_threshold);
+}
+
+AudioEffectCompressor::AudioEffectCompressor(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+}
+AudioEffectCompressor::AudioEffectCompressor(){
+    wasgo_id = _wasgo_AudioEffectCompressor_constructor();
+}
+AudioEffectCompressor::~AudioEffectCompressor(){
+    _wasgo_AudioEffectCompressor_destructor(wasgo_id);
 }

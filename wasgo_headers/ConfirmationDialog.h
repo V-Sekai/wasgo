@@ -2,7 +2,6 @@
 #ifndef CONFIRMATIONDIALOG_H
 #define CONFIRMATIONDIALOG_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AcceptDialog.h"
@@ -11,7 +10,10 @@ class ConfirmationDialog : public AcceptDialog{
 public:
 Button get_cancel();
 
+protected:
 ConfirmationDialog(WasGoId p_wasgo_id);
+public:
+ConfirmationDialog();
 ~ConfirmationDialog();
             
 };
@@ -20,5 +22,10 @@ ConfirmationDialog(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 WasGoId _wasgo_ConfirmationDialog_wrapper_get_cancel(WasGoId wasgo_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_ConfirmationDialog_constructor();
+    void _wasgo_ConfirmationDialog_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

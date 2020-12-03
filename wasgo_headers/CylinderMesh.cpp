@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "CylinderMesh.h"
 float CylinderMesh::get_bottom_radius(){
 	return (float) _wasgo_CylinderMesh_wrapper_get_bottom_radius(wasgo_id);
@@ -29,4 +30,13 @@ void CylinderMesh::set_rings(int p_rings){
 }
 void CylinderMesh::set_top_radius(float p_radius){
 	_wasgo_CylinderMesh_wrapper_set_top_radius(wasgo_id, p_radius);
+}
+
+CylinderMesh::CylinderMesh(WasGoId p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
+}
+CylinderMesh::CylinderMesh(){
+    wasgo_id = _wasgo_CylinderMesh_constructor();
+}
+CylinderMesh::~CylinderMesh(){
+    _wasgo_CylinderMesh_destructor(wasgo_id);
 }

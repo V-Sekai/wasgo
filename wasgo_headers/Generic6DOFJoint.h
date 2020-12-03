@@ -2,7 +2,6 @@
 #ifndef GENERIC6DOFJOINT_H
 #define GENERIC6DOFJOINT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Joint.h"
@@ -42,8 +41,25 @@ PARAM_ANGULAR_SPRING_DAMPING,
 PARAM_ANGULAR_SPRING_EQUILIBRIUM_POINT,
 PARAM_MAX
 };
+bool get_flag_x(Generic6DOFJoint::Flag p_flag);
+bool get_flag_y(Generic6DOFJoint::Flag p_flag);
+bool get_flag_z(Generic6DOFJoint::Flag p_flag);
+float get_param_x(Generic6DOFJoint::Param p_param);
+float get_param_y(Generic6DOFJoint::Param p_param);
+float get_param_z(Generic6DOFJoint::Param p_param);
+int get_precision();
+void set_flag_x(Generic6DOFJoint::Flag p_flag, bool p_value);
+void set_flag_y(Generic6DOFJoint::Flag p_flag, bool p_value);
+void set_flag_z(Generic6DOFJoint::Flag p_flag, bool p_value);
+void set_param_x(Generic6DOFJoint::Param p_param, float p_value);
+void set_param_y(Generic6DOFJoint::Param p_param, float p_value);
+void set_param_z(Generic6DOFJoint::Param p_param, float p_value);
+void set_precision(int p_precision);
 
+protected:
 Generic6DOFJoint(WasGoId p_wasgo_id);
+public:
+Generic6DOFJoint();
 ~Generic6DOFJoint();
             
 };
@@ -51,5 +67,24 @@ Generic6DOFJoint(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
+int _wasgo_Generic6DOFJoint_wrapper_get_flag_x(WasGoId wasgo_id, WasGoId p_flag);
+int _wasgo_Generic6DOFJoint_wrapper_get_flag_y(WasGoId wasgo_id, WasGoId p_flag);
+int _wasgo_Generic6DOFJoint_wrapper_get_flag_z(WasGoId wasgo_id, WasGoId p_flag);
+float _wasgo_Generic6DOFJoint_wrapper_get_param_x(WasGoId wasgo_id, WasGoId p_param);
+float _wasgo_Generic6DOFJoint_wrapper_get_param_y(WasGoId wasgo_id, WasGoId p_param);
+float _wasgo_Generic6DOFJoint_wrapper_get_param_z(WasGoId wasgo_id, WasGoId p_param);
+int _wasgo_Generic6DOFJoint_wrapper_get_precision(WasGoId wasgo_id);
+void _wasgo_Generic6DOFJoint_wrapper_set_flag_x(WasGoId wasgo_id, WasGoId p_flag, bool p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_flag_y(WasGoId wasgo_id, WasGoId p_flag, bool p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_flag_z(WasGoId wasgo_id, WasGoId p_flag, bool p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_param_x(WasGoId wasgo_id, WasGoId p_param, float p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_param_y(WasGoId wasgo_id, WasGoId p_param, float p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_param_z(WasGoId wasgo_id, WasGoId p_param, float p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_precision(WasGoId wasgo_id, int p_precision);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Generic6DOFJoint_constructor();
+    void _wasgo_Generic6DOFJoint_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

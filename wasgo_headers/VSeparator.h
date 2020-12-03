@@ -2,14 +2,16 @@
 #ifndef VSEPARATOR_H
 #define VSEPARATOR_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Separator.h"
 class VSeparator : public Separator{
 public:
 
+protected:
 VSeparator(WasGoId p_wasgo_id);
+public:
+VSeparator();
 ~VSeparator();
             
 };
@@ -17,5 +19,10 @@ VSeparator(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VSeparator_constructor();
+    void _wasgo_VSeparator_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

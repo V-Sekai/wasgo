@@ -1,35 +1,96 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "AnimationTree.h"
+void AnimationTree::advance(float p_delta){
+	_wasgo_AnimationTree_wrapper_advance(wasgo_id, p_delta);
+}
 NodePath AnimationTree::get_animation_player(){
-	return NodePath::from_wasgo_id(_wasgo_AnimationTree_wrapper_get_animation_player(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_AnimationTree_wrapper_get_animation_player(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (NodePath) wasgo_ret;
+    
 }
 AnimationTree::AnimationProcessMode AnimationTree::get_process_mode(){
-	return AnimationTree::AnimationProcessMode::from_wasgo_id(_wasgo_AnimationTree_wrapper_get_process_mode(wasgo_id));
+	return AnimationTree::AnimationProcessMode(_wasgo_AnimationTree_wrapper_get_process_mode(wasgo_id));
 }
 NodePath AnimationTree::get_root_motion_track(){
-	return NodePath::from_wasgo_id(_wasgo_AnimationTree_wrapper_get_root_motion_track(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_AnimationTree_wrapper_get_root_motion_track(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (NodePath) wasgo_ret;
+    
 }
 Transform AnimationTree::get_root_motion_transform(){
-	return Transform::from_wasgo_id(_wasgo_AnimationTree_wrapper_get_root_motion_transform(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 52;
+    uint8_t wasgo_ret_buffer[52];
+    _wasgo_AnimationTree_wrapper_get_root_motion_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (Transform) wasgo_ret;
+    
 }
 AnimationNode AnimationTree::get_tree_root(){
-	return AnimationNode::from_wasgo_id(_wasgo_AnimationTree_wrapper_get_tree_root(wasgo_id));
+	return AnimationNode(_wasgo_AnimationTree_wrapper_get_tree_root(wasgo_id));
 }
 bool AnimationTree::is_active(){
 	return (bool) _wasgo_AnimationTree_wrapper_is_active(wasgo_id);
+}
+void AnimationTree::rename_parameter(String p_old_name, String p_new_name){
+
+    Variant wasgo_var_old_name = p_old_name;
+    uint8_t wasgo_buffer_old_name[256];
+    int wasgo_size_old_name = 256;
+    encode_variant(wasgo_var_old_name, wasgo_buffer_old_name, wasgo_size_old_name);
+    
+
+    Variant wasgo_var_new_name = p_new_name;
+    uint8_t wasgo_buffer_new_name[256];
+    int wasgo_size_new_name = 256;
+    encode_variant(wasgo_var_new_name, wasgo_buffer_new_name, wasgo_size_new_name);
+    
+	_wasgo_AnimationTree_wrapper_rename_parameter(wasgo_id, wasgo_buffer_old_name, wasgo_size_old_name, wasgo_buffer_new_name, wasgo_size_new_name);
 }
 void AnimationTree::set_active(bool p_active){
 	_wasgo_AnimationTree_wrapper_set_active(wasgo_id, p_active);
 }
 void AnimationTree::set_animation_player(NodePath p_root){
-	_wasgo_AnimationTree_wrapper_set_animation_player(wasgo_id, ((Variant) p_root).get_wasgo_id());
+
+    Variant wasgo_var_root = p_root;
+    uint8_t wasgo_buffer_root[256];
+    int wasgo_size_root = 256;
+    encode_variant(wasgo_var_root, wasgo_buffer_root, wasgo_size_root);
+    
+	_wasgo_AnimationTree_wrapper_set_animation_player(wasgo_id, wasgo_buffer_root, wasgo_size_root);
 }
 void AnimationTree::set_process_mode(AnimationTree::AnimationProcessMode p_mode){
-	_wasgo_AnimationTree_wrapper_set_process_mode(wasgo_id, ((Variant) p_mode).get_wasgo_id());
+	_wasgo_AnimationTree_wrapper_set_process_mode(wasgo_id, p_mode._get_wasgo_id());
 }
 void AnimationTree::set_root_motion_track(NodePath p_path){
-	_wasgo_AnimationTree_wrapper_set_root_motion_track(wasgo_id, ((Variant) p_path).get_wasgo_id());
+
+    Variant wasgo_var_path = p_path;
+    uint8_t wasgo_buffer_path[256];
+    int wasgo_size_path = 256;
+    encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
+    
+	_wasgo_AnimationTree_wrapper_set_root_motion_track(wasgo_id, wasgo_buffer_path, wasgo_size_path);
 }
 void AnimationTree::set_tree_root(AnimationNode p_root){
-	_wasgo_AnimationTree_wrapper_set_tree_root(wasgo_id, ((Variant) p_root).get_wasgo_id());
+	_wasgo_AnimationTree_wrapper_set_tree_root(wasgo_id, p_root._get_wasgo_id());
+}
+
+AnimationTree::AnimationTree(WasGoId p_wasgo_id) : Node(p_wasgo_id){
+}
+AnimationTree::AnimationTree(){
+    wasgo_id = _wasgo_AnimationTree_constructor();
+}
+AnimationTree::~AnimationTree(){
+    _wasgo_AnimationTree_destructor(wasgo_id);
 }

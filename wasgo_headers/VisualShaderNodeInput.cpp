@@ -1,11 +1,41 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "VisualShaderNodeInput.h"
 String VisualShaderNodeInput::get_input_name(){
-	return String::from_wasgo_id(_wasgo_VisualShaderNodeInput_wrapper_get_input_name(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_VisualShaderNodeInput_wrapper_get_input_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 String VisualShaderNodeInput::get_input_real_name(){
-	return String::from_wasgo_id(_wasgo_VisualShaderNodeInput_wrapper_get_input_real_name(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_VisualShaderNodeInput_wrapper_get_input_real_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 void VisualShaderNodeInput::set_input_name(String p_name){
-	_wasgo_VisualShaderNodeInput_wrapper_set_input_name(wasgo_id, ((Variant) p_name).get_wasgo_id());
+
+    Variant wasgo_var_name = p_name;
+    uint8_t wasgo_buffer_name[256];
+    int wasgo_size_name = 256;
+    encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
+    
+	_wasgo_VisualShaderNodeInput_wrapper_set_input_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
+}
+
+VisualShaderNodeInput::VisualShaderNodeInput(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+}
+VisualShaderNodeInput::VisualShaderNodeInput(){
+    wasgo_id = _wasgo_VisualShaderNodeInput_constructor();
+}
+VisualShaderNodeInput::~VisualShaderNodeInput(){
+    _wasgo_VisualShaderNodeInput_destructor(wasgo_id);
 }

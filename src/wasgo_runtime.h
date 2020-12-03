@@ -24,7 +24,7 @@ public:
 
 	WasGoRuntime();
 	~WasGoRuntime();
-	void initialize(NativeSymbol native_symbols[]);
+	void initialize(NativeSymbol symbols[], int native_symbol_size);
 
 private:
 	HashMap<String, wasm_module_t> script_module_map;

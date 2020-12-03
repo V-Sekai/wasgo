@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "InputEventJoypadButton.h"
 int InputEventJoypadButton::get_button_index(){
 	return (int) _wasgo_InputEventJoypadButton_wrapper_get_button_index(wasgo_id);
@@ -14,4 +15,13 @@ void InputEventJoypadButton::set_pressed(bool p_pressed){
 }
 void InputEventJoypadButton::set_pressure(float p_pressure){
 	_wasgo_InputEventJoypadButton_wrapper_set_pressure(wasgo_id, p_pressure);
+}
+
+InputEventJoypadButton::InputEventJoypadButton(WasGoId p_wasgo_id) : InputEvent(p_wasgo_id){
+}
+InputEventJoypadButton::InputEventJoypadButton(){
+    wasgo_id = _wasgo_InputEventJoypadButton_constructor();
+}
+InputEventJoypadButton::~InputEventJoypadButton(){
+    _wasgo_InputEventJoypadButton_destructor(wasgo_id);
 }

@@ -34,6 +34,7 @@
 #include "mutex.h"
 #include "safe_refcount.h"
 #include "Ustring.h"
+#include <stdio.h>
 
 struct StaticCString {
 
@@ -117,13 +118,15 @@ public:
 	bool operator!=(const StringName &p_name) const;
 
 	_FORCE_INLINE_ operator String() const {
-
+		// printf("converting stringname to string\n");
 		if (_data) {
+			// printf("there is data!\n");
 			if (_data->cname)
 				return String(_data->cname);
 			else
 				return _data->name;
 		}
+		// printf("damn...\n");
 
 		return String();
 	}

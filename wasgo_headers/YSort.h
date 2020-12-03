@@ -2,7 +2,6 @@
 #ifndef YSORT_H
 #define YSORT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Node2D.h"
@@ -11,7 +10,10 @@ public:
 bool is_sort_enabled();
 void set_sort_enabled(bool p_enabled);
 
+protected:
 YSort(WasGoId p_wasgo_id);
+public:
+YSort();
 ~YSort();
             
 };
@@ -21,5 +23,10 @@ YSort(WasGoId p_wasgo_id);
 extern "C"{
 int _wasgo_YSort_wrapper_is_sort_enabled(WasGoId wasgo_id);
 void _wasgo_YSort_wrapper_set_sort_enabled(WasGoId wasgo_id, bool p_enabled);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_YSort_constructor();
+    void _wasgo_YSort_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

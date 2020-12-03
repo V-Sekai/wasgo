@@ -2,7 +2,6 @@
 #ifndef ENCODEDOBJECTASID_H
 #define ENCODEDOBJECTASID_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Reference.h"
@@ -11,7 +10,10 @@ public:
 int get_object_id();
 void set_object_id(int p_id);
 
+protected:
 EncodedObjectAsID(WasGoId p_wasgo_id);
+public:
+EncodedObjectAsID();
 ~EncodedObjectAsID();
             
 };
@@ -21,5 +23,10 @@ EncodedObjectAsID(WasGoId p_wasgo_id);
 extern "C"{
 int _wasgo_EncodedObjectAsID_wrapper_get_object_id(WasGoId wasgo_id);
 void _wasgo_EncodedObjectAsID_wrapper_set_object_id(WasGoId wasgo_id, int p_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_EncodedObjectAsID_constructor();
+    void _wasgo_EncodedObjectAsID_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

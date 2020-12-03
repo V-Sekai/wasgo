@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "PhysicsMaterial.h"
 float PhysicsMaterial::get_bounce(){
 	return (float) _wasgo_PhysicsMaterial_wrapper_get_bounce(wasgo_id);
@@ -23,4 +24,13 @@ void PhysicsMaterial::set_friction(float p_friction){
 }
 void PhysicsMaterial::set_rough(bool p_rough){
 	_wasgo_PhysicsMaterial_wrapper_set_rough(wasgo_id, p_rough);
+}
+
+PhysicsMaterial::PhysicsMaterial(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+}
+PhysicsMaterial::PhysicsMaterial(){
+    wasgo_id = _wasgo_PhysicsMaterial_constructor();
+}
+PhysicsMaterial::~PhysicsMaterial(){
+    _wasgo_PhysicsMaterial_destructor(wasgo_id);
 }

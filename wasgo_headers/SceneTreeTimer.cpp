@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "SceneTreeTimer.h"
 float SceneTreeTimer::get_time_left(){
 	return (float) _wasgo_SceneTreeTimer_wrapper_get_time_left(wasgo_id);

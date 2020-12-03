@@ -2,7 +2,6 @@
 #ifndef CUBEMAP_H
 #define CUBEMAP_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Image.h"
@@ -39,7 +38,10 @@ void set_lossy_storage_quality(float p_quality);
 void set_side(CubeMap::Side p_side, Image p_image);
 void set_storage(CubeMap::Storage p_mode);
 
+protected:
 CubeMap(WasGoId p_wasgo_id);
+public:
+CubeMap();
 ~CubeMap();
             
 };
@@ -57,5 +59,10 @@ void _wasgo_CubeMap_wrapper_set_flags(WasGoId wasgo_id, int p_flags);
 void _wasgo_CubeMap_wrapper_set_lossy_storage_quality(WasGoId wasgo_id, float p_quality);
 void _wasgo_CubeMap_wrapper_set_side(WasGoId wasgo_id, WasGoId p_side, WasGoId p_image);
 void _wasgo_CubeMap_wrapper_set_storage(WasGoId wasgo_id, WasGoId p_mode);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_CubeMap_constructor();
+    void _wasgo_CubeMap_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,7 +2,6 @@
 #ifndef AUDIOEFFECTINSTANCE_H
 #define AUDIOEFFECTINSTANCE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Reference.h"
@@ -13,5 +12,10 @@ public:
 
 //Wrapper Functions
 extern "C"{
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioEffectInstance_constructor();
+    void _wasgo_AudioEffectInstance_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

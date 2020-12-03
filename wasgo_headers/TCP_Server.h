@@ -2,13 +2,12 @@
 #ifndef TCP_SERVER_H
 #define TCP_SERVER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
-#include "ustring.h"
 #include "error_list.h"
+#include "ustring.h"
 #include "StreamPeerTCP.h"
+#include "Reference.h"
 class TCP_Server : public Reference{
 public:
 bool is_connection_available();
@@ -17,7 +16,10 @@ Error listen(int p_port, String p_bind_address = (String) *);
 void stop();
 StreamPeerTCP take_connection();
 
+protected:
 TCP_Server(WasGoId p_wasgo_id);
+public:
+TCP_Server();
 ~TCP_Server();
             
 };
@@ -27,8 +29,13 @@ TCP_Server(WasGoId p_wasgo_id);
 extern "C"{
 int _wasgo_TCP_Server_wrapper_is_connection_available(WasGoId wasgo_id);
 int _wasgo_TCP_Server_wrapper_is_listening(WasGoId wasgo_id);
-WasGoId _wasgo_TCP_Server_wrapper_listen(WasGoId wasgo_id, int p_port, WasGoId p_bind_address);
+WasGoId _wasgo_TCP_Server_wrapper_listen(WasGoId wasgo_id, int p_port, const uint8_t * p_bind_address, int p_bind_address_wasgo_buffer_size);
 void _wasgo_TCP_Server_wrapper_stop(WasGoId wasgo_id);
 WasGoId _wasgo_TCP_Server_wrapper_take_connection(WasGoId wasgo_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_TCP_Server_constructor();
+    void _wasgo_TCP_Server_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

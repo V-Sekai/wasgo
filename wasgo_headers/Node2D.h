@@ -2,7 +2,6 @@
 #ifndef NODE2D_H
 #define NODE2D_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "CanvasItem.h"
@@ -45,7 +44,10 @@ Vector2 to_global(Vector2 p_local_point);
 Vector2 to_local(Vector2 p_global_point);
 void translate(Vector2 p_offset);
 
+protected:
 Node2D(WasGoId p_wasgo_id);
+public:
+Node2D();
 ~Node2D();
             
 };
@@ -53,38 +55,43 @@ Node2D(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Node2D_wrapper_apply_scale(WasGoId wasgo_id, WasGoId p_ratio);
-float _wasgo_Node2D_wrapper_get_angle_to(WasGoId wasgo_id, WasGoId p_point);
-WasGoId _wasgo_Node2D_wrapper_get_global_position(WasGoId wasgo_id);
+void _wasgo_Node2D_wrapper_apply_scale(WasGoId wasgo_id, const uint8_t * p_ratio, int p_ratio_wasgo_buffer_size);
+float _wasgo_Node2D_wrapper_get_angle_to(WasGoId wasgo_id, const uint8_t * p_point, int p_point_wasgo_buffer_size);
+void _wasgo_Node2D_wrapper_get_global_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_Node2D_wrapper_get_global_rotation(WasGoId wasgo_id);
 float _wasgo_Node2D_wrapper_get_global_rotation_degrees(WasGoId wasgo_id);
-WasGoId _wasgo_Node2D_wrapper_get_global_scale(WasGoId wasgo_id);
-WasGoId _wasgo_Node2D_wrapper_get_position(WasGoId wasgo_id);
-WasGoId _wasgo_Node2D_wrapper_get_relative_transform_to_parent(WasGoId wasgo_id, WasGoId p_parent);
+void _wasgo_Node2D_wrapper_get_global_scale(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Node2D_wrapper_get_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Node2D_wrapper_get_relative_transform_to_parent(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoId p_parent);
 float _wasgo_Node2D_wrapper_get_rotation(WasGoId wasgo_id);
 float _wasgo_Node2D_wrapper_get_rotation_degrees(WasGoId wasgo_id);
-WasGoId _wasgo_Node2D_wrapper_get_scale(WasGoId wasgo_id);
+void _wasgo_Node2D_wrapper_get_scale(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Node2D_wrapper_get_z_index(WasGoId wasgo_id);
-void _wasgo_Node2D_wrapper_global_translate(WasGoId wasgo_id, WasGoId p_offset);
+void _wasgo_Node2D_wrapper_global_translate(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
 int _wasgo_Node2D_wrapper_is_z_relative(WasGoId wasgo_id);
-void _wasgo_Node2D_wrapper_look_at(WasGoId wasgo_id, WasGoId p_point);
+void _wasgo_Node2D_wrapper_look_at(WasGoId wasgo_id, const uint8_t * p_point, int p_point_wasgo_buffer_size);
 void _wasgo_Node2D_wrapper_move_local_x(WasGoId wasgo_id, float p_delta, bool p_scaled);
 void _wasgo_Node2D_wrapper_move_local_y(WasGoId wasgo_id, float p_delta, bool p_scaled);
 void _wasgo_Node2D_wrapper_rotate(WasGoId wasgo_id, float p_radians);
-void _wasgo_Node2D_wrapper_set_global_position(WasGoId wasgo_id, WasGoId p_position);
+void _wasgo_Node2D_wrapper_set_global_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 void _wasgo_Node2D_wrapper_set_global_rotation(WasGoId wasgo_id, float p_radians);
 void _wasgo_Node2D_wrapper_set_global_rotation_degrees(WasGoId wasgo_id, float p_degrees);
-void _wasgo_Node2D_wrapper_set_global_scale(WasGoId wasgo_id, WasGoId p_scale);
-void _wasgo_Node2D_wrapper_set_global_transform(WasGoId wasgo_id, WasGoId p_xform);
-void _wasgo_Node2D_wrapper_set_position(WasGoId wasgo_id, WasGoId p_position);
+void _wasgo_Node2D_wrapper_set_global_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
+void _wasgo_Node2D_wrapper_set_global_transform(WasGoId wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
+void _wasgo_Node2D_wrapper_set_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 void _wasgo_Node2D_wrapper_set_rotation(WasGoId wasgo_id, float p_radians);
 void _wasgo_Node2D_wrapper_set_rotation_degrees(WasGoId wasgo_id, float p_degrees);
-void _wasgo_Node2D_wrapper_set_scale(WasGoId wasgo_id, WasGoId p_scale);
-void _wasgo_Node2D_wrapper_set_transform(WasGoId wasgo_id, WasGoId p_xform);
+void _wasgo_Node2D_wrapper_set_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
+void _wasgo_Node2D_wrapper_set_transform(WasGoId wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
 void _wasgo_Node2D_wrapper_set_z_as_relative(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Node2D_wrapper_set_z_index(WasGoId wasgo_id, int p_z_index);
-WasGoId _wasgo_Node2D_wrapper_to_global(WasGoId wasgo_id, WasGoId p_local_point);
-WasGoId _wasgo_Node2D_wrapper_to_local(WasGoId wasgo_id, WasGoId p_global_point);
-void _wasgo_Node2D_wrapper_translate(WasGoId wasgo_id, WasGoId p_offset);
+void _wasgo_Node2D_wrapper_to_global(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_local_point, int p_local_point_wasgo_buffer_size);
+void _wasgo_Node2D_wrapper_to_local(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_global_point, int p_global_point_wasgo_buffer_size);
+void _wasgo_Node2D_wrapper_translate(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Node2D_constructor();
+    void _wasgo_Node2D_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

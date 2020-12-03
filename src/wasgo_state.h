@@ -25,8 +25,8 @@ class WasGoState : public Node {
 	//Properties
 	Ref<WasmResource> wasm_script;
 	Dictionary properties = {}; //Properties to be passed to the script when it starts up
-	uint32_t stack_size = 8192;
-	uint32_t heap_size = 8192;
+	uint32_t stack_size = 8192000;
+	uint32_t heap_size = 8192000;
 
 public:
 	enum InterpolationType {
@@ -128,5 +128,7 @@ private:
 	// HashMap<WasGoID, int> referencedArraysCounts;
 	// HashMap<WasGoID, int> referencedDictionaryCounts;
 };
+
+WasGoState::WasGoID _wasgo_this_node(wasm_exec_env_t exec_env);
 
 #endif

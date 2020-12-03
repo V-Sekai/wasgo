@@ -1,7 +1,14 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "Skin.h"
 void Skin::add_bind(int p_bone, Transform p_pose){
-	_wasgo_Skin_wrapper_add_bind(wasgo_id, p_bone, ((Variant) p_pose).get_wasgo_id());
+
+    Variant wasgo_var_pose = p_pose;
+    uint8_t wasgo_buffer_pose[52];
+    int wasgo_size_pose = 52;
+    encode_variant(wasgo_var_pose, wasgo_buffer_pose, wasgo_size_pose);
+    
+	_wasgo_Skin_wrapper_add_bind(wasgo_id, p_bone, wasgo_buffer_pose, wasgo_size_pose);
 }
 void Skin::clear_binds(){
 	_wasgo_Skin_wrapper_clear_binds(wasgo_id);
@@ -13,10 +20,24 @@ int Skin::get_bind_count(){
 	return (int) _wasgo_Skin_wrapper_get_bind_count(wasgo_id);
 }
 String Skin::get_bind_name(int p_bind_index){
-	return String::from_wasgo_id(_wasgo_Skin_wrapper_get_bind_name(wasgo_id, p_bind_index));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_Skin_wrapper_get_bind_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_bind_index);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 Transform Skin::get_bind_pose(int p_bind_index){
-	return Transform::from_wasgo_id(_wasgo_Skin_wrapper_get_bind_pose(wasgo_id, p_bind_index));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 52;
+    uint8_t wasgo_ret_buffer[52];
+    _wasgo_Skin_wrapper_get_bind_pose(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_bind_index);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (Transform) wasgo_ret;
+    
 }
 void Skin::set_bind_bone(int p_bind_index, int p_bone){
 	_wasgo_Skin_wrapper_set_bind_bone(wasgo_id, p_bind_index, p_bone);
@@ -25,8 +46,29 @@ void Skin::set_bind_count(int p_bind_count){
 	_wasgo_Skin_wrapper_set_bind_count(wasgo_id, p_bind_count);
 }
 void Skin::set_bind_name(int p_bind_index, String p_name){
-	_wasgo_Skin_wrapper_set_bind_name(wasgo_id, p_bind_index, ((Variant) p_name).get_wasgo_id());
+
+    Variant wasgo_var_name = p_name;
+    uint8_t wasgo_buffer_name[256];
+    int wasgo_size_name = 256;
+    encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
+    
+	_wasgo_Skin_wrapper_set_bind_name(wasgo_id, p_bind_index, wasgo_buffer_name, wasgo_size_name);
 }
 void Skin::set_bind_pose(int p_bind_index, Transform p_pose){
-	_wasgo_Skin_wrapper_set_bind_pose(wasgo_id, p_bind_index, ((Variant) p_pose).get_wasgo_id());
+
+    Variant wasgo_var_pose = p_pose;
+    uint8_t wasgo_buffer_pose[52];
+    int wasgo_size_pose = 52;
+    encode_variant(wasgo_var_pose, wasgo_buffer_pose, wasgo_size_pose);
+    
+	_wasgo_Skin_wrapper_set_bind_pose(wasgo_id, p_bind_index, wasgo_buffer_pose, wasgo_size_pose);
+}
+
+Skin::Skin(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+}
+Skin::Skin(){
+    wasgo_id = _wasgo_Skin_constructor();
+}
+Skin::~Skin(){
+    _wasgo_Skin_destructor(wasgo_id);
 }

@@ -2,7 +2,6 @@
 #ifndef VISUALSHADERNODESCALARDERIVATIVEFUNC_H
 #define VISUALSHADERNODESCALARDERIVATIVEFUNC_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "VisualShaderNode.h"
@@ -16,7 +15,10 @@ FUNC_Y
 VisualShaderNodeScalarDerivativeFunc::Function get_function();
 void set_function(VisualShaderNodeScalarDerivativeFunc::Function p_func);
 
+protected:
 VisualShaderNodeScalarDerivativeFunc(WasGoId p_wasgo_id);
+public:
+VisualShaderNodeScalarDerivativeFunc();
 ~VisualShaderNodeScalarDerivativeFunc();
             
 };
@@ -26,5 +28,10 @@ VisualShaderNodeScalarDerivativeFunc(WasGoId p_wasgo_id);
 extern "C"{
 WasGoId _wasgo_VisualShaderNodeScalarDerivativeFunc_wrapper_get_function(WasGoId wasgo_id);
 void _wasgo_VisualShaderNodeScalarDerivativeFunc_wrapper_set_function(WasGoId wasgo_id, WasGoId p_func);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VisualShaderNodeScalarDerivativeFunc_constructor();
+    void _wasgo_VisualShaderNodeScalarDerivativeFunc_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

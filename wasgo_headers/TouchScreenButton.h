@@ -2,14 +2,13 @@
 #ifndef TOUCHSCREENBUTTON_H
 #define TOUCHSCREENBUTTON_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "Node2D.h"
-#include "Shape2D.h"
 #include "BitMap.h"
+#include "Texture.h"
 #include "ustring.h"
+#include "Shape2D.h"
 class TouchScreenButton : public Node2D{
 public:
 enum VisibilityMode{
@@ -36,7 +35,10 @@ void set_texture(Texture p_texture);
 void set_texture_pressed(Texture p_texture_pressed);
 void set_visibility_mode(TouchScreenButton::VisibilityMode p_mode);
 
+protected:
 TouchScreenButton(WasGoId p_wasgo_id);
+public:
+TouchScreenButton();
 ~TouchScreenButton();
             
 };
@@ -44,7 +46,7 @@ TouchScreenButton(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_TouchScreenButton_wrapper_get_action(WasGoId wasgo_id);
+void _wasgo_TouchScreenButton_wrapper_get_action(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoId _wasgo_TouchScreenButton_wrapper_get_bitmask(WasGoId wasgo_id);
 WasGoId _wasgo_TouchScreenButton_wrapper_get_shape(WasGoId wasgo_id);
 WasGoId _wasgo_TouchScreenButton_wrapper_get_texture(WasGoId wasgo_id);
@@ -54,7 +56,7 @@ int _wasgo_TouchScreenButton_wrapper_is_passby_press_enabled(WasGoId wasgo_id);
 int _wasgo_TouchScreenButton_wrapper_is_pressed(WasGoId wasgo_id);
 int _wasgo_TouchScreenButton_wrapper_is_shape_centered(WasGoId wasgo_id);
 int _wasgo_TouchScreenButton_wrapper_is_shape_visible(WasGoId wasgo_id);
-void _wasgo_TouchScreenButton_wrapper_set_action(WasGoId wasgo_id, WasGoId p_action);
+void _wasgo_TouchScreenButton_wrapper_set_action(WasGoId wasgo_id, const uint8_t * p_action, int p_action_wasgo_buffer_size);
 void _wasgo_TouchScreenButton_wrapper_set_bitmask(WasGoId wasgo_id, WasGoId p_bitmask);
 void _wasgo_TouchScreenButton_wrapper_set_passby_press(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_TouchScreenButton_wrapper_set_shape(WasGoId wasgo_id, WasGoId p_shape);
@@ -63,5 +65,10 @@ void _wasgo_TouchScreenButton_wrapper_set_shape_visible(WasGoId wasgo_id, bool p
 void _wasgo_TouchScreenButton_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_TouchScreenButton_wrapper_set_texture_pressed(WasGoId wasgo_id, WasGoId p_texture_pressed);
 void _wasgo_TouchScreenButton_wrapper_set_visibility_mode(WasGoId wasgo_id, WasGoId p_mode);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_TouchScreenButton_constructor();
+    void _wasgo_TouchScreenButton_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

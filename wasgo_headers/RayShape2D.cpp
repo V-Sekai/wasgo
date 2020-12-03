@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "RayShape2D.h"
 float RayShape2D::get_length(){
 	return (float) _wasgo_RayShape2D_wrapper_get_length(wasgo_id);
@@ -11,4 +12,13 @@ void RayShape2D::set_length(float p_length){
 }
 void RayShape2D::set_slips_on_slope(bool p_active){
 	_wasgo_RayShape2D_wrapper_set_slips_on_slope(wasgo_id, p_active);
+}
+
+RayShape2D::RayShape2D(WasGoId p_wasgo_id) : Shape2D(p_wasgo_id){
+}
+RayShape2D::RayShape2D(){
+    wasgo_id = _wasgo_RayShape2D_constructor();
+}
+RayShape2D::~RayShape2D(){
+    _wasgo_RayShape2D_destructor(wasgo_id);
 }

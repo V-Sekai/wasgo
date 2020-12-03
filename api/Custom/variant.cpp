@@ -35,12 +35,12 @@
 #include "math_funcs.h"
 #include "object_rc.h"
 // #include "print_string.h"
-#include "Resource.h"
+// #include "Resource.h"
 // #include "variant_parser.h"
 // #include "scene/gui/control.h"
 // #include "scene/main/node.h"
 #include "Node.h"
-#include "Control.h"
+// #include "Control.h"
 
 String Variant::get_type_name(Variant::Type p_type) {
 
@@ -1421,6 +1421,7 @@ struct _VariantStrPair {
 };
 
 Variant::operator String() const {
+
 	List<const void *> stack;
 
 	return stringify(stack);
@@ -1794,13 +1795,13 @@ Variant::operator NodePath() const {
 // 	}
 // }
 
-Variant::operator Object *() const {
+// Variant::operator Object *() const {
 
-	if (type == OBJECT)
-		return _OBJ_PTR(*this);
-	else
-		return NULL;
-}
+// 	if (type == OBJECT)
+// 		return _OBJ_PTR(*this);
+// 	else
+// 		return NULL;
+// }
 // Variant::operator Node *() const {
 
 // 	if (type == OBJECT) {

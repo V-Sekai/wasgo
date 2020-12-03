@@ -49,7 +49,7 @@ if (wasm != nullptr){
 
 WasGoRuntime::WasGoRuntime() {
 	singleton = this;
-	singleton->initialize(native_symbols);
+	singleton->initialize(native_symbols, sizeof(native_symbols) / sizeof(NativeSymbol));
 }
 
 WasGoRuntime::~WasGoRuntime() {
@@ -65,7 +65,7 @@ WasGoRuntime::~WasGoRuntime() {
   wasm_runtime_destroy();
 }
 
-void WasGoRuntime::initialize(NativeSymbol native_symbols[]) {
+void WasGoRuntime::initialize(NativeSymbol symbols[], int native_symbol_size) {
 	memset(&init_args, 0, sizeof(RuntimeInitArgs));
 
 	init_args.mem_alloc_type = Alloc_With_Pool;
@@ -73,9 +73,9 @@ void WasGoRuntime::initialize(NativeSymbol native_symbols[]) {
 	init_args.mem_alloc_option.pool.heap_size = sizeof(WasGoRuntime::global_heap_buf);
 
 	// Native symbols need below registration phase
-	init_args.n_native_symbols = sizeof(native_symbols) / sizeof(NativeSymbol);
+	init_args.n_native_symbols = native_symbol_size;
 	init_args.native_module_name = "env";
-	init_args.native_symbols = native_symbols;
+	init_args.native_symbols = symbols;
 
 	if (!wasm_runtime_full_init(&init_args)) {
 		printf("Init runtime environment failed.\n");

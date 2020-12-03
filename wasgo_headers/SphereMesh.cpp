@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "SphereMesh.h"
 float SphereMesh::get_height(){
 	return (float) _wasgo_SphereMesh_wrapper_get_height(wasgo_id);
@@ -29,4 +30,13 @@ void SphereMesh::set_radius(float p_radius){
 }
 void SphereMesh::set_rings(int p_rings){
 	_wasgo_SphereMesh_wrapper_set_rings(wasgo_id, p_rings);
+}
+
+SphereMesh::SphereMesh(WasGoId p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
+}
+SphereMesh::SphereMesh(){
+    wasgo_id = _wasgo_SphereMesh_constructor();
+}
+SphereMesh::~SphereMesh(){
+    _wasgo_SphereMesh_destructor(wasgo_id);
 }

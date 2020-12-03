@@ -2,7 +2,6 @@
 #ifndef INPUTEVENTMOUSE_H
 #define INPUTEVENTMOUSE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Vector2.h"
@@ -21,10 +20,15 @@ void set_position(Vector2 p_position);
 //Wrapper Functions
 extern "C"{
 int _wasgo_InputEventMouse_wrapper_get_button_mask(WasGoId wasgo_id);
-WasGoId _wasgo_InputEventMouse_wrapper_get_global_position(WasGoId wasgo_id);
-WasGoId _wasgo_InputEventMouse_wrapper_get_position(WasGoId wasgo_id);
+void _wasgo_InputEventMouse_wrapper_get_global_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_InputEventMouse_wrapper_get_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_InputEventMouse_wrapper_set_button_mask(WasGoId wasgo_id, int p_button_mask);
-void _wasgo_InputEventMouse_wrapper_set_global_position(WasGoId wasgo_id, WasGoId p_global_position);
-void _wasgo_InputEventMouse_wrapper_set_position(WasGoId wasgo_id, WasGoId p_position);
+void _wasgo_InputEventMouse_wrapper_set_global_position(WasGoId wasgo_id, const uint8_t * p_global_position, int p_global_position_wasgo_buffer_size);
+void _wasgo_InputEventMouse_wrapper_set_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_InputEventMouse_constructor();
+    void _wasgo_InputEventMouse_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,14 +2,16 @@
 #ifndef VSLIDER_H
 #define VSLIDER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Slider.h"
 class VSlider : public Slider{
 public:
 
+protected:
 VSlider(WasGoId p_wasgo_id);
+public:
+VSlider();
 ~VSlider();
             
 };
@@ -17,5 +19,10 @@ VSlider(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VSlider_constructor();
+    void _wasgo_VSlider_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

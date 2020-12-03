@@ -54,8 +54,8 @@
 
 class Object;
 class ObjectRC;
-class Node; // helper
-class Control; // helper
+// class Node; // helper
+// class Control; // helper
 
 struct PropertyInfo;
 struct MethodInfo;
@@ -227,9 +227,9 @@ public:
 	// operator RefPtr() const;
 	operator RID() const;
 
-	operator Object *() const;
-	operator Node *() const;
-	operator Control *() const;
+	operator Object() const;
+	// operator Node *() const;
+	// operator Control *() const;
 
 	operator Dictionary() const;
 	operator Array() const;

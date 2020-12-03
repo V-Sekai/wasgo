@@ -2,7 +2,6 @@
 #ifndef RANDOMNUMBERGENERATOR_H
 #define RANDOMNUMBERGENERATOR_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Reference.h"
@@ -17,7 +16,10 @@ int randi_range(int p_from, int p_to);
 void randomize();
 void set_seed(int p_seed);
 
+protected:
 RandomNumberGenerator(WasGoId p_wasgo_id);
+public:
+RandomNumberGenerator();
 ~RandomNumberGenerator();
             
 };
@@ -33,5 +35,10 @@ int _wasgo_RandomNumberGenerator_wrapper_randi(WasGoId wasgo_id);
 int _wasgo_RandomNumberGenerator_wrapper_randi_range(WasGoId wasgo_id, int p_from, int p_to);
 void _wasgo_RandomNumberGenerator_wrapper_randomize(WasGoId wasgo_id);
 void _wasgo_RandomNumberGenerator_wrapper_set_seed(WasGoId wasgo_id, int p_seed);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_RandomNumberGenerator_constructor();
+    void _wasgo_RandomNumberGenerator_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

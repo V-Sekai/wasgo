@@ -112,5 +112,5 @@ module_env.Append(CPPDEFINES=[
   ("WASM_ENABLE_MINI_LOADER", 0),
   ("WASM_ENABLE_MULTI_MODULE", 0),
   ("WASM_ENABLE_SHARED_MEMORY", 0),
-  # ("WASGO_API_GENERATION", "wasgo_api.json"), # will default to wasgo_api.json if no filename is provided
+  #("WASGO_API_GENERATION", "wasgo_api2.json"), # will default to wasgo_api.json if no filename is provided
 ])

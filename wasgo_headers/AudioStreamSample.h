@@ -2,13 +2,12 @@
 #ifndef AUDIOSTREAMSAMPLE_H
 #define AUDIOSTREAMSAMPLE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "ustring.h"
-#include "AudioStream.h"
 #include "error_list.h"
+#include "Variant.h"
+#include "AudioStream.h"
+#include "ustring.h"
 class AudioStreamSample : public AudioStream{
 public:
 enum Format{
@@ -38,7 +37,10 @@ void set_loop_mode(AudioStreamSample::LoopMode p_loop_mode);
 void set_mix_rate(int p_mix_rate);
 void set_stereo(bool p_stereo);
 
+protected:
 AudioStreamSample(WasGoId p_wasgo_id);
+public:
+AudioStreamSample();
 ~AudioStreamSample();
             
 };
@@ -53,7 +55,7 @@ int _wasgo_AudioStreamSample_wrapper_get_loop_end(WasGoId wasgo_id);
 WasGoId _wasgo_AudioStreamSample_wrapper_get_loop_mode(WasGoId wasgo_id);
 int _wasgo_AudioStreamSample_wrapper_get_mix_rate(WasGoId wasgo_id);
 int _wasgo_AudioStreamSample_wrapper_is_stereo(WasGoId wasgo_id);
-WasGoId _wasgo_AudioStreamSample_wrapper_save_to_wav(WasGoId wasgo_id, WasGoId p_path);
+WasGoId _wasgo_AudioStreamSample_wrapper_save_to_wav(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
 void _wasgo_AudioStreamSample_wrapper_set_data(WasGoId wasgo_id, WasGoId p_data);
 void _wasgo_AudioStreamSample_wrapper_set_format(WasGoId wasgo_id, WasGoId p_format);
 void _wasgo_AudioStreamSample_wrapper_set_loop_begin(WasGoId wasgo_id, int p_loop_begin);
@@ -61,5 +63,10 @@ void _wasgo_AudioStreamSample_wrapper_set_loop_end(WasGoId wasgo_id, int p_loop_
 void _wasgo_AudioStreamSample_wrapper_set_loop_mode(WasGoId wasgo_id, WasGoId p_loop_mode);
 void _wasgo_AudioStreamSample_wrapper_set_mix_rate(WasGoId wasgo_id, int p_mix_rate);
 void _wasgo_AudioStreamSample_wrapper_set_stereo(WasGoId wasgo_id, bool p_stereo);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioStreamSample_constructor();
+    void _wasgo_AudioStreamSample_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

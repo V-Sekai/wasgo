@@ -1,13 +1,14 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "NavigationMesh.h"
 void NavigationMesh::add_polygon(PoolIntArray p_polygon){
-	_wasgo_NavigationMesh_wrapper_add_polygon(wasgo_id, ((Variant) p_polygon).get_wasgo_id());
+	_wasgo_NavigationMesh_wrapper_add_polygon(wasgo_id, p_polygon._get_wasgo_id());
 }
 void NavigationMesh::clear_polygons(){
 	_wasgo_NavigationMesh_wrapper_clear_polygons(wasgo_id);
 }
 void NavigationMesh::create_from_mesh(Mesh p_mesh){
-	_wasgo_NavigationMesh_wrapper_create_from_mesh(wasgo_id, ((Variant) p_mesh).get_wasgo_id());
+	_wasgo_NavigationMesh_wrapper_create_from_mesh(wasgo_id, p_mesh._get_wasgo_id());
 }
 float NavigationMesh::get_agent_height(){
 	return (float) _wasgo_NavigationMesh_wrapper_get_agent_height(wasgo_id);
@@ -58,7 +59,7 @@ int NavigationMesh::get_parsed_geometry_type(){
 	return (int) _wasgo_NavigationMesh_wrapper_get_parsed_geometry_type(wasgo_id);
 }
 PoolIntArray NavigationMesh::get_polygon(int p_idx){
-	return PoolIntArray::from_wasgo_id(_wasgo_NavigationMesh_wrapper_get_polygon(wasgo_id, p_idx));
+	return PoolIntArray(_wasgo_NavigationMesh_wrapper_get_polygon(wasgo_id, p_idx));
 }
 int NavigationMesh::get_polygon_count(){
 	return (int) _wasgo_NavigationMesh_wrapper_get_polygon_count(wasgo_id);
@@ -76,10 +77,17 @@ int NavigationMesh::get_source_geometry_mode(){
 	return (int) _wasgo_NavigationMesh_wrapper_get_source_geometry_mode(wasgo_id);
 }
 String NavigationMesh::get_source_group_name(){
-	return String::from_wasgo_id(_wasgo_NavigationMesh_wrapper_get_source_group_name(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_NavigationMesh_wrapper_get_source_group_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 PoolVector3Array NavigationMesh::get_vertices(){
-	return PoolVector3Array::from_wasgo_id(_wasgo_NavigationMesh_wrapper_get_vertices(wasgo_id));
+	return PoolVector3Array(_wasgo_NavigationMesh_wrapper_get_vertices(wasgo_id));
 }
 float NavigationMesh::get_verts_per_poly(){
 	return (float) _wasgo_NavigationMesh_wrapper_get_verts_per_poly(wasgo_id);
@@ -145,11 +153,26 @@ void NavigationMesh::set_source_geometry_mode(int p_mask){
 	_wasgo_NavigationMesh_wrapper_set_source_geometry_mode(wasgo_id, p_mask);
 }
 void NavigationMesh::set_source_group_name(String p_mask){
-	_wasgo_NavigationMesh_wrapper_set_source_group_name(wasgo_id, ((Variant) p_mask).get_wasgo_id());
+
+    Variant wasgo_var_mask = p_mask;
+    uint8_t wasgo_buffer_mask[256];
+    int wasgo_size_mask = 256;
+    encode_variant(wasgo_var_mask, wasgo_buffer_mask, wasgo_size_mask);
+    
+	_wasgo_NavigationMesh_wrapper_set_source_group_name(wasgo_id, wasgo_buffer_mask, wasgo_size_mask);
 }
 void NavigationMesh::set_vertices(PoolVector3Array p_vertices){
-	_wasgo_NavigationMesh_wrapper_set_vertices(wasgo_id, ((Variant) p_vertices).get_wasgo_id());
+	_wasgo_NavigationMesh_wrapper_set_vertices(wasgo_id, p_vertices._get_wasgo_id());
 }
 void NavigationMesh::set_verts_per_poly(float p_verts_per_poly){
 	_wasgo_NavigationMesh_wrapper_set_verts_per_poly(wasgo_id, p_verts_per_poly);
+}
+
+NavigationMesh::NavigationMesh(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+}
+NavigationMesh::NavigationMesh(){
+    wasgo_id = _wasgo_NavigationMesh_constructor();
+}
+NavigationMesh::~NavigationMesh(){
+    _wasgo_NavigationMesh_destructor(wasgo_id);
 }

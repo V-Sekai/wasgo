@@ -2,7 +2,6 @@
 #ifndef PHYSICSMATERIAL_H
 #define PHYSICSMATERIAL_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Resource.h"
@@ -17,7 +16,10 @@ void set_bounce(float p_bounce);
 void set_friction(float p_friction);
 void set_rough(bool p_rough);
 
+protected:
 PhysicsMaterial(WasGoId p_wasgo_id);
+public:
+PhysicsMaterial();
 ~PhysicsMaterial();
             
 };
@@ -33,5 +35,10 @@ void _wasgo_PhysicsMaterial_wrapper_set_absorbent(WasGoId wasgo_id, bool p_absor
 void _wasgo_PhysicsMaterial_wrapper_set_bounce(WasGoId wasgo_id, float p_bounce);
 void _wasgo_PhysicsMaterial_wrapper_set_friction(WasGoId wasgo_id, float p_friction);
 void _wasgo_PhysicsMaterial_wrapper_set_rough(WasGoId wasgo_id, bool p_rough);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_PhysicsMaterial_constructor();
+    void _wasgo_PhysicsMaterial_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

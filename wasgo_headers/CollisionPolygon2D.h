@@ -2,11 +2,10 @@
 #ifndef COLLISIONPOLYGON2D_H
 #define COLLISIONPOLYGON2D_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Node2D.h"
+#include "Variant.h"
 class CollisionPolygon2D : public Node2D{
 public:
 enum BuildMode{
@@ -24,7 +23,10 @@ void set_one_way_collision(bool p_enabled);
 void set_one_way_collision_margin(float p_margin);
 void set_polygon(PoolVector2Array p_polygon);
 
+protected:
 CollisionPolygon2D(WasGoId p_wasgo_id);
+public:
+CollisionPolygon2D();
 ~CollisionPolygon2D();
             
 };
@@ -42,5 +44,10 @@ void _wasgo_CollisionPolygon2D_wrapper_set_disabled(WasGoId wasgo_id, bool p_dis
 void _wasgo_CollisionPolygon2D_wrapper_set_one_way_collision(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_CollisionPolygon2D_wrapper_set_one_way_collision_margin(WasGoId wasgo_id, float p_margin);
 void _wasgo_CollisionPolygon2D_wrapper_set_polygon(WasGoId wasgo_id, WasGoId p_polygon);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_CollisionPolygon2D_constructor();
+    void _wasgo_CollisionPolygon2D_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

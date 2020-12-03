@@ -36,13 +36,10 @@
 class Object{
 protected:
 	WasGoId wasgo_id;
-	Object(WasGoId p_wasgo_id){
-		wasgo_id = p_wasgo_id;
-	}
+	Object(WasGoId p_wasgo_id);
+
 public:
-	Object(){
-		//TODO call wrapper function that makes a new object file and returns the new id. Then put that id in the object
-	}
+	Object();
 	~Object();
 
 	static Object _from_wasgo_id(WasGoId p_wasgo_id);

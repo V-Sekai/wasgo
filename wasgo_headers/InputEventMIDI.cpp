@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "InputEventMIDI.h"
 int InputEventMIDI::get_channel(){
 	return (int) _wasgo_InputEventMIDI_wrapper_get_channel(wasgo_id);
@@ -47,4 +48,13 @@ void InputEventMIDI::set_pressure(int p_pressure){
 }
 void InputEventMIDI::set_velocity(int p_velocity){
 	_wasgo_InputEventMIDI_wrapper_set_velocity(wasgo_id, p_velocity);
+}
+
+InputEventMIDI::InputEventMIDI(WasGoId p_wasgo_id) : InputEvent(p_wasgo_id){
+}
+InputEventMIDI::InputEventMIDI(){
+    wasgo_id = _wasgo_InputEventMIDI_constructor();
+}
+InputEventMIDI::~InputEventMIDI(){
+    _wasgo_InputEventMIDI_destructor(wasgo_id);
 }

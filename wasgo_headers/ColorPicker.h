@@ -2,7 +2,6 @@
 #ifndef COLORPICKER_H
 #define COLORPICKER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Color.h"
@@ -28,7 +27,10 @@ void set_presets_enabled(bool p_enabled);
 void set_presets_visible(bool p_visible);
 void set_raw_mode(bool p_mode);
 
+protected:
 ColorPicker(WasGoId p_wasgo_id);
+public:
+ColorPicker();
 ~ColorPicker();
             
 };
@@ -36,11 +38,11 @@ ColorPicker(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ColorPicker_wrapper_add_preset(WasGoId wasgo_id, WasGoId p_color);
+void _wasgo_ColorPicker_wrapper_add_preset(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 int _wasgo_ColorPicker_wrapper_are_presets_enabled(WasGoId wasgo_id);
 int _wasgo_ColorPicker_wrapper_are_presets_visible(WasGoId wasgo_id);
-void _wasgo_ColorPicker_wrapper_erase_preset(WasGoId wasgo_id, WasGoId p_color);
-WasGoId _wasgo_ColorPicker_wrapper_get_pick_color(WasGoId wasgo_id);
+void _wasgo_ColorPicker_wrapper_erase_preset(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_ColorPicker_wrapper_get_pick_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoId _wasgo_ColorPicker_wrapper_get_presets(WasGoId wasgo_id);
 int _wasgo_ColorPicker_wrapper_is_deferred_mode(WasGoId wasgo_id);
 int _wasgo_ColorPicker_wrapper_is_editing_alpha(WasGoId wasgo_id);
@@ -49,9 +51,14 @@ int _wasgo_ColorPicker_wrapper_is_raw_mode(WasGoId wasgo_id);
 void _wasgo_ColorPicker_wrapper_set_deferred_mode(WasGoId wasgo_id, bool p_mode);
 void _wasgo_ColorPicker_wrapper_set_edit_alpha(WasGoId wasgo_id, bool p_show);
 void _wasgo_ColorPicker_wrapper_set_hsv_mode(WasGoId wasgo_id, bool p_mode);
-void _wasgo_ColorPicker_wrapper_set_pick_color(WasGoId wasgo_id, WasGoId p_color);
+void _wasgo_ColorPicker_wrapper_set_pick_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 void _wasgo_ColorPicker_wrapper_set_presets_enabled(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_ColorPicker_wrapper_set_presets_visible(WasGoId wasgo_id, bool p_visible);
 void _wasgo_ColorPicker_wrapper_set_raw_mode(WasGoId wasgo_id, bool p_mode);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_ColorPicker_constructor();
+    void _wasgo_ColorPicker_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

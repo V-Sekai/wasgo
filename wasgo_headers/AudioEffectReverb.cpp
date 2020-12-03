@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "AudioEffectReverb.h"
 float AudioEffectReverb::get_damping(){
 	return (float) _wasgo_AudioEffectReverb_wrapper_get_damping(wasgo_id);
@@ -47,4 +48,13 @@ void AudioEffectReverb::set_spread(float p_amount){
 }
 void AudioEffectReverb::set_wet(float p_amount){
 	_wasgo_AudioEffectReverb_wrapper_set_wet(wasgo_id, p_amount);
+}
+
+AudioEffectReverb::AudioEffectReverb(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+}
+AudioEffectReverb::AudioEffectReverb(){
+    wasgo_id = _wasgo_AudioEffectReverb_constructor();
+}
+AudioEffectReverb::~AudioEffectReverb(){
+    _wasgo_AudioEffectReverb_destructor(wasgo_id);
 }

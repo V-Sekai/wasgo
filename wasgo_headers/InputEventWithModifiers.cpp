@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "InputEventWithModifiers.h"
 bool InputEventWithModifiers::get_alt(){
 	return (bool) _wasgo_InputEventWithModifiers_wrapper_get_alt(wasgo_id);

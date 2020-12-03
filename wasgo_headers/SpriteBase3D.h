@@ -2,16 +2,15 @@
 #ifndef SPRITEBASE3D_H
 #define SPRITEBASE3D_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "Color.h"
 #include "Vector2.h"
-#include "Rect2.h"
+#include "SpatialMaterial.h"
 #include "GeometryInstance.h"
 #include "Vector3.h"
 #include "TriangleMesh.h"
-#include "Color.h"
-#include "SpatialMaterial.h"
+#include "Rect2.h"
 class SpriteBase3D : public GeometryInstance{
 public:
 enum AlphaCutMode{
@@ -59,9 +58,9 @@ WasGoId _wasgo_SpriteBase3D_wrapper_get_alpha_cut_mode(WasGoId wasgo_id);
 WasGoId _wasgo_SpriteBase3D_wrapper_get_axis(WasGoId wasgo_id);
 WasGoId _wasgo_SpriteBase3D_wrapper_get_billboard_mode(WasGoId wasgo_id);
 int _wasgo_SpriteBase3D_wrapper_get_draw_flag(WasGoId wasgo_id, WasGoId p_flag);
-WasGoId _wasgo_SpriteBase3D_wrapper_get_item_rect(WasGoId wasgo_id);
-WasGoId _wasgo_SpriteBase3D_wrapper_get_modulate(WasGoId wasgo_id);
-WasGoId _wasgo_SpriteBase3D_wrapper_get_offset(WasGoId wasgo_id);
+void _wasgo_SpriteBase3D_wrapper_get_item_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_SpriteBase3D_wrapper_get_modulate(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_SpriteBase3D_wrapper_get_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_SpriteBase3D_wrapper_get_opacity(WasGoId wasgo_id);
 float _wasgo_SpriteBase3D_wrapper_get_pixel_size(WasGoId wasgo_id);
 int _wasgo_SpriteBase3D_wrapper_is_centered(WasGoId wasgo_id);
@@ -74,9 +73,14 @@ void _wasgo_SpriteBase3D_wrapper_set_centered(WasGoId wasgo_id, bool p_centered)
 void _wasgo_SpriteBase3D_wrapper_set_draw_flag(WasGoId wasgo_id, WasGoId p_flag, bool p_enabled);
 void _wasgo_SpriteBase3D_wrapper_set_flip_h(WasGoId wasgo_id, bool p_flip_h);
 void _wasgo_SpriteBase3D_wrapper_set_flip_v(WasGoId wasgo_id, bool p_flip_v);
-void _wasgo_SpriteBase3D_wrapper_set_modulate(WasGoId wasgo_id, WasGoId p_modulate);
-void _wasgo_SpriteBase3D_wrapper_set_offset(WasGoId wasgo_id, WasGoId p_offset);
+void _wasgo_SpriteBase3D_wrapper_set_modulate(WasGoId wasgo_id, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size);
+void _wasgo_SpriteBase3D_wrapper_set_offset(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
 void _wasgo_SpriteBase3D_wrapper_set_opacity(WasGoId wasgo_id, float p_opacity);
 void _wasgo_SpriteBase3D_wrapper_set_pixel_size(WasGoId wasgo_id, float p_pixel_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_SpriteBase3D_constructor();
+    void _wasgo_SpriteBase3D_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

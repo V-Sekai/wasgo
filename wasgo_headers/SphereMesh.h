@@ -2,7 +2,6 @@
 #ifndef SPHEREMESH_H
 #define SPHEREMESH_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "PrimitiveMesh.h"
@@ -19,7 +18,10 @@ void set_radial_segments(int p_radial_segments);
 void set_radius(float p_radius);
 void set_rings(int p_rings);
 
+protected:
 SphereMesh(WasGoId p_wasgo_id);
+public:
+SphereMesh();
 ~SphereMesh();
             
 };
@@ -37,5 +39,10 @@ void _wasgo_SphereMesh_wrapper_set_is_hemisphere(WasGoId wasgo_id, bool p_is_hem
 void _wasgo_SphereMesh_wrapper_set_radial_segments(WasGoId wasgo_id, int p_radial_segments);
 void _wasgo_SphereMesh_wrapper_set_radius(WasGoId wasgo_id, float p_radius);
 void _wasgo_SphereMesh_wrapper_set_rings(WasGoId wasgo_id, int p_rings);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_SphereMesh_constructor();
+    void _wasgo_SphereMesh_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

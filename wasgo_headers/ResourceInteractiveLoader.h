@@ -2,11 +2,10 @@
 #ifndef RESOURCEINTERACTIVELOADER_H
 #define RESOURCEINTERACTIVELOADER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "error_list.h"
+#include "Reference.h"
 #include "Resource.h"
 class ResourceInteractiveLoader : public Reference{
 public:
@@ -25,5 +24,10 @@ int _wasgo_ResourceInteractiveLoader_wrapper_get_stage(WasGoId wasgo_id);
 int _wasgo_ResourceInteractiveLoader_wrapper_get_stage_count(WasGoId wasgo_id);
 WasGoId _wasgo_ResourceInteractiveLoader_wrapper_poll(WasGoId wasgo_id);
 WasGoId _wasgo_ResourceInteractiveLoader_wrapper_wait(WasGoId wasgo_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_ResourceInteractiveLoader_constructor();
+    void _wasgo_ResourceInteractiveLoader_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

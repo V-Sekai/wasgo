@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "AudioEffectPhaser.h"
 float AudioEffectPhaser::get_depth(){
 	return (float) _wasgo_AudioEffectPhaser_wrapper_get_depth(wasgo_id);
@@ -29,4 +30,13 @@ void AudioEffectPhaser::set_range_min_hz(float p_hz){
 }
 void AudioEffectPhaser::set_rate_hz(float p_hz){
 	_wasgo_AudioEffectPhaser_wrapper_set_rate_hz(wasgo_id, p_hz);
+}
+
+AudioEffectPhaser::AudioEffectPhaser(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+}
+AudioEffectPhaser::AudioEffectPhaser(){
+    wasgo_id = _wasgo_AudioEffectPhaser_constructor();
+}
+AudioEffectPhaser::~AudioEffectPhaser(){
+    _wasgo_AudioEffectPhaser_destructor(wasgo_id);
 }

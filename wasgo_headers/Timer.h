@@ -2,7 +2,6 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Node.h"
@@ -27,7 +26,10 @@ void set_wait_time(float p_time_sec);
 void start(float p_time_sec = (float) -1);
 void stop();
 
+protected:
 Timer(WasGoId p_wasgo_id);
+public:
+Timer();
 ~Timer();
             
 };
@@ -49,5 +51,10 @@ void _wasgo_Timer_wrapper_set_timer_process_mode(WasGoId wasgo_id, WasGoId p_mod
 void _wasgo_Timer_wrapper_set_wait_time(WasGoId wasgo_id, float p_time_sec);
 void _wasgo_Timer_wrapper_start(WasGoId wasgo_id, float p_time_sec);
 void _wasgo_Timer_wrapper_stop(WasGoId wasgo_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Timer_constructor();
+    void _wasgo_Timer_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,7 +2,6 @@
 #ifndef AUDIOEFFECTSTEREOENHANCE_H
 #define AUDIOEFFECTSTEREOENHANCE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AudioEffect.h"
@@ -15,7 +14,10 @@ void set_pan_pullout(float p_amount);
 void set_surround(float p_amount);
 void set_time_pullout(float p_amount);
 
+protected:
 AudioEffectStereoEnhance(WasGoId p_wasgo_id);
+public:
+AudioEffectStereoEnhance();
 ~AudioEffectStereoEnhance();
             
 };
@@ -29,5 +31,10 @@ float _wasgo_AudioEffectStereoEnhance_wrapper_get_time_pullout(WasGoId wasgo_id)
 void _wasgo_AudioEffectStereoEnhance_wrapper_set_pan_pullout(WasGoId wasgo_id, float p_amount);
 void _wasgo_AudioEffectStereoEnhance_wrapper_set_surround(WasGoId wasgo_id, float p_amount);
 void _wasgo_AudioEffectStereoEnhance_wrapper_set_time_pullout(WasGoId wasgo_id, float p_amount);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioEffectStereoEnhance_constructor();
+    void _wasgo_AudioEffectStereoEnhance_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

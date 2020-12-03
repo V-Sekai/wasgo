@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "AnimatedTexture.h"
 int AnimatedTexture::get_current_frame(){
 	return (int) _wasgo_AnimatedTexture_wrapper_get_current_frame(wasgo_id);
@@ -10,7 +11,7 @@ float AnimatedTexture::get_frame_delay(int p_frame){
 	return (float) _wasgo_AnimatedTexture_wrapper_get_frame_delay(wasgo_id, p_frame);
 }
 Texture AnimatedTexture::get_frame_texture(int p_frame){
-	return Texture::from_wasgo_id(_wasgo_AnimatedTexture_wrapper_get_frame_texture(wasgo_id, p_frame));
+	return Texture(_wasgo_AnimatedTexture_wrapper_get_frame_texture(wasgo_id, p_frame));
 }
 int AnimatedTexture::get_frames(){
 	return (int) _wasgo_AnimatedTexture_wrapper_get_frames(wasgo_id);
@@ -31,7 +32,7 @@ void AnimatedTexture::set_frame_delay(int p_frame, float p_delay){
 	_wasgo_AnimatedTexture_wrapper_set_frame_delay(wasgo_id, p_frame, p_delay);
 }
 void AnimatedTexture::set_frame_texture(int p_frame, Texture p_texture){
-	_wasgo_AnimatedTexture_wrapper_set_frame_texture(wasgo_id, p_frame, ((Variant) p_texture).get_wasgo_id());
+	_wasgo_AnimatedTexture_wrapper_set_frame_texture(wasgo_id, p_frame, p_texture._get_wasgo_id());
 }
 void AnimatedTexture::set_frames(int p_frames){
 	_wasgo_AnimatedTexture_wrapper_set_frames(wasgo_id, p_frames);
@@ -41,4 +42,13 @@ void AnimatedTexture::set_oneshot(bool p_oneshot){
 }
 void AnimatedTexture::set_pause(bool p_pause){
 	_wasgo_AnimatedTexture_wrapper_set_pause(wasgo_id, p_pause);
+}
+
+AnimatedTexture::AnimatedTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
+}
+AnimatedTexture::AnimatedTexture(){
+    wasgo_id = _wasgo_AnimatedTexture_constructor();
+}
+AnimatedTexture::~AnimatedTexture(){
+    _wasgo_AnimatedTexture_destructor(wasgo_id);
 }

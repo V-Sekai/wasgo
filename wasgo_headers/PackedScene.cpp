@@ -1,11 +1,24 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "PackedScene.h"
 bool PackedScene::can_instance(){
 	return (bool) _wasgo_PackedScene_wrapper_can_instance(wasgo_id);
 }
+SceneState PackedScene::get_state(){
+	return SceneState(_wasgo_PackedScene_wrapper_get_state(wasgo_id));
+}
 Node PackedScene::instance(PackedScene::GenEditState p_edit_state = (PackedScene::GenEditState) 0){
-	return Node::from_wasgo_id(_wasgo_PackedScene_wrapper_instance(wasgo_id, ((Variant) p_edit_state).get_wasgo_id()));
+	return Node(_wasgo_PackedScene_wrapper_instance(wasgo_id, p_edit_state._get_wasgo_id()));
 }
 Error PackedScene::pack(Node p_path){
-	return Error::from_wasgo_id(_wasgo_PackedScene_wrapper_pack(wasgo_id, ((Variant) p_path).get_wasgo_id()));
+	return Error(_wasgo_PackedScene_wrapper_pack(wasgo_id, p_path._get_wasgo_id()));
+}
+
+PackedScene::PackedScene(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+}
+PackedScene::PackedScene(){
+    wasgo_id = _wasgo_PackedScene_constructor();
+}
+PackedScene::~PackedScene(){
+    _wasgo_PackedScene_destructor(wasgo_id);
 }

@@ -2,6 +2,7 @@
 #include "wasgo_runtime.h"
 
 void WasGoState::_initialize() {
+	reference_object(this);
 	if (wasm_script.is_valid()) {
 		module = WasGoRuntime::get_singleton()->load_module(wasm_script);
 		if (module) {
@@ -83,7 +84,7 @@ void WasGoState::_notification(int p_what){
 WasGoState::WasGoState() {
 	properties = {};
 	stack_size = 8192;
-	heap_size = 8192;	
+	heap_size = 8192;
 }
 
 WasGoState::~WasGoState(){
@@ -327,3 +328,7 @@ WasGoState::WasGoID WasGoState::handle_return_variant(Variant var){
 //         call_wasm_function("_unhandled_key_input");
 //     }
 // }
+
+WasGoState::WasGoID _wasgo_this_node(wasm_exec_env_t exec_env) {
+	return 1;
+}

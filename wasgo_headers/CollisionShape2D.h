@@ -2,7 +2,6 @@
 #ifndef COLLISIONSHAPE2D_H
 #define COLLISIONSHAPE2D_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Node2D.h"
@@ -18,7 +17,10 @@ void set_one_way_collision(bool p_enabled);
 void set_one_way_collision_margin(float p_margin);
 void set_shape(Shape2D p_shape);
 
+protected:
 CollisionShape2D(WasGoId p_wasgo_id);
+public:
+CollisionShape2D();
 ~CollisionShape2D();
             
 };
@@ -34,5 +36,10 @@ void _wasgo_CollisionShape2D_wrapper_set_disabled(WasGoId wasgo_id, bool p_disab
 void _wasgo_CollisionShape2D_wrapper_set_one_way_collision(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_CollisionShape2D_wrapper_set_one_way_collision_margin(WasGoId wasgo_id, float p_margin);
 void _wasgo_CollisionShape2D_wrapper_set_shape(WasGoId wasgo_id, WasGoId p_shape);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_CollisionShape2D_constructor();
+    void _wasgo_CollisionShape2D_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,7 +2,6 @@
 #ifndef AUDIOEFFECTREVERB_H
 #define AUDIOEFFECTREVERB_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AudioEffect.h"
@@ -25,7 +24,10 @@ void set_room_size(float p_size);
 void set_spread(float p_amount);
 void set_wet(float p_amount);
 
+protected:
 AudioEffectReverb(WasGoId p_wasgo_id);
+public:
+AudioEffectReverb();
 ~AudioEffectReverb();
             
 };
@@ -49,5 +51,10 @@ void _wasgo_AudioEffectReverb_wrapper_set_predelay_msec(WasGoId wasgo_id, float 
 void _wasgo_AudioEffectReverb_wrapper_set_room_size(WasGoId wasgo_id, float p_size);
 void _wasgo_AudioEffectReverb_wrapper_set_spread(WasGoId wasgo_id, float p_amount);
 void _wasgo_AudioEffectReverb_wrapper_set_wet(WasGoId wasgo_id, float p_amount);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioEffectReverb_constructor();
+    void _wasgo_AudioEffectReverb_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

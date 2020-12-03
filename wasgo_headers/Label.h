@@ -2,7 +2,6 @@
 #ifndef LABEL_H
 #define LABEL_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
@@ -46,7 +45,10 @@ void set_uppercase(bool p_enable);
 void set_valign(Label::VAlign p_valign);
 void set_visible_characters(int p_amount);
 
+protected:
 Label(WasGoId p_wasgo_id);
+public:
+Label();
 ~Label();
             
 };
@@ -60,7 +62,7 @@ int _wasgo_Label_wrapper_get_line_height(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_get_lines_skipped(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_get_max_lines_visible(WasGoId wasgo_id);
 float _wasgo_Label_wrapper_get_percent_visible(WasGoId wasgo_id);
-WasGoId _wasgo_Label_wrapper_get_text(WasGoId wasgo_id);
+void _wasgo_Label_wrapper_get_text(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Label_wrapper_get_total_character_count(WasGoId wasgo_id);
 WasGoId _wasgo_Label_wrapper_get_valign(WasGoId wasgo_id);
 int _wasgo_Label_wrapper_get_visible_characters(WasGoId wasgo_id);
@@ -74,9 +76,14 @@ void _wasgo_Label_wrapper_set_clip_text(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Label_wrapper_set_lines_skipped(WasGoId wasgo_id, int p_lines_skipped);
 void _wasgo_Label_wrapper_set_max_lines_visible(WasGoId wasgo_id, int p_lines_visible);
 void _wasgo_Label_wrapper_set_percent_visible(WasGoId wasgo_id, float p_percent_visible);
-void _wasgo_Label_wrapper_set_text(WasGoId wasgo_id, WasGoId p_text);
+void _wasgo_Label_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 void _wasgo_Label_wrapper_set_uppercase(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Label_wrapper_set_valign(WasGoId wasgo_id, WasGoId p_valign);
 void _wasgo_Label_wrapper_set_visible_characters(WasGoId wasgo_id, int p_amount);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Label_constructor();
+    void _wasgo_Label_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

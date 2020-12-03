@@ -2,7 +2,6 @@
 #ifndef AUDIOEFFECTFILTER_H
 #define AUDIOEFFECTFILTER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AudioEffect.h"
@@ -23,7 +22,10 @@ void set_db(AudioEffectFilter::FilterDB p_amount);
 void set_gain(float p_amount);
 void set_resonance(float p_amount);
 
+protected:
 AudioEffectFilter(WasGoId p_wasgo_id);
+public:
+AudioEffectFilter();
 ~AudioEffectFilter();
             
 };
@@ -39,5 +41,10 @@ void _wasgo_AudioEffectFilter_wrapper_set_cutoff(WasGoId wasgo_id, float p_freq)
 void _wasgo_AudioEffectFilter_wrapper_set_db(WasGoId wasgo_id, WasGoId p_amount);
 void _wasgo_AudioEffectFilter_wrapper_set_gain(WasGoId wasgo_id, float p_amount);
 void _wasgo_AudioEffectFilter_wrapper_set_resonance(WasGoId wasgo_id, float p_amount);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioEffectFilter_constructor();
+    void _wasgo_AudioEffectFilter_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

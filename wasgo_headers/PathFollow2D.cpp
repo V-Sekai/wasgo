@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "PathFollow2D.h"
 bool PathFollow2D::get_cubic_interpolation(){
 	return (bool) _wasgo_PathFollow2D_wrapper_get_cubic_interpolation(wasgo_id);
@@ -47,4 +48,13 @@ void PathFollow2D::set_unit_offset(float p_unit_offset){
 }
 void PathFollow2D::set_v_offset(float p_v_offset){
 	_wasgo_PathFollow2D_wrapper_set_v_offset(wasgo_id, p_v_offset);
+}
+
+PathFollow2D::PathFollow2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+}
+PathFollow2D::PathFollow2D(){
+    wasgo_id = _wasgo_PathFollow2D_constructor();
+}
+PathFollow2D::~PathFollow2D(){
+    _wasgo_PathFollow2D_destructor(wasgo_id);
 }

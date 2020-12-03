@@ -2,14 +2,16 @@
 #ifndef AUDIOSTREAMMICROPHONE_H
 #define AUDIOSTREAMMICROPHONE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AudioStream.h"
 class AudioStreamMicrophone : public AudioStream{
 public:
 
+protected:
 AudioStreamMicrophone(WasGoId p_wasgo_id);
+public:
+AudioStreamMicrophone();
 ~AudioStreamMicrophone();
             
 };
@@ -17,5 +19,10 @@ AudioStreamMicrophone(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioStreamMicrophone_constructor();
+    void _wasgo_AudioStreamMicrophone_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

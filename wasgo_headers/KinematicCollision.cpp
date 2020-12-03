@@ -1,35 +1,80 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "KinematicCollision.h"
 Object KinematicCollision::get_collider(){
-	return Object::from_wasgo_id(_wasgo_KinematicCollision_wrapper_get_collider(wasgo_id));
+	return Object(_wasgo_KinematicCollision_wrapper_get_collider(wasgo_id));
 }
 int KinematicCollision::get_collider_id(){
 	return (int) _wasgo_KinematicCollision_wrapper_get_collider_id(wasgo_id);
 }
 Variant KinematicCollision::get_collider_metadata(){
-	return Variant::from_wasgo_id(_wasgo_KinematicCollision_wrapper_get_collider_metadata(wasgo_id));
+	return Variant(_wasgo_KinematicCollision_wrapper_get_collider_metadata(wasgo_id));
 }
 Object KinematicCollision::get_collider_shape(){
-	return Object::from_wasgo_id(_wasgo_KinematicCollision_wrapper_get_collider_shape(wasgo_id));
+	return Object(_wasgo_KinematicCollision_wrapper_get_collider_shape(wasgo_id));
 }
 int KinematicCollision::get_collider_shape_index(){
 	return (int) _wasgo_KinematicCollision_wrapper_get_collider_shape_index(wasgo_id);
 }
 Vector3 KinematicCollision::get_collider_velocity(){
-	return Vector3::from_wasgo_id(_wasgo_KinematicCollision_wrapper_get_collider_velocity(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 16;
+    uint8_t wasgo_ret_buffer[16];
+    _wasgo_KinematicCollision_wrapper_get_collider_velocity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (Vector3) wasgo_ret;
+    
 }
 Object KinematicCollision::get_local_shape(){
-	return Object::from_wasgo_id(_wasgo_KinematicCollision_wrapper_get_local_shape(wasgo_id));
+	return Object(_wasgo_KinematicCollision_wrapper_get_local_shape(wasgo_id));
 }
 Vector3 KinematicCollision::get_normal(){
-	return Vector3::from_wasgo_id(_wasgo_KinematicCollision_wrapper_get_normal(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 16;
+    uint8_t wasgo_ret_buffer[16];
+    _wasgo_KinematicCollision_wrapper_get_normal(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (Vector3) wasgo_ret;
+    
 }
 Vector3 KinematicCollision::get_position(){
-	return Vector3::from_wasgo_id(_wasgo_KinematicCollision_wrapper_get_position(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 16;
+    uint8_t wasgo_ret_buffer[16];
+    _wasgo_KinematicCollision_wrapper_get_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (Vector3) wasgo_ret;
+    
 }
 Vector3 KinematicCollision::get_remainder(){
-	return Vector3::from_wasgo_id(_wasgo_KinematicCollision_wrapper_get_remainder(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 16;
+    uint8_t wasgo_ret_buffer[16];
+    _wasgo_KinematicCollision_wrapper_get_remainder(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (Vector3) wasgo_ret;
+    
 }
 Vector3 KinematicCollision::get_travel(){
-	return Vector3::from_wasgo_id(_wasgo_KinematicCollision_wrapper_get_travel(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 16;
+    uint8_t wasgo_ret_buffer[16];
+    _wasgo_KinematicCollision_wrapper_get_travel(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (Vector3) wasgo_ret;
+    
+}
+
+KinematicCollision::KinematicCollision(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+}
+KinematicCollision::KinematicCollision(){
+    wasgo_id = _wasgo_KinematicCollision_constructor();
+}
+KinematicCollision::~KinematicCollision(){
+    _wasgo_KinematicCollision_destructor(wasgo_id);
 }

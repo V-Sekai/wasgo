@@ -1,22 +1,47 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "UndoRedo.h"
 void UndoRedo::add_do_method(Object p_object, String p_method){
-	_wasgo_UndoRedo_wrapper_add_do_method(wasgo_id, ((Variant) p_object).get_wasgo_id(), ((Variant) p_method).get_wasgo_id());
+
+    Variant wasgo_var_method = p_method;
+    uint8_t wasgo_buffer_method[256];
+    int wasgo_size_method = 256;
+    encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
+    
+	_wasgo_UndoRedo_wrapper_add_do_method(wasgo_id, p_object._get_wasgo_id(), wasgo_buffer_method, wasgo_size_method);
 }
 void UndoRedo::add_do_property(Object p_object, String p_property, Variant p_value){
-	_wasgo_UndoRedo_wrapper_add_do_property(wasgo_id, ((Variant) p_object).get_wasgo_id(), ((Variant) p_property).get_wasgo_id(), ((Variant) p_value).get_wasgo_id());
+
+    Variant wasgo_var_property = p_property;
+    uint8_t wasgo_buffer_property[256];
+    int wasgo_size_property = 256;
+    encode_variant(wasgo_var_property, wasgo_buffer_property, wasgo_size_property);
+    
+	_wasgo_UndoRedo_wrapper_add_do_property(wasgo_id, p_object._get_wasgo_id(), wasgo_buffer_property, wasgo_size_property, p_value._get_wasgo_id());
 }
 void UndoRedo::add_do_reference(Object p_object){
-	_wasgo_UndoRedo_wrapper_add_do_reference(wasgo_id, ((Variant) p_object).get_wasgo_id());
+	_wasgo_UndoRedo_wrapper_add_do_reference(wasgo_id, p_object._get_wasgo_id());
 }
 void UndoRedo::add_undo_method(Object p_object, String p_method){
-	_wasgo_UndoRedo_wrapper_add_undo_method(wasgo_id, ((Variant) p_object).get_wasgo_id(), ((Variant) p_method).get_wasgo_id());
+
+    Variant wasgo_var_method = p_method;
+    uint8_t wasgo_buffer_method[256];
+    int wasgo_size_method = 256;
+    encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
+    
+	_wasgo_UndoRedo_wrapper_add_undo_method(wasgo_id, p_object._get_wasgo_id(), wasgo_buffer_method, wasgo_size_method);
 }
 void UndoRedo::add_undo_property(Object p_object, String p_property, Variant p_value){
-	_wasgo_UndoRedo_wrapper_add_undo_property(wasgo_id, ((Variant) p_object).get_wasgo_id(), ((Variant) p_property).get_wasgo_id(), ((Variant) p_value).get_wasgo_id());
+
+    Variant wasgo_var_property = p_property;
+    uint8_t wasgo_buffer_property[256];
+    int wasgo_size_property = 256;
+    encode_variant(wasgo_var_property, wasgo_buffer_property, wasgo_size_property);
+    
+	_wasgo_UndoRedo_wrapper_add_undo_property(wasgo_id, p_object._get_wasgo_id(), wasgo_buffer_property, wasgo_size_property, p_value._get_wasgo_id());
 }
 void UndoRedo::add_undo_reference(Object p_object){
-	_wasgo_UndoRedo_wrapper_add_undo_reference(wasgo_id, ((Variant) p_object).get_wasgo_id());
+	_wasgo_UndoRedo_wrapper_add_undo_reference(wasgo_id, p_object._get_wasgo_id());
 }
 void UndoRedo::clear_history(bool p_increase_version = (bool) true){
 	_wasgo_UndoRedo_wrapper_clear_history(wasgo_id, p_increase_version);
@@ -25,10 +50,23 @@ void UndoRedo::commit_action(){
 	_wasgo_UndoRedo_wrapper_commit_action(wasgo_id);
 }
 void UndoRedo::create_action(String p_name, UndoRedo::MergeMode p_merge_mode = (UndoRedo::MergeMode) 0){
-	_wasgo_UndoRedo_wrapper_create_action(wasgo_id, ((Variant) p_name).get_wasgo_id(), ((Variant) p_merge_mode).get_wasgo_id());
+
+    Variant wasgo_var_name = p_name;
+    uint8_t wasgo_buffer_name[256];
+    int wasgo_size_name = 256;
+    encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
+    
+	_wasgo_UndoRedo_wrapper_create_action(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_merge_mode._get_wasgo_id());
 }
 String UndoRedo::get_current_action_name(){
-	return String::from_wasgo_id(_wasgo_UndoRedo_wrapper_get_current_action_name(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_UndoRedo_wrapper_get_current_action_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 int UndoRedo::get_version(){
 	return (int) _wasgo_UndoRedo_wrapper_get_version(wasgo_id);
@@ -47,4 +85,13 @@ bool UndoRedo::redo(){
 }
 bool UndoRedo::undo(){
 	return (bool) _wasgo_UndoRedo_wrapper_undo(wasgo_id);
+}
+
+UndoRedo::UndoRedo(WasGoId p_wasgo_id) : Object(p_wasgo_id){
+}
+UndoRedo::UndoRedo(){
+    wasgo_id = _wasgo_UndoRedo_constructor();
+}
+UndoRedo::~UndoRedo(){
+    _wasgo_UndoRedo_destructor(wasgo_id);
 }

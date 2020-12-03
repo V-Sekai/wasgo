@@ -2,12 +2,11 @@
 #ifndef COLLISIONSHAPE_H
 #define COLLISIONSHAPE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "Shape.h"
 #include "Spatial.h"
 #include "Resource.h"
-#include "Shape.h"
 class CollisionShape : public Spatial{
 public:
 Shape get_shape();
@@ -17,7 +16,10 @@ void resource_changed(Resource p_resource);
 void set_disabled(bool p_enable);
 void set_shape(Shape p_shape);
 
+protected:
 CollisionShape(WasGoId p_wasgo_id);
+public:
+CollisionShape();
 ~CollisionShape();
             
 };
@@ -31,5 +33,10 @@ void _wasgo_CollisionShape_wrapper_make_convex_from_brothers(WasGoId wasgo_id);
 void _wasgo_CollisionShape_wrapper_resource_changed(WasGoId wasgo_id, WasGoId p_resource);
 void _wasgo_CollisionShape_wrapper_set_disabled(WasGoId wasgo_id, bool p_enable);
 void _wasgo_CollisionShape_wrapper_set_shape(WasGoId wasgo_id, WasGoId p_shape);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_CollisionShape_constructor();
+    void _wasgo_CollisionShape_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

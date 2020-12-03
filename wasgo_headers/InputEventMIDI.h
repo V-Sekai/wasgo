@@ -2,7 +2,6 @@
 #ifndef INPUTEVENTMIDI_H
 #define INPUTEVENTMIDI_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "InputEvent.h"
@@ -25,7 +24,10 @@ void set_pitch(int p_pitch);
 void set_pressure(int p_pressure);
 void set_velocity(int p_velocity);
 
+protected:
 InputEventMIDI(WasGoId p_wasgo_id);
+public:
+InputEventMIDI();
 ~InputEventMIDI();
             
 };
@@ -49,5 +51,10 @@ void _wasgo_InputEventMIDI_wrapper_set_message(WasGoId wasgo_id, int p_message);
 void _wasgo_InputEventMIDI_wrapper_set_pitch(WasGoId wasgo_id, int p_pitch);
 void _wasgo_InputEventMIDI_wrapper_set_pressure(WasGoId wasgo_id, int p_pressure);
 void _wasgo_InputEventMIDI_wrapper_set_velocity(WasGoId wasgo_id, int p_velocity);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_InputEventMIDI_constructor();
+    void _wasgo_InputEventMIDI_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

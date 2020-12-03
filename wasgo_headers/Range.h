@@ -2,11 +2,10 @@
 #ifndef RANGE_H
 #define RANGE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
 #include "Control.h"
+#include "Node.h"
 class Range : public Control{
 public:
 float get_as_ratio();
@@ -58,5 +57,10 @@ void _wasgo_Range_wrapper_set_use_rounded_values(WasGoId wasgo_id, bool p_enable
 void _wasgo_Range_wrapper_set_value(WasGoId wasgo_id, float p_value);
 void _wasgo_Range_wrapper_share(WasGoId wasgo_id, WasGoId p_with);
 void _wasgo_Range_wrapper_unshare(WasGoId wasgo_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Range_constructor();
+    void _wasgo_Range_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

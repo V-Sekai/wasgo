@@ -2,14 +2,16 @@
 #ifndef POINTMESH_H
 #define POINTMESH_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "PrimitiveMesh.h"
 class PointMesh : public PrimitiveMesh{
 public:
 
+protected:
 PointMesh(WasGoId p_wasgo_id);
+public:
+PointMesh();
 ~PointMesh();
             
 };
@@ -17,5 +19,10 @@ PointMesh(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_PointMesh_constructor();
+    void _wasgo_PointMesh_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

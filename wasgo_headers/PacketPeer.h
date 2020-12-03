@@ -2,12 +2,11 @@
 #ifndef PACKETPEER_H
 #define PACKETPEER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
-#include "Variant.h"
 #include "error_list.h"
+#include "Variant.h"
+#include "Reference.h"
 class PacketPeer : public Reference{
 public:
 int get_available_packet_count();
@@ -35,5 +34,10 @@ WasGoId _wasgo_PacketPeer_wrapper_put_packet(WasGoId wasgo_id, WasGoId p_buffer)
 WasGoId _wasgo_PacketPeer_wrapper_put_var(WasGoId wasgo_id, WasGoId p_var, bool p_full_objects);
 void _wasgo_PacketPeer_wrapper_set_allow_object_decoding(WasGoId wasgo_id, bool p_enable);
 void _wasgo_PacketPeer_wrapper_set_encode_buffer_max_size(WasGoId wasgo_id, int p_max_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_PacketPeer_constructor();
+    void _wasgo_PacketPeer_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

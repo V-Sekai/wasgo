@@ -2,7 +2,6 @@
 #ifndef TEXTURELAYERED_H
 #define TEXTURELAYERED_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Image.h"
@@ -40,5 +39,10 @@ int _wasgo_TextureLayered_wrapper_get_width(WasGoId wasgo_id);
 void _wasgo_TextureLayered_wrapper_set_data_partial(WasGoId wasgo_id, WasGoId p_image, int p_x_offset, int p_y_offset, int p_layer, int p_mipmap);
 void _wasgo_TextureLayered_wrapper_set_flags(WasGoId wasgo_id, int p_flags);
 void _wasgo_TextureLayered_wrapper_set_layer_data(WasGoId wasgo_id, WasGoId p_image, int p_layer);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_TextureLayered_constructor();
+    void _wasgo_TextureLayered_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

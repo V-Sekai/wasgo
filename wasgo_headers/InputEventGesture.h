@@ -2,7 +2,6 @@
 #ifndef INPUTEVENTGESTURE_H
 #define INPUTEVENTGESTURE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Vector2.h"
@@ -16,7 +15,12 @@ void set_position(Vector2 p_position);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_InputEventGesture_wrapper_get_position(WasGoId wasgo_id);
-void _wasgo_InputEventGesture_wrapper_set_position(WasGoId wasgo_id, WasGoId p_position);
+void _wasgo_InputEventGesture_wrapper_get_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_InputEventGesture_wrapper_set_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_InputEventGesture_constructor();
+    void _wasgo_InputEventGesture_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

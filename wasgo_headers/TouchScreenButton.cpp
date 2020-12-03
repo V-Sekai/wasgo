@@ -1,22 +1,30 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "TouchScreenButton.h"
 String TouchScreenButton::get_action(){
-	return String::from_wasgo_id(_wasgo_TouchScreenButton_wrapper_get_action(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_TouchScreenButton_wrapper_get_action(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return (String) wasgo_ret;
+    
 }
 BitMap TouchScreenButton::get_bitmask(){
-	return BitMap::from_wasgo_id(_wasgo_TouchScreenButton_wrapper_get_bitmask(wasgo_id));
+	return BitMap(_wasgo_TouchScreenButton_wrapper_get_bitmask(wasgo_id));
 }
 Shape2D TouchScreenButton::get_shape(){
-	return Shape2D::from_wasgo_id(_wasgo_TouchScreenButton_wrapper_get_shape(wasgo_id));
+	return Shape2D(_wasgo_TouchScreenButton_wrapper_get_shape(wasgo_id));
 }
 Texture TouchScreenButton::get_texture(){
-	return Texture::from_wasgo_id(_wasgo_TouchScreenButton_wrapper_get_texture(wasgo_id));
+	return Texture(_wasgo_TouchScreenButton_wrapper_get_texture(wasgo_id));
 }
 Texture TouchScreenButton::get_texture_pressed(){
-	return Texture::from_wasgo_id(_wasgo_TouchScreenButton_wrapper_get_texture_pressed(wasgo_id));
+	return Texture(_wasgo_TouchScreenButton_wrapper_get_texture_pressed(wasgo_id));
 }
 TouchScreenButton::VisibilityMode TouchScreenButton::get_visibility_mode(){
-	return TouchScreenButton::VisibilityMode::from_wasgo_id(_wasgo_TouchScreenButton_wrapper_get_visibility_mode(wasgo_id));
+	return TouchScreenButton::VisibilityMode(_wasgo_TouchScreenButton_wrapper_get_visibility_mode(wasgo_id));
 }
 bool TouchScreenButton::is_passby_press_enabled(){
 	return (bool) _wasgo_TouchScreenButton_wrapper_is_passby_press_enabled(wasgo_id);
@@ -31,16 +39,22 @@ bool TouchScreenButton::is_shape_visible(){
 	return (bool) _wasgo_TouchScreenButton_wrapper_is_shape_visible(wasgo_id);
 }
 void TouchScreenButton::set_action(String p_action){
-	_wasgo_TouchScreenButton_wrapper_set_action(wasgo_id, ((Variant) p_action).get_wasgo_id());
+
+    Variant wasgo_var_action = p_action;
+    uint8_t wasgo_buffer_action[256];
+    int wasgo_size_action = 256;
+    encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
+    
+	_wasgo_TouchScreenButton_wrapper_set_action(wasgo_id, wasgo_buffer_action, wasgo_size_action);
 }
 void TouchScreenButton::set_bitmask(BitMap p_bitmask){
-	_wasgo_TouchScreenButton_wrapper_set_bitmask(wasgo_id, ((Variant) p_bitmask).get_wasgo_id());
+	_wasgo_TouchScreenButton_wrapper_set_bitmask(wasgo_id, p_bitmask._get_wasgo_id());
 }
 void TouchScreenButton::set_passby_press(bool p_enabled){
 	_wasgo_TouchScreenButton_wrapper_set_passby_press(wasgo_id, p_enabled);
 }
 void TouchScreenButton::set_shape(Shape2D p_shape){
-	_wasgo_TouchScreenButton_wrapper_set_shape(wasgo_id, ((Variant) p_shape).get_wasgo_id());
+	_wasgo_TouchScreenButton_wrapper_set_shape(wasgo_id, p_shape._get_wasgo_id());
 }
 void TouchScreenButton::set_shape_centered(bool p_bool){
 	_wasgo_TouchScreenButton_wrapper_set_shape_centered(wasgo_id, p_bool);
@@ -49,11 +63,20 @@ void TouchScreenButton::set_shape_visible(bool p_bool){
 	_wasgo_TouchScreenButton_wrapper_set_shape_visible(wasgo_id, p_bool);
 }
 void TouchScreenButton::set_texture(Texture p_texture){
-	_wasgo_TouchScreenButton_wrapper_set_texture(wasgo_id, ((Variant) p_texture).get_wasgo_id());
+	_wasgo_TouchScreenButton_wrapper_set_texture(wasgo_id, p_texture._get_wasgo_id());
 }
 void TouchScreenButton::set_texture_pressed(Texture p_texture_pressed){
-	_wasgo_TouchScreenButton_wrapper_set_texture_pressed(wasgo_id, ((Variant) p_texture_pressed).get_wasgo_id());
+	_wasgo_TouchScreenButton_wrapper_set_texture_pressed(wasgo_id, p_texture_pressed._get_wasgo_id());
 }
 void TouchScreenButton::set_visibility_mode(TouchScreenButton::VisibilityMode p_mode){
-	_wasgo_TouchScreenButton_wrapper_set_visibility_mode(wasgo_id, ((Variant) p_mode).get_wasgo_id());
+	_wasgo_TouchScreenButton_wrapper_set_visibility_mode(wasgo_id, p_mode._get_wasgo_id());
+}
+
+TouchScreenButton::TouchScreenButton(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+}
+TouchScreenButton::TouchScreenButton(){
+    wasgo_id = _wasgo_TouchScreenButton_constructor();
+}
+TouchScreenButton::~TouchScreenButton(){
+    _wasgo_TouchScreenButton_destructor(wasgo_id);
 }

@@ -2,14 +2,13 @@
 #ifndef STREAMPEERSSL_H
 #define STREAMPEERSSL_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
+#include "error_list.h"
 #include "StreamPeer.h"
 #include "X509Certificate.h"
 #include "CryptoKey.h"
 #include "ustring.h"
-#include "error_list.h"
 class StreamPeerSSL : public StreamPeer{
 public:
 enum Status{
@@ -27,7 +26,10 @@ bool is_blocking_handshake_enabled();
 void poll();
 void set_blocking_handshake_enabled(bool p_enabled);
 
+protected:
 StreamPeerSSL(WasGoId p_wasgo_id);
+public:
+StreamPeerSSL();
 ~StreamPeerSSL();
             
 };
@@ -36,11 +38,16 @@ StreamPeerSSL(WasGoId p_wasgo_id);
 //Wrapper Functions
 extern "C"{
 WasGoId _wasgo_StreamPeerSSL_wrapper_accept_stream(WasGoId wasgo_id, WasGoId p_stream, WasGoId p_private_key, WasGoId p_certificate, WasGoId p_chain);
-WasGoId _wasgo_StreamPeerSSL_wrapper_connect_to_stream(WasGoId wasgo_id, WasGoId p_stream, bool p_validate_certs, WasGoId p_for_hostname, WasGoId p_valid_certificate);
+WasGoId _wasgo_StreamPeerSSL_wrapper_connect_to_stream(WasGoId wasgo_id, WasGoId p_stream, bool p_validate_certs, const uint8_t * p_for_hostname, int p_for_hostname_wasgo_buffer_size, WasGoId p_valid_certificate);
 void _wasgo_StreamPeerSSL_wrapper_disconnect_from_stream(WasGoId wasgo_id);
 WasGoId _wasgo_StreamPeerSSL_wrapper_get_status(WasGoId wasgo_id);
 int _wasgo_StreamPeerSSL_wrapper_is_blocking_handshake_enabled(WasGoId wasgo_id);
 void _wasgo_StreamPeerSSL_wrapper_poll(WasGoId wasgo_id);
 void _wasgo_StreamPeerSSL_wrapper_set_blocking_handshake_enabled(WasGoId wasgo_id, bool p_enabled);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_StreamPeerSSL_constructor();
+    void _wasgo_StreamPeerSSL_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

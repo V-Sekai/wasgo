@@ -2,12 +2,11 @@
 #ifndef NAVIGATIONMESH_H
 #define NAVIGATIONMESH_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Variant.h"
-#include "ustring.h"
 #include "Mesh.h"
+#include "ustring.h"
 #include "Resource.h"
 class NavigationMesh : public Resource{
 public:
@@ -63,7 +62,10 @@ void set_source_group_name(String p_mask);
 void set_vertices(PoolVector3Array p_vertices);
 void set_verts_per_poly(float p_verts_per_poly);
 
+protected:
 NavigationMesh(WasGoId p_wasgo_id);
+public:
+NavigationMesh();
 ~NavigationMesh();
             
 };
@@ -96,7 +98,7 @@ float _wasgo_NavigationMesh_wrapper_get_region_merge_size(WasGoId wasgo_id);
 float _wasgo_NavigationMesh_wrapper_get_region_min_size(WasGoId wasgo_id);
 int _wasgo_NavigationMesh_wrapper_get_sample_partition_type(WasGoId wasgo_id);
 int _wasgo_NavigationMesh_wrapper_get_source_geometry_mode(WasGoId wasgo_id);
-WasGoId _wasgo_NavigationMesh_wrapper_get_source_group_name(WasGoId wasgo_id);
+void _wasgo_NavigationMesh_wrapper_get_source_group_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoId _wasgo_NavigationMesh_wrapper_get_vertices(WasGoId wasgo_id);
 float _wasgo_NavigationMesh_wrapper_get_verts_per_poly(WasGoId wasgo_id);
 void _wasgo_NavigationMesh_wrapper_set_agent_height(WasGoId wasgo_id, float p_agent_height);
@@ -119,8 +121,13 @@ void _wasgo_NavigationMesh_wrapper_set_region_merge_size(WasGoId wasgo_id, float
 void _wasgo_NavigationMesh_wrapper_set_region_min_size(WasGoId wasgo_id, float p_region_min_size);
 void _wasgo_NavigationMesh_wrapper_set_sample_partition_type(WasGoId wasgo_id, int p_sample_partition_type);
 void _wasgo_NavigationMesh_wrapper_set_source_geometry_mode(WasGoId wasgo_id, int p_mask);
-void _wasgo_NavigationMesh_wrapper_set_source_group_name(WasGoId wasgo_id, WasGoId p_mask);
+void _wasgo_NavigationMesh_wrapper_set_source_group_name(WasGoId wasgo_id, const uint8_t * p_mask, int p_mask_wasgo_buffer_size);
 void _wasgo_NavigationMesh_wrapper_set_vertices(WasGoId wasgo_id, WasGoId p_vertices);
 void _wasgo_NavigationMesh_wrapper_set_verts_per_poly(WasGoId wasgo_id, float p_verts_per_poly);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_NavigationMesh_constructor();
+    void _wasgo_NavigationMesh_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

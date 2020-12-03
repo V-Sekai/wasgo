@@ -2,13 +2,12 @@
 #ifndef SPATIALMATERIAL_H
 #define SPATIALMATERIAL_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Color.h"
-#include "Material.h"
 #include "Texture.h"
 #include "Vector3.h"
+#include "Material.h"
 class SpatialMaterial : public Material{
 public:
 enum BillboardMode{
@@ -240,7 +239,10 @@ void set_uv2_offset(Vector3 p_offset);
 void set_uv2_scale(Vector3 p_scale);
 void set_uv2_triplanar_blend_sharpness(float p_sharpness);
 
+protected:
 SpatialMaterial(WasGoId p_wasgo_id);
+public:
+SpatialMaterial();
 ~SpatialMaterial();
             
 };
@@ -248,7 +250,7 @@ SpatialMaterial(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_SpatialMaterial_wrapper_get_albedo(WasGoId wasgo_id);
+void _wasgo_SpatialMaterial_wrapper_get_albedo(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_SpatialMaterial_wrapper_get_alpha_scissor_threshold(WasGoId wasgo_id);
 float _wasgo_SpatialMaterial_wrapper_get_anisotropy(WasGoId wasgo_id);
 float _wasgo_SpatialMaterial_wrapper_get_ao_light_affect(WasGoId wasgo_id);
@@ -270,7 +272,7 @@ WasGoId _wasgo_SpatialMaterial_wrapper_get_diffuse_mode(WasGoId wasgo_id);
 WasGoId _wasgo_SpatialMaterial_wrapper_get_distance_fade(WasGoId wasgo_id);
 float _wasgo_SpatialMaterial_wrapper_get_distance_fade_max_distance(WasGoId wasgo_id);
 float _wasgo_SpatialMaterial_wrapper_get_distance_fade_min_distance(WasGoId wasgo_id);
-WasGoId _wasgo_SpatialMaterial_wrapper_get_emission(WasGoId wasgo_id);
+void _wasgo_SpatialMaterial_wrapper_get_emission(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_SpatialMaterial_wrapper_get_emission_energy(WasGoId wasgo_id);
 WasGoId _wasgo_SpatialMaterial_wrapper_get_emission_operator(WasGoId wasgo_id);
 int _wasgo_SpatialMaterial_wrapper_get_feature(WasGoId wasgo_id, WasGoId p_feature);
@@ -295,17 +297,17 @@ float _wasgo_SpatialMaterial_wrapper_get_specular(WasGoId wasgo_id);
 WasGoId _wasgo_SpatialMaterial_wrapper_get_specular_mode(WasGoId wasgo_id);
 float _wasgo_SpatialMaterial_wrapper_get_subsurface_scattering_strength(WasGoId wasgo_id);
 WasGoId _wasgo_SpatialMaterial_wrapper_get_texture(WasGoId wasgo_id, WasGoId p_param);
-WasGoId _wasgo_SpatialMaterial_wrapper_get_transmission(WasGoId wasgo_id);
-WasGoId _wasgo_SpatialMaterial_wrapper_get_uv1_offset(WasGoId wasgo_id);
-WasGoId _wasgo_SpatialMaterial_wrapper_get_uv1_scale(WasGoId wasgo_id);
+void _wasgo_SpatialMaterial_wrapper_get_transmission(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_SpatialMaterial_wrapper_get_uv1_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_SpatialMaterial_wrapper_get_uv1_scale(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_SpatialMaterial_wrapper_get_uv1_triplanar_blend_sharpness(WasGoId wasgo_id);
-WasGoId _wasgo_SpatialMaterial_wrapper_get_uv2_offset(WasGoId wasgo_id);
-WasGoId _wasgo_SpatialMaterial_wrapper_get_uv2_scale(WasGoId wasgo_id);
+void _wasgo_SpatialMaterial_wrapper_get_uv2_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_SpatialMaterial_wrapper_get_uv2_scale(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_SpatialMaterial_wrapper_get_uv2_triplanar_blend_sharpness(WasGoId wasgo_id);
 int _wasgo_SpatialMaterial_wrapper_is_depth_deep_parallax_enabled(WasGoId wasgo_id);
 int _wasgo_SpatialMaterial_wrapper_is_grow_enabled(WasGoId wasgo_id);
 int _wasgo_SpatialMaterial_wrapper_is_proximity_fade_enabled(WasGoId wasgo_id);
-void _wasgo_SpatialMaterial_wrapper_set_albedo(WasGoId wasgo_id, WasGoId p_albedo);
+void _wasgo_SpatialMaterial_wrapper_set_albedo(WasGoId wasgo_id, const uint8_t * p_albedo, int p_albedo_wasgo_buffer_size);
 void _wasgo_SpatialMaterial_wrapper_set_alpha_scissor_threshold(WasGoId wasgo_id, float p_threshold);
 void _wasgo_SpatialMaterial_wrapper_set_anisotropy(WasGoId wasgo_id, float p_anisotropy);
 void _wasgo_SpatialMaterial_wrapper_set_ao_light_affect(WasGoId wasgo_id, float p_amount);
@@ -328,7 +330,7 @@ void _wasgo_SpatialMaterial_wrapper_set_diffuse_mode(WasGoId wasgo_id, WasGoId p
 void _wasgo_SpatialMaterial_wrapper_set_distance_fade(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_SpatialMaterial_wrapper_set_distance_fade_max_distance(WasGoId wasgo_id, float p_distance);
 void _wasgo_SpatialMaterial_wrapper_set_distance_fade_min_distance(WasGoId wasgo_id, float p_distance);
-void _wasgo_SpatialMaterial_wrapper_set_emission(WasGoId wasgo_id, WasGoId p_emission);
+void _wasgo_SpatialMaterial_wrapper_set_emission(WasGoId wasgo_id, const uint8_t * p_emission, int p_emission_wasgo_buffer_size);
 void _wasgo_SpatialMaterial_wrapper_set_emission_energy(WasGoId wasgo_id, float p_emission_energy);
 void _wasgo_SpatialMaterial_wrapper_set_emission_operator(WasGoId wasgo_id, WasGoId p_operator);
 void _wasgo_SpatialMaterial_wrapper_set_feature(WasGoId wasgo_id, WasGoId p_feature, bool p_enable);
@@ -355,12 +357,17 @@ void _wasgo_SpatialMaterial_wrapper_set_specular(WasGoId wasgo_id, float p_specu
 void _wasgo_SpatialMaterial_wrapper_set_specular_mode(WasGoId wasgo_id, WasGoId p_specular_mode);
 void _wasgo_SpatialMaterial_wrapper_set_subsurface_scattering_strength(WasGoId wasgo_id, float p_strength);
 void _wasgo_SpatialMaterial_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_param, WasGoId p_texture);
-void _wasgo_SpatialMaterial_wrapper_set_transmission(WasGoId wasgo_id, WasGoId p_transmission);
-void _wasgo_SpatialMaterial_wrapper_set_uv1_offset(WasGoId wasgo_id, WasGoId p_offset);
-void _wasgo_SpatialMaterial_wrapper_set_uv1_scale(WasGoId wasgo_id, WasGoId p_scale);
+void _wasgo_SpatialMaterial_wrapper_set_transmission(WasGoId wasgo_id, const uint8_t * p_transmission, int p_transmission_wasgo_buffer_size);
+void _wasgo_SpatialMaterial_wrapper_set_uv1_offset(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
+void _wasgo_SpatialMaterial_wrapper_set_uv1_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
 void _wasgo_SpatialMaterial_wrapper_set_uv1_triplanar_blend_sharpness(WasGoId wasgo_id, float p_sharpness);
-void _wasgo_SpatialMaterial_wrapper_set_uv2_offset(WasGoId wasgo_id, WasGoId p_offset);
-void _wasgo_SpatialMaterial_wrapper_set_uv2_scale(WasGoId wasgo_id, WasGoId p_scale);
+void _wasgo_SpatialMaterial_wrapper_set_uv2_offset(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
+void _wasgo_SpatialMaterial_wrapper_set_uv2_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
 void _wasgo_SpatialMaterial_wrapper_set_uv2_triplanar_blend_sharpness(WasGoId wasgo_id, float p_sharpness);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_SpatialMaterial_constructor();
+    void _wasgo_SpatialMaterial_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

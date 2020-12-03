@@ -2,15 +2,14 @@
 #ifndef ENVIRONMENT_H
 #define ENVIRONMENT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
-#include "Sky.h"
-#include "Resource.h"
-#include "Vector3.h"
-#include "Basis.h"
 #include "Color.h"
+#include "Basis.h"
+#include "Resource.h"
+#include "Texture.h"
+#include "Vector3.h"
+#include "Sky.h"
 class Environment : public Resource{
 public:
 enum BGMode{
@@ -208,7 +207,10 @@ void set_tonemap_exposure(float p_exposure);
 void set_tonemap_white(float p_white);
 void set_tonemapper(Environment::ToneMapper p_mode);
 
+protected:
 Environment(WasGoId p_wasgo_id);
+public:
+Environment();
 ~Environment();
             
 };
@@ -220,11 +222,11 @@ float _wasgo_Environment_wrapper_get_adjustment_brightness(WasGoId wasgo_id);
 WasGoId _wasgo_Environment_wrapper_get_adjustment_color_correction(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_adjustment_contrast(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_adjustment_saturation(WasGoId wasgo_id);
-WasGoId _wasgo_Environment_wrapper_get_ambient_light_color(WasGoId wasgo_id);
+void _wasgo_Environment_wrapper_get_ambient_light_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_Environment_wrapper_get_ambient_light_energy(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_ambient_light_sky_contribution(WasGoId wasgo_id);
 WasGoId _wasgo_Environment_wrapper_get_background(WasGoId wasgo_id);
-WasGoId _wasgo_Environment_wrapper_get_bg_color(WasGoId wasgo_id);
+void _wasgo_Environment_wrapper_get_bg_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_Environment_wrapper_get_bg_energy(WasGoId wasgo_id);
 int _wasgo_Environment_wrapper_get_camera_feed_id(WasGoId wasgo_id);
 int _wasgo_Environment_wrapper_get_canvas_max_layer(WasGoId wasgo_id);
@@ -236,7 +238,7 @@ float _wasgo_Environment_wrapper_get_dof_blur_near_amount(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_dof_blur_near_distance(WasGoId wasgo_id);
 WasGoId _wasgo_Environment_wrapper_get_dof_blur_near_quality(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_dof_blur_near_transition(WasGoId wasgo_id);
-WasGoId _wasgo_Environment_wrapper_get_fog_color(WasGoId wasgo_id);
+void _wasgo_Environment_wrapper_get_fog_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_Environment_wrapper_get_fog_depth_begin(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_fog_depth_curve(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_fog_depth_end(WasGoId wasgo_id);
@@ -244,7 +246,7 @@ float _wasgo_Environment_wrapper_get_fog_height_curve(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_fog_height_max(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_fog_height_min(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_fog_sun_amount(WasGoId wasgo_id);
-WasGoId _wasgo_Environment_wrapper_get_fog_sun_color(WasGoId wasgo_id);
+void _wasgo_Environment_wrapper_get_fog_sun_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_Environment_wrapper_get_fog_transmit_curve(WasGoId wasgo_id);
 WasGoId _wasgo_Environment_wrapper_get_glow_blend_mode(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_glow_bloom(WasGoId wasgo_id);
@@ -255,13 +257,13 @@ float _wasgo_Environment_wrapper_get_glow_intensity(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_glow_strength(WasGoId wasgo_id);
 WasGoId _wasgo_Environment_wrapper_get_sky(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_sky_custom_fov(WasGoId wasgo_id);
-WasGoId _wasgo_Environment_wrapper_get_sky_orientation(WasGoId wasgo_id);
-WasGoId _wasgo_Environment_wrapper_get_sky_rotation(WasGoId wasgo_id);
-WasGoId _wasgo_Environment_wrapper_get_sky_rotation_degrees(WasGoId wasgo_id);
+void _wasgo_Environment_wrapper_get_sky_orientation(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Environment_wrapper_get_sky_rotation(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Environment_wrapper_get_sky_rotation_degrees(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_Environment_wrapper_get_ssao_ao_channel_affect(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_ssao_bias(WasGoId wasgo_id);
 WasGoId _wasgo_Environment_wrapper_get_ssao_blur(WasGoId wasgo_id);
-WasGoId _wasgo_Environment_wrapper_get_ssao_color(WasGoId wasgo_id);
+void _wasgo_Environment_wrapper_get_ssao_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_Environment_wrapper_get_ssao_direct_light_affect(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_ssao_edge_sharpness(WasGoId wasgo_id);
 float _wasgo_Environment_wrapper_get_ssao_intensity(WasGoId wasgo_id);
@@ -299,11 +301,11 @@ void _wasgo_Environment_wrapper_set_adjustment_color_correction(WasGoId wasgo_id
 void _wasgo_Environment_wrapper_set_adjustment_contrast(WasGoId wasgo_id, float p_contrast);
 void _wasgo_Environment_wrapper_set_adjustment_enable(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_Environment_wrapper_set_adjustment_saturation(WasGoId wasgo_id, float p_saturation);
-void _wasgo_Environment_wrapper_set_ambient_light_color(WasGoId wasgo_id, WasGoId p_color);
+void _wasgo_Environment_wrapper_set_ambient_light_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 void _wasgo_Environment_wrapper_set_ambient_light_energy(WasGoId wasgo_id, float p_energy);
 void _wasgo_Environment_wrapper_set_ambient_light_sky_contribution(WasGoId wasgo_id, float p_energy);
 void _wasgo_Environment_wrapper_set_background(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Environment_wrapper_set_bg_color(WasGoId wasgo_id, WasGoId p_color);
+void _wasgo_Environment_wrapper_set_bg_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 void _wasgo_Environment_wrapper_set_bg_energy(WasGoId wasgo_id, float p_energy);
 void _wasgo_Environment_wrapper_set_camera_feed_id(WasGoId wasgo_id, int p_camera_feed_id);
 void _wasgo_Environment_wrapper_set_canvas_max_layer(WasGoId wasgo_id, int p_layer);
@@ -317,7 +319,7 @@ void _wasgo_Environment_wrapper_set_dof_blur_near_distance(WasGoId wasgo_id, flo
 void _wasgo_Environment_wrapper_set_dof_blur_near_enabled(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_Environment_wrapper_set_dof_blur_near_quality(WasGoId wasgo_id, WasGoId p_level);
 void _wasgo_Environment_wrapper_set_dof_blur_near_transition(WasGoId wasgo_id, float p_intensity);
-void _wasgo_Environment_wrapper_set_fog_color(WasGoId wasgo_id, WasGoId p_color);
+void _wasgo_Environment_wrapper_set_fog_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 void _wasgo_Environment_wrapper_set_fog_depth_begin(WasGoId wasgo_id, float p_distance);
 void _wasgo_Environment_wrapper_set_fog_depth_curve(WasGoId wasgo_id, float p_curve);
 void _wasgo_Environment_wrapper_set_fog_depth_enabled(WasGoId wasgo_id, bool p_enabled);
@@ -328,7 +330,7 @@ void _wasgo_Environment_wrapper_set_fog_height_enabled(WasGoId wasgo_id, bool p_
 void _wasgo_Environment_wrapper_set_fog_height_max(WasGoId wasgo_id, float p_height);
 void _wasgo_Environment_wrapper_set_fog_height_min(WasGoId wasgo_id, float p_height);
 void _wasgo_Environment_wrapper_set_fog_sun_amount(WasGoId wasgo_id, float p_amount);
-void _wasgo_Environment_wrapper_set_fog_sun_color(WasGoId wasgo_id, WasGoId p_color);
+void _wasgo_Environment_wrapper_set_fog_sun_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 void _wasgo_Environment_wrapper_set_fog_transmit_curve(WasGoId wasgo_id, float p_curve);
 void _wasgo_Environment_wrapper_set_fog_transmit_enabled(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_Environment_wrapper_set_glow_bicubic_upscale(WasGoId wasgo_id, bool p_enabled);
@@ -343,13 +345,13 @@ void _wasgo_Environment_wrapper_set_glow_level(WasGoId wasgo_id, int p_idx, bool
 void _wasgo_Environment_wrapper_set_glow_strength(WasGoId wasgo_id, float p_strength);
 void _wasgo_Environment_wrapper_set_sky(WasGoId wasgo_id, WasGoId p_sky);
 void _wasgo_Environment_wrapper_set_sky_custom_fov(WasGoId wasgo_id, float p_scale);
-void _wasgo_Environment_wrapper_set_sky_orientation(WasGoId wasgo_id, WasGoId p_orientation);
-void _wasgo_Environment_wrapper_set_sky_rotation(WasGoId wasgo_id, WasGoId p_euler_radians);
-void _wasgo_Environment_wrapper_set_sky_rotation_degrees(WasGoId wasgo_id, WasGoId p_euler_degrees);
+void _wasgo_Environment_wrapper_set_sky_orientation(WasGoId wasgo_id, const uint8_t * p_orientation, int p_orientation_wasgo_buffer_size);
+void _wasgo_Environment_wrapper_set_sky_rotation(WasGoId wasgo_id, const uint8_t * p_euler_radians, int p_euler_radians_wasgo_buffer_size);
+void _wasgo_Environment_wrapper_set_sky_rotation_degrees(WasGoId wasgo_id, const uint8_t * p_euler_degrees, int p_euler_degrees_wasgo_buffer_size);
 void _wasgo_Environment_wrapper_set_ssao_ao_channel_affect(WasGoId wasgo_id, float p_amount);
 void _wasgo_Environment_wrapper_set_ssao_bias(WasGoId wasgo_id, float p_bias);
 void _wasgo_Environment_wrapper_set_ssao_blur(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Environment_wrapper_set_ssao_color(WasGoId wasgo_id, WasGoId p_color);
+void _wasgo_Environment_wrapper_set_ssao_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 void _wasgo_Environment_wrapper_set_ssao_direct_light_affect(WasGoId wasgo_id, float p_amount);
 void _wasgo_Environment_wrapper_set_ssao_edge_sharpness(WasGoId wasgo_id, float p_edge_sharpness);
 void _wasgo_Environment_wrapper_set_ssao_enabled(WasGoId wasgo_id, bool p_enabled);
@@ -372,5 +374,10 @@ void _wasgo_Environment_wrapper_set_tonemap_auto_exposure_speed(WasGoId wasgo_id
 void _wasgo_Environment_wrapper_set_tonemap_exposure(WasGoId wasgo_id, float p_exposure);
 void _wasgo_Environment_wrapper_set_tonemap_white(WasGoId wasgo_id, float p_white);
 void _wasgo_Environment_wrapper_set_tonemapper(WasGoId wasgo_id, WasGoId p_mode);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Environment_constructor();
+    void _wasgo_Environment_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

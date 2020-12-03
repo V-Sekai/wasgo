@@ -2,7 +2,6 @@
 #ifndef BOXCONTAINER_H
 #define BOXCONTAINER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Container.h"
@@ -24,5 +23,10 @@ extern "C"{
 void _wasgo_BoxContainer_wrapper_add_spacer(WasGoId wasgo_id, bool p_begin);
 WasGoId _wasgo_BoxContainer_wrapper_get_alignment(WasGoId wasgo_id);
 void _wasgo_BoxContainer_wrapper_set_alignment(WasGoId wasgo_id, WasGoId p_alignment);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_BoxContainer_constructor();
+    void _wasgo_BoxContainer_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

@@ -2,7 +2,6 @@
 #ifndef DIRECTIONALLIGHT_H
 #define DIRECTIONALLIGHT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Light.h"
@@ -24,7 +23,10 @@ void set_blend_splits(bool p_enabled);
 void set_shadow_depth_range(DirectionalLight::ShadowDepthRange p_mode);
 void set_shadow_mode(DirectionalLight::ShadowMode p_mode);
 
+protected:
 DirectionalLight(WasGoId p_wasgo_id);
+public:
+DirectionalLight();
 ~DirectionalLight();
             
 };
@@ -38,5 +40,10 @@ int _wasgo_DirectionalLight_wrapper_is_blend_splits_enabled(WasGoId wasgo_id);
 void _wasgo_DirectionalLight_wrapper_set_blend_splits(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_DirectionalLight_wrapper_set_shadow_depth_range(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_DirectionalLight_wrapper_set_shadow_mode(WasGoId wasgo_id, WasGoId p_mode);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_DirectionalLight_constructor();
+    void _wasgo_DirectionalLight_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

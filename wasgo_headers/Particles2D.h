@@ -2,13 +2,12 @@
 #ifndef PARTICLES2D_H
 #define PARTICLES2D_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Material.h"
-#include "Texture.h"
-#include "Rect2.h"
 #include "Node2D.h"
+#include "Rect2.h"
+#include "Texture.h"
 class Particles2D : public Node2D{
 public:
 enum DrawOrder{
@@ -50,7 +49,10 @@ void set_texture(Texture p_texture);
 void set_use_local_coordinates(bool p_enable);
 void set_visibility_rect(Rect2 p_visibility_rect);
 
+protected:
 Particles2D(WasGoId p_wasgo_id);
+public:
+Particles2D();
 ~Particles2D();
             
 };
@@ -58,7 +60,7 @@ Particles2D(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Particles2D_wrapper_capture_rect(WasGoId wasgo_id);
+void _wasgo_Particles2D_wrapper_capture_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Particles2D_wrapper_get_amount(WasGoId wasgo_id);
 WasGoId _wasgo_Particles2D_wrapper_get_draw_order(WasGoId wasgo_id);
 float _wasgo_Particles2D_wrapper_get_explosiveness_ratio(WasGoId wasgo_id);
@@ -73,7 +75,7 @@ float _wasgo_Particles2D_wrapper_get_randomness_ratio(WasGoId wasgo_id);
 float _wasgo_Particles2D_wrapper_get_speed_scale(WasGoId wasgo_id);
 WasGoId _wasgo_Particles2D_wrapper_get_texture(WasGoId wasgo_id);
 int _wasgo_Particles2D_wrapper_get_use_local_coordinates(WasGoId wasgo_id);
-WasGoId _wasgo_Particles2D_wrapper_get_visibility_rect(WasGoId wasgo_id);
+void _wasgo_Particles2D_wrapper_get_visibility_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Particles2D_wrapper_is_emitting(WasGoId wasgo_id);
 void _wasgo_Particles2D_wrapper_restart(WasGoId wasgo_id);
 void _wasgo_Particles2D_wrapper_set_amount(WasGoId wasgo_id, int p_amount);
@@ -91,6 +93,11 @@ void _wasgo_Particles2D_wrapper_set_randomness_ratio(WasGoId wasgo_id, float p_r
 void _wasgo_Particles2D_wrapper_set_speed_scale(WasGoId wasgo_id, float p_scale);
 void _wasgo_Particles2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_Particles2D_wrapper_set_use_local_coordinates(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Particles2D_wrapper_set_visibility_rect(WasGoId wasgo_id, WasGoId p_visibility_rect);
+void _wasgo_Particles2D_wrapper_set_visibility_rect(WasGoId wasgo_id, const uint8_t * p_visibility_rect, int p_visibility_rect_wasgo_buffer_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Particles2D_constructor();
+    void _wasgo_Particles2D_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

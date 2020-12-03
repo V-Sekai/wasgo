@@ -2,7 +2,6 @@
 #ifndef INPUTEVENTJOYPADBUTTON_H
 #define INPUTEVENTJOYPADBUTTON_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "InputEvent.h"
@@ -14,7 +13,10 @@ void set_button_index(int p_button_index);
 void set_pressed(bool p_pressed);
 void set_pressure(float p_pressure);
 
+protected:
 InputEventJoypadButton(WasGoId p_wasgo_id);
+public:
+InputEventJoypadButton();
 ~InputEventJoypadButton();
             
 };
@@ -27,5 +29,10 @@ float _wasgo_InputEventJoypadButton_wrapper_get_pressure(WasGoId wasgo_id);
 void _wasgo_InputEventJoypadButton_wrapper_set_button_index(WasGoId wasgo_id, int p_button_index);
 void _wasgo_InputEventJoypadButton_wrapper_set_pressed(WasGoId wasgo_id, bool p_pressed);
 void _wasgo_InputEventJoypadButton_wrapper_set_pressure(WasGoId wasgo_id, float p_pressure);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_InputEventJoypadButton_constructor();
+    void _wasgo_InputEventJoypadButton_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

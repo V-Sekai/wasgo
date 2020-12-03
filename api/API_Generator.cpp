@@ -106,14 +106,14 @@ Dictionary WasGoAPIGen::api_dict(){
 		List<MethodInfo> method_definitions;
 		ClassDB::get_method_list(class_list[i], &method_definitions, true);
 		Dictionary methods;
-		for (int j = 0; j < method_definitions.size(); j++){
+		for (int j = 0; j < method_definitions.size(); j++) {
 			// methods[j] = Dictionary(method_definitions[j]);
 			MethodInfo method_definition = method_definitions[j];
 			Dictionary method;
 
 			if(method_definition.name.size() > 0 && method_definition.name[0] == '_'){
 				//by convention protected methods start with an underscore
-				break;
+				continue;
 			}
 			
 			method["name"] = method_definition.name;
@@ -173,7 +173,6 @@ Dictionary WasGoAPIGen::api_dict(){
 			}
 		}
 		class_definition["constants"] = constants;
-
 		api[class_name] = class_definition;
 	}
 

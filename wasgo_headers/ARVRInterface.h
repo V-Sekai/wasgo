@@ -2,12 +2,11 @@
 #ifndef ARVRINTERFACE_H
 #define ARVRINTERFACE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
-#include "ustring.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "Reference.h"
 class ARVRInterface : public Reference{
 public:
 enum Capabilities{
@@ -51,8 +50,8 @@ extern "C"{
 int _wasgo_ARVRInterface_wrapper_get_anchor_detection_is_enabled(WasGoId wasgo_id);
 int _wasgo_ARVRInterface_wrapper_get_camera_feed_id(WasGoId wasgo_id);
 int _wasgo_ARVRInterface_wrapper_get_capabilities(WasGoId wasgo_id);
-WasGoId _wasgo_ARVRInterface_wrapper_get_name(WasGoId wasgo_id);
-WasGoId _wasgo_ARVRInterface_wrapper_get_render_targetsize(WasGoId wasgo_id);
+void _wasgo_ARVRInterface_wrapper_get_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_ARVRInterface_wrapper_get_render_targetsize(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoId _wasgo_ARVRInterface_wrapper_get_tracking_status(WasGoId wasgo_id);
 int _wasgo_ARVRInterface_wrapper_initialize(WasGoId wasgo_id);
 int _wasgo_ARVRInterface_wrapper_is_initialized(WasGoId wasgo_id);
@@ -62,5 +61,10 @@ void _wasgo_ARVRInterface_wrapper_set_anchor_detection_is_enabled(WasGoId wasgo_
 void _wasgo_ARVRInterface_wrapper_set_is_initialized(WasGoId wasgo_id, bool p_initialized);
 void _wasgo_ARVRInterface_wrapper_set_is_primary(WasGoId wasgo_id, bool p_enable);
 void _wasgo_ARVRInterface_wrapper_uninitialize(WasGoId wasgo_id);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_ARVRInterface_constructor();
+    void _wasgo_ARVRInterface_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

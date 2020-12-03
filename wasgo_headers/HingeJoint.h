@@ -2,7 +2,6 @@
 #ifndef HINGEJOINT_H
 #define HINGEJOINT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Joint.h"
@@ -29,7 +28,10 @@ float get_param(HingeJoint::Param p_param);
 void set_flag(HingeJoint::Flag p_flag, bool p_enabled);
 void set_param(HingeJoint::Param p_param, float p_value);
 
+protected:
 HingeJoint(WasGoId p_wasgo_id);
+public:
+HingeJoint();
 ~HingeJoint();
             
 };
@@ -41,5 +43,10 @@ int _wasgo_HingeJoint_wrapper_get_flag(WasGoId wasgo_id, WasGoId p_flag);
 float _wasgo_HingeJoint_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
 void _wasgo_HingeJoint_wrapper_set_flag(WasGoId wasgo_id, WasGoId p_flag, bool p_enabled);
 void _wasgo_HingeJoint_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_HingeJoint_constructor();
+    void _wasgo_HingeJoint_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

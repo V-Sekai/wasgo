@@ -1,4 +1,5 @@
 /* THIS FILE IS GENERATED */
+#include "marshalls.h"
 #include "InputEventMouseButton.h"
 int InputEventMouseButton::get_button_index(){
 	return (int) _wasgo_InputEventMouseButton_wrapper_get_button_index(wasgo_id);
@@ -20,4 +21,13 @@ void InputEventMouseButton::set_factor(float p_factor){
 }
 void InputEventMouseButton::set_pressed(bool p_pressed){
 	_wasgo_InputEventMouseButton_wrapper_set_pressed(wasgo_id, p_pressed);
+}
+
+InputEventMouseButton::InputEventMouseButton(WasGoId p_wasgo_id) : InputEventMouse(p_wasgo_id){
+}
+InputEventMouseButton::InputEventMouseButton(){
+    wasgo_id = _wasgo_InputEventMouseButton_constructor();
+}
+InputEventMouseButton::~InputEventMouseButton(){
+    _wasgo_InputEventMouseButton_destructor(wasgo_id);
 }

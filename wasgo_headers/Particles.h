@@ -2,13 +2,12 @@
 #ifndef PARTICLES_H
 #define PARTICLES_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Material.h"
 #include "GeometryInstance.h"
-#include "Mesh.h"
 #include "AABB.h"
+#include "Mesh.h"
 class Particles : public GeometryInstance{
 public:
 enum DrawOrder{
@@ -51,7 +50,10 @@ void set_speed_scale(float p_scale);
 void set_use_local_coordinates(bool p_enable);
 void set_visibility_aabb(AABB p_aabb);
 
+protected:
 Particles(WasGoId p_wasgo_id);
+public:
+Particles();
 ~Particles();
             
 };
@@ -59,7 +61,7 @@ Particles(WasGoId p_wasgo_id);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Particles_wrapper_capture_aabb(WasGoId wasgo_id);
+void _wasgo_Particles_wrapper_capture_aabb(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Particles_wrapper_get_amount(WasGoId wasgo_id);
 WasGoId _wasgo_Particles_wrapper_get_draw_order(WasGoId wasgo_id);
 WasGoId _wasgo_Particles_wrapper_get_draw_pass_mesh(WasGoId wasgo_id, int p_pass);
@@ -74,7 +76,7 @@ WasGoId _wasgo_Particles_wrapper_get_process_material(WasGoId wasgo_id);
 float _wasgo_Particles_wrapper_get_randomness_ratio(WasGoId wasgo_id);
 float _wasgo_Particles_wrapper_get_speed_scale(WasGoId wasgo_id);
 int _wasgo_Particles_wrapper_get_use_local_coordinates(WasGoId wasgo_id);
-WasGoId _wasgo_Particles_wrapper_get_visibility_aabb(WasGoId wasgo_id);
+void _wasgo_Particles_wrapper_get_visibility_aabb(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Particles_wrapper_is_emitting(WasGoId wasgo_id);
 void _wasgo_Particles_wrapper_restart(WasGoId wasgo_id);
 void _wasgo_Particles_wrapper_set_amount(WasGoId wasgo_id, int p_amount);
@@ -92,6 +94,11 @@ void _wasgo_Particles_wrapper_set_process_material(WasGoId wasgo_id, WasGoId p_m
 void _wasgo_Particles_wrapper_set_randomness_ratio(WasGoId wasgo_id, float p_ratio);
 void _wasgo_Particles_wrapper_set_speed_scale(WasGoId wasgo_id, float p_scale);
 void _wasgo_Particles_wrapper_set_use_local_coordinates(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Particles_wrapper_set_visibility_aabb(WasGoId wasgo_id, WasGoId p_aabb);
+void _wasgo_Particles_wrapper_set_visibility_aabb(WasGoId wasgo_id, const uint8_t * p_aabb, int p_aabb_wasgo_buffer_size);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_Particles_constructor();
+    void _wasgo_Particles_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

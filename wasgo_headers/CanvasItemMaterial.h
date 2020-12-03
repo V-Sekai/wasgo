@@ -2,7 +2,6 @@
 #ifndef CANVASITEMMATERIAL_H
 #define CANVASITEMMATERIAL_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Material.h"
@@ -33,7 +32,10 @@ void set_particles_anim_loop(bool p_loop);
 void set_particles_anim_v_frames(int p_frames);
 void set_particles_animation(bool p_particles_anim);
 
+protected:
 CanvasItemMaterial(WasGoId p_wasgo_id);
+public:
+CanvasItemMaterial();
 ~CanvasItemMaterial();
             
 };
@@ -53,5 +55,10 @@ void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_h_frames(WasGoId wasgo
 void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_loop(WasGoId wasgo_id, bool p_loop);
 void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_v_frames(WasGoId wasgo_id, int p_frames);
 void _wasgo_CanvasItemMaterial_wrapper_set_particles_animation(WasGoId wasgo_id, bool p_particles_anim);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_CanvasItemMaterial_constructor();
+    void _wasgo_CanvasItemMaterial_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

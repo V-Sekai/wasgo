@@ -2,7 +2,6 @@
 #ifndef VISUALSHADERNODEOUTPUT_H
 #define VISUALSHADERNODEOUTPUT_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "VisualShaderNode.h"
@@ -13,5 +12,10 @@ public:
 
 //Wrapper Functions
 extern "C"{
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_VisualShaderNodeOutput_constructor();
+    void _wasgo_VisualShaderNodeOutput_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

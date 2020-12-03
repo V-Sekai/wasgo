@@ -2,7 +2,6 @@
 #ifndef AUDIOEFFECTLIMITER_H
 #define AUDIOEFFECTLIMITER_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AudioEffect.h"
@@ -17,7 +16,10 @@ void set_soft_clip_db(float p_soft_clip);
 void set_soft_clip_ratio(float p_soft_clip);
 void set_threshold_db(float p_threshold);
 
+protected:
 AudioEffectLimiter(WasGoId p_wasgo_id);
+public:
+AudioEffectLimiter();
 ~AudioEffectLimiter();
             
 };
@@ -33,5 +35,10 @@ void _wasgo_AudioEffectLimiter_wrapper_set_ceiling_db(WasGoId wasgo_id, float p_
 void _wasgo_AudioEffectLimiter_wrapper_set_soft_clip_db(WasGoId wasgo_id, float p_soft_clip);
 void _wasgo_AudioEffectLimiter_wrapper_set_soft_clip_ratio(WasGoId wasgo_id, float p_soft_clip);
 void _wasgo_AudioEffectLimiter_wrapper_set_threshold_db(WasGoId wasgo_id, float p_threshold);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioEffectLimiter_constructor();
+    void _wasgo_AudioEffectLimiter_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

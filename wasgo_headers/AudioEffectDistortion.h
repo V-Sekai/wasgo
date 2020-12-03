@@ -2,7 +2,6 @@
 #ifndef AUDIOEFFECTDISTORTION_H
 #define AUDIOEFFECTDISTORTION_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "AudioEffect.h"
@@ -26,7 +25,10 @@ void set_mode(AudioEffectDistortion::Mode p_mode);
 void set_post_gain(float p_post_gain);
 void set_pre_gain(float p_pre_gain);
 
+protected:
 AudioEffectDistortion(WasGoId p_wasgo_id);
+public:
+AudioEffectDistortion();
 ~AudioEffectDistortion();
             
 };
@@ -44,5 +46,10 @@ void _wasgo_AudioEffectDistortion_wrapper_set_keep_hf_hz(WasGoId wasgo_id, float
 void _wasgo_AudioEffectDistortion_wrapper_set_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_AudioEffectDistortion_wrapper_set_post_gain(WasGoId wasgo_id, float p_post_gain);
 void _wasgo_AudioEffectDistortion_wrapper_set_pre_gain(WasGoId wasgo_id, float p_pre_gain);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AudioEffectDistortion_constructor();
+    void _wasgo_AudioEffectDistortion_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

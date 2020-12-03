@@ -2,7 +2,6 @@
 #ifndef SPATIALGIZMO_H
 #define SPATIALGIZMO_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Reference.h"
@@ -13,5 +12,10 @@ public:
 
 //Wrapper Functions
 extern "C"{
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_SpatialGizmo_constructor();
+    void _wasgo_SpatialGizmo_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

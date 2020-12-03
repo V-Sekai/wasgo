@@ -30,6 +30,7 @@
 
 #include "StringName.h"
 #include "memory.h"
+#include <stdio.h>
 
 // #include "core/os/os.h"
 // #include "core/print_string.h"
@@ -180,13 +181,14 @@ StringName::StringName(const StringName &p_name) {
 StringName::StringName(const char *p_name) {
 
 	_data = NULL;
-
+	StringName::setup();
 	ERR_FAIL_COND(!configured);
+	printf("passed config check\n");
 
 	if (!p_name || p_name[0] == 0)
 		return; //empty, ignore
 
-	lock->lock();
+	// lock->lock();
 
 	uint32_t hash = String::hash(p_name);
 
@@ -205,7 +207,7 @@ StringName::StringName(const char *p_name) {
 	if (_data) {
 		if (_data->refcount.ref()) {
 			// exists
-			lock->unlock();
+			// lock->unlock();
 			return;
 		}
 	}
@@ -273,11 +275,14 @@ StringName::StringName(const StaticCString &p_static_string) {
 }
 
 StringName::StringName(const String &p_name) {
+	printf("we're making a stringname out of a string: %ls\n\n\n\n", p_name.ascii().ptr());
 
 	_data = NULL;
 
+	printf("checking configured\n");
 	ERR_FAIL_COND(!configured);
 
+	printf("checking empty string\n");
 	if (p_name == String())
 		return;
 
@@ -289,6 +294,7 @@ StringName::StringName(const String &p_name) {
 
 	_data = _table[idx];
 
+	printf("about to hit a while loop\n");
 	while (_data) {
 
 		if (_data->hash == hash && _data->get_name() == p_name)

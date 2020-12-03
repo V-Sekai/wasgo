@@ -2,7 +2,6 @@
 #ifndef CYLINDERMESH_H
 #define CYLINDERMESH_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "PrimitiveMesh.h"
@@ -19,7 +18,10 @@ void set_radial_segments(int p_segments);
 void set_rings(int p_rings);
 void set_top_radius(float p_radius);
 
+protected:
 CylinderMesh(WasGoId p_wasgo_id);
+public:
+CylinderMesh();
 ~CylinderMesh();
             
 };
@@ -37,5 +39,10 @@ void _wasgo_CylinderMesh_wrapper_set_height(WasGoId wasgo_id, float p_height);
 void _wasgo_CylinderMesh_wrapper_set_radial_segments(WasGoId wasgo_id, int p_segments);
 void _wasgo_CylinderMesh_wrapper_set_rings(WasGoId wasgo_id, int p_rings);
 void _wasgo_CylinderMesh_wrapper_set_top_radius(WasGoId wasgo_id, float p_radius);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_CylinderMesh_constructor();
+    void _wasgo_CylinderMesh_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

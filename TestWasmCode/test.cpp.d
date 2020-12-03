@@ -1,21 +1,4 @@
-test.cpp.o: test.cpp C:\wasi-sdk-11.0\wasi-sysroot\include\stdint.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\bits\alltypes.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_timeval.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__typedef_time_t.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__typedef_suseconds_t.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_timespec.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_iovec.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\c++\v1\stddef.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\bits\stdint.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\stdio.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\features.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__seek.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\wasi\api.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\c++\v1\__config \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\stdlib.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__functions_malloc.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__header_stdlib.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\alloca.h otherfile.h \
+test.cpp.o: test.cpp \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\wasgo\wasgo.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Variant.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Array.h \
@@ -25,15 +8,9 @@ test.cpp.o: test.cpp C:\wasi-sdk-11.0\wasi-sysroot\include\stdint.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Color.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_funcs.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_defs.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\float.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\bits\float.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Ustring.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\cowdata.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\string.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__header_string.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\__functions_memcpy.h \
-  C:\wasi-sdk-11.0\wasi-sysroot\include\strings.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_macros.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\memory.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\safe_refcount.h \
@@ -56,45 +33,13 @@ test.cpp.o: test.cpp C:\wasi-sdk-11.0\wasi-sysroot\include\stdint.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\StringName.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\RefPtr.h \
   C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\RID.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\set.h
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\stdint.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\bits\alltypes.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_timeval.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__typedef_time_t.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__typedef_suseconds_t.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_timespec.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__struct_iovec.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\c++\v1\stddef.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\bits\stdint.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\stdio.h:
-
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\features.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__seek.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\wasi\api.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\c++\v1\__config:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\stdlib.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__functions_malloc.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__header_stdlib.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\alloca.h:
-
-otherfile.h:
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\set.h \
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Generated\Node.h \
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\wasgo\wasgo.h \
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Object.h \
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\wasgo\wasgoid.h \
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\ustring.h \
+  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\NodePath.h
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\wasgo\wasgo.h:
 
@@ -114,23 +59,11 @@ C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\mat
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_defs.h:
 
-C:\wasi-sdk-11.0\wasi-sysroot\include\float.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\bits\float.h:
-
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math.h:
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Ustring.h:
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\cowdata.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\string.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__header_string.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\__functions_memcpy.h:
-
-C:\wasi-sdk-11.0\wasi-sysroot\include\strings.h:
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_macros.h:
 
@@ -177,3 +110,15 @@ C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Ref
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\RID.h:
 
 C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\set.h:
+
+C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Generated\Node.h:
+
+C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\wasgo\wasgo.h:
+
+C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Object.h:
+
+C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\wasgo\wasgoid.h:
+
+C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\ustring.h:
+
+C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\NodePath.h:

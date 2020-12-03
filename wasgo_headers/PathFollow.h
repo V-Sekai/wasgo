@@ -2,7 +2,6 @@
 #ifndef PATHFOLLOW_H
 #define PATHFOLLOW_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Spatial.h"
@@ -30,7 +29,10 @@ void set_rotation_mode(PathFollow::RotationMode p_rotation_mode);
 void set_unit_offset(float p_unit_offset);
 void set_v_offset(float p_v_offset);
 
+protected:
 PathFollow(WasGoId p_wasgo_id);
+public:
+PathFollow();
 ~PathFollow();
             
 };
@@ -52,5 +54,10 @@ void _wasgo_PathFollow_wrapper_set_offset(WasGoId wasgo_id, float p_offset);
 void _wasgo_PathFollow_wrapper_set_rotation_mode(WasGoId wasgo_id, WasGoId p_rotation_mode);
 void _wasgo_PathFollow_wrapper_set_unit_offset(WasGoId wasgo_id, float p_unit_offset);
 void _wasgo_PathFollow_wrapper_set_v_offset(WasGoId wasgo_id, float p_v_offset);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_PathFollow_constructor();
+    void _wasgo_PathFollow_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

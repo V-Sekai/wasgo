@@ -2,7 +2,6 @@
 #ifndef ANIMATEDTEXTURE_H
 #define ANIMATEDTEXTURE_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "Texture.h"
@@ -23,7 +22,10 @@ void set_frames(int p_frames);
 void set_oneshot(bool p_oneshot);
 void set_pause(bool p_pause);
 
+protected:
 AnimatedTexture(WasGoId p_wasgo_id);
+public:
+AnimatedTexture();
 ~AnimatedTexture();
             
 };
@@ -45,5 +47,10 @@ void _wasgo_AnimatedTexture_wrapper_set_frame_texture(WasGoId wasgo_id, int p_fr
 void _wasgo_AnimatedTexture_wrapper_set_frames(WasGoId wasgo_id, int p_frames);
 void _wasgo_AnimatedTexture_wrapper_set_oneshot(WasGoId wasgo_id, bool p_oneshot);
 void _wasgo_AnimatedTexture_wrapper_set_pause(WasGoId wasgo_id, bool p_pause);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_AnimatedTexture_constructor();
+    void _wasgo_AnimatedTexture_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif

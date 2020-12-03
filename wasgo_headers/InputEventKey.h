@@ -2,7 +2,6 @@
 #ifndef INPUTEVENTKEY_H
 #define INPUTEVENTKEY_H
 
-#include "stdint.h"
 #include "wasgo\wasgo.h"
 
 #include "InputEventWithModifiers.h"
@@ -16,7 +15,10 @@ void set_pressed(bool p_pressed);
 void set_scancode(int p_scancode);
 void set_unicode(int p_unicode);
 
+protected:
 InputEventKey(WasGoId p_wasgo_id);
+public:
+InputEventKey();
 ~InputEventKey();
             
 };
@@ -31,5 +33,10 @@ void _wasgo_InputEventKey_wrapper_set_echo(WasGoId wasgo_id, bool p_echo);
 void _wasgo_InputEventKey_wrapper_set_pressed(WasGoId wasgo_id, bool p_pressed);
 void _wasgo_InputEventKey_wrapper_set_scancode(WasGoId wasgo_id, int p_scancode);
 void _wasgo_InputEventKey_wrapper_set_unicode(WasGoId wasgo_id, int p_unicode);
+
+    //constructor and destructor wrappers
+    WasGoId _wasgo_InputEventKey_constructor();
+    void _wasgo_InputEventKey_destructor(WasGoId p_wasgo_id);
+            
 }
 #endif
