@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "RID.h"
-#include "Color.h"
 #include "Resource.h"
+#include "Rect2.h"
 #include "Image.h"
 #include "Vector2.h"
-#include "Rect2.h"
+#include "Color.h"
+#include "RID.h"
 class Texture : public Resource{
 public:
 enum Flags{

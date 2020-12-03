@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Resource.h"
 #include "Variant.h"
+#include "Resource.h"
 class Translation : public Resource{
 public:
 void add_message(String p_src_message, String p_xlated_message);

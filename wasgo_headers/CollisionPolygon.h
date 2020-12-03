@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
 #include "Variant.h"
+#include "Spatial.h"
 class CollisionPolygon : public Spatial{
 public:
 float get_depth();

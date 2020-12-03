@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "Control.h"
-#include "Variant.h"
-#include "Node.h"
-#include "error_list.h"
+#include "ustring.h"
 #include "Vector2.h"
 #include "HBoxContainer.h"
+#include "error_list.h"
+#include "Variant.h"
+#include "Node.h"
 class GraphEdit : public Control{
 public:
 void add_valid_connection_type(int p_from_type, int p_to_type);

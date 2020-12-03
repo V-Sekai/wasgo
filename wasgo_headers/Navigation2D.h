@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "NavigationPolygon.h"
 #include "Node2D.h"
-#include "Transform2D.h"
-#include "Variant.h"
 #include "Vector2.h"
 #include "Object.h"
+#include "NavigationPolygon.h"
+#include "Transform2D.h"
+#include "Variant.h"
 class Navigation2D : public Node2D{
 public:
 Vector2 get_closest_point(Vector2 p_to_point);

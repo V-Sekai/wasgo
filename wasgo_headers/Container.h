@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Control.h"
 #include "Rect2.h"
+#include "Control.h"
 class Container : public Control{
 public:
 void fit_child_in_rect(Control p_child, Rect2 p_rect);

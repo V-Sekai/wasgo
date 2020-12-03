@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Rect2.h"
+#include "Texture.h"
 #include "ustring.h"
+#include "Vector2.h"
 #include "Font.h"
 #include "error_list.h"
-#include "Texture.h"
-#include "Vector2.h"
-#include "Rect2.h"
 class BitmapFont : public Font{
 public:
 void add_char(int p_character, int p_texture, Rect2 p_rect, Vector2 p_align = Vector2((0, 0)), float p_advance = (float) -1);

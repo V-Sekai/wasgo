@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Shape.h"
-#include "Spatial.h"
 #include "RID.h"
+#include "Spatial.h"
+#include "Shape.h"
 class SpringArm : public Spatial{
 public:
 void add_excluded_object(RID p_RID);

@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "GeometryInstance.h"
-#include "Material.h"
 #include "Skin.h"
 #include "Mesh.h"
+#include "Material.h"
 #include "NodePath.h"
 class MeshInstance : public GeometryInstance{
 public:

@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "Animation.h"
+#include "ustring.h"
+#include "NodePath.h"
+#include "error_list.h"
 #include "Variant.h"
 #include "Node.h"
-#include "error_list.h"
-#include "NodePath.h"
 class AnimationPlayer : public Node{
 public:
 enum AnimationMethodCallMode{

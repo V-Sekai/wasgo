@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Control.h"
 #include "Color.h"
+#include "Control.h"
 class ReferenceRect : public Control{
 public:
 Color get_border_color();

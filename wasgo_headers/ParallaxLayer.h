@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Vector2.h"
+#include "Node2D.h"
 class ParallaxLayer : public Node2D{
 public:
 Vector2 get_mirroring();

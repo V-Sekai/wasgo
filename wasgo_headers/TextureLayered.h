@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Image.h"
 #include "Resource.h"
+#include "Image.h"
 class TextureLayered : public Resource{
 public:
 enum Flags{

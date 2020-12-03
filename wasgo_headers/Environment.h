@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Sky.h"
-#include "Color.h"
 #include "Resource.h"
+#include "Sky.h"
 #include "Vector3.h"
-#include "Basis.h"
 #include "Texture.h"
+#include "Color.h"
+#include "Basis.h"
 class Environment : public Resource{
 public:
 enum BGMode{

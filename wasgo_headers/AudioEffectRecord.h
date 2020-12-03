@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "AudioStreamSample.h"
 #include "AudioEffect.h"
+#include "AudioStreamSample.h"
 class AudioEffectRecord : public AudioEffect{
 public:
 AudioStreamSample::Format get_format();

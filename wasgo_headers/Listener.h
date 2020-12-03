@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
 #include "Transform.h"
+#include "Spatial.h"
 class Listener : public Spatial{
 public:
 void clear_current();

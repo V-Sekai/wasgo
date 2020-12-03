@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
+#include "Variant.h"
 #include "Node.h"
 #include "WasmResource.h"
-#include "Variant.h"
 class WasGoState : public Node{
 public:
 int get_heap_size();

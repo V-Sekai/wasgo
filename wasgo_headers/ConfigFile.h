@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Reference.h"
 #include "error_list.h"
 #include "Variant.h"
+#include "Reference.h"
 class ConfigFile : public Reference{
 public:
 void erase_section(String p_section);

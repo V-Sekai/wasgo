@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Image.h"
 #include "Resource.h"
+#include "Image.h"
 class CubeMap : public Resource{
 public:
 enum Flags{

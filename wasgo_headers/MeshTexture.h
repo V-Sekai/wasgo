@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "Vector2.h"
 #include "Mesh.h"
+#include "Texture.h"
 class MeshTexture : public Texture{
 public:
 Texture get_base_texture();

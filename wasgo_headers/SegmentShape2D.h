@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Shape2D.h"
 #include "Vector2.h"
+#include "Shape2D.h"
 class SegmentShape2D : public Shape2D{
 public:
 Vector2 get_a();

@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "Resource.h"
-#include "Variant.h"
+#include "Rect2.h"
 #include "Image.h"
 #include "Vector2.h"
-#include "Rect2.h"
+#include "Variant.h"
 class BitMap : public Resource{
 public:
 void create(Vector2 p_size);

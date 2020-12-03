@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "AABB.h"
 #include "Spatial.h"
+#include "AABB.h"
 class VisibilityNotifier : public Spatial{
 public:
 AABB get_aabb();

@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Transform.h"
+#include "Spatial.h"
+#include "Object.h"
 #include "RID.h"
 #include "Variant.h"
 #include "Shape.h"
-#include "Spatial.h"
-#include "Transform.h"
-#include "Object.h"
 class CollisionObject : public Spatial{
 public:
 int create_shape_owner(Object p_owner);

@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Reference.h"
 #include "error_list.h"
+#include "Reference.h"
 class Directory : public Reference{
 public:
 Error change_dir(String p_todir);

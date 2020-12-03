@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "CanvasLayer.h"
 #include "Vector2.h"
+#include "CanvasLayer.h"
 class ParallaxBackground : public CanvasLayer{
 public:
 Vector2 get_limit_begin();

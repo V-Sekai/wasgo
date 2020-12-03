@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "RID.h"
 #include "Resource.h"
-#include "Variant.h"
-#include "Reference.h"
 #include "Transform.h"
+#include "Reference.h"
+#include "RID.h"
+#include "Variant.h"
 class PhysicsShapeQueryParameters : public Reference{
 public:
 int get_collision_mask();

@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "error_list.h"
 #include "Variant.h"
+#include "Reference.h"
 class HashingContext : public Reference{
 public:
 enum HashType{

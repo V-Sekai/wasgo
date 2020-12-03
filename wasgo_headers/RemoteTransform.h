@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
 #include "NodePath.h"
+#include "Spatial.h"
 class RemoteTransform : public Spatial{
 public:
 void force_update_cache();

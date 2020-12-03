@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "TextureButton.h"
 #include "Popup.h"
+#include "TextureButton.h"
 class WindowDialog : public Popup{
 public:
 TextureButton get_close_button();

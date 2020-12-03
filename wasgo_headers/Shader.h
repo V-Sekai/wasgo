@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Texture.h"
 #include "Resource.h"
+#include "Texture.h"
 class Shader : public Resource{
 public:
 enum Mode{

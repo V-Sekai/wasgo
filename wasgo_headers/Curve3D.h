@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
 #include "Resource.h"
+#include "Vector3.h"
 #include "Variant.h"
 class Curve3D : public Resource{
 public:

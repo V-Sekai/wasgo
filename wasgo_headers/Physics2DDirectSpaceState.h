@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
-#include "Variant.h"
-#include "Object.h"
 #include "Physics2DShapeQueryParameters.h"
+#include "Object.h"
+#include "Variant.h"
+#include "Vector2.h"
 class Physics2DDirectSpaceState : public Object{
 public:
 Array cast_motion(Physics2DShapeQueryParameters p_shape);

@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Resource.h"
 #include "Mesh.h"
 #include "Variant.h"
+#include "Resource.h"
 class NavigationMesh : public Resource{
 public:
 void add_polygon(PoolIntArray p_polygon);

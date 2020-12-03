@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Curve3D.h"
 #include "Spatial.h"
+#include "Curve3D.h"
 class Path : public Spatial{
 public:
 Curve3D get_curve();

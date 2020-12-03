@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Resource.h"
-#include "BaseButton.h"
 #include "Variant.h"
+#include "BaseButton.h"
 class ButtonGroup : public Resource{
 public:
 Array get_buttons();

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Rect2.h"
+#include "Node2D.h"
 class VisibilityNotifier2D : public Node2D{
 public:
 Rect2 get_rect();

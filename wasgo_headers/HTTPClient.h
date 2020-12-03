@@ -6,9 +6,9 @@
 
 #include "ustring.h"
 #include "StreamPeer.h"
-#include "Variant.h"
-#include "error_list.h"
 #include "Reference.h"
+#include "error_list.h"
+#include "Variant.h"
 class HTTPClient : public Reference{
 public:
 enum Method{

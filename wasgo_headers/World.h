@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Resource.h"
+#include "RID.h"
 #include "Environment.h"
 #include "PhysicsDirectSpaceState.h"
-#include "RID.h"
-#include "Resource.h"
 class World : public Resource{
 public:
 PhysicsDirectSpaceState get_direct_space_state();

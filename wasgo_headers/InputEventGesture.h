@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "InputEventWithModifiers.h"
 #include "Vector2.h"
+#include "InputEventWithModifiers.h"
 class InputEventGesture : public InputEventWithModifiers{
 public:
 Vector2 get_position();

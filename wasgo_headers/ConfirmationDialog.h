@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "AcceptDialog.h"
 #include "Button.h"
+#include "AcceptDialog.h"
 class ConfirmationDialog : public AcceptDialog{
 public:
 Button get_cancel();

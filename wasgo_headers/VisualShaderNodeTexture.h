@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "VisualShaderNode.h"
+#include "Texture.h"
 class VisualShaderNodeTexture : public VisualShaderNode{
 public:
 enum Source{

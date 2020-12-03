@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Texture.h"
-#include "Resource.h"
 #include "Variant.h"
+#include "Resource.h"
+#include "Texture.h"
 class SpriteFrames : public Resource{
 public:
 void add_animation(String p_anim);

@@ -4,15 +4,15 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "RID.h"
-#include "Transform2D.h"
-#include "Variant.h"
 #include "Physics2DDirectBodyState.h"
-#include "Physics2DDirectSpaceState.h"
-#include "Vector2.h"
-#include "Object.h"
 #include "Physics2DTestMotionResult.h"
+#include "Physics2DDirectSpaceState.h"
+#include "ustring.h"
+#include "Vector2.h"
+#include "Transform2D.h"
+#include "Object.h"
+#include "RID.h"
+#include "Variant.h"
 class Physics2DServer : public Object{
 public:
 enum AreaBodyStatus{

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "MultiMesh.h"
 #include "GeometryInstance.h"
+#include "MultiMesh.h"
 class MultiMeshInstance : public GeometryInstance{
 public:
 MultiMesh get_multimesh();

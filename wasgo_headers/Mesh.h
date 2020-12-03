@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "TriangleMesh.h"
-#include "Material.h"
-#include "Variant.h"
 #include "Resource.h"
 #include "Shape.h"
-#include "AABB.h"
+#include "TriangleMesh.h"
 #include "Vector2.h"
+#include "Material.h"
+#include "Variant.h"
+#include "AABB.h"
 class Mesh : public Resource{
 public:
 enum ArrayFormat{

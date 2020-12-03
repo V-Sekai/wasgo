@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "InputEvent.h"
 #include "Vector2.h"
+#include "InputEvent.h"
 class InputEventScreenDrag : public InputEvent{
 public:
 int get_index();

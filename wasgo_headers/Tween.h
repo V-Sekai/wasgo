@@ -6,9 +6,9 @@
 
 #include "ustring.h"
 #include "Object.h"
+#include "NodePath.h"
 #include "Variant.h"
 #include "Node.h"
-#include "NodePath.h"
 class Tween : public Node{
 public:
 enum EaseType{

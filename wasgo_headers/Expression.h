@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Variant.h"
-#include "error_list.h"
-#include "Reference.h"
 #include "Object.h"
+#include "Reference.h"
+#include "error_list.h"
+#include "Variant.h"
 class Expression : public Reference{
 public:
 Variant execute(Array p_inputs = (Array) [], Object p_base_instance = (Object) "", bool p_show_error = (bool) true);

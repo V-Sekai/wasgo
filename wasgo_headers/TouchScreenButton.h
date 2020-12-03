@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Texture.h"
 #include "ustring.h"
+#include "Node2D.h"
 #include "Shape2D.h"
 #include "BitMap.h"
-#include "Node2D.h"
-#include "Texture.h"
 class TouchScreenButton : public Node2D{
 public:
 enum VisibilityMode{

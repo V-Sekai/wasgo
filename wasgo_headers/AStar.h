@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Vector3.h"
-#include "Reference.h"
 #include "Variant.h"
+#include "Reference.h"
 class AStar : public Reference{
 public:
 void add_point(int p_id, Vector3 p_position, float p_weight_scale = (float) 1);

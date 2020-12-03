@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "InputEvent.h"
 #include "Object.h"
+#include "InputEvent.h"
 class MainLoop : public Object{
 public:
 void finish();

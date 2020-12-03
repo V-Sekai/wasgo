@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "StyleBox.h"
-#include "Color.h"
 #include "Corner.h"
 #include "Margin.h"
 #include "Vector2.h"
+#include "Color.h"
+#include "StyleBox.h"
 class StyleBoxFlat : public StyleBox{
 public:
 int get_aa_size();

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "StyleBox.h"
-#include "Color.h"
+#include "Rect2.h"
 #include "Margin.h"
 #include "Texture.h"
-#include "Rect2.h"
+#include "Color.h"
+#include "StyleBox.h"
 class StyleBoxTexture : public StyleBox{
 public:
 enum AxisStretchMode{

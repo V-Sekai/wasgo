@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
+#include "RID.h"
 #include "Reference.h"
 #include "Node.h"
-#include "RID.h"
 class Resource : public Reference{
 public:
 Resource duplicate(bool p_subresources = (bool) false);

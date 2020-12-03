@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Shape.h"
-#include "Spatial.h"
 #include "Resource.h"
+#include "Spatial.h"
+#include "Shape.h"
 class CollisionShape : public Spatial{
 public:
 Shape get_shape();

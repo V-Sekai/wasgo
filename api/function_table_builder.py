@@ -695,16 +695,16 @@ def write_function_table(file_path, api_dict):
         ret = []
         for content in contents['methods'].values():
             arguments = "i"
-            if(content['return_type'] != "void" and wrapper_return_types(content['return_type']) == "void"):
+            if(content['return_type'] != "void" and content["return_type"] and wrapper_return_types(content['return_type']) == "void"):
                 arguments += "*~"
             for i in content['arguments'].values():
                     if i['type'] == 'bool':
                         arguments += 'i'
-                    if i['type'] == 'int':
+                    if wrapper_argument_types(i['type']) == 'int':
                         arguments += 'I'
                     elif i['type'] == 'float':
                         arguments += 'f'
-                    else:
+                    elif i["type"] in wasm_variants:
                         arguments += '*~'
             returns = ""
             if wrapper_return_types(content['return_type']) == 'int':

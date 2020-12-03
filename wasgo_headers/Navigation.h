@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Spatial.h"
-#include "Vector3.h"
 #include "NavigationMesh.h"
-#include "Transform.h"
 #include "Object.h"
+#include "Transform.h"
+#include "Vector3.h"
+#include "Variant.h"
 class Navigation : public Spatial{
 public:
 Vector3 get_closest_point(Vector3 p_to_point);

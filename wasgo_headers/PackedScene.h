@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
-#include "SceneState.h"
-#include "error_list.h"
 #include "Resource.h"
+#include "error_list.h"
+#include "SceneState.h"
+#include "Node.h"
 class PackedScene : public Resource{
 public:
 enum GenEditState{

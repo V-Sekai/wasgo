@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "AudioStream.h"
 #include "AudioStreamPlayback.h"
 #include "Node2D.h"
+#include "AudioStream.h"
 class AudioStreamPlayer2D : public Node2D{
 public:
 int get_area_mask();

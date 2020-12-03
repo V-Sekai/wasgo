@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
+#include "VideoStream.h"
 #include "Control.h"
 #include "Texture.h"
-#include "VideoStream.h"
 class VideoPlayer : public Control{
 public:
 int get_audio_track();

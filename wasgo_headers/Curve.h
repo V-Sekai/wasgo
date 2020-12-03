@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "Resource.h"
+#include "Vector2.h"
 class Curve : public Resource{
 public:
 enum TangentMode{

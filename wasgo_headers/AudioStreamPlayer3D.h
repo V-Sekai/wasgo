@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "AudioStream.h"
 #include "AudioStreamPlayback.h"
 #include "Spatial.h"
+#include "AudioStream.h"
 class AudioStreamPlayer3D : public Spatial{
 public:
 enum AttenuationModel{

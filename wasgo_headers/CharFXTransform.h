@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "Vector2.h"
-#include "Reference.h"
-#include "Color.h"
 #include "Variant.h"
+#include "Color.h"
+#include "Reference.h"
 class CharFXTransform : public Reference{
 public:
 int get_absolute_index();

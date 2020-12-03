@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
+#include "NetworkedMultiplayerPeer.h"
+#include "Reference.h"
+#include "error_list.h"
 #include "Variant.h"
 #include "Node.h"
-#include "NetworkedMultiplayerPeer.h"
-#include "error_list.h"
-#include "Reference.h"
 class MultiplayerAPI : public Reference{
 public:
 enum RPCMode{
