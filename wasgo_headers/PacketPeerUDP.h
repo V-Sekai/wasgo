@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "PacketPeer.h"
 #include "error_list.h"
+#include "PacketPeer.h"
 #include "ustring.h"
 class PacketPeerUDP : public PacketPeer{
 public:
@@ -24,7 +24,7 @@ Error wait();
 
 protected:
 public:
-explicit PacketPeerUDP(WasGoId p_wasgo_id);
+explicit PacketPeerUDP(WasGoID p_wasgo_id);
 explicit PacketPeerUDP(PacketPeer other);
 PacketPeerUDP new_instance();
             
@@ -33,21 +33,21 @@ PacketPeerUDP new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_PacketPeerUDP_wrapper_close(WasGoId wasgo_id);
-WasGoId _wasgo_PacketPeerUDP_wrapper_connect_to_host(WasGoId wasgo_id, const uint8_t * p_host, int p_host_wasgo_buffer_size, int p_port);
-void _wasgo_PacketPeerUDP_wrapper_get_packet_ip(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_PacketPeerUDP_wrapper_get_packet_port(WasGoId wasgo_id);
-int _wasgo_PacketPeerUDP_wrapper_is_connected_to_host(WasGoId wasgo_id);
-int _wasgo_PacketPeerUDP_wrapper_is_listening(WasGoId wasgo_id);
-WasGoId _wasgo_PacketPeerUDP_wrapper_join_multicast_group(WasGoId wasgo_id, const uint8_t * p_multicast_address, int p_multicast_address_wasgo_buffer_size, const uint8_t * p_interface_name, int p_interface_name_wasgo_buffer_size);
-WasGoId _wasgo_PacketPeerUDP_wrapper_leave_multicast_group(WasGoId wasgo_id, const uint8_t * p_multicast_address, int p_multicast_address_wasgo_buffer_size, const uint8_t * p_interface_name, int p_interface_name_wasgo_buffer_size);
-WasGoId _wasgo_PacketPeerUDP_wrapper_listen(WasGoId wasgo_id, int p_port, const uint8_t * p_bind_address, int p_bind_address_wasgo_buffer_size, int p_recv_buf_size);
-void _wasgo_PacketPeerUDP_wrapper_set_broadcast_enabled(WasGoId wasgo_id, bool p_enabled);
-WasGoId _wasgo_PacketPeerUDP_wrapper_set_dest_address(WasGoId wasgo_id, const uint8_t * p_host, int p_host_wasgo_buffer_size, int p_port);
-WasGoId _wasgo_PacketPeerUDP_wrapper_wait(WasGoId wasgo_id);
+void _wasgo_PacketPeerUDP_wrapper_close(WasGoID wasgo_id);
+WasGoID _wasgo_PacketPeerUDP_wrapper_connect_to_host(WasGoID wasgo_id, const uint8_t * p_host, int p_host_wasgo_buffer_size, int p_port);
+void _wasgo_PacketPeerUDP_wrapper_get_packet_ip(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_PacketPeerUDP_wrapper_get_packet_port(WasGoID wasgo_id);
+int _wasgo_PacketPeerUDP_wrapper_is_connected_to_host(WasGoID wasgo_id);
+int _wasgo_PacketPeerUDP_wrapper_is_listening(WasGoID wasgo_id);
+WasGoID _wasgo_PacketPeerUDP_wrapper_join_multicast_group(WasGoID wasgo_id, const uint8_t * p_multicast_address, int p_multicast_address_wasgo_buffer_size, const uint8_t * p_interface_name, int p_interface_name_wasgo_buffer_size);
+WasGoID _wasgo_PacketPeerUDP_wrapper_leave_multicast_group(WasGoID wasgo_id, const uint8_t * p_multicast_address, int p_multicast_address_wasgo_buffer_size, const uint8_t * p_interface_name, int p_interface_name_wasgo_buffer_size);
+WasGoID _wasgo_PacketPeerUDP_wrapper_listen(WasGoID wasgo_id, int p_port, const uint8_t * p_bind_address, int p_bind_address_wasgo_buffer_size, int p_recv_buf_size);
+void _wasgo_PacketPeerUDP_wrapper_set_broadcast_enabled(WasGoID wasgo_id, bool p_enabled);
+WasGoID _wasgo_PacketPeerUDP_wrapper_set_dest_address(WasGoID wasgo_id, const uint8_t * p_host, int p_host_wasgo_buffer_size, int p_port);
+WasGoID _wasgo_PacketPeerUDP_wrapper_wait(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_PacketPeerUDP_constructor();
+    WasGoID _wasgo_PacketPeerUDP_constructor();
             
 }
 #endif

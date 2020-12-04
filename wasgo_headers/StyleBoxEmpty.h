@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit StyleBoxEmpty(WasGoId p_wasgo_id);
+explicit StyleBoxEmpty(WasGoID p_wasgo_id);
 explicit StyleBoxEmpty(StyleBox other);
 StyleBoxEmpty new_instance();
             
@@ -21,7 +21,7 @@ StyleBoxEmpty new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_StyleBoxEmpty_constructor();
+    WasGoID _wasgo_StyleBoxEmpty_constructor();
             
 }
 #endif

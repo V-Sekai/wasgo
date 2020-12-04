@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "VisualShaderNodeVectorDistance.h"
 
-VisualShaderNodeVectorDistance::VisualShaderNodeVectorDistance(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeVectorDistance::VisualShaderNodeVectorDistance(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeVectorDistance::VisualShaderNodeVectorDistance(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeVectorDistance_constructor();

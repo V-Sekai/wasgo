@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "ResourceFormatLoaderWasm.h"
 
-ResourceFormatLoaderWasm::ResourceFormatLoaderWasm(WasGoId p_wasgo_id) : ResourceFormatLoader(p_wasgo_id){
+ResourceFormatLoaderWasm::ResourceFormatLoaderWasm(WasGoID p_wasgo_id) : ResourceFormatLoader(p_wasgo_id){
 }
 ResourceFormatLoaderWasm::ResourceFormatLoaderWasm(ResourceFormatLoader other) : ResourceFormatLoader(other._get_wasgo_id()){
     wasgo_id = _wasgo_ResourceFormatLoaderWasm_constructor();

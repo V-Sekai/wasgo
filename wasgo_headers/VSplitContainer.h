@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VSplitContainer(WasGoId p_wasgo_id);
+explicit VSplitContainer(WasGoID p_wasgo_id);
 explicit VSplitContainer(SplitContainer other);
 VSplitContainer new_instance();
             
@@ -21,7 +21,7 @@ VSplitContainer new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VSplitContainer_constructor();
+    WasGoID _wasgo_VSplitContainer_constructor();
             
 }
 #endif

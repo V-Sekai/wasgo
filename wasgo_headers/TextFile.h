@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit TextFile(WasGoId p_wasgo_id);
+explicit TextFile(WasGoID p_wasgo_id);
 explicit TextFile(Resource other);
 TextFile new_instance();
             
@@ -21,7 +21,7 @@ TextFile new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_TextFile_constructor();
+    WasGoID _wasgo_TextFile_constructor();
             
 }
 #endif

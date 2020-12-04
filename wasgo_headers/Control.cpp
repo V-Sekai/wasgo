@@ -743,7 +743,7 @@ void Control::warp_mouse(Vector2 p_to_position){
 	_wasgo_Control_wrapper_warp_mouse(wasgo_id, wasgo_buffer_to_position, wasgo_size_to_position);
 }
 
-Control::Control(WasGoId p_wasgo_id) : CanvasItem(p_wasgo_id){
+Control::Control(WasGoID p_wasgo_id) : CanvasItem(p_wasgo_id){
 }
 Control::Control(CanvasItem other) : CanvasItem(other._get_wasgo_id()){
     wasgo_id = _wasgo_Control_constructor();

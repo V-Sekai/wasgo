@@ -14,11 +14,11 @@ void set_margin(float p_margin);
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_Shape_wrapper_get_margin(WasGoId wasgo_id);
-void _wasgo_Shape_wrapper_set_margin(WasGoId wasgo_id, float p_margin);
+float _wasgo_Shape_wrapper_get_margin(WasGoID wasgo_id);
+void _wasgo_Shape_wrapper_set_margin(WasGoID wasgo_id, float p_margin);
 
     //constructor wrappers
-    WasGoId _wasgo_Shape_constructor();
+    WasGoID _wasgo_Shape_constructor();
             
 }
 #endif

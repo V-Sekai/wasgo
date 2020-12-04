@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Skin.h"
 #include "Reference.h"
 #include "RID.h"
-#include "Skin.h"
 class SkinReference : public Reference{
 public:
 RID get_skeleton();
@@ -16,11 +16,11 @@ Skin get_skin();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_SkinReference_wrapper_get_skeleton(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_SkinReference_wrapper_get_skin(WasGoId wasgo_id);
+void _wasgo_SkinReference_wrapper_get_skeleton(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_SkinReference_wrapper_get_skin(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_SkinReference_constructor();
+    WasGoID _wasgo_SkinReference_constructor();
             
 }
 #endif

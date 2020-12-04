@@ -14,7 +14,7 @@ void set_slips_on_slope(bool p_active);
 
 protected:
 public:
-explicit RayShape(WasGoId p_wasgo_id);
+explicit RayShape(WasGoID p_wasgo_id);
 explicit RayShape(Shape other);
 RayShape new_instance();
             
@@ -23,13 +23,13 @@ RayShape new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_RayShape_wrapper_get_length(WasGoId wasgo_id);
-int _wasgo_RayShape_wrapper_get_slips_on_slope(WasGoId wasgo_id);
-void _wasgo_RayShape_wrapper_set_length(WasGoId wasgo_id, float p_length);
-void _wasgo_RayShape_wrapper_set_slips_on_slope(WasGoId wasgo_id, bool p_active);
+float _wasgo_RayShape_wrapper_get_length(WasGoID wasgo_id);
+int _wasgo_RayShape_wrapper_get_slips_on_slope(WasGoID wasgo_id);
+void _wasgo_RayShape_wrapper_set_length(WasGoID wasgo_id, float p_length);
+void _wasgo_RayShape_wrapper_set_slips_on_slope(WasGoID wasgo_id, bool p_active);
 
     //constructor wrappers
-    WasGoId _wasgo_RayShape_constructor();
+    WasGoID _wasgo_RayShape_constructor();
             
 }
 #endif

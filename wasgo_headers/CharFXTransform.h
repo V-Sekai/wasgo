@@ -6,8 +6,8 @@
 
 #include "Reference.h"
 #include "Color.h"
-#include "Vector2.h"
 #include "Variant.h"
+#include "Vector2.h"
 class CharFXTransform : public Reference{
 public:
 int get_absolute_index();
@@ -29,7 +29,7 @@ void set_visibility(bool p_visibility);
 
 protected:
 public:
-explicit CharFXTransform(WasGoId p_wasgo_id);
+explicit CharFXTransform(WasGoID p_wasgo_id);
 explicit CharFXTransform(Reference other);
 CharFXTransform new_instance();
             
@@ -38,25 +38,25 @@ CharFXTransform new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_CharFXTransform_wrapper_get_absolute_index(WasGoId wasgo_id);
-int _wasgo_CharFXTransform_wrapper_get_character(WasGoId wasgo_id);
-void _wasgo_CharFXTransform_wrapper_get_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_CharFXTransform_wrapper_get_elapsed_time(WasGoId wasgo_id);
-WasGoId _wasgo_CharFXTransform_wrapper_get_environment(WasGoId wasgo_id);
-void _wasgo_CharFXTransform_wrapper_get_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_CharFXTransform_wrapper_get_relative_index(WasGoId wasgo_id);
-int _wasgo_CharFXTransform_wrapper_is_visible(WasGoId wasgo_id);
-void _wasgo_CharFXTransform_wrapper_set_absolute_index(WasGoId wasgo_id, int p_index);
-void _wasgo_CharFXTransform_wrapper_set_character(WasGoId wasgo_id, int p_character);
-void _wasgo_CharFXTransform_wrapper_set_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_CharFXTransform_wrapper_set_elapsed_time(WasGoId wasgo_id, float p_time);
-void _wasgo_CharFXTransform_wrapper_set_environment(WasGoId wasgo_id, WasGoId p_environment);
-void _wasgo_CharFXTransform_wrapper_set_offset(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
-void _wasgo_CharFXTransform_wrapper_set_relative_index(WasGoId wasgo_id, int p_index);
-void _wasgo_CharFXTransform_wrapper_set_visibility(WasGoId wasgo_id, bool p_visibility);
+int _wasgo_CharFXTransform_wrapper_get_absolute_index(WasGoID wasgo_id);
+int _wasgo_CharFXTransform_wrapper_get_character(WasGoID wasgo_id);
+void _wasgo_CharFXTransform_wrapper_get_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_CharFXTransform_wrapper_get_elapsed_time(WasGoID wasgo_id);
+WasGoID _wasgo_CharFXTransform_wrapper_get_environment(WasGoID wasgo_id);
+void _wasgo_CharFXTransform_wrapper_get_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_CharFXTransform_wrapper_get_relative_index(WasGoID wasgo_id);
+int _wasgo_CharFXTransform_wrapper_is_visible(WasGoID wasgo_id);
+void _wasgo_CharFXTransform_wrapper_set_absolute_index(WasGoID wasgo_id, int p_index);
+void _wasgo_CharFXTransform_wrapper_set_character(WasGoID wasgo_id, int p_character);
+void _wasgo_CharFXTransform_wrapper_set_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_CharFXTransform_wrapper_set_elapsed_time(WasGoID wasgo_id, float p_time);
+void _wasgo_CharFXTransform_wrapper_set_environment(WasGoID wasgo_id, WasGoID p_environment);
+void _wasgo_CharFXTransform_wrapper_set_offset(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
+void _wasgo_CharFXTransform_wrapper_set_relative_index(WasGoID wasgo_id, int p_index);
+void _wasgo_CharFXTransform_wrapper_set_visibility(WasGoID wasgo_id, bool p_visibility);
 
     //constructor wrappers
-    WasGoId _wasgo_CharFXTransform_constructor();
+    WasGoID _wasgo_CharFXTransform_constructor();
             
 }
 #endif

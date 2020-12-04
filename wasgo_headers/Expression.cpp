@@ -27,7 +27,7 @@ Error Expression::parse(String p_expression, PoolStringArray p_input_names = (Po
 	return Error(_wasgo_Expression_wrapper_parse(wasgo_id, wasgo_buffer_expression, wasgo_size_expression, p_input_names._get_wasgo_id()));
 }
 
-Expression::Expression(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+Expression::Expression(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Expression::Expression(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Expression_constructor();

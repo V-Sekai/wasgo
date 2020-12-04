@@ -14,7 +14,7 @@ public:
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_ResourceImporter_constructor();
+    WasGoID _wasgo_ResourceImporter_constructor();
             
 }
 #endif

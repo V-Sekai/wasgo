@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Button.h"
-#include "ustring.h"
-#include "Texture.h"
 #include "PopupMenu.h"
+#include "Button.h"
 #include "Variant.h"
+#include "Texture.h"
+#include "ustring.h"
 class OptionButton : public Button{
 public:
 void add_icon_item(Texture p_texture, String p_label, int p_id = (int) -1);
@@ -36,7 +36,7 @@ void set_item_text(int p_idx, String p_text);
 
 protected:
 public:
-explicit OptionButton(WasGoId p_wasgo_id);
+explicit OptionButton(WasGoID p_wasgo_id);
 explicit OptionButton(Button other);
 OptionButton new_instance();
             
@@ -45,31 +45,31 @@ OptionButton new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_OptionButton_wrapper_add_icon_item(WasGoId wasgo_id, WasGoId p_texture, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id);
-void _wasgo_OptionButton_wrapper_add_item(WasGoId wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id);
-void _wasgo_OptionButton_wrapper_add_separator(WasGoId wasgo_id);
-void _wasgo_OptionButton_wrapper_clear(WasGoId wasgo_id);
-int _wasgo_OptionButton_wrapper_get_item_count(WasGoId wasgo_id);
-WasGoId _wasgo_OptionButton_wrapper_get_item_icon(WasGoId wasgo_id, int p_idx);
-int _wasgo_OptionButton_wrapper_get_item_id(WasGoId wasgo_id, int p_idx);
-int _wasgo_OptionButton_wrapper_get_item_index(WasGoId wasgo_id, int p_id);
-WasGoId _wasgo_OptionButton_wrapper_get_item_metadata(WasGoId wasgo_id, int p_idx);
-void _wasgo_OptionButton_wrapper_get_item_text(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-WasGoId _wasgo_OptionButton_wrapper_get_popup(WasGoId wasgo_id);
-int _wasgo_OptionButton_wrapper_get_selected(WasGoId wasgo_id);
-int _wasgo_OptionButton_wrapper_get_selected_id(WasGoId wasgo_id);
-WasGoId _wasgo_OptionButton_wrapper_get_selected_metadata(WasGoId wasgo_id);
-int _wasgo_OptionButton_wrapper_is_item_disabled(WasGoId wasgo_id, int p_idx);
-void _wasgo_OptionButton_wrapper_remove_item(WasGoId wasgo_id, int p_idx);
-void _wasgo_OptionButton_wrapper_select(WasGoId wasgo_id, int p_idx);
-void _wasgo_OptionButton_wrapper_set_item_disabled(WasGoId wasgo_id, int p_idx, bool p_disabled);
-void _wasgo_OptionButton_wrapper_set_item_icon(WasGoId wasgo_id, int p_idx, WasGoId p_texture);
-void _wasgo_OptionButton_wrapper_set_item_id(WasGoId wasgo_id, int p_idx, int p_id);
-void _wasgo_OptionButton_wrapper_set_item_metadata(WasGoId wasgo_id, int p_idx, WasGoId p_metadata);
-void _wasgo_OptionButton_wrapper_set_item_text(WasGoId wasgo_id, int p_idx, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_OptionButton_wrapper_add_icon_item(WasGoID wasgo_id, WasGoID p_texture, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id);
+void _wasgo_OptionButton_wrapper_add_item(WasGoID wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id);
+void _wasgo_OptionButton_wrapper_add_separator(WasGoID wasgo_id);
+void _wasgo_OptionButton_wrapper_clear(WasGoID wasgo_id);
+int _wasgo_OptionButton_wrapper_get_item_count(WasGoID wasgo_id);
+WasGoID _wasgo_OptionButton_wrapper_get_item_icon(WasGoID wasgo_id, int p_idx);
+int _wasgo_OptionButton_wrapper_get_item_id(WasGoID wasgo_id, int p_idx);
+int _wasgo_OptionButton_wrapper_get_item_index(WasGoID wasgo_id, int p_id);
+WasGoID _wasgo_OptionButton_wrapper_get_item_metadata(WasGoID wasgo_id, int p_idx);
+void _wasgo_OptionButton_wrapper_get_item_text(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+WasGoID _wasgo_OptionButton_wrapper_get_popup(WasGoID wasgo_id);
+int _wasgo_OptionButton_wrapper_get_selected(WasGoID wasgo_id);
+int _wasgo_OptionButton_wrapper_get_selected_id(WasGoID wasgo_id);
+WasGoID _wasgo_OptionButton_wrapper_get_selected_metadata(WasGoID wasgo_id);
+int _wasgo_OptionButton_wrapper_is_item_disabled(WasGoID wasgo_id, int p_idx);
+void _wasgo_OptionButton_wrapper_remove_item(WasGoID wasgo_id, int p_idx);
+void _wasgo_OptionButton_wrapper_select(WasGoID wasgo_id, int p_idx);
+void _wasgo_OptionButton_wrapper_set_item_disabled(WasGoID wasgo_id, int p_idx, bool p_disabled);
+void _wasgo_OptionButton_wrapper_set_item_icon(WasGoID wasgo_id, int p_idx, WasGoID p_texture);
+void _wasgo_OptionButton_wrapper_set_item_id(WasGoID wasgo_id, int p_idx, int p_id);
+void _wasgo_OptionButton_wrapper_set_item_metadata(WasGoID wasgo_id, int p_idx, WasGoID p_metadata);
+void _wasgo_OptionButton_wrapper_set_item_text(WasGoID wasgo_id, int p_idx, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_OptionButton_constructor();
+    WasGoID _wasgo_OptionButton_constructor();
             
 }
 #endif

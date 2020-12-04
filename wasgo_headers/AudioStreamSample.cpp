@@ -53,7 +53,7 @@ void AudioStreamSample::set_stereo(bool p_stereo){
 	_wasgo_AudioStreamSample_wrapper_set_stereo(wasgo_id, p_stereo);
 }
 
-AudioStreamSample::AudioStreamSample(WasGoId p_wasgo_id) : AudioStream(p_wasgo_id){
+AudioStreamSample::AudioStreamSample(WasGoID p_wasgo_id) : AudioStream(p_wasgo_id){
 }
 AudioStreamSample::AudioStreamSample(AudioStream other) : AudioStream(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioStreamSample_constructor();

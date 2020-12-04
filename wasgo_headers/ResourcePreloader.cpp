@@ -56,7 +56,7 @@ void ResourcePreloader::rename_resource(String p_name, String p_newname){
 	_wasgo_ResourcePreloader_wrapper_rename_resource(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_newname, wasgo_size_newname);
 }
 
-ResourcePreloader::ResourcePreloader(WasGoId p_wasgo_id) : Node(p_wasgo_id){
+ResourcePreloader::ResourcePreloader(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 ResourcePreloader::ResourcePreloader(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_ResourcePreloader_constructor();

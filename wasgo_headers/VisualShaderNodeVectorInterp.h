@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeVectorInterp(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorInterp(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorInterp(VisualShaderNode other);
 VisualShaderNodeVectorInterp new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeVectorInterp new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeVectorInterp_constructor();
+    WasGoID _wasgo_VisualShaderNodeVectorInterp_constructor();
             
 }
 #endif

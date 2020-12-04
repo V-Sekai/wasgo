@@ -21,7 +21,7 @@ void VisualShaderNodeUniformRef::set_uniform_name(String p_name){
 	_wasgo_VisualShaderNodeUniformRef_wrapper_set_uniform_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
 
-VisualShaderNodeUniformRef::VisualShaderNodeUniformRef(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeUniformRef::VisualShaderNodeUniformRef(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeUniformRef::VisualShaderNodeUniformRef(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeUniformRef_constructor();

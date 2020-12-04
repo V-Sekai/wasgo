@@ -124,7 +124,7 @@ void Particles::set_visibility_aabb(::AABB p_aabb){
 	_wasgo_Particles_wrapper_set_visibility_aabb(wasgo_id, wasgo_buffer_aabb, wasgo_size_aabb);
 }
 
-Particles::Particles(WasGoId p_wasgo_id) : GeometryInstance(p_wasgo_id){
+Particles::Particles(WasGoID p_wasgo_id) : GeometryInstance(p_wasgo_id){
 }
 Particles::Particles(GeometryInstance other) : GeometryInstance(other._get_wasgo_id()){
     wasgo_id = _wasgo_Particles_constructor();

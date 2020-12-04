@@ -232,7 +232,7 @@ Vector2 Camera::unproject_position(Vector3 p_world_point){
     
 }
 
-Camera::Camera(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
+Camera::Camera(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 Camera::Camera(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_Camera_constructor();

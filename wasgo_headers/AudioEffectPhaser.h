@@ -20,7 +20,7 @@ void set_rate_hz(float p_hz);
 
 protected:
 public:
-explicit AudioEffectPhaser(WasGoId p_wasgo_id);
+explicit AudioEffectPhaser(WasGoID p_wasgo_id);
 explicit AudioEffectPhaser(AudioEffect other);
 AudioEffectPhaser new_instance();
             
@@ -29,19 +29,19 @@ AudioEffectPhaser new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_AudioEffectPhaser_wrapper_get_depth(WasGoId wasgo_id);
-float _wasgo_AudioEffectPhaser_wrapper_get_feedback(WasGoId wasgo_id);
-float _wasgo_AudioEffectPhaser_wrapper_get_range_max_hz(WasGoId wasgo_id);
-float _wasgo_AudioEffectPhaser_wrapper_get_range_min_hz(WasGoId wasgo_id);
-float _wasgo_AudioEffectPhaser_wrapper_get_rate_hz(WasGoId wasgo_id);
-void _wasgo_AudioEffectPhaser_wrapper_set_depth(WasGoId wasgo_id, float p_depth);
-void _wasgo_AudioEffectPhaser_wrapper_set_feedback(WasGoId wasgo_id, float p_fbk);
-void _wasgo_AudioEffectPhaser_wrapper_set_range_max_hz(WasGoId wasgo_id, float p_hz);
-void _wasgo_AudioEffectPhaser_wrapper_set_range_min_hz(WasGoId wasgo_id, float p_hz);
-void _wasgo_AudioEffectPhaser_wrapper_set_rate_hz(WasGoId wasgo_id, float p_hz);
+float _wasgo_AudioEffectPhaser_wrapper_get_depth(WasGoID wasgo_id);
+float _wasgo_AudioEffectPhaser_wrapper_get_feedback(WasGoID wasgo_id);
+float _wasgo_AudioEffectPhaser_wrapper_get_range_max_hz(WasGoID wasgo_id);
+float _wasgo_AudioEffectPhaser_wrapper_get_range_min_hz(WasGoID wasgo_id);
+float _wasgo_AudioEffectPhaser_wrapper_get_rate_hz(WasGoID wasgo_id);
+void _wasgo_AudioEffectPhaser_wrapper_set_depth(WasGoID wasgo_id, float p_depth);
+void _wasgo_AudioEffectPhaser_wrapper_set_feedback(WasGoID wasgo_id, float p_fbk);
+void _wasgo_AudioEffectPhaser_wrapper_set_range_max_hz(WasGoID wasgo_id, float p_hz);
+void _wasgo_AudioEffectPhaser_wrapper_set_range_min_hz(WasGoID wasgo_id, float p_hz);
+void _wasgo_AudioEffectPhaser_wrapper_set_rate_hz(WasGoID wasgo_id, float p_hz);
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectPhaser_constructor();
+    WasGoID _wasgo_AudioEffectPhaser_constructor();
             
 }
 #endif

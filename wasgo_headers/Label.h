@@ -47,7 +47,7 @@ void set_visible_characters(int p_amount);
 
 protected:
 public:
-explicit Label(WasGoId p_wasgo_id);
+explicit Label(WasGoID p_wasgo_id);
 explicit Label(Control other);
 Label new_instance();
             
@@ -56,33 +56,33 @@ Label new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Label_wrapper_get_align(WasGoId wasgo_id);
-int _wasgo_Label_wrapper_get_line_count(WasGoId wasgo_id);
-int _wasgo_Label_wrapper_get_line_height(WasGoId wasgo_id);
-int _wasgo_Label_wrapper_get_lines_skipped(WasGoId wasgo_id);
-int _wasgo_Label_wrapper_get_max_lines_visible(WasGoId wasgo_id);
-float _wasgo_Label_wrapper_get_percent_visible(WasGoId wasgo_id);
-void _wasgo_Label_wrapper_get_text(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Label_wrapper_get_total_character_count(WasGoId wasgo_id);
-WasGoId _wasgo_Label_wrapper_get_valign(WasGoId wasgo_id);
-int _wasgo_Label_wrapper_get_visible_characters(WasGoId wasgo_id);
-int _wasgo_Label_wrapper_get_visible_line_count(WasGoId wasgo_id);
-int _wasgo_Label_wrapper_has_autowrap(WasGoId wasgo_id);
-int _wasgo_Label_wrapper_is_clipping_text(WasGoId wasgo_id);
-int _wasgo_Label_wrapper_is_uppercase(WasGoId wasgo_id);
-void _wasgo_Label_wrapper_set_align(WasGoId wasgo_id, WasGoId p_align);
-void _wasgo_Label_wrapper_set_autowrap(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Label_wrapper_set_clip_text(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Label_wrapper_set_lines_skipped(WasGoId wasgo_id, int p_lines_skipped);
-void _wasgo_Label_wrapper_set_max_lines_visible(WasGoId wasgo_id, int p_lines_visible);
-void _wasgo_Label_wrapper_set_percent_visible(WasGoId wasgo_id, float p_percent_visible);
-void _wasgo_Label_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-void _wasgo_Label_wrapper_set_uppercase(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Label_wrapper_set_valign(WasGoId wasgo_id, WasGoId p_valign);
-void _wasgo_Label_wrapper_set_visible_characters(WasGoId wasgo_id, int p_amount);
+WasGoID _wasgo_Label_wrapper_get_align(WasGoID wasgo_id);
+int _wasgo_Label_wrapper_get_line_count(WasGoID wasgo_id);
+int _wasgo_Label_wrapper_get_line_height(WasGoID wasgo_id);
+int _wasgo_Label_wrapper_get_lines_skipped(WasGoID wasgo_id);
+int _wasgo_Label_wrapper_get_max_lines_visible(WasGoID wasgo_id);
+float _wasgo_Label_wrapper_get_percent_visible(WasGoID wasgo_id);
+void _wasgo_Label_wrapper_get_text(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Label_wrapper_get_total_character_count(WasGoID wasgo_id);
+WasGoID _wasgo_Label_wrapper_get_valign(WasGoID wasgo_id);
+int _wasgo_Label_wrapper_get_visible_characters(WasGoID wasgo_id);
+int _wasgo_Label_wrapper_get_visible_line_count(WasGoID wasgo_id);
+int _wasgo_Label_wrapper_has_autowrap(WasGoID wasgo_id);
+int _wasgo_Label_wrapper_is_clipping_text(WasGoID wasgo_id);
+int _wasgo_Label_wrapper_is_uppercase(WasGoID wasgo_id);
+void _wasgo_Label_wrapper_set_align(WasGoID wasgo_id, WasGoID p_align);
+void _wasgo_Label_wrapper_set_autowrap(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Label_wrapper_set_clip_text(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Label_wrapper_set_lines_skipped(WasGoID wasgo_id, int p_lines_skipped);
+void _wasgo_Label_wrapper_set_max_lines_visible(WasGoID wasgo_id, int p_lines_visible);
+void _wasgo_Label_wrapper_set_percent_visible(WasGoID wasgo_id, float p_percent_visible);
+void _wasgo_Label_wrapper_set_text(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_Label_wrapper_set_uppercase(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Label_wrapper_set_valign(WasGoID wasgo_id, WasGoID p_valign);
+void _wasgo_Label_wrapper_set_visible_characters(WasGoID wasgo_id, int p_amount);
 
     //constructor wrappers
-    WasGoId _wasgo_Label_constructor();
+    WasGoID _wasgo_Label_constructor();
             
 }
 #endif

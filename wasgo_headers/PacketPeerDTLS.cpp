@@ -20,7 +20,7 @@ void PacketPeerDTLS::poll(){
 	_wasgo_PacketPeerDTLS_wrapper_poll(wasgo_id);
 }
 
-PacketPeerDTLS::PacketPeerDTLS(WasGoId p_wasgo_id) : PacketPeer(p_wasgo_id){
+PacketPeerDTLS::PacketPeerDTLS(WasGoID p_wasgo_id) : PacketPeer(p_wasgo_id){
 }
 PacketPeerDTLS::PacketPeerDTLS(PacketPeer other) : PacketPeer(other._get_wasgo_id()){
     wasgo_id = _wasgo_PacketPeerDTLS_constructor();

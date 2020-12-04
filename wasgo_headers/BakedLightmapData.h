@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
-#include "NodePath.h"
-#include "AABB.h"
 #include "Resource.h"
-#include "Transform.h"
 #include "Variant.h"
+#include "AABB.h"
+#include "NodePath.h"
+#include "Transform.h"
+#include "Texture.h"
 class BakedLightmapData : public Resource{
 public:
 void add_user(NodePath p_path, Texture p_lightmap, int p_instance);
@@ -30,7 +30,7 @@ void set_octree(PoolByteArray p_octree);
 
 protected:
 public:
-explicit BakedLightmapData(WasGoId p_wasgo_id);
+explicit BakedLightmapData(WasGoID p_wasgo_id);
 explicit BakedLightmapData(Resource other);
 BakedLightmapData new_instance();
             
@@ -39,24 +39,24 @@ BakedLightmapData new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_BakedLightmapData_wrapper_add_user(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoId p_lightmap, int p_instance);
-void _wasgo_BakedLightmapData_wrapper_clear_users(WasGoId wasgo_id);
-void _wasgo_BakedLightmapData_wrapper_get_bounds(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_BakedLightmapData_wrapper_get_cell_space_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_BakedLightmapData_wrapper_get_cell_subdiv(WasGoId wasgo_id);
-float _wasgo_BakedLightmapData_wrapper_get_energy(WasGoId wasgo_id);
-WasGoId _wasgo_BakedLightmapData_wrapper_get_octree(WasGoId wasgo_id);
-int _wasgo_BakedLightmapData_wrapper_get_user_count(WasGoId wasgo_id);
-WasGoId _wasgo_BakedLightmapData_wrapper_get_user_lightmap(WasGoId wasgo_id, int p_user_idx);
-void _wasgo_BakedLightmapData_wrapper_get_user_path(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_user_idx);
-void _wasgo_BakedLightmapData_wrapper_set_bounds(WasGoId wasgo_id, const uint8_t * p_bounds, int p_bounds_wasgo_buffer_size);
-void _wasgo_BakedLightmapData_wrapper_set_cell_space_transform(WasGoId wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
-void _wasgo_BakedLightmapData_wrapper_set_cell_subdiv(WasGoId wasgo_id, int p_cell_subdiv);
-void _wasgo_BakedLightmapData_wrapper_set_energy(WasGoId wasgo_id, float p_energy);
-void _wasgo_BakedLightmapData_wrapper_set_octree(WasGoId wasgo_id, WasGoId p_octree);
+void _wasgo_BakedLightmapData_wrapper_add_user(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_lightmap, int p_instance);
+void _wasgo_BakedLightmapData_wrapper_clear_users(WasGoID wasgo_id);
+void _wasgo_BakedLightmapData_wrapper_get_bounds(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_BakedLightmapData_wrapper_get_cell_space_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_BakedLightmapData_wrapper_get_cell_subdiv(WasGoID wasgo_id);
+float _wasgo_BakedLightmapData_wrapper_get_energy(WasGoID wasgo_id);
+WasGoID _wasgo_BakedLightmapData_wrapper_get_octree(WasGoID wasgo_id);
+int _wasgo_BakedLightmapData_wrapper_get_user_count(WasGoID wasgo_id);
+WasGoID _wasgo_BakedLightmapData_wrapper_get_user_lightmap(WasGoID wasgo_id, int p_user_idx);
+void _wasgo_BakedLightmapData_wrapper_get_user_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_user_idx);
+void _wasgo_BakedLightmapData_wrapper_set_bounds(WasGoID wasgo_id, const uint8_t * p_bounds, int p_bounds_wasgo_buffer_size);
+void _wasgo_BakedLightmapData_wrapper_set_cell_space_transform(WasGoID wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
+void _wasgo_BakedLightmapData_wrapper_set_cell_subdiv(WasGoID wasgo_id, int p_cell_subdiv);
+void _wasgo_BakedLightmapData_wrapper_set_energy(WasGoID wasgo_id, float p_energy);
+void _wasgo_BakedLightmapData_wrapper_set_octree(WasGoID wasgo_id, WasGoID p_octree);
 
     //constructor wrappers
-    WasGoId _wasgo_BakedLightmapData_constructor();
+    WasGoID _wasgo_BakedLightmapData_constructor();
             
 }
 #endif

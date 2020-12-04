@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "AudioEffectLowPassFilter.h"
 
-AudioEffectLowPassFilter::AudioEffectLowPassFilter(WasGoId p_wasgo_id) : AudioEffectFilter(p_wasgo_id){
+AudioEffectLowPassFilter::AudioEffectLowPassFilter(WasGoID p_wasgo_id) : AudioEffectFilter(p_wasgo_id){
 }
 AudioEffectLowPassFilter::AudioEffectLowPassFilter(AudioEffectFilter other) : AudioEffectFilter(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectLowPassFilter_constructor();

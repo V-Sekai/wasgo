@@ -20,7 +20,7 @@ void CameraTexture::set_which_feed(CameraServer::FeedImage p_which_feed){
 	_wasgo_CameraTexture_wrapper_set_which_feed(wasgo_id, p_which_feed._get_wasgo_id());
 }
 
-CameraTexture::CameraTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
+CameraTexture::CameraTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 CameraTexture::CameraTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_CameraTexture_constructor();

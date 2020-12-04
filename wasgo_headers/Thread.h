@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "ustring.h"
 #include "Reference.h"
 #include "Object.h"
 #include "Variant.h"
+#include "error_list.h"
+#include "ustring.h"
 class Thread : public Reference{
 public:
 enum Priority{
@@ -23,7 +23,7 @@ Variant wait_to_finish();
 
 protected:
 public:
-explicit Thread(WasGoId p_wasgo_id);
+explicit Thread(WasGoID p_wasgo_id);
 explicit Thread(Reference other);
 Thread new_instance();
             
@@ -32,13 +32,13 @@ Thread new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Thread_wrapper_get_id(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Thread_wrapper_is_active(WasGoId wasgo_id);
-WasGoId _wasgo_Thread_wrapper_start(WasGoId wasgo_id, WasGoId p_instance, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoId p_userdata, WasGoId p_priority);
-WasGoId _wasgo_Thread_wrapper_wait_to_finish(WasGoId wasgo_id);
+void _wasgo_Thread_wrapper_get_id(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Thread_wrapper_is_active(WasGoID wasgo_id);
+WasGoID _wasgo_Thread_wrapper_start(WasGoID wasgo_id, WasGoID p_instance, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoID p_userdata, WasGoID p_priority);
+WasGoID _wasgo_Thread_wrapper_wait_to_finish(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_Thread_constructor();
+    WasGoID _wasgo_Thread_constructor();
             
 }
 #endif

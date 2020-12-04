@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
 #include "Vector2.h"
-#include "ustring.h"
-#include "CollisionObject2D.h"
+#include "Node.h"
 #include "Variant.h"
+#include "CollisionObject2D.h"
+#include "ustring.h"
 class Area2D : public CollisionObject2D{
 public:
 enum SpaceOverride{
@@ -57,7 +57,7 @@ void set_space_override_mode(Area2D::SpaceOverride p_space_override_mode);
 
 protected:
 public:
-explicit Area2D(WasGoId p_wasgo_id);
+explicit Area2D(WasGoID p_wasgo_id);
 explicit Area2D(CollisionObject2D other);
 Area2D new_instance();
             
@@ -66,45 +66,45 @@ Area2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_Area2D_wrapper_get_angular_damp(WasGoId wasgo_id);
-void _wasgo_Area2D_wrapper_get_audio_bus_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Area2D_wrapper_get_collision_layer(WasGoId wasgo_id);
-int _wasgo_Area2D_wrapper_get_collision_layer_bit(WasGoId wasgo_id, int p_bit);
-int _wasgo_Area2D_wrapper_get_collision_mask(WasGoId wasgo_id);
-int _wasgo_Area2D_wrapper_get_collision_mask_bit(WasGoId wasgo_id, int p_bit);
-float _wasgo_Area2D_wrapper_get_gravity(WasGoId wasgo_id);
-float _wasgo_Area2D_wrapper_get_gravity_distance_scale(WasGoId wasgo_id);
-void _wasgo_Area2D_wrapper_get_gravity_vector(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_Area2D_wrapper_get_linear_damp(WasGoId wasgo_id);
-WasGoId _wasgo_Area2D_wrapper_get_overlapping_areas(WasGoId wasgo_id);
-WasGoId _wasgo_Area2D_wrapper_get_overlapping_bodies(WasGoId wasgo_id);
-float _wasgo_Area2D_wrapper_get_priority(WasGoId wasgo_id);
-WasGoId _wasgo_Area2D_wrapper_get_space_override_mode(WasGoId wasgo_id);
-int _wasgo_Area2D_wrapper_is_gravity_a_point(WasGoId wasgo_id);
-int _wasgo_Area2D_wrapper_is_monitorable(WasGoId wasgo_id);
-int _wasgo_Area2D_wrapper_is_monitoring(WasGoId wasgo_id);
-int _wasgo_Area2D_wrapper_is_overriding_audio_bus(WasGoId wasgo_id);
-int _wasgo_Area2D_wrapper_overlaps_area(WasGoId wasgo_id, WasGoId p_area);
-int _wasgo_Area2D_wrapper_overlaps_body(WasGoId wasgo_id, WasGoId p_body);
-void _wasgo_Area2D_wrapper_set_angular_damp(WasGoId wasgo_id, float p_angular_damp);
-void _wasgo_Area2D_wrapper_set_audio_bus_name(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_Area2D_wrapper_set_audio_bus_override(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Area2D_wrapper_set_collision_layer(WasGoId wasgo_id, int p_collision_layer);
-void _wasgo_Area2D_wrapper_set_collision_layer_bit(WasGoId wasgo_id, int p_bit, bool p_value);
-void _wasgo_Area2D_wrapper_set_collision_mask(WasGoId wasgo_id, int p_collision_mask);
-void _wasgo_Area2D_wrapper_set_collision_mask_bit(WasGoId wasgo_id, int p_bit, bool p_value);
-void _wasgo_Area2D_wrapper_set_gravity(WasGoId wasgo_id, float p_gravity);
-void _wasgo_Area2D_wrapper_set_gravity_distance_scale(WasGoId wasgo_id, float p_distance_scale);
-void _wasgo_Area2D_wrapper_set_gravity_is_point(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Area2D_wrapper_set_gravity_vector(WasGoId wasgo_id, const uint8_t * p_vector, int p_vector_wasgo_buffer_size);
-void _wasgo_Area2D_wrapper_set_linear_damp(WasGoId wasgo_id, float p_linear_damp);
-void _wasgo_Area2D_wrapper_set_monitorable(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Area2D_wrapper_set_monitoring(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Area2D_wrapper_set_priority(WasGoId wasgo_id, float p_priority);
-void _wasgo_Area2D_wrapper_set_space_override_mode(WasGoId wasgo_id, WasGoId p_space_override_mode);
+float _wasgo_Area2D_wrapper_get_angular_damp(WasGoID wasgo_id);
+void _wasgo_Area2D_wrapper_get_audio_bus_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Area2D_wrapper_get_collision_layer(WasGoID wasgo_id);
+int _wasgo_Area2D_wrapper_get_collision_layer_bit(WasGoID wasgo_id, int p_bit);
+int _wasgo_Area2D_wrapper_get_collision_mask(WasGoID wasgo_id);
+int _wasgo_Area2D_wrapper_get_collision_mask_bit(WasGoID wasgo_id, int p_bit);
+float _wasgo_Area2D_wrapper_get_gravity(WasGoID wasgo_id);
+float _wasgo_Area2D_wrapper_get_gravity_distance_scale(WasGoID wasgo_id);
+void _wasgo_Area2D_wrapper_get_gravity_vector(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_Area2D_wrapper_get_linear_damp(WasGoID wasgo_id);
+WasGoID _wasgo_Area2D_wrapper_get_overlapping_areas(WasGoID wasgo_id);
+WasGoID _wasgo_Area2D_wrapper_get_overlapping_bodies(WasGoID wasgo_id);
+float _wasgo_Area2D_wrapper_get_priority(WasGoID wasgo_id);
+WasGoID _wasgo_Area2D_wrapper_get_space_override_mode(WasGoID wasgo_id);
+int _wasgo_Area2D_wrapper_is_gravity_a_point(WasGoID wasgo_id);
+int _wasgo_Area2D_wrapper_is_monitorable(WasGoID wasgo_id);
+int _wasgo_Area2D_wrapper_is_monitoring(WasGoID wasgo_id);
+int _wasgo_Area2D_wrapper_is_overriding_audio_bus(WasGoID wasgo_id);
+int _wasgo_Area2D_wrapper_overlaps_area(WasGoID wasgo_id, WasGoID p_area);
+int _wasgo_Area2D_wrapper_overlaps_body(WasGoID wasgo_id, WasGoID p_body);
+void _wasgo_Area2D_wrapper_set_angular_damp(WasGoID wasgo_id, float p_angular_damp);
+void _wasgo_Area2D_wrapper_set_audio_bus_name(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_Area2D_wrapper_set_audio_bus_override(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Area2D_wrapper_set_collision_layer(WasGoID wasgo_id, int p_collision_layer);
+void _wasgo_Area2D_wrapper_set_collision_layer_bit(WasGoID wasgo_id, int p_bit, bool p_value);
+void _wasgo_Area2D_wrapper_set_collision_mask(WasGoID wasgo_id, int p_collision_mask);
+void _wasgo_Area2D_wrapper_set_collision_mask_bit(WasGoID wasgo_id, int p_bit, bool p_value);
+void _wasgo_Area2D_wrapper_set_gravity(WasGoID wasgo_id, float p_gravity);
+void _wasgo_Area2D_wrapper_set_gravity_distance_scale(WasGoID wasgo_id, float p_distance_scale);
+void _wasgo_Area2D_wrapper_set_gravity_is_point(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Area2D_wrapper_set_gravity_vector(WasGoID wasgo_id, const uint8_t * p_vector, int p_vector_wasgo_buffer_size);
+void _wasgo_Area2D_wrapper_set_linear_damp(WasGoID wasgo_id, float p_linear_damp);
+void _wasgo_Area2D_wrapper_set_monitorable(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Area2D_wrapper_set_monitoring(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Area2D_wrapper_set_priority(WasGoID wasgo_id, float p_priority);
+void _wasgo_Area2D_wrapper_set_space_override_mode(WasGoID wasgo_id, WasGoID p_space_override_mode);
 
     //constructor wrappers
-    WasGoId _wasgo_Area2D_constructor();
+    WasGoID _wasgo_Area2D_constructor();
             
 }
 #endif

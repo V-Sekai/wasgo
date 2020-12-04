@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "VisualShaderNodeTransformCompose.h"
 
-VisualShaderNodeTransformCompose::VisualShaderNodeTransformCompose(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeTransformCompose::VisualShaderNodeTransformCompose(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeTransformCompose::VisualShaderNodeTransformCompose(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeTransformCompose_constructor();

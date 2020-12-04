@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeBooleanUniform(WasGoId p_wasgo_id);
+explicit VisualShaderNodeBooleanUniform(WasGoID p_wasgo_id);
 explicit VisualShaderNodeBooleanUniform(VisualShaderNodeUniform other);
 VisualShaderNodeBooleanUniform new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeBooleanUniform new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeBooleanUniform_constructor();
+    WasGoID _wasgo_VisualShaderNodeBooleanUniform_constructor();
             
 }
 #endif

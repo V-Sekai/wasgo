@@ -11,7 +11,7 @@ void AudioEffectEQ::set_band_gain_db(int p_band_idx, float p_volume_db){
 	_wasgo_AudioEffectEQ_wrapper_set_band_gain_db(wasgo_id, p_band_idx, p_volume_db);
 }
 
-AudioEffectEQ::AudioEffectEQ(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+AudioEffectEQ::AudioEffectEQ(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectEQ::AudioEffectEQ(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectEQ_constructor();

@@ -13,10 +13,10 @@ float get_length();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_AudioStream_wrapper_get_length(WasGoId wasgo_id);
+float _wasgo_AudioStream_wrapper_get_length(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_AudioStream_constructor();
+    WasGoID _wasgo_AudioStream_constructor();
             
 }
 #endif

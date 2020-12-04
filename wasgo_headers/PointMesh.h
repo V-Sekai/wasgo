@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit PointMesh(WasGoId p_wasgo_id);
+explicit PointMesh(WasGoID p_wasgo_id);
 explicit PointMesh(PrimitiveMesh other);
 PointMesh new_instance();
             
@@ -21,7 +21,7 @@ PointMesh new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_PointMesh_constructor();
+    WasGoID _wasgo_PointMesh_constructor();
             
 }
 #endif

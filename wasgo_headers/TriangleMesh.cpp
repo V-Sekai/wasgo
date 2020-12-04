@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "TriangleMesh.h"
 
-TriangleMesh::TriangleMesh(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+TriangleMesh::TriangleMesh(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 TriangleMesh::TriangleMesh(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_TriangleMesh_constructor();

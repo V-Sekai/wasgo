@@ -24,7 +24,7 @@ void set_texture_type(VisualShaderNodeTextureUniform::TextureType p_type);
 
 protected:
 public:
-explicit VisualShaderNodeTextureUniform(WasGoId p_wasgo_id);
+explicit VisualShaderNodeTextureUniform(WasGoID p_wasgo_id);
 explicit VisualShaderNodeTextureUniform(VisualShaderNodeUniform other);
 VisualShaderNodeTextureUniform new_instance();
             
@@ -33,13 +33,13 @@ VisualShaderNodeTextureUniform new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_VisualShaderNodeTextureUniform_wrapper_get_color_default(WasGoId wasgo_id);
-WasGoId _wasgo_VisualShaderNodeTextureUniform_wrapper_get_texture_type(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeTextureUniform_wrapper_set_color_default(WasGoId wasgo_id, WasGoId p_type);
-void _wasgo_VisualShaderNodeTextureUniform_wrapper_set_texture_type(WasGoId wasgo_id, WasGoId p_type);
+WasGoID _wasgo_VisualShaderNodeTextureUniform_wrapper_get_color_default(WasGoID wasgo_id);
+WasGoID _wasgo_VisualShaderNodeTextureUniform_wrapper_get_texture_type(WasGoID wasgo_id);
+void _wasgo_VisualShaderNodeTextureUniform_wrapper_set_color_default(WasGoID wasgo_id, WasGoID p_type);
+void _wasgo_VisualShaderNodeTextureUniform_wrapper_set_texture_type(WasGoID wasgo_id, WasGoID p_type);
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeTextureUniform_constructor();
+    WasGoID _wasgo_VisualShaderNodeTextureUniform_constructor();
             
 }
 #endif

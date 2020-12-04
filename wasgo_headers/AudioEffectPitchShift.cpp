@@ -20,7 +20,7 @@ void AudioEffectPitchShift::set_pitch_scale(float p_rate){
 	_wasgo_AudioEffectPitchShift_wrapper_set_pitch_scale(wasgo_id, p_rate);
 }
 
-AudioEffectPitchShift::AudioEffectPitchShift(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+AudioEffectPitchShift::AudioEffectPitchShift(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectPitchShift::AudioEffectPitchShift(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectPitchShift_constructor();

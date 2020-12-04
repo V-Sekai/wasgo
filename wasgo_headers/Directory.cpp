@@ -143,7 +143,7 @@ Error Directory::rename(String p_from, String p_to){
 	return Error(_wasgo_Directory_wrapper_rename(wasgo_id, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_to, wasgo_size_to));
 }
 
-Directory::Directory(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+Directory::Directory(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Directory::Directory(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Directory_constructor();

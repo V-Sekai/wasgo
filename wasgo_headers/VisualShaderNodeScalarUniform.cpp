@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "VisualShaderNodeScalarUniform.h"
 
-VisualShaderNodeScalarUniform::VisualShaderNodeScalarUniform(WasGoId p_wasgo_id) : VisualShaderNodeUniform(p_wasgo_id){
+VisualShaderNodeScalarUniform::VisualShaderNodeScalarUniform(WasGoID p_wasgo_id) : VisualShaderNodeUniform(p_wasgo_id){
 }
 VisualShaderNodeScalarUniform::VisualShaderNodeScalarUniform(VisualShaderNodeUniform other) : VisualShaderNodeUniform(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeScalarUniform_constructor();

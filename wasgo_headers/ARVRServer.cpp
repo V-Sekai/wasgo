@@ -70,7 +70,7 @@ void ARVRServer::set_world_scale(float p_arg0){
 	_wasgo_ARVRServer_wrapper_set_world_scale(wasgo_id, p_arg0);
 }
 
-ARVRServer::ARVRServer(WasGoId p_wasgo_id) : Object(p_wasgo_id){
+ARVRServer::ARVRServer(WasGoID p_wasgo_id) : Object(p_wasgo_id){
 }
 ARVRServer::ARVRServer(Object other) : Object(other._get_wasgo_id()){
     wasgo_id = _wasgo_ARVRServer_constructor();

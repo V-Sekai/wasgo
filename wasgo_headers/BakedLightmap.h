@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
 #include "Vector3.h"
-#include "ustring.h"
+#include "Node.h"
 #include "BakedLightmapData.h"
 #include "VisualInstance.h"
+#include "ustring.h"
 class BakedLightmap : public VisualInstance{
 public:
 enum BakeError{
@@ -54,7 +54,7 @@ void set_propagation(float p_propagation);
 
 protected:
 public:
-explicit BakedLightmap(WasGoId p_wasgo_id);
+explicit BakedLightmap(WasGoID p_wasgo_id);
 explicit BakedLightmap(VisualInstance other);
 BakedLightmap new_instance();
             
@@ -63,33 +63,33 @@ BakedLightmap new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_BakedLightmap_wrapper_bake(WasGoId wasgo_id, WasGoId p_from_node, bool p_create_visual_debug);
-void _wasgo_BakedLightmap_wrapper_debug_bake(WasGoId wasgo_id);
-float _wasgo_BakedLightmap_wrapper_get_bake_cell_size(WasGoId wasgo_id);
-float _wasgo_BakedLightmap_wrapper_get_bake_default_texels_per_unit(WasGoId wasgo_id);
-WasGoId _wasgo_BakedLightmap_wrapper_get_bake_mode(WasGoId wasgo_id);
-WasGoId _wasgo_BakedLightmap_wrapper_get_bake_quality(WasGoId wasgo_id);
-float _wasgo_BakedLightmap_wrapper_get_capture_cell_size(WasGoId wasgo_id);
-float _wasgo_BakedLightmap_wrapper_get_energy(WasGoId wasgo_id);
-void _wasgo_BakedLightmap_wrapper_get_extents(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_BakedLightmap_wrapper_get_image_path(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_BakedLightmap_wrapper_get_light_data(WasGoId wasgo_id);
-float _wasgo_BakedLightmap_wrapper_get_propagation(WasGoId wasgo_id);
-int _wasgo_BakedLightmap_wrapper_is_hdr(WasGoId wasgo_id);
-void _wasgo_BakedLightmap_wrapper_set_bake_cell_size(WasGoId wasgo_id, float p_bake_cell_size);
-void _wasgo_BakedLightmap_wrapper_set_bake_default_texels_per_unit(WasGoId wasgo_id, float p_texels);
-void _wasgo_BakedLightmap_wrapper_set_bake_mode(WasGoId wasgo_id, WasGoId p_bake_mode);
-void _wasgo_BakedLightmap_wrapper_set_bake_quality(WasGoId wasgo_id, WasGoId p_bake_quality);
-void _wasgo_BakedLightmap_wrapper_set_capture_cell_size(WasGoId wasgo_id, float p_capture_cell_size);
-void _wasgo_BakedLightmap_wrapper_set_energy(WasGoId wasgo_id, float p_energy);
-void _wasgo_BakedLightmap_wrapper_set_extents(WasGoId wasgo_id, const uint8_t * p_extents, int p_extents_wasgo_buffer_size);
-void _wasgo_BakedLightmap_wrapper_set_hdr(WasGoId wasgo_id, bool p_hdr);
-void _wasgo_BakedLightmap_wrapper_set_image_path(WasGoId wasgo_id, const uint8_t * p_image_path, int p_image_path_wasgo_buffer_size);
-void _wasgo_BakedLightmap_wrapper_set_light_data(WasGoId wasgo_id, WasGoId p_data);
-void _wasgo_BakedLightmap_wrapper_set_propagation(WasGoId wasgo_id, float p_propagation);
+WasGoID _wasgo_BakedLightmap_wrapper_bake(WasGoID wasgo_id, WasGoID p_from_node, bool p_create_visual_debug);
+void _wasgo_BakedLightmap_wrapper_debug_bake(WasGoID wasgo_id);
+float _wasgo_BakedLightmap_wrapper_get_bake_cell_size(WasGoID wasgo_id);
+float _wasgo_BakedLightmap_wrapper_get_bake_default_texels_per_unit(WasGoID wasgo_id);
+WasGoID _wasgo_BakedLightmap_wrapper_get_bake_mode(WasGoID wasgo_id);
+WasGoID _wasgo_BakedLightmap_wrapper_get_bake_quality(WasGoID wasgo_id);
+float _wasgo_BakedLightmap_wrapper_get_capture_cell_size(WasGoID wasgo_id);
+float _wasgo_BakedLightmap_wrapper_get_energy(WasGoID wasgo_id);
+void _wasgo_BakedLightmap_wrapper_get_extents(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_BakedLightmap_wrapper_get_image_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_BakedLightmap_wrapper_get_light_data(WasGoID wasgo_id);
+float _wasgo_BakedLightmap_wrapper_get_propagation(WasGoID wasgo_id);
+int _wasgo_BakedLightmap_wrapper_is_hdr(WasGoID wasgo_id);
+void _wasgo_BakedLightmap_wrapper_set_bake_cell_size(WasGoID wasgo_id, float p_bake_cell_size);
+void _wasgo_BakedLightmap_wrapper_set_bake_default_texels_per_unit(WasGoID wasgo_id, float p_texels);
+void _wasgo_BakedLightmap_wrapper_set_bake_mode(WasGoID wasgo_id, WasGoID p_bake_mode);
+void _wasgo_BakedLightmap_wrapper_set_bake_quality(WasGoID wasgo_id, WasGoID p_bake_quality);
+void _wasgo_BakedLightmap_wrapper_set_capture_cell_size(WasGoID wasgo_id, float p_capture_cell_size);
+void _wasgo_BakedLightmap_wrapper_set_energy(WasGoID wasgo_id, float p_energy);
+void _wasgo_BakedLightmap_wrapper_set_extents(WasGoID wasgo_id, const uint8_t * p_extents, int p_extents_wasgo_buffer_size);
+void _wasgo_BakedLightmap_wrapper_set_hdr(WasGoID wasgo_id, bool p_hdr);
+void _wasgo_BakedLightmap_wrapper_set_image_path(WasGoID wasgo_id, const uint8_t * p_image_path, int p_image_path_wasgo_buffer_size);
+void _wasgo_BakedLightmap_wrapper_set_light_data(WasGoID wasgo_id, WasGoID p_data);
+void _wasgo_BakedLightmap_wrapper_set_propagation(WasGoID wasgo_id, float p_propagation);
 
     //constructor wrappers
-    WasGoId _wasgo_BakedLightmap_constructor();
+    WasGoID _wasgo_BakedLightmap_constructor();
             
 }
 #endif

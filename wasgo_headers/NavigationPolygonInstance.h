@@ -15,7 +15,7 @@ void set_navigation_polygon(NavigationPolygon p_navpoly);
 
 protected:
 public:
-explicit NavigationPolygonInstance(WasGoId p_wasgo_id);
+explicit NavigationPolygonInstance(WasGoID p_wasgo_id);
 explicit NavigationPolygonInstance(Node2D other);
 NavigationPolygonInstance new_instance();
             
@@ -24,13 +24,13 @@ NavigationPolygonInstance new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_NavigationPolygonInstance_wrapper_get_navigation_polygon(WasGoId wasgo_id);
-int _wasgo_NavigationPolygonInstance_wrapper_is_enabled(WasGoId wasgo_id);
-void _wasgo_NavigationPolygonInstance_wrapper_set_enabled(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_NavigationPolygonInstance_wrapper_set_navigation_polygon(WasGoId wasgo_id, WasGoId p_navpoly);
+WasGoID _wasgo_NavigationPolygonInstance_wrapper_get_navigation_polygon(WasGoID wasgo_id);
+int _wasgo_NavigationPolygonInstance_wrapper_is_enabled(WasGoID wasgo_id);
+void _wasgo_NavigationPolygonInstance_wrapper_set_enabled(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_NavigationPolygonInstance_wrapper_set_navigation_polygon(WasGoID wasgo_id, WasGoID p_navpoly);
 
     //constructor wrappers
-    WasGoId _wasgo_NavigationPolygonInstance_constructor();
+    WasGoID _wasgo_NavigationPolygonInstance_constructor();
             
 }
 #endif

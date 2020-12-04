@@ -20,17 +20,17 @@ void set_ticks_on_borders(bool p_ticks_on_border);
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_Slider_wrapper_get_ticks(WasGoId wasgo_id);
-int _wasgo_Slider_wrapper_get_ticks_on_borders(WasGoId wasgo_id);
-int _wasgo_Slider_wrapper_is_editable(WasGoId wasgo_id);
-int _wasgo_Slider_wrapper_is_scrollable(WasGoId wasgo_id);
-void _wasgo_Slider_wrapper_set_editable(WasGoId wasgo_id, bool p_editable);
-void _wasgo_Slider_wrapper_set_scrollable(WasGoId wasgo_id, bool p_scrollable);
-void _wasgo_Slider_wrapper_set_ticks(WasGoId wasgo_id, int p_count);
-void _wasgo_Slider_wrapper_set_ticks_on_borders(WasGoId wasgo_id, bool p_ticks_on_border);
+int _wasgo_Slider_wrapper_get_ticks(WasGoID wasgo_id);
+int _wasgo_Slider_wrapper_get_ticks_on_borders(WasGoID wasgo_id);
+int _wasgo_Slider_wrapper_is_editable(WasGoID wasgo_id);
+int _wasgo_Slider_wrapper_is_scrollable(WasGoID wasgo_id);
+void _wasgo_Slider_wrapper_set_editable(WasGoID wasgo_id, bool p_editable);
+void _wasgo_Slider_wrapper_set_scrollable(WasGoID wasgo_id, bool p_scrollable);
+void _wasgo_Slider_wrapper_set_ticks(WasGoID wasgo_id, int p_count);
+void _wasgo_Slider_wrapper_set_ticks_on_borders(WasGoID wasgo_id, bool p_ticks_on_border);
 
     //constructor wrappers
-    WasGoId _wasgo_Slider_constructor();
+    WasGoID _wasgo_Slider_constructor();
             
 }
 #endif

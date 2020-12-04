@@ -68,7 +68,7 @@ void ClippedCamera::set_process_mode(ClippedCamera::ProcessMode p_process_mode){
 	_wasgo_ClippedCamera_wrapper_set_process_mode(wasgo_id, p_process_mode._get_wasgo_id());
 }
 
-ClippedCamera::ClippedCamera(WasGoId p_wasgo_id) : Camera(p_wasgo_id){
+ClippedCamera::ClippedCamera(WasGoID p_wasgo_id) : Camera(p_wasgo_id){
 }
 ClippedCamera::ClippedCamera(Camera other) : Camera(other._get_wasgo_id()){
     wasgo_id = _wasgo_ClippedCamera_constructor();

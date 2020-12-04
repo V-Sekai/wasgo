@@ -20,7 +20,7 @@ void MeshInstance2D::set_texture(Texture p_texture){
 	_wasgo_MeshInstance2D_wrapper_set_texture(wasgo_id, p_texture._get_wasgo_id());
 }
 
-MeshInstance2D::MeshInstance2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+MeshInstance2D::MeshInstance2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 MeshInstance2D::MeshInstance2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_MeshInstance2D_constructor();

@@ -62,71 +62,72 @@ void translate_object_local(Vector3 p_offset);
 void update_gizmo();
 
 protected:
-// Spatial(WasGoId p_wasgo_id);
+// Spatial(WasGoID p_wasgo_id);
 public:
 // Spatial();
 // ~Spatial();
-explicit Spatial(WasGoId p_wasgo_id);
+explicit Spatial(WasGoID p_wasgo_id);
 explicit Spatial(Node node);
+Spatial();
 static Spatial new_instance();
 };
 
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Spatial_wrapper_force_update_transform(WasGoId wasgo_id);
-WasGoId _wasgo_Spatial_wrapper_get_gizmo(WasGoId wasgo_id);
-void _wasgo_Spatial_wrapper_get_global_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Spatial_wrapper_get_parent_spatial(WasGoId wasgo_id);
-void _wasgo_Spatial_wrapper_get_rotation(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Spatial_wrapper_get_rotation_degrees(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Spatial_wrapper_get_scale(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Spatial_wrapper_get_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Spatial_wrapper_get_translation(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Spatial_wrapper_get_world(WasGoId wasgo_id);
-void _wasgo_Spatial_wrapper_global_rotate(WasGoId wasgo_id, const uint8_t * p_axis, int p_axis_wasgo_buffer_size, float p_angle);
-void _wasgo_Spatial_wrapper_global_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_global_translate(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_hide(WasGoId wasgo_id);
-int _wasgo_Spatial_wrapper_is_local_transform_notification_enabled(WasGoId wasgo_id);
-int _wasgo_Spatial_wrapper_is_scale_disabled(WasGoId wasgo_id);
-int _wasgo_Spatial_wrapper_is_set_as_toplevel(WasGoId wasgo_id);
-int _wasgo_Spatial_wrapper_is_transform_notification_enabled(WasGoId wasgo_id);
-int _wasgo_Spatial_wrapper_is_visible(WasGoId wasgo_id);
-int _wasgo_Spatial_wrapper_is_visible_in_tree(WasGoId wasgo_id);
-void _wasgo_Spatial_wrapper_look_at(WasGoId wasgo_id, const uint8_t * p_target, int p_target_wasgo_buffer_size, const uint8_t * p_up, int p_up_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_look_at_from_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, const uint8_t * p_target, int p_target_wasgo_buffer_size, const uint8_t * p_up, int p_up_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_orthonormalize(WasGoId wasgo_id);
-void _wasgo_Spatial_wrapper_rotate(WasGoId wasgo_id, const uint8_t * p_axis, int p_axis_wasgo_buffer_size, float p_angle);
-void _wasgo_Spatial_wrapper_rotate_object_local(WasGoId wasgo_id, const uint8_t * p_axis, int p_axis_wasgo_buffer_size, float p_angle);
-void _wasgo_Spatial_wrapper_rotate_x(WasGoId wasgo_id, float p_angle);
-void _wasgo_Spatial_wrapper_rotate_y(WasGoId wasgo_id, float p_angle);
-void _wasgo_Spatial_wrapper_rotate_z(WasGoId wasgo_id, float p_angle);
-void _wasgo_Spatial_wrapper_scale_object_local(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_set_as_toplevel(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Spatial_wrapper_set_disable_scale(WasGoId wasgo_id, bool p_disable);
-void _wasgo_Spatial_wrapper_set_gizmo(WasGoId wasgo_id, WasGoId p_gizmo);
-void _wasgo_Spatial_wrapper_set_global_transform(WasGoId wasgo_id, const uint8_t * p_global, int p_global_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_set_identity(WasGoId wasgo_id);
-void _wasgo_Spatial_wrapper_set_ignore_transform_notification(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Spatial_wrapper_set_notify_local_transform(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Spatial_wrapper_set_notify_transform(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Spatial_wrapper_set_rotation(WasGoId wasgo_id, const uint8_t * p_euler, int p_euler_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_set_rotation_degrees(WasGoId wasgo_id, const uint8_t * p_euler_degrees, int p_euler_degrees_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_set_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_set_transform(WasGoId wasgo_id, const uint8_t * p_local, int p_local_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_set_translation(WasGoId wasgo_id, const uint8_t * p_translation, int p_translation_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_set_visible(WasGoId wasgo_id, bool p_visible);
-void _wasgo_Spatial_wrapper_show(WasGoId wasgo_id);
-void _wasgo_Spatial_wrapper_to_global(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_local_point, int p_local_point_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_to_local(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_global_point, int p_global_point_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_translate(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_translate_object_local(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
-void _wasgo_Spatial_wrapper_update_gizmo(WasGoId wasgo_id);
+void _wasgo_Spatial_wrapper_force_update_transform(WasGoID wasgo_id);
+WasGoID _wasgo_Spatial_wrapper_get_gizmo(WasGoID wasgo_id);
+void _wasgo_Spatial_wrapper_get_global_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Spatial_wrapper_get_parent_spatial(WasGoID wasgo_id);
+void _wasgo_Spatial_wrapper_get_rotation(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Spatial_wrapper_get_rotation_degrees(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Spatial_wrapper_get_scale(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Spatial_wrapper_get_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Spatial_wrapper_get_translation(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Spatial_wrapper_get_world(WasGoID wasgo_id);
+void _wasgo_Spatial_wrapper_global_rotate(WasGoID wasgo_id, const uint8_t * p_axis, int p_axis_wasgo_buffer_size, float p_angle);
+void _wasgo_Spatial_wrapper_global_scale(WasGoID wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_global_translate(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_hide(WasGoID wasgo_id);
+int _wasgo_Spatial_wrapper_is_local_transform_notification_enabled(WasGoID wasgo_id);
+int _wasgo_Spatial_wrapper_is_scale_disabled(WasGoID wasgo_id);
+int _wasgo_Spatial_wrapper_is_set_as_toplevel(WasGoID wasgo_id);
+int _wasgo_Spatial_wrapper_is_transform_notification_enabled(WasGoID wasgo_id);
+int _wasgo_Spatial_wrapper_is_visible(WasGoID wasgo_id);
+int _wasgo_Spatial_wrapper_is_visible_in_tree(WasGoID wasgo_id);
+void _wasgo_Spatial_wrapper_look_at(WasGoID wasgo_id, const uint8_t * p_target, int p_target_wasgo_buffer_size, const uint8_t * p_up, int p_up_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_look_at_from_position(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, const uint8_t * p_target, int p_target_wasgo_buffer_size, const uint8_t * p_up, int p_up_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_orthonormalize(WasGoID wasgo_id);
+void _wasgo_Spatial_wrapper_rotate(WasGoID wasgo_id, const uint8_t * p_axis, int p_axis_wasgo_buffer_size, float p_angle);
+void _wasgo_Spatial_wrapper_rotate_object_local(WasGoID wasgo_id, const uint8_t * p_axis, int p_axis_wasgo_buffer_size, float p_angle);
+void _wasgo_Spatial_wrapper_rotate_x(WasGoID wasgo_id, float p_angle);
+void _wasgo_Spatial_wrapper_rotate_y(WasGoID wasgo_id, float p_angle);
+void _wasgo_Spatial_wrapper_rotate_z(WasGoID wasgo_id, float p_angle);
+void _wasgo_Spatial_wrapper_scale_object_local(WasGoID wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_set_as_toplevel(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Spatial_wrapper_set_disable_scale(WasGoID wasgo_id, bool p_disable);
+void _wasgo_Spatial_wrapper_set_gizmo(WasGoID wasgo_id, WasGoID p_gizmo);
+void _wasgo_Spatial_wrapper_set_global_transform(WasGoID wasgo_id, const uint8_t * p_global, int p_global_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_set_identity(WasGoID wasgo_id);
+void _wasgo_Spatial_wrapper_set_ignore_transform_notification(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Spatial_wrapper_set_notify_local_transform(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Spatial_wrapper_set_notify_transform(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Spatial_wrapper_set_rotation(WasGoID wasgo_id, const uint8_t * p_euler, int p_euler_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_set_rotation_degrees(WasGoID wasgo_id, const uint8_t * p_euler_degrees, int p_euler_degrees_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_set_scale(WasGoID wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_set_transform(WasGoID wasgo_id, const uint8_t * p_local, int p_local_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_set_translation(WasGoID wasgo_id, const uint8_t * p_translation, int p_translation_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_set_visible(WasGoID wasgo_id, bool p_visible);
+void _wasgo_Spatial_wrapper_show(WasGoID wasgo_id);
+void _wasgo_Spatial_wrapper_to_global(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_local_point, int p_local_point_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_to_local(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_global_point, int p_global_point_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_translate(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_translate_object_local(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
+void _wasgo_Spatial_wrapper_update_gizmo(WasGoID wasgo_id);
 
     //constructor and destructor wrappers
-    WasGoId _wasgo_Spatial_constructor();
-    void _wasgo_Spatial_destructor(WasGoId p_wasgo_id);
+    WasGoID _wasgo_Spatial_constructor();
+    void _wasgo_Spatial_destructor(WasGoID p_wasgo_id);
             
 }
 #endif

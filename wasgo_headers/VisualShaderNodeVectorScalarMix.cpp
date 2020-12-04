@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "VisualShaderNodeVectorScalarMix.h"
 
-VisualShaderNodeVectorScalarMix::VisualShaderNodeVectorScalarMix(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeVectorScalarMix::VisualShaderNodeVectorScalarMix(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeVectorScalarMix::VisualShaderNodeVectorScalarMix(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeVectorScalarMix_constructor();

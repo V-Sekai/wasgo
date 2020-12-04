@@ -13,7 +13,7 @@ Error wait();
 
 protected:
 public:
-explicit Semaphore(WasGoId p_wasgo_id);
+explicit Semaphore(WasGoID p_wasgo_id);
 explicit Semaphore(Reference other);
 Semaphore new_instance();
             
@@ -22,11 +22,11 @@ Semaphore new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Semaphore_wrapper_post(WasGoId wasgo_id);
-WasGoId _wasgo_Semaphore_wrapper_wait(WasGoId wasgo_id);
+WasGoID _wasgo_Semaphore_wrapper_post(WasGoID wasgo_id);
+WasGoID _wasgo_Semaphore_wrapper_wait(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_Semaphore_constructor();
+    WasGoID _wasgo_Semaphore_constructor();
             
 }
 #endif

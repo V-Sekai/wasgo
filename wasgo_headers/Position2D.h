@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit Position2D(WasGoId p_wasgo_id);
+explicit Position2D(WasGoID p_wasgo_id);
 explicit Position2D(Node2D other);
 Position2D new_instance();
             
@@ -21,7 +21,7 @@ Position2D new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_Position2D_constructor();
+    WasGoID _wasgo_Position2D_constructor();
             
 }
 #endif

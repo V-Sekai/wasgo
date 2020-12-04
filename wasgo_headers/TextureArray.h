@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit TextureArray(WasGoId p_wasgo_id);
+explicit TextureArray(WasGoID p_wasgo_id);
 explicit TextureArray(TextureLayered other);
 TextureArray new_instance();
             
@@ -21,7 +21,7 @@ TextureArray new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_TextureArray_constructor();
+    WasGoID _wasgo_TextureArray_constructor();
             
 }
 #endif

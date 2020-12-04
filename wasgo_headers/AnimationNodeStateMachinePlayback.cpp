@@ -39,7 +39,7 @@ void AnimationNodeStateMachinePlayback::travel(String p_to_node){
 	_wasgo_AnimationNodeStateMachinePlayback_wrapper_travel(wasgo_id, wasgo_buffer_to_node, wasgo_size_to_node);
 }
 
-AnimationNodeStateMachinePlayback::AnimationNodeStateMachinePlayback(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+AnimationNodeStateMachinePlayback::AnimationNodeStateMachinePlayback(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 AnimationNodeStateMachinePlayback::AnimationNodeStateMachinePlayback(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeStateMachinePlayback_constructor();

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
-#include "error_list.h"
 #include "Reference.h"
-#include "NetworkedMultiplayerPeer.h"
+#include "Node.h"
 #include "Variant.h"
+#include "NetworkedMultiplayerPeer.h"
+#include "error_list.h"
 class MultiplayerAPI : public Reference{
 public:
 enum RPCMode{
@@ -40,7 +40,7 @@ void set_root_node(Node p_node);
 
 protected:
 public:
-explicit MultiplayerAPI(WasGoId p_wasgo_id);
+explicit MultiplayerAPI(WasGoID p_wasgo_id);
 explicit MultiplayerAPI(Reference other);
 MultiplayerAPI new_instance();
             
@@ -49,24 +49,24 @@ MultiplayerAPI new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_MultiplayerAPI_wrapper_clear(WasGoId wasgo_id);
-WasGoId _wasgo_MultiplayerAPI_wrapper_get_network_connected_peers(WasGoId wasgo_id);
-WasGoId _wasgo_MultiplayerAPI_wrapper_get_network_peer(WasGoId wasgo_id);
-int _wasgo_MultiplayerAPI_wrapper_get_network_unique_id(WasGoId wasgo_id);
-int _wasgo_MultiplayerAPI_wrapper_get_rpc_sender_id(WasGoId wasgo_id);
-int _wasgo_MultiplayerAPI_wrapper_has_network_peer(WasGoId wasgo_id);
-int _wasgo_MultiplayerAPI_wrapper_is_network_server(WasGoId wasgo_id);
-int _wasgo_MultiplayerAPI_wrapper_is_object_decoding_allowed(WasGoId wasgo_id);
-int _wasgo_MultiplayerAPI_wrapper_is_refusing_new_network_connections(WasGoId wasgo_id);
-void _wasgo_MultiplayerAPI_wrapper_poll(WasGoId wasgo_id);
-WasGoId _wasgo_MultiplayerAPI_wrapper_send_bytes(WasGoId wasgo_id, WasGoId p_bytes, int p_id, WasGoId p_mode);
-void _wasgo_MultiplayerAPI_wrapper_set_allow_object_decoding(WasGoId wasgo_id, bool p_enable);
-void _wasgo_MultiplayerAPI_wrapper_set_network_peer(WasGoId wasgo_id, WasGoId p_peer);
-void _wasgo_MultiplayerAPI_wrapper_set_refuse_new_network_connections(WasGoId wasgo_id, bool p_refuse);
-void _wasgo_MultiplayerAPI_wrapper_set_root_node(WasGoId wasgo_id, WasGoId p_node);
+void _wasgo_MultiplayerAPI_wrapper_clear(WasGoID wasgo_id);
+WasGoID _wasgo_MultiplayerAPI_wrapper_get_network_connected_peers(WasGoID wasgo_id);
+WasGoID _wasgo_MultiplayerAPI_wrapper_get_network_peer(WasGoID wasgo_id);
+int _wasgo_MultiplayerAPI_wrapper_get_network_unique_id(WasGoID wasgo_id);
+int _wasgo_MultiplayerAPI_wrapper_get_rpc_sender_id(WasGoID wasgo_id);
+int _wasgo_MultiplayerAPI_wrapper_has_network_peer(WasGoID wasgo_id);
+int _wasgo_MultiplayerAPI_wrapper_is_network_server(WasGoID wasgo_id);
+int _wasgo_MultiplayerAPI_wrapper_is_object_decoding_allowed(WasGoID wasgo_id);
+int _wasgo_MultiplayerAPI_wrapper_is_refusing_new_network_connections(WasGoID wasgo_id);
+void _wasgo_MultiplayerAPI_wrapper_poll(WasGoID wasgo_id);
+WasGoID _wasgo_MultiplayerAPI_wrapper_send_bytes(WasGoID wasgo_id, WasGoID p_bytes, int p_id, WasGoID p_mode);
+void _wasgo_MultiplayerAPI_wrapper_set_allow_object_decoding(WasGoID wasgo_id, bool p_enable);
+void _wasgo_MultiplayerAPI_wrapper_set_network_peer(WasGoID wasgo_id, WasGoID p_peer);
+void _wasgo_MultiplayerAPI_wrapper_set_refuse_new_network_connections(WasGoID wasgo_id, bool p_refuse);
+void _wasgo_MultiplayerAPI_wrapper_set_root_node(WasGoID wasgo_id, WasGoID p_node);
 
     //constructor wrappers
-    WasGoId _wasgo_MultiplayerAPI_constructor();
+    WasGoID _wasgo_MultiplayerAPI_constructor();
             
 }
 #endif

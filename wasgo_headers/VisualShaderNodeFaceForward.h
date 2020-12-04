@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeFaceForward(WasGoId p_wasgo_id);
+explicit VisualShaderNodeFaceForward(WasGoID p_wasgo_id);
 explicit VisualShaderNodeFaceForward(VisualShaderNode other);
 VisualShaderNodeFaceForward new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeFaceForward new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeFaceForward_constructor();
+    WasGoID _wasgo_VisualShaderNodeFaceForward_constructor();
             
 }
 #endif

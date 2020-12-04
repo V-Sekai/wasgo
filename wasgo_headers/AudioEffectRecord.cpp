@@ -17,7 +17,7 @@ void AudioEffectRecord::set_recording_active(bool p_record){
 	_wasgo_AudioEffectRecord_wrapper_set_recording_active(wasgo_id, p_record);
 }
 
-AudioEffectRecord::AudioEffectRecord(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+AudioEffectRecord::AudioEffectRecord(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectRecord::AudioEffectRecord(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectRecord_constructor();

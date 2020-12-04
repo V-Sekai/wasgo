@@ -91,7 +91,7 @@ void AnimatedSprite::stop(){
 	_wasgo_AnimatedSprite_wrapper_stop(wasgo_id);
 }
 
-AnimatedSprite::AnimatedSprite(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+AnimatedSprite::AnimatedSprite(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 AnimatedSprite::AnimatedSprite(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimatedSprite_constructor();

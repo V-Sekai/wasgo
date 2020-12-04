@@ -47,7 +47,7 @@ void MultiplayerAPI::set_root_node(Node p_node){
 	_wasgo_MultiplayerAPI_wrapper_set_root_node(wasgo_id, p_node._get_wasgo_id());
 }
 
-MultiplayerAPI::MultiplayerAPI(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+MultiplayerAPI::MultiplayerAPI(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 MultiplayerAPI::MultiplayerAPI(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_MultiplayerAPI_constructor();

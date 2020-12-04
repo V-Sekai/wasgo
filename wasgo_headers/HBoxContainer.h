@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit HBoxContainer(WasGoId p_wasgo_id);
+explicit HBoxContainer(WasGoID p_wasgo_id);
 explicit HBoxContainer(BoxContainer other);
 HBoxContainer new_instance();
             
@@ -21,7 +21,7 @@ HBoxContainer new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_HBoxContainer_constructor();
+    WasGoID _wasgo_HBoxContainer_constructor();
             
 }
 #endif

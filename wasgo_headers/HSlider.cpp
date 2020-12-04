@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "HSlider.h"
 
-HSlider::HSlider(WasGoId p_wasgo_id) : Slider(p_wasgo_id){
+HSlider::HSlider(WasGoID p_wasgo_id) : Slider(p_wasgo_id){
 }
 HSlider::HSlider(Slider other) : Slider(other._get_wasgo_id()){
     wasgo_id = _wasgo_HSlider_constructor();

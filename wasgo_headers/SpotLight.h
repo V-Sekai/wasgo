@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit SpotLight(WasGoId p_wasgo_id);
+explicit SpotLight(WasGoID p_wasgo_id);
 explicit SpotLight(Light other);
 SpotLight new_instance();
             
@@ -21,7 +21,7 @@ SpotLight new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_SpotLight_constructor();
+    WasGoID _wasgo_SpotLight_constructor();
             
 }
 #endif

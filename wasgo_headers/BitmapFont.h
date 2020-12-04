@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "Vector2.h"
-#include "ustring.h"
-#include "Texture.h"
 #include "Rect2.h"
 #include "Font.h"
+#include "Vector2.h"
+#include "error_list.h"
+#include "Texture.h"
+#include "ustring.h"
 class BitmapFont : public Font{
 public:
 void add_char(int p_character, int p_texture, Rect2 p_rect, Vector2 p_align = Vector2((0, 0)), float p_advance = (float) -1);
@@ -28,7 +28,7 @@ void set_height(float p_px);
 
 protected:
 public:
-explicit BitmapFont(WasGoId p_wasgo_id);
+explicit BitmapFont(WasGoID p_wasgo_id);
 explicit BitmapFont(Font other);
 BitmapFont new_instance();
             
@@ -37,22 +37,22 @@ BitmapFont new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_BitmapFont_wrapper_add_char(WasGoId wasgo_id, int p_character, int p_texture, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, const uint8_t * p_align, int p_align_wasgo_buffer_size, float p_advance);
-void _wasgo_BitmapFont_wrapper_add_kerning_pair(WasGoId wasgo_id, int p_char_a, int p_char_b, int p_kerning);
-void _wasgo_BitmapFont_wrapper_add_texture(WasGoId wasgo_id, WasGoId p_texture);
-void _wasgo_BitmapFont_wrapper_clear(WasGoId wasgo_id);
-WasGoId _wasgo_BitmapFont_wrapper_create_from_fnt(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_BitmapFont_wrapper_get_fallback(WasGoId wasgo_id);
-int _wasgo_BitmapFont_wrapper_get_kerning_pair(WasGoId wasgo_id, int p_char_a, int p_char_b);
-WasGoId _wasgo_BitmapFont_wrapper_get_texture(WasGoId wasgo_id, int p_idx);
-int _wasgo_BitmapFont_wrapper_get_texture_count(WasGoId wasgo_id);
-void _wasgo_BitmapFont_wrapper_set_ascent(WasGoId wasgo_id, float p_px);
-void _wasgo_BitmapFont_wrapper_set_distance_field_hint(WasGoId wasgo_id, bool p_enable);
-void _wasgo_BitmapFont_wrapper_set_fallback(WasGoId wasgo_id, WasGoId p_fallback);
-void _wasgo_BitmapFont_wrapper_set_height(WasGoId wasgo_id, float p_px);
+void _wasgo_BitmapFont_wrapper_add_char(WasGoID wasgo_id, int p_character, int p_texture, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, const uint8_t * p_align, int p_align_wasgo_buffer_size, float p_advance);
+void _wasgo_BitmapFont_wrapper_add_kerning_pair(WasGoID wasgo_id, int p_char_a, int p_char_b, int p_kerning);
+void _wasgo_BitmapFont_wrapper_add_texture(WasGoID wasgo_id, WasGoID p_texture);
+void _wasgo_BitmapFont_wrapper_clear(WasGoID wasgo_id);
+WasGoID _wasgo_BitmapFont_wrapper_create_from_fnt(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_BitmapFont_wrapper_get_fallback(WasGoID wasgo_id);
+int _wasgo_BitmapFont_wrapper_get_kerning_pair(WasGoID wasgo_id, int p_char_a, int p_char_b);
+WasGoID _wasgo_BitmapFont_wrapper_get_texture(WasGoID wasgo_id, int p_idx);
+int _wasgo_BitmapFont_wrapper_get_texture_count(WasGoID wasgo_id);
+void _wasgo_BitmapFont_wrapper_set_ascent(WasGoID wasgo_id, float p_px);
+void _wasgo_BitmapFont_wrapper_set_distance_field_hint(WasGoID wasgo_id, bool p_enable);
+void _wasgo_BitmapFont_wrapper_set_fallback(WasGoID wasgo_id, WasGoID p_fallback);
+void _wasgo_BitmapFont_wrapper_set_height(WasGoID wasgo_id, float p_px);
 
     //constructor wrappers
-    WasGoId _wasgo_BitmapFont_constructor();
+    WasGoID _wasgo_BitmapFont_constructor();
             
 }
 #endif

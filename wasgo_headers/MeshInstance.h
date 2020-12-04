@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "GeometryInstance.h"
-#include "Mesh.h"
-#include "NodePath.h"
 #include "Material.h"
 #include "Skin.h"
+#include "Mesh.h"
+#include "GeometryInstance.h"
+#include "NodePath.h"
 class MeshInstance : public GeometryInstance{
 public:
 void create_convex_collision();
@@ -29,7 +29,7 @@ void set_surface_material(int p_surface, Material p_material);
 
 protected:
 public:
-explicit MeshInstance(WasGoId p_wasgo_id);
+explicit MeshInstance(WasGoID p_wasgo_id);
 explicit MeshInstance(GeometryInstance other);
 MeshInstance new_instance();
             
@@ -38,24 +38,24 @@ MeshInstance new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_MeshInstance_wrapper_create_convex_collision(WasGoId wasgo_id);
-void _wasgo_MeshInstance_wrapper_create_debug_tangents(WasGoId wasgo_id);
-void _wasgo_MeshInstance_wrapper_create_trimesh_collision(WasGoId wasgo_id);
-WasGoId _wasgo_MeshInstance_wrapper_get_active_material(WasGoId wasgo_id, int p_surface);
-WasGoId _wasgo_MeshInstance_wrapper_get_mesh(WasGoId wasgo_id);
-void _wasgo_MeshInstance_wrapper_get_skeleton_path(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_MeshInstance_wrapper_get_skin(WasGoId wasgo_id);
-WasGoId _wasgo_MeshInstance_wrapper_get_surface_material(WasGoId wasgo_id, int p_surface);
-int _wasgo_MeshInstance_wrapper_get_surface_material_count(WasGoId wasgo_id);
-int _wasgo_MeshInstance_wrapper_is_software_skinning_transform_normals_enabled(WasGoId wasgo_id);
-void _wasgo_MeshInstance_wrapper_set_mesh(WasGoId wasgo_id, WasGoId p_mesh);
-void _wasgo_MeshInstance_wrapper_set_skeleton_path(WasGoId wasgo_id, const uint8_t * p_skeleton_path, int p_skeleton_path_wasgo_buffer_size);
-void _wasgo_MeshInstance_wrapper_set_skin(WasGoId wasgo_id, WasGoId p_skin);
-void _wasgo_MeshInstance_wrapper_set_software_skinning_transform_normals(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_MeshInstance_wrapper_set_surface_material(WasGoId wasgo_id, int p_surface, WasGoId p_material);
+void _wasgo_MeshInstance_wrapper_create_convex_collision(WasGoID wasgo_id);
+void _wasgo_MeshInstance_wrapper_create_debug_tangents(WasGoID wasgo_id);
+void _wasgo_MeshInstance_wrapper_create_trimesh_collision(WasGoID wasgo_id);
+WasGoID _wasgo_MeshInstance_wrapper_get_active_material(WasGoID wasgo_id, int p_surface);
+WasGoID _wasgo_MeshInstance_wrapper_get_mesh(WasGoID wasgo_id);
+void _wasgo_MeshInstance_wrapper_get_skeleton_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_MeshInstance_wrapper_get_skin(WasGoID wasgo_id);
+WasGoID _wasgo_MeshInstance_wrapper_get_surface_material(WasGoID wasgo_id, int p_surface);
+int _wasgo_MeshInstance_wrapper_get_surface_material_count(WasGoID wasgo_id);
+int _wasgo_MeshInstance_wrapper_is_software_skinning_transform_normals_enabled(WasGoID wasgo_id);
+void _wasgo_MeshInstance_wrapper_set_mesh(WasGoID wasgo_id, WasGoID p_mesh);
+void _wasgo_MeshInstance_wrapper_set_skeleton_path(WasGoID wasgo_id, const uint8_t * p_skeleton_path, int p_skeleton_path_wasgo_buffer_size);
+void _wasgo_MeshInstance_wrapper_set_skin(WasGoID wasgo_id, WasGoID p_skin);
+void _wasgo_MeshInstance_wrapper_set_software_skinning_transform_normals(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_MeshInstance_wrapper_set_surface_material(WasGoID wasgo_id, int p_surface, WasGoID p_material);
 
     //constructor wrappers
-    WasGoId _wasgo_MeshInstance_constructor();
+    WasGoID _wasgo_MeshInstance_constructor();
             
 }
 #endif

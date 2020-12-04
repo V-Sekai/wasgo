@@ -574,7 +574,7 @@ void Environment::set_tonemapper(Environment::ToneMapper p_mode){
 	_wasgo_Environment_wrapper_set_tonemapper(wasgo_id, p_mode._get_wasgo_id());
 }
 
-Environment::Environment(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+Environment::Environment(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Environment::Environment(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Environment_constructor();

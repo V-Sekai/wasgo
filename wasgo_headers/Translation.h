@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Variant.h"
+#include "Resource.h"
 #include "ustring.h"
 class Translation : public Resource{
 public:
@@ -19,7 +19,7 @@ void set_locale(String p_locale);
 
 protected:
 public:
-explicit Translation(WasGoId p_wasgo_id);
+explicit Translation(WasGoID p_wasgo_id);
 explicit Translation(Resource other);
 Translation new_instance();
             
@@ -28,16 +28,16 @@ Translation new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Translation_wrapper_add_message(WasGoId wasgo_id, const uint8_t * p_src_message, int p_src_message_wasgo_buffer_size, const uint8_t * p_xlated_message, int p_xlated_message_wasgo_buffer_size);
-void _wasgo_Translation_wrapper_erase_message(WasGoId wasgo_id, const uint8_t * p_src_message, int p_src_message_wasgo_buffer_size);
-void _wasgo_Translation_wrapper_get_locale(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Translation_wrapper_get_message(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_src_message, int p_src_message_wasgo_buffer_size);
-int _wasgo_Translation_wrapper_get_message_count(WasGoId wasgo_id);
-WasGoId _wasgo_Translation_wrapper_get_message_list(WasGoId wasgo_id);
-void _wasgo_Translation_wrapper_set_locale(WasGoId wasgo_id, const uint8_t * p_locale, int p_locale_wasgo_buffer_size);
+void _wasgo_Translation_wrapper_add_message(WasGoID wasgo_id, const uint8_t * p_src_message, int p_src_message_wasgo_buffer_size, const uint8_t * p_xlated_message, int p_xlated_message_wasgo_buffer_size);
+void _wasgo_Translation_wrapper_erase_message(WasGoID wasgo_id, const uint8_t * p_src_message, int p_src_message_wasgo_buffer_size);
+void _wasgo_Translation_wrapper_get_locale(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Translation_wrapper_get_message(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_src_message, int p_src_message_wasgo_buffer_size);
+int _wasgo_Translation_wrapper_get_message_count(WasGoID wasgo_id);
+WasGoID _wasgo_Translation_wrapper_get_message_list(WasGoID wasgo_id);
+void _wasgo_Translation_wrapper_set_locale(WasGoID wasgo_id, const uint8_t * p_locale, int p_locale_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_Translation_constructor();
+    WasGoID _wasgo_Translation_constructor();
             
 }
 #endif

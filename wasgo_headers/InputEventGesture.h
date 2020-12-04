@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "InputEventWithModifiers.h"
 #include "Vector2.h"
+#include "InputEventWithModifiers.h"
 class InputEventGesture : public InputEventWithModifiers{
 public:
 Vector2 get_position();
@@ -15,11 +15,11 @@ void set_position(Vector2 p_position);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_InputEventGesture_wrapper_get_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_InputEventGesture_wrapper_set_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_InputEventGesture_wrapper_get_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_InputEventGesture_wrapper_set_position(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_InputEventGesture_constructor();
+    WasGoID _wasgo_InputEventGesture_constructor();
             
 }
 #endif

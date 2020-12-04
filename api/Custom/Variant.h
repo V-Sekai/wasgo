@@ -54,7 +54,7 @@
 
 class Object;
 class ObjectRC;
-// class Node; // helper
+class Node; // helper
 // class Control; // helper
 
 struct PropertyInfo;
@@ -92,7 +92,7 @@ struct MethodInfo;
 #define _UNSAFE_OBJ_PROXY_PTR(m_variant) _OBJ_PTR(m_variant)
 #endif
 
-typedef uint32_t WasGoId;
+typedef uint32_t WasGoID;
 class Variant {
 
 public:
@@ -448,12 +448,12 @@ public:
 		if (type != Variant::NIL) clear();
 	}
 
-	static Variant _from_wasgo_id(WasGoId p_wasgo_id);
-	WasGoId _get_wasgo_id();
+	static Variant _from_wasgo_id(WasGoID p_wasgo_id);
+	WasGoID _get_wasgo_id();
 
 protected:
-	WasGoId wasgo_id;
-	Variant(Type p_type, WasGoId p_wasgo_id);
+	WasGoID wasgo_id;
+	Variant(Type p_type, WasGoID p_wasgo_id);
 };
 
 //typedef Dictionary Dictionary; no

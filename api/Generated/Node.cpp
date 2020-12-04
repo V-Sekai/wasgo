@@ -422,10 +422,14 @@ void Node::update_configuration_warning(){
 	_wasgo_Node_wrapper_update_configuration_warning(wasgo_id);
 }
 
-Node::Node(WasGoId p_wasgo_id) : Object(p_wasgo_id){
+Node::Node(WasGoID p_wasgo_id) : Object(p_wasgo_id){
 }
 
 Node::Node(Object obj) : Object(obj._get_wasgo_id()) {
+}
+
+Node::Node() : Object(){
+    
 }
 
 Node Node::new_instance(){

@@ -240,7 +240,7 @@ void AnimationNodeStateMachine::set_start_node(String p_name){
 	_wasgo_AnimationNodeStateMachine_wrapper_set_start_node(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
 
-AnimationNodeStateMachine::AnimationNodeStateMachine(WasGoId p_wasgo_id) : AnimationRootNode(p_wasgo_id){
+AnimationNodeStateMachine::AnimationNodeStateMachine(WasGoID p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
 AnimationNodeStateMachine::AnimationNodeStateMachine(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeStateMachine_constructor();

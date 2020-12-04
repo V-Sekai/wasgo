@@ -198,7 +198,7 @@ void AudioServer::unlock(){
 	_wasgo_AudioServer_wrapper_unlock(wasgo_id);
 }
 
-AudioServer::AudioServer(WasGoId p_wasgo_id) : Object(p_wasgo_id){
+AudioServer::AudioServer(WasGoID p_wasgo_id) : Object(p_wasgo_id){
 }
 AudioServer::AudioServer(Object other) : Object(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioServer_constructor();

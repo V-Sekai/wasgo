@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "Node.h"
-#include "error_list.h"
-#include "ustring.h"
-#include "HTTPClient.h"
 #include "Variant.h"
+#include "error_list.h"
+#include "HTTPClient.h"
+#include "ustring.h"
 class HTTPRequest : public Node{
 public:
 enum Result{
@@ -46,7 +46,7 @@ void set_use_threads(bool p_enable);
 
 protected:
 public:
-explicit HTTPRequest(WasGoId p_wasgo_id);
+explicit HTTPRequest(WasGoID p_wasgo_id);
 explicit HTTPRequest(Node other);
 HTTPRequest new_instance();
             
@@ -55,26 +55,26 @@ HTTPRequest new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_HTTPRequest_wrapper_cancel_request(WasGoId wasgo_id);
-int _wasgo_HTTPRequest_wrapper_get_body_size(WasGoId wasgo_id);
-int _wasgo_HTTPRequest_wrapper_get_body_size_limit(WasGoId wasgo_id);
-int _wasgo_HTTPRequest_wrapper_get_download_chunk_size(WasGoId wasgo_id);
-void _wasgo_HTTPRequest_wrapper_get_download_file(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_HTTPRequest_wrapper_get_downloaded_bytes(WasGoId wasgo_id);
-WasGoId _wasgo_HTTPRequest_wrapper_get_http_client_status(WasGoId wasgo_id);
-int _wasgo_HTTPRequest_wrapper_get_max_redirects(WasGoId wasgo_id);
-int _wasgo_HTTPRequest_wrapper_get_timeout(WasGoId wasgo_id);
-int _wasgo_HTTPRequest_wrapper_is_using_threads(WasGoId wasgo_id);
-WasGoId _wasgo_HTTPRequest_wrapper_request(WasGoId wasgo_id, const uint8_t * p_url, int p_url_wasgo_buffer_size, WasGoId p_custom_headers, bool p_ssl_validate_domain, WasGoId p_method, const uint8_t * p_request_data, int p_request_data_wasgo_buffer_size);
-void _wasgo_HTTPRequest_wrapper_set_body_size_limit(WasGoId wasgo_id, int p_bytes);
-void _wasgo_HTTPRequest_wrapper_set_download_chunk_size(WasGoId wasgo_id, int p_arg0);
-void _wasgo_HTTPRequest_wrapper_set_download_file(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-void _wasgo_HTTPRequest_wrapper_set_max_redirects(WasGoId wasgo_id, int p_amount);
-void _wasgo_HTTPRequest_wrapper_set_timeout(WasGoId wasgo_id, int p_timeout);
-void _wasgo_HTTPRequest_wrapper_set_use_threads(WasGoId wasgo_id, bool p_enable);
+void _wasgo_HTTPRequest_wrapper_cancel_request(WasGoID wasgo_id);
+int _wasgo_HTTPRequest_wrapper_get_body_size(WasGoID wasgo_id);
+int _wasgo_HTTPRequest_wrapper_get_body_size_limit(WasGoID wasgo_id);
+int _wasgo_HTTPRequest_wrapper_get_download_chunk_size(WasGoID wasgo_id);
+void _wasgo_HTTPRequest_wrapper_get_download_file(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_HTTPRequest_wrapper_get_downloaded_bytes(WasGoID wasgo_id);
+WasGoID _wasgo_HTTPRequest_wrapper_get_http_client_status(WasGoID wasgo_id);
+int _wasgo_HTTPRequest_wrapper_get_max_redirects(WasGoID wasgo_id);
+int _wasgo_HTTPRequest_wrapper_get_timeout(WasGoID wasgo_id);
+int _wasgo_HTTPRequest_wrapper_is_using_threads(WasGoID wasgo_id);
+WasGoID _wasgo_HTTPRequest_wrapper_request(WasGoID wasgo_id, const uint8_t * p_url, int p_url_wasgo_buffer_size, WasGoID p_custom_headers, bool p_ssl_validate_domain, WasGoID p_method, const uint8_t * p_request_data, int p_request_data_wasgo_buffer_size);
+void _wasgo_HTTPRequest_wrapper_set_body_size_limit(WasGoID wasgo_id, int p_bytes);
+void _wasgo_HTTPRequest_wrapper_set_download_chunk_size(WasGoID wasgo_id, int p_arg0);
+void _wasgo_HTTPRequest_wrapper_set_download_file(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_HTTPRequest_wrapper_set_max_redirects(WasGoID wasgo_id, int p_amount);
+void _wasgo_HTTPRequest_wrapper_set_timeout(WasGoID wasgo_id, int p_timeout);
+void _wasgo_HTTPRequest_wrapper_set_use_threads(WasGoID wasgo_id, bool p_enable);
 
     //constructor wrappers
-    WasGoId _wasgo_HTTPRequest_constructor();
+    WasGoID _wasgo_HTTPRequest_constructor();
             
 }
 #endif

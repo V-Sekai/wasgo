@@ -21,7 +21,7 @@ void set_vertical(bool p_vertical);
 
 protected:
 public:
-explicit StyleBoxLine(WasGoId p_wasgo_id);
+explicit StyleBoxLine(WasGoID p_wasgo_id);
 explicit StyleBoxLine(StyleBox other);
 StyleBoxLine new_instance();
             
@@ -30,19 +30,19 @@ StyleBoxLine new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_StyleBoxLine_wrapper_get_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_StyleBoxLine_wrapper_get_grow_begin(WasGoId wasgo_id);
-float _wasgo_StyleBoxLine_wrapper_get_grow_end(WasGoId wasgo_id);
-int _wasgo_StyleBoxLine_wrapper_get_thickness(WasGoId wasgo_id);
-int _wasgo_StyleBoxLine_wrapper_is_vertical(WasGoId wasgo_id);
-void _wasgo_StyleBoxLine_wrapper_set_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_StyleBoxLine_wrapper_set_grow_begin(WasGoId wasgo_id, float p_offset);
-void _wasgo_StyleBoxLine_wrapper_set_grow_end(WasGoId wasgo_id, float p_offset);
-void _wasgo_StyleBoxLine_wrapper_set_thickness(WasGoId wasgo_id, int p_thickness);
-void _wasgo_StyleBoxLine_wrapper_set_vertical(WasGoId wasgo_id, bool p_vertical);
+void _wasgo_StyleBoxLine_wrapper_get_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_StyleBoxLine_wrapper_get_grow_begin(WasGoID wasgo_id);
+float _wasgo_StyleBoxLine_wrapper_get_grow_end(WasGoID wasgo_id);
+int _wasgo_StyleBoxLine_wrapper_get_thickness(WasGoID wasgo_id);
+int _wasgo_StyleBoxLine_wrapper_is_vertical(WasGoID wasgo_id);
+void _wasgo_StyleBoxLine_wrapper_set_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_StyleBoxLine_wrapper_set_grow_begin(WasGoID wasgo_id, float p_offset);
+void _wasgo_StyleBoxLine_wrapper_set_grow_end(WasGoID wasgo_id, float p_offset);
+void _wasgo_StyleBoxLine_wrapper_set_thickness(WasGoID wasgo_id, int p_thickness);
+void _wasgo_StyleBoxLine_wrapper_set_vertical(WasGoID wasgo_id, bool p_vertical);
 
     //constructor wrappers
-    WasGoId _wasgo_StyleBoxLine_constructor();
+    WasGoID _wasgo_StyleBoxLine_constructor();
             
 }
 #endif

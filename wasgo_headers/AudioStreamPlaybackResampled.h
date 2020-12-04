@@ -14,7 +14,7 @@ public:
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_AudioStreamPlaybackResampled_constructor();
+    WasGoID _wasgo_AudioStreamPlaybackResampled_constructor();
             
 }
 #endif

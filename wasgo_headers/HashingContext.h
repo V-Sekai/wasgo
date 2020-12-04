@@ -20,7 +20,7 @@ Error update(PoolByteArray p_chunk);
 
 protected:
 public:
-explicit HashingContext(WasGoId p_wasgo_id);
+explicit HashingContext(WasGoID p_wasgo_id);
 explicit HashingContext(Reference other);
 HashingContext new_instance();
             
@@ -29,12 +29,12 @@ HashingContext new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_HashingContext_wrapper_finish(WasGoId wasgo_id);
-WasGoId _wasgo_HashingContext_wrapper_start(WasGoId wasgo_id, WasGoId p_type);
-WasGoId _wasgo_HashingContext_wrapper_update(WasGoId wasgo_id, WasGoId p_chunk);
+WasGoID _wasgo_HashingContext_wrapper_finish(WasGoID wasgo_id);
+WasGoID _wasgo_HashingContext_wrapper_start(WasGoID wasgo_id, WasGoID p_type);
+WasGoID _wasgo_HashingContext_wrapper_update(WasGoID wasgo_id, WasGoID p_chunk);
 
     //constructor wrappers
-    WasGoId _wasgo_HashingContext_constructor();
+    WasGoID _wasgo_HashingContext_constructor();
             
 }
 #endif

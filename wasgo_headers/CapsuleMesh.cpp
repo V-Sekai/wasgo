@@ -26,7 +26,7 @@ void CapsuleMesh::set_rings(int p_rings){
 	_wasgo_CapsuleMesh_wrapper_set_rings(wasgo_id, p_rings);
 }
 
-CapsuleMesh::CapsuleMesh(WasGoId p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
+CapsuleMesh::CapsuleMesh(WasGoID p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
 }
 CapsuleMesh::CapsuleMesh(PrimitiveMesh other) : PrimitiveMesh(other._get_wasgo_id()){
     wasgo_id = _wasgo_CapsuleMesh_constructor();

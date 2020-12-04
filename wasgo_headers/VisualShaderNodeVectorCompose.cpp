@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "VisualShaderNodeVectorCompose.h"
 
-VisualShaderNodeVectorCompose::VisualShaderNodeVectorCompose(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeVectorCompose::VisualShaderNodeVectorCompose(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeVectorCompose::VisualShaderNodeVectorCompose(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeVectorCompose_constructor();

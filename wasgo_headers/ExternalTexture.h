@@ -13,7 +13,7 @@ void set_size(Vector2 p_size);
 
 protected:
 public:
-explicit ExternalTexture(WasGoId p_wasgo_id);
+explicit ExternalTexture(WasGoID p_wasgo_id);
 explicit ExternalTexture(Texture other);
 ExternalTexture new_instance();
             
@@ -22,11 +22,11 @@ ExternalTexture new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_ExternalTexture_wrapper_get_external_texture_id(WasGoId wasgo_id);
-void _wasgo_ExternalTexture_wrapper_set_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
+int _wasgo_ExternalTexture_wrapper_get_external_texture_id(WasGoID wasgo_id);
+void _wasgo_ExternalTexture_wrapper_set_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_ExternalTexture_constructor();
+    WasGoID _wasgo_ExternalTexture_constructor();
             
 }
 #endif

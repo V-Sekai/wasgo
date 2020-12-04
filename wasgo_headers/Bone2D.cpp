@@ -43,7 +43,7 @@ void Bone2D::set_rest(Transform2D p_rest){
 	_wasgo_Bone2D_wrapper_set_rest(wasgo_id, wasgo_buffer_rest, wasgo_size_rest);
 }
 
-Bone2D::Bone2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+Bone2D::Bone2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Bone2D::Bone2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Bone2D_constructor();

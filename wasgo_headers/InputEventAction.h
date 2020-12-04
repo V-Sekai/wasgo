@@ -16,7 +16,7 @@ void set_strength(float p_strength);
 
 protected:
 public:
-explicit InputEventAction(WasGoId p_wasgo_id);
+explicit InputEventAction(WasGoID p_wasgo_id);
 explicit InputEventAction(InputEvent other);
 InputEventAction new_instance();
             
@@ -25,14 +25,14 @@ InputEventAction new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_InputEventAction_wrapper_get_action(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_InputEventAction_wrapper_get_strength(WasGoId wasgo_id);
-void _wasgo_InputEventAction_wrapper_set_action(WasGoId wasgo_id, const uint8_t * p_action, int p_action_wasgo_buffer_size);
-void _wasgo_InputEventAction_wrapper_set_pressed(WasGoId wasgo_id, bool p_pressed);
-void _wasgo_InputEventAction_wrapper_set_strength(WasGoId wasgo_id, float p_strength);
+void _wasgo_InputEventAction_wrapper_get_action(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_InputEventAction_wrapper_get_strength(WasGoID wasgo_id);
+void _wasgo_InputEventAction_wrapper_set_action(WasGoID wasgo_id, const uint8_t * p_action, int p_action_wasgo_buffer_size);
+void _wasgo_InputEventAction_wrapper_set_pressed(WasGoID wasgo_id, bool p_pressed);
+void _wasgo_InputEventAction_wrapper_set_strength(WasGoID wasgo_id, float p_strength);
 
     //constructor wrappers
-    WasGoId _wasgo_InputEventAction_constructor();
+    WasGoID _wasgo_InputEventAction_constructor();
             
 }
 #endif

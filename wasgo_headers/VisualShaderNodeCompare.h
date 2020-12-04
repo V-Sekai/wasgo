@@ -34,7 +34,7 @@ void set_function(VisualShaderNodeCompare::Function p_func);
 
 protected:
 public:
-explicit VisualShaderNodeCompare(WasGoId p_wasgo_id);
+explicit VisualShaderNodeCompare(WasGoID p_wasgo_id);
 explicit VisualShaderNodeCompare(VisualShaderNode other);
 VisualShaderNodeCompare new_instance();
             
@@ -43,15 +43,15 @@ VisualShaderNodeCompare new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_VisualShaderNodeCompare_wrapper_get_comparison_type(WasGoId wasgo_id);
-WasGoId _wasgo_VisualShaderNodeCompare_wrapper_get_condition(WasGoId wasgo_id);
-WasGoId _wasgo_VisualShaderNodeCompare_wrapper_get_function(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeCompare_wrapper_set_comparison_type(WasGoId wasgo_id, WasGoId p_type);
-void _wasgo_VisualShaderNodeCompare_wrapper_set_condition(WasGoId wasgo_id, WasGoId p_condition);
-void _wasgo_VisualShaderNodeCompare_wrapper_set_function(WasGoId wasgo_id, WasGoId p_func);
+WasGoID _wasgo_VisualShaderNodeCompare_wrapper_get_comparison_type(WasGoID wasgo_id);
+WasGoID _wasgo_VisualShaderNodeCompare_wrapper_get_condition(WasGoID wasgo_id);
+WasGoID _wasgo_VisualShaderNodeCompare_wrapper_get_function(WasGoID wasgo_id);
+void _wasgo_VisualShaderNodeCompare_wrapper_set_comparison_type(WasGoID wasgo_id, WasGoID p_type);
+void _wasgo_VisualShaderNodeCompare_wrapper_set_condition(WasGoID wasgo_id, WasGoID p_condition);
+void _wasgo_VisualShaderNodeCompare_wrapper_set_function(WasGoID wasgo_id, WasGoID p_func);
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeCompare_constructor();
+    WasGoID _wasgo_VisualShaderNodeCompare_constructor();
             
 }
 #endif

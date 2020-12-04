@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "Reference.h"
 #include "Variant.h"
 #include "Resource.h"
+#include "ustring.h"
 class ResourceFormatSaver : public Reference{
 public:
 PoolStringArray get_recognized_extensions(Resource p_resource);
@@ -16,7 +16,7 @@ int save(String p_path, Resource p_resource, int p_flags);
 
 protected:
 public:
-explicit ResourceFormatSaver(WasGoId p_wasgo_id);
+explicit ResourceFormatSaver(WasGoID p_wasgo_id);
 explicit ResourceFormatSaver(Reference other);
 ResourceFormatSaver new_instance();
             
@@ -25,12 +25,12 @@ ResourceFormatSaver new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_ResourceFormatSaver_wrapper_get_recognized_extensions(WasGoId wasgo_id, WasGoId p_resource);
-int _wasgo_ResourceFormatSaver_wrapper_recognize(WasGoId wasgo_id, WasGoId p_resource);
-int _wasgo_ResourceFormatSaver_wrapper_save(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoId p_resource, int p_flags);
+WasGoID _wasgo_ResourceFormatSaver_wrapper_get_recognized_extensions(WasGoID wasgo_id, WasGoID p_resource);
+int _wasgo_ResourceFormatSaver_wrapper_recognize(WasGoID wasgo_id, WasGoID p_resource);
+int _wasgo_ResourceFormatSaver_wrapper_save(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_resource, int p_flags);
 
     //constructor wrappers
-    WasGoId _wasgo_ResourceFormatSaver_constructor();
+    WasGoID _wasgo_ResourceFormatSaver_constructor();
             
 }
 #endif

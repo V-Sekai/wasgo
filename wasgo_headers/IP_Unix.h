@@ -14,7 +14,7 @@ public:
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_IP_Unix_constructor();
+    WasGoID _wasgo_IP_Unix_constructor();
             
 }
 #endif

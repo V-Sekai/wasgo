@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "PointMesh.h"
 
-PointMesh::PointMesh(WasGoId p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
+PointMesh::PointMesh(WasGoID p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
 }
 PointMesh::PointMesh(PrimitiveMesh other) : PrimitiveMesh(other._get_wasgo_id()){
     wasgo_id = _wasgo_PointMesh_constructor();

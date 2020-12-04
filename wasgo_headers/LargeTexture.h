@@ -19,7 +19,7 @@ void set_size(Vector2 p_size);
 
 protected:
 public:
-explicit LargeTexture(WasGoId p_wasgo_id);
+explicit LargeTexture(WasGoID p_wasgo_id);
 explicit LargeTexture(Texture other);
 LargeTexture new_instance();
             
@@ -28,17 +28,17 @@ LargeTexture new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_LargeTexture_wrapper_add_piece(WasGoId wasgo_id, const uint8_t * p_ofs, int p_ofs_wasgo_buffer_size, WasGoId p_texture);
-void _wasgo_LargeTexture_wrapper_clear(WasGoId wasgo_id);
-int _wasgo_LargeTexture_wrapper_get_piece_count(WasGoId wasgo_id);
-void _wasgo_LargeTexture_wrapper_get_piece_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-WasGoId _wasgo_LargeTexture_wrapper_get_piece_texture(WasGoId wasgo_id, int p_idx);
-void _wasgo_LargeTexture_wrapper_set_piece_offset(WasGoId wasgo_id, int p_idx, const uint8_t * p_ofs, int p_ofs_wasgo_buffer_size);
-void _wasgo_LargeTexture_wrapper_set_piece_texture(WasGoId wasgo_id, int p_idx, WasGoId p_texture);
-void _wasgo_LargeTexture_wrapper_set_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
+int _wasgo_LargeTexture_wrapper_add_piece(WasGoID wasgo_id, const uint8_t * p_ofs, int p_ofs_wasgo_buffer_size, WasGoID p_texture);
+void _wasgo_LargeTexture_wrapper_clear(WasGoID wasgo_id);
+int _wasgo_LargeTexture_wrapper_get_piece_count(WasGoID wasgo_id);
+void _wasgo_LargeTexture_wrapper_get_piece_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+WasGoID _wasgo_LargeTexture_wrapper_get_piece_texture(WasGoID wasgo_id, int p_idx);
+void _wasgo_LargeTexture_wrapper_set_piece_offset(WasGoID wasgo_id, int p_idx, const uint8_t * p_ofs, int p_ofs_wasgo_buffer_size);
+void _wasgo_LargeTexture_wrapper_set_piece_texture(WasGoID wasgo_id, int p_idx, WasGoID p_texture);
+void _wasgo_LargeTexture_wrapper_set_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_LargeTexture_constructor();
+    WasGoID _wasgo_LargeTexture_constructor();
             
 }
 #endif

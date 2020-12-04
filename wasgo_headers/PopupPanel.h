@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit PopupPanel(WasGoId p_wasgo_id);
+explicit PopupPanel(WasGoID p_wasgo_id);
 explicit PopupPanel(Popup other);
 PopupPanel new_instance();
             
@@ -21,7 +21,7 @@ PopupPanel new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_PopupPanel_constructor();
+    WasGoID _wasgo_PopupPanel_constructor();
             
 }
 #endif

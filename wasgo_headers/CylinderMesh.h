@@ -20,7 +20,7 @@ void set_top_radius(float p_radius);
 
 protected:
 public:
-explicit CylinderMesh(WasGoId p_wasgo_id);
+explicit CylinderMesh(WasGoID p_wasgo_id);
 explicit CylinderMesh(PrimitiveMesh other);
 CylinderMesh new_instance();
             
@@ -29,19 +29,19 @@ CylinderMesh new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_CylinderMesh_wrapper_get_bottom_radius(WasGoId wasgo_id);
-float _wasgo_CylinderMesh_wrapper_get_height(WasGoId wasgo_id);
-int _wasgo_CylinderMesh_wrapper_get_radial_segments(WasGoId wasgo_id);
-int _wasgo_CylinderMesh_wrapper_get_rings(WasGoId wasgo_id);
-float _wasgo_CylinderMesh_wrapper_get_top_radius(WasGoId wasgo_id);
-void _wasgo_CylinderMesh_wrapper_set_bottom_radius(WasGoId wasgo_id, float p_radius);
-void _wasgo_CylinderMesh_wrapper_set_height(WasGoId wasgo_id, float p_height);
-void _wasgo_CylinderMesh_wrapper_set_radial_segments(WasGoId wasgo_id, int p_segments);
-void _wasgo_CylinderMesh_wrapper_set_rings(WasGoId wasgo_id, int p_rings);
-void _wasgo_CylinderMesh_wrapper_set_top_radius(WasGoId wasgo_id, float p_radius);
+float _wasgo_CylinderMesh_wrapper_get_bottom_radius(WasGoID wasgo_id);
+float _wasgo_CylinderMesh_wrapper_get_height(WasGoID wasgo_id);
+int _wasgo_CylinderMesh_wrapper_get_radial_segments(WasGoID wasgo_id);
+int _wasgo_CylinderMesh_wrapper_get_rings(WasGoID wasgo_id);
+float _wasgo_CylinderMesh_wrapper_get_top_radius(WasGoID wasgo_id);
+void _wasgo_CylinderMesh_wrapper_set_bottom_radius(WasGoID wasgo_id, float p_radius);
+void _wasgo_CylinderMesh_wrapper_set_height(WasGoID wasgo_id, float p_height);
+void _wasgo_CylinderMesh_wrapper_set_radial_segments(WasGoID wasgo_id, int p_segments);
+void _wasgo_CylinderMesh_wrapper_set_rings(WasGoID wasgo_id, int p_rings);
+void _wasgo_CylinderMesh_wrapper_set_top_radius(WasGoID wasgo_id, float p_radius);
 
     //constructor wrappers
-    WasGoId _wasgo_CylinderMesh_constructor();
+    WasGoID _wasgo_CylinderMesh_constructor();
             
 }
 #endif

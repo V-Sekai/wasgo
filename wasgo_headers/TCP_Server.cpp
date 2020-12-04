@@ -23,7 +23,7 @@ StreamPeerTCP TCP_Server::take_connection(){
 	return StreamPeerTCP(_wasgo_TCP_Server_wrapper_take_connection(wasgo_id));
 }
 
-TCP_Server::TCP_Server(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+TCP_Server::TCP_Server(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 TCP_Server::TCP_Server(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_TCP_Server_constructor();

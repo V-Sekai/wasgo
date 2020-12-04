@@ -4,15 +4,15 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Variant.h"
+#include "Resource.h"
 class WasmResource : public Resource{
 public:
 PoolByteArray get_buf();
 
 protected:
 public:
-explicit WasmResource(WasGoId p_wasgo_id);
+explicit WasmResource(WasGoID p_wasgo_id);
 explicit WasmResource(Resource other);
 WasmResource new_instance();
             
@@ -21,10 +21,10 @@ WasmResource new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_WasmResource_wrapper_get_buf(WasGoId wasgo_id);
+WasGoID _wasgo_WasmResource_wrapper_get_buf(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_WasmResource_constructor();
+    WasGoID _wasgo_WasmResource_constructor();
             
 }
 #endif

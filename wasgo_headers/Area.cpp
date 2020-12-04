@@ -173,7 +173,7 @@ void Area::set_use_reverb_bus(bool p_enable){
 	_wasgo_Area_wrapper_set_use_reverb_bus(wasgo_id, p_enable);
 }
 
-Area::Area(WasGoId p_wasgo_id) : CollisionObject(p_wasgo_id){
+Area::Area(WasGoID p_wasgo_id) : CollisionObject(p_wasgo_id){
 }
 Area::Area(CollisionObject other) : CollisionObject(other._get_wasgo_id()){
     wasgo_id = _wasgo_Area_constructor();

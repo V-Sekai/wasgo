@@ -25,7 +25,7 @@ void set_polygon(PoolVector2Array p_polygon);
 
 protected:
 public:
-explicit CollisionPolygon2D(WasGoId p_wasgo_id);
+explicit CollisionPolygon2D(WasGoID p_wasgo_id);
 explicit CollisionPolygon2D(Node2D other);
 CollisionPolygon2D new_instance();
             
@@ -34,19 +34,19 @@ CollisionPolygon2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_CollisionPolygon2D_wrapper_get_build_mode(WasGoId wasgo_id);
-float _wasgo_CollisionPolygon2D_wrapper_get_one_way_collision_margin(WasGoId wasgo_id);
-WasGoId _wasgo_CollisionPolygon2D_wrapper_get_polygon(WasGoId wasgo_id);
-int _wasgo_CollisionPolygon2D_wrapper_is_disabled(WasGoId wasgo_id);
-int _wasgo_CollisionPolygon2D_wrapper_is_one_way_collision_enabled(WasGoId wasgo_id);
-void _wasgo_CollisionPolygon2D_wrapper_set_build_mode(WasGoId wasgo_id, WasGoId p_build_mode);
-void _wasgo_CollisionPolygon2D_wrapper_set_disabled(WasGoId wasgo_id, bool p_disabled);
-void _wasgo_CollisionPolygon2D_wrapper_set_one_way_collision(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_CollisionPolygon2D_wrapper_set_one_way_collision_margin(WasGoId wasgo_id, float p_margin);
-void _wasgo_CollisionPolygon2D_wrapper_set_polygon(WasGoId wasgo_id, WasGoId p_polygon);
+WasGoID _wasgo_CollisionPolygon2D_wrapper_get_build_mode(WasGoID wasgo_id);
+float _wasgo_CollisionPolygon2D_wrapper_get_one_way_collision_margin(WasGoID wasgo_id);
+WasGoID _wasgo_CollisionPolygon2D_wrapper_get_polygon(WasGoID wasgo_id);
+int _wasgo_CollisionPolygon2D_wrapper_is_disabled(WasGoID wasgo_id);
+int _wasgo_CollisionPolygon2D_wrapper_is_one_way_collision_enabled(WasGoID wasgo_id);
+void _wasgo_CollisionPolygon2D_wrapper_set_build_mode(WasGoID wasgo_id, WasGoID p_build_mode);
+void _wasgo_CollisionPolygon2D_wrapper_set_disabled(WasGoID wasgo_id, bool p_disabled);
+void _wasgo_CollisionPolygon2D_wrapper_set_one_way_collision(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_CollisionPolygon2D_wrapper_set_one_way_collision_margin(WasGoID wasgo_id, float p_margin);
+void _wasgo_CollisionPolygon2D_wrapper_set_polygon(WasGoID wasgo_id, WasGoID p_polygon);
 
     //constructor wrappers
-    WasGoId _wasgo_CollisionPolygon2D_constructor();
+    WasGoID _wasgo_CollisionPolygon2D_constructor();
             
 }
 #endif

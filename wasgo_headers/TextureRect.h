@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "Control.h"
+#include "Texture.h"
 class TextureRect : public Control{
 public:
 enum StretchMode{
@@ -31,7 +31,7 @@ void set_texture(Texture p_texture);
 
 protected:
 public:
-explicit TextureRect(WasGoId p_wasgo_id);
+explicit TextureRect(WasGoID p_wasgo_id);
 explicit TextureRect(Control other);
 TextureRect new_instance();
             
@@ -40,19 +40,19 @@ TextureRect new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_TextureRect_wrapper_get_stretch_mode(WasGoId wasgo_id);
-WasGoId _wasgo_TextureRect_wrapper_get_texture(WasGoId wasgo_id);
-int _wasgo_TextureRect_wrapper_has_expand(WasGoId wasgo_id);
-int _wasgo_TextureRect_wrapper_is_flipped_h(WasGoId wasgo_id);
-int _wasgo_TextureRect_wrapper_is_flipped_v(WasGoId wasgo_id);
-void _wasgo_TextureRect_wrapper_set_expand(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextureRect_wrapper_set_flip_h(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextureRect_wrapper_set_flip_v(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextureRect_wrapper_set_stretch_mode(WasGoId wasgo_id, WasGoId p_stretch_mode);
-void _wasgo_TextureRect_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
+WasGoID _wasgo_TextureRect_wrapper_get_stretch_mode(WasGoID wasgo_id);
+WasGoID _wasgo_TextureRect_wrapper_get_texture(WasGoID wasgo_id);
+int _wasgo_TextureRect_wrapper_has_expand(WasGoID wasgo_id);
+int _wasgo_TextureRect_wrapper_is_flipped_h(WasGoID wasgo_id);
+int _wasgo_TextureRect_wrapper_is_flipped_v(WasGoID wasgo_id);
+void _wasgo_TextureRect_wrapper_set_expand(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextureRect_wrapper_set_flip_h(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextureRect_wrapper_set_flip_v(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextureRect_wrapper_set_stretch_mode(WasGoID wasgo_id, WasGoID p_stretch_mode);
+void _wasgo_TextureRect_wrapper_set_texture(WasGoID wasgo_id, WasGoID p_texture);
 
     //constructor wrappers
-    WasGoId _wasgo_TextureRect_constructor();
+    WasGoID _wasgo_TextureRect_constructor();
             
 }
 #endif

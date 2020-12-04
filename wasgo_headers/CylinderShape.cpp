@@ -14,7 +14,7 @@ void CylinderShape::set_radius(float p_radius){
 	_wasgo_CylinderShape_wrapper_set_radius(wasgo_id, p_radius);
 }
 
-CylinderShape::CylinderShape(WasGoId p_wasgo_id) : Shape(p_wasgo_id){
+CylinderShape::CylinderShape(WasGoID p_wasgo_id) : Shape(p_wasgo_id){
 }
 CylinderShape::CylinderShape(Shape other) : Shape(other._get_wasgo_id()){
     wasgo_id = _wasgo_CylinderShape_constructor();

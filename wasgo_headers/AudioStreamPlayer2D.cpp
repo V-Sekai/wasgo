@@ -87,7 +87,7 @@ void AudioStreamPlayer2D::stop(){
 	_wasgo_AudioStreamPlayer2D_wrapper_stop(wasgo_id);
 }
 
-AudioStreamPlayer2D::AudioStreamPlayer2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+AudioStreamPlayer2D::AudioStreamPlayer2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 AudioStreamPlayer2D::AudioStreamPlayer2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioStreamPlayer2D_constructor();

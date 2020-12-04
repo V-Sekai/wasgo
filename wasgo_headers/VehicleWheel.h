@@ -41,7 +41,7 @@ void set_use_as_traction(bool p_enable);
 
 protected:
 public:
-explicit VehicleWheel(WasGoId p_wasgo_id);
+explicit VehicleWheel(WasGoID p_wasgo_id);
 explicit VehicleWheel(Spatial other);
 VehicleWheel new_instance();
             
@@ -50,40 +50,40 @@ VehicleWheel new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_VehicleWheel_wrapper_get_brake(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_damping_compression(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_damping_relaxation(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_engine_force(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_friction_slip(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_radius(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_roll_influence(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_rpm(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_skidinfo(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_steering(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_suspension_max_force(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_suspension_rest_length(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_suspension_stiffness(WasGoId wasgo_id);
-float _wasgo_VehicleWheel_wrapper_get_suspension_travel(WasGoId wasgo_id);
-int _wasgo_VehicleWheel_wrapper_is_in_contact(WasGoId wasgo_id);
-int _wasgo_VehicleWheel_wrapper_is_used_as_steering(WasGoId wasgo_id);
-int _wasgo_VehicleWheel_wrapper_is_used_as_traction(WasGoId wasgo_id);
-void _wasgo_VehicleWheel_wrapper_set_brake(WasGoId wasgo_id, float p_brake);
-void _wasgo_VehicleWheel_wrapper_set_damping_compression(WasGoId wasgo_id, float p_length);
-void _wasgo_VehicleWheel_wrapper_set_damping_relaxation(WasGoId wasgo_id, float p_length);
-void _wasgo_VehicleWheel_wrapper_set_engine_force(WasGoId wasgo_id, float p_engine_force);
-void _wasgo_VehicleWheel_wrapper_set_friction_slip(WasGoId wasgo_id, float p_length);
-void _wasgo_VehicleWheel_wrapper_set_radius(WasGoId wasgo_id, float p_length);
-void _wasgo_VehicleWheel_wrapper_set_roll_influence(WasGoId wasgo_id, float p_roll_influence);
-void _wasgo_VehicleWheel_wrapper_set_steering(WasGoId wasgo_id, float p_steering);
-void _wasgo_VehicleWheel_wrapper_set_suspension_max_force(WasGoId wasgo_id, float p_length);
-void _wasgo_VehicleWheel_wrapper_set_suspension_rest_length(WasGoId wasgo_id, float p_length);
-void _wasgo_VehicleWheel_wrapper_set_suspension_stiffness(WasGoId wasgo_id, float p_length);
-void _wasgo_VehicleWheel_wrapper_set_suspension_travel(WasGoId wasgo_id, float p_length);
-void _wasgo_VehicleWheel_wrapper_set_use_as_steering(WasGoId wasgo_id, bool p_enable);
-void _wasgo_VehicleWheel_wrapper_set_use_as_traction(WasGoId wasgo_id, bool p_enable);
+float _wasgo_VehicleWheel_wrapper_get_brake(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_damping_compression(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_damping_relaxation(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_engine_force(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_friction_slip(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_radius(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_roll_influence(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_rpm(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_skidinfo(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_steering(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_suspension_max_force(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_suspension_rest_length(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_suspension_stiffness(WasGoID wasgo_id);
+float _wasgo_VehicleWheel_wrapper_get_suspension_travel(WasGoID wasgo_id);
+int _wasgo_VehicleWheel_wrapper_is_in_contact(WasGoID wasgo_id);
+int _wasgo_VehicleWheel_wrapper_is_used_as_steering(WasGoID wasgo_id);
+int _wasgo_VehicleWheel_wrapper_is_used_as_traction(WasGoID wasgo_id);
+void _wasgo_VehicleWheel_wrapper_set_brake(WasGoID wasgo_id, float p_brake);
+void _wasgo_VehicleWheel_wrapper_set_damping_compression(WasGoID wasgo_id, float p_length);
+void _wasgo_VehicleWheel_wrapper_set_damping_relaxation(WasGoID wasgo_id, float p_length);
+void _wasgo_VehicleWheel_wrapper_set_engine_force(WasGoID wasgo_id, float p_engine_force);
+void _wasgo_VehicleWheel_wrapper_set_friction_slip(WasGoID wasgo_id, float p_length);
+void _wasgo_VehicleWheel_wrapper_set_radius(WasGoID wasgo_id, float p_length);
+void _wasgo_VehicleWheel_wrapper_set_roll_influence(WasGoID wasgo_id, float p_roll_influence);
+void _wasgo_VehicleWheel_wrapper_set_steering(WasGoID wasgo_id, float p_steering);
+void _wasgo_VehicleWheel_wrapper_set_suspension_max_force(WasGoID wasgo_id, float p_length);
+void _wasgo_VehicleWheel_wrapper_set_suspension_rest_length(WasGoID wasgo_id, float p_length);
+void _wasgo_VehicleWheel_wrapper_set_suspension_stiffness(WasGoID wasgo_id, float p_length);
+void _wasgo_VehicleWheel_wrapper_set_suspension_travel(WasGoID wasgo_id, float p_length);
+void _wasgo_VehicleWheel_wrapper_set_use_as_steering(WasGoID wasgo_id, bool p_enable);
+void _wasgo_VehicleWheel_wrapper_set_use_as_traction(WasGoID wasgo_id, bool p_enable);
 
     //constructor wrappers
-    WasGoId _wasgo_VehicleWheel_constructor();
+    WasGoID _wasgo_VehicleWheel_constructor();
             
 }
 #endif

@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit AudioEffectHighShelfFilter(WasGoId p_wasgo_id);
+explicit AudioEffectHighShelfFilter(WasGoID p_wasgo_id);
 explicit AudioEffectHighShelfFilter(AudioEffectFilter other);
 AudioEffectHighShelfFilter new_instance();
             
@@ -21,7 +21,7 @@ AudioEffectHighShelfFilter new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectHighShelfFilter_constructor();
+    WasGoID _wasgo_AudioEffectHighShelfFilter_constructor();
             
 }
 #endif

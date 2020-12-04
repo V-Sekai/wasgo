@@ -24,7 +24,7 @@ void VisibilityNotifier2D::set_rect(Rect2 p_rect){
 	_wasgo_VisibilityNotifier2D_wrapper_set_rect(wasgo_id, wasgo_buffer_rect, wasgo_size_rect);
 }
 
-VisibilityNotifier2D::VisibilityNotifier2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+VisibilityNotifier2D::VisibilityNotifier2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 VisibilityNotifier2D::VisibilityNotifier2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisibilityNotifier2D_constructor();

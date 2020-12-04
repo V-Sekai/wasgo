@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeFresnel(WasGoId p_wasgo_id);
+explicit VisualShaderNodeFresnel(WasGoID p_wasgo_id);
 explicit VisualShaderNodeFresnel(VisualShaderNode other);
 VisualShaderNodeFresnel new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeFresnel new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeFresnel_constructor();
+    WasGoID _wasgo_VisualShaderNodeFresnel_constructor();
             
 }
 #endif

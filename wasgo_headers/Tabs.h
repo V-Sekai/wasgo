@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "Rect2.h"
+#include "Texture.h"
 #include "Control.h"
 #include "ustring.h"
 class Tabs : public Control{
@@ -54,7 +54,7 @@ void set_tabs_rearrange_group(int p_group_id);
 
 protected:
 public:
-explicit Tabs(WasGoId p_wasgo_id);
+explicit Tabs(WasGoID p_wasgo_id);
 explicit Tabs(Control other);
 Tabs new_instance();
             
@@ -63,38 +63,38 @@ Tabs new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Tabs_wrapper_add_tab(WasGoId wasgo_id, const uint8_t * p_title, int p_title_wasgo_buffer_size, WasGoId p_icon);
-void _wasgo_Tabs_wrapper_ensure_tab_visible(WasGoId wasgo_id, int p_idx);
-int _wasgo_Tabs_wrapper_get_current_tab(WasGoId wasgo_id);
-int _wasgo_Tabs_wrapper_get_drag_to_rearrange_enabled(WasGoId wasgo_id);
-int _wasgo_Tabs_wrapper_get_offset_buttons_visible(WasGoId wasgo_id);
-int _wasgo_Tabs_wrapper_get_previous_tab(WasGoId wasgo_id);
-int _wasgo_Tabs_wrapper_get_scrolling_enabled(WasGoId wasgo_id);
-int _wasgo_Tabs_wrapper_get_select_with_rmb(WasGoId wasgo_id);
-WasGoId _wasgo_Tabs_wrapper_get_tab_align(WasGoId wasgo_id);
-WasGoId _wasgo_Tabs_wrapper_get_tab_close_display_policy(WasGoId wasgo_id);
-int _wasgo_Tabs_wrapper_get_tab_count(WasGoId wasgo_id);
-int _wasgo_Tabs_wrapper_get_tab_disabled(WasGoId wasgo_id, int p_tab_idx);
-WasGoId _wasgo_Tabs_wrapper_get_tab_icon(WasGoId wasgo_id, int p_tab_idx);
-int _wasgo_Tabs_wrapper_get_tab_offset(WasGoId wasgo_id);
-void _wasgo_Tabs_wrapper_get_tab_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_tab_idx);
-void _wasgo_Tabs_wrapper_get_tab_title(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_tab_idx);
-int _wasgo_Tabs_wrapper_get_tabs_rearrange_group(WasGoId wasgo_id);
-void _wasgo_Tabs_wrapper_move_tab(WasGoId wasgo_id, int p_from, int p_to);
-void _wasgo_Tabs_wrapper_remove_tab(WasGoId wasgo_id, int p_tab_idx);
-void _wasgo_Tabs_wrapper_set_current_tab(WasGoId wasgo_id, int p_tab_idx);
-void _wasgo_Tabs_wrapper_set_drag_to_rearrange_enabled(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Tabs_wrapper_set_scrolling_enabled(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Tabs_wrapper_set_select_with_rmb(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Tabs_wrapper_set_tab_align(WasGoId wasgo_id, WasGoId p_align);
-void _wasgo_Tabs_wrapper_set_tab_close_display_policy(WasGoId wasgo_id, WasGoId p_policy);
-void _wasgo_Tabs_wrapper_set_tab_disabled(WasGoId wasgo_id, int p_tab_idx, bool p_disabled);
-void _wasgo_Tabs_wrapper_set_tab_icon(WasGoId wasgo_id, int p_tab_idx, WasGoId p_icon);
-void _wasgo_Tabs_wrapper_set_tab_title(WasGoId wasgo_id, int p_tab_idx, const uint8_t * p_title, int p_title_wasgo_buffer_size);
-void _wasgo_Tabs_wrapper_set_tabs_rearrange_group(WasGoId wasgo_id, int p_group_id);
+void _wasgo_Tabs_wrapper_add_tab(WasGoID wasgo_id, const uint8_t * p_title, int p_title_wasgo_buffer_size, WasGoID p_icon);
+void _wasgo_Tabs_wrapper_ensure_tab_visible(WasGoID wasgo_id, int p_idx);
+int _wasgo_Tabs_wrapper_get_current_tab(WasGoID wasgo_id);
+int _wasgo_Tabs_wrapper_get_drag_to_rearrange_enabled(WasGoID wasgo_id);
+int _wasgo_Tabs_wrapper_get_offset_buttons_visible(WasGoID wasgo_id);
+int _wasgo_Tabs_wrapper_get_previous_tab(WasGoID wasgo_id);
+int _wasgo_Tabs_wrapper_get_scrolling_enabled(WasGoID wasgo_id);
+int _wasgo_Tabs_wrapper_get_select_with_rmb(WasGoID wasgo_id);
+WasGoID _wasgo_Tabs_wrapper_get_tab_align(WasGoID wasgo_id);
+WasGoID _wasgo_Tabs_wrapper_get_tab_close_display_policy(WasGoID wasgo_id);
+int _wasgo_Tabs_wrapper_get_tab_count(WasGoID wasgo_id);
+int _wasgo_Tabs_wrapper_get_tab_disabled(WasGoID wasgo_id, int p_tab_idx);
+WasGoID _wasgo_Tabs_wrapper_get_tab_icon(WasGoID wasgo_id, int p_tab_idx);
+int _wasgo_Tabs_wrapper_get_tab_offset(WasGoID wasgo_id);
+void _wasgo_Tabs_wrapper_get_tab_rect(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_tab_idx);
+void _wasgo_Tabs_wrapper_get_tab_title(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_tab_idx);
+int _wasgo_Tabs_wrapper_get_tabs_rearrange_group(WasGoID wasgo_id);
+void _wasgo_Tabs_wrapper_move_tab(WasGoID wasgo_id, int p_from, int p_to);
+void _wasgo_Tabs_wrapper_remove_tab(WasGoID wasgo_id, int p_tab_idx);
+void _wasgo_Tabs_wrapper_set_current_tab(WasGoID wasgo_id, int p_tab_idx);
+void _wasgo_Tabs_wrapper_set_drag_to_rearrange_enabled(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Tabs_wrapper_set_scrolling_enabled(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Tabs_wrapper_set_select_with_rmb(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Tabs_wrapper_set_tab_align(WasGoID wasgo_id, WasGoID p_align);
+void _wasgo_Tabs_wrapper_set_tab_close_display_policy(WasGoID wasgo_id, WasGoID p_policy);
+void _wasgo_Tabs_wrapper_set_tab_disabled(WasGoID wasgo_id, int p_tab_idx, bool p_disabled);
+void _wasgo_Tabs_wrapper_set_tab_icon(WasGoID wasgo_id, int p_tab_idx, WasGoID p_icon);
+void _wasgo_Tabs_wrapper_set_tab_title(WasGoID wasgo_id, int p_tab_idx, const uint8_t * p_title, int p_title_wasgo_buffer_size);
+void _wasgo_Tabs_wrapper_set_tabs_rearrange_group(WasGoID wasgo_id, int p_group_id);
 
     //constructor wrappers
-    WasGoId _wasgo_Tabs_constructor();
+    WasGoID _wasgo_Tabs_constructor();
             
 }
 #endif

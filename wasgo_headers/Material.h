@@ -16,13 +16,13 @@ void set_render_priority(int p_priority);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Material_wrapper_get_next_pass(WasGoId wasgo_id);
-int _wasgo_Material_wrapper_get_render_priority(WasGoId wasgo_id);
-void _wasgo_Material_wrapper_set_next_pass(WasGoId wasgo_id, WasGoId p_next_pass);
-void _wasgo_Material_wrapper_set_render_priority(WasGoId wasgo_id, int p_priority);
+WasGoID _wasgo_Material_wrapper_get_next_pass(WasGoID wasgo_id);
+int _wasgo_Material_wrapper_get_render_priority(WasGoID wasgo_id);
+void _wasgo_Material_wrapper_set_next_pass(WasGoID wasgo_id, WasGoID p_next_pass);
+void _wasgo_Material_wrapper_set_render_priority(WasGoID wasgo_id, int p_priority);
 
     //constructor wrappers
-    WasGoId _wasgo_Material_constructor();
+    WasGoID _wasgo_Material_constructor();
             
 }
 #endif

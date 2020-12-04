@@ -187,7 +187,7 @@ PoolVector3Array Curve3D::tessellate(int p_max_stages = (int) 5, float p_toleran
 	return PoolVector3Array(_wasgo_Curve3D_wrapper_tessellate(wasgo_id, p_max_stages, p_tolerance_degrees));
 }
 
-Curve3D::Curve3D(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+Curve3D::Curve3D(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Curve3D::Curve3D(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Curve3D_constructor();

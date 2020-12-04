@@ -12,7 +12,7 @@ void set_object_id(int p_id);
 
 protected:
 public:
-explicit EncodedObjectAsID(WasGoId p_wasgo_id);
+explicit EncodedObjectAsID(WasGoID p_wasgo_id);
 explicit EncodedObjectAsID(Reference other);
 EncodedObjectAsID new_instance();
             
@@ -21,11 +21,11 @@ EncodedObjectAsID new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_EncodedObjectAsID_wrapper_get_object_id(WasGoId wasgo_id);
-void _wasgo_EncodedObjectAsID_wrapper_set_object_id(WasGoId wasgo_id, int p_id);
+int _wasgo_EncodedObjectAsID_wrapper_get_object_id(WasGoID wasgo_id);
+void _wasgo_EncodedObjectAsID_wrapper_set_object_id(WasGoID wasgo_id, int p_id);
 
     //constructor wrappers
-    WasGoId _wasgo_EncodedObjectAsID_constructor();
+    WasGoID _wasgo_EncodedObjectAsID_constructor();
             
 }
 #endif

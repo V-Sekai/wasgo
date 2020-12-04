@@ -273,7 +273,7 @@ void File::store_var(Variant p_value, bool p_full_objects = (bool) false){
 	_wasgo_File_wrapper_store_var(wasgo_id, p_value._get_wasgo_id(), p_full_objects);
 }
 
-File::File(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+File::File(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 File::File(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_File_constructor();

@@ -18,7 +18,7 @@ RID Skeleton2D::get_skeleton(){
     
 }
 
-Skeleton2D::Skeleton2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+Skeleton2D::Skeleton2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Skeleton2D::Skeleton2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Skeleton2D_constructor();

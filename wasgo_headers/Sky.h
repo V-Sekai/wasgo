@@ -24,11 +24,11 @@ void set_radiance_size(Sky::RadianceSize p_size);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Sky_wrapper_get_radiance_size(WasGoId wasgo_id);
-void _wasgo_Sky_wrapper_set_radiance_size(WasGoId wasgo_id, WasGoId p_size);
+WasGoID _wasgo_Sky_wrapper_get_radiance_size(WasGoID wasgo_id);
+void _wasgo_Sky_wrapper_set_radiance_size(WasGoID wasgo_id, WasGoID p_size);
 
     //constructor wrappers
-    WasGoId _wasgo_Sky_constructor();
+    WasGoID _wasgo_Sky_constructor();
             
 }
 #endif

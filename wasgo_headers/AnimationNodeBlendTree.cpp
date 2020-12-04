@@ -133,7 +133,7 @@ void AnimationNodeBlendTree::set_node_position(String p_name, Vector2 p_position
 	_wasgo_AnimationNodeBlendTree_wrapper_set_node_position(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_position, wasgo_size_position);
 }
 
-AnimationNodeBlendTree::AnimationNodeBlendTree(WasGoId p_wasgo_id) : AnimationRootNode(p_wasgo_id){
+AnimationNodeBlendTree::AnimationNodeBlendTree(WasGoID p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
 AnimationNodeBlendTree::AnimationNodeBlendTree(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeBlendTree_constructor();

@@ -35,21 +35,22 @@
 
 class Object{
 protected:
-	WasGoId wasgo_id;
-	Object(WasGoId p_wasgo_id);
+	WasGoID wasgo_id = 0;
+	Object(WasGoID p_wasgo_id);
 
 public:
 	Object();
 	~Object();
+	operator bool();
 
-	static Object _from_wasgo_id(WasGoId p_wasgo_id);
-	WasGoId _get_wasgo_id();
+	static Object _from_wasgo_id(WasGoID p_wasgo_id);
+	WasGoID _get_wasgo_id();
 };
 
 // #include "hash_map.h"
 // #include "list.h"
 // #include "map.h"
-// // #include "object_id.h" //Replace with WasGoId
+// // #include "object_id.h" //Replace with WasGoID
 // #include "wasgo/wasgo.h"
 // // #include "os/rw_lock.h"
 // #include "set.h"

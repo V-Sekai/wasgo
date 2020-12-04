@@ -87,7 +87,7 @@ void Label::set_visible_characters(int p_amount){
 	_wasgo_Label_wrapper_set_visible_characters(wasgo_id, p_amount);
 }
 
-Label::Label(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+Label::Label(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 Label::Label(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_Label_constructor();

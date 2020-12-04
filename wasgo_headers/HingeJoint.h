@@ -30,7 +30,7 @@ void set_param(HingeJoint::Param p_param, float p_value);
 
 protected:
 public:
-explicit HingeJoint(WasGoId p_wasgo_id);
+explicit HingeJoint(WasGoID p_wasgo_id);
 explicit HingeJoint(Joint other);
 HingeJoint new_instance();
             
@@ -39,13 +39,13 @@ HingeJoint new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_HingeJoint_wrapper_get_flag(WasGoId wasgo_id, WasGoId p_flag);
-float _wasgo_HingeJoint_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
-void _wasgo_HingeJoint_wrapper_set_flag(WasGoId wasgo_id, WasGoId p_flag, bool p_enabled);
-void _wasgo_HingeJoint_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
+int _wasgo_HingeJoint_wrapper_get_flag(WasGoID wasgo_id, WasGoID p_flag);
+float _wasgo_HingeJoint_wrapper_get_param(WasGoID wasgo_id, WasGoID p_param);
+void _wasgo_HingeJoint_wrapper_set_flag(WasGoID wasgo_id, WasGoID p_flag, bool p_enabled);
+void _wasgo_HingeJoint_wrapper_set_param(WasGoID wasgo_id, WasGoID p_param, float p_value);
 
     //constructor wrappers
-    WasGoId _wasgo_HingeJoint_constructor();
+    WasGoID _wasgo_HingeJoint_constructor();
             
 }
 #endif

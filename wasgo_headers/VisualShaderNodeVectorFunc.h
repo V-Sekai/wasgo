@@ -49,7 +49,7 @@ void set_function(VisualShaderNodeVectorFunc::Function p_func);
 
 protected:
 public:
-explicit VisualShaderNodeVectorFunc(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorFunc(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorFunc(VisualShaderNode other);
 VisualShaderNodeVectorFunc new_instance();
             
@@ -58,11 +58,11 @@ VisualShaderNodeVectorFunc new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_VisualShaderNodeVectorFunc_wrapper_get_function(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeVectorFunc_wrapper_set_function(WasGoId wasgo_id, WasGoId p_func);
+WasGoID _wasgo_VisualShaderNodeVectorFunc_wrapper_get_function(WasGoID wasgo_id);
+void _wasgo_VisualShaderNodeVectorFunc_wrapper_set_function(WasGoID wasgo_id, WasGoID p_func);
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeVectorFunc_constructor();
+    WasGoID _wasgo_VisualShaderNodeVectorFunc_constructor();
             
 }
 #endif

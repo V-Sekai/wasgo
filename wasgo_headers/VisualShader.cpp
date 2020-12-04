@@ -82,7 +82,7 @@ void VisualShader::set_node_position(VisualShader::Type p_type, int p_id, Vector
 	_wasgo_VisualShader_wrapper_set_node_position(wasgo_id, p_type._get_wasgo_id(), p_id, wasgo_buffer_position, wasgo_size_position);
 }
 
-VisualShader::VisualShader(WasGoId p_wasgo_id) : Shader(p_wasgo_id){
+VisualShader::VisualShader(WasGoID p_wasgo_id) : Shader(p_wasgo_id){
 }
 VisualShader::VisualShader(Shader other) : Shader(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShader_constructor();

@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VScrollBar(WasGoId p_wasgo_id);
+explicit VScrollBar(WasGoID p_wasgo_id);
 explicit VScrollBar(ScrollBar other);
 VScrollBar new_instance();
             
@@ -21,7 +21,7 @@ VScrollBar new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VScrollBar_constructor();
+    WasGoID _wasgo_VScrollBar_constructor();
             
 }
 #endif

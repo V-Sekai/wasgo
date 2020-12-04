@@ -4,18 +4,18 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
-#include "error_list.h"
-#include "Vector2.h"
-#include "ustring.h"
 #include "SceneTreeTimer.h"
-#include "PackedScene.h"
-#include "NetworkedMultiplayerPeer.h"
-#include "MainLoop.h"
 #include "Object.h"
-#include "MultiplayerAPI.h"
-#include "Viewport.h"
+#include "Vector2.h"
+#include "MainLoop.h"
+#include "Node.h"
 #include "Variant.h"
+#include "NetworkedMultiplayerPeer.h"
+#include "MultiplayerAPI.h"
+#include "error_list.h"
+#include "PackedScene.h"
+#include "Viewport.h"
+#include "ustring.h"
 class SceneTree : public MainLoop{
 public:
 enum GroupCallFlags{
@@ -86,7 +86,7 @@ void set_use_font_oversampling(bool p_enable);
 
 protected:
 public:
-explicit SceneTree(WasGoId p_wasgo_id);
+explicit SceneTree(WasGoID p_wasgo_id);
 explicit SceneTree(MainLoop other);
 SceneTree new_instance();
             
@@ -95,56 +95,56 @@ SceneTree new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_SceneTree_wrapper_call_group(WasGoId wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-WasGoId _wasgo_SceneTree_wrapper_call_group_flags(WasGoId wasgo_id, int p_flags, const uint8_t * p_group, int p_group_wasgo_buffer_size, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-WasGoId _wasgo_SceneTree_wrapper_change_scene(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_SceneTree_wrapper_change_scene_to(WasGoId wasgo_id, WasGoId p_packed_scene);
-WasGoId _wasgo_SceneTree_wrapper_create_timer(WasGoId wasgo_id, float p_time_sec, bool p_pause_mode_process);
-WasGoId _wasgo_SceneTree_wrapper_get_current_scene(WasGoId wasgo_id);
-WasGoId _wasgo_SceneTree_wrapper_get_edited_scene_root(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_get_frame(WasGoId wasgo_id);
-WasGoId _wasgo_SceneTree_wrapper_get_multiplayer(WasGoId wasgo_id);
-WasGoId _wasgo_SceneTree_wrapper_get_network_connected_peers(WasGoId wasgo_id);
-WasGoId _wasgo_SceneTree_wrapper_get_network_peer(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_get_network_unique_id(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_get_node_count(WasGoId wasgo_id);
-WasGoId _wasgo_SceneTree_wrapper_get_nodes_in_group(WasGoId wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size);
-WasGoId _wasgo_SceneTree_wrapper_get_root(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_get_rpc_sender_id(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_has_group(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_SceneTree_wrapper_has_network_peer(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_is_debugging_collisions_hint(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_is_debugging_navigation_hint(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_is_input_handled(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_is_multiplayer_poll_enabled(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_is_network_server(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_is_paused(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_is_refusing_new_network_connections(WasGoId wasgo_id);
-int _wasgo_SceneTree_wrapper_is_using_font_oversampling(WasGoId wasgo_id);
-void _wasgo_SceneTree_wrapper_notify_group(WasGoId wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size, int p_notification);
-void _wasgo_SceneTree_wrapper_notify_group_flags(WasGoId wasgo_id, int p_call_flags, const uint8_t * p_group, int p_group_wasgo_buffer_size, int p_notification);
-void _wasgo_SceneTree_wrapper_queue_delete(WasGoId wasgo_id, WasGoId p_obj);
-void _wasgo_SceneTree_wrapper_quit(WasGoId wasgo_id, int p_exit_code);
-WasGoId _wasgo_SceneTree_wrapper_reload_current_scene(WasGoId wasgo_id);
-void _wasgo_SceneTree_wrapper_set_auto_accept_quit(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_SceneTree_wrapper_set_current_scene(WasGoId wasgo_id, WasGoId p_child_node);
-void _wasgo_SceneTree_wrapper_set_debug_collisions_hint(WasGoId wasgo_id, bool p_enable);
-void _wasgo_SceneTree_wrapper_set_debug_navigation_hint(WasGoId wasgo_id, bool p_enable);
-void _wasgo_SceneTree_wrapper_set_edited_scene_root(WasGoId wasgo_id, WasGoId p_scene);
-void _wasgo_SceneTree_wrapper_set_group(WasGoId wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_value);
-void _wasgo_SceneTree_wrapper_set_group_flags(WasGoId wasgo_id, int p_call_flags, const uint8_t * p_group, int p_group_wasgo_buffer_size, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_value);
-void _wasgo_SceneTree_wrapper_set_input_as_handled(WasGoId wasgo_id);
-void _wasgo_SceneTree_wrapper_set_multiplayer(WasGoId wasgo_id, WasGoId p_multiplayer);
-void _wasgo_SceneTree_wrapper_set_multiplayer_poll_enabled(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_SceneTree_wrapper_set_network_peer(WasGoId wasgo_id, WasGoId p_peer);
-void _wasgo_SceneTree_wrapper_set_pause(WasGoId wasgo_id, bool p_enable);
-void _wasgo_SceneTree_wrapper_set_quit_on_go_back(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_SceneTree_wrapper_set_refuse_new_network_connections(WasGoId wasgo_id, bool p_refuse);
-void _wasgo_SceneTree_wrapper_set_screen_stretch(WasGoId wasgo_id, WasGoId p_mode, WasGoId p_aspect, const uint8_t * p_minsize, int p_minsize_wasgo_buffer_size, float p_shrink);
-void _wasgo_SceneTree_wrapper_set_use_font_oversampling(WasGoId wasgo_id, bool p_enable);
+WasGoID _wasgo_SceneTree_wrapper_call_group(WasGoID wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+WasGoID _wasgo_SceneTree_wrapper_call_group_flags(WasGoID wasgo_id, int p_flags, const uint8_t * p_group, int p_group_wasgo_buffer_size, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+WasGoID _wasgo_SceneTree_wrapper_change_scene(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_SceneTree_wrapper_change_scene_to(WasGoID wasgo_id, WasGoID p_packed_scene);
+WasGoID _wasgo_SceneTree_wrapper_create_timer(WasGoID wasgo_id, float p_time_sec, bool p_pause_mode_process);
+WasGoID _wasgo_SceneTree_wrapper_get_current_scene(WasGoID wasgo_id);
+WasGoID _wasgo_SceneTree_wrapper_get_edited_scene_root(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_get_frame(WasGoID wasgo_id);
+WasGoID _wasgo_SceneTree_wrapper_get_multiplayer(WasGoID wasgo_id);
+WasGoID _wasgo_SceneTree_wrapper_get_network_connected_peers(WasGoID wasgo_id);
+WasGoID _wasgo_SceneTree_wrapper_get_network_peer(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_get_network_unique_id(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_get_node_count(WasGoID wasgo_id);
+WasGoID _wasgo_SceneTree_wrapper_get_nodes_in_group(WasGoID wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size);
+WasGoID _wasgo_SceneTree_wrapper_get_root(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_get_rpc_sender_id(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_has_group(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_SceneTree_wrapper_has_network_peer(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_is_debugging_collisions_hint(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_is_debugging_navigation_hint(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_is_input_handled(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_is_multiplayer_poll_enabled(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_is_network_server(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_is_paused(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_is_refusing_new_network_connections(WasGoID wasgo_id);
+int _wasgo_SceneTree_wrapper_is_using_font_oversampling(WasGoID wasgo_id);
+void _wasgo_SceneTree_wrapper_notify_group(WasGoID wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size, int p_notification);
+void _wasgo_SceneTree_wrapper_notify_group_flags(WasGoID wasgo_id, int p_call_flags, const uint8_t * p_group, int p_group_wasgo_buffer_size, int p_notification);
+void _wasgo_SceneTree_wrapper_queue_delete(WasGoID wasgo_id, WasGoID p_obj);
+void _wasgo_SceneTree_wrapper_quit(WasGoID wasgo_id, int p_exit_code);
+WasGoID _wasgo_SceneTree_wrapper_reload_current_scene(WasGoID wasgo_id);
+void _wasgo_SceneTree_wrapper_set_auto_accept_quit(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_SceneTree_wrapper_set_current_scene(WasGoID wasgo_id, WasGoID p_child_node);
+void _wasgo_SceneTree_wrapper_set_debug_collisions_hint(WasGoID wasgo_id, bool p_enable);
+void _wasgo_SceneTree_wrapper_set_debug_navigation_hint(WasGoID wasgo_id, bool p_enable);
+void _wasgo_SceneTree_wrapper_set_edited_scene_root(WasGoID wasgo_id, WasGoID p_scene);
+void _wasgo_SceneTree_wrapper_set_group(WasGoID wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
+void _wasgo_SceneTree_wrapper_set_group_flags(WasGoID wasgo_id, int p_call_flags, const uint8_t * p_group, int p_group_wasgo_buffer_size, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
+void _wasgo_SceneTree_wrapper_set_input_as_handled(WasGoID wasgo_id);
+void _wasgo_SceneTree_wrapper_set_multiplayer(WasGoID wasgo_id, WasGoID p_multiplayer);
+void _wasgo_SceneTree_wrapper_set_multiplayer_poll_enabled(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_SceneTree_wrapper_set_network_peer(WasGoID wasgo_id, WasGoID p_peer);
+void _wasgo_SceneTree_wrapper_set_pause(WasGoID wasgo_id, bool p_enable);
+void _wasgo_SceneTree_wrapper_set_quit_on_go_back(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_SceneTree_wrapper_set_refuse_new_network_connections(WasGoID wasgo_id, bool p_refuse);
+void _wasgo_SceneTree_wrapper_set_screen_stretch(WasGoID wasgo_id, WasGoID p_mode, WasGoID p_aspect, const uint8_t * p_minsize, int p_minsize_wasgo_buffer_size, float p_shrink);
+void _wasgo_SceneTree_wrapper_set_use_font_oversampling(WasGoID wasgo_id, bool p_enable);
 
     //constructor wrappers
-    WasGoId _wasgo_SceneTree_constructor();
+    WasGoID _wasgo_SceneTree_constructor();
             
 }
 #endif

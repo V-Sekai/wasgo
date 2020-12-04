@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
 #include "StreamPeer.h"
+#include "error_list.h"
 #include "ustring.h"
 class StreamPeerTCP : public StreamPeer{
 public:
@@ -25,7 +25,7 @@ void set_no_delay(bool p_enabled);
 
 protected:
 public:
-explicit StreamPeerTCP(WasGoId p_wasgo_id);
+explicit StreamPeerTCP(WasGoID p_wasgo_id);
 explicit StreamPeerTCP(StreamPeer other);
 StreamPeerTCP new_instance();
             
@@ -34,16 +34,16 @@ StreamPeerTCP new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_StreamPeerTCP_wrapper_connect_to_host(WasGoId wasgo_id, const uint8_t * p_host, int p_host_wasgo_buffer_size, int p_port);
-void _wasgo_StreamPeerTCP_wrapper_disconnect_from_host(WasGoId wasgo_id);
-void _wasgo_StreamPeerTCP_wrapper_get_connected_host(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_StreamPeerTCP_wrapper_get_connected_port(WasGoId wasgo_id);
-WasGoId _wasgo_StreamPeerTCP_wrapper_get_status(WasGoId wasgo_id);
-int _wasgo_StreamPeerTCP_wrapper_is_connected_to_host(WasGoId wasgo_id);
-void _wasgo_StreamPeerTCP_wrapper_set_no_delay(WasGoId wasgo_id, bool p_enabled);
+WasGoID _wasgo_StreamPeerTCP_wrapper_connect_to_host(WasGoID wasgo_id, const uint8_t * p_host, int p_host_wasgo_buffer_size, int p_port);
+void _wasgo_StreamPeerTCP_wrapper_disconnect_from_host(WasGoID wasgo_id);
+void _wasgo_StreamPeerTCP_wrapper_get_connected_host(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_StreamPeerTCP_wrapper_get_connected_port(WasGoID wasgo_id);
+WasGoID _wasgo_StreamPeerTCP_wrapper_get_status(WasGoID wasgo_id);
+int _wasgo_StreamPeerTCP_wrapper_is_connected_to_host(WasGoID wasgo_id);
+void _wasgo_StreamPeerTCP_wrapper_set_no_delay(WasGoID wasgo_id, bool p_enabled);
 
     //constructor wrappers
-    WasGoId _wasgo_StreamPeerTCP_constructor();
+    WasGoID _wasgo_StreamPeerTCP_constructor();
             
 }
 #endif

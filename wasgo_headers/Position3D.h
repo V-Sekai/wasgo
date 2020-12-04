@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit Position3D(WasGoId p_wasgo_id);
+explicit Position3D(WasGoID p_wasgo_id);
 explicit Position3D(Spatial other);
 Position3D new_instance();
             
@@ -21,7 +21,7 @@ Position3D new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_Position3D_constructor();
+    WasGoID _wasgo_Position3D_constructor();
             
 }
 #endif

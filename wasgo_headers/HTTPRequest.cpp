@@ -78,7 +78,7 @@ void HTTPRequest::set_use_threads(bool p_enable){
 	_wasgo_HTTPRequest_wrapper_set_use_threads(wasgo_id, p_enable);
 }
 
-HTTPRequest::HTTPRequest(WasGoId p_wasgo_id) : Node(p_wasgo_id){
+HTTPRequest::HTTPRequest(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 HTTPRequest::HTTPRequest(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_HTTPRequest_constructor();

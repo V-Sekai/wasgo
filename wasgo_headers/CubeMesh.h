@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
 #include "PrimitiveMesh.h"
+#include "Vector3.h"
 class CubeMesh : public PrimitiveMesh{
 public:
 Vector3 get_size();
@@ -19,7 +19,7 @@ void set_subdivide_width(int p_subdivide);
 
 protected:
 public:
-explicit CubeMesh(WasGoId p_wasgo_id);
+explicit CubeMesh(WasGoID p_wasgo_id);
 explicit CubeMesh(PrimitiveMesh other);
 CubeMesh new_instance();
             
@@ -28,17 +28,17 @@ CubeMesh new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_CubeMesh_wrapper_get_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_CubeMesh_wrapper_get_subdivide_depth(WasGoId wasgo_id);
-int _wasgo_CubeMesh_wrapper_get_subdivide_height(WasGoId wasgo_id);
-int _wasgo_CubeMesh_wrapper_get_subdivide_width(WasGoId wasgo_id);
-void _wasgo_CubeMesh_wrapper_set_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
-void _wasgo_CubeMesh_wrapper_set_subdivide_depth(WasGoId wasgo_id, int p_divisions);
-void _wasgo_CubeMesh_wrapper_set_subdivide_height(WasGoId wasgo_id, int p_divisions);
-void _wasgo_CubeMesh_wrapper_set_subdivide_width(WasGoId wasgo_id, int p_subdivide);
+void _wasgo_CubeMesh_wrapper_get_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_CubeMesh_wrapper_get_subdivide_depth(WasGoID wasgo_id);
+int _wasgo_CubeMesh_wrapper_get_subdivide_height(WasGoID wasgo_id);
+int _wasgo_CubeMesh_wrapper_get_subdivide_width(WasGoID wasgo_id);
+void _wasgo_CubeMesh_wrapper_set_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
+void _wasgo_CubeMesh_wrapper_set_subdivide_depth(WasGoID wasgo_id, int p_divisions);
+void _wasgo_CubeMesh_wrapper_set_subdivide_height(WasGoID wasgo_id, int p_divisions);
+void _wasgo_CubeMesh_wrapper_set_subdivide_width(WasGoID wasgo_id, int p_subdivide);
 
     //constructor wrappers
-    WasGoId _wasgo_CubeMesh_constructor();
+    WasGoID _wasgo_CubeMesh_constructor();
             
 }
 #endif

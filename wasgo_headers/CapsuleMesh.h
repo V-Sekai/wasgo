@@ -18,7 +18,7 @@ void set_rings(int p_rings);
 
 protected:
 public:
-explicit CapsuleMesh(WasGoId p_wasgo_id);
+explicit CapsuleMesh(WasGoID p_wasgo_id);
 explicit CapsuleMesh(PrimitiveMesh other);
 CapsuleMesh new_instance();
             
@@ -27,17 +27,17 @@ CapsuleMesh new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_CapsuleMesh_wrapper_get_mid_height(WasGoId wasgo_id);
-int _wasgo_CapsuleMesh_wrapper_get_radial_segments(WasGoId wasgo_id);
-float _wasgo_CapsuleMesh_wrapper_get_radius(WasGoId wasgo_id);
-int _wasgo_CapsuleMesh_wrapper_get_rings(WasGoId wasgo_id);
-void _wasgo_CapsuleMesh_wrapper_set_mid_height(WasGoId wasgo_id, float p_mid_height);
-void _wasgo_CapsuleMesh_wrapper_set_radial_segments(WasGoId wasgo_id, int p_segments);
-void _wasgo_CapsuleMesh_wrapper_set_radius(WasGoId wasgo_id, float p_radius);
-void _wasgo_CapsuleMesh_wrapper_set_rings(WasGoId wasgo_id, int p_rings);
+float _wasgo_CapsuleMesh_wrapper_get_mid_height(WasGoID wasgo_id);
+int _wasgo_CapsuleMesh_wrapper_get_radial_segments(WasGoID wasgo_id);
+float _wasgo_CapsuleMesh_wrapper_get_radius(WasGoID wasgo_id);
+int _wasgo_CapsuleMesh_wrapper_get_rings(WasGoID wasgo_id);
+void _wasgo_CapsuleMesh_wrapper_set_mid_height(WasGoID wasgo_id, float p_mid_height);
+void _wasgo_CapsuleMesh_wrapper_set_radial_segments(WasGoID wasgo_id, int p_segments);
+void _wasgo_CapsuleMesh_wrapper_set_radius(WasGoID wasgo_id, float p_radius);
+void _wasgo_CapsuleMesh_wrapper_set_rings(WasGoID wasgo_id, int p_rings);
 
     //constructor wrappers
-    WasGoId _wasgo_CapsuleMesh_constructor();
+    WasGoID _wasgo_CapsuleMesh_constructor();
             
 }
 #endif

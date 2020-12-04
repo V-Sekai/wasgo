@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeScalarSmoothStep(WasGoId p_wasgo_id);
+explicit VisualShaderNodeScalarSmoothStep(WasGoID p_wasgo_id);
 explicit VisualShaderNodeScalarSmoothStep(VisualShaderNode other);
 VisualShaderNodeScalarSmoothStep new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeScalarSmoothStep new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeScalarSmoothStep_constructor();
+    WasGoID _wasgo_VisualShaderNodeScalarSmoothStep_constructor();
             
 }
 #endif

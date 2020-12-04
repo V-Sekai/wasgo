@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Animation.h"
 #include "Node.h"
+#include "Variant.h"
+#include "NodePath.h"
 #include "error_list.h"
 #include "ustring.h"
-#include "NodePath.h"
-#include "Animation.h"
-#include "Variant.h"
 class AnimationPlayer : public Node{
 public:
 enum AnimationMethodCallMode{
@@ -66,7 +66,7 @@ void stop(bool p_reset = (bool) true);
 
 protected:
 public:
-explicit AnimationPlayer(WasGoId p_wasgo_id);
+explicit AnimationPlayer(WasGoID p_wasgo_id);
 explicit AnimationPlayer(Node other);
 AnimationPlayer new_instance();
             
@@ -75,51 +75,51 @@ AnimationPlayer new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_AnimationPlayer_wrapper_add_animation(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoId p_animation);
-void _wasgo_AnimationPlayer_wrapper_advance(WasGoId wasgo_id, float p_delta);
-void _wasgo_AnimationPlayer_wrapper_animation_get_next(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_anim_from, int p_anim_from_wasgo_buffer_size);
-void _wasgo_AnimationPlayer_wrapper_animation_set_next(WasGoId wasgo_id, const uint8_t * p_anim_from, int p_anim_from_wasgo_buffer_size, const uint8_t * p_anim_to, int p_anim_to_wasgo_buffer_size);
-void _wasgo_AnimationPlayer_wrapper_clear_caches(WasGoId wasgo_id);
-void _wasgo_AnimationPlayer_wrapper_clear_queue(WasGoId wasgo_id);
-void _wasgo_AnimationPlayer_wrapper_find_animation(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoId p_animation);
-WasGoId _wasgo_AnimationPlayer_wrapper_get_animation(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-WasGoId _wasgo_AnimationPlayer_wrapper_get_animation_list(WasGoId wasgo_id);
-WasGoId _wasgo_AnimationPlayer_wrapper_get_animation_process_mode(WasGoId wasgo_id);
-void _wasgo_AnimationPlayer_wrapper_get_assigned_animation(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_AnimationPlayer_wrapper_get_autoplay(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_AnimationPlayer_wrapper_get_blend_time(WasGoId wasgo_id, const uint8_t * p_anim_from, int p_anim_from_wasgo_buffer_size, const uint8_t * p_anim_to, int p_anim_to_wasgo_buffer_size);
-void _wasgo_AnimationPlayer_wrapper_get_current_animation(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_AnimationPlayer_wrapper_get_current_animation_length(WasGoId wasgo_id);
-float _wasgo_AnimationPlayer_wrapper_get_current_animation_position(WasGoId wasgo_id);
-float _wasgo_AnimationPlayer_wrapper_get_default_blend_time(WasGoId wasgo_id);
-WasGoId _wasgo_AnimationPlayer_wrapper_get_method_call_mode(WasGoId wasgo_id);
-float _wasgo_AnimationPlayer_wrapper_get_playing_speed(WasGoId wasgo_id);
-WasGoId _wasgo_AnimationPlayer_wrapper_get_queue(WasGoId wasgo_id);
-void _wasgo_AnimationPlayer_wrapper_get_root(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_AnimationPlayer_wrapper_get_speed_scale(WasGoId wasgo_id);
-int _wasgo_AnimationPlayer_wrapper_has_animation(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_AnimationPlayer_wrapper_is_active(WasGoId wasgo_id);
-int _wasgo_AnimationPlayer_wrapper_is_playing(WasGoId wasgo_id);
-void _wasgo_AnimationPlayer_wrapper_play(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, float p_custom_blend, float p_custom_speed, bool p_from_end);
-void _wasgo_AnimationPlayer_wrapper_play_backwards(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, float p_custom_blend);
-void _wasgo_AnimationPlayer_wrapper_queue(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_AnimationPlayer_wrapper_remove_animation(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_AnimationPlayer_wrapper_rename_animation(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_newname, int p_newname_wasgo_buffer_size);
-void _wasgo_AnimationPlayer_wrapper_seek(WasGoId wasgo_id, float p_seconds, bool p_update);
-void _wasgo_AnimationPlayer_wrapper_set_active(WasGoId wasgo_id, bool p_active);
-void _wasgo_AnimationPlayer_wrapper_set_animation_process_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_AnimationPlayer_wrapper_set_assigned_animation(WasGoId wasgo_id, const uint8_t * p_anim, int p_anim_wasgo_buffer_size);
-void _wasgo_AnimationPlayer_wrapper_set_autoplay(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_AnimationPlayer_wrapper_set_blend_time(WasGoId wasgo_id, const uint8_t * p_anim_from, int p_anim_from_wasgo_buffer_size, const uint8_t * p_anim_to, int p_anim_to_wasgo_buffer_size, float p_sec);
-void _wasgo_AnimationPlayer_wrapper_set_current_animation(WasGoId wasgo_id, const uint8_t * p_anim, int p_anim_wasgo_buffer_size);
-void _wasgo_AnimationPlayer_wrapper_set_default_blend_time(WasGoId wasgo_id, float p_sec);
-void _wasgo_AnimationPlayer_wrapper_set_method_call_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_AnimationPlayer_wrapper_set_root(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-void _wasgo_AnimationPlayer_wrapper_set_speed_scale(WasGoId wasgo_id, float p_speed);
-void _wasgo_AnimationPlayer_wrapper_stop(WasGoId wasgo_id, bool p_reset);
+WasGoID _wasgo_AnimationPlayer_wrapper_add_animation(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoID p_animation);
+void _wasgo_AnimationPlayer_wrapper_advance(WasGoID wasgo_id, float p_delta);
+void _wasgo_AnimationPlayer_wrapper_animation_get_next(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_anim_from, int p_anim_from_wasgo_buffer_size);
+void _wasgo_AnimationPlayer_wrapper_animation_set_next(WasGoID wasgo_id, const uint8_t * p_anim_from, int p_anim_from_wasgo_buffer_size, const uint8_t * p_anim_to, int p_anim_to_wasgo_buffer_size);
+void _wasgo_AnimationPlayer_wrapper_clear_caches(WasGoID wasgo_id);
+void _wasgo_AnimationPlayer_wrapper_clear_queue(WasGoID wasgo_id);
+void _wasgo_AnimationPlayer_wrapper_find_animation(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoID p_animation);
+WasGoID _wasgo_AnimationPlayer_wrapper_get_animation(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+WasGoID _wasgo_AnimationPlayer_wrapper_get_animation_list(WasGoID wasgo_id);
+WasGoID _wasgo_AnimationPlayer_wrapper_get_animation_process_mode(WasGoID wasgo_id);
+void _wasgo_AnimationPlayer_wrapper_get_assigned_animation(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_AnimationPlayer_wrapper_get_autoplay(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_AnimationPlayer_wrapper_get_blend_time(WasGoID wasgo_id, const uint8_t * p_anim_from, int p_anim_from_wasgo_buffer_size, const uint8_t * p_anim_to, int p_anim_to_wasgo_buffer_size);
+void _wasgo_AnimationPlayer_wrapper_get_current_animation(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_AnimationPlayer_wrapper_get_current_animation_length(WasGoID wasgo_id);
+float _wasgo_AnimationPlayer_wrapper_get_current_animation_position(WasGoID wasgo_id);
+float _wasgo_AnimationPlayer_wrapper_get_default_blend_time(WasGoID wasgo_id);
+WasGoID _wasgo_AnimationPlayer_wrapper_get_method_call_mode(WasGoID wasgo_id);
+float _wasgo_AnimationPlayer_wrapper_get_playing_speed(WasGoID wasgo_id);
+WasGoID _wasgo_AnimationPlayer_wrapper_get_queue(WasGoID wasgo_id);
+void _wasgo_AnimationPlayer_wrapper_get_root(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_AnimationPlayer_wrapper_get_speed_scale(WasGoID wasgo_id);
+int _wasgo_AnimationPlayer_wrapper_has_animation(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_AnimationPlayer_wrapper_is_active(WasGoID wasgo_id);
+int _wasgo_AnimationPlayer_wrapper_is_playing(WasGoID wasgo_id);
+void _wasgo_AnimationPlayer_wrapper_play(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, float p_custom_blend, float p_custom_speed, bool p_from_end);
+void _wasgo_AnimationPlayer_wrapper_play_backwards(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, float p_custom_blend);
+void _wasgo_AnimationPlayer_wrapper_queue(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_AnimationPlayer_wrapper_remove_animation(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_AnimationPlayer_wrapper_rename_animation(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_newname, int p_newname_wasgo_buffer_size);
+void _wasgo_AnimationPlayer_wrapper_seek(WasGoID wasgo_id, float p_seconds, bool p_update);
+void _wasgo_AnimationPlayer_wrapper_set_active(WasGoID wasgo_id, bool p_active);
+void _wasgo_AnimationPlayer_wrapper_set_animation_process_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_AnimationPlayer_wrapper_set_assigned_animation(WasGoID wasgo_id, const uint8_t * p_anim, int p_anim_wasgo_buffer_size);
+void _wasgo_AnimationPlayer_wrapper_set_autoplay(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_AnimationPlayer_wrapper_set_blend_time(WasGoID wasgo_id, const uint8_t * p_anim_from, int p_anim_from_wasgo_buffer_size, const uint8_t * p_anim_to, int p_anim_to_wasgo_buffer_size, float p_sec);
+void _wasgo_AnimationPlayer_wrapper_set_current_animation(WasGoID wasgo_id, const uint8_t * p_anim, int p_anim_wasgo_buffer_size);
+void _wasgo_AnimationPlayer_wrapper_set_default_blend_time(WasGoID wasgo_id, float p_sec);
+void _wasgo_AnimationPlayer_wrapper_set_method_call_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_AnimationPlayer_wrapper_set_root(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_AnimationPlayer_wrapper_set_speed_scale(WasGoID wasgo_id, float p_speed);
+void _wasgo_AnimationPlayer_wrapper_stop(WasGoID wasgo_id, bool p_reset);
 
     //constructor wrappers
-    WasGoId _wasgo_AnimationPlayer_constructor();
+    WasGoID _wasgo_AnimationPlayer_constructor();
             
 }
 #endif

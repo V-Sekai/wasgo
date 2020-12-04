@@ -435,7 +435,7 @@ void SpatialMaterial::set_uv2_triplanar_blend_sharpness(float p_sharpness){
 	_wasgo_SpatialMaterial_wrapper_set_uv2_triplanar_blend_sharpness(wasgo_id, p_sharpness);
 }
 
-SpatialMaterial::SpatialMaterial(WasGoId p_wasgo_id) : Material(p_wasgo_id){
+SpatialMaterial::SpatialMaterial(WasGoID p_wasgo_id) : Material(p_wasgo_id){
 }
 SpatialMaterial::SpatialMaterial(Material other) : Material(other._get_wasgo_id()){
     wasgo_id = _wasgo_SpatialMaterial_constructor();

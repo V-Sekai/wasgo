@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeTextureUniformTriplanar(WasGoId p_wasgo_id);
+explicit VisualShaderNodeTextureUniformTriplanar(WasGoID p_wasgo_id);
 explicit VisualShaderNodeTextureUniformTriplanar(VisualShaderNodeTextureUniform other);
 VisualShaderNodeTextureUniformTriplanar new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeTextureUniformTriplanar new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeTextureUniformTriplanar_constructor();
+    WasGoID _wasgo_VisualShaderNodeTextureUniformTriplanar_constructor();
             
 }
 #endif

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "InputEvent.h"
 #include "Vector2.h"
+#include "InputEvent.h"
 class InputEventScreenDrag : public InputEvent{
 public:
 int get_index();
@@ -19,7 +19,7 @@ void set_speed(Vector2 p_speed);
 
 protected:
 public:
-explicit InputEventScreenDrag(WasGoId p_wasgo_id);
+explicit InputEventScreenDrag(WasGoID p_wasgo_id);
 explicit InputEventScreenDrag(InputEvent other);
 InputEventScreenDrag new_instance();
             
@@ -28,17 +28,17 @@ InputEventScreenDrag new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_InputEventScreenDrag_wrapper_get_index(WasGoId wasgo_id);
-void _wasgo_InputEventScreenDrag_wrapper_get_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_InputEventScreenDrag_wrapper_get_relative(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_InputEventScreenDrag_wrapper_get_speed(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_InputEventScreenDrag_wrapper_set_index(WasGoId wasgo_id, int p_index);
-void _wasgo_InputEventScreenDrag_wrapper_set_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_InputEventScreenDrag_wrapper_set_relative(WasGoId wasgo_id, const uint8_t * p_relative, int p_relative_wasgo_buffer_size);
-void _wasgo_InputEventScreenDrag_wrapper_set_speed(WasGoId wasgo_id, const uint8_t * p_speed, int p_speed_wasgo_buffer_size);
+int _wasgo_InputEventScreenDrag_wrapper_get_index(WasGoID wasgo_id);
+void _wasgo_InputEventScreenDrag_wrapper_get_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_InputEventScreenDrag_wrapper_get_relative(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_InputEventScreenDrag_wrapper_get_speed(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_InputEventScreenDrag_wrapper_set_index(WasGoID wasgo_id, int p_index);
+void _wasgo_InputEventScreenDrag_wrapper_set_position(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_InputEventScreenDrag_wrapper_set_relative(WasGoID wasgo_id, const uint8_t * p_relative, int p_relative_wasgo_buffer_size);
+void _wasgo_InputEventScreenDrag_wrapper_set_speed(WasGoID wasgo_id, const uint8_t * p_speed, int p_speed_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_InputEventScreenDrag_constructor();
+    WasGoID _wasgo_InputEventScreenDrag_constructor();
             
 }
 #endif

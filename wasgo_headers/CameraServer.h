@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "CameraFeed.h"
 #include "Variant.h"
 #include "Object.h"
-#include "CameraFeed.h"
 class CameraServer : public Object{
 public:
 enum FeedImage{
@@ -23,7 +23,7 @@ void remove_feed(CameraFeed p_feed);
 
 protected:
 public:
-explicit CameraServer(WasGoId p_wasgo_id);
+explicit CameraServer(WasGoID p_wasgo_id);
 explicit CameraServer(Object other);
 CameraServer new_instance();
             
@@ -32,14 +32,14 @@ CameraServer new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_CameraServer_wrapper_add_feed(WasGoId wasgo_id, WasGoId p_feed);
-WasGoId _wasgo_CameraServer_wrapper_feeds(WasGoId wasgo_id);
-WasGoId _wasgo_CameraServer_wrapper_get_feed(WasGoId wasgo_id, int p_index);
-int _wasgo_CameraServer_wrapper_get_feed_count(WasGoId wasgo_id);
-void _wasgo_CameraServer_wrapper_remove_feed(WasGoId wasgo_id, WasGoId p_feed);
+void _wasgo_CameraServer_wrapper_add_feed(WasGoID wasgo_id, WasGoID p_feed);
+WasGoID _wasgo_CameraServer_wrapper_feeds(WasGoID wasgo_id);
+WasGoID _wasgo_CameraServer_wrapper_get_feed(WasGoID wasgo_id, int p_index);
+int _wasgo_CameraServer_wrapper_get_feed_count(WasGoID wasgo_id);
+void _wasgo_CameraServer_wrapper_remove_feed(WasGoID wasgo_id, WasGoID p_feed);
 
     //constructor wrappers
-    WasGoId _wasgo_CameraServer_constructor();
+    WasGoID _wasgo_CameraServer_constructor();
             
 }
 #endif

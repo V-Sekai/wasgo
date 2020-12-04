@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Skeleton.h"
 #include "Vector3.h"
 #include "Node.h"
-#include "ustring.h"
 #include "NodePath.h"
-#include "Skeleton.h"
 #include "Transform.h"
+#include "ustring.h"
 class SkeletonIK : public Node{
 public:
 float get_interpolation();
@@ -39,7 +39,7 @@ void stop();
 
 protected:
 public:
-explicit SkeletonIK(WasGoId p_wasgo_id);
+explicit SkeletonIK(WasGoID p_wasgo_id);
 explicit SkeletonIK(Node other);
 SkeletonIK new_instance();
             
@@ -48,33 +48,33 @@ SkeletonIK new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_SkeletonIK_wrapper_get_interpolation(WasGoId wasgo_id);
-void _wasgo_SkeletonIK_wrapper_get_magnet_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_SkeletonIK_wrapper_get_max_iterations(WasGoId wasgo_id);
-float _wasgo_SkeletonIK_wrapper_get_min_distance(WasGoId wasgo_id);
-WasGoId _wasgo_SkeletonIK_wrapper_get_parent_skeleton(WasGoId wasgo_id);
-void _wasgo_SkeletonIK_wrapper_get_root_bone(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_SkeletonIK_wrapper_get_target_node(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_SkeletonIK_wrapper_get_target_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_SkeletonIK_wrapper_get_tip_bone(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_SkeletonIK_wrapper_is_override_tip_basis(WasGoId wasgo_id);
-int _wasgo_SkeletonIK_wrapper_is_running(WasGoId wasgo_id);
-int _wasgo_SkeletonIK_wrapper_is_using_magnet(WasGoId wasgo_id);
-void _wasgo_SkeletonIK_wrapper_set_interpolation(WasGoId wasgo_id, float p_interpolation);
-void _wasgo_SkeletonIK_wrapper_set_magnet_position(WasGoId wasgo_id, const uint8_t * p_local_position, int p_local_position_wasgo_buffer_size);
-void _wasgo_SkeletonIK_wrapper_set_max_iterations(WasGoId wasgo_id, int p_iterations);
-void _wasgo_SkeletonIK_wrapper_set_min_distance(WasGoId wasgo_id, float p_min_distance);
-void _wasgo_SkeletonIK_wrapper_set_override_tip_basis(WasGoId wasgo_id, bool p_override);
-void _wasgo_SkeletonIK_wrapper_set_root_bone(WasGoId wasgo_id, const uint8_t * p_root_bone, int p_root_bone_wasgo_buffer_size);
-void _wasgo_SkeletonIK_wrapper_set_target_node(WasGoId wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size);
-void _wasgo_SkeletonIK_wrapper_set_target_transform(WasGoId wasgo_id, const uint8_t * p_target, int p_target_wasgo_buffer_size);
-void _wasgo_SkeletonIK_wrapper_set_tip_bone(WasGoId wasgo_id, const uint8_t * p_tip_bone, int p_tip_bone_wasgo_buffer_size);
-void _wasgo_SkeletonIK_wrapper_set_use_magnet(WasGoId wasgo_id, bool p_use);
-void _wasgo_SkeletonIK_wrapper_start(WasGoId wasgo_id, bool p_one_time);
-void _wasgo_SkeletonIK_wrapper_stop(WasGoId wasgo_id);
+float _wasgo_SkeletonIK_wrapper_get_interpolation(WasGoID wasgo_id);
+void _wasgo_SkeletonIK_wrapper_get_magnet_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_SkeletonIK_wrapper_get_max_iterations(WasGoID wasgo_id);
+float _wasgo_SkeletonIK_wrapper_get_min_distance(WasGoID wasgo_id);
+WasGoID _wasgo_SkeletonIK_wrapper_get_parent_skeleton(WasGoID wasgo_id);
+void _wasgo_SkeletonIK_wrapper_get_root_bone(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_SkeletonIK_wrapper_get_target_node(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_SkeletonIK_wrapper_get_target_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_SkeletonIK_wrapper_get_tip_bone(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_SkeletonIK_wrapper_is_override_tip_basis(WasGoID wasgo_id);
+int _wasgo_SkeletonIK_wrapper_is_running(WasGoID wasgo_id);
+int _wasgo_SkeletonIK_wrapper_is_using_magnet(WasGoID wasgo_id);
+void _wasgo_SkeletonIK_wrapper_set_interpolation(WasGoID wasgo_id, float p_interpolation);
+void _wasgo_SkeletonIK_wrapper_set_magnet_position(WasGoID wasgo_id, const uint8_t * p_local_position, int p_local_position_wasgo_buffer_size);
+void _wasgo_SkeletonIK_wrapper_set_max_iterations(WasGoID wasgo_id, int p_iterations);
+void _wasgo_SkeletonIK_wrapper_set_min_distance(WasGoID wasgo_id, float p_min_distance);
+void _wasgo_SkeletonIK_wrapper_set_override_tip_basis(WasGoID wasgo_id, bool p_override);
+void _wasgo_SkeletonIK_wrapper_set_root_bone(WasGoID wasgo_id, const uint8_t * p_root_bone, int p_root_bone_wasgo_buffer_size);
+void _wasgo_SkeletonIK_wrapper_set_target_node(WasGoID wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size);
+void _wasgo_SkeletonIK_wrapper_set_target_transform(WasGoID wasgo_id, const uint8_t * p_target, int p_target_wasgo_buffer_size);
+void _wasgo_SkeletonIK_wrapper_set_tip_bone(WasGoID wasgo_id, const uint8_t * p_tip_bone, int p_tip_bone_wasgo_buffer_size);
+void _wasgo_SkeletonIK_wrapper_set_use_magnet(WasGoID wasgo_id, bool p_use);
+void _wasgo_SkeletonIK_wrapper_start(WasGoID wasgo_id, bool p_one_time);
+void _wasgo_SkeletonIK_wrapper_stop(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_SkeletonIK_constructor();
+    WasGoID _wasgo_SkeletonIK_constructor();
             
 }
 #endif

@@ -18,7 +18,7 @@ void set_stiffness(float p_stiffness);
 
 protected:
 public:
-explicit DampedSpringJoint2D(WasGoId p_wasgo_id);
+explicit DampedSpringJoint2D(WasGoID p_wasgo_id);
 explicit DampedSpringJoint2D(Joint2D other);
 DampedSpringJoint2D new_instance();
             
@@ -27,17 +27,17 @@ DampedSpringJoint2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_DampedSpringJoint2D_wrapper_get_damping(WasGoId wasgo_id);
-float _wasgo_DampedSpringJoint2D_wrapper_get_length(WasGoId wasgo_id);
-float _wasgo_DampedSpringJoint2D_wrapper_get_rest_length(WasGoId wasgo_id);
-float _wasgo_DampedSpringJoint2D_wrapper_get_stiffness(WasGoId wasgo_id);
-void _wasgo_DampedSpringJoint2D_wrapper_set_damping(WasGoId wasgo_id, float p_damping);
-void _wasgo_DampedSpringJoint2D_wrapper_set_length(WasGoId wasgo_id, float p_length);
-void _wasgo_DampedSpringJoint2D_wrapper_set_rest_length(WasGoId wasgo_id, float p_rest_length);
-void _wasgo_DampedSpringJoint2D_wrapper_set_stiffness(WasGoId wasgo_id, float p_stiffness);
+float _wasgo_DampedSpringJoint2D_wrapper_get_damping(WasGoID wasgo_id);
+float _wasgo_DampedSpringJoint2D_wrapper_get_length(WasGoID wasgo_id);
+float _wasgo_DampedSpringJoint2D_wrapper_get_rest_length(WasGoID wasgo_id);
+float _wasgo_DampedSpringJoint2D_wrapper_get_stiffness(WasGoID wasgo_id);
+void _wasgo_DampedSpringJoint2D_wrapper_set_damping(WasGoID wasgo_id, float p_damping);
+void _wasgo_DampedSpringJoint2D_wrapper_set_length(WasGoID wasgo_id, float p_length);
+void _wasgo_DampedSpringJoint2D_wrapper_set_rest_length(WasGoID wasgo_id, float p_rest_length);
+void _wasgo_DampedSpringJoint2D_wrapper_set_stiffness(WasGoID wasgo_id, float p_stiffness);
 
     //constructor wrappers
-    WasGoId _wasgo_DampedSpringJoint2D_constructor();
+    WasGoID _wasgo_DampedSpringJoint2D_constructor();
             
 }
 #endif

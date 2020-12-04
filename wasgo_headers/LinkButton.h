@@ -20,7 +20,7 @@ void set_underline_mode(LinkButton::UnderlineMode p_underline_mode);
 
 protected:
 public:
-explicit LinkButton(WasGoId p_wasgo_id);
+explicit LinkButton(WasGoID p_wasgo_id);
 explicit LinkButton(BaseButton other);
 LinkButton new_instance();
             
@@ -29,13 +29,13 @@ LinkButton new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_LinkButton_wrapper_get_text(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_LinkButton_wrapper_get_underline_mode(WasGoId wasgo_id);
-void _wasgo_LinkButton_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-void _wasgo_LinkButton_wrapper_set_underline_mode(WasGoId wasgo_id, WasGoId p_underline_mode);
+void _wasgo_LinkButton_wrapper_get_text(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_LinkButton_wrapper_get_underline_mode(WasGoID wasgo_id);
+void _wasgo_LinkButton_wrapper_set_text(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_LinkButton_wrapper_set_underline_mode(WasGoID wasgo_id, WasGoID p_underline_mode);
 
     //constructor wrappers
-    WasGoId _wasgo_LinkButton_constructor();
+    WasGoID _wasgo_LinkButton_constructor();
             
 }
 #endif

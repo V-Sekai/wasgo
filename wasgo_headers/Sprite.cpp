@@ -138,7 +138,7 @@ void Sprite::set_vframes(int p_vframes){
 	_wasgo_Sprite_wrapper_set_vframes(wasgo_id, p_vframes);
 }
 
-Sprite::Sprite(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+Sprite::Sprite(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Sprite::Sprite(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Sprite_constructor();

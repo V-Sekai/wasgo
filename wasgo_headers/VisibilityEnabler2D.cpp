@@ -8,7 +8,7 @@ void VisibilityEnabler2D::set_enabler(VisibilityEnabler2D::Enabler p_enabler, bo
 	_wasgo_VisibilityEnabler2D_wrapper_set_enabler(wasgo_id, p_enabler._get_wasgo_id(), p_enabled);
 }
 
-VisibilityEnabler2D::VisibilityEnabler2D(WasGoId p_wasgo_id) : VisibilityNotifier2D(p_wasgo_id){
+VisibilityEnabler2D::VisibilityEnabler2D(WasGoID p_wasgo_id) : VisibilityNotifier2D(p_wasgo_id){
 }
 VisibilityEnabler2D::VisibilityEnabler2D(VisibilityNotifier2D other) : VisibilityNotifier2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisibilityEnabler2D_constructor();

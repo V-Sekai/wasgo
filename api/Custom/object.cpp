@@ -30,15 +30,15 @@
 
 #include "Object.h"
 
-Object Object::_from_wasgo_id(WasGoId p_wasgo_id){
+Object Object::_from_wasgo_id(WasGoID p_wasgo_id){
 	return Object(p_wasgo_id);
 }
 
-WasGoId Object::_get_wasgo_id(){
+WasGoID Object::_get_wasgo_id(){
 	return wasgo_id;
 }
 
-Object::Object(WasGoId p_wasgo_id) {
+Object::Object(WasGoID p_wasgo_id) {
 	wasgo_id = p_wasgo_id;
 }
 
@@ -47,6 +47,10 @@ Object::Object() {
 }
 Object::~Object(){
 
+}
+
+Object::operator bool(){
+	return (bool)wasgo_id;
 }
 
 // // #include "class_db.h"

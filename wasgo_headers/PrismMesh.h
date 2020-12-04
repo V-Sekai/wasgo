@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
 #include "PrimitiveMesh.h"
+#include "Vector3.h"
 class PrismMesh : public PrimitiveMesh{
 public:
 float get_left_to_right();
@@ -21,7 +21,7 @@ void set_subdivide_width(int p_segments);
 
 protected:
 public:
-explicit PrismMesh(WasGoId p_wasgo_id);
+explicit PrismMesh(WasGoID p_wasgo_id);
 explicit PrismMesh(PrimitiveMesh other);
 PrismMesh new_instance();
             
@@ -30,19 +30,19 @@ PrismMesh new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_PrismMesh_wrapper_get_left_to_right(WasGoId wasgo_id);
-void _wasgo_PrismMesh_wrapper_get_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_PrismMesh_wrapper_get_subdivide_depth(WasGoId wasgo_id);
-int _wasgo_PrismMesh_wrapper_get_subdivide_height(WasGoId wasgo_id);
-int _wasgo_PrismMesh_wrapper_get_subdivide_width(WasGoId wasgo_id);
-void _wasgo_PrismMesh_wrapper_set_left_to_right(WasGoId wasgo_id, float p_left_to_right);
-void _wasgo_PrismMesh_wrapper_set_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
-void _wasgo_PrismMesh_wrapper_set_subdivide_depth(WasGoId wasgo_id, int p_segments);
-void _wasgo_PrismMesh_wrapper_set_subdivide_height(WasGoId wasgo_id, int p_segments);
-void _wasgo_PrismMesh_wrapper_set_subdivide_width(WasGoId wasgo_id, int p_segments);
+float _wasgo_PrismMesh_wrapper_get_left_to_right(WasGoID wasgo_id);
+void _wasgo_PrismMesh_wrapper_get_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_PrismMesh_wrapper_get_subdivide_depth(WasGoID wasgo_id);
+int _wasgo_PrismMesh_wrapper_get_subdivide_height(WasGoID wasgo_id);
+int _wasgo_PrismMesh_wrapper_get_subdivide_width(WasGoID wasgo_id);
+void _wasgo_PrismMesh_wrapper_set_left_to_right(WasGoID wasgo_id, float p_left_to_right);
+void _wasgo_PrismMesh_wrapper_set_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
+void _wasgo_PrismMesh_wrapper_set_subdivide_depth(WasGoID wasgo_id, int p_segments);
+void _wasgo_PrismMesh_wrapper_set_subdivide_height(WasGoID wasgo_id, int p_segments);
+void _wasgo_PrismMesh_wrapper_set_subdivide_width(WasGoID wasgo_id, int p_segments);
 
     //constructor wrappers
-    WasGoId _wasgo_PrismMesh_constructor();
+    WasGoID _wasgo_PrismMesh_constructor();
             
 }
 #endif

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "SceneState.h"
 #include "Node.h"
 #include "error_list.h"
 #include "Resource.h"
+#include "SceneState.h"
 class PackedScene : public Resource{
 public:
 enum GenEditState{
@@ -22,7 +22,7 @@ Error pack(Node p_path);
 
 protected:
 public:
-explicit PackedScene(WasGoId p_wasgo_id);
+explicit PackedScene(WasGoID p_wasgo_id);
 explicit PackedScene(Resource other);
 PackedScene new_instance();
             
@@ -31,13 +31,13 @@ PackedScene new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_PackedScene_wrapper_can_instance(WasGoId wasgo_id);
-WasGoId _wasgo_PackedScene_wrapper_get_state(WasGoId wasgo_id);
-WasGoId _wasgo_PackedScene_wrapper_instance(WasGoId wasgo_id, WasGoId p_edit_state);
-WasGoId _wasgo_PackedScene_wrapper_pack(WasGoId wasgo_id, WasGoId p_path);
+int _wasgo_PackedScene_wrapper_can_instance(WasGoID wasgo_id);
+WasGoID _wasgo_PackedScene_wrapper_get_state(WasGoID wasgo_id);
+WasGoID _wasgo_PackedScene_wrapper_instance(WasGoID wasgo_id, WasGoID p_edit_state);
+WasGoID _wasgo_PackedScene_wrapper_pack(WasGoID wasgo_id, WasGoID p_path);
 
     //constructor wrappers
-    WasGoId _wasgo_PackedScene_constructor();
+    WasGoID _wasgo_PackedScene_constructor();
             
 }
 #endif

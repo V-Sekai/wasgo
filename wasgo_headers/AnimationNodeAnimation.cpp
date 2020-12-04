@@ -21,7 +21,7 @@ void AnimationNodeAnimation::set_animation(String p_name){
 	_wasgo_AnimationNodeAnimation_wrapper_set_animation(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
 
-AnimationNodeAnimation::AnimationNodeAnimation(WasGoId p_wasgo_id) : AnimationRootNode(p_wasgo_id){
+AnimationNodeAnimation::AnimationNodeAnimation(WasGoID p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
 AnimationNodeAnimation::AnimationNodeAnimation(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeAnimation_constructor();

@@ -23,7 +23,7 @@ void set_operator(VisualShaderNodeColorOp::Operator p_op);
 
 protected:
 public:
-explicit VisualShaderNodeColorOp(WasGoId p_wasgo_id);
+explicit VisualShaderNodeColorOp(WasGoID p_wasgo_id);
 explicit VisualShaderNodeColorOp(VisualShaderNode other);
 VisualShaderNodeColorOp new_instance();
             
@@ -32,11 +32,11 @@ VisualShaderNodeColorOp new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_VisualShaderNodeColorOp_wrapper_get_operator(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeColorOp_wrapper_set_operator(WasGoId wasgo_id, WasGoId p_op);
+WasGoID _wasgo_VisualShaderNodeColorOp_wrapper_get_operator(WasGoID wasgo_id);
+void _wasgo_VisualShaderNodeColorOp_wrapper_set_operator(WasGoID wasgo_id, WasGoID p_op);
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeColorOp_constructor();
+    WasGoID _wasgo_VisualShaderNodeColorOp_constructor();
             
 }
 #endif

@@ -11,7 +11,7 @@ void CurveTexture::set_width(int p_width){
 	_wasgo_CurveTexture_wrapper_set_width(wasgo_id, p_width);
 }
 
-CurveTexture::CurveTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
+CurveTexture::CurveTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 CurveTexture::CurveTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_CurveTexture_constructor();

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
-#include "Node2D.h"
-#include "Color.h"
 #include "Vector2.h"
+#include "Color.h"
+#include "Node2D.h"
+#include "Texture.h"
 class Light2D : public Node2D{
 public:
 enum Mode{
@@ -69,7 +69,7 @@ void set_z_range_min(int p_z);
 
 protected:
 public:
-explicit Light2D(WasGoId p_wasgo_id);
+explicit Light2D(WasGoID p_wasgo_id);
 explicit Light2D(Node2D other);
 Light2D new_instance();
             
@@ -78,51 +78,51 @@ Light2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Light2D_wrapper_get_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_Light2D_wrapper_get_energy(WasGoId wasgo_id);
-float _wasgo_Light2D_wrapper_get_height(WasGoId wasgo_id);
-int _wasgo_Light2D_wrapper_get_item_cull_mask(WasGoId wasgo_id);
-int _wasgo_Light2D_wrapper_get_item_shadow_cull_mask(WasGoId wasgo_id);
-int _wasgo_Light2D_wrapper_get_layer_range_max(WasGoId wasgo_id);
-int _wasgo_Light2D_wrapper_get_layer_range_min(WasGoId wasgo_id);
-WasGoId _wasgo_Light2D_wrapper_get_mode(WasGoId wasgo_id);
-int _wasgo_Light2D_wrapper_get_shadow_buffer_size(WasGoId wasgo_id);
-void _wasgo_Light2D_wrapper_get_shadow_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Light2D_wrapper_get_shadow_filter(WasGoId wasgo_id);
-float _wasgo_Light2D_wrapper_get_shadow_gradient_length(WasGoId wasgo_id);
-float _wasgo_Light2D_wrapper_get_shadow_smooth(WasGoId wasgo_id);
-WasGoId _wasgo_Light2D_wrapper_get_texture(WasGoId wasgo_id);
-void _wasgo_Light2D_wrapper_get_texture_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_Light2D_wrapper_get_texture_scale(WasGoId wasgo_id);
-int _wasgo_Light2D_wrapper_get_z_range_max(WasGoId wasgo_id);
-int _wasgo_Light2D_wrapper_get_z_range_min(WasGoId wasgo_id);
-int _wasgo_Light2D_wrapper_is_editor_only(WasGoId wasgo_id);
-int _wasgo_Light2D_wrapper_is_enabled(WasGoId wasgo_id);
-int _wasgo_Light2D_wrapper_is_shadow_enabled(WasGoId wasgo_id);
-void _wasgo_Light2D_wrapper_set_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_Light2D_wrapper_set_editor_only(WasGoId wasgo_id, bool p_editor_only);
-void _wasgo_Light2D_wrapper_set_enabled(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Light2D_wrapper_set_energy(WasGoId wasgo_id, float p_energy);
-void _wasgo_Light2D_wrapper_set_height(WasGoId wasgo_id, float p_height);
-void _wasgo_Light2D_wrapper_set_item_cull_mask(WasGoId wasgo_id, int p_item_cull_mask);
-void _wasgo_Light2D_wrapper_set_item_shadow_cull_mask(WasGoId wasgo_id, int p_item_shadow_cull_mask);
-void _wasgo_Light2D_wrapper_set_layer_range_max(WasGoId wasgo_id, int p_layer);
-void _wasgo_Light2D_wrapper_set_layer_range_min(WasGoId wasgo_id, int p_layer);
-void _wasgo_Light2D_wrapper_set_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Light2D_wrapper_set_shadow_buffer_size(WasGoId wasgo_id, int p_size);
-void _wasgo_Light2D_wrapper_set_shadow_color(WasGoId wasgo_id, const uint8_t * p_shadow_color, int p_shadow_color_wasgo_buffer_size);
-void _wasgo_Light2D_wrapper_set_shadow_enabled(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Light2D_wrapper_set_shadow_filter(WasGoId wasgo_id, WasGoId p_filter);
-void _wasgo_Light2D_wrapper_set_shadow_gradient_length(WasGoId wasgo_id, float p_multiplier);
-void _wasgo_Light2D_wrapper_set_shadow_smooth(WasGoId wasgo_id, float p_smooth);
-void _wasgo_Light2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
-void _wasgo_Light2D_wrapper_set_texture_offset(WasGoId wasgo_id, const uint8_t * p_texture_offset, int p_texture_offset_wasgo_buffer_size);
-void _wasgo_Light2D_wrapper_set_texture_scale(WasGoId wasgo_id, float p_texture_scale);
-void _wasgo_Light2D_wrapper_set_z_range_max(WasGoId wasgo_id, int p_z);
-void _wasgo_Light2D_wrapper_set_z_range_min(WasGoId wasgo_id, int p_z);
+void _wasgo_Light2D_wrapper_get_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_Light2D_wrapper_get_energy(WasGoID wasgo_id);
+float _wasgo_Light2D_wrapper_get_height(WasGoID wasgo_id);
+int _wasgo_Light2D_wrapper_get_item_cull_mask(WasGoID wasgo_id);
+int _wasgo_Light2D_wrapper_get_item_shadow_cull_mask(WasGoID wasgo_id);
+int _wasgo_Light2D_wrapper_get_layer_range_max(WasGoID wasgo_id);
+int _wasgo_Light2D_wrapper_get_layer_range_min(WasGoID wasgo_id);
+WasGoID _wasgo_Light2D_wrapper_get_mode(WasGoID wasgo_id);
+int _wasgo_Light2D_wrapper_get_shadow_buffer_size(WasGoID wasgo_id);
+void _wasgo_Light2D_wrapper_get_shadow_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Light2D_wrapper_get_shadow_filter(WasGoID wasgo_id);
+float _wasgo_Light2D_wrapper_get_shadow_gradient_length(WasGoID wasgo_id);
+float _wasgo_Light2D_wrapper_get_shadow_smooth(WasGoID wasgo_id);
+WasGoID _wasgo_Light2D_wrapper_get_texture(WasGoID wasgo_id);
+void _wasgo_Light2D_wrapper_get_texture_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_Light2D_wrapper_get_texture_scale(WasGoID wasgo_id);
+int _wasgo_Light2D_wrapper_get_z_range_max(WasGoID wasgo_id);
+int _wasgo_Light2D_wrapper_get_z_range_min(WasGoID wasgo_id);
+int _wasgo_Light2D_wrapper_is_editor_only(WasGoID wasgo_id);
+int _wasgo_Light2D_wrapper_is_enabled(WasGoID wasgo_id);
+int _wasgo_Light2D_wrapper_is_shadow_enabled(WasGoID wasgo_id);
+void _wasgo_Light2D_wrapper_set_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_Light2D_wrapper_set_editor_only(WasGoID wasgo_id, bool p_editor_only);
+void _wasgo_Light2D_wrapper_set_enabled(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Light2D_wrapper_set_energy(WasGoID wasgo_id, float p_energy);
+void _wasgo_Light2D_wrapper_set_height(WasGoID wasgo_id, float p_height);
+void _wasgo_Light2D_wrapper_set_item_cull_mask(WasGoID wasgo_id, int p_item_cull_mask);
+void _wasgo_Light2D_wrapper_set_item_shadow_cull_mask(WasGoID wasgo_id, int p_item_shadow_cull_mask);
+void _wasgo_Light2D_wrapper_set_layer_range_max(WasGoID wasgo_id, int p_layer);
+void _wasgo_Light2D_wrapper_set_layer_range_min(WasGoID wasgo_id, int p_layer);
+void _wasgo_Light2D_wrapper_set_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Light2D_wrapper_set_shadow_buffer_size(WasGoID wasgo_id, int p_size);
+void _wasgo_Light2D_wrapper_set_shadow_color(WasGoID wasgo_id, const uint8_t * p_shadow_color, int p_shadow_color_wasgo_buffer_size);
+void _wasgo_Light2D_wrapper_set_shadow_enabled(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Light2D_wrapper_set_shadow_filter(WasGoID wasgo_id, WasGoID p_filter);
+void _wasgo_Light2D_wrapper_set_shadow_gradient_length(WasGoID wasgo_id, float p_multiplier);
+void _wasgo_Light2D_wrapper_set_shadow_smooth(WasGoID wasgo_id, float p_smooth);
+void _wasgo_Light2D_wrapper_set_texture(WasGoID wasgo_id, WasGoID p_texture);
+void _wasgo_Light2D_wrapper_set_texture_offset(WasGoID wasgo_id, const uint8_t * p_texture_offset, int p_texture_offset_wasgo_buffer_size);
+void _wasgo_Light2D_wrapper_set_texture_scale(WasGoID wasgo_id, float p_texture_scale);
+void _wasgo_Light2D_wrapper_set_z_range_max(WasGoID wasgo_id, int p_z);
+void _wasgo_Light2D_wrapper_set_z_range_min(WasGoID wasgo_id, int p_z);
 
     //constructor wrappers
-    WasGoId _wasgo_Light2D_constructor();
+    WasGoID _wasgo_Light2D_constructor();
             
 }
 #endif

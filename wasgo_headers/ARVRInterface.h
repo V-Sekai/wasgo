@@ -47,23 +47,23 @@ void uninitialize();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_ARVRInterface_wrapper_get_anchor_detection_is_enabled(WasGoId wasgo_id);
-int _wasgo_ARVRInterface_wrapper_get_camera_feed_id(WasGoId wasgo_id);
-int _wasgo_ARVRInterface_wrapper_get_capabilities(WasGoId wasgo_id);
-void _wasgo_ARVRInterface_wrapper_get_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_ARVRInterface_wrapper_get_render_targetsize(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_ARVRInterface_wrapper_get_tracking_status(WasGoId wasgo_id);
-int _wasgo_ARVRInterface_wrapper_initialize(WasGoId wasgo_id);
-int _wasgo_ARVRInterface_wrapper_is_initialized(WasGoId wasgo_id);
-int _wasgo_ARVRInterface_wrapper_is_primary(WasGoId wasgo_id);
-int _wasgo_ARVRInterface_wrapper_is_stereo(WasGoId wasgo_id);
-void _wasgo_ARVRInterface_wrapper_set_anchor_detection_is_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_ARVRInterface_wrapper_set_is_initialized(WasGoId wasgo_id, bool p_initialized);
-void _wasgo_ARVRInterface_wrapper_set_is_primary(WasGoId wasgo_id, bool p_enable);
-void _wasgo_ARVRInterface_wrapper_uninitialize(WasGoId wasgo_id);
+int _wasgo_ARVRInterface_wrapper_get_anchor_detection_is_enabled(WasGoID wasgo_id);
+int _wasgo_ARVRInterface_wrapper_get_camera_feed_id(WasGoID wasgo_id);
+int _wasgo_ARVRInterface_wrapper_get_capabilities(WasGoID wasgo_id);
+void _wasgo_ARVRInterface_wrapper_get_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_ARVRInterface_wrapper_get_render_targetsize(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_ARVRInterface_wrapper_get_tracking_status(WasGoID wasgo_id);
+int _wasgo_ARVRInterface_wrapper_initialize(WasGoID wasgo_id);
+int _wasgo_ARVRInterface_wrapper_is_initialized(WasGoID wasgo_id);
+int _wasgo_ARVRInterface_wrapper_is_primary(WasGoID wasgo_id);
+int _wasgo_ARVRInterface_wrapper_is_stereo(WasGoID wasgo_id);
+void _wasgo_ARVRInterface_wrapper_set_anchor_detection_is_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_ARVRInterface_wrapper_set_is_initialized(WasGoID wasgo_id, bool p_initialized);
+void _wasgo_ARVRInterface_wrapper_set_is_primary(WasGoID wasgo_id, bool p_enable);
+void _wasgo_ARVRInterface_wrapper_uninitialize(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_ARVRInterface_constructor();
+    WasGoID _wasgo_ARVRInterface_constructor();
             
 }
 #endif

@@ -175,7 +175,7 @@ void GraphNode::set_title(String p_title){
 	_wasgo_GraphNode_wrapper_set_title(wasgo_id, wasgo_buffer_title, wasgo_size_title);
 }
 
-GraphNode::GraphNode(WasGoId p_wasgo_id) : Container(p_wasgo_id){
+GraphNode::GraphNode(WasGoID p_wasgo_id) : Container(p_wasgo_id){
 }
 GraphNode::GraphNode(Container other) : Container(other._get_wasgo_id()){
     wasgo_id = _wasgo_GraphNode_constructor();

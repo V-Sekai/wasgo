@@ -15,7 +15,7 @@ void set_normal(Vector2 p_normal);
 
 protected:
 public:
-explicit LineShape2D(WasGoId p_wasgo_id);
+explicit LineShape2D(WasGoID p_wasgo_id);
 explicit LineShape2D(Shape2D other);
 LineShape2D new_instance();
             
@@ -24,13 +24,13 @@ LineShape2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_LineShape2D_wrapper_get_d(WasGoId wasgo_id);
-void _wasgo_LineShape2D_wrapper_get_normal(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_LineShape2D_wrapper_set_d(WasGoId wasgo_id, float p_d);
-void _wasgo_LineShape2D_wrapper_set_normal(WasGoId wasgo_id, const uint8_t * p_normal, int p_normal_wasgo_buffer_size);
+float _wasgo_LineShape2D_wrapper_get_d(WasGoID wasgo_id);
+void _wasgo_LineShape2D_wrapper_get_normal(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_LineShape2D_wrapper_set_d(WasGoID wasgo_id, float p_d);
+void _wasgo_LineShape2D_wrapper_set_normal(WasGoID wasgo_id, const uint8_t * p_normal, int p_normal_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_LineShape2D_constructor();
+    WasGoID _wasgo_LineShape2D_constructor();
             
 }
 #endif

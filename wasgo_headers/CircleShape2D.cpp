@@ -8,7 +8,7 @@ void CircleShape2D::set_radius(float p_radius){
 	_wasgo_CircleShape2D_wrapper_set_radius(wasgo_id, p_radius);
 }
 
-CircleShape2D::CircleShape2D(WasGoId p_wasgo_id) : Shape2D(p_wasgo_id){
+CircleShape2D::CircleShape2D(WasGoID p_wasgo_id) : Shape2D(p_wasgo_id){
 }
 CircleShape2D::CircleShape2D(Shape2D other) : Shape2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_CircleShape2D_constructor();

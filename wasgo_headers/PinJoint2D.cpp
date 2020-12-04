@@ -8,7 +8,7 @@ void PinJoint2D::set_softness(float p_softness){
 	_wasgo_PinJoint2D_wrapper_set_softness(wasgo_id, p_softness);
 }
 
-PinJoint2D::PinJoint2D(WasGoId p_wasgo_id) : Joint2D(p_wasgo_id){
+PinJoint2D::PinJoint2D(WasGoID p_wasgo_id) : Joint2D(p_wasgo_id){
 }
 PinJoint2D::PinJoint2D(Joint2D other) : Joint2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_PinJoint2D_constructor();

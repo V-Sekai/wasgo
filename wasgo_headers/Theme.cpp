@@ -387,7 +387,7 @@ void Theme::set_stylebox(String p_name, String p_node_type, StyleBox p_texture){
 	_wasgo_Theme_wrapper_set_stylebox(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_node_type, wasgo_size_node_type, p_texture._get_wasgo_id());
 }
 
-Theme::Theme(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+Theme::Theme(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Theme::Theme(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Theme_constructor();

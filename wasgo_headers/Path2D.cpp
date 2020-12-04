@@ -8,7 +8,7 @@ void Path2D::set_curve(Curve2D p_curve){
 	_wasgo_Path2D_wrapper_set_curve(wasgo_id, p_curve._get_wasgo_id());
 }
 
-Path2D::Path2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+Path2D::Path2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Path2D::Path2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Path2D_constructor();

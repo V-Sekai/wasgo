@@ -44,7 +44,7 @@ void NavigationPolygon::set_vertices(PoolVector2Array p_vertices){
 	_wasgo_NavigationPolygon_wrapper_set_vertices(wasgo_id, p_vertices._get_wasgo_id());
 }
 
-NavigationPolygon::NavigationPolygon(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+NavigationPolygon::NavigationPolygon(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 NavigationPolygon::NavigationPolygon(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_NavigationPolygon_constructor();

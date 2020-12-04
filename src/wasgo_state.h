@@ -101,6 +101,9 @@ public:
 
 	WasGoID handle_return_variant(Variant var);
 
+	void _input(const Ref<InputEvent> &p_event);
+	void _unhandled_key_input(Ref<InputEvent> p_event);
+
 private:
 	wasm_module_t module = NULL;
 	wasm_module_inst_t module_inst = NULL;
@@ -112,6 +115,12 @@ private:
 	Ref<WasmResource> wasm_resource;
 
 	wasm_function_inst_t notification_callback = nullptr;
+	wasm_function_inst_t ready_callback = nullptr;
+	wasm_function_inst_t process_callback = nullptr;
+	wasm_function_inst_t physics_process_callback = nullptr;
+	wasm_function_inst_t input_callback = nullptr;
+	wasm_function_inst_t unhandled_input_callback = nullptr;
+	wasm_function_inst_t unhandled_key_input_callback = nullptr;
 
 	Dictionary createdObjects;
 	Dictionary createdObjectsReverse;
@@ -180,6 +189,21 @@ void _wasgo_get_property_nodepath(wasm_exec_env_t p_exec_env, const uint8_t* pro
 void _wasgo_set_property_nodepath(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
 
 WasGoState::WasGoID _wasgo_get_property_object(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size);
-void _wasgo_set_property_object(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, WasGoState::WasGoID p_wasgo_id);
+void _wasgo_set_property_object(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, WasGoState::WasGoID p_wasgo_id);
+
+void _wasgo_set_process(wasm_exec_env_t p_exec_env, bool p_enable);
+void _wasgo_set_physics_process(wasm_exec_env_t p_exec_env, bool p_enable);
+void _wasgo_set_process_internal(wasm_exec_env_t p_exec_env, bool p_enable);
+void _wasgo_set_physics_process_internal(wasm_exec_env_t p_exec_env, bool p_enable);
+void _wasgo_set_process_input(wasm_exec_env_t p_exec_env, bool p_enable);
+void _wasgo_set_process_unhandled_input(wasm_exec_env_t p_exec_env, bool p_enable);
+void _wasgo_set_process_unhandled_key_input(wasm_exec_env_t p_exec_env, bool p_enable);
+bool _wasgo_is_processing(wasm_exec_env_t p_exec_env);
+bool _wasgo_is_physics_processing(wasm_exec_env_t p_exec_env);
+bool _wasgo_is_processing_internal(wasm_exec_env_t p_exec_env);
+bool _wasgo_is_physics_processing_internal(wasm_exec_env_t p_exec_env);
+bool _wasgo_is_processing_input(wasm_exec_env_t p_exec_env);
+bool _wasgo_is_processing_unhandled_input(wasm_exec_env_t p_exec_env);
+bool _wasgo_is_processing_unhandled_key_input(wasm_exec_env_t p_exec_env);
 
 #endif

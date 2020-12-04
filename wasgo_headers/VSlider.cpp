@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "VSlider.h"
 
-VSlider::VSlider(WasGoId p_wasgo_id) : Slider(p_wasgo_id){
+VSlider::VSlider(WasGoID p_wasgo_id) : Slider(p_wasgo_id){
 }
 VSlider::VSlider(Slider other) : Slider(other._get_wasgo_id()){
     wasgo_id = _wasgo_VSlider_constructor();

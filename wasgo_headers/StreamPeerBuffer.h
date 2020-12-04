@@ -19,7 +19,7 @@ void set_data_array(PoolByteArray p_data);
 
 protected:
 public:
-explicit StreamPeerBuffer(WasGoId p_wasgo_id);
+explicit StreamPeerBuffer(WasGoID p_wasgo_id);
 explicit StreamPeerBuffer(StreamPeer other);
 StreamPeerBuffer new_instance();
             
@@ -28,17 +28,17 @@ StreamPeerBuffer new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_StreamPeerBuffer_wrapper_clear(WasGoId wasgo_id);
-WasGoId _wasgo_StreamPeerBuffer_wrapper_duplicate(WasGoId wasgo_id);
-WasGoId _wasgo_StreamPeerBuffer_wrapper_get_data_array(WasGoId wasgo_id);
-int _wasgo_StreamPeerBuffer_wrapper_get_position(WasGoId wasgo_id);
-int _wasgo_StreamPeerBuffer_wrapper_get_size(WasGoId wasgo_id);
-void _wasgo_StreamPeerBuffer_wrapper_resize(WasGoId wasgo_id, int p_size);
-void _wasgo_StreamPeerBuffer_wrapper_seek(WasGoId wasgo_id, int p_position);
-void _wasgo_StreamPeerBuffer_wrapper_set_data_array(WasGoId wasgo_id, WasGoId p_data);
+void _wasgo_StreamPeerBuffer_wrapper_clear(WasGoID wasgo_id);
+WasGoID _wasgo_StreamPeerBuffer_wrapper_duplicate(WasGoID wasgo_id);
+WasGoID _wasgo_StreamPeerBuffer_wrapper_get_data_array(WasGoID wasgo_id);
+int _wasgo_StreamPeerBuffer_wrapper_get_position(WasGoID wasgo_id);
+int _wasgo_StreamPeerBuffer_wrapper_get_size(WasGoID wasgo_id);
+void _wasgo_StreamPeerBuffer_wrapper_resize(WasGoID wasgo_id, int p_size);
+void _wasgo_StreamPeerBuffer_wrapper_seek(WasGoID wasgo_id, int p_position);
+void _wasgo_StreamPeerBuffer_wrapper_set_data_array(WasGoID wasgo_id, WasGoID p_data);
 
     //constructor wrappers
-    WasGoId _wasgo_StreamPeerBuffer_constructor();
+    WasGoID _wasgo_StreamPeerBuffer_constructor();
             
 }
 #endif

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "ustring.h"
-#include "NodePath.h"
-#include "Object.h"
 #include "Resource.h"
+#include "Object.h"
+#include "Variant.h"
+#include "NodePath.h"
+#include "ustring.h"
 class AnimationNode : public Resource{
 public:
 enum FilterAction{
@@ -40,7 +40,7 @@ void set_parameter(String p_name, Variant p_value);
 
 protected:
 public:
-explicit AnimationNode(WasGoId p_wasgo_id);
+explicit AnimationNode(WasGoID p_wasgo_id);
 explicit AnimationNode(Resource other);
 AnimationNode new_instance();
             
@@ -49,29 +49,29 @@ AnimationNode new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_AnimationNode_wrapper_add_input(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_AnimationNode_wrapper_blend_animation(WasGoId wasgo_id, const uint8_t * p_animation, int p_animation_wasgo_buffer_size, float p_time, float p_delta, bool p_seeked, float p_blend);
-float _wasgo_AnimationNode_wrapper_blend_input(WasGoId wasgo_id, int p_input_index, float p_time, bool p_seek, float p_blend, WasGoId p_filter, bool p_optimize);
-float _wasgo_AnimationNode_wrapper_blend_node(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoId p_node, float p_time, bool p_seek, float p_blend, WasGoId p_filter, bool p_optimize);
-void _wasgo_AnimationNode_wrapper_get_caption(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_AnimationNode_wrapper_get_child_by_name(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-WasGoId _wasgo_AnimationNode_wrapper_get_child_nodes(WasGoId wasgo_id);
-int _wasgo_AnimationNode_wrapper_get_input_count(WasGoId wasgo_id);
-void _wasgo_AnimationNode_wrapper_get_input_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_input);
-WasGoId _wasgo_AnimationNode_wrapper_get_parameter(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-WasGoId _wasgo_AnimationNode_wrapper_get_parameter_default_value(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-WasGoId _wasgo_AnimationNode_wrapper_get_parameter_list(WasGoId wasgo_id);
-void _wasgo_AnimationNode_wrapper_has_filter(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_AnimationNode_wrapper_is_filter_enabled(WasGoId wasgo_id);
-int _wasgo_AnimationNode_wrapper_is_path_filtered(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-void _wasgo_AnimationNode_wrapper_process(WasGoId wasgo_id, float p_time, bool p_seek);
-void _wasgo_AnimationNode_wrapper_remove_input(WasGoId wasgo_id, int p_index);
-void _wasgo_AnimationNode_wrapper_set_filter_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_AnimationNode_wrapper_set_filter_path(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, bool p_enable);
-void _wasgo_AnimationNode_wrapper_set_parameter(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoId p_value);
+void _wasgo_AnimationNode_wrapper_add_input(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_AnimationNode_wrapper_blend_animation(WasGoID wasgo_id, const uint8_t * p_animation, int p_animation_wasgo_buffer_size, float p_time, float p_delta, bool p_seeked, float p_blend);
+float _wasgo_AnimationNode_wrapper_blend_input(WasGoID wasgo_id, int p_input_index, float p_time, bool p_seek, float p_blend, WasGoID p_filter, bool p_optimize);
+float _wasgo_AnimationNode_wrapper_blend_node(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoID p_node, float p_time, bool p_seek, float p_blend, WasGoID p_filter, bool p_optimize);
+void _wasgo_AnimationNode_wrapper_get_caption(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_AnimationNode_wrapper_get_child_by_name(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+WasGoID _wasgo_AnimationNode_wrapper_get_child_nodes(WasGoID wasgo_id);
+int _wasgo_AnimationNode_wrapper_get_input_count(WasGoID wasgo_id);
+void _wasgo_AnimationNode_wrapper_get_input_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_input);
+WasGoID _wasgo_AnimationNode_wrapper_get_parameter(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+WasGoID _wasgo_AnimationNode_wrapper_get_parameter_default_value(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+WasGoID _wasgo_AnimationNode_wrapper_get_parameter_list(WasGoID wasgo_id);
+void _wasgo_AnimationNode_wrapper_has_filter(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_AnimationNode_wrapper_is_filter_enabled(WasGoID wasgo_id);
+int _wasgo_AnimationNode_wrapper_is_path_filtered(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_AnimationNode_wrapper_process(WasGoID wasgo_id, float p_time, bool p_seek);
+void _wasgo_AnimationNode_wrapper_remove_input(WasGoID wasgo_id, int p_index);
+void _wasgo_AnimationNode_wrapper_set_filter_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_AnimationNode_wrapper_set_filter_path(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, bool p_enable);
+void _wasgo_AnimationNode_wrapper_set_parameter(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoID p_value);
 
     //constructor wrappers
-    WasGoId _wasgo_AnimationNode_constructor();
+    WasGoID _wasgo_AnimationNode_constructor();
             
 }
 #endif

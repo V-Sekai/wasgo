@@ -50,7 +50,7 @@ void TextureButton::set_stretch_mode(TextureButton::StretchMode p_p_mode){
 	_wasgo_TextureButton_wrapper_set_stretch_mode(wasgo_id, p_p_mode._get_wasgo_id());
 }
 
-TextureButton::TextureButton(WasGoId p_wasgo_id) : BaseButton(p_wasgo_id){
+TextureButton::TextureButton(WasGoID p_wasgo_id) : BaseButton(p_wasgo_id){
 }
 TextureButton::TextureButton(BaseButton other) : BaseButton(other._get_wasgo_id()){
     wasgo_id = _wasgo_TextureButton_constructor();

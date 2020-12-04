@@ -45,7 +45,7 @@ void PrismMesh::set_subdivide_width(int p_segments){
 	_wasgo_PrismMesh_wrapper_set_subdivide_width(wasgo_id, p_segments);
 }
 
-PrismMesh::PrismMesh(WasGoId p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
+PrismMesh::PrismMesh(WasGoID p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
 }
 PrismMesh::PrismMesh(PrimitiveMesh other) : PrimitiveMesh(other._get_wasgo_id()){
     wasgo_id = _wasgo_PrismMesh_constructor();

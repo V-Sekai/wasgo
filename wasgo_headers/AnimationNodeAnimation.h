@@ -13,7 +13,7 @@ void set_animation(String p_name);
 
 protected:
 public:
-explicit AnimationNodeAnimation(WasGoId p_wasgo_id);
+explicit AnimationNodeAnimation(WasGoID p_wasgo_id);
 explicit AnimationNodeAnimation(AnimationRootNode other);
 AnimationNodeAnimation new_instance();
             
@@ -22,11 +22,11 @@ AnimationNodeAnimation new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_AnimationNodeAnimation_wrapper_get_animation(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_AnimationNodeAnimation_wrapper_set_animation(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_AnimationNodeAnimation_wrapper_get_animation(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_AnimationNodeAnimation_wrapper_set_animation(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_AnimationNodeAnimation_constructor();
+    WasGoID _wasgo_AnimationNodeAnimation_constructor();
             
 }
 #endif

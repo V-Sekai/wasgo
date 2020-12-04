@@ -12,7 +12,7 @@ void set_radius(float p_radius);
 
 protected:
 public:
-explicit SphereShape(WasGoId p_wasgo_id);
+explicit SphereShape(WasGoID p_wasgo_id);
 explicit SphereShape(Shape other);
 SphereShape new_instance();
             
@@ -21,11 +21,11 @@ SphereShape new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_SphereShape_wrapper_get_radius(WasGoId wasgo_id);
-void _wasgo_SphereShape_wrapper_set_radius(WasGoId wasgo_id, float p_radius);
+float _wasgo_SphereShape_wrapper_get_radius(WasGoID wasgo_id);
+void _wasgo_SphereShape_wrapper_set_radius(WasGoID wasgo_id, float p_radius);
 
     //constructor wrappers
-    WasGoId _wasgo_SphereShape_constructor();
+    WasGoID _wasgo_SphereShape_constructor();
             
 }
 #endif

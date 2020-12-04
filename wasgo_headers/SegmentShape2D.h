@@ -15,7 +15,7 @@ void set_b(Vector2 p_b);
 
 protected:
 public:
-explicit SegmentShape2D(WasGoId p_wasgo_id);
+explicit SegmentShape2D(WasGoID p_wasgo_id);
 explicit SegmentShape2D(Shape2D other);
 SegmentShape2D new_instance();
             
@@ -24,13 +24,13 @@ SegmentShape2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_SegmentShape2D_wrapper_get_a(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_SegmentShape2D_wrapper_get_b(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_SegmentShape2D_wrapper_set_a(WasGoId wasgo_id, const uint8_t * p_a, int p_a_wasgo_buffer_size);
-void _wasgo_SegmentShape2D_wrapper_set_b(WasGoId wasgo_id, const uint8_t * p_b, int p_b_wasgo_buffer_size);
+void _wasgo_SegmentShape2D_wrapper_get_a(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_SegmentShape2D_wrapper_get_b(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_SegmentShape2D_wrapper_set_a(WasGoID wasgo_id, const uint8_t * p_a, int p_a_wasgo_buffer_size);
+void _wasgo_SegmentShape2D_wrapper_set_b(WasGoID wasgo_id, const uint8_t * p_b, int p_b_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_SegmentShape2D_constructor();
+    WasGoID _wasgo_SegmentShape2D_constructor();
             
 }
 #endif

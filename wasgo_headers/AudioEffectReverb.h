@@ -26,7 +26,7 @@ void set_wet(float p_amount);
 
 protected:
 public:
-explicit AudioEffectReverb(WasGoId p_wasgo_id);
+explicit AudioEffectReverb(WasGoID p_wasgo_id);
 explicit AudioEffectReverb(AudioEffect other);
 AudioEffectReverb new_instance();
             
@@ -35,25 +35,25 @@ AudioEffectReverb new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_AudioEffectReverb_wrapper_get_damping(WasGoId wasgo_id);
-float _wasgo_AudioEffectReverb_wrapper_get_dry(WasGoId wasgo_id);
-float _wasgo_AudioEffectReverb_wrapper_get_hpf(WasGoId wasgo_id);
-float _wasgo_AudioEffectReverb_wrapper_get_predelay_feedback(WasGoId wasgo_id);
-float _wasgo_AudioEffectReverb_wrapper_get_predelay_msec(WasGoId wasgo_id);
-float _wasgo_AudioEffectReverb_wrapper_get_room_size(WasGoId wasgo_id);
-float _wasgo_AudioEffectReverb_wrapper_get_spread(WasGoId wasgo_id);
-float _wasgo_AudioEffectReverb_wrapper_get_wet(WasGoId wasgo_id);
-void _wasgo_AudioEffectReverb_wrapper_set_damping(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectReverb_wrapper_set_dry(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectReverb_wrapper_set_hpf(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectReverb_wrapper_set_predelay_feedback(WasGoId wasgo_id, float p_feedback);
-void _wasgo_AudioEffectReverb_wrapper_set_predelay_msec(WasGoId wasgo_id, float p_msec);
-void _wasgo_AudioEffectReverb_wrapper_set_room_size(WasGoId wasgo_id, float p_size);
-void _wasgo_AudioEffectReverb_wrapper_set_spread(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectReverb_wrapper_set_wet(WasGoId wasgo_id, float p_amount);
+float _wasgo_AudioEffectReverb_wrapper_get_damping(WasGoID wasgo_id);
+float _wasgo_AudioEffectReverb_wrapper_get_dry(WasGoID wasgo_id);
+float _wasgo_AudioEffectReverb_wrapper_get_hpf(WasGoID wasgo_id);
+float _wasgo_AudioEffectReverb_wrapper_get_predelay_feedback(WasGoID wasgo_id);
+float _wasgo_AudioEffectReverb_wrapper_get_predelay_msec(WasGoID wasgo_id);
+float _wasgo_AudioEffectReverb_wrapper_get_room_size(WasGoID wasgo_id);
+float _wasgo_AudioEffectReverb_wrapper_get_spread(WasGoID wasgo_id);
+float _wasgo_AudioEffectReverb_wrapper_get_wet(WasGoID wasgo_id);
+void _wasgo_AudioEffectReverb_wrapper_set_damping(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectReverb_wrapper_set_dry(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectReverb_wrapper_set_hpf(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectReverb_wrapper_set_predelay_feedback(WasGoID wasgo_id, float p_feedback);
+void _wasgo_AudioEffectReverb_wrapper_set_predelay_msec(WasGoID wasgo_id, float p_msec);
+void _wasgo_AudioEffectReverb_wrapper_set_room_size(WasGoID wasgo_id, float p_size);
+void _wasgo_AudioEffectReverb_wrapper_set_spread(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectReverb_wrapper_set_wet(WasGoID wasgo_id, float p_amount);
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectReverb_constructor();
+    WasGoID _wasgo_AudioEffectReverb_constructor();
             
 }
 #endif

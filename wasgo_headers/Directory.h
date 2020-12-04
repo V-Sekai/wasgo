@@ -30,7 +30,7 @@ Error rename(String p_from, String p_to);
 
 protected:
 public:
-explicit Directory(WasGoId p_wasgo_id);
+explicit Directory(WasGoID p_wasgo_id);
 explicit Directory(Reference other);
 Directory new_instance();
             
@@ -39,27 +39,27 @@ Directory new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Directory_wrapper_change_dir(WasGoId wasgo_id, const uint8_t * p_todir, int p_todir_wasgo_buffer_size);
-WasGoId _wasgo_Directory_wrapper_copy(WasGoId wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
-int _wasgo_Directory_wrapper_current_is_dir(WasGoId wasgo_id);
-int _wasgo_Directory_wrapper_dir_exists(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-int _wasgo_Directory_wrapper_file_exists(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-void _wasgo_Directory_wrapper_get_current_dir(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Directory_wrapper_get_current_drive(WasGoId wasgo_id);
-void _wasgo_Directory_wrapper_get_drive(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-int _wasgo_Directory_wrapper_get_drive_count(WasGoId wasgo_id);
-void _wasgo_Directory_wrapper_get_next(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Directory_wrapper_get_space_left(WasGoId wasgo_id);
-WasGoId _wasgo_Directory_wrapper_list_dir_begin(WasGoId wasgo_id, bool p_skip_navigational, bool p_skip_hidden);
-void _wasgo_Directory_wrapper_list_dir_end(WasGoId wasgo_id);
-WasGoId _wasgo_Directory_wrapper_make_dir(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_Directory_wrapper_make_dir_recursive(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_Directory_wrapper_open(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_Directory_wrapper_remove(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_Directory_wrapper_rename(WasGoId wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
+WasGoID _wasgo_Directory_wrapper_change_dir(WasGoID wasgo_id, const uint8_t * p_todir, int p_todir_wasgo_buffer_size);
+WasGoID _wasgo_Directory_wrapper_copy(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
+int _wasgo_Directory_wrapper_current_is_dir(WasGoID wasgo_id);
+int _wasgo_Directory_wrapper_dir_exists(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+int _wasgo_Directory_wrapper_file_exists(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_Directory_wrapper_get_current_dir(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Directory_wrapper_get_current_drive(WasGoID wasgo_id);
+void _wasgo_Directory_wrapper_get_drive(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+int _wasgo_Directory_wrapper_get_drive_count(WasGoID wasgo_id);
+void _wasgo_Directory_wrapper_get_next(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Directory_wrapper_get_space_left(WasGoID wasgo_id);
+WasGoID _wasgo_Directory_wrapper_list_dir_begin(WasGoID wasgo_id, bool p_skip_navigational, bool p_skip_hidden);
+void _wasgo_Directory_wrapper_list_dir_end(WasGoID wasgo_id);
+WasGoID _wasgo_Directory_wrapper_make_dir(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_Directory_wrapper_make_dir_recursive(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_Directory_wrapper_open(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_Directory_wrapper_remove(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_Directory_wrapper_rename(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_Directory_constructor();
+    WasGoID _wasgo_Directory_constructor();
             
 }
 #endif

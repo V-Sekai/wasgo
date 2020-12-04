@@ -48,7 +48,7 @@ void AnimatedSprite3D::stop(){
 	_wasgo_AnimatedSprite3D_wrapper_stop(wasgo_id);
 }
 
-AnimatedSprite3D::AnimatedSprite3D(WasGoId p_wasgo_id) : SpriteBase3D(p_wasgo_id){
+AnimatedSprite3D::AnimatedSprite3D(WasGoID p_wasgo_id) : SpriteBase3D(p_wasgo_id){
 }
 AnimatedSprite3D::AnimatedSprite3D(SpriteBase3D other) : SpriteBase3D(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimatedSprite3D_constructor();

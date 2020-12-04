@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "CameraServer.h"
 #include "Texture.h"
+#include "CameraServer.h"
 class CameraTexture : public Texture{
 public:
 bool get_camera_active();
@@ -17,7 +17,7 @@ void set_which_feed(CameraServer::FeedImage p_which_feed);
 
 protected:
 public:
-explicit CameraTexture(WasGoId p_wasgo_id);
+explicit CameraTexture(WasGoID p_wasgo_id);
 explicit CameraTexture(Texture other);
 CameraTexture new_instance();
             
@@ -26,15 +26,15 @@ CameraTexture new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_CameraTexture_wrapper_get_camera_active(WasGoId wasgo_id);
-int _wasgo_CameraTexture_wrapper_get_camera_feed_id(WasGoId wasgo_id);
-WasGoId _wasgo_CameraTexture_wrapper_get_which_feed(WasGoId wasgo_id);
-void _wasgo_CameraTexture_wrapper_set_camera_active(WasGoId wasgo_id, bool p_active);
-void _wasgo_CameraTexture_wrapper_set_camera_feed_id(WasGoId wasgo_id, int p_feed_id);
-void _wasgo_CameraTexture_wrapper_set_which_feed(WasGoId wasgo_id, WasGoId p_which_feed);
+int _wasgo_CameraTexture_wrapper_get_camera_active(WasGoID wasgo_id);
+int _wasgo_CameraTexture_wrapper_get_camera_feed_id(WasGoID wasgo_id);
+WasGoID _wasgo_CameraTexture_wrapper_get_which_feed(WasGoID wasgo_id);
+void _wasgo_CameraTexture_wrapper_set_camera_active(WasGoID wasgo_id, bool p_active);
+void _wasgo_CameraTexture_wrapper_set_camera_feed_id(WasGoID wasgo_id, int p_feed_id);
+void _wasgo_CameraTexture_wrapper_set_which_feed(WasGoID wasgo_id, WasGoID p_which_feed);
 
     //constructor wrappers
-    WasGoId _wasgo_CameraTexture_constructor();
+    WasGoID _wasgo_CameraTexture_constructor();
             
 }
 #endif

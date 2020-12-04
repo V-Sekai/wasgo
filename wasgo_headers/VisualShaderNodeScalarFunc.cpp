@@ -8,7 +8,7 @@ void VisualShaderNodeScalarFunc::set_function(VisualShaderNodeScalarFunc::Functi
 	_wasgo_VisualShaderNodeScalarFunc_wrapper_set_function(wasgo_id, p_func._get_wasgo_id());
 }
 
-VisualShaderNodeScalarFunc::VisualShaderNodeScalarFunc(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeScalarFunc::VisualShaderNodeScalarFunc(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeScalarFunc::VisualShaderNodeScalarFunc(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeScalarFunc_constructor();

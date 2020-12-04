@@ -13,7 +13,7 @@ bool unreference();
 
 protected:
 public:
-explicit Reference(WasGoId p_wasgo_id);
+explicit Reference(WasGoID p_wasgo_id);
 explicit Reference(Object other);
 Reference new_instance();
             
@@ -22,12 +22,12 @@ Reference new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_Reference_wrapper_init_ref(WasGoId wasgo_id);
-int _wasgo_Reference_wrapper_reference(WasGoId wasgo_id);
-int _wasgo_Reference_wrapper_unreference(WasGoId wasgo_id);
+int _wasgo_Reference_wrapper_init_ref(WasGoID wasgo_id);
+int _wasgo_Reference_wrapper_reference(WasGoID wasgo_id);
+int _wasgo_Reference_wrapper_unreference(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_Reference_constructor();
+    WasGoID _wasgo_Reference_constructor();
             
 }
 #endif

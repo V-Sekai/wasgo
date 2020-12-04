@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit HSeparator(WasGoId p_wasgo_id);
+explicit HSeparator(WasGoID p_wasgo_id);
 explicit HSeparator(Separator other);
 HSeparator new_instance();
             
@@ -21,7 +21,7 @@ HSeparator new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_HSeparator_constructor();
+    WasGoID _wasgo_HSeparator_constructor();
             
 }
 #endif

@@ -20,7 +20,7 @@ void set_param(ConeTwistJoint::Param p_param, float p_value);
 
 protected:
 public:
-explicit ConeTwistJoint(WasGoId p_wasgo_id);
+explicit ConeTwistJoint(WasGoID p_wasgo_id);
 explicit ConeTwistJoint(Joint other);
 ConeTwistJoint new_instance();
             
@@ -29,11 +29,11 @@ ConeTwistJoint new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_ConeTwistJoint_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
-void _wasgo_ConeTwistJoint_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
+float _wasgo_ConeTwistJoint_wrapper_get_param(WasGoID wasgo_id, WasGoID p_param);
+void _wasgo_ConeTwistJoint_wrapper_set_param(WasGoID wasgo_id, WasGoID p_param, float p_value);
 
     //constructor wrappers
-    WasGoId _wasgo_ConeTwistJoint_constructor();
+    WasGoID _wasgo_ConeTwistJoint_constructor();
             
 }
 #endif

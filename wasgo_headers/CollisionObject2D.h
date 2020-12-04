@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Transform2D.h"
-#include "Object.h"
 #include "Shape2D.h"
-#include "Node2D.h"
-#include "RID.h"
+#include "Object.h"
 #include "Variant.h"
+#include "Transform2D.h"
+#include "RID.h"
+#include "Node2D.h"
 class CollisionObject2D : public Node2D{
 public:
 int create_shape_owner(Object p_owner);
@@ -39,31 +39,31 @@ void shape_owner_set_transform(int p_owner_id, Transform2D p_transform);
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_CollisionObject2D_wrapper_create_shape_owner(WasGoId wasgo_id, WasGoId p_owner);
-void _wasgo_CollisionObject2D_wrapper_get_rid(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_CollisionObject2D_wrapper_get_shape_owner_one_way_collision_margin(WasGoId wasgo_id, int p_owner_id);
-WasGoId _wasgo_CollisionObject2D_wrapper_get_shape_owners(WasGoId wasgo_id);
-int _wasgo_CollisionObject2D_wrapper_is_pickable(WasGoId wasgo_id);
-int _wasgo_CollisionObject2D_wrapper_is_shape_owner_disabled(WasGoId wasgo_id, int p_owner_id);
-int _wasgo_CollisionObject2D_wrapper_is_shape_owner_one_way_collision_enabled(WasGoId wasgo_id, int p_owner_id);
-void _wasgo_CollisionObject2D_wrapper_remove_shape_owner(WasGoId wasgo_id, int p_owner_id);
-void _wasgo_CollisionObject2D_wrapper_set_pickable(WasGoId wasgo_id, bool p_enabled);
-int _wasgo_CollisionObject2D_wrapper_shape_find_owner(WasGoId wasgo_id, int p_shape_index);
-void _wasgo_CollisionObject2D_wrapper_shape_owner_add_shape(WasGoId wasgo_id, int p_owner_id, WasGoId p_shape);
-void _wasgo_CollisionObject2D_wrapper_shape_owner_clear_shapes(WasGoId wasgo_id, int p_owner_id);
-WasGoId _wasgo_CollisionObject2D_wrapper_shape_owner_get_owner(WasGoId wasgo_id, int p_owner_id);
-WasGoId _wasgo_CollisionObject2D_wrapper_shape_owner_get_shape(WasGoId wasgo_id, int p_owner_id, int p_shape_id);
-int _wasgo_CollisionObject2D_wrapper_shape_owner_get_shape_count(WasGoId wasgo_id, int p_owner_id);
-int _wasgo_CollisionObject2D_wrapper_shape_owner_get_shape_index(WasGoId wasgo_id, int p_owner_id, int p_shape_id);
-void _wasgo_CollisionObject2D_wrapper_shape_owner_get_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_owner_id);
-void _wasgo_CollisionObject2D_wrapper_shape_owner_remove_shape(WasGoId wasgo_id, int p_owner_id, int p_shape_id);
-void _wasgo_CollisionObject2D_wrapper_shape_owner_set_disabled(WasGoId wasgo_id, int p_owner_id, bool p_disabled);
-void _wasgo_CollisionObject2D_wrapper_shape_owner_set_one_way_collision(WasGoId wasgo_id, int p_owner_id, bool p_enable);
-void _wasgo_CollisionObject2D_wrapper_shape_owner_set_one_way_collision_margin(WasGoId wasgo_id, int p_owner_id, float p_margin);
-void _wasgo_CollisionObject2D_wrapper_shape_owner_set_transform(WasGoId wasgo_id, int p_owner_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
+int _wasgo_CollisionObject2D_wrapper_create_shape_owner(WasGoID wasgo_id, WasGoID p_owner);
+void _wasgo_CollisionObject2D_wrapper_get_rid(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_CollisionObject2D_wrapper_get_shape_owner_one_way_collision_margin(WasGoID wasgo_id, int p_owner_id);
+WasGoID _wasgo_CollisionObject2D_wrapper_get_shape_owners(WasGoID wasgo_id);
+int _wasgo_CollisionObject2D_wrapper_is_pickable(WasGoID wasgo_id);
+int _wasgo_CollisionObject2D_wrapper_is_shape_owner_disabled(WasGoID wasgo_id, int p_owner_id);
+int _wasgo_CollisionObject2D_wrapper_is_shape_owner_one_way_collision_enabled(WasGoID wasgo_id, int p_owner_id);
+void _wasgo_CollisionObject2D_wrapper_remove_shape_owner(WasGoID wasgo_id, int p_owner_id);
+void _wasgo_CollisionObject2D_wrapper_set_pickable(WasGoID wasgo_id, bool p_enabled);
+int _wasgo_CollisionObject2D_wrapper_shape_find_owner(WasGoID wasgo_id, int p_shape_index);
+void _wasgo_CollisionObject2D_wrapper_shape_owner_add_shape(WasGoID wasgo_id, int p_owner_id, WasGoID p_shape);
+void _wasgo_CollisionObject2D_wrapper_shape_owner_clear_shapes(WasGoID wasgo_id, int p_owner_id);
+WasGoID _wasgo_CollisionObject2D_wrapper_shape_owner_get_owner(WasGoID wasgo_id, int p_owner_id);
+WasGoID _wasgo_CollisionObject2D_wrapper_shape_owner_get_shape(WasGoID wasgo_id, int p_owner_id, int p_shape_id);
+int _wasgo_CollisionObject2D_wrapper_shape_owner_get_shape_count(WasGoID wasgo_id, int p_owner_id);
+int _wasgo_CollisionObject2D_wrapper_shape_owner_get_shape_index(WasGoID wasgo_id, int p_owner_id, int p_shape_id);
+void _wasgo_CollisionObject2D_wrapper_shape_owner_get_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_owner_id);
+void _wasgo_CollisionObject2D_wrapper_shape_owner_remove_shape(WasGoID wasgo_id, int p_owner_id, int p_shape_id);
+void _wasgo_CollisionObject2D_wrapper_shape_owner_set_disabled(WasGoID wasgo_id, int p_owner_id, bool p_disabled);
+void _wasgo_CollisionObject2D_wrapper_shape_owner_set_one_way_collision(WasGoID wasgo_id, int p_owner_id, bool p_enable);
+void _wasgo_CollisionObject2D_wrapper_shape_owner_set_one_way_collision_margin(WasGoID wasgo_id, int p_owner_id, float p_margin);
+void _wasgo_CollisionObject2D_wrapper_shape_owner_set_transform(WasGoID wasgo_id, int p_owner_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_CollisionObject2D_constructor();
+    WasGoID _wasgo_CollisionObject2D_constructor();
             
 }
 #endif

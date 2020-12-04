@@ -15,7 +15,7 @@ void set_occluder_polygon(OccluderPolygon2D p_polygon);
 
 protected:
 public:
-explicit LightOccluder2D(WasGoId p_wasgo_id);
+explicit LightOccluder2D(WasGoID p_wasgo_id);
 explicit LightOccluder2D(Node2D other);
 LightOccluder2D new_instance();
             
@@ -24,13 +24,13 @@ LightOccluder2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_LightOccluder2D_wrapper_get_occluder_light_mask(WasGoId wasgo_id);
-WasGoId _wasgo_LightOccluder2D_wrapper_get_occluder_polygon(WasGoId wasgo_id);
-void _wasgo_LightOccluder2D_wrapper_set_occluder_light_mask(WasGoId wasgo_id, int p_mask);
-void _wasgo_LightOccluder2D_wrapper_set_occluder_polygon(WasGoId wasgo_id, WasGoId p_polygon);
+int _wasgo_LightOccluder2D_wrapper_get_occluder_light_mask(WasGoID wasgo_id);
+WasGoID _wasgo_LightOccluder2D_wrapper_get_occluder_polygon(WasGoID wasgo_id);
+void _wasgo_LightOccluder2D_wrapper_set_occluder_light_mask(WasGoID wasgo_id, int p_mask);
+void _wasgo_LightOccluder2D_wrapper_set_occluder_polygon(WasGoID wasgo_id, WasGoID p_polygon);
 
     //constructor wrappers
-    WasGoId _wasgo_LightOccluder2D_constructor();
+    WasGoID _wasgo_LightOccluder2D_constructor();
             
 }
 #endif

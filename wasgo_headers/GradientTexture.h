@@ -14,7 +14,7 @@ void set_width(int p_width);
 
 protected:
 public:
-explicit GradientTexture(WasGoId p_wasgo_id);
+explicit GradientTexture(WasGoID p_wasgo_id);
 explicit GradientTexture(Texture other);
 GradientTexture new_instance();
             
@@ -23,12 +23,12 @@ GradientTexture new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_GradientTexture_wrapper_get_gradient(WasGoId wasgo_id);
-void _wasgo_GradientTexture_wrapper_set_gradient(WasGoId wasgo_id, WasGoId p_gradient);
-void _wasgo_GradientTexture_wrapper_set_width(WasGoId wasgo_id, int p_width);
+WasGoID _wasgo_GradientTexture_wrapper_get_gradient(WasGoID wasgo_id);
+void _wasgo_GradientTexture_wrapper_set_gradient(WasGoID wasgo_id, WasGoID p_gradient);
+void _wasgo_GradientTexture_wrapper_set_width(WasGoID wasgo_id, int p_width);
 
     //constructor wrappers
-    WasGoId _wasgo_GradientTexture_constructor();
+    WasGoID _wasgo_GradientTexture_constructor();
             
 }
 #endif

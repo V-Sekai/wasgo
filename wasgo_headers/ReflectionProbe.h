@@ -40,7 +40,7 @@ void set_update_mode(ReflectionProbe::UpdateMode p_mode);
 
 protected:
 public:
-explicit ReflectionProbe(WasGoId p_wasgo_id);
+explicit ReflectionProbe(WasGoID p_wasgo_id);
 explicit ReflectionProbe(VisualInstance other);
 ReflectionProbe new_instance();
             
@@ -49,33 +49,33 @@ ReflectionProbe new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_ReflectionProbe_wrapper_are_shadows_enabled(WasGoId wasgo_id);
-int _wasgo_ReflectionProbe_wrapper_get_cull_mask(WasGoId wasgo_id);
-void _wasgo_ReflectionProbe_wrapper_get_extents(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_ReflectionProbe_wrapper_get_intensity(WasGoId wasgo_id);
-void _wasgo_ReflectionProbe_wrapper_get_interior_ambient(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_ReflectionProbe_wrapper_get_interior_ambient_energy(WasGoId wasgo_id);
-float _wasgo_ReflectionProbe_wrapper_get_interior_ambient_probe_contribution(WasGoId wasgo_id);
-float _wasgo_ReflectionProbe_wrapper_get_max_distance(WasGoId wasgo_id);
-void _wasgo_ReflectionProbe_wrapper_get_origin_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_ReflectionProbe_wrapper_get_update_mode(WasGoId wasgo_id);
-int _wasgo_ReflectionProbe_wrapper_is_box_projection_enabled(WasGoId wasgo_id);
-int _wasgo_ReflectionProbe_wrapper_is_set_as_interior(WasGoId wasgo_id);
-void _wasgo_ReflectionProbe_wrapper_set_as_interior(WasGoId wasgo_id, bool p_enable);
-void _wasgo_ReflectionProbe_wrapper_set_cull_mask(WasGoId wasgo_id, int p_layers);
-void _wasgo_ReflectionProbe_wrapper_set_enable_box_projection(WasGoId wasgo_id, bool p_enable);
-void _wasgo_ReflectionProbe_wrapper_set_enable_shadows(WasGoId wasgo_id, bool p_enable);
-void _wasgo_ReflectionProbe_wrapper_set_extents(WasGoId wasgo_id, const uint8_t * p_extents, int p_extents_wasgo_buffer_size);
-void _wasgo_ReflectionProbe_wrapper_set_intensity(WasGoId wasgo_id, float p_intensity);
-void _wasgo_ReflectionProbe_wrapper_set_interior_ambient(WasGoId wasgo_id, const uint8_t * p_ambient, int p_ambient_wasgo_buffer_size);
-void _wasgo_ReflectionProbe_wrapper_set_interior_ambient_energy(WasGoId wasgo_id, float p_ambient_energy);
-void _wasgo_ReflectionProbe_wrapper_set_interior_ambient_probe_contribution(WasGoId wasgo_id, float p_ambient_probe_contribution);
-void _wasgo_ReflectionProbe_wrapper_set_max_distance(WasGoId wasgo_id, float p_max_distance);
-void _wasgo_ReflectionProbe_wrapper_set_origin_offset(WasGoId wasgo_id, const uint8_t * p_origin_offset, int p_origin_offset_wasgo_buffer_size);
-void _wasgo_ReflectionProbe_wrapper_set_update_mode(WasGoId wasgo_id, WasGoId p_mode);
+int _wasgo_ReflectionProbe_wrapper_are_shadows_enabled(WasGoID wasgo_id);
+int _wasgo_ReflectionProbe_wrapper_get_cull_mask(WasGoID wasgo_id);
+void _wasgo_ReflectionProbe_wrapper_get_extents(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_ReflectionProbe_wrapper_get_intensity(WasGoID wasgo_id);
+void _wasgo_ReflectionProbe_wrapper_get_interior_ambient(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_ReflectionProbe_wrapper_get_interior_ambient_energy(WasGoID wasgo_id);
+float _wasgo_ReflectionProbe_wrapper_get_interior_ambient_probe_contribution(WasGoID wasgo_id);
+float _wasgo_ReflectionProbe_wrapper_get_max_distance(WasGoID wasgo_id);
+void _wasgo_ReflectionProbe_wrapper_get_origin_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_ReflectionProbe_wrapper_get_update_mode(WasGoID wasgo_id);
+int _wasgo_ReflectionProbe_wrapper_is_box_projection_enabled(WasGoID wasgo_id);
+int _wasgo_ReflectionProbe_wrapper_is_set_as_interior(WasGoID wasgo_id);
+void _wasgo_ReflectionProbe_wrapper_set_as_interior(WasGoID wasgo_id, bool p_enable);
+void _wasgo_ReflectionProbe_wrapper_set_cull_mask(WasGoID wasgo_id, int p_layers);
+void _wasgo_ReflectionProbe_wrapper_set_enable_box_projection(WasGoID wasgo_id, bool p_enable);
+void _wasgo_ReflectionProbe_wrapper_set_enable_shadows(WasGoID wasgo_id, bool p_enable);
+void _wasgo_ReflectionProbe_wrapper_set_extents(WasGoID wasgo_id, const uint8_t * p_extents, int p_extents_wasgo_buffer_size);
+void _wasgo_ReflectionProbe_wrapper_set_intensity(WasGoID wasgo_id, float p_intensity);
+void _wasgo_ReflectionProbe_wrapper_set_interior_ambient(WasGoID wasgo_id, const uint8_t * p_ambient, int p_ambient_wasgo_buffer_size);
+void _wasgo_ReflectionProbe_wrapper_set_interior_ambient_energy(WasGoID wasgo_id, float p_ambient_energy);
+void _wasgo_ReflectionProbe_wrapper_set_interior_ambient_probe_contribution(WasGoID wasgo_id, float p_ambient_probe_contribution);
+void _wasgo_ReflectionProbe_wrapper_set_max_distance(WasGoID wasgo_id, float p_max_distance);
+void _wasgo_ReflectionProbe_wrapper_set_origin_offset(WasGoID wasgo_id, const uint8_t * p_origin_offset, int p_origin_offset_wasgo_buffer_size);
+void _wasgo_ReflectionProbe_wrapper_set_update_mode(WasGoID wasgo_id, WasGoID p_mode);
 
     //constructor wrappers
-    WasGoId _wasgo_ReflectionProbe_constructor();
+    WasGoID _wasgo_ReflectionProbe_constructor();
             
 }
 #endif

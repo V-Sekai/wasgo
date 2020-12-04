@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit CheckButton(WasGoId p_wasgo_id);
+explicit CheckButton(WasGoID p_wasgo_id);
 explicit CheckButton(Button other);
 CheckButton new_instance();
             
@@ -21,7 +21,7 @@ CheckButton new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_CheckButton_constructor();
+    WasGoID _wasgo_CheckButton_constructor();
             
 }
 #endif

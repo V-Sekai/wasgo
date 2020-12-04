@@ -17,7 +17,7 @@ void set_function(VisualShaderNodeVectorDerivativeFunc::Function p_func);
 
 protected:
 public:
-explicit VisualShaderNodeVectorDerivativeFunc(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorDerivativeFunc(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorDerivativeFunc(VisualShaderNode other);
 VisualShaderNodeVectorDerivativeFunc new_instance();
             
@@ -26,11 +26,11 @@ VisualShaderNodeVectorDerivativeFunc new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_VisualShaderNodeVectorDerivativeFunc_wrapper_get_function(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeVectorDerivativeFunc_wrapper_set_function(WasGoId wasgo_id, WasGoId p_func);
+WasGoID _wasgo_VisualShaderNodeVectorDerivativeFunc_wrapper_get_function(WasGoID wasgo_id);
+void _wasgo_VisualShaderNodeVectorDerivativeFunc_wrapper_set_function(WasGoID wasgo_id, WasGoID p_func);
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeVectorDerivativeFunc_constructor();
+    WasGoID _wasgo_VisualShaderNodeVectorDerivativeFunc_constructor();
             
 }
 #endif

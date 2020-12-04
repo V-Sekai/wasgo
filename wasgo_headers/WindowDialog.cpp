@@ -30,7 +30,7 @@ void WindowDialog::set_title(String p_title){
 	_wasgo_WindowDialog_wrapper_set_title(wasgo_id, wasgo_buffer_title, wasgo_size_title);
 }
 
-WindowDialog::WindowDialog(WasGoId p_wasgo_id) : Popup(p_wasgo_id){
+WindowDialog::WindowDialog(WasGoID p_wasgo_id) : Popup(p_wasgo_id){
 }
 WindowDialog::WindowDialog(Popup other) : Popup(other._get_wasgo_id()){
     wasgo_id = _wasgo_WindowDialog_constructor();

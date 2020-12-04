@@ -227,7 +227,7 @@ void SceneTree::set_use_font_oversampling(bool p_enable){
 	_wasgo_SceneTree_wrapper_set_use_font_oversampling(wasgo_id, p_enable);
 }
 
-SceneTree::SceneTree(WasGoId p_wasgo_id) : MainLoop(p_wasgo_id){
+SceneTree::SceneTree(WasGoID p_wasgo_id) : MainLoop(p_wasgo_id){
 }
 SceneTree::SceneTree(MainLoop other) : MainLoop(other._get_wasgo_id()){
     wasgo_id = _wasgo_SceneTree_constructor();

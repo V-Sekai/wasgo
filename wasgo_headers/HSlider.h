@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit HSlider(WasGoId p_wasgo_id);
+explicit HSlider(WasGoID p_wasgo_id);
 explicit HSlider(Slider other);
 HSlider new_instance();
             
@@ -21,7 +21,7 @@ HSlider new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_HSlider_constructor();
+    WasGoID _wasgo_HSlider_constructor();
             
 }
 #endif

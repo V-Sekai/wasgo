@@ -18,7 +18,7 @@ void set_threshold_db(float p_threshold);
 
 protected:
 public:
-explicit AudioEffectLimiter(WasGoId p_wasgo_id);
+explicit AudioEffectLimiter(WasGoID p_wasgo_id);
 explicit AudioEffectLimiter(AudioEffect other);
 AudioEffectLimiter new_instance();
             
@@ -27,17 +27,17 @@ AudioEffectLimiter new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_AudioEffectLimiter_wrapper_get_ceiling_db(WasGoId wasgo_id);
-float _wasgo_AudioEffectLimiter_wrapper_get_soft_clip_db(WasGoId wasgo_id);
-float _wasgo_AudioEffectLimiter_wrapper_get_soft_clip_ratio(WasGoId wasgo_id);
-float _wasgo_AudioEffectLimiter_wrapper_get_threshold_db(WasGoId wasgo_id);
-void _wasgo_AudioEffectLimiter_wrapper_set_ceiling_db(WasGoId wasgo_id, float p_ceiling);
-void _wasgo_AudioEffectLimiter_wrapper_set_soft_clip_db(WasGoId wasgo_id, float p_soft_clip);
-void _wasgo_AudioEffectLimiter_wrapper_set_soft_clip_ratio(WasGoId wasgo_id, float p_soft_clip);
-void _wasgo_AudioEffectLimiter_wrapper_set_threshold_db(WasGoId wasgo_id, float p_threshold);
+float _wasgo_AudioEffectLimiter_wrapper_get_ceiling_db(WasGoID wasgo_id);
+float _wasgo_AudioEffectLimiter_wrapper_get_soft_clip_db(WasGoID wasgo_id);
+float _wasgo_AudioEffectLimiter_wrapper_get_soft_clip_ratio(WasGoID wasgo_id);
+float _wasgo_AudioEffectLimiter_wrapper_get_threshold_db(WasGoID wasgo_id);
+void _wasgo_AudioEffectLimiter_wrapper_set_ceiling_db(WasGoID wasgo_id, float p_ceiling);
+void _wasgo_AudioEffectLimiter_wrapper_set_soft_clip_db(WasGoID wasgo_id, float p_soft_clip);
+void _wasgo_AudioEffectLimiter_wrapper_set_soft_clip_ratio(WasGoID wasgo_id, float p_soft_clip);
+void _wasgo_AudioEffectLimiter_wrapper_set_threshold_db(WasGoID wasgo_id, float p_threshold);
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectLimiter_constructor();
+    WasGoID _wasgo_AudioEffectLimiter_constructor();
             
 }
 #endif

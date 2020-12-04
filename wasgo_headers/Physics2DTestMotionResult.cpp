@@ -71,7 +71,7 @@ Vector2 Physics2DTestMotionResult::get_motion_remainder(){
     
 }
 
-Physics2DTestMotionResult::Physics2DTestMotionResult(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+Physics2DTestMotionResult::Physics2DTestMotionResult(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Physics2DTestMotionResult::Physics2DTestMotionResult(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Physics2DTestMotionResult_constructor();

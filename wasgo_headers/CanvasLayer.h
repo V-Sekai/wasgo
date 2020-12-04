@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
 #include "Transform2D.h"
-#include "RID.h"
+#include "Node.h"
 #include "Vector2.h"
+#include "RID.h"
 class CanvasLayer : public Node{
 public:
 RID get_canvas();
@@ -32,7 +32,7 @@ void set_transform(Transform2D p_transform);
 
 protected:
 public:
-explicit CanvasLayer(WasGoId p_wasgo_id);
+explicit CanvasLayer(WasGoID p_wasgo_id);
 explicit CanvasLayer(Node other);
 CanvasLayer new_instance();
             
@@ -41,28 +41,28 @@ CanvasLayer new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_CanvasLayer_wrapper_get_canvas(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_CanvasLayer_wrapper_get_custom_viewport(WasGoId wasgo_id);
-float _wasgo_CanvasLayer_wrapper_get_follow_viewport_scale(WasGoId wasgo_id);
-int _wasgo_CanvasLayer_wrapper_get_layer(WasGoId wasgo_id);
-void _wasgo_CanvasLayer_wrapper_get_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_CanvasLayer_wrapper_get_rotation(WasGoId wasgo_id);
-float _wasgo_CanvasLayer_wrapper_get_rotation_degrees(WasGoId wasgo_id);
-void _wasgo_CanvasLayer_wrapper_get_scale(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_CanvasLayer_wrapper_get_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_CanvasLayer_wrapper_is_following_viewport(WasGoId wasgo_id);
-void _wasgo_CanvasLayer_wrapper_set_custom_viewport(WasGoId wasgo_id, WasGoId p_viewport);
-void _wasgo_CanvasLayer_wrapper_set_follow_viewport(WasGoId wasgo_id, bool p_enable);
-void _wasgo_CanvasLayer_wrapper_set_follow_viewport_scale(WasGoId wasgo_id, float p_scale);
-void _wasgo_CanvasLayer_wrapper_set_layer(WasGoId wasgo_id, int p_layer);
-void _wasgo_CanvasLayer_wrapper_set_offset(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
-void _wasgo_CanvasLayer_wrapper_set_rotation(WasGoId wasgo_id, float p_radians);
-void _wasgo_CanvasLayer_wrapper_set_rotation_degrees(WasGoId wasgo_id, float p_degrees);
-void _wasgo_CanvasLayer_wrapper_set_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
-void _wasgo_CanvasLayer_wrapper_set_transform(WasGoId wasgo_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
+void _wasgo_CanvasLayer_wrapper_get_canvas(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_CanvasLayer_wrapper_get_custom_viewport(WasGoID wasgo_id);
+float _wasgo_CanvasLayer_wrapper_get_follow_viewport_scale(WasGoID wasgo_id);
+int _wasgo_CanvasLayer_wrapper_get_layer(WasGoID wasgo_id);
+void _wasgo_CanvasLayer_wrapper_get_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_CanvasLayer_wrapper_get_rotation(WasGoID wasgo_id);
+float _wasgo_CanvasLayer_wrapper_get_rotation_degrees(WasGoID wasgo_id);
+void _wasgo_CanvasLayer_wrapper_get_scale(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_CanvasLayer_wrapper_get_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_CanvasLayer_wrapper_is_following_viewport(WasGoID wasgo_id);
+void _wasgo_CanvasLayer_wrapper_set_custom_viewport(WasGoID wasgo_id, WasGoID p_viewport);
+void _wasgo_CanvasLayer_wrapper_set_follow_viewport(WasGoID wasgo_id, bool p_enable);
+void _wasgo_CanvasLayer_wrapper_set_follow_viewport_scale(WasGoID wasgo_id, float p_scale);
+void _wasgo_CanvasLayer_wrapper_set_layer(WasGoID wasgo_id, int p_layer);
+void _wasgo_CanvasLayer_wrapper_set_offset(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
+void _wasgo_CanvasLayer_wrapper_set_rotation(WasGoID wasgo_id, float p_radians);
+void _wasgo_CanvasLayer_wrapper_set_rotation_degrees(WasGoID wasgo_id, float p_degrees);
+void _wasgo_CanvasLayer_wrapper_set_scale(WasGoID wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
+void _wasgo_CanvasLayer_wrapper_set_transform(WasGoID wasgo_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_CanvasLayer_constructor();
+    WasGoID _wasgo_CanvasLayer_constructor();
             
 }
 #endif

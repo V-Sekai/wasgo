@@ -58,7 +58,7 @@ void set_precision(int p_precision);
 
 protected:
 public:
-explicit Generic6DOFJoint(WasGoId p_wasgo_id);
+explicit Generic6DOFJoint(WasGoID p_wasgo_id);
 explicit Generic6DOFJoint(Joint other);
 Generic6DOFJoint new_instance();
             
@@ -67,23 +67,23 @@ Generic6DOFJoint new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_Generic6DOFJoint_wrapper_get_flag_x(WasGoId wasgo_id, WasGoId p_flag);
-int _wasgo_Generic6DOFJoint_wrapper_get_flag_y(WasGoId wasgo_id, WasGoId p_flag);
-int _wasgo_Generic6DOFJoint_wrapper_get_flag_z(WasGoId wasgo_id, WasGoId p_flag);
-float _wasgo_Generic6DOFJoint_wrapper_get_param_x(WasGoId wasgo_id, WasGoId p_param);
-float _wasgo_Generic6DOFJoint_wrapper_get_param_y(WasGoId wasgo_id, WasGoId p_param);
-float _wasgo_Generic6DOFJoint_wrapper_get_param_z(WasGoId wasgo_id, WasGoId p_param);
-int _wasgo_Generic6DOFJoint_wrapper_get_precision(WasGoId wasgo_id);
-void _wasgo_Generic6DOFJoint_wrapper_set_flag_x(WasGoId wasgo_id, WasGoId p_flag, bool p_value);
-void _wasgo_Generic6DOFJoint_wrapper_set_flag_y(WasGoId wasgo_id, WasGoId p_flag, bool p_value);
-void _wasgo_Generic6DOFJoint_wrapper_set_flag_z(WasGoId wasgo_id, WasGoId p_flag, bool p_value);
-void _wasgo_Generic6DOFJoint_wrapper_set_param_x(WasGoId wasgo_id, WasGoId p_param, float p_value);
-void _wasgo_Generic6DOFJoint_wrapper_set_param_y(WasGoId wasgo_id, WasGoId p_param, float p_value);
-void _wasgo_Generic6DOFJoint_wrapper_set_param_z(WasGoId wasgo_id, WasGoId p_param, float p_value);
-void _wasgo_Generic6DOFJoint_wrapper_set_precision(WasGoId wasgo_id, int p_precision);
+int _wasgo_Generic6DOFJoint_wrapper_get_flag_x(WasGoID wasgo_id, WasGoID p_flag);
+int _wasgo_Generic6DOFJoint_wrapper_get_flag_y(WasGoID wasgo_id, WasGoID p_flag);
+int _wasgo_Generic6DOFJoint_wrapper_get_flag_z(WasGoID wasgo_id, WasGoID p_flag);
+float _wasgo_Generic6DOFJoint_wrapper_get_param_x(WasGoID wasgo_id, WasGoID p_param);
+float _wasgo_Generic6DOFJoint_wrapper_get_param_y(WasGoID wasgo_id, WasGoID p_param);
+float _wasgo_Generic6DOFJoint_wrapper_get_param_z(WasGoID wasgo_id, WasGoID p_param);
+int _wasgo_Generic6DOFJoint_wrapper_get_precision(WasGoID wasgo_id);
+void _wasgo_Generic6DOFJoint_wrapper_set_flag_x(WasGoID wasgo_id, WasGoID p_flag, bool p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_flag_y(WasGoID wasgo_id, WasGoID p_flag, bool p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_flag_z(WasGoID wasgo_id, WasGoID p_flag, bool p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_param_x(WasGoID wasgo_id, WasGoID p_param, float p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_param_y(WasGoID wasgo_id, WasGoID p_param, float p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_param_z(WasGoID wasgo_id, WasGoID p_param, float p_value);
+void _wasgo_Generic6DOFJoint_wrapper_set_precision(WasGoID wasgo_id, int p_precision);
 
     //constructor wrappers
-    WasGoId _wasgo_Generic6DOFJoint_constructor();
+    WasGoID _wasgo_Generic6DOFJoint_constructor();
             
 }
 #endif

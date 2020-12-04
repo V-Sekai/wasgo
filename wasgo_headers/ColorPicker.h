@@ -29,7 +29,7 @@ void set_raw_mode(bool p_mode);
 
 protected:
 public:
-explicit ColorPicker(WasGoId p_wasgo_id);
+explicit ColorPicker(WasGoID p_wasgo_id);
 explicit ColorPicker(BoxContainer other);
 ColorPicker new_instance();
             
@@ -38,26 +38,26 @@ ColorPicker new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ColorPicker_wrapper_add_preset(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-int _wasgo_ColorPicker_wrapper_are_presets_enabled(WasGoId wasgo_id);
-int _wasgo_ColorPicker_wrapper_are_presets_visible(WasGoId wasgo_id);
-void _wasgo_ColorPicker_wrapper_erase_preset(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_ColorPicker_wrapper_get_pick_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_ColorPicker_wrapper_get_presets(WasGoId wasgo_id);
-int _wasgo_ColorPicker_wrapper_is_deferred_mode(WasGoId wasgo_id);
-int _wasgo_ColorPicker_wrapper_is_editing_alpha(WasGoId wasgo_id);
-int _wasgo_ColorPicker_wrapper_is_hsv_mode(WasGoId wasgo_id);
-int _wasgo_ColorPicker_wrapper_is_raw_mode(WasGoId wasgo_id);
-void _wasgo_ColorPicker_wrapper_set_deferred_mode(WasGoId wasgo_id, bool p_mode);
-void _wasgo_ColorPicker_wrapper_set_edit_alpha(WasGoId wasgo_id, bool p_show);
-void _wasgo_ColorPicker_wrapper_set_hsv_mode(WasGoId wasgo_id, bool p_mode);
-void _wasgo_ColorPicker_wrapper_set_pick_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_ColorPicker_wrapper_set_presets_enabled(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_ColorPicker_wrapper_set_presets_visible(WasGoId wasgo_id, bool p_visible);
-void _wasgo_ColorPicker_wrapper_set_raw_mode(WasGoId wasgo_id, bool p_mode);
+void _wasgo_ColorPicker_wrapper_add_preset(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+int _wasgo_ColorPicker_wrapper_are_presets_enabled(WasGoID wasgo_id);
+int _wasgo_ColorPicker_wrapper_are_presets_visible(WasGoID wasgo_id);
+void _wasgo_ColorPicker_wrapper_erase_preset(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_ColorPicker_wrapper_get_pick_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_ColorPicker_wrapper_get_presets(WasGoID wasgo_id);
+int _wasgo_ColorPicker_wrapper_is_deferred_mode(WasGoID wasgo_id);
+int _wasgo_ColorPicker_wrapper_is_editing_alpha(WasGoID wasgo_id);
+int _wasgo_ColorPicker_wrapper_is_hsv_mode(WasGoID wasgo_id);
+int _wasgo_ColorPicker_wrapper_is_raw_mode(WasGoID wasgo_id);
+void _wasgo_ColorPicker_wrapper_set_deferred_mode(WasGoID wasgo_id, bool p_mode);
+void _wasgo_ColorPicker_wrapper_set_edit_alpha(WasGoID wasgo_id, bool p_show);
+void _wasgo_ColorPicker_wrapper_set_hsv_mode(WasGoID wasgo_id, bool p_mode);
+void _wasgo_ColorPicker_wrapper_set_pick_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_ColorPicker_wrapper_set_presets_enabled(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_ColorPicker_wrapper_set_presets_visible(WasGoID wasgo_id, bool p_visible);
+void _wasgo_ColorPicker_wrapper_set_raw_mode(WasGoID wasgo_id, bool p_mode);
 
     //constructor wrappers
-    WasGoId _wasgo_ColorPicker_constructor();
+    WasGoID _wasgo_ColorPicker_constructor();
             
 }
 #endif

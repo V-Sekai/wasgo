@@ -26,7 +26,7 @@ void AudioEffectLimiter::set_threshold_db(float p_threshold){
 	_wasgo_AudioEffectLimiter_wrapper_set_threshold_db(wasgo_id, p_threshold);
 }
 
-AudioEffectLimiter::AudioEffectLimiter(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+AudioEffectLimiter::AudioEffectLimiter(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectLimiter::AudioEffectLimiter(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectLimiter_constructor();

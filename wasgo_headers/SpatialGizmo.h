@@ -14,7 +14,7 @@ public:
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_SpatialGizmo_constructor();
+    WasGoID _wasgo_SpatialGizmo_constructor();
             
 }
 #endif

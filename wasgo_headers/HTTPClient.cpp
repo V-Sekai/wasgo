@@ -93,7 +93,7 @@ void HTTPClient::set_read_chunk_size(int p_bytes){
 	_wasgo_HTTPClient_wrapper_set_read_chunk_size(wasgo_id, p_bytes);
 }
 
-HTTPClient::HTTPClient(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+HTTPClient::HTTPClient(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 HTTPClient::HTTPClient(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_HTTPClient_constructor();

@@ -51,7 +51,7 @@ void AnimationNodeStateMachineTransition::set_xfade_time(float p_secs){
 	_wasgo_AnimationNodeStateMachineTransition_wrapper_set_xfade_time(wasgo_id, p_secs);
 }
 
-AnimationNodeStateMachineTransition::AnimationNodeStateMachineTransition(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+AnimationNodeStateMachineTransition::AnimationNodeStateMachineTransition(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 AnimationNodeStateMachineTransition::AnimationNodeStateMachineTransition(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeStateMachineTransition_constructor();

@@ -27,7 +27,7 @@ Variant Thread::wait_to_finish(){
 	return Variant(_wasgo_Thread_wrapper_wait_to_finish(wasgo_id));
 }
 
-Thread::Thread(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+Thread::Thread(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Thread::Thread(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Thread_constructor();

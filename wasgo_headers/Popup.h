@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Vector2.h"
 #include "Rect2.h"
 #include "Control.h"
-#include "Vector2.h"
 class Popup : public Control{
 public:
 bool is_exclusive();
@@ -20,7 +20,7 @@ void set_exclusive(bool p_enable);
 
 protected:
 public:
-explicit Popup(WasGoId p_wasgo_id);
+explicit Popup(WasGoID p_wasgo_id);
 explicit Popup(Control other);
 Popup new_instance();
             
@@ -29,17 +29,17 @@ Popup new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_Popup_wrapper_is_exclusive(WasGoId wasgo_id);
-void _wasgo_Popup_wrapper_popup(WasGoId wasgo_id, const uint8_t * p_bounds, int p_bounds_wasgo_buffer_size);
-void _wasgo_Popup_wrapper_popup_centered(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
-void _wasgo_Popup_wrapper_popup_centered_clamped(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size, float p_fallback_ratio);
-void _wasgo_Popup_wrapper_popup_centered_minsize(WasGoId wasgo_id, const uint8_t * p_minsize, int p_minsize_wasgo_buffer_size);
-void _wasgo_Popup_wrapper_popup_centered_ratio(WasGoId wasgo_id, float p_ratio);
-void _wasgo_Popup_wrapper_set_as_minsize(WasGoId wasgo_id);
-void _wasgo_Popup_wrapper_set_exclusive(WasGoId wasgo_id, bool p_enable);
+int _wasgo_Popup_wrapper_is_exclusive(WasGoID wasgo_id);
+void _wasgo_Popup_wrapper_popup(WasGoID wasgo_id, const uint8_t * p_bounds, int p_bounds_wasgo_buffer_size);
+void _wasgo_Popup_wrapper_popup_centered(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
+void _wasgo_Popup_wrapper_popup_centered_clamped(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size, float p_fallback_ratio);
+void _wasgo_Popup_wrapper_popup_centered_minsize(WasGoID wasgo_id, const uint8_t * p_minsize, int p_minsize_wasgo_buffer_size);
+void _wasgo_Popup_wrapper_popup_centered_ratio(WasGoID wasgo_id, float p_ratio);
+void _wasgo_Popup_wrapper_set_as_minsize(WasGoID wasgo_id);
+void _wasgo_Popup_wrapper_set_exclusive(WasGoID wasgo_id, bool p_enable);
 
     //constructor wrappers
-    WasGoId _wasgo_Popup_constructor();
+    WasGoID _wasgo_Popup_constructor();
             
 }
 #endif

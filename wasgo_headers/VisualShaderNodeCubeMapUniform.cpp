@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "VisualShaderNodeCubeMapUniform.h"
 
-VisualShaderNodeCubeMapUniform::VisualShaderNodeCubeMapUniform(WasGoId p_wasgo_id) : VisualShaderNodeTextureUniform(p_wasgo_id){
+VisualShaderNodeCubeMapUniform::VisualShaderNodeCubeMapUniform(WasGoID p_wasgo_id) : VisualShaderNodeTextureUniform(p_wasgo_id){
 }
 VisualShaderNodeCubeMapUniform::VisualShaderNodeCubeMapUniform(VisualShaderNodeTextureUniform other) : VisualShaderNodeTextureUniform(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeCubeMapUniform_constructor();

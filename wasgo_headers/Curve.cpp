@@ -90,7 +90,7 @@ void Curve::set_point_value(int p_index, float p_y){
 	_wasgo_Curve_wrapper_set_point_value(wasgo_id, p_index, p_y);
 }
 
-Curve::Curve(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+Curve::Curve(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Curve::Curve(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Curve_constructor();

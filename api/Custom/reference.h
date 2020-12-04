@@ -391,7 +391,7 @@ public:
 
 // 	// GDCLASS(WeakRef, Reference);
 
-// 	WasGoId ref;
+// 	WasGoID ref;
 
 // protected:
 // 	static void _bind_methods();

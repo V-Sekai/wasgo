@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Reference.h"
+#include "Variant.h"
+#include "StreamPeer.h"
 #include "error_list.h"
 #include "ustring.h"
-#include "Reference.h"
-#include "StreamPeer.h"
-#include "Variant.h"
 class HTTPClient : public Reference{
 public:
 enum Method{
@@ -121,7 +121,7 @@ void set_read_chunk_size(int p_bytes);
 
 protected:
 public:
-explicit HTTPClient(WasGoId p_wasgo_id);
+explicit HTTPClient(WasGoID p_wasgo_id);
 explicit HTTPClient(Reference other);
 HTTPClient new_instance();
             
@@ -130,29 +130,29 @@ HTTPClient new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_HTTPClient_wrapper_close(WasGoId wasgo_id);
-WasGoId _wasgo_HTTPClient_wrapper_connect_to_host(WasGoId wasgo_id, const uint8_t * p_host, int p_host_wasgo_buffer_size, int p_port, bool p_use_ssl, bool p_verify_host);
-WasGoId _wasgo_HTTPClient_wrapper_get_connection(WasGoId wasgo_id);
-int _wasgo_HTTPClient_wrapper_get_read_chunk_size(WasGoId wasgo_id);
-int _wasgo_HTTPClient_wrapper_get_response_body_length(WasGoId wasgo_id);
-int _wasgo_HTTPClient_wrapper_get_response_code(WasGoId wasgo_id);
-WasGoId _wasgo_HTTPClient_wrapper_get_response_headers(WasGoId wasgo_id);
-WasGoId _wasgo_HTTPClient_wrapper_get_response_headers_as_dictionary(WasGoId wasgo_id);
-WasGoId _wasgo_HTTPClient_wrapper_get_status(WasGoId wasgo_id);
-int _wasgo_HTTPClient_wrapper_has_response(WasGoId wasgo_id);
-int _wasgo_HTTPClient_wrapper_is_blocking_mode_enabled(WasGoId wasgo_id);
-int _wasgo_HTTPClient_wrapper_is_response_chunked(WasGoId wasgo_id);
-WasGoId _wasgo_HTTPClient_wrapper_poll(WasGoId wasgo_id);
-void _wasgo_HTTPClient_wrapper_query_string_from_dict(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoId p_fields);
-WasGoId _wasgo_HTTPClient_wrapper_read_response_body_chunk(WasGoId wasgo_id);
-WasGoId _wasgo_HTTPClient_wrapper_request(WasGoId wasgo_id, WasGoId p_method, const uint8_t * p_url, int p_url_wasgo_buffer_size, WasGoId p_headers, const uint8_t * p_body, int p_body_wasgo_buffer_size);
-WasGoId _wasgo_HTTPClient_wrapper_request_raw(WasGoId wasgo_id, WasGoId p_method, const uint8_t * p_url, int p_url_wasgo_buffer_size, WasGoId p_headers, WasGoId p_body);
-void _wasgo_HTTPClient_wrapper_set_blocking_mode(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_HTTPClient_wrapper_set_connection(WasGoId wasgo_id, WasGoId p_connection);
-void _wasgo_HTTPClient_wrapper_set_read_chunk_size(WasGoId wasgo_id, int p_bytes);
+void _wasgo_HTTPClient_wrapper_close(WasGoID wasgo_id);
+WasGoID _wasgo_HTTPClient_wrapper_connect_to_host(WasGoID wasgo_id, const uint8_t * p_host, int p_host_wasgo_buffer_size, int p_port, bool p_use_ssl, bool p_verify_host);
+WasGoID _wasgo_HTTPClient_wrapper_get_connection(WasGoID wasgo_id);
+int _wasgo_HTTPClient_wrapper_get_read_chunk_size(WasGoID wasgo_id);
+int _wasgo_HTTPClient_wrapper_get_response_body_length(WasGoID wasgo_id);
+int _wasgo_HTTPClient_wrapper_get_response_code(WasGoID wasgo_id);
+WasGoID _wasgo_HTTPClient_wrapper_get_response_headers(WasGoID wasgo_id);
+WasGoID _wasgo_HTTPClient_wrapper_get_response_headers_as_dictionary(WasGoID wasgo_id);
+WasGoID _wasgo_HTTPClient_wrapper_get_status(WasGoID wasgo_id);
+int _wasgo_HTTPClient_wrapper_has_response(WasGoID wasgo_id);
+int _wasgo_HTTPClient_wrapper_is_blocking_mode_enabled(WasGoID wasgo_id);
+int _wasgo_HTTPClient_wrapper_is_response_chunked(WasGoID wasgo_id);
+WasGoID _wasgo_HTTPClient_wrapper_poll(WasGoID wasgo_id);
+void _wasgo_HTTPClient_wrapper_query_string_from_dict(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoID p_fields);
+WasGoID _wasgo_HTTPClient_wrapper_read_response_body_chunk(WasGoID wasgo_id);
+WasGoID _wasgo_HTTPClient_wrapper_request(WasGoID wasgo_id, WasGoID p_method, const uint8_t * p_url, int p_url_wasgo_buffer_size, WasGoID p_headers, const uint8_t * p_body, int p_body_wasgo_buffer_size);
+WasGoID _wasgo_HTTPClient_wrapper_request_raw(WasGoID wasgo_id, WasGoID p_method, const uint8_t * p_url, int p_url_wasgo_buffer_size, WasGoID p_headers, WasGoID p_body);
+void _wasgo_HTTPClient_wrapper_set_blocking_mode(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_HTTPClient_wrapper_set_connection(WasGoID wasgo_id, WasGoID p_connection);
+void _wasgo_HTTPClient_wrapper_set_read_chunk_size(WasGoID wasgo_id, int p_bytes);
 
     //constructor wrappers
-    WasGoId _wasgo_HTTPClient_constructor();
+    WasGoID _wasgo_HTTPClient_constructor();
             
 }
 #endif

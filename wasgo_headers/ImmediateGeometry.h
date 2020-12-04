@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Plane.h"
+#include "Color.h"
+#include "Vector2.h"
+#include "Mesh.h"
 #include "Vector3.h"
 #include "GeometryInstance.h"
-#include "Vector2.h"
 #include "Texture.h"
-#include "Mesh.h"
-#include "Color.h"
-#include "Plane.h"
 class ImmediateGeometry : public GeometryInstance{
 public:
 void add_sphere(int p_lats, int p_lons, float p_radius, bool p_add_uv = (bool) true);
@@ -26,7 +26,7 @@ void set_uv2(Vector2 p_uv);
 
 protected:
 public:
-explicit ImmediateGeometry(WasGoId p_wasgo_id);
+explicit ImmediateGeometry(WasGoID p_wasgo_id);
 explicit ImmediateGeometry(GeometryInstance other);
 ImmediateGeometry new_instance();
             
@@ -35,19 +35,19 @@ ImmediateGeometry new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ImmediateGeometry_wrapper_add_sphere(WasGoId wasgo_id, int p_lats, int p_lons, float p_radius, bool p_add_uv);
-void _wasgo_ImmediateGeometry_wrapper_add_vertex(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_ImmediateGeometry_wrapper_begin(WasGoId wasgo_id, WasGoId p_primitive, WasGoId p_texture);
-void _wasgo_ImmediateGeometry_wrapper_clear(WasGoId wasgo_id);
-void _wasgo_ImmediateGeometry_wrapper_end(WasGoId wasgo_id);
-void _wasgo_ImmediateGeometry_wrapper_set_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_ImmediateGeometry_wrapper_set_normal(WasGoId wasgo_id, const uint8_t * p_normal, int p_normal_wasgo_buffer_size);
-void _wasgo_ImmediateGeometry_wrapper_set_tangent(WasGoId wasgo_id, const uint8_t * p_tangent, int p_tangent_wasgo_buffer_size);
-void _wasgo_ImmediateGeometry_wrapper_set_uv(WasGoId wasgo_id, const uint8_t * p_uv, int p_uv_wasgo_buffer_size);
-void _wasgo_ImmediateGeometry_wrapper_set_uv2(WasGoId wasgo_id, const uint8_t * p_uv, int p_uv_wasgo_buffer_size);
+void _wasgo_ImmediateGeometry_wrapper_add_sphere(WasGoID wasgo_id, int p_lats, int p_lons, float p_radius, bool p_add_uv);
+void _wasgo_ImmediateGeometry_wrapper_add_vertex(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_ImmediateGeometry_wrapper_begin(WasGoID wasgo_id, WasGoID p_primitive, WasGoID p_texture);
+void _wasgo_ImmediateGeometry_wrapper_clear(WasGoID wasgo_id);
+void _wasgo_ImmediateGeometry_wrapper_end(WasGoID wasgo_id);
+void _wasgo_ImmediateGeometry_wrapper_set_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_ImmediateGeometry_wrapper_set_normal(WasGoID wasgo_id, const uint8_t * p_normal, int p_normal_wasgo_buffer_size);
+void _wasgo_ImmediateGeometry_wrapper_set_tangent(WasGoID wasgo_id, const uint8_t * p_tangent, int p_tangent_wasgo_buffer_size);
+void _wasgo_ImmediateGeometry_wrapper_set_uv(WasGoID wasgo_id, const uint8_t * p_uv, int p_uv_wasgo_buffer_size);
+void _wasgo_ImmediateGeometry_wrapper_set_uv2(WasGoID wasgo_id, const uint8_t * p_uv, int p_uv_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_ImmediateGeometry_constructor();
+    WasGoID _wasgo_ImmediateGeometry_constructor();
             
 }
 #endif

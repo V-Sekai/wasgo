@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
 #include "NavigationMesh.h"
 #include "Object.h"
-#include "Transform.h"
 #include "Spatial.h"
+#include "Vector3.h"
 #include "Variant.h"
+#include "Transform.h"
 class Navigation : public Spatial{
 public:
 Vector3 get_closest_point(Vector3 p_to_point);
@@ -25,7 +25,7 @@ void set_up_vector(Vector3 p_up);
 
 protected:
 public:
-explicit Navigation(WasGoId p_wasgo_id);
+explicit Navigation(WasGoID p_wasgo_id);
 explicit Navigation(Spatial other);
 Navigation new_instance();
             
@@ -34,19 +34,19 @@ Navigation new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Navigation_wrapper_get_closest_point(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_to_point, int p_to_point_wasgo_buffer_size);
-void _wasgo_Navigation_wrapper_get_closest_point_normal(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_to_point, int p_to_point_wasgo_buffer_size);
-WasGoId _wasgo_Navigation_wrapper_get_closest_point_owner(WasGoId wasgo_id, const uint8_t * p_to_point, int p_to_point_wasgo_buffer_size);
-void _wasgo_Navigation_wrapper_get_closest_point_to_segment(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_start, int p_start_wasgo_buffer_size, const uint8_t * p_end, int p_end_wasgo_buffer_size, bool p_use_collision);
-WasGoId _wasgo_Navigation_wrapper_get_simple_path(WasGoId wasgo_id, const uint8_t * p_start, int p_start_wasgo_buffer_size, const uint8_t * p_end, int p_end_wasgo_buffer_size, bool p_optimize);
-void _wasgo_Navigation_wrapper_get_up_vector(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Navigation_wrapper_navmesh_add(WasGoId wasgo_id, WasGoId p_mesh, const uint8_t * p_xform, int p_xform_wasgo_buffer_size, WasGoId p_owner);
-void _wasgo_Navigation_wrapper_navmesh_remove(WasGoId wasgo_id, int p_id);
-void _wasgo_Navigation_wrapper_navmesh_set_transform(WasGoId wasgo_id, int p_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
-void _wasgo_Navigation_wrapper_set_up_vector(WasGoId wasgo_id, const uint8_t * p_up, int p_up_wasgo_buffer_size);
+void _wasgo_Navigation_wrapper_get_closest_point(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_to_point, int p_to_point_wasgo_buffer_size);
+void _wasgo_Navigation_wrapper_get_closest_point_normal(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_to_point, int p_to_point_wasgo_buffer_size);
+WasGoID _wasgo_Navigation_wrapper_get_closest_point_owner(WasGoID wasgo_id, const uint8_t * p_to_point, int p_to_point_wasgo_buffer_size);
+void _wasgo_Navigation_wrapper_get_closest_point_to_segment(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_start, int p_start_wasgo_buffer_size, const uint8_t * p_end, int p_end_wasgo_buffer_size, bool p_use_collision);
+WasGoID _wasgo_Navigation_wrapper_get_simple_path(WasGoID wasgo_id, const uint8_t * p_start, int p_start_wasgo_buffer_size, const uint8_t * p_end, int p_end_wasgo_buffer_size, bool p_optimize);
+void _wasgo_Navigation_wrapper_get_up_vector(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Navigation_wrapper_navmesh_add(WasGoID wasgo_id, WasGoID p_mesh, const uint8_t * p_xform, int p_xform_wasgo_buffer_size, WasGoID p_owner);
+void _wasgo_Navigation_wrapper_navmesh_remove(WasGoID wasgo_id, int p_id);
+void _wasgo_Navigation_wrapper_navmesh_set_transform(WasGoID wasgo_id, int p_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
+void _wasgo_Navigation_wrapper_set_up_vector(WasGoID wasgo_id, const uint8_t * p_up, int p_up_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_Navigation_constructor();
+    WasGoID _wasgo_Navigation_constructor();
             
 }
 #endif

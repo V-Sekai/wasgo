@@ -76,7 +76,7 @@ void PolygonPathFinder::setup(PoolVector2Array p_points, PoolIntArray p_connecti
 	_wasgo_PolygonPathFinder_wrapper_setup(wasgo_id, p_points._get_wasgo_id(), p_connections._get_wasgo_id());
 }
 
-PolygonPathFinder::PolygonPathFinder(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+PolygonPathFinder::PolygonPathFinder(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 PolygonPathFinder::PolygonPathFinder(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_PolygonPathFinder_constructor();

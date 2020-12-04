@@ -58,7 +58,7 @@ void SpinBox::set_suffix(String p_suffix){
 	_wasgo_SpinBox_wrapper_set_suffix(wasgo_id, wasgo_buffer_suffix, wasgo_size_suffix);
 }
 
-SpinBox::SpinBox(WasGoId p_wasgo_id) : Range(p_wasgo_id){
+SpinBox::SpinBox(WasGoID p_wasgo_id) : Range(p_wasgo_id){
 }
 SpinBox::SpinBox(Range other) : Range(other._get_wasgo_id()){
     wasgo_id = _wasgo_SpinBox_constructor();

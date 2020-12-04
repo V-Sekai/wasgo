@@ -119,7 +119,7 @@ void XMLParser::skip_section(){
 	_wasgo_XMLParser_wrapper_skip_section(wasgo_id);
 }
 
-XMLParser::XMLParser(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+XMLParser::XMLParser(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 XMLParser::XMLParser(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_XMLParser_constructor();

@@ -50,7 +50,7 @@ void InputEventMIDI::set_velocity(int p_velocity){
 	_wasgo_InputEventMIDI_wrapper_set_velocity(wasgo_id, p_velocity);
 }
 
-InputEventMIDI::InputEventMIDI(WasGoId p_wasgo_id) : InputEvent(p_wasgo_id){
+InputEventMIDI::InputEventMIDI(WasGoID p_wasgo_id) : InputEvent(p_wasgo_id){
 }
 InputEventMIDI::InputEventMIDI(InputEvent other) : InputEvent(other._get_wasgo_id()){
     wasgo_id = _wasgo_InputEventMIDI_constructor();

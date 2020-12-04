@@ -32,7 +32,7 @@ void CylinderMesh::set_top_radius(float p_radius){
 	_wasgo_CylinderMesh_wrapper_set_top_radius(wasgo_id, p_radius);
 }
 
-CylinderMesh::CylinderMesh(WasGoId p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
+CylinderMesh::CylinderMesh(WasGoID p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
 }
 CylinderMesh::CylinderMesh(PrimitiveMesh other) : PrimitiveMesh(other._get_wasgo_id()){
     wasgo_id = _wasgo_CylinderMesh_constructor();

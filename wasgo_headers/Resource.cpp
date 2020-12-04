@@ -74,7 +74,7 @@ void Resource::take_over_path(String p_path){
 	_wasgo_Resource_wrapper_take_over_path(wasgo_id, wasgo_buffer_path, wasgo_size_path);
 }
 
-Resource::Resource(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+Resource::Resource(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Resource::Resource(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Resource_constructor();

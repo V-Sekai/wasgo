@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "Sky.h"
+#include "Texture.h"
 class PanoramaSky : public Sky{
 public:
 Texture get_panorama();
@@ -13,7 +13,7 @@ void set_panorama(Texture p_texture);
 
 protected:
 public:
-explicit PanoramaSky(WasGoId p_wasgo_id);
+explicit PanoramaSky(WasGoID p_wasgo_id);
 explicit PanoramaSky(Sky other);
 PanoramaSky new_instance();
             
@@ -22,11 +22,11 @@ PanoramaSky new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_PanoramaSky_wrapper_get_panorama(WasGoId wasgo_id);
-void _wasgo_PanoramaSky_wrapper_set_panorama(WasGoId wasgo_id, WasGoId p_texture);
+WasGoID _wasgo_PanoramaSky_wrapper_get_panorama(WasGoID wasgo_id);
+void _wasgo_PanoramaSky_wrapper_set_panorama(WasGoID wasgo_id, WasGoID p_texture);
 
     //constructor wrappers
-    WasGoId _wasgo_PanoramaSky_constructor();
+    WasGoID _wasgo_PanoramaSky_constructor();
             
 }
 #endif

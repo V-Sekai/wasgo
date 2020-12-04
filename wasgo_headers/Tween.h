@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
-#include "ustring.h"
-#include "NodePath.h"
 #include "Object.h"
+#include "Node.h"
 #include "Variant.h"
+#include "NodePath.h"
+#include "ustring.h"
 class Tween : public Node{
 public:
 enum EaseType{
@@ -65,7 +65,7 @@ float tell();
 
 protected:
 public:
-explicit Tween(WasGoId p_wasgo_id);
+explicit Tween(WasGoID p_wasgo_id);
 explicit Tween(Node other);
 Tween new_instance();
             
@@ -74,37 +74,37 @@ Tween new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_Tween_wrapper_follow_method(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoId p_initial_val, WasGoId p_target, const uint8_t * p_target_method, int p_target_method_wasgo_buffer_size, float p_duration, WasGoId p_trans_type, WasGoId p_ease_type, float p_delay);
-int _wasgo_Tween_wrapper_follow_property(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_initial_val, WasGoId p_target, const uint8_t * p_target_property, int p_target_property_wasgo_buffer_size, float p_duration, WasGoId p_trans_type, WasGoId p_ease_type, float p_delay);
-float _wasgo_Tween_wrapper_get_runtime(WasGoId wasgo_id);
-float _wasgo_Tween_wrapper_get_speed_scale(WasGoId wasgo_id);
-WasGoId _wasgo_Tween_wrapper_get_tween_process_mode(WasGoId wasgo_id);
-int _wasgo_Tween_wrapper_interpolate_callback(WasGoId wasgo_id, WasGoId p_object, float p_duration, const uint8_t * p_callback, int p_callback_wasgo_buffer_size, WasGoId p_arg1, WasGoId p_arg2, WasGoId p_arg3, WasGoId p_arg4, WasGoId p_arg5);
-int _wasgo_Tween_wrapper_interpolate_deferred_callback(WasGoId wasgo_id, WasGoId p_object, float p_duration, const uint8_t * p_callback, int p_callback_wasgo_buffer_size, WasGoId p_arg1, WasGoId p_arg2, WasGoId p_arg3, WasGoId p_arg4, WasGoId p_arg5);
-int _wasgo_Tween_wrapper_interpolate_method(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoId p_initial_val, WasGoId p_final_val, float p_duration, WasGoId p_trans_type, WasGoId p_ease_type, float p_delay);
-int _wasgo_Tween_wrapper_interpolate_property(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_initial_val, WasGoId p_final_val, float p_duration, WasGoId p_trans_type, WasGoId p_ease_type, float p_delay);
-int _wasgo_Tween_wrapper_is_active(WasGoId wasgo_id);
-int _wasgo_Tween_wrapper_is_repeat(WasGoId wasgo_id);
-int _wasgo_Tween_wrapper_remove(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_key, int p_key_wasgo_buffer_size);
-int _wasgo_Tween_wrapper_remove_all(WasGoId wasgo_id);
-int _wasgo_Tween_wrapper_reset(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_key, int p_key_wasgo_buffer_size);
-int _wasgo_Tween_wrapper_reset_all(WasGoId wasgo_id);
-int _wasgo_Tween_wrapper_resume(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_key, int p_key_wasgo_buffer_size);
-int _wasgo_Tween_wrapper_resume_all(WasGoId wasgo_id);
-int _wasgo_Tween_wrapper_seek(WasGoId wasgo_id, float p_time);
-void _wasgo_Tween_wrapper_set_active(WasGoId wasgo_id, bool p_active);
-void _wasgo_Tween_wrapper_set_repeat(WasGoId wasgo_id, bool p_repeat);
-void _wasgo_Tween_wrapper_set_speed_scale(WasGoId wasgo_id, float p_speed);
-void _wasgo_Tween_wrapper_set_tween_process_mode(WasGoId wasgo_id, WasGoId p_mode);
-int _wasgo_Tween_wrapper_start(WasGoId wasgo_id);
-int _wasgo_Tween_wrapper_stop(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_key, int p_key_wasgo_buffer_size);
-int _wasgo_Tween_wrapper_stop_all(WasGoId wasgo_id);
-int _wasgo_Tween_wrapper_targeting_method(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoId p_initial, const uint8_t * p_initial_method, int p_initial_method_wasgo_buffer_size, WasGoId p_final_val, float p_duration, WasGoId p_trans_type, WasGoId p_ease_type, float p_delay);
-int _wasgo_Tween_wrapper_targeting_property(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_initial, const uint8_t * p_initial_val, int p_initial_val_wasgo_buffer_size, WasGoId p_final_val, float p_duration, WasGoId p_trans_type, WasGoId p_ease_type, float p_delay);
-float _wasgo_Tween_wrapper_tell(WasGoId wasgo_id);
+int _wasgo_Tween_wrapper_follow_method(WasGoID wasgo_id, WasGoID p_object, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoID p_initial_val, WasGoID p_target, const uint8_t * p_target_method, int p_target_method_wasgo_buffer_size, float p_duration, WasGoID p_trans_type, WasGoID p_ease_type, float p_delay);
+int _wasgo_Tween_wrapper_follow_property(WasGoID wasgo_id, WasGoID p_object, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_initial_val, WasGoID p_target, const uint8_t * p_target_property, int p_target_property_wasgo_buffer_size, float p_duration, WasGoID p_trans_type, WasGoID p_ease_type, float p_delay);
+float _wasgo_Tween_wrapper_get_runtime(WasGoID wasgo_id);
+float _wasgo_Tween_wrapper_get_speed_scale(WasGoID wasgo_id);
+WasGoID _wasgo_Tween_wrapper_get_tween_process_mode(WasGoID wasgo_id);
+int _wasgo_Tween_wrapper_interpolate_callback(WasGoID wasgo_id, WasGoID p_object, float p_duration, const uint8_t * p_callback, int p_callback_wasgo_buffer_size, WasGoID p_arg1, WasGoID p_arg2, WasGoID p_arg3, WasGoID p_arg4, WasGoID p_arg5);
+int _wasgo_Tween_wrapper_interpolate_deferred_callback(WasGoID wasgo_id, WasGoID p_object, float p_duration, const uint8_t * p_callback, int p_callback_wasgo_buffer_size, WasGoID p_arg1, WasGoID p_arg2, WasGoID p_arg3, WasGoID p_arg4, WasGoID p_arg5);
+int _wasgo_Tween_wrapper_interpolate_method(WasGoID wasgo_id, WasGoID p_object, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoID p_initial_val, WasGoID p_final_val, float p_duration, WasGoID p_trans_type, WasGoID p_ease_type, float p_delay);
+int _wasgo_Tween_wrapper_interpolate_property(WasGoID wasgo_id, WasGoID p_object, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_initial_val, WasGoID p_final_val, float p_duration, WasGoID p_trans_type, WasGoID p_ease_type, float p_delay);
+int _wasgo_Tween_wrapper_is_active(WasGoID wasgo_id);
+int _wasgo_Tween_wrapper_is_repeat(WasGoID wasgo_id);
+int _wasgo_Tween_wrapper_remove(WasGoID wasgo_id, WasGoID p_object, const uint8_t * p_key, int p_key_wasgo_buffer_size);
+int _wasgo_Tween_wrapper_remove_all(WasGoID wasgo_id);
+int _wasgo_Tween_wrapper_reset(WasGoID wasgo_id, WasGoID p_object, const uint8_t * p_key, int p_key_wasgo_buffer_size);
+int _wasgo_Tween_wrapper_reset_all(WasGoID wasgo_id);
+int _wasgo_Tween_wrapper_resume(WasGoID wasgo_id, WasGoID p_object, const uint8_t * p_key, int p_key_wasgo_buffer_size);
+int _wasgo_Tween_wrapper_resume_all(WasGoID wasgo_id);
+int _wasgo_Tween_wrapper_seek(WasGoID wasgo_id, float p_time);
+void _wasgo_Tween_wrapper_set_active(WasGoID wasgo_id, bool p_active);
+void _wasgo_Tween_wrapper_set_repeat(WasGoID wasgo_id, bool p_repeat);
+void _wasgo_Tween_wrapper_set_speed_scale(WasGoID wasgo_id, float p_speed);
+void _wasgo_Tween_wrapper_set_tween_process_mode(WasGoID wasgo_id, WasGoID p_mode);
+int _wasgo_Tween_wrapper_start(WasGoID wasgo_id);
+int _wasgo_Tween_wrapper_stop(WasGoID wasgo_id, WasGoID p_object, const uint8_t * p_key, int p_key_wasgo_buffer_size);
+int _wasgo_Tween_wrapper_stop_all(WasGoID wasgo_id);
+int _wasgo_Tween_wrapper_targeting_method(WasGoID wasgo_id, WasGoID p_object, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoID p_initial, const uint8_t * p_initial_method, int p_initial_method_wasgo_buffer_size, WasGoID p_final_val, float p_duration, WasGoID p_trans_type, WasGoID p_ease_type, float p_delay);
+int _wasgo_Tween_wrapper_targeting_property(WasGoID wasgo_id, WasGoID p_object, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_initial, const uint8_t * p_initial_val, int p_initial_val_wasgo_buffer_size, WasGoID p_final_val, float p_duration, WasGoID p_trans_type, WasGoID p_ease_type, float p_delay);
+float _wasgo_Tween_wrapper_tell(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_Tween_constructor();
+    WasGoID _wasgo_Tween_constructor();
             
 }
 #endif

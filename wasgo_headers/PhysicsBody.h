@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
 #include "CollisionObject.h"
+#include "Node.h"
 #include "Variant.h"
 class PhysicsBody : public CollisionObject{
 public:
@@ -25,20 +25,20 @@ void set_collision_mask_bit(int p_bit, bool p_value);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_PhysicsBody_wrapper_add_collision_exception_with(WasGoId wasgo_id, WasGoId p_body);
-WasGoId _wasgo_PhysicsBody_wrapper_get_collision_exceptions(WasGoId wasgo_id);
-int _wasgo_PhysicsBody_wrapper_get_collision_layer(WasGoId wasgo_id);
-int _wasgo_PhysicsBody_wrapper_get_collision_layer_bit(WasGoId wasgo_id, int p_bit);
-int _wasgo_PhysicsBody_wrapper_get_collision_mask(WasGoId wasgo_id);
-int _wasgo_PhysicsBody_wrapper_get_collision_mask_bit(WasGoId wasgo_id, int p_bit);
-void _wasgo_PhysicsBody_wrapper_remove_collision_exception_with(WasGoId wasgo_id, WasGoId p_body);
-void _wasgo_PhysicsBody_wrapper_set_collision_layer(WasGoId wasgo_id, int p_layer);
-void _wasgo_PhysicsBody_wrapper_set_collision_layer_bit(WasGoId wasgo_id, int p_bit, bool p_value);
-void _wasgo_PhysicsBody_wrapper_set_collision_mask(WasGoId wasgo_id, int p_mask);
-void _wasgo_PhysicsBody_wrapper_set_collision_mask_bit(WasGoId wasgo_id, int p_bit, bool p_value);
+void _wasgo_PhysicsBody_wrapper_add_collision_exception_with(WasGoID wasgo_id, WasGoID p_body);
+WasGoID _wasgo_PhysicsBody_wrapper_get_collision_exceptions(WasGoID wasgo_id);
+int _wasgo_PhysicsBody_wrapper_get_collision_layer(WasGoID wasgo_id);
+int _wasgo_PhysicsBody_wrapper_get_collision_layer_bit(WasGoID wasgo_id, int p_bit);
+int _wasgo_PhysicsBody_wrapper_get_collision_mask(WasGoID wasgo_id);
+int _wasgo_PhysicsBody_wrapper_get_collision_mask_bit(WasGoID wasgo_id, int p_bit);
+void _wasgo_PhysicsBody_wrapper_remove_collision_exception_with(WasGoID wasgo_id, WasGoID p_body);
+void _wasgo_PhysicsBody_wrapper_set_collision_layer(WasGoID wasgo_id, int p_layer);
+void _wasgo_PhysicsBody_wrapper_set_collision_layer_bit(WasGoID wasgo_id, int p_bit, bool p_value);
+void _wasgo_PhysicsBody_wrapper_set_collision_mask(WasGoID wasgo_id, int p_mask);
+void _wasgo_PhysicsBody_wrapper_set_collision_mask_bit(WasGoID wasgo_id, int p_bit, bool p_value);
 
     //constructor wrappers
-    WasGoId _wasgo_PhysicsBody_constructor();
+    WasGoID _wasgo_PhysicsBody_constructor();
             
 }
 #endif

@@ -24,7 +24,7 @@ void set_pause(bool p_pause);
 
 protected:
 public:
-explicit AnimatedTexture(WasGoId p_wasgo_id);
+explicit AnimatedTexture(WasGoID p_wasgo_id);
 explicit AnimatedTexture(Texture other);
 AnimatedTexture new_instance();
             
@@ -33,23 +33,23 @@ AnimatedTexture new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_AnimatedTexture_wrapper_get_current_frame(WasGoId wasgo_id);
-float _wasgo_AnimatedTexture_wrapper_get_fps(WasGoId wasgo_id);
-float _wasgo_AnimatedTexture_wrapper_get_frame_delay(WasGoId wasgo_id, int p_frame);
-WasGoId _wasgo_AnimatedTexture_wrapper_get_frame_texture(WasGoId wasgo_id, int p_frame);
-int _wasgo_AnimatedTexture_wrapper_get_frames(WasGoId wasgo_id);
-int _wasgo_AnimatedTexture_wrapper_get_oneshot(WasGoId wasgo_id);
-int _wasgo_AnimatedTexture_wrapper_get_pause(WasGoId wasgo_id);
-void _wasgo_AnimatedTexture_wrapper_set_current_frame(WasGoId wasgo_id, int p_frame);
-void _wasgo_AnimatedTexture_wrapper_set_fps(WasGoId wasgo_id, float p_fps);
-void _wasgo_AnimatedTexture_wrapper_set_frame_delay(WasGoId wasgo_id, int p_frame, float p_delay);
-void _wasgo_AnimatedTexture_wrapper_set_frame_texture(WasGoId wasgo_id, int p_frame, WasGoId p_texture);
-void _wasgo_AnimatedTexture_wrapper_set_frames(WasGoId wasgo_id, int p_frames);
-void _wasgo_AnimatedTexture_wrapper_set_oneshot(WasGoId wasgo_id, bool p_oneshot);
-void _wasgo_AnimatedTexture_wrapper_set_pause(WasGoId wasgo_id, bool p_pause);
+int _wasgo_AnimatedTexture_wrapper_get_current_frame(WasGoID wasgo_id);
+float _wasgo_AnimatedTexture_wrapper_get_fps(WasGoID wasgo_id);
+float _wasgo_AnimatedTexture_wrapper_get_frame_delay(WasGoID wasgo_id, int p_frame);
+WasGoID _wasgo_AnimatedTexture_wrapper_get_frame_texture(WasGoID wasgo_id, int p_frame);
+int _wasgo_AnimatedTexture_wrapper_get_frames(WasGoID wasgo_id);
+int _wasgo_AnimatedTexture_wrapper_get_oneshot(WasGoID wasgo_id);
+int _wasgo_AnimatedTexture_wrapper_get_pause(WasGoID wasgo_id);
+void _wasgo_AnimatedTexture_wrapper_set_current_frame(WasGoID wasgo_id, int p_frame);
+void _wasgo_AnimatedTexture_wrapper_set_fps(WasGoID wasgo_id, float p_fps);
+void _wasgo_AnimatedTexture_wrapper_set_frame_delay(WasGoID wasgo_id, int p_frame, float p_delay);
+void _wasgo_AnimatedTexture_wrapper_set_frame_texture(WasGoID wasgo_id, int p_frame, WasGoID p_texture);
+void _wasgo_AnimatedTexture_wrapper_set_frames(WasGoID wasgo_id, int p_frames);
+void _wasgo_AnimatedTexture_wrapper_set_oneshot(WasGoID wasgo_id, bool p_oneshot);
+void _wasgo_AnimatedTexture_wrapper_set_pause(WasGoID wasgo_id, bool p_pause);
 
     //constructor wrappers
-    WasGoId _wasgo_AnimatedTexture_constructor();
+    WasGoID _wasgo_AnimatedTexture_constructor();
             
 }
 #endif

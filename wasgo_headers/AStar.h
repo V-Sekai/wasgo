@@ -35,7 +35,7 @@ void set_point_weight_scale(int p_id, float p_weight_scale);
 
 protected:
 public:
-explicit AStar(WasGoId p_wasgo_id);
+explicit AStar(WasGoID p_wasgo_id);
 explicit AStar(Reference other);
 AStar new_instance();
             
@@ -44,32 +44,32 @@ AStar new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_AStar_wrapper_add_point(WasGoId wasgo_id, int p_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, float p_weight_scale);
-int _wasgo_AStar_wrapper_are_points_connected(WasGoId wasgo_id, int p_id, int p_to_id, bool p_bidirectional);
-void _wasgo_AStar_wrapper_clear(WasGoId wasgo_id);
-void _wasgo_AStar_wrapper_connect_points(WasGoId wasgo_id, int p_id, int p_to_id, bool p_bidirectional);
-void _wasgo_AStar_wrapper_disconnect_points(WasGoId wasgo_id, int p_id, int p_to_id, bool p_bidirectional);
-int _wasgo_AStar_wrapper_get_available_point_id(WasGoId wasgo_id);
-int _wasgo_AStar_wrapper_get_closest_point(WasGoId wasgo_id, const uint8_t * p_to_position, int p_to_position_wasgo_buffer_size, bool p_include_disabled);
-void _wasgo_AStar_wrapper_get_closest_position_in_segment(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_to_position, int p_to_position_wasgo_buffer_size);
-WasGoId _wasgo_AStar_wrapper_get_id_path(WasGoId wasgo_id, int p_from_id, int p_to_id);
-int _wasgo_AStar_wrapper_get_point_capacity(WasGoId wasgo_id);
-WasGoId _wasgo_AStar_wrapper_get_point_connections(WasGoId wasgo_id, int p_id);
-int _wasgo_AStar_wrapper_get_point_count(WasGoId wasgo_id);
-WasGoId _wasgo_AStar_wrapper_get_point_path(WasGoId wasgo_id, int p_from_id, int p_to_id);
-void _wasgo_AStar_wrapper_get_point_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
-float _wasgo_AStar_wrapper_get_point_weight_scale(WasGoId wasgo_id, int p_id);
-WasGoId _wasgo_AStar_wrapper_get_points(WasGoId wasgo_id);
-int _wasgo_AStar_wrapper_has_point(WasGoId wasgo_id, int p_id);
-int _wasgo_AStar_wrapper_is_point_disabled(WasGoId wasgo_id, int p_id);
-void _wasgo_AStar_wrapper_remove_point(WasGoId wasgo_id, int p_id);
-void _wasgo_AStar_wrapper_reserve_space(WasGoId wasgo_id, int p_num_nodes);
-void _wasgo_AStar_wrapper_set_point_disabled(WasGoId wasgo_id, int p_id, bool p_disabled);
-void _wasgo_AStar_wrapper_set_point_position(WasGoId wasgo_id, int p_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_AStar_wrapper_set_point_weight_scale(WasGoId wasgo_id, int p_id, float p_weight_scale);
+void _wasgo_AStar_wrapper_add_point(WasGoID wasgo_id, int p_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, float p_weight_scale);
+int _wasgo_AStar_wrapper_are_points_connected(WasGoID wasgo_id, int p_id, int p_to_id, bool p_bidirectional);
+void _wasgo_AStar_wrapper_clear(WasGoID wasgo_id);
+void _wasgo_AStar_wrapper_connect_points(WasGoID wasgo_id, int p_id, int p_to_id, bool p_bidirectional);
+void _wasgo_AStar_wrapper_disconnect_points(WasGoID wasgo_id, int p_id, int p_to_id, bool p_bidirectional);
+int _wasgo_AStar_wrapper_get_available_point_id(WasGoID wasgo_id);
+int _wasgo_AStar_wrapper_get_closest_point(WasGoID wasgo_id, const uint8_t * p_to_position, int p_to_position_wasgo_buffer_size, bool p_include_disabled);
+void _wasgo_AStar_wrapper_get_closest_position_in_segment(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_to_position, int p_to_position_wasgo_buffer_size);
+WasGoID _wasgo_AStar_wrapper_get_id_path(WasGoID wasgo_id, int p_from_id, int p_to_id);
+int _wasgo_AStar_wrapper_get_point_capacity(WasGoID wasgo_id);
+WasGoID _wasgo_AStar_wrapper_get_point_connections(WasGoID wasgo_id, int p_id);
+int _wasgo_AStar_wrapper_get_point_count(WasGoID wasgo_id);
+WasGoID _wasgo_AStar_wrapper_get_point_path(WasGoID wasgo_id, int p_from_id, int p_to_id);
+void _wasgo_AStar_wrapper_get_point_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
+float _wasgo_AStar_wrapper_get_point_weight_scale(WasGoID wasgo_id, int p_id);
+WasGoID _wasgo_AStar_wrapper_get_points(WasGoID wasgo_id);
+int _wasgo_AStar_wrapper_has_point(WasGoID wasgo_id, int p_id);
+int _wasgo_AStar_wrapper_is_point_disabled(WasGoID wasgo_id, int p_id);
+void _wasgo_AStar_wrapper_remove_point(WasGoID wasgo_id, int p_id);
+void _wasgo_AStar_wrapper_reserve_space(WasGoID wasgo_id, int p_num_nodes);
+void _wasgo_AStar_wrapper_set_point_disabled(WasGoID wasgo_id, int p_id, bool p_disabled);
+void _wasgo_AStar_wrapper_set_point_position(WasGoID wasgo_id, int p_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_AStar_wrapper_set_point_weight_scale(WasGoID wasgo_id, int p_id, float p_weight_scale);
 
     //constructor wrappers
-    WasGoId _wasgo_AStar_constructor();
+    WasGoID _wasgo_AStar_constructor();
             
 }
 #endif

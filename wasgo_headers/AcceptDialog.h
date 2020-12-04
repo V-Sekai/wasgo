@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Label.h"
-#include "Node.h"
 #include "WindowDialog.h"
 #include "Button.h"
+#include "Node.h"
+#include "Label.h"
 #include "ustring.h"
 class AcceptDialog : public WindowDialog{
 public:
@@ -25,7 +25,7 @@ void set_text(String p_text);
 
 protected:
 public:
-explicit AcceptDialog(WasGoId p_wasgo_id);
+explicit AcceptDialog(WasGoID p_wasgo_id);
 explicit AcceptDialog(WindowDialog other);
 AcceptDialog new_instance();
             
@@ -34,20 +34,20 @@ AcceptDialog new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_AcceptDialog_wrapper_add_button(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size, bool p_right, const uint8_t * p_action, int p_action_wasgo_buffer_size);
-WasGoId _wasgo_AcceptDialog_wrapper_add_cancel(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_AcceptDialog_wrapper_get_hide_on_ok(WasGoId wasgo_id);
-WasGoId _wasgo_AcceptDialog_wrapper_get_label(WasGoId wasgo_id);
-WasGoId _wasgo_AcceptDialog_wrapper_get_ok(WasGoId wasgo_id);
-void _wasgo_AcceptDialog_wrapper_get_text(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_AcceptDialog_wrapper_has_autowrap(WasGoId wasgo_id);
-void _wasgo_AcceptDialog_wrapper_register_text_enter(WasGoId wasgo_id, WasGoId p_line_edit);
-void _wasgo_AcceptDialog_wrapper_set_autowrap(WasGoId wasgo_id, bool p_autowrap);
-void _wasgo_AcceptDialog_wrapper_set_hide_on_ok(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_AcceptDialog_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+WasGoID _wasgo_AcceptDialog_wrapper_add_button(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size, bool p_right, const uint8_t * p_action, int p_action_wasgo_buffer_size);
+WasGoID _wasgo_AcceptDialog_wrapper_add_cancel(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_AcceptDialog_wrapper_get_hide_on_ok(WasGoID wasgo_id);
+WasGoID _wasgo_AcceptDialog_wrapper_get_label(WasGoID wasgo_id);
+WasGoID _wasgo_AcceptDialog_wrapper_get_ok(WasGoID wasgo_id);
+void _wasgo_AcceptDialog_wrapper_get_text(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_AcceptDialog_wrapper_has_autowrap(WasGoID wasgo_id);
+void _wasgo_AcceptDialog_wrapper_register_text_enter(WasGoID wasgo_id, WasGoID p_line_edit);
+void _wasgo_AcceptDialog_wrapper_set_autowrap(WasGoID wasgo_id, bool p_autowrap);
+void _wasgo_AcceptDialog_wrapper_set_hide_on_ok(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_AcceptDialog_wrapper_set_text(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_AcceptDialog_constructor();
+    WasGoID _wasgo_AcceptDialog_constructor();
             
 }
 #endif

@@ -97,7 +97,7 @@ void VideoPlayer::stop(){
 	_wasgo_VideoPlayer_wrapper_stop(wasgo_id);
 }
 
-VideoPlayer::VideoPlayer(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+VideoPlayer::VideoPlayer(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 VideoPlayer::VideoPlayer(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_VideoPlayer_constructor();

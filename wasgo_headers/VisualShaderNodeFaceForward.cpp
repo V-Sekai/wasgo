@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "VisualShaderNodeFaceForward.h"
 
-VisualShaderNodeFaceForward::VisualShaderNodeFaceForward(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeFaceForward::VisualShaderNodeFaceForward(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeFaceForward::VisualShaderNodeFaceForward(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeFaceForward_constructor();

@@ -18,7 +18,7 @@ void set_seed(int p_seed);
 
 protected:
 public:
-explicit RandomNumberGenerator(WasGoId p_wasgo_id);
+explicit RandomNumberGenerator(WasGoID p_wasgo_id);
 explicit RandomNumberGenerator(Reference other);
 RandomNumberGenerator new_instance();
             
@@ -27,17 +27,17 @@ RandomNumberGenerator new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_RandomNumberGenerator_wrapper_get_seed(WasGoId wasgo_id);
-float _wasgo_RandomNumberGenerator_wrapper_randf(WasGoId wasgo_id);
-float _wasgo_RandomNumberGenerator_wrapper_randf_range(WasGoId wasgo_id, float p_from, float p_to);
-float _wasgo_RandomNumberGenerator_wrapper_randfn(WasGoId wasgo_id, float p_mean, float p_deviation);
-int _wasgo_RandomNumberGenerator_wrapper_randi(WasGoId wasgo_id);
-int _wasgo_RandomNumberGenerator_wrapper_randi_range(WasGoId wasgo_id, int p_from, int p_to);
-void _wasgo_RandomNumberGenerator_wrapper_randomize(WasGoId wasgo_id);
-void _wasgo_RandomNumberGenerator_wrapper_set_seed(WasGoId wasgo_id, int p_seed);
+int _wasgo_RandomNumberGenerator_wrapper_get_seed(WasGoID wasgo_id);
+float _wasgo_RandomNumberGenerator_wrapper_randf(WasGoID wasgo_id);
+float _wasgo_RandomNumberGenerator_wrapper_randf_range(WasGoID wasgo_id, float p_from, float p_to);
+float _wasgo_RandomNumberGenerator_wrapper_randfn(WasGoID wasgo_id, float p_mean, float p_deviation);
+int _wasgo_RandomNumberGenerator_wrapper_randi(WasGoID wasgo_id);
+int _wasgo_RandomNumberGenerator_wrapper_randi_range(WasGoID wasgo_id, int p_from, int p_to);
+void _wasgo_RandomNumberGenerator_wrapper_randomize(WasGoID wasgo_id);
+void _wasgo_RandomNumberGenerator_wrapper_set_seed(WasGoID wasgo_id, int p_seed);
 
     //constructor wrappers
-    WasGoId _wasgo_RandomNumberGenerator_constructor();
+    WasGoID _wasgo_RandomNumberGenerator_constructor();
             
 }
 #endif

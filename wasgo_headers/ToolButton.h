@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit ToolButton(WasGoId p_wasgo_id);
+explicit ToolButton(WasGoID p_wasgo_id);
 explicit ToolButton(Button other);
 ToolButton new_instance();
             
@@ -21,7 +21,7 @@ ToolButton new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_ToolButton_constructor();
+    WasGoID _wasgo_ToolButton_constructor();
             
 }
 #endif

@@ -60,7 +60,7 @@ void MeshInstance::set_surface_material(int p_surface, Material p_material){
 	_wasgo_MeshInstance_wrapper_set_surface_material(wasgo_id, p_surface, p_material._get_wasgo_id());
 }
 
-MeshInstance::MeshInstance(WasGoId p_wasgo_id) : GeometryInstance(p_wasgo_id){
+MeshInstance::MeshInstance(WasGoID p_wasgo_id) : GeometryInstance(p_wasgo_id){
 }
 MeshInstance::MeshInstance(GeometryInstance other) : GeometryInstance(other._get_wasgo_id()){
     wasgo_id = _wasgo_MeshInstance_constructor();

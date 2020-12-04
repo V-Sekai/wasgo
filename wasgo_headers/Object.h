@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "ustring.h"
-#include "NodePath.h"
 #include "Reference.h"
 #include "Variant.h"
+#include "NodePath.h"
+#include "error_list.h"
+#include "ustring.h"
 class Object : public Variant{
 public:
 enum ConnectFlags{
@@ -61,7 +61,7 @@ String tr(String p_message);
 
 protected:
 public:
-explicit Object(WasGoId p_wasgo_id);
+explicit Object(WasGoID p_wasgo_id);
 explicit Object( other);
 Object new_instance();
             
@@ -70,50 +70,50 @@ Object new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Object_wrapper_add_user_signal(WasGoId wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size, WasGoId p_arguments);
-WasGoId _wasgo_Object_wrapper_call(WasGoId wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-void _wasgo_Object_wrapper_call_deferred(WasGoId wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-WasGoId _wasgo_Object_wrapper_callv(WasGoId wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoId p_arg_array);
-int _wasgo_Object_wrapper_can_translate_messages(WasGoId wasgo_id);
-WasGoId _wasgo_Object_wrapper_connect(WasGoId wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size, WasGoId p_target, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoId p_binds, int p_flags);
-void _wasgo_Object_wrapper_disconnect(WasGoId wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size, WasGoId p_target, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-void _wasgo_Object_wrapper_emit_signal(WasGoId wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size);
-void _wasgo_Object_wrapper_free(WasGoId wasgo_id);
-WasGoId _wasgo_Object_wrapper_get(WasGoId wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size);
-void _wasgo_Object_wrapper_get_class(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Object_wrapper_get_incoming_connections(WasGoId wasgo_id);
-WasGoId _wasgo_Object_wrapper_get_indexed(WasGoId wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size);
-int _wasgo_Object_wrapper_get_instance_id(WasGoId wasgo_id);
-WasGoId _wasgo_Object_wrapper_get_meta(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-WasGoId _wasgo_Object_wrapper_get_meta_list(WasGoId wasgo_id);
-WasGoId _wasgo_Object_wrapper_get_method_list(WasGoId wasgo_id);
-WasGoId _wasgo_Object_wrapper_get_property_list(WasGoId wasgo_id);
-WasGoId _wasgo_Object_wrapper_get_script(WasGoId wasgo_id);
-WasGoId _wasgo_Object_wrapper_get_signal_connection_list(WasGoId wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size);
-WasGoId _wasgo_Object_wrapper_get_signal_list(WasGoId wasgo_id);
-int _wasgo_Object_wrapper_has_meta(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_Object_wrapper_has_method(WasGoId wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-int _wasgo_Object_wrapper_has_signal(WasGoId wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size);
-int _wasgo_Object_wrapper_has_user_signal(WasGoId wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size);
-int _wasgo_Object_wrapper_is_blocking_signals(WasGoId wasgo_id);
-int _wasgo_Object_wrapper_is_class(WasGoId wasgo_id, const uint8_t * p_class, int p_class_wasgo_buffer_size);
-int _wasgo_Object_wrapper_is_connected(WasGoId wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size, WasGoId p_target, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-int _wasgo_Object_wrapper_is_queued_for_deletion(WasGoId wasgo_id);
-void _wasgo_Object_wrapper_notification(WasGoId wasgo_id, int p_what, bool p_reversed);
-void _wasgo_Object_wrapper_property_list_changed_notify(WasGoId wasgo_id);
-void _wasgo_Object_wrapper_remove_meta(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_Object_wrapper_set(WasGoId wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_value);
-void _wasgo_Object_wrapper_set_block_signals(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Object_wrapper_set_deferred(WasGoId wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_value);
-void _wasgo_Object_wrapper_set_indexed(WasGoId wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_value);
-void _wasgo_Object_wrapper_set_message_translation(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Object_wrapper_set_meta(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoId p_value);
-void _wasgo_Object_wrapper_set_script(WasGoId wasgo_id, WasGoId p_script);
-void _wasgo_Object_wrapper_to_string(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Object_wrapper_tr(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_message, int p_message_wasgo_buffer_size);
+void _wasgo_Object_wrapper_add_user_signal(WasGoID wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size, WasGoID p_arguments);
+WasGoID _wasgo_Object_wrapper_call(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+void _wasgo_Object_wrapper_call_deferred(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+WasGoID _wasgo_Object_wrapper_callv(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoID p_arg_array);
+int _wasgo_Object_wrapper_can_translate_messages(WasGoID wasgo_id);
+WasGoID _wasgo_Object_wrapper_connect(WasGoID wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size, WasGoID p_target, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoID p_binds, int p_flags);
+void _wasgo_Object_wrapper_disconnect(WasGoID wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size, WasGoID p_target, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+void _wasgo_Object_wrapper_emit_signal(WasGoID wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size);
+void _wasgo_Object_wrapper_free(WasGoID wasgo_id);
+WasGoID _wasgo_Object_wrapper_get(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size);
+void _wasgo_Object_wrapper_get_class(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Object_wrapper_get_incoming_connections(WasGoID wasgo_id);
+WasGoID _wasgo_Object_wrapper_get_indexed(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size);
+int _wasgo_Object_wrapper_get_instance_id(WasGoID wasgo_id);
+WasGoID _wasgo_Object_wrapper_get_meta(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+WasGoID _wasgo_Object_wrapper_get_meta_list(WasGoID wasgo_id);
+WasGoID _wasgo_Object_wrapper_get_method_list(WasGoID wasgo_id);
+WasGoID _wasgo_Object_wrapper_get_property_list(WasGoID wasgo_id);
+WasGoID _wasgo_Object_wrapper_get_script(WasGoID wasgo_id);
+WasGoID _wasgo_Object_wrapper_get_signal_connection_list(WasGoID wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size);
+WasGoID _wasgo_Object_wrapper_get_signal_list(WasGoID wasgo_id);
+int _wasgo_Object_wrapper_has_meta(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_Object_wrapper_has_method(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+int _wasgo_Object_wrapper_has_signal(WasGoID wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size);
+int _wasgo_Object_wrapper_has_user_signal(WasGoID wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size);
+int _wasgo_Object_wrapper_is_blocking_signals(WasGoID wasgo_id);
+int _wasgo_Object_wrapper_is_class(WasGoID wasgo_id, const uint8_t * p_class, int p_class_wasgo_buffer_size);
+int _wasgo_Object_wrapper_is_connected(WasGoID wasgo_id, const uint8_t * p_signal, int p_signal_wasgo_buffer_size, WasGoID p_target, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+int _wasgo_Object_wrapper_is_queued_for_deletion(WasGoID wasgo_id);
+void _wasgo_Object_wrapper_notification(WasGoID wasgo_id, int p_what, bool p_reversed);
+void _wasgo_Object_wrapper_property_list_changed_notify(WasGoID wasgo_id);
+void _wasgo_Object_wrapper_remove_meta(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_Object_wrapper_set(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
+void _wasgo_Object_wrapper_set_block_signals(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Object_wrapper_set_deferred(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
+void _wasgo_Object_wrapper_set_indexed(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
+void _wasgo_Object_wrapper_set_message_translation(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Object_wrapper_set_meta(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoID p_value);
+void _wasgo_Object_wrapper_set_script(WasGoID wasgo_id, WasGoID p_script);
+void _wasgo_Object_wrapper_to_string(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Object_wrapper_tr(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_message, int p_message_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_Object_constructor();
+    WasGoID _wasgo_Object_constructor();
             
 }
 #endif

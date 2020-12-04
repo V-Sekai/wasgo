@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeTransformUniform(WasGoId p_wasgo_id);
+explicit VisualShaderNodeTransformUniform(WasGoID p_wasgo_id);
 explicit VisualShaderNodeTransformUniform(VisualShaderNodeUniform other);
 VisualShaderNodeTransformUniform new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeTransformUniform new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeTransformUniform_constructor();
+    WasGoID _wasgo_VisualShaderNodeTransformUniform_constructor();
             
 }
 #endif

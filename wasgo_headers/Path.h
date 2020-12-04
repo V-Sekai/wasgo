@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Curve3D.h"
 #include "Spatial.h"
+#include "Curve3D.h"
 class Path : public Spatial{
 public:
 Curve3D get_curve();
@@ -13,7 +13,7 @@ void set_curve(Curve3D p_curve);
 
 protected:
 public:
-explicit Path(WasGoId p_wasgo_id);
+explicit Path(WasGoID p_wasgo_id);
 explicit Path(Spatial other);
 Path new_instance();
             
@@ -22,11 +22,11 @@ Path new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Path_wrapper_get_curve(WasGoId wasgo_id);
-void _wasgo_Path_wrapper_set_curve(WasGoId wasgo_id, WasGoId p_curve);
+WasGoID _wasgo_Path_wrapper_get_curve(WasGoID wasgo_id);
+void _wasgo_Path_wrapper_set_curve(WasGoID wasgo_id, WasGoID p_curve);
 
     //constructor wrappers
-    WasGoId _wasgo_Path_constructor();
+    WasGoID _wasgo_Path_constructor();
             
 }
 #endif

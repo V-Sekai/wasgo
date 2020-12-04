@@ -44,7 +44,7 @@ void ImageTexture::set_storage(ImageTexture::Storage p_mode){
 	_wasgo_ImageTexture_wrapper_set_storage(wasgo_id, p_mode._get_wasgo_id());
 }
 
-ImageTexture::ImageTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
+ImageTexture::ImageTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 ImageTexture::ImageTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_ImageTexture_constructor();

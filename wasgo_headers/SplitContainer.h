@@ -24,16 +24,16 @@ void set_split_offset(int p_offset);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_SplitContainer_wrapper_clamp_split_offset(WasGoId wasgo_id);
-WasGoId _wasgo_SplitContainer_wrapper_get_dragger_visibility(WasGoId wasgo_id);
-int _wasgo_SplitContainer_wrapper_get_split_offset(WasGoId wasgo_id);
-int _wasgo_SplitContainer_wrapper_is_collapsed(WasGoId wasgo_id);
-void _wasgo_SplitContainer_wrapper_set_collapsed(WasGoId wasgo_id, bool p_collapsed);
-void _wasgo_SplitContainer_wrapper_set_dragger_visibility(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_SplitContainer_wrapper_set_split_offset(WasGoId wasgo_id, int p_offset);
+void _wasgo_SplitContainer_wrapper_clamp_split_offset(WasGoID wasgo_id);
+WasGoID _wasgo_SplitContainer_wrapper_get_dragger_visibility(WasGoID wasgo_id);
+int _wasgo_SplitContainer_wrapper_get_split_offset(WasGoID wasgo_id);
+int _wasgo_SplitContainer_wrapper_is_collapsed(WasGoID wasgo_id);
+void _wasgo_SplitContainer_wrapper_set_collapsed(WasGoID wasgo_id, bool p_collapsed);
+void _wasgo_SplitContainer_wrapper_set_dragger_visibility(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_SplitContainer_wrapper_set_split_offset(WasGoID wasgo_id, int p_offset);
 
     //constructor wrappers
-    WasGoId _wasgo_SplitContainer_constructor();
+    WasGoID _wasgo_SplitContainer_constructor();
             
 }
 #endif

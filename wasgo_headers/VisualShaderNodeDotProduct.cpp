@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "VisualShaderNodeDotProduct.h"
 
-VisualShaderNodeDotProduct::VisualShaderNodeDotProduct(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeDotProduct::VisualShaderNodeDotProduct(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeDotProduct::VisualShaderNodeDotProduct(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeDotProduct_constructor();

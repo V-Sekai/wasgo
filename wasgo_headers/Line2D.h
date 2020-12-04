@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Curve.h"
-#include "Vector2.h"
-#include "Texture.h"
-#include "Gradient.h"
 #include "Color.h"
-#include "Node2D.h"
+#include "Vector2.h"
 #include "Variant.h"
+#include "Gradient.h"
+#include "Curve.h"
+#include "Node2D.h"
+#include "Texture.h"
 class Line2D : public Node2D{
 public:
 enum LineCapMode{
@@ -63,7 +63,7 @@ void set_width(float p_width);
 
 protected:
 public:
-explicit Line2D(WasGoId p_wasgo_id);
+explicit Line2D(WasGoID p_wasgo_id);
 explicit Line2D(Node2D other);
 Line2D new_instance();
             
@@ -72,41 +72,41 @@ Line2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Line2D_wrapper_add_point(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, int p_at_position);
-void _wasgo_Line2D_wrapper_clear_points(WasGoId wasgo_id);
-int _wasgo_Line2D_wrapper_get_antialiased(WasGoId wasgo_id);
-WasGoId _wasgo_Line2D_wrapper_get_begin_cap_mode(WasGoId wasgo_id);
-WasGoId _wasgo_Line2D_wrapper_get_curve(WasGoId wasgo_id);
-void _wasgo_Line2D_wrapper_get_default_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Line2D_wrapper_get_end_cap_mode(WasGoId wasgo_id);
-WasGoId _wasgo_Line2D_wrapper_get_gradient(WasGoId wasgo_id);
-WasGoId _wasgo_Line2D_wrapper_get_joint_mode(WasGoId wasgo_id);
-int _wasgo_Line2D_wrapper_get_point_count(WasGoId wasgo_id);
-void _wasgo_Line2D_wrapper_get_point_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_i);
-WasGoId _wasgo_Line2D_wrapper_get_points(WasGoId wasgo_id);
-int _wasgo_Line2D_wrapper_get_round_precision(WasGoId wasgo_id);
-float _wasgo_Line2D_wrapper_get_sharp_limit(WasGoId wasgo_id);
-WasGoId _wasgo_Line2D_wrapper_get_texture(WasGoId wasgo_id);
-WasGoId _wasgo_Line2D_wrapper_get_texture_mode(WasGoId wasgo_id);
-float _wasgo_Line2D_wrapper_get_width(WasGoId wasgo_id);
-void _wasgo_Line2D_wrapper_remove_point(WasGoId wasgo_id, int p_i);
-void _wasgo_Line2D_wrapper_set_antialiased(WasGoId wasgo_id, bool p_antialiased);
-void _wasgo_Line2D_wrapper_set_begin_cap_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Line2D_wrapper_set_curve(WasGoId wasgo_id, WasGoId p_curve);
-void _wasgo_Line2D_wrapper_set_default_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_Line2D_wrapper_set_end_cap_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Line2D_wrapper_set_gradient(WasGoId wasgo_id, WasGoId p_color);
-void _wasgo_Line2D_wrapper_set_joint_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Line2D_wrapper_set_point_position(WasGoId wasgo_id, int p_i, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_Line2D_wrapper_set_points(WasGoId wasgo_id, WasGoId p_points);
-void _wasgo_Line2D_wrapper_set_round_precision(WasGoId wasgo_id, int p_precision);
-void _wasgo_Line2D_wrapper_set_sharp_limit(WasGoId wasgo_id, float p_limit);
-void _wasgo_Line2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
-void _wasgo_Line2D_wrapper_set_texture_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Line2D_wrapper_set_width(WasGoId wasgo_id, float p_width);
+void _wasgo_Line2D_wrapper_add_point(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, int p_at_position);
+void _wasgo_Line2D_wrapper_clear_points(WasGoID wasgo_id);
+int _wasgo_Line2D_wrapper_get_antialiased(WasGoID wasgo_id);
+WasGoID _wasgo_Line2D_wrapper_get_begin_cap_mode(WasGoID wasgo_id);
+WasGoID _wasgo_Line2D_wrapper_get_curve(WasGoID wasgo_id);
+void _wasgo_Line2D_wrapper_get_default_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Line2D_wrapper_get_end_cap_mode(WasGoID wasgo_id);
+WasGoID _wasgo_Line2D_wrapper_get_gradient(WasGoID wasgo_id);
+WasGoID _wasgo_Line2D_wrapper_get_joint_mode(WasGoID wasgo_id);
+int _wasgo_Line2D_wrapper_get_point_count(WasGoID wasgo_id);
+void _wasgo_Line2D_wrapper_get_point_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_i);
+WasGoID _wasgo_Line2D_wrapper_get_points(WasGoID wasgo_id);
+int _wasgo_Line2D_wrapper_get_round_precision(WasGoID wasgo_id);
+float _wasgo_Line2D_wrapper_get_sharp_limit(WasGoID wasgo_id);
+WasGoID _wasgo_Line2D_wrapper_get_texture(WasGoID wasgo_id);
+WasGoID _wasgo_Line2D_wrapper_get_texture_mode(WasGoID wasgo_id);
+float _wasgo_Line2D_wrapper_get_width(WasGoID wasgo_id);
+void _wasgo_Line2D_wrapper_remove_point(WasGoID wasgo_id, int p_i);
+void _wasgo_Line2D_wrapper_set_antialiased(WasGoID wasgo_id, bool p_antialiased);
+void _wasgo_Line2D_wrapper_set_begin_cap_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Line2D_wrapper_set_curve(WasGoID wasgo_id, WasGoID p_curve);
+void _wasgo_Line2D_wrapper_set_default_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_Line2D_wrapper_set_end_cap_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Line2D_wrapper_set_gradient(WasGoID wasgo_id, WasGoID p_color);
+void _wasgo_Line2D_wrapper_set_joint_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Line2D_wrapper_set_point_position(WasGoID wasgo_id, int p_i, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_Line2D_wrapper_set_points(WasGoID wasgo_id, WasGoID p_points);
+void _wasgo_Line2D_wrapper_set_round_precision(WasGoID wasgo_id, int p_precision);
+void _wasgo_Line2D_wrapper_set_sharp_limit(WasGoID wasgo_id, float p_limit);
+void _wasgo_Line2D_wrapper_set_texture(WasGoID wasgo_id, WasGoID p_texture);
+void _wasgo_Line2D_wrapper_set_texture_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Line2D_wrapper_set_width(WasGoID wasgo_id, float p_width);
 
     //constructor wrappers
-    WasGoId _wasgo_Line2D_constructor();
+    WasGoID _wasgo_Line2D_constructor();
             
 }
 #endif

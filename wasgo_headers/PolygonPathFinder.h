@@ -6,8 +6,8 @@
 
 #include "Resource.h"
 #include "Rect2.h"
-#include "Vector2.h"
 #include "Variant.h"
+#include "Vector2.h"
 class PolygonPathFinder : public Resource{
 public:
 PoolVector2Array find_path(Vector2 p_from, Vector2 p_to);
@@ -21,7 +21,7 @@ void setup(PoolVector2Array p_points, PoolIntArray p_connections);
 
 protected:
 public:
-explicit PolygonPathFinder(WasGoId p_wasgo_id);
+explicit PolygonPathFinder(WasGoID p_wasgo_id);
 explicit PolygonPathFinder(Resource other);
 PolygonPathFinder new_instance();
             
@@ -30,17 +30,17 @@ PolygonPathFinder new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_PolygonPathFinder_wrapper_find_path(WasGoId wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
-void _wasgo_PolygonPathFinder_wrapper_get_bounds(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_PolygonPathFinder_wrapper_get_closest_point(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_point, int p_point_wasgo_buffer_size);
-WasGoId _wasgo_PolygonPathFinder_wrapper_get_intersections(WasGoId wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
-float _wasgo_PolygonPathFinder_wrapper_get_point_penalty(WasGoId wasgo_id, int p_idx);
-int _wasgo_PolygonPathFinder_wrapper_is_point_inside(WasGoId wasgo_id, const uint8_t * p_point, int p_point_wasgo_buffer_size);
-void _wasgo_PolygonPathFinder_wrapper_set_point_penalty(WasGoId wasgo_id, int p_idx, float p_penalty);
-void _wasgo_PolygonPathFinder_wrapper_setup(WasGoId wasgo_id, WasGoId p_points, WasGoId p_connections);
+WasGoID _wasgo_PolygonPathFinder_wrapper_find_path(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
+void _wasgo_PolygonPathFinder_wrapper_get_bounds(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_PolygonPathFinder_wrapper_get_closest_point(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_point, int p_point_wasgo_buffer_size);
+WasGoID _wasgo_PolygonPathFinder_wrapper_get_intersections(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
+float _wasgo_PolygonPathFinder_wrapper_get_point_penalty(WasGoID wasgo_id, int p_idx);
+int _wasgo_PolygonPathFinder_wrapper_is_point_inside(WasGoID wasgo_id, const uint8_t * p_point, int p_point_wasgo_buffer_size);
+void _wasgo_PolygonPathFinder_wrapper_set_point_penalty(WasGoID wasgo_id, int p_idx, float p_penalty);
+void _wasgo_PolygonPathFinder_wrapper_setup(WasGoID wasgo_id, WasGoID p_points, WasGoID p_connections);
 
     //constructor wrappers
-    WasGoId _wasgo_PolygonPathFinder_constructor();
+    WasGoID _wasgo_PolygonPathFinder_constructor();
             
 }
 #endif

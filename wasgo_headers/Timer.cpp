@@ -44,7 +44,7 @@ void Timer::stop(){
 	_wasgo_Timer_wrapper_stop(wasgo_id);
 }
 
-Timer::Timer(WasGoId p_wasgo_id) : Node(p_wasgo_id){
+Timer::Timer(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 Timer::Timer(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_Timer_constructor();

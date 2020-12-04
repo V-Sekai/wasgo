@@ -50,7 +50,7 @@ void AudioEffectReverb::set_wet(float p_amount){
 	_wasgo_AudioEffectReverb_wrapper_set_wet(wasgo_id, p_amount);
 }
 
-AudioEffectReverb::AudioEffectReverb(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+AudioEffectReverb::AudioEffectReverb(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectReverb::AudioEffectReverb(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectReverb_constructor();

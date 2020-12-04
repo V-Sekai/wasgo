@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit AudioEffectBandLimitFilter(WasGoId p_wasgo_id);
+explicit AudioEffectBandLimitFilter(WasGoID p_wasgo_id);
 explicit AudioEffectBandLimitFilter(AudioEffectFilter other);
 AudioEffectBandLimitFilter new_instance();
             
@@ -21,7 +21,7 @@ AudioEffectBandLimitFilter new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectBandLimitFilter_constructor();
+    WasGoID _wasgo_AudioEffectBandLimitFilter_constructor();
             
 }
 #endif

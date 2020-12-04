@@ -8,7 +8,7 @@ Error Semaphore::wait(){
 	return Error(_wasgo_Semaphore_wrapper_wait(wasgo_id));
 }
 
-Semaphore::Semaphore(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+Semaphore::Semaphore(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Semaphore::Semaphore(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Semaphore_constructor();

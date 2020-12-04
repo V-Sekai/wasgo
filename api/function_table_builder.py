@@ -685,6 +685,20 @@ def write_function_table(file_path, api_dict):
             "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_nodepath,\"(*~*~)\"),",
             "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_object,\"(*~)i\"),",
             "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_object,\"(*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_process,\"(i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_physics_process,\"(i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_process_internal,\"(i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_physics_process_internal,\"(i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_process_input,\"(i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_process_unhandled_input,\"(i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_process_unhandled_key_input,\"(i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_is_processing,\"()\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_is_physics_processing,\"()\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_is_processing_internal,\"()\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_is_physics_processing_internal,\"()\"),",
+            "//EXPORT_WASM_API_WITH_SIG(_wasgo_is_processing_input,\"()\"),",
+            "//EXPORT_WASM_API_WITH_SIG(_wasgo_is_processing_unhandled_input,\"()\"),",
+            "//EXPORT_WASM_API_WITH_SIG(_wasgo_is_processing_unhandled_key_input,\"()\"),",
             ]
     def constructor_destructor_wrappers(class_name):
         return ["""
@@ -739,8 +753,8 @@ def write_wasm_wrapper_functions(file_path, api_dict):
         "extern \"C\" {"
     ]
     def single_wrapper(name, return_type, arguments):
-        arg_list = ["{0} p_{1}".format(wrapper_argument_types(arg["type"], "WasGoId"), arg["name"]) for arg in arguments]
-        return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGoId"), name, ", ".join(arg_list))
+        arg_list = ["{0} p_{1}".format(wrapper_argument_types(arg["type"], "WasGoID"), arg["name"]) for arg in arguments]
+        return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGoID"), name, ", ".join(arg_list))
 
     for class_name in api_dict:
         for method_name in api_dict[class_name]["methods"]:
@@ -780,21 +794,22 @@ def write_wasm_class_headers(file_path, api_dict):
     def single_wrapper(name, return_type, arguments):
         arg_list = []
         for arg in arguments:
-            arg_type = wrapper_argument_types(arg["type"], "WasGoId")
+            arg_type = wrapper_argument_types(arg["type"], "WasGoID")
             arg_list += ["{0} p_{1}".format(arg_type, arg["name"])]
             if "uint8_t" in arg_type:
                 arg_list += ["int p_{0}_wasgo_buffer_size".format(arg["name"])]
         if return_type in wasm_variants:
             arg_list = ["uint8_t * wasgo_ret", "int wasgo_ret_size"] + arg_list
-        return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGoId"), name, ", ".join(["WasGoId wasgo_id"] + arg_list))
+        return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGoID"), name, ", ".join(["WasGoID wasgo_id"] + arg_list))
     
     def constructor(class_name, base_class):
         out = [
             """
 protected:
 public:
-explicit {0}(WasGoId p_wasgo_id);
+explicit {0}(WasGoID p_wasgo_id);
 explicit {0}({1} other);
+{0}();
 {0} new_instance();
             """.format(class_name, base_class)
         ]
@@ -874,7 +889,7 @@ explicit {0}({1} other);
         header_file_data += [
             """
     //constructor wrappers
-    WasGoId _wasgo_{0}_constructor();
+    WasGoID _wasgo_{0}_constructor();
             """.format(n)
         ]
         header_file_data += ["}",
@@ -969,10 +984,12 @@ def write_wasm_classes(file_path, api_dict):
     def constructor_and_destructor(class_name, base_class):
         out = [
             """
-{0}::{0}(WasGoId p_wasgo_id) : {1}(p_wasgo_id){{
+{0}::{0}(WasGoID p_wasgo_id) : {1}(p_wasgo_id){{
 }}
 {0}::{0}({1} other) : {1}(other._get_wasgo_id()){{
     wasgo_id = _wasgo_{0}_constructor();
+}}
+{0}::{0}():{1}(){{
 }}
 {0}::new_instance(){{
     return {0}(_wasgo_{0}_constructor());
@@ -1011,13 +1028,13 @@ def write_wasm_classes(file_path, api_dict):
 # #include "wasgo/wasgoid.h"
 
 # extern "C" {
-# WasGoId _wasgo_get_property(const char *property);
-# void _wasgo_set_property(const char *property, WasGoId);
+# WasGoID _wasgo_get_property(const char *property);
+# void _wasgo_set_property(const char *property, WasGoID);
 # }
 
 # class WasGo {
 # public:
-# 	typedef uint32_t WasGoId;
+# 	typedef uint32_t WasGoID;
 
 # 	static Variant get_property(const char * property) {
 #         return Variant::from_id(_wasgo_get_property(property));

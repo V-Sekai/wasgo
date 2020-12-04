@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit AudioEffectNotchFilter(WasGoId p_wasgo_id);
+explicit AudioEffectNotchFilter(WasGoID p_wasgo_id);
 explicit AudioEffectNotchFilter(AudioEffectFilter other);
 AudioEffectNotchFilter new_instance();
             
@@ -21,7 +21,7 @@ AudioEffectNotchFilter new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectNotchFilter_constructor();
+    WasGoID _wasgo_AudioEffectNotchFilter_constructor();
             
 }
 #endif

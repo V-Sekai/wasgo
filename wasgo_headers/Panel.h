@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit Panel(WasGoId p_wasgo_id);
+explicit Panel(WasGoID p_wasgo_id);
 explicit Panel(Control other);
 Panel new_instance();
             
@@ -21,7 +21,7 @@ Panel new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_Panel_constructor();
+    WasGoID _wasgo_Panel_constructor();
             
 }
 #endif

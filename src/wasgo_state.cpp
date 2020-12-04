@@ -3,22 +3,8 @@
 #include "wasgo_runtime.h"
 
 void WasGoState::_initialize() {
+	_stop();
 	reference_object(this);
-	// for (int i = 0; i < properties.size(); i++) {
-	// 	Variant var = properties.values()[i];
-	// 	switch(var.get_type()){
-	// 		case (Variant::OBJECT): {
-	// 			Object *obj = var;
-	// 			reference_object(obj);
-	// 		} break;
-	// 		case (Variant::NODE_PATH): {
-	// 			Node *node = get_node_or_null(var);
-	// 			if (node) {
-	// 				reference_object(node);
-	// 			}
-	// 		} break;
-	// 	}
-	// }
 	if (wasm_script.is_valid()) {
 		module = WasGoRuntime::get_singleton()->load_module(wasm_script);
 		if (module) {
@@ -31,8 +17,31 @@ void WasGoState::_initialize() {
 			exec_env = wasm_runtime_create_exec_env(module_inst, stack_size);
 			wasm_runtime_set_user_data(exec_env, this);
 
-			if (!(notification_callback = wasm_runtime_lookup_function(module_inst, "_notification", NULL))) {
-				printf("The notification callback is not found in the wasm script\n");
+			if (notification_callback = wasm_runtime_lookup_function(module_inst, "_notification", NULL)) {
+				print_line("The notification callback found");
+			}
+			if (ready_callback = wasm_runtime_lookup_function(module_inst, "_ready", NULL)) {
+				print_line("The ready callback found");
+			}
+			if (process_callback = wasm_runtime_lookup_function(module_inst, "_process", NULL)) {
+				set_process(true);
+				print_line("The process callback found");
+			}
+			if (physics_process_callback = wasm_runtime_lookup_function(module_inst, "_physics_process", NULL)) {
+				set_physics_process(true);
+				print_line("The physics_process callback found");
+			}
+			if (wasm_runtime_lookup_function(module_inst, "_input", NULL) && (input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_input", NULL))) {
+				set_process_input(true);
+				print_line("The input callback found");
+			}
+			if (wasm_runtime_lookup_function(module_inst, "_unhandled_input", NULL) && (unhandled_input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_unhandled_input", NULL))) {
+				set_process_unhandled_input(true);
+				print_line("The unhandled_input callback found");
+			}
+			if (wasm_runtime_lookup_function(module_inst, "_unhandled_key_input", NULL) && (unhandled_key_input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_unhandled_key_input", NULL))) {
+				set_process_unhandled_key_input(true);
+				print_line("The unhandled_key_input callback found");
 			}
 		} else {
 			printf("WASM FAILED TO LOAD");
@@ -55,6 +64,13 @@ void WasGoState::_stop() {
 	createdObjectsReverse.clear();
 	referencedObjects.clear();
 	referencedObjectsReverse.clear();
+	notification_callback = nullptr;
+	ready_callback = nullptr;
+	process_callback = nullptr;
+	physics_process_callback = nullptr;
+	input_callback = nullptr;
+	unhandled_input_callback = nullptr;
+	unhandled_key_input_callback = nullptr;
 }
 
 void WasGoState::_bind_methods() {
@@ -76,48 +92,65 @@ void WasGoState::_bind_methods() {
 	ADD_GROUP("runtime", "runtime_");
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "runtime_stack_size", PROPERTY_HINT_NONE, ""), "set_stack_size", "get_stack_size");
 	ADD_PROPERTY(PropertyInfo(Variant::INT, "runtime_heap_size", PROPERTY_HINT_NONE, ""), "set_heap_size", "get_heap_size");
+	ADD_GROUP("sync", "sync_");
 }
 
 void WasGoState::_validate_property(PropertyInfo &property) const{
-
 }
-void WasGoState::_notification(int p_what){
+void WasGoState::_notification(int p_what) {
+	// TODO: Uncomment this
+	// if (!Engine::get_singleton()->is_editor_hint()){ // only run in game
 	switch (p_what) {
 		case NOTIFICATION_READY:{
-			// TODO: Uncomment this
-			// if (!Engine::get_singleton()->is_editor_hint()){ // only run in game
-			_stop();
 			_initialize();
+			if (ready_callback) {
+				if(!wasm_runtime_call_wasm(exec_env, ready_callback, 0, nullptr)) {
+					printf("wasm ready callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+				}
+			}
+		} break;
+		case NOTIFICATION_INTERNAL_PROCESS:
+		case NOTIFICATION_PROCESS:{
+			if (process_callback) {
+				float delta = get_process_delta_time();
+				uint32_t argv[2];
+				memcpy(argv, &delta, sizeof(delta));
+				if (!wasm_runtime_call_wasm(exec_env, process_callback, 1, argv)) {
+					printf("wasm process callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+				}
+			}
+		} break;
+		case NOTIFICATION_INTERNAL_PHYSICS_PROCESS:
+		case NOTIFICATION_PHYSICS_PROCESS: {
+			if (physics_process_callback) {
+				float delta = get_physics_process_delta_time();
+				uint32_t argv[2];
+				memcpy(argv, &delta, sizeof(delta));
+				if (!wasm_runtime_call_wasm(exec_env, physics_process_callback, 1, argv)) {
+					printf("wasm physics process callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+				}
+			}
 
 		} break;
 		default:{
 		} break;
-			// }
 	}
 
-	// TODO: Uncomment this
-	// if (!Engine::get_singleton()->is_editor_hint()){ // only run in game
 	if (notification_callback) {
 		uint32_t argv[2] = { 0, p_what }; //argv[0] is the return value
 		if (!wasm_runtime_call_wasm(exec_env, notification_callback, 1, argv)) {
-			printf("call wasm notification callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+			printf("wasm notification callback failed. %s\n", wasm_runtime_get_exception(module_inst));
 		}
 	}
-	// }
 
-	// pass 4 elements for function arguments
-	
+	// }
 }
 
 WasGoState::WasGoState() {
 	properties = {};
 	stack_size = 8192;
 	heap_size = 8192;
-	notification_callback = nullptr;
-	createdObjects = Dictionary();
-	createdObjectsReverse = Dictionary();
-	referencedObjects = Dictionary();
-	referencedObjectsReverse = Dictionary();
+	_stop();
 }
 
 WasGoState::~WasGoState(){
@@ -634,4 +667,62 @@ void _wasgo_set_property_object(wasm_exec_env_t p_exec_env, const uint8_t *prope
 	if (obj) {
 		state->set_property(name, obj);
 	}
+}
+
+void _wasgo_set_process(wasm_exec_env_t p_exec_env, bool p_enable) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	state->set_process(p_enable);
+}
+void _wasgo_set_physics_process(wasm_exec_env_t p_exec_env, bool p_enable) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	state->set_physics_process(p_enable);
+}
+void _wasgo_set_process_internal(wasm_exec_env_t p_exec_env, bool p_enable) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	state->set_process_internal(p_enable);
+}
+void _wasgo_set_physics_process_internal(wasm_exec_env_t p_exec_env, bool p_enable) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	state->set_physics_process_internal(p_enable);
+}
+void _wasgo_set_process_input(wasm_exec_env_t p_exec_env, bool p_enable) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	state->set_process_input(p_enable);
+}
+void _wasgo_set_process_unhandled_input(wasm_exec_env_t p_exec_env, bool p_enable) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	state->set_process_unhandled_input(p_enable);
+}
+void _wasgo_set_process_unhandled_key_input(wasm_exec_env_t p_exec_env, bool p_enable) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	state->set_process_unhandled_key_input(p_enable);
+}
+
+bool _wasgo_is_processing(wasm_exec_env_t p_exec_env) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	return state->is_processing();
+}
+bool _wasgo_is_physics_processing(wasm_exec_env_t p_exec_env) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	return state->is_physics_processing();
+}
+bool _wasgo_is_processing_internal(wasm_exec_env_t p_exec_env) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	return state->is_processing_internal();
+}
+bool _wasgo_is_physics_processing_internal(wasm_exec_env_t p_exec_env) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	return state->is_physics_processing_internal();
+}
+bool _wasgo_is_processing_input(wasm_exec_env_t p_exec_env) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	return state->is_processing_input();
+}
+bool _wasgo_is_processing_unhandled_input(wasm_exec_env_t p_exec_env) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	return state->is_processing_unhandled_input();
+}
+bool _wasgo_is_processing_unhandled_key_input(wasm_exec_env_t p_exec_env) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	return state->is_processing_unhandled_key_input();
 }

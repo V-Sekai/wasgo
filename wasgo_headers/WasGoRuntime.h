@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit WasGoRuntime(WasGoId p_wasgo_id);
+explicit WasGoRuntime(WasGoID p_wasgo_id);
 explicit WasGoRuntime(Object other);
 WasGoRuntime new_instance();
             
@@ -21,7 +21,7 @@ WasGoRuntime new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_WasGoRuntime_constructor();
+    WasGoID _wasgo_WasGoRuntime_constructor();
             
 }
 #endif

@@ -290,7 +290,7 @@ void AnimationPlayer::stop(bool p_reset = (bool) true){
 	_wasgo_AnimationPlayer_wrapper_stop(wasgo_id, p_reset);
 }
 
-AnimationPlayer::AnimationPlayer(WasGoId p_wasgo_id) : Node(p_wasgo_id){
+AnimationPlayer::AnimationPlayer(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 AnimationPlayer::AnimationPlayer(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationPlayer_constructor();

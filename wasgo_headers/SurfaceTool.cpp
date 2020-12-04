@@ -119,7 +119,7 @@ void SurfaceTool::set_material(Material p_material){
 	_wasgo_SurfaceTool_wrapper_set_material(wasgo_id, p_material._get_wasgo_id());
 }
 
-SurfaceTool::SurfaceTool(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+SurfaceTool::SurfaceTool(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 SurfaceTool::SurfaceTool(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_SurfaceTool_constructor();

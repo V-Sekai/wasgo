@@ -15,7 +15,7 @@ void make_current();
 
 protected:
 public:
-explicit Listener(WasGoId p_wasgo_id);
+explicit Listener(WasGoID p_wasgo_id);
 explicit Listener(Spatial other);
 Listener new_instance();
             
@@ -24,13 +24,13 @@ Listener new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Listener_wrapper_clear_current(WasGoId wasgo_id);
-void _wasgo_Listener_wrapper_get_listener_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Listener_wrapper_is_current(WasGoId wasgo_id);
-void _wasgo_Listener_wrapper_make_current(WasGoId wasgo_id);
+void _wasgo_Listener_wrapper_clear_current(WasGoID wasgo_id);
+void _wasgo_Listener_wrapper_get_listener_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Listener_wrapper_is_current(WasGoID wasgo_id);
+void _wasgo_Listener_wrapper_make_current(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_Listener_constructor();
+    WasGoID _wasgo_Listener_constructor();
             
 }
 #endif

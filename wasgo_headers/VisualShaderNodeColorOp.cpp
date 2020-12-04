@@ -8,7 +8,7 @@ void VisualShaderNodeColorOp::set_operator(VisualShaderNodeColorOp::Operator p_o
 	_wasgo_VisualShaderNodeColorOp_wrapper_set_operator(wasgo_id, p_op._get_wasgo_id());
 }
 
-VisualShaderNodeColorOp::VisualShaderNodeColorOp(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeColorOp::VisualShaderNodeColorOp(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeColorOp::VisualShaderNodeColorOp(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeColorOp_constructor();

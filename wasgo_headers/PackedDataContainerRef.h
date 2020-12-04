@@ -13,10 +13,10 @@ int size();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_PackedDataContainerRef_wrapper_size(WasGoId wasgo_id);
+int _wasgo_PackedDataContainerRef_wrapper_size(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_PackedDataContainerRef_constructor();
+    WasGoID _wasgo_PackedDataContainerRef_constructor();
             
 }
 #endif

@@ -87,7 +87,7 @@ bool UndoRedo::undo(){
 	return (bool) _wasgo_UndoRedo_wrapper_undo(wasgo_id);
 }
 
-UndoRedo::UndoRedo(WasGoId p_wasgo_id) : Object(p_wasgo_id){
+UndoRedo::UndoRedo(WasGoID p_wasgo_id) : Object(p_wasgo_id){
 }
 UndoRedo::UndoRedo(Object other) : Object(other._get_wasgo_id()){
     wasgo_id = _wasgo_UndoRedo_constructor();

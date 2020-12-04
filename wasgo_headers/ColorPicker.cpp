@@ -78,7 +78,7 @@ void ColorPicker::set_raw_mode(bool p_mode){
 	_wasgo_ColorPicker_wrapper_set_raw_mode(wasgo_id, p_mode);
 }
 
-ColorPicker::ColorPicker(WasGoId p_wasgo_id) : BoxContainer(p_wasgo_id){
+ColorPicker::ColorPicker(WasGoID p_wasgo_id) : BoxContainer(p_wasgo_id){
 }
 ColorPicker::ColorPicker(BoxContainer other) : BoxContainer(other._get_wasgo_id()){
     wasgo_id = _wasgo_ColorPicker_constructor();

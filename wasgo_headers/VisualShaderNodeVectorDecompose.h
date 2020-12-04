@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeVectorDecompose(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorDecompose(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorDecompose(VisualShaderNode other);
 VisualShaderNodeVectorDecompose new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeVectorDecompose new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeVectorDecompose_constructor();
+    WasGoID _wasgo_VisualShaderNodeVectorDecompose_constructor();
             
 }
 #endif

@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Container.h"
-#include "HScrollBar.h"
 #include "VScrollBar.h"
+#include "HScrollBar.h"
+#include "Container.h"
 class ScrollContainer : public Container{
 public:
 int get_deadzone();
@@ -26,7 +26,7 @@ void set_v_scroll(int p_value);
 
 protected:
 public:
-explicit ScrollContainer(WasGoId p_wasgo_id);
+explicit ScrollContainer(WasGoID p_wasgo_id);
 explicit ScrollContainer(Container other);
 ScrollContainer new_instance();
             
@@ -35,23 +35,23 @@ ScrollContainer new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_ScrollContainer_wrapper_get_deadzone(WasGoId wasgo_id);
-int _wasgo_ScrollContainer_wrapper_get_h_scroll(WasGoId wasgo_id);
-WasGoId _wasgo_ScrollContainer_wrapper_get_h_scrollbar(WasGoId wasgo_id);
-int _wasgo_ScrollContainer_wrapper_get_v_scroll(WasGoId wasgo_id);
-WasGoId _wasgo_ScrollContainer_wrapper_get_v_scrollbar(WasGoId wasgo_id);
-int _wasgo_ScrollContainer_wrapper_is_following_focus(WasGoId wasgo_id);
-int _wasgo_ScrollContainer_wrapper_is_h_scroll_enabled(WasGoId wasgo_id);
-int _wasgo_ScrollContainer_wrapper_is_v_scroll_enabled(WasGoId wasgo_id);
-void _wasgo_ScrollContainer_wrapper_set_deadzone(WasGoId wasgo_id, int p_deadzone);
-void _wasgo_ScrollContainer_wrapper_set_enable_h_scroll(WasGoId wasgo_id, bool p_enable);
-void _wasgo_ScrollContainer_wrapper_set_enable_v_scroll(WasGoId wasgo_id, bool p_enable);
-void _wasgo_ScrollContainer_wrapper_set_follow_focus(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_ScrollContainer_wrapper_set_h_scroll(WasGoId wasgo_id, int p_value);
-void _wasgo_ScrollContainer_wrapper_set_v_scroll(WasGoId wasgo_id, int p_value);
+int _wasgo_ScrollContainer_wrapper_get_deadzone(WasGoID wasgo_id);
+int _wasgo_ScrollContainer_wrapper_get_h_scroll(WasGoID wasgo_id);
+WasGoID _wasgo_ScrollContainer_wrapper_get_h_scrollbar(WasGoID wasgo_id);
+int _wasgo_ScrollContainer_wrapper_get_v_scroll(WasGoID wasgo_id);
+WasGoID _wasgo_ScrollContainer_wrapper_get_v_scrollbar(WasGoID wasgo_id);
+int _wasgo_ScrollContainer_wrapper_is_following_focus(WasGoID wasgo_id);
+int _wasgo_ScrollContainer_wrapper_is_h_scroll_enabled(WasGoID wasgo_id);
+int _wasgo_ScrollContainer_wrapper_is_v_scroll_enabled(WasGoID wasgo_id);
+void _wasgo_ScrollContainer_wrapper_set_deadzone(WasGoID wasgo_id, int p_deadzone);
+void _wasgo_ScrollContainer_wrapper_set_enable_h_scroll(WasGoID wasgo_id, bool p_enable);
+void _wasgo_ScrollContainer_wrapper_set_enable_v_scroll(WasGoID wasgo_id, bool p_enable);
+void _wasgo_ScrollContainer_wrapper_set_follow_focus(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_ScrollContainer_wrapper_set_h_scroll(WasGoID wasgo_id, int p_value);
+void _wasgo_ScrollContainer_wrapper_set_v_scroll(WasGoID wasgo_id, int p_value);
 
     //constructor wrappers
-    WasGoId _wasgo_ScrollContainer_constructor();
+    WasGoID _wasgo_ScrollContainer_constructor();
             
 }
 #endif

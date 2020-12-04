@@ -174,7 +174,7 @@ void Camera2D::set_zoom(Vector2 p_zoom){
 	_wasgo_Camera2D_wrapper_set_zoom(wasgo_id, wasgo_buffer_zoom, wasgo_size_zoom);
 }
 
-Camera2D::Camera2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+Camera2D::Camera2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Camera2D::Camera2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Camera2D_constructor();

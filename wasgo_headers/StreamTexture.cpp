@@ -21,7 +21,7 @@ Error StreamTexture::load(String p_path){
 	return Error(_wasgo_StreamTexture_wrapper_load(wasgo_id, wasgo_buffer_path, wasgo_size_path));
 }
 
-StreamTexture::StreamTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
+StreamTexture::StreamTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 StreamTexture::StreamTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_StreamTexture_constructor();

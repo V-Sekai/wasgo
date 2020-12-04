@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "PackedScene.h"
+#include "ustring.h"
 #include "Node.h"
 #include "Variant.h"
-#include "ustring.h"
+#include "PackedScene.h"
 class InstancePlaceholder : public Node{
 public:
 Node create_instance(bool p_replace = (bool) false, PackedScene p_custom_scene = (PackedScene) "");
@@ -19,13 +19,13 @@ void replace_by_instance(PackedScene p_custom_scene = (PackedScene) "");
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_InstancePlaceholder_wrapper_create_instance(WasGoId wasgo_id, bool p_replace, WasGoId p_custom_scene);
-void _wasgo_InstancePlaceholder_wrapper_get_instance_path(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_InstancePlaceholder_wrapper_get_stored_values(WasGoId wasgo_id, bool p_with_order);
-void _wasgo_InstancePlaceholder_wrapper_replace_by_instance(WasGoId wasgo_id, WasGoId p_custom_scene);
+WasGoID _wasgo_InstancePlaceholder_wrapper_create_instance(WasGoID wasgo_id, bool p_replace, WasGoID p_custom_scene);
+void _wasgo_InstancePlaceholder_wrapper_get_instance_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_InstancePlaceholder_wrapper_get_stored_values(WasGoID wasgo_id, bool p_with_order);
+void _wasgo_InstancePlaceholder_wrapper_replace_by_instance(WasGoID wasgo_id, WasGoID p_custom_scene);
 
     //constructor wrappers
-    WasGoId _wasgo_InstancePlaceholder_constructor();
+    WasGoID _wasgo_InstancePlaceholder_constructor();
             
 }
 #endif

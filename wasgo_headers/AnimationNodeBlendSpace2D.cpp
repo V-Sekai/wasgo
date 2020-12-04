@@ -161,7 +161,7 @@ void AnimationNodeBlendSpace2D::set_y_label(String p_text){
 	_wasgo_AnimationNodeBlendSpace2D_wrapper_set_y_label(wasgo_id, wasgo_buffer_text, wasgo_size_text);
 }
 
-AnimationNodeBlendSpace2D::AnimationNodeBlendSpace2D(WasGoId p_wasgo_id) : AnimationRootNode(p_wasgo_id){
+AnimationNodeBlendSpace2D::AnimationNodeBlendSpace2D(WasGoID p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
 AnimationNodeBlendSpace2D::AnimationNodeBlendSpace2D(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeBlendSpace2D_constructor();

@@ -25,7 +25,7 @@ void set_shadow_mode(DirectionalLight::ShadowMode p_mode);
 
 protected:
 public:
-explicit DirectionalLight(WasGoId p_wasgo_id);
+explicit DirectionalLight(WasGoID p_wasgo_id);
 explicit DirectionalLight(Light other);
 DirectionalLight new_instance();
             
@@ -34,15 +34,15 @@ DirectionalLight new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_DirectionalLight_wrapper_get_shadow_depth_range(WasGoId wasgo_id);
-WasGoId _wasgo_DirectionalLight_wrapper_get_shadow_mode(WasGoId wasgo_id);
-int _wasgo_DirectionalLight_wrapper_is_blend_splits_enabled(WasGoId wasgo_id);
-void _wasgo_DirectionalLight_wrapper_set_blend_splits(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_DirectionalLight_wrapper_set_shadow_depth_range(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_DirectionalLight_wrapper_set_shadow_mode(WasGoId wasgo_id, WasGoId p_mode);
+WasGoID _wasgo_DirectionalLight_wrapper_get_shadow_depth_range(WasGoID wasgo_id);
+WasGoID _wasgo_DirectionalLight_wrapper_get_shadow_mode(WasGoID wasgo_id);
+int _wasgo_DirectionalLight_wrapper_is_blend_splits_enabled(WasGoID wasgo_id);
+void _wasgo_DirectionalLight_wrapper_set_blend_splits(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_DirectionalLight_wrapper_set_shadow_depth_range(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_DirectionalLight_wrapper_set_shadow_mode(WasGoID wasgo_id, WasGoID p_mode);
 
     //constructor wrappers
-    WasGoId _wasgo_DirectionalLight_constructor();
+    WasGoID _wasgo_DirectionalLight_constructor();
             
 }
 #endif

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Variant.h"
+#include "Resource.h"
 class OccluderPolygon2D : public Resource{
 public:
 enum CullMode{
@@ -22,7 +22,7 @@ void set_polygon(PoolVector2Array p_polygon);
 
 protected:
 public:
-explicit OccluderPolygon2D(WasGoId p_wasgo_id);
+explicit OccluderPolygon2D(WasGoID p_wasgo_id);
 explicit OccluderPolygon2D(Resource other);
 OccluderPolygon2D new_instance();
             
@@ -31,15 +31,15 @@ OccluderPolygon2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_OccluderPolygon2D_wrapper_get_cull_mode(WasGoId wasgo_id);
-WasGoId _wasgo_OccluderPolygon2D_wrapper_get_polygon(WasGoId wasgo_id);
-int _wasgo_OccluderPolygon2D_wrapper_is_closed(WasGoId wasgo_id);
-void _wasgo_OccluderPolygon2D_wrapper_set_closed(WasGoId wasgo_id, bool p_closed);
-void _wasgo_OccluderPolygon2D_wrapper_set_cull_mode(WasGoId wasgo_id, WasGoId p_cull_mode);
-void _wasgo_OccluderPolygon2D_wrapper_set_polygon(WasGoId wasgo_id, WasGoId p_polygon);
+WasGoID _wasgo_OccluderPolygon2D_wrapper_get_cull_mode(WasGoID wasgo_id);
+WasGoID _wasgo_OccluderPolygon2D_wrapper_get_polygon(WasGoID wasgo_id);
+int _wasgo_OccluderPolygon2D_wrapper_is_closed(WasGoID wasgo_id);
+void _wasgo_OccluderPolygon2D_wrapper_set_closed(WasGoID wasgo_id, bool p_closed);
+void _wasgo_OccluderPolygon2D_wrapper_set_cull_mode(WasGoID wasgo_id, WasGoID p_cull_mode);
+void _wasgo_OccluderPolygon2D_wrapper_set_polygon(WasGoID wasgo_id, WasGoID p_polygon);
 
     //constructor wrappers
-    WasGoId _wasgo_OccluderPolygon2D_constructor();
+    WasGoID _wasgo_OccluderPolygon2D_constructor();
             
 }
 #endif

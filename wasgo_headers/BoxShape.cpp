@@ -21,7 +21,7 @@ void BoxShape::set_extents(Vector3 p_extents){
 	_wasgo_BoxShape_wrapper_set_extents(wasgo_id, wasgo_buffer_extents, wasgo_size_extents);
 }
 
-BoxShape::BoxShape(WasGoId p_wasgo_id) : Shape(p_wasgo_id){
+BoxShape::BoxShape(WasGoID p_wasgo_id) : Shape(p_wasgo_id){
 }
 BoxShape::BoxShape(Shape other) : Shape(other._get_wasgo_id()){
     wasgo_id = _wasgo_BoxShape_constructor();

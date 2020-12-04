@@ -42,7 +42,7 @@ void set_y_label(String p_text);
 
 protected:
 public:
-explicit AnimationNodeBlendSpace2D(WasGoId p_wasgo_id);
+explicit AnimationNodeBlendSpace2D(WasGoID p_wasgo_id);
 explicit AnimationNodeBlendSpace2D(AnimationRootNode other);
 AnimationNodeBlendSpace2D new_instance();
             
@@ -51,34 +51,34 @@ AnimationNodeBlendSpace2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_add_blend_point(WasGoId wasgo_id, WasGoId p_node, const uint8_t * p_pos, int p_pos_wasgo_buffer_size, int p_at_index);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_add_triangle(WasGoId wasgo_id, int p_x, int p_y, int p_z, int p_at_index);
-int _wasgo_AnimationNodeBlendSpace2D_wrapper_get_auto_triangles(WasGoId wasgo_id);
-WasGoId _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_mode(WasGoId wasgo_id);
-int _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_point_count(WasGoId wasgo_id);
-WasGoId _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_point_node(WasGoId wasgo_id, int p_point);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_point_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_point);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_max_space(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_min_space(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_snap(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_AnimationNodeBlendSpace2D_wrapper_get_triangle_count(WasGoId wasgo_id);
-int _wasgo_AnimationNodeBlendSpace2D_wrapper_get_triangle_point(WasGoId wasgo_id, int p_triangle, int p_point);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_x_label(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_y_label(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_remove_blend_point(WasGoId wasgo_id, int p_point);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_remove_triangle(WasGoId wasgo_id, int p_triangle);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_auto_triangles(WasGoId wasgo_id, bool p_enable);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_blend_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_blend_point_node(WasGoId wasgo_id, int p_point, WasGoId p_node);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_blend_point_position(WasGoId wasgo_id, int p_point, const uint8_t * p_pos, int p_pos_wasgo_buffer_size);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_max_space(WasGoId wasgo_id, const uint8_t * p_max_space, int p_max_space_wasgo_buffer_size);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_min_space(WasGoId wasgo_id, const uint8_t * p_min_space, int p_min_space_wasgo_buffer_size);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_snap(WasGoId wasgo_id, const uint8_t * p_snap, int p_snap_wasgo_buffer_size);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_x_label(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_y_label(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_add_blend_point(WasGoID wasgo_id, WasGoID p_node, const uint8_t * p_pos, int p_pos_wasgo_buffer_size, int p_at_index);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_add_triangle(WasGoID wasgo_id, int p_x, int p_y, int p_z, int p_at_index);
+int _wasgo_AnimationNodeBlendSpace2D_wrapper_get_auto_triangles(WasGoID wasgo_id);
+WasGoID _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_mode(WasGoID wasgo_id);
+int _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_point_count(WasGoID wasgo_id);
+WasGoID _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_point_node(WasGoID wasgo_id, int p_point);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_point_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_point);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_max_space(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_min_space(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_snap(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_AnimationNodeBlendSpace2D_wrapper_get_triangle_count(WasGoID wasgo_id);
+int _wasgo_AnimationNodeBlendSpace2D_wrapper_get_triangle_point(WasGoID wasgo_id, int p_triangle, int p_point);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_x_label(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_get_y_label(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_remove_blend_point(WasGoID wasgo_id, int p_point);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_remove_triangle(WasGoID wasgo_id, int p_triangle);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_auto_triangles(WasGoID wasgo_id, bool p_enable);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_blend_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_blend_point_node(WasGoID wasgo_id, int p_point, WasGoID p_node);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_blend_point_position(WasGoID wasgo_id, int p_point, const uint8_t * p_pos, int p_pos_wasgo_buffer_size);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_max_space(WasGoID wasgo_id, const uint8_t * p_max_space, int p_max_space_wasgo_buffer_size);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_min_space(WasGoID wasgo_id, const uint8_t * p_min_space, int p_min_space_wasgo_buffer_size);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_snap(WasGoID wasgo_id, const uint8_t * p_snap, int p_snap_wasgo_buffer_size);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_x_label(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_y_label(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_AnimationNodeBlendSpace2D_constructor();
+    WasGoID _wasgo_AnimationNodeBlendSpace2D_constructor();
             
 }
 #endif

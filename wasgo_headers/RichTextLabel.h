@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Control.h"
-#include "error_list.h"
-#include "ustring.h"
-#include "Texture.h"
 #include "Color.h"
 #include "Font.h"
 #include "VScrollBar.h"
 #include "Variant.h"
+#include "error_list.h"
+#include "Control.h"
+#include "Texture.h"
+#include "ustring.h"
 class RichTextLabel : public Control{
 public:
 enum Align{
@@ -107,7 +107,7 @@ void set_visible_characters(int p_amount);
 
 protected:
 public:
-explicit RichTextLabel(WasGoId p_wasgo_id);
+explicit RichTextLabel(WasGoID p_wasgo_id);
 explicit RichTextLabel(Control other);
 RichTextLabel new_instance();
             
@@ -116,67 +116,67 @@ RichTextLabel new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_RichTextLabel_wrapper_add_image(WasGoId wasgo_id, WasGoId p_image, int p_width, int p_height);
-void _wasgo_RichTextLabel_wrapper_add_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-WasGoId _wasgo_RichTextLabel_wrapper_append_bbcode(WasGoId wasgo_id, const uint8_t * p_bbcode, int p_bbcode_wasgo_buffer_size);
-void _wasgo_RichTextLabel_wrapper_clear(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_get_bbcode(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_RichTextLabel_wrapper_get_content_height(WasGoId wasgo_id);
-WasGoId _wasgo_RichTextLabel_wrapper_get_effects(WasGoId wasgo_id);
-int _wasgo_RichTextLabel_wrapper_get_line_count(WasGoId wasgo_id);
-float _wasgo_RichTextLabel_wrapper_get_percent_visible(WasGoId wasgo_id);
-int _wasgo_RichTextLabel_wrapper_get_tab_size(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_get_text(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_RichTextLabel_wrapper_get_total_character_count(WasGoId wasgo_id);
-WasGoId _wasgo_RichTextLabel_wrapper_get_v_scroll(WasGoId wasgo_id);
-int _wasgo_RichTextLabel_wrapper_get_visible_characters(WasGoId wasgo_id);
-int _wasgo_RichTextLabel_wrapper_get_visible_line_count(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_install_effect(WasGoId wasgo_id, WasGoId p_effect);
-int _wasgo_RichTextLabel_wrapper_is_fit_content_height_enabled(WasGoId wasgo_id);
-int _wasgo_RichTextLabel_wrapper_is_meta_underlined(WasGoId wasgo_id);
-int _wasgo_RichTextLabel_wrapper_is_overriding_selected_font_color(WasGoId wasgo_id);
-int _wasgo_RichTextLabel_wrapper_is_scroll_active(WasGoId wasgo_id);
-int _wasgo_RichTextLabel_wrapper_is_scroll_following(WasGoId wasgo_id);
-int _wasgo_RichTextLabel_wrapper_is_selection_enabled(WasGoId wasgo_id);
-int _wasgo_RichTextLabel_wrapper_is_using_bbcode(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_newline(WasGoId wasgo_id);
-WasGoId _wasgo_RichTextLabel_wrapper_parse_bbcode(WasGoId wasgo_id, const uint8_t * p_bbcode, int p_bbcode_wasgo_buffer_size);
-WasGoId _wasgo_RichTextLabel_wrapper_parse_expressions_for_values(WasGoId wasgo_id, WasGoId p_expressions);
-void _wasgo_RichTextLabel_wrapper_pop(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_push_align(WasGoId wasgo_id, WasGoId p_align);
-void _wasgo_RichTextLabel_wrapper_push_bold(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_push_bold_italics(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_push_cell(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_push_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_RichTextLabel_wrapper_push_font(WasGoId wasgo_id, WasGoId p_font);
-void _wasgo_RichTextLabel_wrapper_push_indent(WasGoId wasgo_id, int p_level);
-void _wasgo_RichTextLabel_wrapper_push_italics(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_push_list(WasGoId wasgo_id, WasGoId p_type);
-void _wasgo_RichTextLabel_wrapper_push_meta(WasGoId wasgo_id, WasGoId p_data);
-void _wasgo_RichTextLabel_wrapper_push_mono(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_push_normal(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_push_strikethrough(WasGoId wasgo_id);
-void _wasgo_RichTextLabel_wrapper_push_table(WasGoId wasgo_id, int p_columns);
-void _wasgo_RichTextLabel_wrapper_push_underline(WasGoId wasgo_id);
-int _wasgo_RichTextLabel_wrapper_remove_line(WasGoId wasgo_id, int p_line);
-void _wasgo_RichTextLabel_wrapper_scroll_to_line(WasGoId wasgo_id, int p_line);
-void _wasgo_RichTextLabel_wrapper_set_bbcode(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-void _wasgo_RichTextLabel_wrapper_set_effects(WasGoId wasgo_id, WasGoId p_effects);
-void _wasgo_RichTextLabel_wrapper_set_fit_content_height(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_RichTextLabel_wrapper_set_meta_underline(WasGoId wasgo_id, bool p_enable);
-void _wasgo_RichTextLabel_wrapper_set_override_selected_font_color(WasGoId wasgo_id, bool p_override);
-void _wasgo_RichTextLabel_wrapper_set_percent_visible(WasGoId wasgo_id, float p_percent_visible);
-void _wasgo_RichTextLabel_wrapper_set_scroll_active(WasGoId wasgo_id, bool p_active);
-void _wasgo_RichTextLabel_wrapper_set_scroll_follow(WasGoId wasgo_id, bool p_follow);
-void _wasgo_RichTextLabel_wrapper_set_selection_enabled(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_RichTextLabel_wrapper_set_tab_size(WasGoId wasgo_id, int p_spaces);
-void _wasgo_RichTextLabel_wrapper_set_table_column_expand(WasGoId wasgo_id, int p_column, bool p_expand, int p_ratio);
-void _wasgo_RichTextLabel_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-void _wasgo_RichTextLabel_wrapper_set_use_bbcode(WasGoId wasgo_id, bool p_enable);
-void _wasgo_RichTextLabel_wrapper_set_visible_characters(WasGoId wasgo_id, int p_amount);
+void _wasgo_RichTextLabel_wrapper_add_image(WasGoID wasgo_id, WasGoID p_image, int p_width, int p_height);
+void _wasgo_RichTextLabel_wrapper_add_text(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+WasGoID _wasgo_RichTextLabel_wrapper_append_bbcode(WasGoID wasgo_id, const uint8_t * p_bbcode, int p_bbcode_wasgo_buffer_size);
+void _wasgo_RichTextLabel_wrapper_clear(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_get_bbcode(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_RichTextLabel_wrapper_get_content_height(WasGoID wasgo_id);
+WasGoID _wasgo_RichTextLabel_wrapper_get_effects(WasGoID wasgo_id);
+int _wasgo_RichTextLabel_wrapper_get_line_count(WasGoID wasgo_id);
+float _wasgo_RichTextLabel_wrapper_get_percent_visible(WasGoID wasgo_id);
+int _wasgo_RichTextLabel_wrapper_get_tab_size(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_get_text(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_RichTextLabel_wrapper_get_total_character_count(WasGoID wasgo_id);
+WasGoID _wasgo_RichTextLabel_wrapper_get_v_scroll(WasGoID wasgo_id);
+int _wasgo_RichTextLabel_wrapper_get_visible_characters(WasGoID wasgo_id);
+int _wasgo_RichTextLabel_wrapper_get_visible_line_count(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_install_effect(WasGoID wasgo_id, WasGoID p_effect);
+int _wasgo_RichTextLabel_wrapper_is_fit_content_height_enabled(WasGoID wasgo_id);
+int _wasgo_RichTextLabel_wrapper_is_meta_underlined(WasGoID wasgo_id);
+int _wasgo_RichTextLabel_wrapper_is_overriding_selected_font_color(WasGoID wasgo_id);
+int _wasgo_RichTextLabel_wrapper_is_scroll_active(WasGoID wasgo_id);
+int _wasgo_RichTextLabel_wrapper_is_scroll_following(WasGoID wasgo_id);
+int _wasgo_RichTextLabel_wrapper_is_selection_enabled(WasGoID wasgo_id);
+int _wasgo_RichTextLabel_wrapper_is_using_bbcode(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_newline(WasGoID wasgo_id);
+WasGoID _wasgo_RichTextLabel_wrapper_parse_bbcode(WasGoID wasgo_id, const uint8_t * p_bbcode, int p_bbcode_wasgo_buffer_size);
+WasGoID _wasgo_RichTextLabel_wrapper_parse_expressions_for_values(WasGoID wasgo_id, WasGoID p_expressions);
+void _wasgo_RichTextLabel_wrapper_pop(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_push_align(WasGoID wasgo_id, WasGoID p_align);
+void _wasgo_RichTextLabel_wrapper_push_bold(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_push_bold_italics(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_push_cell(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_push_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_RichTextLabel_wrapper_push_font(WasGoID wasgo_id, WasGoID p_font);
+void _wasgo_RichTextLabel_wrapper_push_indent(WasGoID wasgo_id, int p_level);
+void _wasgo_RichTextLabel_wrapper_push_italics(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_push_list(WasGoID wasgo_id, WasGoID p_type);
+void _wasgo_RichTextLabel_wrapper_push_meta(WasGoID wasgo_id, WasGoID p_data);
+void _wasgo_RichTextLabel_wrapper_push_mono(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_push_normal(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_push_strikethrough(WasGoID wasgo_id);
+void _wasgo_RichTextLabel_wrapper_push_table(WasGoID wasgo_id, int p_columns);
+void _wasgo_RichTextLabel_wrapper_push_underline(WasGoID wasgo_id);
+int _wasgo_RichTextLabel_wrapper_remove_line(WasGoID wasgo_id, int p_line);
+void _wasgo_RichTextLabel_wrapper_scroll_to_line(WasGoID wasgo_id, int p_line);
+void _wasgo_RichTextLabel_wrapper_set_bbcode(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_RichTextLabel_wrapper_set_effects(WasGoID wasgo_id, WasGoID p_effects);
+void _wasgo_RichTextLabel_wrapper_set_fit_content_height(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_RichTextLabel_wrapper_set_meta_underline(WasGoID wasgo_id, bool p_enable);
+void _wasgo_RichTextLabel_wrapper_set_override_selected_font_color(WasGoID wasgo_id, bool p_override);
+void _wasgo_RichTextLabel_wrapper_set_percent_visible(WasGoID wasgo_id, float p_percent_visible);
+void _wasgo_RichTextLabel_wrapper_set_scroll_active(WasGoID wasgo_id, bool p_active);
+void _wasgo_RichTextLabel_wrapper_set_scroll_follow(WasGoID wasgo_id, bool p_follow);
+void _wasgo_RichTextLabel_wrapper_set_selection_enabled(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_RichTextLabel_wrapper_set_tab_size(WasGoID wasgo_id, int p_spaces);
+void _wasgo_RichTextLabel_wrapper_set_table_column_expand(WasGoID wasgo_id, int p_column, bool p_expand, int p_ratio);
+void _wasgo_RichTextLabel_wrapper_set_text(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_RichTextLabel_wrapper_set_use_bbcode(WasGoID wasgo_id, bool p_enable);
+void _wasgo_RichTextLabel_wrapper_set_visible_characters(WasGoID wasgo_id, int p_amount);
 
     //constructor wrappers
-    WasGoId _wasgo_RichTextLabel_constructor();
+    WasGoID _wasgo_RichTextLabel_constructor();
             
 }
 #endif

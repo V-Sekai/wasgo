@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeVectorDistance(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorDistance(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorDistance(VisualShaderNode other);
 VisualShaderNodeVectorDistance new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeVectorDistance new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeVectorDistance_constructor();
+    WasGoID _wasgo_VisualShaderNodeVectorDistance_constructor();
             
 }
 #endif

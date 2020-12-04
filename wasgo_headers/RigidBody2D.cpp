@@ -223,7 +223,7 @@ bool RigidBody2D::test_motion(Vector2 p_motion, bool p_infinite_inertia = (bool)
 	return (bool) _wasgo_RigidBody2D_wrapper_test_motion(wasgo_id, wasgo_buffer_motion, wasgo_size_motion, p_infinite_inertia, p_margin, p_result._get_wasgo_id());
 }
 
-RigidBody2D::RigidBody2D(WasGoId p_wasgo_id) : PhysicsBody2D(p_wasgo_id){
+RigidBody2D::RigidBody2D(WasGoID p_wasgo_id) : PhysicsBody2D(p_wasgo_id){
 }
 RigidBody2D::RigidBody2D(PhysicsBody2D other) : PhysicsBody2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_RigidBody2D_constructor();

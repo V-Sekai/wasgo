@@ -3,6 +3,6 @@
 
 #include <stdint.h>
 
-typedef uint32_t WasGoId;
+typedef uint32_t WasGoID;
 
 #endif

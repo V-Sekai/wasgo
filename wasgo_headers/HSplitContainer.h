@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit HSplitContainer(WasGoId p_wasgo_id);
+explicit HSplitContainer(WasGoID p_wasgo_id);
 explicit HSplitContainer(SplitContainer other);
 HSplitContainer new_instance();
             
@@ -21,7 +21,7 @@ HSplitContainer new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_HSplitContainer_constructor();
+    WasGoID _wasgo_HSplitContainer_constructor();
             
 }
 #endif

@@ -17,7 +17,7 @@ void set_param(PinJoint::Param p_param, float p_value);
 
 protected:
 public:
-explicit PinJoint(WasGoId p_wasgo_id);
+explicit PinJoint(WasGoID p_wasgo_id);
 explicit PinJoint(Joint other);
 PinJoint new_instance();
             
@@ -26,11 +26,11 @@ PinJoint new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_PinJoint_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
-void _wasgo_PinJoint_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
+float _wasgo_PinJoint_wrapper_get_param(WasGoID wasgo_id, WasGoID p_param);
+void _wasgo_PinJoint_wrapper_set_param(WasGoID wasgo_id, WasGoID p_param, float p_value);
 
     //constructor wrappers
-    WasGoId _wasgo_PinJoint_constructor();
+    WasGoID _wasgo_PinJoint_constructor();
             
 }
 #endif

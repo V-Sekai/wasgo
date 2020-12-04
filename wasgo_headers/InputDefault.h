@@ -14,7 +14,7 @@ public:
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_InputDefault_constructor();
+    WasGoID _wasgo_InputDefault_constructor();
             
 }
 #endif

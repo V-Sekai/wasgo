@@ -55,7 +55,7 @@ void ProximityGroup::set_group_name(String p_name){
 	_wasgo_ProximityGroup_wrapper_set_group_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
 
-ProximityGroup::ProximityGroup(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
+ProximityGroup::ProximityGroup(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 ProximityGroup::ProximityGroup(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_ProximityGroup_constructor();

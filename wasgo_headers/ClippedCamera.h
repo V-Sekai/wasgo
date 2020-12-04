@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Object.h"
 #include "Camera.h"
 #include "RID.h"
-#include "Object.h"
 class ClippedCamera : public Camera{
 public:
 enum ProcessMode{
@@ -34,7 +34,7 @@ void set_process_mode(ClippedCamera::ProcessMode p_process_mode);
 
 protected:
 public:
-explicit ClippedCamera(WasGoId p_wasgo_id);
+explicit ClippedCamera(WasGoID p_wasgo_id);
 explicit ClippedCamera(Camera other);
 ClippedCamera new_instance();
             
@@ -43,27 +43,27 @@ ClippedCamera new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ClippedCamera_wrapper_add_exception(WasGoId wasgo_id, WasGoId p_node);
-void _wasgo_ClippedCamera_wrapper_add_exception_rid(WasGoId wasgo_id, const uint8_t * p_rid, int p_rid_wasgo_buffer_size);
-void _wasgo_ClippedCamera_wrapper_clear_exceptions(WasGoId wasgo_id);
-float _wasgo_ClippedCamera_wrapper_get_clip_offset(WasGoId wasgo_id);
-int _wasgo_ClippedCamera_wrapper_get_collision_mask(WasGoId wasgo_id);
-int _wasgo_ClippedCamera_wrapper_get_collision_mask_bit(WasGoId wasgo_id, int p_bit);
-float _wasgo_ClippedCamera_wrapper_get_margin(WasGoId wasgo_id);
-WasGoId _wasgo_ClippedCamera_wrapper_get_process_mode(WasGoId wasgo_id);
-int _wasgo_ClippedCamera_wrapper_is_clip_to_areas_enabled(WasGoId wasgo_id);
-int _wasgo_ClippedCamera_wrapper_is_clip_to_bodies_enabled(WasGoId wasgo_id);
-void _wasgo_ClippedCamera_wrapper_remove_exception(WasGoId wasgo_id, WasGoId p_node);
-void _wasgo_ClippedCamera_wrapper_remove_exception_rid(WasGoId wasgo_id, const uint8_t * p_rid, int p_rid_wasgo_buffer_size);
-void _wasgo_ClippedCamera_wrapper_set_clip_to_areas(WasGoId wasgo_id, bool p_enable);
-void _wasgo_ClippedCamera_wrapper_set_clip_to_bodies(WasGoId wasgo_id, bool p_enable);
-void _wasgo_ClippedCamera_wrapper_set_collision_mask(WasGoId wasgo_id, int p_mask);
-void _wasgo_ClippedCamera_wrapper_set_collision_mask_bit(WasGoId wasgo_id, int p_bit, bool p_value);
-void _wasgo_ClippedCamera_wrapper_set_margin(WasGoId wasgo_id, float p_margin);
-void _wasgo_ClippedCamera_wrapper_set_process_mode(WasGoId wasgo_id, WasGoId p_process_mode);
+void _wasgo_ClippedCamera_wrapper_add_exception(WasGoID wasgo_id, WasGoID p_node);
+void _wasgo_ClippedCamera_wrapper_add_exception_rid(WasGoID wasgo_id, const uint8_t * p_rid, int p_rid_wasgo_buffer_size);
+void _wasgo_ClippedCamera_wrapper_clear_exceptions(WasGoID wasgo_id);
+float _wasgo_ClippedCamera_wrapper_get_clip_offset(WasGoID wasgo_id);
+int _wasgo_ClippedCamera_wrapper_get_collision_mask(WasGoID wasgo_id);
+int _wasgo_ClippedCamera_wrapper_get_collision_mask_bit(WasGoID wasgo_id, int p_bit);
+float _wasgo_ClippedCamera_wrapper_get_margin(WasGoID wasgo_id);
+WasGoID _wasgo_ClippedCamera_wrapper_get_process_mode(WasGoID wasgo_id);
+int _wasgo_ClippedCamera_wrapper_is_clip_to_areas_enabled(WasGoID wasgo_id);
+int _wasgo_ClippedCamera_wrapper_is_clip_to_bodies_enabled(WasGoID wasgo_id);
+void _wasgo_ClippedCamera_wrapper_remove_exception(WasGoID wasgo_id, WasGoID p_node);
+void _wasgo_ClippedCamera_wrapper_remove_exception_rid(WasGoID wasgo_id, const uint8_t * p_rid, int p_rid_wasgo_buffer_size);
+void _wasgo_ClippedCamera_wrapper_set_clip_to_areas(WasGoID wasgo_id, bool p_enable);
+void _wasgo_ClippedCamera_wrapper_set_clip_to_bodies(WasGoID wasgo_id, bool p_enable);
+void _wasgo_ClippedCamera_wrapper_set_collision_mask(WasGoID wasgo_id, int p_mask);
+void _wasgo_ClippedCamera_wrapper_set_collision_mask_bit(WasGoID wasgo_id, int p_bit, bool p_value);
+void _wasgo_ClippedCamera_wrapper_set_margin(WasGoID wasgo_id, float p_margin);
+void _wasgo_ClippedCamera_wrapper_set_process_mode(WasGoID wasgo_id, WasGoID p_process_mode);
 
     //constructor wrappers
-    WasGoId _wasgo_ClippedCamera_constructor();
+    WasGoID _wasgo_ClippedCamera_constructor();
             
 }
 #endif

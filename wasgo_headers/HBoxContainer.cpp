@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "HBoxContainer.h"
 
-HBoxContainer::HBoxContainer(WasGoId p_wasgo_id) : BoxContainer(p_wasgo_id){
+HBoxContainer::HBoxContainer(WasGoID p_wasgo_id) : BoxContainer(p_wasgo_id){
 }
 HBoxContainer::HBoxContainer(BoxContainer other) : BoxContainer(other._get_wasgo_id()){
     wasgo_id = _wasgo_HBoxContainer_constructor();

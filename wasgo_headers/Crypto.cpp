@@ -29,7 +29,7 @@ X509Certificate Crypto::generate_self_signed_certificate(CryptoKey p_key, String
 	return X509Certificate(_wasgo_Crypto_wrapper_generate_self_signed_certificate(wasgo_id, p_key._get_wasgo_id(), wasgo_buffer_issuer_name, wasgo_size_issuer_name, wasgo_buffer_not_before, wasgo_size_not_before, wasgo_buffer_not_after, wasgo_size_not_after));
 }
 
-Crypto::Crypto(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+Crypto::Crypto(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Crypto::Crypto(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Crypto_constructor();

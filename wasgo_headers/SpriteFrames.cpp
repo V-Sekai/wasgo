@@ -140,7 +140,7 @@ void SpriteFrames::set_frame(String p_anim, int p_idx, Texture p_txt){
 	_wasgo_SpriteFrames_wrapper_set_frame(wasgo_id, wasgo_buffer_anim, wasgo_size_anim, p_idx, p_txt._get_wasgo_id());
 }
 
-SpriteFrames::SpriteFrames(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+SpriteFrames::SpriteFrames(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 SpriteFrames::SpriteFrames(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_SpriteFrames_constructor();

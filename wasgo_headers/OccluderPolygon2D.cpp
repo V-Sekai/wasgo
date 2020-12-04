@@ -20,7 +20,7 @@ void OccluderPolygon2D::set_polygon(PoolVector2Array p_polygon){
 	_wasgo_OccluderPolygon2D_wrapper_set_polygon(wasgo_id, p_polygon._get_wasgo_id());
 }
 
-OccluderPolygon2D::OccluderPolygon2D(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+OccluderPolygon2D::OccluderPolygon2D(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 OccluderPolygon2D::OccluderPolygon2D(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_OccluderPolygon2D_constructor();

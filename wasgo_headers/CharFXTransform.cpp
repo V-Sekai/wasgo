@@ -76,7 +76,7 @@ void CharFXTransform::set_visibility(bool p_visibility){
 	_wasgo_CharFXTransform_wrapper_set_visibility(wasgo_id, p_visibility);
 }
 
-CharFXTransform::CharFXTransform(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+CharFXTransform::CharFXTransform(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 CharFXTransform::CharFXTransform(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_CharFXTransform_constructor();

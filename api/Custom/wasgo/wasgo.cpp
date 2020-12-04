@@ -307,11 +307,55 @@ void WasGo::set_property(String property, Variant value) {
 			uint8_t name_buffer[name_buffer_size];
 			encode_variant(property, name_buffer, name_buffer_size);
 			Object obj = value;
-			WasGoId value_id = obj._get_wasgo_id();
+			WasGoID value_id = obj._get_wasgo_id();
 			_wasgo_set_property_object(name_buffer, name_buffer_size, value_id);
 		}
 	}
 };
 Node WasGo::this_node() {
 	return Node(_wasgo_this_node());
+}
+
+void WasGo::set_process(bool p_enable){
+	_wasgo_set_process(p_enable);
+}
+void WasGo::set_physics_process(bool p_enable){
+	_wasgo_set_physics_process(p_enable);
+}
+void WasGo::set_process_internal(bool p_enable){
+	_wasgo_set_process_internal(p_enable);
+}
+void WasGo::set_physics_process_internal(bool p_enable){
+	_wasgo_set_physics_process_internal(p_enable);
+}
+void WasGo::set_process_input(bool p_enable){
+	_wasgo_set_process_input(p_enable);
+}
+void WasGo::set_process_unhandled_input(bool p_enable){
+	_wasgo_set_process_unhandled_input(p_enable);
+}
+void WasGo::set_process_unhandled_key_input(bool p_enable){
+	_wasgo_set_process_unhandled_key_input(p_enable);
+}
+
+bool WasGo::is_processing(){
+	return _wasgo_is_processing();
+}
+bool WasGo::is_physics_processing(){
+	return _wasgo_is_physics_processing();
+}
+bool WasGo::is_processing_internal(){
+	return _wasgo_is_processing_internal();
+}
+bool WasGo::is_physics_processing_internal(){
+	return _wasgo_is_physics_processing_internal();
+}
+bool WasGo::is_processing_input(){
+	return _wasgo_is_processing_input();
+}
+bool WasGo::is_processing_unhandled_input(){
+	return _wasgo_is_processing_unhandled_input();
+}
+bool WasGo::is_processing_unhandled_key_input(){
+	return _wasgo_is_processing_unhandled_key_input();
 }

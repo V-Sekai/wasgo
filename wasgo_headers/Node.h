@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "NodePath.h"
-#include "SceneTree.h"
 #include "Object.h"
-#include "MultiplayerAPI.h"
-#include "Viewport.h"
 #include "Variant.h"
+#include "SceneTree.h"
+#include "MultiplayerAPI.h"
+#include "NodePath.h"
+#include "Viewport.h"
+#include "ustring.h"
 class Node : public Object{
 public:
 enum DuplicateFlags{
@@ -114,7 +114,7 @@ void update_configuration_warning();
 
 protected:
 public:
-explicit Node(WasGoId p_wasgo_id);
+explicit Node(WasGoID p_wasgo_id);
 explicit Node(Object other);
 Node new_instance();
             
@@ -123,96 +123,96 @@ Node new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Node_wrapper_add_child(WasGoId wasgo_id, WasGoId p_node, bool p_legible_unique_name);
-void _wasgo_Node_wrapper_add_child_below_node(WasGoId wasgo_id, WasGoId p_node, WasGoId p_child_node, bool p_legible_unique_name);
-void _wasgo_Node_wrapper_add_to_group(WasGoId wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size, bool p_persistent);
-int _wasgo_Node_wrapper_can_process(WasGoId wasgo_id);
-WasGoId _wasgo_Node_wrapper_duplicate(WasGoId wasgo_id, int p_flags);
-WasGoId _wasgo_Node_wrapper_find_node(WasGoId wasgo_id, const uint8_t * p_mask, int p_mask_wasgo_buffer_size, bool p_recursive, bool p_owned);
-WasGoId _wasgo_Node_wrapper_find_parent(WasGoId wasgo_id, const uint8_t * p_mask, int p_mask_wasgo_buffer_size);
-WasGoId _wasgo_Node_wrapper_get_child(WasGoId wasgo_id, int p_idx);
-int _wasgo_Node_wrapper_get_child_count(WasGoId wasgo_id);
-WasGoId _wasgo_Node_wrapper_get_children(WasGoId wasgo_id);
-WasGoId _wasgo_Node_wrapper_get_custom_multiplayer(WasGoId wasgo_id);
-void _wasgo_Node_wrapper_get_filename(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Node_wrapper_get_groups(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_get_index(WasGoId wasgo_id);
-WasGoId _wasgo_Node_wrapper_get_multiplayer(WasGoId wasgo_id);
-void _wasgo_Node_wrapper_get_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Node_wrapper_get_network_master(WasGoId wasgo_id);
-WasGoId _wasgo_Node_wrapper_get_node(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_Node_wrapper_get_node_and_resource(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_Node_wrapper_get_node_or_null(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_Node_wrapper_get_owner(WasGoId wasgo_id);
-WasGoId _wasgo_Node_wrapper_get_parent(WasGoId wasgo_id);
-void _wasgo_Node_wrapper_get_path(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Node_wrapper_get_path_to(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoId p_node);
-WasGoId _wasgo_Node_wrapper_get_pause_mode(WasGoId wasgo_id);
-float _wasgo_Node_wrapper_get_physics_process_delta_time(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_get_position_in_parent(WasGoId wasgo_id);
-float _wasgo_Node_wrapper_get_process_delta_time(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_get_process_priority(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_get_scene_instance_load_placeholder(WasGoId wasgo_id);
-WasGoId _wasgo_Node_wrapper_get_tree(WasGoId wasgo_id);
-WasGoId _wasgo_Node_wrapper_get_viewport(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_has_node(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-int _wasgo_Node_wrapper_has_node_and_resource(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-int _wasgo_Node_wrapper_is_a_parent_of(WasGoId wasgo_id, WasGoId p_node);
-int _wasgo_Node_wrapper_is_displayed_folded(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_is_greater_than(WasGoId wasgo_id, WasGoId p_node);
-int _wasgo_Node_wrapper_is_in_group(WasGoId wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size);
-int _wasgo_Node_wrapper_is_inside_tree(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_is_network_master(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_is_physics_processing(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_is_physics_processing_internal(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_is_processing(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_is_processing_input(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_is_processing_internal(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_is_processing_unhandled_input(WasGoId wasgo_id);
-int _wasgo_Node_wrapper_is_processing_unhandled_key_input(WasGoId wasgo_id);
-void _wasgo_Node_wrapper_move_child(WasGoId wasgo_id, WasGoId p_child_node, int p_to_position);
-void _wasgo_Node_wrapper_print_stray_nodes(WasGoId wasgo_id);
-void _wasgo_Node_wrapper_print_tree(WasGoId wasgo_id);
-void _wasgo_Node_wrapper_print_tree_pretty(WasGoId wasgo_id);
-void _wasgo_Node_wrapper_propagate_call(WasGoId wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoId p_args, bool p_parent_first);
-void _wasgo_Node_wrapper_propagate_notification(WasGoId wasgo_id, int p_what);
-void _wasgo_Node_wrapper_queue_free(WasGoId wasgo_id);
-void _wasgo_Node_wrapper_raise(WasGoId wasgo_id);
-void _wasgo_Node_wrapper_remove_and_skip(WasGoId wasgo_id);
-void _wasgo_Node_wrapper_remove_child(WasGoId wasgo_id, WasGoId p_node);
-void _wasgo_Node_wrapper_remove_from_group(WasGoId wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size);
-void _wasgo_Node_wrapper_replace_by(WasGoId wasgo_id, WasGoId p_node, bool p_keep_data);
-void _wasgo_Node_wrapper_request_ready(WasGoId wasgo_id);
-WasGoId _wasgo_Node_wrapper_rpc(WasGoId wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-void _wasgo_Node_wrapper_rpc_config(WasGoId wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoId p_mode);
-WasGoId _wasgo_Node_wrapper_rpc_id(WasGoId wasgo_id, int p_peer_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-WasGoId _wasgo_Node_wrapper_rpc_unreliable(WasGoId wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-WasGoId _wasgo_Node_wrapper_rpc_unreliable_id(WasGoId wasgo_id, int p_peer_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-void _wasgo_Node_wrapper_rset(WasGoId wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_value);
-void _wasgo_Node_wrapper_rset_config(WasGoId wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_mode);
-void _wasgo_Node_wrapper_rset_id(WasGoId wasgo_id, int p_peer_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_value);
-void _wasgo_Node_wrapper_rset_unreliable(WasGoId wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_value);
-void _wasgo_Node_wrapper_rset_unreliable_id(WasGoId wasgo_id, int p_peer_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_value);
-void _wasgo_Node_wrapper_set_custom_multiplayer(WasGoId wasgo_id, WasGoId p_api);
-void _wasgo_Node_wrapper_set_display_folded(WasGoId wasgo_id, bool p_fold);
-void _wasgo_Node_wrapper_set_filename(WasGoId wasgo_id, const uint8_t * p_filename, int p_filename_wasgo_buffer_size);
-void _wasgo_Node_wrapper_set_name(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_Node_wrapper_set_network_master(WasGoId wasgo_id, int p_id, bool p_recursive);
-void _wasgo_Node_wrapper_set_owner(WasGoId wasgo_id, WasGoId p_owner);
-void _wasgo_Node_wrapper_set_pause_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Node_wrapper_set_physics_process(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Node_wrapper_set_physics_process_internal(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Node_wrapper_set_process(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Node_wrapper_set_process_input(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Node_wrapper_set_process_internal(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Node_wrapper_set_process_priority(WasGoId wasgo_id, int p_priority);
-void _wasgo_Node_wrapper_set_process_unhandled_input(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Node_wrapper_set_process_unhandled_key_input(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Node_wrapper_set_scene_instance_load_placeholder(WasGoId wasgo_id, bool p_load_placeholder);
-void _wasgo_Node_wrapper_update_configuration_warning(WasGoId wasgo_id);
+void _wasgo_Node_wrapper_add_child(WasGoID wasgo_id, WasGoID p_node, bool p_legible_unique_name);
+void _wasgo_Node_wrapper_add_child_below_node(WasGoID wasgo_id, WasGoID p_node, WasGoID p_child_node, bool p_legible_unique_name);
+void _wasgo_Node_wrapper_add_to_group(WasGoID wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size, bool p_persistent);
+int _wasgo_Node_wrapper_can_process(WasGoID wasgo_id);
+WasGoID _wasgo_Node_wrapper_duplicate(WasGoID wasgo_id, int p_flags);
+WasGoID _wasgo_Node_wrapper_find_node(WasGoID wasgo_id, const uint8_t * p_mask, int p_mask_wasgo_buffer_size, bool p_recursive, bool p_owned);
+WasGoID _wasgo_Node_wrapper_find_parent(WasGoID wasgo_id, const uint8_t * p_mask, int p_mask_wasgo_buffer_size);
+WasGoID _wasgo_Node_wrapper_get_child(WasGoID wasgo_id, int p_idx);
+int _wasgo_Node_wrapper_get_child_count(WasGoID wasgo_id);
+WasGoID _wasgo_Node_wrapper_get_children(WasGoID wasgo_id);
+WasGoID _wasgo_Node_wrapper_get_custom_multiplayer(WasGoID wasgo_id);
+void _wasgo_Node_wrapper_get_filename(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Node_wrapper_get_groups(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_get_index(WasGoID wasgo_id);
+WasGoID _wasgo_Node_wrapper_get_multiplayer(WasGoID wasgo_id);
+void _wasgo_Node_wrapper_get_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Node_wrapper_get_network_master(WasGoID wasgo_id);
+WasGoID _wasgo_Node_wrapper_get_node(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_Node_wrapper_get_node_and_resource(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_Node_wrapper_get_node_or_null(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_Node_wrapper_get_owner(WasGoID wasgo_id);
+WasGoID _wasgo_Node_wrapper_get_parent(WasGoID wasgo_id);
+void _wasgo_Node_wrapper_get_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Node_wrapper_get_path_to(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoID p_node);
+WasGoID _wasgo_Node_wrapper_get_pause_mode(WasGoID wasgo_id);
+float _wasgo_Node_wrapper_get_physics_process_delta_time(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_get_position_in_parent(WasGoID wasgo_id);
+float _wasgo_Node_wrapper_get_process_delta_time(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_get_process_priority(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_get_scene_instance_load_placeholder(WasGoID wasgo_id);
+WasGoID _wasgo_Node_wrapper_get_tree(WasGoID wasgo_id);
+WasGoID _wasgo_Node_wrapper_get_viewport(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_has_node(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+int _wasgo_Node_wrapper_has_node_and_resource(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+int _wasgo_Node_wrapper_is_a_parent_of(WasGoID wasgo_id, WasGoID p_node);
+int _wasgo_Node_wrapper_is_displayed_folded(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_is_greater_than(WasGoID wasgo_id, WasGoID p_node);
+int _wasgo_Node_wrapper_is_in_group(WasGoID wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size);
+int _wasgo_Node_wrapper_is_inside_tree(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_is_network_master(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_is_physics_processing(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_is_physics_processing_internal(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_is_processing(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_is_processing_input(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_is_processing_internal(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_is_processing_unhandled_input(WasGoID wasgo_id);
+int _wasgo_Node_wrapper_is_processing_unhandled_key_input(WasGoID wasgo_id);
+void _wasgo_Node_wrapper_move_child(WasGoID wasgo_id, WasGoID p_child_node, int p_to_position);
+void _wasgo_Node_wrapper_print_stray_nodes(WasGoID wasgo_id);
+void _wasgo_Node_wrapper_print_tree(WasGoID wasgo_id);
+void _wasgo_Node_wrapper_print_tree_pretty(WasGoID wasgo_id);
+void _wasgo_Node_wrapper_propagate_call(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoID p_args, bool p_parent_first);
+void _wasgo_Node_wrapper_propagate_notification(WasGoID wasgo_id, int p_what);
+void _wasgo_Node_wrapper_queue_free(WasGoID wasgo_id);
+void _wasgo_Node_wrapper_raise(WasGoID wasgo_id);
+void _wasgo_Node_wrapper_remove_and_skip(WasGoID wasgo_id);
+void _wasgo_Node_wrapper_remove_child(WasGoID wasgo_id, WasGoID p_node);
+void _wasgo_Node_wrapper_remove_from_group(WasGoID wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size);
+void _wasgo_Node_wrapper_replace_by(WasGoID wasgo_id, WasGoID p_node, bool p_keep_data);
+void _wasgo_Node_wrapper_request_ready(WasGoID wasgo_id);
+WasGoID _wasgo_Node_wrapper_rpc(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+void _wasgo_Node_wrapper_rpc_config(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoID p_mode);
+WasGoID _wasgo_Node_wrapper_rpc_id(WasGoID wasgo_id, int p_peer_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+WasGoID _wasgo_Node_wrapper_rpc_unreliable(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+WasGoID _wasgo_Node_wrapper_rpc_unreliable_id(WasGoID wasgo_id, int p_peer_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+void _wasgo_Node_wrapper_rset(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
+void _wasgo_Node_wrapper_rset_config(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_mode);
+void _wasgo_Node_wrapper_rset_id(WasGoID wasgo_id, int p_peer_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
+void _wasgo_Node_wrapper_rset_unreliable(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
+void _wasgo_Node_wrapper_rset_unreliable_id(WasGoID wasgo_id, int p_peer_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
+void _wasgo_Node_wrapper_set_custom_multiplayer(WasGoID wasgo_id, WasGoID p_api);
+void _wasgo_Node_wrapper_set_display_folded(WasGoID wasgo_id, bool p_fold);
+void _wasgo_Node_wrapper_set_filename(WasGoID wasgo_id, const uint8_t * p_filename, int p_filename_wasgo_buffer_size);
+void _wasgo_Node_wrapper_set_name(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_Node_wrapper_set_network_master(WasGoID wasgo_id, int p_id, bool p_recursive);
+void _wasgo_Node_wrapper_set_owner(WasGoID wasgo_id, WasGoID p_owner);
+void _wasgo_Node_wrapper_set_pause_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Node_wrapper_set_physics_process(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Node_wrapper_set_physics_process_internal(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Node_wrapper_set_process(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Node_wrapper_set_process_input(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Node_wrapper_set_process_internal(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Node_wrapper_set_process_priority(WasGoID wasgo_id, int p_priority);
+void _wasgo_Node_wrapper_set_process_unhandled_input(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Node_wrapper_set_process_unhandled_key_input(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Node_wrapper_set_scene_instance_load_placeholder(WasGoID wasgo_id, bool p_load_placeholder);
+void _wasgo_Node_wrapper_update_configuration_warning(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_Node_constructor();
+    WasGoID _wasgo_Node_constructor();
             
 }
 #endif

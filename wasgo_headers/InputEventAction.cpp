@@ -30,7 +30,7 @@ void InputEventAction::set_strength(float p_strength){
 	_wasgo_InputEventAction_wrapper_set_strength(wasgo_id, p_strength);
 }
 
-InputEventAction::InputEventAction(WasGoId p_wasgo_id) : InputEvent(p_wasgo_id){
+InputEventAction::InputEventAction(WasGoID p_wasgo_id) : InputEvent(p_wasgo_id){
 }
 InputEventAction::InputEventAction(InputEvent other) : InputEvent(other._get_wasgo_id()){
     wasgo_id = _wasgo_InputEventAction_constructor();

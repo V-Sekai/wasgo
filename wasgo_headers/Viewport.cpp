@@ -343,7 +343,7 @@ void Viewport::warp_mouse(Vector2 p_to_position){
 	_wasgo_Viewport_wrapper_warp_mouse(wasgo_id, wasgo_buffer_to_position, wasgo_size_to_position);
 }
 
-Viewport::Viewport(WasGoId p_wasgo_id) : Node(p_wasgo_id){
+Viewport::Viewport(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 Viewport::Viewport(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_Viewport_constructor();

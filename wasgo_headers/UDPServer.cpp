@@ -32,7 +32,7 @@ PacketPeerUDP UDPServer::take_connection(){
 	return PacketPeerUDP(_wasgo_UDPServer_wrapper_take_connection(wasgo_id));
 }
 
-UDPServer::UDPServer(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+UDPServer::UDPServer(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 UDPServer::UDPServer(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_UDPServer_constructor();

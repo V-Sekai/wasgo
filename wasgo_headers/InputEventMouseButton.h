@@ -17,7 +17,7 @@ void set_pressed(bool p_pressed);
 
 protected:
 public:
-explicit InputEventMouseButton(WasGoId p_wasgo_id);
+explicit InputEventMouseButton(WasGoID p_wasgo_id);
 explicit InputEventMouseButton(InputEventMouse other);
 InputEventMouseButton new_instance();
             
@@ -26,16 +26,16 @@ InputEventMouseButton new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_InputEventMouseButton_wrapper_get_button_index(WasGoId wasgo_id);
-float _wasgo_InputEventMouseButton_wrapper_get_factor(WasGoId wasgo_id);
-int _wasgo_InputEventMouseButton_wrapper_is_doubleclick(WasGoId wasgo_id);
-void _wasgo_InputEventMouseButton_wrapper_set_button_index(WasGoId wasgo_id, int p_button_index);
-void _wasgo_InputEventMouseButton_wrapper_set_doubleclick(WasGoId wasgo_id, bool p_doubleclick);
-void _wasgo_InputEventMouseButton_wrapper_set_factor(WasGoId wasgo_id, float p_factor);
-void _wasgo_InputEventMouseButton_wrapper_set_pressed(WasGoId wasgo_id, bool p_pressed);
+int _wasgo_InputEventMouseButton_wrapper_get_button_index(WasGoID wasgo_id);
+float _wasgo_InputEventMouseButton_wrapper_get_factor(WasGoID wasgo_id);
+int _wasgo_InputEventMouseButton_wrapper_is_doubleclick(WasGoID wasgo_id);
+void _wasgo_InputEventMouseButton_wrapper_set_button_index(WasGoID wasgo_id, int p_button_index);
+void _wasgo_InputEventMouseButton_wrapper_set_doubleclick(WasGoID wasgo_id, bool p_doubleclick);
+void _wasgo_InputEventMouseButton_wrapper_set_factor(WasGoID wasgo_id, float p_factor);
+void _wasgo_InputEventMouseButton_wrapper_set_pressed(WasGoID wasgo_id, bool p_pressed);
 
     //constructor wrappers
-    WasGoId _wasgo_InputEventMouseButton_constructor();
+    WasGoID _wasgo_InputEventMouseButton_constructor();
             
 }
 #endif

@@ -14,7 +14,7 @@ void AudioStreamRandomPitch::set_random_pitch(float p_scale){
 	_wasgo_AudioStreamRandomPitch_wrapper_set_random_pitch(wasgo_id, p_scale);
 }
 
-AudioStreamRandomPitch::AudioStreamRandomPitch(WasGoId p_wasgo_id) : AudioStream(p_wasgo_id){
+AudioStreamRandomPitch::AudioStreamRandomPitch(WasGoID p_wasgo_id) : AudioStream(p_wasgo_id){
 }
 AudioStreamRandomPitch::AudioStreamRandomPitch(AudioStream other) : AudioStream(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioStreamRandomPitch_constructor();

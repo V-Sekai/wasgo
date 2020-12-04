@@ -36,7 +36,7 @@ void StreamPeerTCP::set_no_delay(bool p_enabled){
 	_wasgo_StreamPeerTCP_wrapper_set_no_delay(wasgo_id, p_enabled);
 }
 
-StreamPeerTCP::StreamPeerTCP(WasGoId p_wasgo_id) : StreamPeer(p_wasgo_id){
+StreamPeerTCP::StreamPeerTCP(WasGoID p_wasgo_id) : StreamPeer(p_wasgo_id){
 }
 StreamPeerTCP::StreamPeerTCP(StreamPeer other) : StreamPeer(other._get_wasgo_id()){
     wasgo_id = _wasgo_StreamPeerTCP_constructor();

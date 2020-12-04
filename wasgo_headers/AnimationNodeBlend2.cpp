@@ -8,7 +8,7 @@ void AnimationNodeBlend2::set_use_sync(bool p_enable){
 	_wasgo_AnimationNodeBlend2_wrapper_set_use_sync(wasgo_id, p_enable);
 }
 
-AnimationNodeBlend2::AnimationNodeBlend2(WasGoId p_wasgo_id) : AnimationNode(p_wasgo_id){
+AnimationNodeBlend2::AnimationNodeBlend2(WasGoID p_wasgo_id) : AnimationNode(p_wasgo_id){
 }
 AnimationNodeBlend2::AnimationNodeBlend2(AnimationNode other) : AnimationNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeBlend2_constructor();

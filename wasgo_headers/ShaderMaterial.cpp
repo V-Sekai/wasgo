@@ -44,7 +44,7 @@ void ShaderMaterial::set_shader_param(String p_param, Variant p_value){
 	_wasgo_ShaderMaterial_wrapper_set_shader_param(wasgo_id, wasgo_buffer_param, wasgo_size_param, p_value._get_wasgo_id());
 }
 
-ShaderMaterial::ShaderMaterial(WasGoId p_wasgo_id) : Material(p_wasgo_id){
+ShaderMaterial::ShaderMaterial(WasGoID p_wasgo_id) : Material(p_wasgo_id){
 }
 ShaderMaterial::ShaderMaterial(Material other) : Material(other._get_wasgo_id()){
     wasgo_id = _wasgo_ShaderMaterial_constructor();

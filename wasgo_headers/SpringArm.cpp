@@ -50,7 +50,7 @@ void SpringArm::set_shape(Shape p_shape){
 	_wasgo_SpringArm_wrapper_set_shape(wasgo_id, p_shape._get_wasgo_id());
 }
 
-SpringArm::SpringArm(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
+SpringArm::SpringArm(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 SpringArm::SpringArm(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_SpringArm_constructor();

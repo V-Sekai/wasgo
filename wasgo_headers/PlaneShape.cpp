@@ -21,7 +21,7 @@ void PlaneShape::set_plane(Plane p_plane){
 	_wasgo_PlaneShape_wrapper_set_plane(wasgo_id, wasgo_buffer_plane, wasgo_size_plane);
 }
 
-PlaneShape::PlaneShape(WasGoId p_wasgo_id) : Shape(p_wasgo_id){
+PlaneShape::PlaneShape(WasGoID p_wasgo_id) : Shape(p_wasgo_id){
 }
 PlaneShape::PlaneShape(Shape other) : Shape(other._get_wasgo_id()){
     wasgo_id = _wasgo_PlaneShape_constructor();

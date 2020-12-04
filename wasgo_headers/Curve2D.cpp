@@ -159,7 +159,7 @@ PoolVector2Array Curve2D::tessellate(int p_max_stages = (int) 5, float p_toleran
 	return PoolVector2Array(_wasgo_Curve2D_wrapper_tessellate(wasgo_id, p_max_stages, p_tolerance_degrees));
 }
 
-Curve2D::Curve2D(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+Curve2D::Curve2D(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Curve2D::Curve2D(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Curve2D_constructor();

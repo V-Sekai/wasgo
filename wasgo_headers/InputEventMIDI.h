@@ -26,7 +26,7 @@ void set_velocity(int p_velocity);
 
 protected:
 public:
-explicit InputEventMIDI(WasGoId p_wasgo_id);
+explicit InputEventMIDI(WasGoID p_wasgo_id);
 explicit InputEventMIDI(InputEvent other);
 InputEventMIDI new_instance();
             
@@ -35,25 +35,25 @@ InputEventMIDI new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_InputEventMIDI_wrapper_get_channel(WasGoId wasgo_id);
-int _wasgo_InputEventMIDI_wrapper_get_controller_number(WasGoId wasgo_id);
-int _wasgo_InputEventMIDI_wrapper_get_controller_value(WasGoId wasgo_id);
-int _wasgo_InputEventMIDI_wrapper_get_instrument(WasGoId wasgo_id);
-int _wasgo_InputEventMIDI_wrapper_get_message(WasGoId wasgo_id);
-int _wasgo_InputEventMIDI_wrapper_get_pitch(WasGoId wasgo_id);
-int _wasgo_InputEventMIDI_wrapper_get_pressure(WasGoId wasgo_id);
-int _wasgo_InputEventMIDI_wrapper_get_velocity(WasGoId wasgo_id);
-void _wasgo_InputEventMIDI_wrapper_set_channel(WasGoId wasgo_id, int p_channel);
-void _wasgo_InputEventMIDI_wrapper_set_controller_number(WasGoId wasgo_id, int p_controller_number);
-void _wasgo_InputEventMIDI_wrapper_set_controller_value(WasGoId wasgo_id, int p_controller_value);
-void _wasgo_InputEventMIDI_wrapper_set_instrument(WasGoId wasgo_id, int p_instrument);
-void _wasgo_InputEventMIDI_wrapper_set_message(WasGoId wasgo_id, int p_message);
-void _wasgo_InputEventMIDI_wrapper_set_pitch(WasGoId wasgo_id, int p_pitch);
-void _wasgo_InputEventMIDI_wrapper_set_pressure(WasGoId wasgo_id, int p_pressure);
-void _wasgo_InputEventMIDI_wrapper_set_velocity(WasGoId wasgo_id, int p_velocity);
+int _wasgo_InputEventMIDI_wrapper_get_channel(WasGoID wasgo_id);
+int _wasgo_InputEventMIDI_wrapper_get_controller_number(WasGoID wasgo_id);
+int _wasgo_InputEventMIDI_wrapper_get_controller_value(WasGoID wasgo_id);
+int _wasgo_InputEventMIDI_wrapper_get_instrument(WasGoID wasgo_id);
+int _wasgo_InputEventMIDI_wrapper_get_message(WasGoID wasgo_id);
+int _wasgo_InputEventMIDI_wrapper_get_pitch(WasGoID wasgo_id);
+int _wasgo_InputEventMIDI_wrapper_get_pressure(WasGoID wasgo_id);
+int _wasgo_InputEventMIDI_wrapper_get_velocity(WasGoID wasgo_id);
+void _wasgo_InputEventMIDI_wrapper_set_channel(WasGoID wasgo_id, int p_channel);
+void _wasgo_InputEventMIDI_wrapper_set_controller_number(WasGoID wasgo_id, int p_controller_number);
+void _wasgo_InputEventMIDI_wrapper_set_controller_value(WasGoID wasgo_id, int p_controller_value);
+void _wasgo_InputEventMIDI_wrapper_set_instrument(WasGoID wasgo_id, int p_instrument);
+void _wasgo_InputEventMIDI_wrapper_set_message(WasGoID wasgo_id, int p_message);
+void _wasgo_InputEventMIDI_wrapper_set_pitch(WasGoID wasgo_id, int p_pitch);
+void _wasgo_InputEventMIDI_wrapper_set_pressure(WasGoID wasgo_id, int p_pressure);
+void _wasgo_InputEventMIDI_wrapper_set_velocity(WasGoID wasgo_id, int p_velocity);
 
     //constructor wrappers
-    WasGoId _wasgo_InputEventMIDI_constructor();
+    WasGoID _wasgo_InputEventMIDI_constructor();
             
 }
 #endif

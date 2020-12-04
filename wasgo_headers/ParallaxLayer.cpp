@@ -59,7 +59,7 @@ void ParallaxLayer::set_motion_scale(Vector2 p_scale){
 	_wasgo_ParallaxLayer_wrapper_set_motion_scale(wasgo_id, wasgo_buffer_scale, wasgo_size_scale);
 }
 
-ParallaxLayer::ParallaxLayer(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+ParallaxLayer::ParallaxLayer(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 ParallaxLayer::ParallaxLayer(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_ParallaxLayer_constructor();

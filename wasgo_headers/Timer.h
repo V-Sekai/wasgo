@@ -28,7 +28,7 @@ void stop();
 
 protected:
 public:
-explicit Timer(WasGoId p_wasgo_id);
+explicit Timer(WasGoID p_wasgo_id);
 explicit Timer(Node other);
 Timer new_instance();
             
@@ -37,23 +37,23 @@ Timer new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_Timer_wrapper_get_time_left(WasGoId wasgo_id);
-WasGoId _wasgo_Timer_wrapper_get_timer_process_mode(WasGoId wasgo_id);
-float _wasgo_Timer_wrapper_get_wait_time(WasGoId wasgo_id);
-int _wasgo_Timer_wrapper_has_autostart(WasGoId wasgo_id);
-int _wasgo_Timer_wrapper_is_one_shot(WasGoId wasgo_id);
-int _wasgo_Timer_wrapper_is_paused(WasGoId wasgo_id);
-int _wasgo_Timer_wrapper_is_stopped(WasGoId wasgo_id);
-void _wasgo_Timer_wrapper_set_autostart(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Timer_wrapper_set_one_shot(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Timer_wrapper_set_paused(WasGoId wasgo_id, bool p_paused);
-void _wasgo_Timer_wrapper_set_timer_process_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Timer_wrapper_set_wait_time(WasGoId wasgo_id, float p_time_sec);
-void _wasgo_Timer_wrapper_start(WasGoId wasgo_id, float p_time_sec);
-void _wasgo_Timer_wrapper_stop(WasGoId wasgo_id);
+float _wasgo_Timer_wrapper_get_time_left(WasGoID wasgo_id);
+WasGoID _wasgo_Timer_wrapper_get_timer_process_mode(WasGoID wasgo_id);
+float _wasgo_Timer_wrapper_get_wait_time(WasGoID wasgo_id);
+int _wasgo_Timer_wrapper_has_autostart(WasGoID wasgo_id);
+int _wasgo_Timer_wrapper_is_one_shot(WasGoID wasgo_id);
+int _wasgo_Timer_wrapper_is_paused(WasGoID wasgo_id);
+int _wasgo_Timer_wrapper_is_stopped(WasGoID wasgo_id);
+void _wasgo_Timer_wrapper_set_autostart(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Timer_wrapper_set_one_shot(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Timer_wrapper_set_paused(WasGoID wasgo_id, bool p_paused);
+void _wasgo_Timer_wrapper_set_timer_process_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Timer_wrapper_set_wait_time(WasGoID wasgo_id, float p_time_sec);
+void _wasgo_Timer_wrapper_start(WasGoID wasgo_id, float p_time_sec);
+void _wasgo_Timer_wrapper_stop(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_Timer_constructor();
+    WasGoID _wasgo_Timer_constructor();
             
 }
 #endif

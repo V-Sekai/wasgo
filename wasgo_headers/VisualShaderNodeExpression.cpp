@@ -21,7 +21,7 @@ void VisualShaderNodeExpression::set_expression(String p_expression){
 	_wasgo_VisualShaderNodeExpression_wrapper_set_expression(wasgo_id, wasgo_buffer_expression, wasgo_size_expression);
 }
 
-VisualShaderNodeExpression::VisualShaderNodeExpression(WasGoId p_wasgo_id) : VisualShaderNodeGroupBase(p_wasgo_id){
+VisualShaderNodeExpression::VisualShaderNodeExpression(WasGoID p_wasgo_id) : VisualShaderNodeGroupBase(p_wasgo_id){
 }
 VisualShaderNodeExpression::VisualShaderNodeExpression(VisualShaderNodeGroupBase other) : VisualShaderNodeGroupBase(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeExpression_constructor();

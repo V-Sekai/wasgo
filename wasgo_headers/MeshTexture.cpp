@@ -33,7 +33,7 @@ void MeshTexture::set_mesh(Mesh p_mesh){
 	_wasgo_MeshTexture_wrapper_set_mesh(wasgo_id, p_mesh._get_wasgo_id());
 }
 
-MeshTexture::MeshTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
+MeshTexture::MeshTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 MeshTexture::MeshTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_MeshTexture_constructor();

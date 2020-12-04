@@ -75,7 +75,7 @@ void AudioStreamPlayer::stop(){
 	_wasgo_AudioStreamPlayer_wrapper_stop(wasgo_id);
 }
 
-AudioStreamPlayer::AudioStreamPlayer(WasGoId p_wasgo_id) : Node(p_wasgo_id){
+AudioStreamPlayer::AudioStreamPlayer(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 AudioStreamPlayer::AudioStreamPlayer(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioStreamPlayer_constructor();

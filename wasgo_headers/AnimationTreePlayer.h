@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
-#include "error_list.h"
 #include "Vector2.h"
-#include "ustring.h"
-#include "NodePath.h"
 #include "Animation.h"
+#include "Node.h"
 #include "Variant.h"
+#include "error_list.h"
+#include "NodePath.h"
+#include "ustring.h"
 class AnimationTreePlayer : public Node{
 public:
 enum AnimationProcessMode{
@@ -97,7 +97,7 @@ void transition_node_set_xfade_time(String p_id, float p_time_sec);
 
 protected:
 public:
-explicit AnimationTreePlayer(WasGoId p_wasgo_id);
+explicit AnimationTreePlayer(WasGoID p_wasgo_id);
 explicit AnimationTreePlayer(Node other);
 AnimationTreePlayer new_instance();
             
@@ -106,74 +106,74 @@ AnimationTreePlayer new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_AnimationTreePlayer_wrapper_add_node(WasGoId wasgo_id, WasGoId p_type, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_advance(WasGoId wasgo_id, float p_delta);
-WasGoId _wasgo_AnimationTreePlayer_wrapper_animation_node_get_animation(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_animation_node_get_master_animation(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-float _wasgo_AnimationTreePlayer_wrapper_animation_node_get_position(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_animation_node_set_animation(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, WasGoId p_animation);
-void _wasgo_AnimationTreePlayer_wrapper_animation_node_set_filter_path(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_path, int p_path_wasgo_buffer_size, bool p_enable);
-void _wasgo_AnimationTreePlayer_wrapper_animation_node_set_master_animation(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_source, int p_source_wasgo_buffer_size);
-int _wasgo_AnimationTreePlayer_wrapper_are_nodes_connected(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_dst_id, int p_dst_id_wasgo_buffer_size, int p_dst_input_idx);
-float _wasgo_AnimationTreePlayer_wrapper_blend2_node_get_amount(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_blend2_node_set_amount(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_blend);
-void _wasgo_AnimationTreePlayer_wrapper_blend2_node_set_filter_path(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_path, int p_path_wasgo_buffer_size, bool p_enable);
-float _wasgo_AnimationTreePlayer_wrapper_blend3_node_get_amount(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_blend3_node_set_amount(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_blend);
-void _wasgo_AnimationTreePlayer_wrapper_blend4_node_get_amount(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_blend4_node_set_amount(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_blend, int p_blend_wasgo_buffer_size);
-WasGoId _wasgo_AnimationTreePlayer_wrapper_connect_nodes(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_dst_id, int p_dst_id_wasgo_buffer_size, int p_dst_input_idx);
-void _wasgo_AnimationTreePlayer_wrapper_disconnect_nodes(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_dst_input_idx);
-WasGoId _wasgo_AnimationTreePlayer_wrapper_get_animation_process_mode(WasGoId wasgo_id);
-void _wasgo_AnimationTreePlayer_wrapper_get_base_path(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_AnimationTreePlayer_wrapper_get_master_player(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_AnimationTreePlayer_wrapper_get_node_list(WasGoId wasgo_id);
-int _wasgo_AnimationTreePlayer_wrapper_is_active(WasGoId wasgo_id);
-float _wasgo_AnimationTreePlayer_wrapper_mix_node_get_amount(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_mix_node_set_amount(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_ratio);
-int _wasgo_AnimationTreePlayer_wrapper_node_exists(WasGoId wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size);
-int _wasgo_AnimationTreePlayer_wrapper_node_get_input_count(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_node_get_input_source(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_idx);
-void _wasgo_AnimationTreePlayer_wrapper_node_get_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-WasGoId _wasgo_AnimationTreePlayer_wrapper_node_get_type(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-WasGoId _wasgo_AnimationTreePlayer_wrapper_node_rename(WasGoId wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size, const uint8_t * p_new_name, int p_new_name_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_node_set_position(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_screen_position, int p_screen_position_wasgo_buffer_size);
-float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_autorestart_delay(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_autorestart_random_delay(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_fadein_time(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_fadeout_time(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-int _wasgo_AnimationTreePlayer_wrapper_oneshot_node_has_autorestart(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-int _wasgo_AnimationTreePlayer_wrapper_oneshot_node_is_active(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_autorestart(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, bool p_enable);
-void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_autorestart_delay(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_delay_sec);
-void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_autorestart_random_delay(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_rand_sec);
-void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_fadein_time(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_time_sec);
-void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_fadeout_time(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_time_sec);
-void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_filter_path(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_path, int p_path_wasgo_buffer_size, bool p_enable);
-void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_start(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_stop(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_recompute_caches(WasGoId wasgo_id);
-void _wasgo_AnimationTreePlayer_wrapper_remove_node(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_reset(WasGoId wasgo_id);
-void _wasgo_AnimationTreePlayer_wrapper_set_active(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_AnimationTreePlayer_wrapper_set_animation_process_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_AnimationTreePlayer_wrapper_set_base_path(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_set_master_player(WasGoId wasgo_id, const uint8_t * p_nodepath, int p_nodepath_wasgo_buffer_size);
-float _wasgo_AnimationTreePlayer_wrapper_timescale_node_get_scale(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-void _wasgo_AnimationTreePlayer_wrapper_timescale_node_set_scale(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_scale);
-void _wasgo_AnimationTreePlayer_wrapper_timeseek_node_seek(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_seconds);
-void _wasgo_AnimationTreePlayer_wrapper_transition_node_delete_input(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_input_idx);
-int _wasgo_AnimationTreePlayer_wrapper_transition_node_get_current(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-int _wasgo_AnimationTreePlayer_wrapper_transition_node_get_input_count(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-float _wasgo_AnimationTreePlayer_wrapper_transition_node_get_xfade_time(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
-int _wasgo_AnimationTreePlayer_wrapper_transition_node_has_input_auto_advance(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_input_idx);
-void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_current(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_input_idx);
-void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_input_auto_advance(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_input_idx, bool p_enable);
-void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_input_count(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_count);
-void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_xfade_time(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_time_sec);
+void _wasgo_AnimationTreePlayer_wrapper_add_node(WasGoID wasgo_id, WasGoID p_type, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_advance(WasGoID wasgo_id, float p_delta);
+WasGoID _wasgo_AnimationTreePlayer_wrapper_animation_node_get_animation(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_animation_node_get_master_animation(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+float _wasgo_AnimationTreePlayer_wrapper_animation_node_get_position(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_animation_node_set_animation(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, WasGoID p_animation);
+void _wasgo_AnimationTreePlayer_wrapper_animation_node_set_filter_path(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_path, int p_path_wasgo_buffer_size, bool p_enable);
+void _wasgo_AnimationTreePlayer_wrapper_animation_node_set_master_animation(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_source, int p_source_wasgo_buffer_size);
+int _wasgo_AnimationTreePlayer_wrapper_are_nodes_connected(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_dst_id, int p_dst_id_wasgo_buffer_size, int p_dst_input_idx);
+float _wasgo_AnimationTreePlayer_wrapper_blend2_node_get_amount(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_blend2_node_set_amount(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_blend);
+void _wasgo_AnimationTreePlayer_wrapper_blend2_node_set_filter_path(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_path, int p_path_wasgo_buffer_size, bool p_enable);
+float _wasgo_AnimationTreePlayer_wrapper_blend3_node_get_amount(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_blend3_node_set_amount(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_blend);
+void _wasgo_AnimationTreePlayer_wrapper_blend4_node_get_amount(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_blend4_node_set_amount(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_blend, int p_blend_wasgo_buffer_size);
+WasGoID _wasgo_AnimationTreePlayer_wrapper_connect_nodes(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_dst_id, int p_dst_id_wasgo_buffer_size, int p_dst_input_idx);
+void _wasgo_AnimationTreePlayer_wrapper_disconnect_nodes(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_dst_input_idx);
+WasGoID _wasgo_AnimationTreePlayer_wrapper_get_animation_process_mode(WasGoID wasgo_id);
+void _wasgo_AnimationTreePlayer_wrapper_get_base_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_AnimationTreePlayer_wrapper_get_master_player(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_AnimationTreePlayer_wrapper_get_node_list(WasGoID wasgo_id);
+int _wasgo_AnimationTreePlayer_wrapper_is_active(WasGoID wasgo_id);
+float _wasgo_AnimationTreePlayer_wrapper_mix_node_get_amount(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_mix_node_set_amount(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_ratio);
+int _wasgo_AnimationTreePlayer_wrapper_node_exists(WasGoID wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size);
+int _wasgo_AnimationTreePlayer_wrapper_node_get_input_count(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_node_get_input_source(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_idx);
+void _wasgo_AnimationTreePlayer_wrapper_node_get_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+WasGoID _wasgo_AnimationTreePlayer_wrapper_node_get_type(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+WasGoID _wasgo_AnimationTreePlayer_wrapper_node_rename(WasGoID wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size, const uint8_t * p_new_name, int p_new_name_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_node_set_position(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_screen_position, int p_screen_position_wasgo_buffer_size);
+float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_autorestart_delay(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_autorestart_random_delay(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_fadein_time(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+float _wasgo_AnimationTreePlayer_wrapper_oneshot_node_get_fadeout_time(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+int _wasgo_AnimationTreePlayer_wrapper_oneshot_node_has_autorestart(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+int _wasgo_AnimationTreePlayer_wrapper_oneshot_node_is_active(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_autorestart(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, bool p_enable);
+void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_autorestart_delay(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_delay_sec);
+void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_autorestart_random_delay(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_rand_sec);
+void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_fadein_time(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_time_sec);
+void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_fadeout_time(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_time_sec);
+void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_set_filter_path(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, const uint8_t * p_path, int p_path_wasgo_buffer_size, bool p_enable);
+void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_start(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_oneshot_node_stop(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_recompute_caches(WasGoID wasgo_id);
+void _wasgo_AnimationTreePlayer_wrapper_remove_node(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_reset(WasGoID wasgo_id);
+void _wasgo_AnimationTreePlayer_wrapper_set_active(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_AnimationTreePlayer_wrapper_set_animation_process_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_AnimationTreePlayer_wrapper_set_base_path(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_set_master_player(WasGoID wasgo_id, const uint8_t * p_nodepath, int p_nodepath_wasgo_buffer_size);
+float _wasgo_AnimationTreePlayer_wrapper_timescale_node_get_scale(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+void _wasgo_AnimationTreePlayer_wrapper_timescale_node_set_scale(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_scale);
+void _wasgo_AnimationTreePlayer_wrapper_timeseek_node_seek(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_seconds);
+void _wasgo_AnimationTreePlayer_wrapper_transition_node_delete_input(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_input_idx);
+int _wasgo_AnimationTreePlayer_wrapper_transition_node_get_current(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+int _wasgo_AnimationTreePlayer_wrapper_transition_node_get_input_count(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+float _wasgo_AnimationTreePlayer_wrapper_transition_node_get_xfade_time(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size);
+int _wasgo_AnimationTreePlayer_wrapper_transition_node_has_input_auto_advance(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_input_idx);
+void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_current(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_input_idx);
+void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_input_auto_advance(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_input_idx, bool p_enable);
+void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_input_count(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_count);
+void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_xfade_time(WasGoID wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_time_sec);
 
     //constructor wrappers
-    WasGoId _wasgo_AnimationTreePlayer_constructor();
+    WasGoID _wasgo_AnimationTreePlayer_constructor();
             
 }
 #endif

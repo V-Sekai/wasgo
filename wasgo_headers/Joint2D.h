@@ -21,17 +21,17 @@ void set_node_b(NodePath p_node);
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_Joint2D_wrapper_get_bias(WasGoId wasgo_id);
-int _wasgo_Joint2D_wrapper_get_exclude_nodes_from_collision(WasGoId wasgo_id);
-void _wasgo_Joint2D_wrapper_get_node_a(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Joint2D_wrapper_get_node_b(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Joint2D_wrapper_set_bias(WasGoId wasgo_id, float p_bias);
-void _wasgo_Joint2D_wrapper_set_exclude_nodes_from_collision(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Joint2D_wrapper_set_node_a(WasGoId wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size);
-void _wasgo_Joint2D_wrapper_set_node_b(WasGoId wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size);
+float _wasgo_Joint2D_wrapper_get_bias(WasGoID wasgo_id);
+int _wasgo_Joint2D_wrapper_get_exclude_nodes_from_collision(WasGoID wasgo_id);
+void _wasgo_Joint2D_wrapper_get_node_a(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Joint2D_wrapper_get_node_b(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Joint2D_wrapper_set_bias(WasGoID wasgo_id, float p_bias);
+void _wasgo_Joint2D_wrapper_set_exclude_nodes_from_collision(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Joint2D_wrapper_set_node_a(WasGoID wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size);
+void _wasgo_Joint2D_wrapper_set_node_b(WasGoID wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_Joint2D_constructor();
+    WasGoID _wasgo_Joint2D_constructor();
             
 }
 #endif

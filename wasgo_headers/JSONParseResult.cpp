@@ -39,7 +39,7 @@ void JSONParseResult::set_result(Variant p_result){
 	_wasgo_JSONParseResult_wrapper_set_result(wasgo_id, p_result._get_wasgo_id());
 }
 
-JSONParseResult::JSONParseResult(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+JSONParseResult::JSONParseResult(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 JSONParseResult::JSONParseResult(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_JSONParseResult_constructor();

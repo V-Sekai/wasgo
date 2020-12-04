@@ -14,7 +14,7 @@ void CapsuleShape::set_radius(float p_radius){
 	_wasgo_CapsuleShape_wrapper_set_radius(wasgo_id, p_radius);
 }
 
-CapsuleShape::CapsuleShape(WasGoId p_wasgo_id) : Shape(p_wasgo_id){
+CapsuleShape::CapsuleShape(WasGoID p_wasgo_id) : Shape(p_wasgo_id){
 }
 CapsuleShape::CapsuleShape(Shape other) : Shape(other._get_wasgo_id()){
     wasgo_id = _wasgo_CapsuleShape_constructor();

@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit RichTextEffect(WasGoId p_wasgo_id);
+explicit RichTextEffect(WasGoID p_wasgo_id);
 explicit RichTextEffect(Resource other);
 RichTextEffect new_instance();
             
@@ -21,7 +21,7 @@ RichTextEffect new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_RichTextEffect_constructor();
+    WasGoID _wasgo_RichTextEffect_constructor();
             
 }
 #endif

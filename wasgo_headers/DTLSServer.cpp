@@ -8,7 +8,7 @@ PacketPeerDTLS DTLSServer::take_connection(PacketPeerUDP p_udp_peer){
 	return PacketPeerDTLS(_wasgo_DTLSServer_wrapper_take_connection(wasgo_id, p_udp_peer._get_wasgo_id()));
 }
 
-DTLSServer::DTLSServer(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+DTLSServer::DTLSServer(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 DTLSServer::DTLSServer(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_DTLSServer_constructor();

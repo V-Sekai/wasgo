@@ -75,7 +75,7 @@ int ResourceFormatLoader::rename_dependencies(String p_path, String p_renames){
 	return (int) _wasgo_ResourceFormatLoader_wrapper_rename_dependencies(wasgo_id, wasgo_buffer_path, wasgo_size_path, wasgo_buffer_renames, wasgo_size_renames);
 }
 
-ResourceFormatLoader::ResourceFormatLoader(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+ResourceFormatLoader::ResourceFormatLoader(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 ResourceFormatLoader::ResourceFormatLoader(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_ResourceFormatLoader_constructor();

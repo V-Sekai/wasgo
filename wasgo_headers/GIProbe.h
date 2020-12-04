@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "GIProbeData.h"
-#include "Node.h"
 #include "Vector3.h"
+#include "Node.h"
 #include "VisualInstance.h"
 class GIProbe : public VisualInstance{
 public:
@@ -42,7 +42,7 @@ void set_subdiv(GIProbe::Subdiv p_subdiv);
 
 protected:
 public:
-explicit GIProbe(WasGoId p_wasgo_id);
+explicit GIProbe(WasGoID p_wasgo_id);
 explicit GIProbe(VisualInstance other);
 GIProbe new_instance();
             
@@ -51,31 +51,31 @@ GIProbe new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_GIProbe_wrapper_bake(WasGoId wasgo_id, WasGoId p_from_node, bool p_create_visual_debug);
-void _wasgo_GIProbe_wrapper_debug_bake(WasGoId wasgo_id);
-float _wasgo_GIProbe_wrapper_get_bias(WasGoId wasgo_id);
-int _wasgo_GIProbe_wrapper_get_dynamic_range(WasGoId wasgo_id);
-float _wasgo_GIProbe_wrapper_get_energy(WasGoId wasgo_id);
-void _wasgo_GIProbe_wrapper_get_extents(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_GIProbe_wrapper_get_normal_bias(WasGoId wasgo_id);
-WasGoId _wasgo_GIProbe_wrapper_get_probe_data(WasGoId wasgo_id);
-float _wasgo_GIProbe_wrapper_get_propagation(WasGoId wasgo_id);
-WasGoId _wasgo_GIProbe_wrapper_get_subdiv(WasGoId wasgo_id);
-int _wasgo_GIProbe_wrapper_is_compressed(WasGoId wasgo_id);
-int _wasgo_GIProbe_wrapper_is_interior(WasGoId wasgo_id);
-void _wasgo_GIProbe_wrapper_set_bias(WasGoId wasgo_id, float p_max);
-void _wasgo_GIProbe_wrapper_set_compress(WasGoId wasgo_id, bool p_enable);
-void _wasgo_GIProbe_wrapper_set_dynamic_range(WasGoId wasgo_id, int p_max);
-void _wasgo_GIProbe_wrapper_set_energy(WasGoId wasgo_id, float p_max);
-void _wasgo_GIProbe_wrapper_set_extents(WasGoId wasgo_id, const uint8_t * p_extents, int p_extents_wasgo_buffer_size);
-void _wasgo_GIProbe_wrapper_set_interior(WasGoId wasgo_id, bool p_enable);
-void _wasgo_GIProbe_wrapper_set_normal_bias(WasGoId wasgo_id, float p_max);
-void _wasgo_GIProbe_wrapper_set_probe_data(WasGoId wasgo_id, WasGoId p_data);
-void _wasgo_GIProbe_wrapper_set_propagation(WasGoId wasgo_id, float p_max);
-void _wasgo_GIProbe_wrapper_set_subdiv(WasGoId wasgo_id, WasGoId p_subdiv);
+void _wasgo_GIProbe_wrapper_bake(WasGoID wasgo_id, WasGoID p_from_node, bool p_create_visual_debug);
+void _wasgo_GIProbe_wrapper_debug_bake(WasGoID wasgo_id);
+float _wasgo_GIProbe_wrapper_get_bias(WasGoID wasgo_id);
+int _wasgo_GIProbe_wrapper_get_dynamic_range(WasGoID wasgo_id);
+float _wasgo_GIProbe_wrapper_get_energy(WasGoID wasgo_id);
+void _wasgo_GIProbe_wrapper_get_extents(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_GIProbe_wrapper_get_normal_bias(WasGoID wasgo_id);
+WasGoID _wasgo_GIProbe_wrapper_get_probe_data(WasGoID wasgo_id);
+float _wasgo_GIProbe_wrapper_get_propagation(WasGoID wasgo_id);
+WasGoID _wasgo_GIProbe_wrapper_get_subdiv(WasGoID wasgo_id);
+int _wasgo_GIProbe_wrapper_is_compressed(WasGoID wasgo_id);
+int _wasgo_GIProbe_wrapper_is_interior(WasGoID wasgo_id);
+void _wasgo_GIProbe_wrapper_set_bias(WasGoID wasgo_id, float p_max);
+void _wasgo_GIProbe_wrapper_set_compress(WasGoID wasgo_id, bool p_enable);
+void _wasgo_GIProbe_wrapper_set_dynamic_range(WasGoID wasgo_id, int p_max);
+void _wasgo_GIProbe_wrapper_set_energy(WasGoID wasgo_id, float p_max);
+void _wasgo_GIProbe_wrapper_set_extents(WasGoID wasgo_id, const uint8_t * p_extents, int p_extents_wasgo_buffer_size);
+void _wasgo_GIProbe_wrapper_set_interior(WasGoID wasgo_id, bool p_enable);
+void _wasgo_GIProbe_wrapper_set_normal_bias(WasGoID wasgo_id, float p_max);
+void _wasgo_GIProbe_wrapper_set_probe_data(WasGoID wasgo_id, WasGoID p_data);
+void _wasgo_GIProbe_wrapper_set_propagation(WasGoID wasgo_id, float p_max);
+void _wasgo_GIProbe_wrapper_set_subdiv(WasGoID wasgo_id, WasGoID p_subdiv);
 
     //constructor wrappers
-    WasGoId _wasgo_GIProbe_constructor();
+    WasGoID _wasgo_GIProbe_constructor();
             
 }
 #endif

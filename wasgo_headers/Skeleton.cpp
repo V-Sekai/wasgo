@@ -169,7 +169,7 @@ void Skeleton::unparent_bone_and_rest(int p_bone_idx){
 	_wasgo_Skeleton_wrapper_unparent_bone_and_rest(wasgo_id, p_bone_idx);
 }
 
-Skeleton::Skeleton(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
+Skeleton::Skeleton(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 Skeleton::Skeleton(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_Skeleton_constructor();

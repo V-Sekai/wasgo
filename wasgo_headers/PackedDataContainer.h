@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "error_list.h"
 #include "Variant.h"
+#include "Resource.h"
 class PackedDataContainer : public Resource{
 public:
 Error pack(Variant p_value);
@@ -14,7 +14,7 @@ int size();
 
 protected:
 public:
-explicit PackedDataContainer(WasGoId p_wasgo_id);
+explicit PackedDataContainer(WasGoID p_wasgo_id);
 explicit PackedDataContainer(Resource other);
 PackedDataContainer new_instance();
             
@@ -23,11 +23,11 @@ PackedDataContainer new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_PackedDataContainer_wrapper_pack(WasGoId wasgo_id, WasGoId p_value);
-int _wasgo_PackedDataContainer_wrapper_size(WasGoId wasgo_id);
+WasGoID _wasgo_PackedDataContainer_wrapper_pack(WasGoID wasgo_id, WasGoID p_value);
+int _wasgo_PackedDataContainer_wrapper_size(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_PackedDataContainer_constructor();
+    WasGoID _wasgo_PackedDataContainer_constructor();
             
 }
 #endif

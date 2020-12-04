@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "KinematicCollision2D.h"
-#include "PhysicsBody2D.h"
 #include "Transform2D.h"
+#include "PhysicsBody2D.h"
 #include "Vector2.h"
+#include "KinematicCollision2D.h"
 class KinematicBody2D : public PhysicsBody2D{
 public:
 Vector2 get_floor_normal();
@@ -28,7 +28,7 @@ bool test_move(Transform2D p_from, Vector2 p_rel_vec, bool p_infinite_inertia = 
 
 protected:
 public:
-explicit KinematicBody2D(WasGoId p_wasgo_id);
+explicit KinematicBody2D(WasGoID p_wasgo_id);
 explicit KinematicBody2D(PhysicsBody2D other);
 KinematicBody2D new_instance();
             
@@ -37,24 +37,24 @@ KinematicBody2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_KinematicBody2D_wrapper_get_floor_normal(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_KinematicBody2D_wrapper_get_floor_velocity(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_KinematicBody2D_wrapper_get_safe_margin(WasGoId wasgo_id);
-WasGoId _wasgo_KinematicBody2D_wrapper_get_slide_collision(WasGoId wasgo_id, int p_slide_idx);
-int _wasgo_KinematicBody2D_wrapper_get_slide_count(WasGoId wasgo_id);
-int _wasgo_KinematicBody2D_wrapper_is_on_ceiling(WasGoId wasgo_id);
-int _wasgo_KinematicBody2D_wrapper_is_on_floor(WasGoId wasgo_id);
-int _wasgo_KinematicBody2D_wrapper_is_on_wall(WasGoId wasgo_id);
-int _wasgo_KinematicBody2D_wrapper_is_sync_to_physics_enabled(WasGoId wasgo_id);
-WasGoId _wasgo_KinematicBody2D_wrapper_move_and_collide(WasGoId wasgo_id, const uint8_t * p_rel_vec, int p_rel_vec_wasgo_buffer_size, bool p_infinite_inertia, bool p_exclude_raycast_shapes, bool p_test_only);
-void _wasgo_KinematicBody2D_wrapper_move_and_slide(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_linear_velocity, int p_linear_velocity_wasgo_buffer_size, const uint8_t * p_up_direction, int p_up_direction_wasgo_buffer_size, bool p_stop_on_slope, int p_max_slides, float p_floor_max_angle, bool p_infinite_inertia);
-void _wasgo_KinematicBody2D_wrapper_move_and_slide_with_snap(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_linear_velocity, int p_linear_velocity_wasgo_buffer_size, const uint8_t * p_snap, int p_snap_wasgo_buffer_size, const uint8_t * p_up_direction, int p_up_direction_wasgo_buffer_size, bool p_stop_on_slope, int p_max_slides, float p_floor_max_angle, bool p_infinite_inertia);
-void _wasgo_KinematicBody2D_wrapper_set_safe_margin(WasGoId wasgo_id, float p_pixels);
-void _wasgo_KinematicBody2D_wrapper_set_sync_to_physics(WasGoId wasgo_id, bool p_enable);
-int _wasgo_KinematicBody2D_wrapper_test_move(WasGoId wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_rel_vec, int p_rel_vec_wasgo_buffer_size, bool p_infinite_inertia);
+void _wasgo_KinematicBody2D_wrapper_get_floor_normal(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_KinematicBody2D_wrapper_get_floor_velocity(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_KinematicBody2D_wrapper_get_safe_margin(WasGoID wasgo_id);
+WasGoID _wasgo_KinematicBody2D_wrapper_get_slide_collision(WasGoID wasgo_id, int p_slide_idx);
+int _wasgo_KinematicBody2D_wrapper_get_slide_count(WasGoID wasgo_id);
+int _wasgo_KinematicBody2D_wrapper_is_on_ceiling(WasGoID wasgo_id);
+int _wasgo_KinematicBody2D_wrapper_is_on_floor(WasGoID wasgo_id);
+int _wasgo_KinematicBody2D_wrapper_is_on_wall(WasGoID wasgo_id);
+int _wasgo_KinematicBody2D_wrapper_is_sync_to_physics_enabled(WasGoID wasgo_id);
+WasGoID _wasgo_KinematicBody2D_wrapper_move_and_collide(WasGoID wasgo_id, const uint8_t * p_rel_vec, int p_rel_vec_wasgo_buffer_size, bool p_infinite_inertia, bool p_exclude_raycast_shapes, bool p_test_only);
+void _wasgo_KinematicBody2D_wrapper_move_and_slide(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_linear_velocity, int p_linear_velocity_wasgo_buffer_size, const uint8_t * p_up_direction, int p_up_direction_wasgo_buffer_size, bool p_stop_on_slope, int p_max_slides, float p_floor_max_angle, bool p_infinite_inertia);
+void _wasgo_KinematicBody2D_wrapper_move_and_slide_with_snap(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_linear_velocity, int p_linear_velocity_wasgo_buffer_size, const uint8_t * p_snap, int p_snap_wasgo_buffer_size, const uint8_t * p_up_direction, int p_up_direction_wasgo_buffer_size, bool p_stop_on_slope, int p_max_slides, float p_floor_max_angle, bool p_infinite_inertia);
+void _wasgo_KinematicBody2D_wrapper_set_safe_margin(WasGoID wasgo_id, float p_pixels);
+void _wasgo_KinematicBody2D_wrapper_set_sync_to_physics(WasGoID wasgo_id, bool p_enable);
+int _wasgo_KinematicBody2D_wrapper_test_move(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_rel_vec, int p_rel_vec_wasgo_buffer_size, bool p_infinite_inertia);
 
     //constructor wrappers
-    WasGoId _wasgo_KinematicBody2D_constructor();
+    WasGoID _wasgo_KinematicBody2D_constructor();
             
 }
 #endif

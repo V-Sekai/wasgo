@@ -21,7 +21,7 @@ void BoneAttachment::set_bone_name(String p_bone_name){
 	_wasgo_BoneAttachment_wrapper_set_bone_name(wasgo_id, wasgo_buffer_bone_name, wasgo_size_bone_name);
 }
 
-BoneAttachment::BoneAttachment(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
+BoneAttachment::BoneAttachment(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 BoneAttachment::BoneAttachment(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_BoneAttachment_constructor();

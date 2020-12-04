@@ -14,7 +14,7 @@ void NavigationPolygonInstance::set_navigation_polygon(NavigationPolygon p_navpo
 	_wasgo_NavigationPolygonInstance_wrapper_set_navigation_polygon(wasgo_id, p_navpoly._get_wasgo_id());
 }
 
-NavigationPolygonInstance::NavigationPolygonInstance(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+NavigationPolygonInstance::NavigationPolygonInstance(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 NavigationPolygonInstance::NavigationPolygonInstance(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_NavigationPolygonInstance_constructor();

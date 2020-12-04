@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "BaseButton.h"
+#include "Texture.h"
 #include "ustring.h"
 class Button : public BaseButton{
 public:
@@ -29,7 +29,7 @@ void set_text_align(Button::TextAlign p_align);
 
 protected:
 public:
-explicit Button(WasGoId p_wasgo_id);
+explicit Button(WasGoID p_wasgo_id);
 explicit Button(BaseButton other);
 Button new_instance();
             
@@ -38,21 +38,21 @@ Button new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Button_wrapper_get_button_icon(WasGoId wasgo_id);
-int _wasgo_Button_wrapper_get_clip_text(WasGoId wasgo_id);
-void _wasgo_Button_wrapper_get_text(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Button_wrapper_get_text_align(WasGoId wasgo_id);
-int _wasgo_Button_wrapper_is_expand_icon(WasGoId wasgo_id);
-int _wasgo_Button_wrapper_is_flat(WasGoId wasgo_id);
-void _wasgo_Button_wrapper_set_button_icon(WasGoId wasgo_id, WasGoId p_texture);
-void _wasgo_Button_wrapper_set_clip_text(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Button_wrapper_set_expand_icon(WasGoId wasgo_id, bool p_arg0);
-void _wasgo_Button_wrapper_set_flat(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Button_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-void _wasgo_Button_wrapper_set_text_align(WasGoId wasgo_id, WasGoId p_align);
+WasGoID _wasgo_Button_wrapper_get_button_icon(WasGoID wasgo_id);
+int _wasgo_Button_wrapper_get_clip_text(WasGoID wasgo_id);
+void _wasgo_Button_wrapper_get_text(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Button_wrapper_get_text_align(WasGoID wasgo_id);
+int _wasgo_Button_wrapper_is_expand_icon(WasGoID wasgo_id);
+int _wasgo_Button_wrapper_is_flat(WasGoID wasgo_id);
+void _wasgo_Button_wrapper_set_button_icon(WasGoID wasgo_id, WasGoID p_texture);
+void _wasgo_Button_wrapper_set_clip_text(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Button_wrapper_set_expand_icon(WasGoID wasgo_id, bool p_arg0);
+void _wasgo_Button_wrapper_set_flat(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Button_wrapper_set_text(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_Button_wrapper_set_text_align(WasGoID wasgo_id, WasGoID p_align);
 
     //constructor wrappers
-    WasGoId _wasgo_Button_constructor();
+    WasGoID _wasgo_Button_constructor();
             
 }
 #endif

@@ -137,7 +137,7 @@ void AnimationNode::set_parameter(String p_name, Variant p_value){
 	_wasgo_AnimationNode_wrapper_set_parameter(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_value._get_wasgo_id());
 }
 
-AnimationNode::AnimationNode(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+AnimationNode::AnimationNode(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 AnimationNode::AnimationNode(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNode_constructor();

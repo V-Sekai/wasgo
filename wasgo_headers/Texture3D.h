@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit Texture3D(WasGoId p_wasgo_id);
+explicit Texture3D(WasGoID p_wasgo_id);
 explicit Texture3D(TextureLayered other);
 Texture3D new_instance();
             
@@ -21,7 +21,7 @@ Texture3D new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_Texture3D_constructor();
+    WasGoID _wasgo_Texture3D_constructor();
             
 }
 #endif

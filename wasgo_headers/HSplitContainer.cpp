@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "HSplitContainer.h"
 
-HSplitContainer::HSplitContainer(WasGoId p_wasgo_id) : SplitContainer(p_wasgo_id){
+HSplitContainer::HSplitContainer(WasGoID p_wasgo_id) : SplitContainer(p_wasgo_id){
 }
 HSplitContainer::HSplitContainer(SplitContainer other) : SplitContainer(other._get_wasgo_id()){
     wasgo_id = _wasgo_HSplitContainer_constructor();

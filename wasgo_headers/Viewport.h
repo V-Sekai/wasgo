@@ -4,18 +4,18 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node.h"
-#include "Transform2D.h"
-#include "Control.h"
 #include "World2D.h"
-#include "World.h"
-#include "Vector2.h"
-#include "ViewportTexture.h"
 #include "Camera.h"
-#include "Rect2.h"
-#include "InputEvent.h"
-#include "RID.h"
+#include "Vector2.h"
+#include "Node.h"
 #include "Variant.h"
+#include "InputEvent.h"
+#include "Transform2D.h"
+#include "World.h"
+#include "ViewportTexture.h"
+#include "RID.h"
+#include "Control.h"
+#include "Rect2.h"
 class Viewport : public Node{
 public:
 enum ClearMode{
@@ -153,7 +153,7 @@ void warp_mouse(Vector2 p_to_position);
 
 protected:
 public:
-explicit Viewport(WasGoId p_wasgo_id);
+explicit Viewport(WasGoID p_wasgo_id);
 explicit Viewport(Node other);
 Viewport new_instance();
             
@@ -162,90 +162,90 @@ Viewport new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Viewport_wrapper_find_world(WasGoId wasgo_id);
-WasGoId _wasgo_Viewport_wrapper_find_world_2d(WasGoId wasgo_id);
-WasGoId _wasgo_Viewport_wrapper_get_camera(WasGoId wasgo_id);
-void _wasgo_Viewport_wrapper_get_canvas_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Viewport_wrapper_get_clear_mode(WasGoId wasgo_id);
-WasGoId _wasgo_Viewport_wrapper_get_debug_draw(WasGoId wasgo_id);
-void _wasgo_Viewport_wrapper_get_final_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Viewport_wrapper_get_global_canvas_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Viewport_wrapper_get_hdr(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_get_keep_3d_linear(WasGoId wasgo_id);
-WasGoId _wasgo_Viewport_wrapper_get_modal_stack_top(WasGoId wasgo_id);
-void _wasgo_Viewport_wrapper_get_mouse_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Viewport_wrapper_get_msaa(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_get_physics_object_picking(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_get_render_info(WasGoId wasgo_id, WasGoId p_info);
-WasGoId _wasgo_Viewport_wrapper_get_shadow_atlas_quadrant_subdiv(WasGoId wasgo_id, int p_quadrant);
-int _wasgo_Viewport_wrapper_get_shadow_atlas_size(WasGoId wasgo_id);
-void _wasgo_Viewport_wrapper_get_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Viewport_wrapper_get_size_override(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Viewport_wrapper_get_texture(WasGoId wasgo_id);
-WasGoId _wasgo_Viewport_wrapper_get_update_mode(WasGoId wasgo_id);
-WasGoId _wasgo_Viewport_wrapper_get_usage(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_get_use_debanding(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_get_use_fxaa(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_get_vflip(WasGoId wasgo_id);
-void _wasgo_Viewport_wrapper_get_viewport_rid(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Viewport_wrapper_get_visible_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Viewport_wrapper_get_world(WasGoId wasgo_id);
-WasGoId _wasgo_Viewport_wrapper_get_world_2d(WasGoId wasgo_id);
-WasGoId _wasgo_Viewport_wrapper_gui_get_drag_data(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_gui_has_modal_stack(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_gui_is_dragging(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_has_transparent_background(WasGoId wasgo_id);
-void _wasgo_Viewport_wrapper_input(WasGoId wasgo_id, WasGoId p_local_event);
-int _wasgo_Viewport_wrapper_is_3d_disabled(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_is_audio_listener(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_is_audio_listener_2d(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_is_handling_input_locally(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_is_input_disabled(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_is_input_handled(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_is_size_override_enabled(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_is_size_override_stretch_enabled(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_is_snap_controls_to_pixels_enabled(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_is_using_own_world(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_is_using_render_direct_to_screen(WasGoId wasgo_id);
-void _wasgo_Viewport_wrapper_set_as_audio_listener(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_as_audio_listener_2d(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_attach_to_screen_rect(WasGoId wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size);
-void _wasgo_Viewport_wrapper_set_canvas_transform(WasGoId wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
-void _wasgo_Viewport_wrapper_set_clear_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Viewport_wrapper_set_debug_draw(WasGoId wasgo_id, WasGoId p_debug_draw);
-void _wasgo_Viewport_wrapper_set_disable_3d(WasGoId wasgo_id, bool p_disable);
-void _wasgo_Viewport_wrapper_set_disable_input(WasGoId wasgo_id, bool p_disable);
-void _wasgo_Viewport_wrapper_set_global_canvas_transform(WasGoId wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
-void _wasgo_Viewport_wrapper_set_handle_input_locally(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_hdr(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_input_as_handled(WasGoId wasgo_id);
-void _wasgo_Viewport_wrapper_set_keep_3d_linear(WasGoId wasgo_id, bool p_keep_3d_linear);
-void _wasgo_Viewport_wrapper_set_msaa(WasGoId wasgo_id, WasGoId p_msaa);
-void _wasgo_Viewport_wrapper_set_physics_object_picking(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_shadow_atlas_quadrant_subdiv(WasGoId wasgo_id, int p_quadrant, WasGoId p_subdiv);
-void _wasgo_Viewport_wrapper_set_shadow_atlas_size(WasGoId wasgo_id, int p_size);
-void _wasgo_Viewport_wrapper_set_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
-void _wasgo_Viewport_wrapper_set_size_override(WasGoId wasgo_id, bool p_enable, const uint8_t * p_size, int p_size_wasgo_buffer_size, const uint8_t * p_margin, int p_margin_wasgo_buffer_size);
-void _wasgo_Viewport_wrapper_set_size_override_stretch(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Viewport_wrapper_set_snap_controls_to_pixels(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Viewport_wrapper_set_transparent_background(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_update_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Viewport_wrapper_set_usage(WasGoId wasgo_id, WasGoId p_usage);
-void _wasgo_Viewport_wrapper_set_use_arvr(WasGoId wasgo_id, bool p_use);
-void _wasgo_Viewport_wrapper_set_use_debanding(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_use_fxaa(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_use_own_world(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_use_render_direct_to_screen(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_vflip(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_world(WasGoId wasgo_id, WasGoId p_world);
-void _wasgo_Viewport_wrapper_set_world_2d(WasGoId wasgo_id, WasGoId p_world_2d);
-void _wasgo_Viewport_wrapper_unhandled_input(WasGoId wasgo_id, WasGoId p_local_event);
-void _wasgo_Viewport_wrapper_update_worlds(WasGoId wasgo_id);
-int _wasgo_Viewport_wrapper_use_arvr(WasGoId wasgo_id);
-void _wasgo_Viewport_wrapper_warp_mouse(WasGoId wasgo_id, const uint8_t * p_to_position, int p_to_position_wasgo_buffer_size);
+WasGoID _wasgo_Viewport_wrapper_find_world(WasGoID wasgo_id);
+WasGoID _wasgo_Viewport_wrapper_find_world_2d(WasGoID wasgo_id);
+WasGoID _wasgo_Viewport_wrapper_get_camera(WasGoID wasgo_id);
+void _wasgo_Viewport_wrapper_get_canvas_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Viewport_wrapper_get_clear_mode(WasGoID wasgo_id);
+WasGoID _wasgo_Viewport_wrapper_get_debug_draw(WasGoID wasgo_id);
+void _wasgo_Viewport_wrapper_get_final_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Viewport_wrapper_get_global_canvas_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Viewport_wrapper_get_hdr(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_get_keep_3d_linear(WasGoID wasgo_id);
+WasGoID _wasgo_Viewport_wrapper_get_modal_stack_top(WasGoID wasgo_id);
+void _wasgo_Viewport_wrapper_get_mouse_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Viewport_wrapper_get_msaa(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_get_physics_object_picking(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_get_render_info(WasGoID wasgo_id, WasGoID p_info);
+WasGoID _wasgo_Viewport_wrapper_get_shadow_atlas_quadrant_subdiv(WasGoID wasgo_id, int p_quadrant);
+int _wasgo_Viewport_wrapper_get_shadow_atlas_size(WasGoID wasgo_id);
+void _wasgo_Viewport_wrapper_get_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Viewport_wrapper_get_size_override(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Viewport_wrapper_get_texture(WasGoID wasgo_id);
+WasGoID _wasgo_Viewport_wrapper_get_update_mode(WasGoID wasgo_id);
+WasGoID _wasgo_Viewport_wrapper_get_usage(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_get_use_debanding(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_get_use_fxaa(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_get_vflip(WasGoID wasgo_id);
+void _wasgo_Viewport_wrapper_get_viewport_rid(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Viewport_wrapper_get_visible_rect(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Viewport_wrapper_get_world(WasGoID wasgo_id);
+WasGoID _wasgo_Viewport_wrapper_get_world_2d(WasGoID wasgo_id);
+WasGoID _wasgo_Viewport_wrapper_gui_get_drag_data(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_gui_has_modal_stack(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_gui_is_dragging(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_has_transparent_background(WasGoID wasgo_id);
+void _wasgo_Viewport_wrapper_input(WasGoID wasgo_id, WasGoID p_local_event);
+int _wasgo_Viewport_wrapper_is_3d_disabled(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_is_audio_listener(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_is_audio_listener_2d(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_is_handling_input_locally(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_is_input_disabled(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_is_input_handled(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_is_size_override_enabled(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_is_size_override_stretch_enabled(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_is_snap_controls_to_pixels_enabled(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_is_using_own_world(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_is_using_render_direct_to_screen(WasGoID wasgo_id);
+void _wasgo_Viewport_wrapper_set_as_audio_listener(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Viewport_wrapper_set_as_audio_listener_2d(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Viewport_wrapper_set_attach_to_screen_rect(WasGoID wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size);
+void _wasgo_Viewport_wrapper_set_canvas_transform(WasGoID wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
+void _wasgo_Viewport_wrapper_set_clear_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Viewport_wrapper_set_debug_draw(WasGoID wasgo_id, WasGoID p_debug_draw);
+void _wasgo_Viewport_wrapper_set_disable_3d(WasGoID wasgo_id, bool p_disable);
+void _wasgo_Viewport_wrapper_set_disable_input(WasGoID wasgo_id, bool p_disable);
+void _wasgo_Viewport_wrapper_set_global_canvas_transform(WasGoID wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
+void _wasgo_Viewport_wrapper_set_handle_input_locally(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Viewport_wrapper_set_hdr(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Viewport_wrapper_set_input_as_handled(WasGoID wasgo_id);
+void _wasgo_Viewport_wrapper_set_keep_3d_linear(WasGoID wasgo_id, bool p_keep_3d_linear);
+void _wasgo_Viewport_wrapper_set_msaa(WasGoID wasgo_id, WasGoID p_msaa);
+void _wasgo_Viewport_wrapper_set_physics_object_picking(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Viewport_wrapper_set_shadow_atlas_quadrant_subdiv(WasGoID wasgo_id, int p_quadrant, WasGoID p_subdiv);
+void _wasgo_Viewport_wrapper_set_shadow_atlas_size(WasGoID wasgo_id, int p_size);
+void _wasgo_Viewport_wrapper_set_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
+void _wasgo_Viewport_wrapper_set_size_override(WasGoID wasgo_id, bool p_enable, const uint8_t * p_size, int p_size_wasgo_buffer_size, const uint8_t * p_margin, int p_margin_wasgo_buffer_size);
+void _wasgo_Viewport_wrapper_set_size_override_stretch(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Viewport_wrapper_set_snap_controls_to_pixels(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Viewport_wrapper_set_transparent_background(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Viewport_wrapper_set_update_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Viewport_wrapper_set_usage(WasGoID wasgo_id, WasGoID p_usage);
+void _wasgo_Viewport_wrapper_set_use_arvr(WasGoID wasgo_id, bool p_use);
+void _wasgo_Viewport_wrapper_set_use_debanding(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Viewport_wrapper_set_use_fxaa(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Viewport_wrapper_set_use_own_world(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Viewport_wrapper_set_use_render_direct_to_screen(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Viewport_wrapper_set_vflip(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Viewport_wrapper_set_world(WasGoID wasgo_id, WasGoID p_world);
+void _wasgo_Viewport_wrapper_set_world_2d(WasGoID wasgo_id, WasGoID p_world_2d);
+void _wasgo_Viewport_wrapper_unhandled_input(WasGoID wasgo_id, WasGoID p_local_event);
+void _wasgo_Viewport_wrapper_update_worlds(WasGoID wasgo_id);
+int _wasgo_Viewport_wrapper_use_arvr(WasGoID wasgo_id);
+void _wasgo_Viewport_wrapper_warp_mouse(WasGoID wasgo_id, const uint8_t * p_to_position, int p_to_position_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_Viewport_constructor();
+    WasGoID _wasgo_Viewport_constructor();
             
 }
 #endif

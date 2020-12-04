@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "Control.h"
+#include "Texture.h"
 #include "VideoStream.h"
 #include "ustring.h"
 class VideoPlayer : public Control{
@@ -38,7 +38,7 @@ void stop();
 
 protected:
 public:
-explicit VideoPlayer(WasGoId p_wasgo_id);
+explicit VideoPlayer(WasGoID p_wasgo_id);
 explicit VideoPlayer(Control other);
 VideoPlayer new_instance();
             
@@ -47,34 +47,34 @@ VideoPlayer new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_VideoPlayer_wrapper_get_audio_track(WasGoId wasgo_id);
-int _wasgo_VideoPlayer_wrapper_get_buffering_msec(WasGoId wasgo_id);
-void _wasgo_VideoPlayer_wrapper_get_bus(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_VideoPlayer_wrapper_get_stream(WasGoId wasgo_id);
-void _wasgo_VideoPlayer_wrapper_get_stream_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_VideoPlayer_wrapper_get_stream_position(WasGoId wasgo_id);
-WasGoId _wasgo_VideoPlayer_wrapper_get_video_texture(WasGoId wasgo_id);
-float _wasgo_VideoPlayer_wrapper_get_volume(WasGoId wasgo_id);
-float _wasgo_VideoPlayer_wrapper_get_volume_db(WasGoId wasgo_id);
-int _wasgo_VideoPlayer_wrapper_has_autoplay(WasGoId wasgo_id);
-int _wasgo_VideoPlayer_wrapper_has_expand(WasGoId wasgo_id);
-int _wasgo_VideoPlayer_wrapper_is_paused(WasGoId wasgo_id);
-int _wasgo_VideoPlayer_wrapper_is_playing(WasGoId wasgo_id);
-void _wasgo_VideoPlayer_wrapper_play(WasGoId wasgo_id);
-void _wasgo_VideoPlayer_wrapper_set_audio_track(WasGoId wasgo_id, int p_track);
-void _wasgo_VideoPlayer_wrapper_set_autoplay(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_VideoPlayer_wrapper_set_buffering_msec(WasGoId wasgo_id, int p_msec);
-void _wasgo_VideoPlayer_wrapper_set_bus(WasGoId wasgo_id, const uint8_t * p_bus, int p_bus_wasgo_buffer_size);
-void _wasgo_VideoPlayer_wrapper_set_expand(WasGoId wasgo_id, bool p_enable);
-void _wasgo_VideoPlayer_wrapper_set_paused(WasGoId wasgo_id, bool p_paused);
-void _wasgo_VideoPlayer_wrapper_set_stream(WasGoId wasgo_id, WasGoId p_stream);
-void _wasgo_VideoPlayer_wrapper_set_stream_position(WasGoId wasgo_id, float p_position);
-void _wasgo_VideoPlayer_wrapper_set_volume(WasGoId wasgo_id, float p_volume);
-void _wasgo_VideoPlayer_wrapper_set_volume_db(WasGoId wasgo_id, float p_db);
-void _wasgo_VideoPlayer_wrapper_stop(WasGoId wasgo_id);
+int _wasgo_VideoPlayer_wrapper_get_audio_track(WasGoID wasgo_id);
+int _wasgo_VideoPlayer_wrapper_get_buffering_msec(WasGoID wasgo_id);
+void _wasgo_VideoPlayer_wrapper_get_bus(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_VideoPlayer_wrapper_get_stream(WasGoID wasgo_id);
+void _wasgo_VideoPlayer_wrapper_get_stream_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_VideoPlayer_wrapper_get_stream_position(WasGoID wasgo_id);
+WasGoID _wasgo_VideoPlayer_wrapper_get_video_texture(WasGoID wasgo_id);
+float _wasgo_VideoPlayer_wrapper_get_volume(WasGoID wasgo_id);
+float _wasgo_VideoPlayer_wrapper_get_volume_db(WasGoID wasgo_id);
+int _wasgo_VideoPlayer_wrapper_has_autoplay(WasGoID wasgo_id);
+int _wasgo_VideoPlayer_wrapper_has_expand(WasGoID wasgo_id);
+int _wasgo_VideoPlayer_wrapper_is_paused(WasGoID wasgo_id);
+int _wasgo_VideoPlayer_wrapper_is_playing(WasGoID wasgo_id);
+void _wasgo_VideoPlayer_wrapper_play(WasGoID wasgo_id);
+void _wasgo_VideoPlayer_wrapper_set_audio_track(WasGoID wasgo_id, int p_track);
+void _wasgo_VideoPlayer_wrapper_set_autoplay(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_VideoPlayer_wrapper_set_buffering_msec(WasGoID wasgo_id, int p_msec);
+void _wasgo_VideoPlayer_wrapper_set_bus(WasGoID wasgo_id, const uint8_t * p_bus, int p_bus_wasgo_buffer_size);
+void _wasgo_VideoPlayer_wrapper_set_expand(WasGoID wasgo_id, bool p_enable);
+void _wasgo_VideoPlayer_wrapper_set_paused(WasGoID wasgo_id, bool p_paused);
+void _wasgo_VideoPlayer_wrapper_set_stream(WasGoID wasgo_id, WasGoID p_stream);
+void _wasgo_VideoPlayer_wrapper_set_stream_position(WasGoID wasgo_id, float p_position);
+void _wasgo_VideoPlayer_wrapper_set_volume(WasGoID wasgo_id, float p_volume);
+void _wasgo_VideoPlayer_wrapper_set_volume_db(WasGoID wasgo_id, float p_db);
+void _wasgo_VideoPlayer_wrapper_stop(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_VideoPlayer_constructor();
+    WasGoID _wasgo_VideoPlayer_constructor();
             
 }
 #endif

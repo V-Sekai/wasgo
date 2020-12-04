@@ -1802,7 +1802,7 @@ Variant::operator NodePath() const {
 // 	else
 // 		return NULL;
 // }
-// Variant::operator Node *() const {
+// Variant::operator Node() const {
 
 // 	if (type == OBJECT) {
 // #ifdef DEBUG_ENABLED
@@ -1812,7 +1812,8 @@ Variant::operator NodePath() const {
 // #endif
 // 		return Object::cast_to<Node>(obj);
 // 	}
-// 	return NULL;
+// 	// return NULL;
+// 	return Node();
 // }
 // Variant::operator Control *() const {
 
@@ -3375,15 +3376,15 @@ String vformat(const String &p_text, const Variant &p1, const Variant &p2, const
 	return fmt;
 }
 
-Variant Variant::_from_wasgo_id(WasGoId p_wasgo_id) {
+Variant Variant::_from_wasgo_id(WasGoID p_wasgo_id) {
 	return Variant(Type::NIL, p_wasgo_id);
 }
 
-WasGoId Variant::_get_wasgo_id() {
+WasGoID Variant::_get_wasgo_id() {
 	return wasgo_id;
 }
 
-Variant::Variant(Type p_type, WasGoId p_wasgo_id) {
+Variant::Variant(Type p_type, WasGoID p_wasgo_id) {
 	type = p_type;
 	wasgo_id = p_wasgo_id;
 }

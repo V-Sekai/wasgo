@@ -103,7 +103,7 @@ void ParallaxBackground::set_scroll_offset(Vector2 p_ofs){
 	_wasgo_ParallaxBackground_wrapper_set_scroll_offset(wasgo_id, wasgo_buffer_ofs, wasgo_size_ofs);
 }
 
-ParallaxBackground::ParallaxBackground(WasGoId p_wasgo_id) : CanvasLayer(p_wasgo_id){
+ParallaxBackground::ParallaxBackground(WasGoID p_wasgo_id) : CanvasLayer(p_wasgo_id){
 }
 ParallaxBackground::ParallaxBackground(CanvasLayer other) : CanvasLayer(other._get_wasgo_id()){
     wasgo_id = _wasgo_ParallaxBackground_constructor();

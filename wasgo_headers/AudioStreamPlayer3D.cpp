@@ -141,7 +141,7 @@ void AudioStreamPlayer3D::stop(){
 	_wasgo_AudioStreamPlayer3D_wrapper_stop(wasgo_id);
 }
 
-AudioStreamPlayer3D::AudioStreamPlayer3D(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
+AudioStreamPlayer3D::AudioStreamPlayer3D(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 AudioStreamPlayer3D::AudioStreamPlayer3D(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioStreamPlayer3D_constructor();

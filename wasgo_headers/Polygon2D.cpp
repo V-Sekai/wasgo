@@ -206,7 +206,7 @@ void Polygon2D::set_vertex_colors(PoolColorArray p_vertex_colors){
 	_wasgo_Polygon2D_wrapper_set_vertex_colors(wasgo_id, p_vertex_colors._get_wasgo_id());
 }
 
-Polygon2D::Polygon2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+Polygon2D::Polygon2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Polygon2D::Polygon2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Polygon2D_constructor();

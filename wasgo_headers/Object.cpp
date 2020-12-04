@@ -302,7 +302,7 @@ String Object::tr(String p_message){
     
 }
 
-Object::Object(WasGoId p_wasgo_id) : (p_wasgo_id){
+Object::Object(WasGoID p_wasgo_id) : (p_wasgo_id){
 }
 Object::Object( other) : (other._get_wasgo_id()){
     wasgo_id = _wasgo_Object_constructor();

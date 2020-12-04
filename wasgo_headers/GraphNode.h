@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Container.h"
-#include "Vector2.h"
-#include "ustring.h"
-#include "Texture.h"
 #include "Color.h"
+#include "Vector2.h"
+#include "Container.h"
+#include "Texture.h"
+#include "ustring.h"
 class GraphNode : public Container{
 public:
 enum Overlay{
@@ -50,7 +50,7 @@ void set_title(String p_title);
 
 protected:
 public:
-explicit GraphNode(WasGoId p_wasgo_id);
+explicit GraphNode(WasGoID p_wasgo_id);
 explicit GraphNode(Container other);
 GraphNode new_instance();
             
@@ -59,40 +59,40 @@ GraphNode new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_GraphNode_wrapper_clear_all_slots(WasGoId wasgo_id);
-void _wasgo_GraphNode_wrapper_clear_slot(WasGoId wasgo_id, int p_idx);
-void _wasgo_GraphNode_wrapper_get_connection_input_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-int _wasgo_GraphNode_wrapper_get_connection_input_count(WasGoId wasgo_id);
-void _wasgo_GraphNode_wrapper_get_connection_input_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-int _wasgo_GraphNode_wrapper_get_connection_input_type(WasGoId wasgo_id, int p_idx);
-void _wasgo_GraphNode_wrapper_get_connection_output_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-int _wasgo_GraphNode_wrapper_get_connection_output_count(WasGoId wasgo_id);
-void _wasgo_GraphNode_wrapper_get_connection_output_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-int _wasgo_GraphNode_wrapper_get_connection_output_type(WasGoId wasgo_id, int p_idx);
-void _wasgo_GraphNode_wrapper_get_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_GraphNode_wrapper_get_overlay(WasGoId wasgo_id);
-void _wasgo_GraphNode_wrapper_get_slot_color_left(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-void _wasgo_GraphNode_wrapper_get_slot_color_right(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-int _wasgo_GraphNode_wrapper_get_slot_type_left(WasGoId wasgo_id, int p_idx);
-int _wasgo_GraphNode_wrapper_get_slot_type_right(WasGoId wasgo_id, int p_idx);
-void _wasgo_GraphNode_wrapper_get_title(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_GraphNode_wrapper_is_close_button_visible(WasGoId wasgo_id);
-int _wasgo_GraphNode_wrapper_is_comment(WasGoId wasgo_id);
-int _wasgo_GraphNode_wrapper_is_resizable(WasGoId wasgo_id);
-int _wasgo_GraphNode_wrapper_is_selected(WasGoId wasgo_id);
-int _wasgo_GraphNode_wrapper_is_slot_enabled_left(WasGoId wasgo_id, int p_idx);
-int _wasgo_GraphNode_wrapper_is_slot_enabled_right(WasGoId wasgo_id, int p_idx);
-void _wasgo_GraphNode_wrapper_set_comment(WasGoId wasgo_id, bool p_comment);
-void _wasgo_GraphNode_wrapper_set_offset(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
-void _wasgo_GraphNode_wrapper_set_overlay(WasGoId wasgo_id, WasGoId p_overlay);
-void _wasgo_GraphNode_wrapper_set_resizable(WasGoId wasgo_id, bool p_resizable);
-void _wasgo_GraphNode_wrapper_set_selected(WasGoId wasgo_id, bool p_selected);
-void _wasgo_GraphNode_wrapper_set_show_close_button(WasGoId wasgo_id, bool p_show);
-void _wasgo_GraphNode_wrapper_set_slot(WasGoId wasgo_id, int p_idx, bool p_enable_left, int p_type_left, const uint8_t * p_color_left, int p_color_left_wasgo_buffer_size, bool p_enable_right, int p_type_right, const uint8_t * p_color_right, int p_color_right_wasgo_buffer_size, WasGoId p_custom_left, WasGoId p_custom_right);
-void _wasgo_GraphNode_wrapper_set_title(WasGoId wasgo_id, const uint8_t * p_title, int p_title_wasgo_buffer_size);
+void _wasgo_GraphNode_wrapper_clear_all_slots(WasGoID wasgo_id);
+void _wasgo_GraphNode_wrapper_clear_slot(WasGoID wasgo_id, int p_idx);
+void _wasgo_GraphNode_wrapper_get_connection_input_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+int _wasgo_GraphNode_wrapper_get_connection_input_count(WasGoID wasgo_id);
+void _wasgo_GraphNode_wrapper_get_connection_input_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+int _wasgo_GraphNode_wrapper_get_connection_input_type(WasGoID wasgo_id, int p_idx);
+void _wasgo_GraphNode_wrapper_get_connection_output_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+int _wasgo_GraphNode_wrapper_get_connection_output_count(WasGoID wasgo_id);
+void _wasgo_GraphNode_wrapper_get_connection_output_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+int _wasgo_GraphNode_wrapper_get_connection_output_type(WasGoID wasgo_id, int p_idx);
+void _wasgo_GraphNode_wrapper_get_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_GraphNode_wrapper_get_overlay(WasGoID wasgo_id);
+void _wasgo_GraphNode_wrapper_get_slot_color_left(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+void _wasgo_GraphNode_wrapper_get_slot_color_right(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+int _wasgo_GraphNode_wrapper_get_slot_type_left(WasGoID wasgo_id, int p_idx);
+int _wasgo_GraphNode_wrapper_get_slot_type_right(WasGoID wasgo_id, int p_idx);
+void _wasgo_GraphNode_wrapper_get_title(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_GraphNode_wrapper_is_close_button_visible(WasGoID wasgo_id);
+int _wasgo_GraphNode_wrapper_is_comment(WasGoID wasgo_id);
+int _wasgo_GraphNode_wrapper_is_resizable(WasGoID wasgo_id);
+int _wasgo_GraphNode_wrapper_is_selected(WasGoID wasgo_id);
+int _wasgo_GraphNode_wrapper_is_slot_enabled_left(WasGoID wasgo_id, int p_idx);
+int _wasgo_GraphNode_wrapper_is_slot_enabled_right(WasGoID wasgo_id, int p_idx);
+void _wasgo_GraphNode_wrapper_set_comment(WasGoID wasgo_id, bool p_comment);
+void _wasgo_GraphNode_wrapper_set_offset(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
+void _wasgo_GraphNode_wrapper_set_overlay(WasGoID wasgo_id, WasGoID p_overlay);
+void _wasgo_GraphNode_wrapper_set_resizable(WasGoID wasgo_id, bool p_resizable);
+void _wasgo_GraphNode_wrapper_set_selected(WasGoID wasgo_id, bool p_selected);
+void _wasgo_GraphNode_wrapper_set_show_close_button(WasGoID wasgo_id, bool p_show);
+void _wasgo_GraphNode_wrapper_set_slot(WasGoID wasgo_id, int p_idx, bool p_enable_left, int p_type_left, const uint8_t * p_color_left, int p_color_left_wasgo_buffer_size, bool p_enable_right, int p_type_right, const uint8_t * p_color_right, int p_color_right_wasgo_buffer_size, WasGoID p_custom_left, WasGoID p_custom_right);
+void _wasgo_GraphNode_wrapper_set_title(WasGoID wasgo_id, const uint8_t * p_title, int p_title_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_GraphNode_constructor();
+    WasGoID _wasgo_GraphNode_constructor();
             
 }
 #endif

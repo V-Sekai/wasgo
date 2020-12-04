@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Control.h"
 #include "Vector2.h"
-#include "ustring.h"
-#include "TreeItem.h"
-#include "Rect2.h"
 #include "Object.h"
+#include "TreeItem.h"
+#include "Control.h"
+#include "Rect2.h"
+#include "ustring.h"
 class Tree : public Control{
 public:
 enum DropModeFlags{
@@ -62,7 +62,7 @@ void set_select_mode(Tree::SelectMode p_mode);
 
 protected:
 public:
-explicit Tree(WasGoId p_wasgo_id);
+explicit Tree(WasGoID p_wasgo_id);
 explicit Tree(Control other);
 Tree new_instance();
             
@@ -71,46 +71,46 @@ Tree new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_Tree_wrapper_are_column_titles_visible(WasGoId wasgo_id);
-void _wasgo_Tree_wrapper_clear(WasGoId wasgo_id);
-WasGoId _wasgo_Tree_wrapper_create_item(WasGoId wasgo_id, WasGoId p_parent, int p_idx);
-void _wasgo_Tree_wrapper_ensure_cursor_is_visible(WasGoId wasgo_id);
-int _wasgo_Tree_wrapper_get_allow_reselect(WasGoId wasgo_id);
-int _wasgo_Tree_wrapper_get_allow_rmb_select(WasGoId wasgo_id);
-int _wasgo_Tree_wrapper_get_column_at_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_Tree_wrapper_get_column_title(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_column);
-int _wasgo_Tree_wrapper_get_column_width(WasGoId wasgo_id, int p_column);
-int _wasgo_Tree_wrapper_get_columns(WasGoId wasgo_id);
-void _wasgo_Tree_wrapper_get_custom_popup_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Tree_wrapper_get_drop_mode_flags(WasGoId wasgo_id);
-int _wasgo_Tree_wrapper_get_drop_section_at_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-WasGoId _wasgo_Tree_wrapper_get_edited(WasGoId wasgo_id);
-int _wasgo_Tree_wrapper_get_edited_column(WasGoId wasgo_id);
-void _wasgo_Tree_wrapper_get_item_area_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoId p_item, int p_column);
-WasGoId _wasgo_Tree_wrapper_get_item_at_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-WasGoId _wasgo_Tree_wrapper_get_next_selected(WasGoId wasgo_id, WasGoId p_from);
-int _wasgo_Tree_wrapper_get_pressed_button(WasGoId wasgo_id);
-WasGoId _wasgo_Tree_wrapper_get_root(WasGoId wasgo_id);
-void _wasgo_Tree_wrapper_get_scroll(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Tree_wrapper_get_select_mode(WasGoId wasgo_id);
-WasGoId _wasgo_Tree_wrapper_get_selected(WasGoId wasgo_id);
-int _wasgo_Tree_wrapper_get_selected_column(WasGoId wasgo_id);
-int _wasgo_Tree_wrapper_is_folding_hidden(WasGoId wasgo_id);
-int _wasgo_Tree_wrapper_is_root_hidden(WasGoId wasgo_id);
-void _wasgo_Tree_wrapper_set_allow_reselect(WasGoId wasgo_id, bool p_allow);
-void _wasgo_Tree_wrapper_set_allow_rmb_select(WasGoId wasgo_id, bool p_allow);
-void _wasgo_Tree_wrapper_set_column_expand(WasGoId wasgo_id, int p_column, bool p_expand);
-void _wasgo_Tree_wrapper_set_column_min_width(WasGoId wasgo_id, int p_column, int p_min_width);
-void _wasgo_Tree_wrapper_set_column_title(WasGoId wasgo_id, int p_column, const uint8_t * p_title, int p_title_wasgo_buffer_size);
-void _wasgo_Tree_wrapper_set_column_titles_visible(WasGoId wasgo_id, bool p_visible);
-void _wasgo_Tree_wrapper_set_columns(WasGoId wasgo_id, int p_amount);
-void _wasgo_Tree_wrapper_set_drop_mode_flags(WasGoId wasgo_id, int p_flags);
-void _wasgo_Tree_wrapper_set_hide_folding(WasGoId wasgo_id, bool p_hide);
-void _wasgo_Tree_wrapper_set_hide_root(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Tree_wrapper_set_select_mode(WasGoId wasgo_id, WasGoId p_mode);
+int _wasgo_Tree_wrapper_are_column_titles_visible(WasGoID wasgo_id);
+void _wasgo_Tree_wrapper_clear(WasGoID wasgo_id);
+WasGoID _wasgo_Tree_wrapper_create_item(WasGoID wasgo_id, WasGoID p_parent, int p_idx);
+void _wasgo_Tree_wrapper_ensure_cursor_is_visible(WasGoID wasgo_id);
+int _wasgo_Tree_wrapper_get_allow_reselect(WasGoID wasgo_id);
+int _wasgo_Tree_wrapper_get_allow_rmb_select(WasGoID wasgo_id);
+int _wasgo_Tree_wrapper_get_column_at_position(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_Tree_wrapper_get_column_title(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_column);
+int _wasgo_Tree_wrapper_get_column_width(WasGoID wasgo_id, int p_column);
+int _wasgo_Tree_wrapper_get_columns(WasGoID wasgo_id);
+void _wasgo_Tree_wrapper_get_custom_popup_rect(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Tree_wrapper_get_drop_mode_flags(WasGoID wasgo_id);
+int _wasgo_Tree_wrapper_get_drop_section_at_position(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+WasGoID _wasgo_Tree_wrapper_get_edited(WasGoID wasgo_id);
+int _wasgo_Tree_wrapper_get_edited_column(WasGoID wasgo_id);
+void _wasgo_Tree_wrapper_get_item_area_rect(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoID p_item, int p_column);
+WasGoID _wasgo_Tree_wrapper_get_item_at_position(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+WasGoID _wasgo_Tree_wrapper_get_next_selected(WasGoID wasgo_id, WasGoID p_from);
+int _wasgo_Tree_wrapper_get_pressed_button(WasGoID wasgo_id);
+WasGoID _wasgo_Tree_wrapper_get_root(WasGoID wasgo_id);
+void _wasgo_Tree_wrapper_get_scroll(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Tree_wrapper_get_select_mode(WasGoID wasgo_id);
+WasGoID _wasgo_Tree_wrapper_get_selected(WasGoID wasgo_id);
+int _wasgo_Tree_wrapper_get_selected_column(WasGoID wasgo_id);
+int _wasgo_Tree_wrapper_is_folding_hidden(WasGoID wasgo_id);
+int _wasgo_Tree_wrapper_is_root_hidden(WasGoID wasgo_id);
+void _wasgo_Tree_wrapper_set_allow_reselect(WasGoID wasgo_id, bool p_allow);
+void _wasgo_Tree_wrapper_set_allow_rmb_select(WasGoID wasgo_id, bool p_allow);
+void _wasgo_Tree_wrapper_set_column_expand(WasGoID wasgo_id, int p_column, bool p_expand);
+void _wasgo_Tree_wrapper_set_column_min_width(WasGoID wasgo_id, int p_column, int p_min_width);
+void _wasgo_Tree_wrapper_set_column_title(WasGoID wasgo_id, int p_column, const uint8_t * p_title, int p_title_wasgo_buffer_size);
+void _wasgo_Tree_wrapper_set_column_titles_visible(WasGoID wasgo_id, bool p_visible);
+void _wasgo_Tree_wrapper_set_columns(WasGoID wasgo_id, int p_amount);
+void _wasgo_Tree_wrapper_set_drop_mode_flags(WasGoID wasgo_id, int p_flags);
+void _wasgo_Tree_wrapper_set_hide_folding(WasGoID wasgo_id, bool p_hide);
+void _wasgo_Tree_wrapper_set_hide_root(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Tree_wrapper_set_select_mode(WasGoID wasgo_id, WasGoID p_mode);
 
     //constructor wrappers
-    WasGoId _wasgo_Tree_constructor();
+    WasGoID _wasgo_Tree_constructor();
             
 }
 #endif

@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit HScrollBar(WasGoId p_wasgo_id);
+explicit HScrollBar(WasGoID p_wasgo_id);
 explicit HScrollBar(ScrollBar other);
 HScrollBar new_instance();
             
@@ -21,7 +21,7 @@ HScrollBar new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_HScrollBar_constructor();
+    WasGoID _wasgo_HScrollBar_constructor();
             
 }
 #endif

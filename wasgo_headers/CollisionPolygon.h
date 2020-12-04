@@ -17,7 +17,7 @@ void set_polygon(PoolVector2Array p_polygon);
 
 protected:
 public:
-explicit CollisionPolygon(WasGoId p_wasgo_id);
+explicit CollisionPolygon(WasGoID p_wasgo_id);
 explicit CollisionPolygon(Spatial other);
 CollisionPolygon new_instance();
             
@@ -26,15 +26,15 @@ CollisionPolygon new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_CollisionPolygon_wrapper_get_depth(WasGoId wasgo_id);
-WasGoId _wasgo_CollisionPolygon_wrapper_get_polygon(WasGoId wasgo_id);
-int _wasgo_CollisionPolygon_wrapper_is_disabled(WasGoId wasgo_id);
-void _wasgo_CollisionPolygon_wrapper_set_depth(WasGoId wasgo_id, float p_depth);
-void _wasgo_CollisionPolygon_wrapper_set_disabled(WasGoId wasgo_id, bool p_disabled);
-void _wasgo_CollisionPolygon_wrapper_set_polygon(WasGoId wasgo_id, WasGoId p_polygon);
+float _wasgo_CollisionPolygon_wrapper_get_depth(WasGoID wasgo_id);
+WasGoID _wasgo_CollisionPolygon_wrapper_get_polygon(WasGoID wasgo_id);
+int _wasgo_CollisionPolygon_wrapper_is_disabled(WasGoID wasgo_id);
+void _wasgo_CollisionPolygon_wrapper_set_depth(WasGoID wasgo_id, float p_depth);
+void _wasgo_CollisionPolygon_wrapper_set_disabled(WasGoID wasgo_id, bool p_disabled);
+void _wasgo_CollisionPolygon_wrapper_set_polygon(WasGoID wasgo_id, WasGoID p_polygon);
 
     //constructor wrappers
-    WasGoId _wasgo_CollisionPolygon_constructor();
+    WasGoID _wasgo_CollisionPolygon_constructor();
             
 }
 #endif

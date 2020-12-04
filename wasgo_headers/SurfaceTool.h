@@ -4,17 +4,17 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
-#include "Vector2.h"
-#include "ustring.h"
-#include "Mesh.h"
-#include "Color.h"
-#include "ArrayMesh.h"
-#include "Reference.h"
-#include "Transform.h"
 #include "Plane.h"
+#include "Color.h"
+#include "Reference.h"
+#include "Vector2.h"
 #include "Material.h"
+#include "Mesh.h"
+#include "Vector3.h"
 #include "Variant.h"
+#include "ArrayMesh.h"
+#include "Transform.h"
+#include "ustring.h"
 class SurfaceTool : public Reference{
 public:
 void add_bones(PoolIntArray p_bones);
@@ -43,7 +43,7 @@ void set_material(Material p_material);
 
 protected:
 public:
-explicit SurfaceTool(WasGoId p_wasgo_id);
+explicit SurfaceTool(WasGoID p_wasgo_id);
 explicit SurfaceTool(Reference other);
 SurfaceTool new_instance();
             
@@ -52,32 +52,32 @@ SurfaceTool new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_SurfaceTool_wrapper_add_bones(WasGoId wasgo_id, WasGoId p_bones);
-void _wasgo_SurfaceTool_wrapper_add_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_SurfaceTool_wrapper_add_index(WasGoId wasgo_id, int p_index);
-void _wasgo_SurfaceTool_wrapper_add_normal(WasGoId wasgo_id, const uint8_t * p_normal, int p_normal_wasgo_buffer_size);
-void _wasgo_SurfaceTool_wrapper_add_smooth_group(WasGoId wasgo_id, bool p_smooth);
-void _wasgo_SurfaceTool_wrapper_add_tangent(WasGoId wasgo_id, const uint8_t * p_tangent, int p_tangent_wasgo_buffer_size);
-void _wasgo_SurfaceTool_wrapper_add_triangle_fan(WasGoId wasgo_id, WasGoId p_vertices, WasGoId p_uvs, WasGoId p_colors, WasGoId p_uv2s, WasGoId p_normals, WasGoId p_tangents);
-void _wasgo_SurfaceTool_wrapper_add_uv(WasGoId wasgo_id, const uint8_t * p_uv, int p_uv_wasgo_buffer_size);
-void _wasgo_SurfaceTool_wrapper_add_uv2(WasGoId wasgo_id, const uint8_t * p_uv2, int p_uv2_wasgo_buffer_size);
-void _wasgo_SurfaceTool_wrapper_add_vertex(WasGoId wasgo_id, const uint8_t * p_vertex, int p_vertex_wasgo_buffer_size);
-void _wasgo_SurfaceTool_wrapper_add_weights(WasGoId wasgo_id, WasGoId p_weights);
-void _wasgo_SurfaceTool_wrapper_append_from(WasGoId wasgo_id, WasGoId p_existing, int p_surface, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
-void _wasgo_SurfaceTool_wrapper_begin(WasGoId wasgo_id, WasGoId p_primitive);
-void _wasgo_SurfaceTool_wrapper_clear(WasGoId wasgo_id);
-WasGoId _wasgo_SurfaceTool_wrapper_commit(WasGoId wasgo_id, WasGoId p_existing, int p_flags);
-WasGoId _wasgo_SurfaceTool_wrapper_commit_to_arrays(WasGoId wasgo_id);
-void _wasgo_SurfaceTool_wrapper_create_from(WasGoId wasgo_id, WasGoId p_existing, int p_surface);
-void _wasgo_SurfaceTool_wrapper_create_from_blend_shape(WasGoId wasgo_id, WasGoId p_existing, int p_surface, const uint8_t * p_blend_shape, int p_blend_shape_wasgo_buffer_size);
-void _wasgo_SurfaceTool_wrapper_deindex(WasGoId wasgo_id);
-void _wasgo_SurfaceTool_wrapper_generate_normals(WasGoId wasgo_id, bool p_flip);
-void _wasgo_SurfaceTool_wrapper_generate_tangents(WasGoId wasgo_id);
-void _wasgo_SurfaceTool_wrapper_index(WasGoId wasgo_id);
-void _wasgo_SurfaceTool_wrapper_set_material(WasGoId wasgo_id, WasGoId p_material);
+void _wasgo_SurfaceTool_wrapper_add_bones(WasGoID wasgo_id, WasGoID p_bones);
+void _wasgo_SurfaceTool_wrapper_add_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_SurfaceTool_wrapper_add_index(WasGoID wasgo_id, int p_index);
+void _wasgo_SurfaceTool_wrapper_add_normal(WasGoID wasgo_id, const uint8_t * p_normal, int p_normal_wasgo_buffer_size);
+void _wasgo_SurfaceTool_wrapper_add_smooth_group(WasGoID wasgo_id, bool p_smooth);
+void _wasgo_SurfaceTool_wrapper_add_tangent(WasGoID wasgo_id, const uint8_t * p_tangent, int p_tangent_wasgo_buffer_size);
+void _wasgo_SurfaceTool_wrapper_add_triangle_fan(WasGoID wasgo_id, WasGoID p_vertices, WasGoID p_uvs, WasGoID p_colors, WasGoID p_uv2s, WasGoID p_normals, WasGoID p_tangents);
+void _wasgo_SurfaceTool_wrapper_add_uv(WasGoID wasgo_id, const uint8_t * p_uv, int p_uv_wasgo_buffer_size);
+void _wasgo_SurfaceTool_wrapper_add_uv2(WasGoID wasgo_id, const uint8_t * p_uv2, int p_uv2_wasgo_buffer_size);
+void _wasgo_SurfaceTool_wrapper_add_vertex(WasGoID wasgo_id, const uint8_t * p_vertex, int p_vertex_wasgo_buffer_size);
+void _wasgo_SurfaceTool_wrapper_add_weights(WasGoID wasgo_id, WasGoID p_weights);
+void _wasgo_SurfaceTool_wrapper_append_from(WasGoID wasgo_id, WasGoID p_existing, int p_surface, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
+void _wasgo_SurfaceTool_wrapper_begin(WasGoID wasgo_id, WasGoID p_primitive);
+void _wasgo_SurfaceTool_wrapper_clear(WasGoID wasgo_id);
+WasGoID _wasgo_SurfaceTool_wrapper_commit(WasGoID wasgo_id, WasGoID p_existing, int p_flags);
+WasGoID _wasgo_SurfaceTool_wrapper_commit_to_arrays(WasGoID wasgo_id);
+void _wasgo_SurfaceTool_wrapper_create_from(WasGoID wasgo_id, WasGoID p_existing, int p_surface);
+void _wasgo_SurfaceTool_wrapper_create_from_blend_shape(WasGoID wasgo_id, WasGoID p_existing, int p_surface, const uint8_t * p_blend_shape, int p_blend_shape_wasgo_buffer_size);
+void _wasgo_SurfaceTool_wrapper_deindex(WasGoID wasgo_id);
+void _wasgo_SurfaceTool_wrapper_generate_normals(WasGoID wasgo_id, bool p_flip);
+void _wasgo_SurfaceTool_wrapper_generate_tangents(WasGoID wasgo_id);
+void _wasgo_SurfaceTool_wrapper_index(WasGoID wasgo_id);
+void _wasgo_SurfaceTool_wrapper_set_material(WasGoID wasgo_id, WasGoID p_material);
 
     //constructor wrappers
-    WasGoId _wasgo_SurfaceTool_constructor();
+    WasGoID _wasgo_SurfaceTool_constructor();
             
 }
 #endif

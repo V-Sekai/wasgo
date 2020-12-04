@@ -36,7 +36,7 @@ void SpatialVelocityTracker::update_position(Vector3 p_position){
 	_wasgo_SpatialVelocityTracker_wrapper_update_position(wasgo_id, wasgo_buffer_position, wasgo_size_position);
 }
 
-SpatialVelocityTracker::SpatialVelocityTracker(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+SpatialVelocityTracker::SpatialVelocityTracker(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 SpatialVelocityTracker::SpatialVelocityTracker(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_SpatialVelocityTracker_constructor();

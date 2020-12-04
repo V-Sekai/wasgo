@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "BitMap.h"
-#include "BaseButton.h"
 #include "Texture.h"
+#include "BaseButton.h"
 class TextureButton : public BaseButton{
 public:
 enum StretchMode{
@@ -37,7 +37,7 @@ void set_stretch_mode(TextureButton::StretchMode p_p_mode);
 
 protected:
 public:
-explicit TextureButton(WasGoId p_wasgo_id);
+explicit TextureButton(WasGoID p_wasgo_id);
 explicit TextureButton(BaseButton other);
 TextureButton new_instance();
             
@@ -46,25 +46,25 @@ TextureButton new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_TextureButton_wrapper_get_click_mask(WasGoId wasgo_id);
-WasGoId _wasgo_TextureButton_wrapper_get_disabled_texture(WasGoId wasgo_id);
-int _wasgo_TextureButton_wrapper_get_expand(WasGoId wasgo_id);
-WasGoId _wasgo_TextureButton_wrapper_get_focused_texture(WasGoId wasgo_id);
-WasGoId _wasgo_TextureButton_wrapper_get_hover_texture(WasGoId wasgo_id);
-WasGoId _wasgo_TextureButton_wrapper_get_normal_texture(WasGoId wasgo_id);
-WasGoId _wasgo_TextureButton_wrapper_get_pressed_texture(WasGoId wasgo_id);
-WasGoId _wasgo_TextureButton_wrapper_get_stretch_mode(WasGoId wasgo_id);
-void _wasgo_TextureButton_wrapper_set_click_mask(WasGoId wasgo_id, WasGoId p_mask);
-void _wasgo_TextureButton_wrapper_set_disabled_texture(WasGoId wasgo_id, WasGoId p_texture);
-void _wasgo_TextureButton_wrapper_set_expand(WasGoId wasgo_id, bool p_p_expand);
-void _wasgo_TextureButton_wrapper_set_focused_texture(WasGoId wasgo_id, WasGoId p_texture);
-void _wasgo_TextureButton_wrapper_set_hover_texture(WasGoId wasgo_id, WasGoId p_texture);
-void _wasgo_TextureButton_wrapper_set_normal_texture(WasGoId wasgo_id, WasGoId p_texture);
-void _wasgo_TextureButton_wrapper_set_pressed_texture(WasGoId wasgo_id, WasGoId p_texture);
-void _wasgo_TextureButton_wrapper_set_stretch_mode(WasGoId wasgo_id, WasGoId p_p_mode);
+WasGoID _wasgo_TextureButton_wrapper_get_click_mask(WasGoID wasgo_id);
+WasGoID _wasgo_TextureButton_wrapper_get_disabled_texture(WasGoID wasgo_id);
+int _wasgo_TextureButton_wrapper_get_expand(WasGoID wasgo_id);
+WasGoID _wasgo_TextureButton_wrapper_get_focused_texture(WasGoID wasgo_id);
+WasGoID _wasgo_TextureButton_wrapper_get_hover_texture(WasGoID wasgo_id);
+WasGoID _wasgo_TextureButton_wrapper_get_normal_texture(WasGoID wasgo_id);
+WasGoID _wasgo_TextureButton_wrapper_get_pressed_texture(WasGoID wasgo_id);
+WasGoID _wasgo_TextureButton_wrapper_get_stretch_mode(WasGoID wasgo_id);
+void _wasgo_TextureButton_wrapper_set_click_mask(WasGoID wasgo_id, WasGoID p_mask);
+void _wasgo_TextureButton_wrapper_set_disabled_texture(WasGoID wasgo_id, WasGoID p_texture);
+void _wasgo_TextureButton_wrapper_set_expand(WasGoID wasgo_id, bool p_p_expand);
+void _wasgo_TextureButton_wrapper_set_focused_texture(WasGoID wasgo_id, WasGoID p_texture);
+void _wasgo_TextureButton_wrapper_set_hover_texture(WasGoID wasgo_id, WasGoID p_texture);
+void _wasgo_TextureButton_wrapper_set_normal_texture(WasGoID wasgo_id, WasGoID p_texture);
+void _wasgo_TextureButton_wrapper_set_pressed_texture(WasGoID wasgo_id, WasGoID p_texture);
+void _wasgo_TextureButton_wrapper_set_stretch_mode(WasGoID wasgo_id, WasGoID p_p_mode);
 
     //constructor wrappers
-    WasGoId _wasgo_TextureButton_constructor();
+    WasGoID _wasgo_TextureButton_constructor();
             
 }
 #endif

@@ -70,7 +70,7 @@ void Shader::set_default_texture_param(String p_param, Texture p_texture){
 	_wasgo_Shader_wrapper_set_default_texture_param(wasgo_id, wasgo_buffer_param, wasgo_size_param, p_texture._get_wasgo_id());
 }
 
-Shader::Shader(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+Shader::Shader(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Shader::Shader(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Shader_constructor();

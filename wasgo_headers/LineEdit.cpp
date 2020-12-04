@@ -185,7 +185,7 @@ void LineEdit::set_virtual_keyboard_enabled(bool p_enable){
 	_wasgo_LineEdit_wrapper_set_virtual_keyboard_enabled(wasgo_id, p_enable);
 }
 
-LineEdit::LineEdit(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+LineEdit::LineEdit(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 LineEdit::LineEdit(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_LineEdit_constructor();

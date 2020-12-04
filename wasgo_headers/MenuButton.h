@@ -15,7 +15,7 @@ void set_switch_on_hover(bool p_enable);
 
 protected:
 public:
-explicit MenuButton(WasGoId p_wasgo_id);
+explicit MenuButton(WasGoID p_wasgo_id);
 explicit MenuButton(Button other);
 MenuButton new_instance();
             
@@ -24,13 +24,13 @@ MenuButton new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_MenuButton_wrapper_get_popup(WasGoId wasgo_id);
-int _wasgo_MenuButton_wrapper_is_switch_on_hover(WasGoId wasgo_id);
-void _wasgo_MenuButton_wrapper_set_disable_shortcuts(WasGoId wasgo_id, bool p_disabled);
-void _wasgo_MenuButton_wrapper_set_switch_on_hover(WasGoId wasgo_id, bool p_enable);
+WasGoID _wasgo_MenuButton_wrapper_get_popup(WasGoID wasgo_id);
+int _wasgo_MenuButton_wrapper_is_switch_on_hover(WasGoID wasgo_id);
+void _wasgo_MenuButton_wrapper_set_disable_shortcuts(WasGoID wasgo_id, bool p_disabled);
+void _wasgo_MenuButton_wrapper_set_switch_on_hover(WasGoID wasgo_id, bool p_enable);
 
     //constructor wrappers
-    WasGoId _wasgo_MenuButton_constructor();
+    WasGoID _wasgo_MenuButton_constructor();
             
 }
 #endif

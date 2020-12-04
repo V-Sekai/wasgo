@@ -167,7 +167,7 @@ void Light2D::set_z_range_min(int p_z){
 	_wasgo_Light2D_wrapper_set_z_range_min(wasgo_id, p_z);
 }
 
-Light2D::Light2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+Light2D::Light2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Light2D::Light2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Light2D_constructor();

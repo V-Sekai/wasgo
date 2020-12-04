@@ -16,7 +16,7 @@ void set_steering(float p_steering);
 
 protected:
 public:
-explicit VehicleBody(WasGoId p_wasgo_id);
+explicit VehicleBody(WasGoID p_wasgo_id);
 explicit VehicleBody(RigidBody other);
 VehicleBody new_instance();
             
@@ -25,15 +25,15 @@ VehicleBody new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_VehicleBody_wrapper_get_brake(WasGoId wasgo_id);
-float _wasgo_VehicleBody_wrapper_get_engine_force(WasGoId wasgo_id);
-float _wasgo_VehicleBody_wrapper_get_steering(WasGoId wasgo_id);
-void _wasgo_VehicleBody_wrapper_set_brake(WasGoId wasgo_id, float p_brake);
-void _wasgo_VehicleBody_wrapper_set_engine_force(WasGoId wasgo_id, float p_engine_force);
-void _wasgo_VehicleBody_wrapper_set_steering(WasGoId wasgo_id, float p_steering);
+float _wasgo_VehicleBody_wrapper_get_brake(WasGoID wasgo_id);
+float _wasgo_VehicleBody_wrapper_get_engine_force(WasGoID wasgo_id);
+float _wasgo_VehicleBody_wrapper_get_steering(WasGoID wasgo_id);
+void _wasgo_VehicleBody_wrapper_set_brake(WasGoID wasgo_id, float p_brake);
+void _wasgo_VehicleBody_wrapper_set_engine_force(WasGoID wasgo_id, float p_engine_force);
+void _wasgo_VehicleBody_wrapper_set_steering(WasGoID wasgo_id, float p_steering);
 
     //constructor wrappers
-    WasGoId _wasgo_VehicleBody_constructor();
+    WasGoID _wasgo_VehicleBody_constructor();
             
 }
 #endif

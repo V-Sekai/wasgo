@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeGlobalExpression(WasGoId p_wasgo_id);
+explicit VisualShaderNodeGlobalExpression(WasGoID p_wasgo_id);
 explicit VisualShaderNodeGlobalExpression(VisualShaderNodeExpression other);
 VisualShaderNodeGlobalExpression new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeGlobalExpression new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeGlobalExpression_constructor();
+    WasGoID _wasgo_VisualShaderNodeGlobalExpression_constructor();
             
 }
 #endif

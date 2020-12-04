@@ -28,7 +28,7 @@ void set_use_sync(bool p_enable);
 
 protected:
 public:
-explicit AnimationNodeOneShot(WasGoId p_wasgo_id);
+explicit AnimationNodeOneShot(WasGoID p_wasgo_id);
 explicit AnimationNodeOneShot(AnimationNode other);
 AnimationNodeOneShot new_instance();
             
@@ -37,23 +37,23 @@ AnimationNodeOneShot new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_AnimationNodeOneShot_wrapper_get_autorestart_delay(WasGoId wasgo_id);
-float _wasgo_AnimationNodeOneShot_wrapper_get_autorestart_random_delay(WasGoId wasgo_id);
-float _wasgo_AnimationNodeOneShot_wrapper_get_fadein_time(WasGoId wasgo_id);
-float _wasgo_AnimationNodeOneShot_wrapper_get_fadeout_time(WasGoId wasgo_id);
-WasGoId _wasgo_AnimationNodeOneShot_wrapper_get_mix_mode(WasGoId wasgo_id);
-int _wasgo_AnimationNodeOneShot_wrapper_has_autorestart(WasGoId wasgo_id);
-int _wasgo_AnimationNodeOneShot_wrapper_is_using_sync(WasGoId wasgo_id);
-void _wasgo_AnimationNodeOneShot_wrapper_set_autorestart(WasGoId wasgo_id, bool p_enable);
-void _wasgo_AnimationNodeOneShot_wrapper_set_autorestart_delay(WasGoId wasgo_id, float p_enable);
-void _wasgo_AnimationNodeOneShot_wrapper_set_autorestart_random_delay(WasGoId wasgo_id, float p_enable);
-void _wasgo_AnimationNodeOneShot_wrapper_set_fadein_time(WasGoId wasgo_id, float p_time);
-void _wasgo_AnimationNodeOneShot_wrapper_set_fadeout_time(WasGoId wasgo_id, float p_time);
-void _wasgo_AnimationNodeOneShot_wrapper_set_mix_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_AnimationNodeOneShot_wrapper_set_use_sync(WasGoId wasgo_id, bool p_enable);
+float _wasgo_AnimationNodeOneShot_wrapper_get_autorestart_delay(WasGoID wasgo_id);
+float _wasgo_AnimationNodeOneShot_wrapper_get_autorestart_random_delay(WasGoID wasgo_id);
+float _wasgo_AnimationNodeOneShot_wrapper_get_fadein_time(WasGoID wasgo_id);
+float _wasgo_AnimationNodeOneShot_wrapper_get_fadeout_time(WasGoID wasgo_id);
+WasGoID _wasgo_AnimationNodeOneShot_wrapper_get_mix_mode(WasGoID wasgo_id);
+int _wasgo_AnimationNodeOneShot_wrapper_has_autorestart(WasGoID wasgo_id);
+int _wasgo_AnimationNodeOneShot_wrapper_is_using_sync(WasGoID wasgo_id);
+void _wasgo_AnimationNodeOneShot_wrapper_set_autorestart(WasGoID wasgo_id, bool p_enable);
+void _wasgo_AnimationNodeOneShot_wrapper_set_autorestart_delay(WasGoID wasgo_id, float p_enable);
+void _wasgo_AnimationNodeOneShot_wrapper_set_autorestart_random_delay(WasGoID wasgo_id, float p_enable);
+void _wasgo_AnimationNodeOneShot_wrapper_set_fadein_time(WasGoID wasgo_id, float p_time);
+void _wasgo_AnimationNodeOneShot_wrapper_set_fadeout_time(WasGoID wasgo_id, float p_time);
+void _wasgo_AnimationNodeOneShot_wrapper_set_mix_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_AnimationNodeOneShot_wrapper_set_use_sync(WasGoID wasgo_id, bool p_enable);
 
     //constructor wrappers
-    WasGoId _wasgo_AnimationNodeOneShot_constructor();
+    WasGoID _wasgo_AnimationNodeOneShot_constructor();
             
 }
 #endif

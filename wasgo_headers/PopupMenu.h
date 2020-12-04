@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "Popup.h"
-#include "ustring.h"
-#include "Texture.h"
 #include "ShortCut.h"
 #include "Variant.h"
+#include "Texture.h"
+#include "ustring.h"
 class PopupMenu : public Popup{
 public:
 void add_check_item(String p_label, int p_id = (int) -1, int p_accel = (int) 0);
@@ -77,7 +77,7 @@ void toggle_item_multistate(int p_idx);
 
 protected:
 public:
-explicit PopupMenu(WasGoId p_wasgo_id);
+explicit PopupMenu(WasGoID p_wasgo_id);
 explicit PopupMenu(Popup other);
 PopupMenu new_instance();
             
@@ -86,72 +86,72 @@ PopupMenu new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_PopupMenu_wrapper_add_check_item(WasGoId wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
-void _wasgo_PopupMenu_wrapper_add_check_shortcut(WasGoId wasgo_id, WasGoId p_shortcut, int p_id, bool p_global);
-void _wasgo_PopupMenu_wrapper_add_icon_check_item(WasGoId wasgo_id, WasGoId p_texture, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
-void _wasgo_PopupMenu_wrapper_add_icon_check_shortcut(WasGoId wasgo_id, WasGoId p_texture, WasGoId p_shortcut, int p_id, bool p_global);
-void _wasgo_PopupMenu_wrapper_add_icon_item(WasGoId wasgo_id, WasGoId p_texture, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
-void _wasgo_PopupMenu_wrapper_add_icon_radio_check_item(WasGoId wasgo_id, WasGoId p_texture, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
-void _wasgo_PopupMenu_wrapper_add_icon_radio_check_shortcut(WasGoId wasgo_id, WasGoId p_texture, WasGoId p_shortcut, int p_id, bool p_global);
-void _wasgo_PopupMenu_wrapper_add_icon_shortcut(WasGoId wasgo_id, WasGoId p_texture, WasGoId p_shortcut, int p_id, bool p_global);
-void _wasgo_PopupMenu_wrapper_add_item(WasGoId wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
-void _wasgo_PopupMenu_wrapper_add_multistate_item(WasGoId wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_max_states, int p_default_state, int p_id, int p_accel);
-void _wasgo_PopupMenu_wrapper_add_radio_check_item(WasGoId wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
-void _wasgo_PopupMenu_wrapper_add_radio_check_shortcut(WasGoId wasgo_id, WasGoId p_shortcut, int p_id, bool p_global);
-void _wasgo_PopupMenu_wrapper_add_separator(WasGoId wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size);
-void _wasgo_PopupMenu_wrapper_add_shortcut(WasGoId wasgo_id, WasGoId p_shortcut, int p_id, bool p_global);
-void _wasgo_PopupMenu_wrapper_add_submenu_item(WasGoId wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, const uint8_t * p_submenu, int p_submenu_wasgo_buffer_size, int p_id);
-void _wasgo_PopupMenu_wrapper_clear(WasGoId wasgo_id);
-int _wasgo_PopupMenu_wrapper_get_allow_search(WasGoId wasgo_id);
-int _wasgo_PopupMenu_wrapper_get_current_index(WasGoId wasgo_id);
-int _wasgo_PopupMenu_wrapper_get_item_accelerator(WasGoId wasgo_id, int p_idx);
-int _wasgo_PopupMenu_wrapper_get_item_count(WasGoId wasgo_id);
-WasGoId _wasgo_PopupMenu_wrapper_get_item_icon(WasGoId wasgo_id, int p_idx);
-int _wasgo_PopupMenu_wrapper_get_item_id(WasGoId wasgo_id, int p_idx);
-int _wasgo_PopupMenu_wrapper_get_item_index(WasGoId wasgo_id, int p_id);
-WasGoId _wasgo_PopupMenu_wrapper_get_item_metadata(WasGoId wasgo_id, int p_idx);
-WasGoId _wasgo_PopupMenu_wrapper_get_item_shortcut(WasGoId wasgo_id, int p_idx);
-void _wasgo_PopupMenu_wrapper_get_item_submenu(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-void _wasgo_PopupMenu_wrapper_get_item_text(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-void _wasgo_PopupMenu_wrapper_get_item_tooltip(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-float _wasgo_PopupMenu_wrapper_get_submenu_popup_delay(WasGoId wasgo_id);
-int _wasgo_PopupMenu_wrapper_is_hide_on_checkable_item_selection(WasGoId wasgo_id);
-int _wasgo_PopupMenu_wrapper_is_hide_on_item_selection(WasGoId wasgo_id);
-int _wasgo_PopupMenu_wrapper_is_hide_on_state_item_selection(WasGoId wasgo_id);
-int _wasgo_PopupMenu_wrapper_is_hide_on_window_lose_focus(WasGoId wasgo_id);
-int _wasgo_PopupMenu_wrapper_is_item_checkable(WasGoId wasgo_id, int p_idx);
-int _wasgo_PopupMenu_wrapper_is_item_checked(WasGoId wasgo_id, int p_idx);
-int _wasgo_PopupMenu_wrapper_is_item_disabled(WasGoId wasgo_id, int p_idx);
-int _wasgo_PopupMenu_wrapper_is_item_radio_checkable(WasGoId wasgo_id, int p_idx);
-int _wasgo_PopupMenu_wrapper_is_item_separator(WasGoId wasgo_id, int p_idx);
-int _wasgo_PopupMenu_wrapper_is_item_shortcut_disabled(WasGoId wasgo_id, int p_idx);
-void _wasgo_PopupMenu_wrapper_remove_item(WasGoId wasgo_id, int p_idx);
-void _wasgo_PopupMenu_wrapper_set_allow_search(WasGoId wasgo_id, bool p_allow);
-void _wasgo_PopupMenu_wrapper_set_hide_on_checkable_item_selection(WasGoId wasgo_id, bool p_enable);
-void _wasgo_PopupMenu_wrapper_set_hide_on_item_selection(WasGoId wasgo_id, bool p_enable);
-void _wasgo_PopupMenu_wrapper_set_hide_on_state_item_selection(WasGoId wasgo_id, bool p_enable);
-void _wasgo_PopupMenu_wrapper_set_hide_on_window_lose_focus(WasGoId wasgo_id, bool p_enable);
-void _wasgo_PopupMenu_wrapper_set_item_accelerator(WasGoId wasgo_id, int p_idx, int p_accel);
-void _wasgo_PopupMenu_wrapper_set_item_as_checkable(WasGoId wasgo_id, int p_idx, bool p_enable);
-void _wasgo_PopupMenu_wrapper_set_item_as_radio_checkable(WasGoId wasgo_id, int p_idx, bool p_enable);
-void _wasgo_PopupMenu_wrapper_set_item_as_separator(WasGoId wasgo_id, int p_idx, bool p_enable);
-void _wasgo_PopupMenu_wrapper_set_item_checked(WasGoId wasgo_id, int p_idx, bool p_checked);
-void _wasgo_PopupMenu_wrapper_set_item_disabled(WasGoId wasgo_id, int p_idx, bool p_disabled);
-void _wasgo_PopupMenu_wrapper_set_item_icon(WasGoId wasgo_id, int p_idx, WasGoId p_icon);
-void _wasgo_PopupMenu_wrapper_set_item_id(WasGoId wasgo_id, int p_idx, int p_id);
-void _wasgo_PopupMenu_wrapper_set_item_metadata(WasGoId wasgo_id, int p_idx, WasGoId p_metadata);
-void _wasgo_PopupMenu_wrapper_set_item_multistate(WasGoId wasgo_id, int p_idx, int p_state);
-void _wasgo_PopupMenu_wrapper_set_item_shortcut(WasGoId wasgo_id, int p_idx, WasGoId p_shortcut, bool p_global);
-void _wasgo_PopupMenu_wrapper_set_item_shortcut_disabled(WasGoId wasgo_id, int p_idx, bool p_disabled);
-void _wasgo_PopupMenu_wrapper_set_item_submenu(WasGoId wasgo_id, int p_idx, const uint8_t * p_submenu, int p_submenu_wasgo_buffer_size);
-void _wasgo_PopupMenu_wrapper_set_item_text(WasGoId wasgo_id, int p_idx, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-void _wasgo_PopupMenu_wrapper_set_item_tooltip(WasGoId wasgo_id, int p_idx, const uint8_t * p_tooltip, int p_tooltip_wasgo_buffer_size);
-void _wasgo_PopupMenu_wrapper_set_submenu_popup_delay(WasGoId wasgo_id, float p_seconds);
-void _wasgo_PopupMenu_wrapper_toggle_item_checked(WasGoId wasgo_id, int p_idx);
-void _wasgo_PopupMenu_wrapper_toggle_item_multistate(WasGoId wasgo_id, int p_idx);
+void _wasgo_PopupMenu_wrapper_add_check_item(WasGoID wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
+void _wasgo_PopupMenu_wrapper_add_check_shortcut(WasGoID wasgo_id, WasGoID p_shortcut, int p_id, bool p_global);
+void _wasgo_PopupMenu_wrapper_add_icon_check_item(WasGoID wasgo_id, WasGoID p_texture, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
+void _wasgo_PopupMenu_wrapper_add_icon_check_shortcut(WasGoID wasgo_id, WasGoID p_texture, WasGoID p_shortcut, int p_id, bool p_global);
+void _wasgo_PopupMenu_wrapper_add_icon_item(WasGoID wasgo_id, WasGoID p_texture, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
+void _wasgo_PopupMenu_wrapper_add_icon_radio_check_item(WasGoID wasgo_id, WasGoID p_texture, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
+void _wasgo_PopupMenu_wrapper_add_icon_radio_check_shortcut(WasGoID wasgo_id, WasGoID p_texture, WasGoID p_shortcut, int p_id, bool p_global);
+void _wasgo_PopupMenu_wrapper_add_icon_shortcut(WasGoID wasgo_id, WasGoID p_texture, WasGoID p_shortcut, int p_id, bool p_global);
+void _wasgo_PopupMenu_wrapper_add_item(WasGoID wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
+void _wasgo_PopupMenu_wrapper_add_multistate_item(WasGoID wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_max_states, int p_default_state, int p_id, int p_accel);
+void _wasgo_PopupMenu_wrapper_add_radio_check_item(WasGoID wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, int p_id, int p_accel);
+void _wasgo_PopupMenu_wrapper_add_radio_check_shortcut(WasGoID wasgo_id, WasGoID p_shortcut, int p_id, bool p_global);
+void _wasgo_PopupMenu_wrapper_add_separator(WasGoID wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size);
+void _wasgo_PopupMenu_wrapper_add_shortcut(WasGoID wasgo_id, WasGoID p_shortcut, int p_id, bool p_global);
+void _wasgo_PopupMenu_wrapper_add_submenu_item(WasGoID wasgo_id, const uint8_t * p_label, int p_label_wasgo_buffer_size, const uint8_t * p_submenu, int p_submenu_wasgo_buffer_size, int p_id);
+void _wasgo_PopupMenu_wrapper_clear(WasGoID wasgo_id);
+int _wasgo_PopupMenu_wrapper_get_allow_search(WasGoID wasgo_id);
+int _wasgo_PopupMenu_wrapper_get_current_index(WasGoID wasgo_id);
+int _wasgo_PopupMenu_wrapper_get_item_accelerator(WasGoID wasgo_id, int p_idx);
+int _wasgo_PopupMenu_wrapper_get_item_count(WasGoID wasgo_id);
+WasGoID _wasgo_PopupMenu_wrapper_get_item_icon(WasGoID wasgo_id, int p_idx);
+int _wasgo_PopupMenu_wrapper_get_item_id(WasGoID wasgo_id, int p_idx);
+int _wasgo_PopupMenu_wrapper_get_item_index(WasGoID wasgo_id, int p_id);
+WasGoID _wasgo_PopupMenu_wrapper_get_item_metadata(WasGoID wasgo_id, int p_idx);
+WasGoID _wasgo_PopupMenu_wrapper_get_item_shortcut(WasGoID wasgo_id, int p_idx);
+void _wasgo_PopupMenu_wrapper_get_item_submenu(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+void _wasgo_PopupMenu_wrapper_get_item_text(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+void _wasgo_PopupMenu_wrapper_get_item_tooltip(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+float _wasgo_PopupMenu_wrapper_get_submenu_popup_delay(WasGoID wasgo_id);
+int _wasgo_PopupMenu_wrapper_is_hide_on_checkable_item_selection(WasGoID wasgo_id);
+int _wasgo_PopupMenu_wrapper_is_hide_on_item_selection(WasGoID wasgo_id);
+int _wasgo_PopupMenu_wrapper_is_hide_on_state_item_selection(WasGoID wasgo_id);
+int _wasgo_PopupMenu_wrapper_is_hide_on_window_lose_focus(WasGoID wasgo_id);
+int _wasgo_PopupMenu_wrapper_is_item_checkable(WasGoID wasgo_id, int p_idx);
+int _wasgo_PopupMenu_wrapper_is_item_checked(WasGoID wasgo_id, int p_idx);
+int _wasgo_PopupMenu_wrapper_is_item_disabled(WasGoID wasgo_id, int p_idx);
+int _wasgo_PopupMenu_wrapper_is_item_radio_checkable(WasGoID wasgo_id, int p_idx);
+int _wasgo_PopupMenu_wrapper_is_item_separator(WasGoID wasgo_id, int p_idx);
+int _wasgo_PopupMenu_wrapper_is_item_shortcut_disabled(WasGoID wasgo_id, int p_idx);
+void _wasgo_PopupMenu_wrapper_remove_item(WasGoID wasgo_id, int p_idx);
+void _wasgo_PopupMenu_wrapper_set_allow_search(WasGoID wasgo_id, bool p_allow);
+void _wasgo_PopupMenu_wrapper_set_hide_on_checkable_item_selection(WasGoID wasgo_id, bool p_enable);
+void _wasgo_PopupMenu_wrapper_set_hide_on_item_selection(WasGoID wasgo_id, bool p_enable);
+void _wasgo_PopupMenu_wrapper_set_hide_on_state_item_selection(WasGoID wasgo_id, bool p_enable);
+void _wasgo_PopupMenu_wrapper_set_hide_on_window_lose_focus(WasGoID wasgo_id, bool p_enable);
+void _wasgo_PopupMenu_wrapper_set_item_accelerator(WasGoID wasgo_id, int p_idx, int p_accel);
+void _wasgo_PopupMenu_wrapper_set_item_as_checkable(WasGoID wasgo_id, int p_idx, bool p_enable);
+void _wasgo_PopupMenu_wrapper_set_item_as_radio_checkable(WasGoID wasgo_id, int p_idx, bool p_enable);
+void _wasgo_PopupMenu_wrapper_set_item_as_separator(WasGoID wasgo_id, int p_idx, bool p_enable);
+void _wasgo_PopupMenu_wrapper_set_item_checked(WasGoID wasgo_id, int p_idx, bool p_checked);
+void _wasgo_PopupMenu_wrapper_set_item_disabled(WasGoID wasgo_id, int p_idx, bool p_disabled);
+void _wasgo_PopupMenu_wrapper_set_item_icon(WasGoID wasgo_id, int p_idx, WasGoID p_icon);
+void _wasgo_PopupMenu_wrapper_set_item_id(WasGoID wasgo_id, int p_idx, int p_id);
+void _wasgo_PopupMenu_wrapper_set_item_metadata(WasGoID wasgo_id, int p_idx, WasGoID p_metadata);
+void _wasgo_PopupMenu_wrapper_set_item_multistate(WasGoID wasgo_id, int p_idx, int p_state);
+void _wasgo_PopupMenu_wrapper_set_item_shortcut(WasGoID wasgo_id, int p_idx, WasGoID p_shortcut, bool p_global);
+void _wasgo_PopupMenu_wrapper_set_item_shortcut_disabled(WasGoID wasgo_id, int p_idx, bool p_disabled);
+void _wasgo_PopupMenu_wrapper_set_item_submenu(WasGoID wasgo_id, int p_idx, const uint8_t * p_submenu, int p_submenu_wasgo_buffer_size);
+void _wasgo_PopupMenu_wrapper_set_item_text(WasGoID wasgo_id, int p_idx, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_PopupMenu_wrapper_set_item_tooltip(WasGoID wasgo_id, int p_idx, const uint8_t * p_tooltip, int p_tooltip_wasgo_buffer_size);
+void _wasgo_PopupMenu_wrapper_set_submenu_popup_delay(WasGoID wasgo_id, float p_seconds);
+void _wasgo_PopupMenu_wrapper_toggle_item_checked(WasGoID wasgo_id, int p_idx);
+void _wasgo_PopupMenu_wrapper_toggle_item_multistate(WasGoID wasgo_id, int p_idx);
 
     //constructor wrappers
-    WasGoId _wasgo_PopupMenu_constructor();
+    WasGoID _wasgo_PopupMenu_constructor();
             
 }
 #endif

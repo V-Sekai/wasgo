@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit AnimationNodeTimeSeek(WasGoId p_wasgo_id);
+explicit AnimationNodeTimeSeek(WasGoID p_wasgo_id);
 explicit AnimationNodeTimeSeek(AnimationNode other);
 AnimationNodeTimeSeek new_instance();
             
@@ -21,7 +21,7 @@ AnimationNodeTimeSeek new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_AnimationNodeTimeSeek_constructor();
+    WasGoID _wasgo_AnimationNodeTimeSeek_constructor();
             
 }
 #endif

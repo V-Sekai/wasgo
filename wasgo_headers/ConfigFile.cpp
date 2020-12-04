@@ -167,7 +167,7 @@ void ConfigFile::set_value(String p_section, String p_key, Variant p_value){
 	_wasgo_ConfigFile_wrapper_set_value(wasgo_id, wasgo_buffer_section, wasgo_size_section, wasgo_buffer_key, wasgo_size_key, p_value._get_wasgo_id());
 }
 
-ConfigFile::ConfigFile(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+ConfigFile::ConfigFile(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 ConfigFile::ConfigFile(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_ConfigFile_constructor();

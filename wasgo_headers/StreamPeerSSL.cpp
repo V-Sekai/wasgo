@@ -29,7 +29,7 @@ void StreamPeerSSL::set_blocking_handshake_enabled(bool p_enabled){
 	_wasgo_StreamPeerSSL_wrapper_set_blocking_handshake_enabled(wasgo_id, p_enabled);
 }
 
-StreamPeerSSL::StreamPeerSSL(WasGoId p_wasgo_id) : StreamPeer(p_wasgo_id){
+StreamPeerSSL::StreamPeerSSL(WasGoID p_wasgo_id) : StreamPeer(p_wasgo_id){
 }
 StreamPeerSSL::StreamPeerSSL(StreamPeer other) : StreamPeer(other._get_wasgo_id()){
     wasgo_id = _wasgo_StreamPeerSSL_constructor();

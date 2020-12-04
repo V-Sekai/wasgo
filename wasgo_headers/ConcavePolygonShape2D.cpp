@@ -8,7 +8,7 @@ void ConcavePolygonShape2D::set_segments(PoolVector2Array p_segments){
 	_wasgo_ConcavePolygonShape2D_wrapper_set_segments(wasgo_id, p_segments._get_wasgo_id());
 }
 
-ConcavePolygonShape2D::ConcavePolygonShape2D(WasGoId p_wasgo_id) : Shape2D(p_wasgo_id){
+ConcavePolygonShape2D::ConcavePolygonShape2D(WasGoID p_wasgo_id) : Shape2D(p_wasgo_id){
 }
 ConcavePolygonShape2D::ConcavePolygonShape2D(Shape2D other) : Shape2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_ConcavePolygonShape2D_constructor();

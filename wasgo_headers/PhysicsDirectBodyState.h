@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
-#include "Basis.h"
-#include "PhysicsDirectSpaceState.h"
 #include "Object.h"
-#include "Transform.h"
+#include "Basis.h"
+#include "Vector3.h"
 #include "RID.h"
+#include "Transform.h"
+#include "PhysicsDirectSpaceState.h"
 class PhysicsDirectBodyState : public Object{
 public:
 void add_central_force(Vector3 p_force);
@@ -52,44 +52,44 @@ void set_transform(Transform p_transform);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_PhysicsDirectBodyState_wrapper_add_central_force(WasGoId wasgo_id, const uint8_t * p_force, int p_force_wasgo_buffer_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_add_force(WasGoId wasgo_id, const uint8_t * p_force, int p_force_wasgo_buffer_size, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_add_torque(WasGoId wasgo_id, const uint8_t * p_torque, int p_torque_wasgo_buffer_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_apply_central_impulse(WasGoId wasgo_id, const uint8_t * p_j, int p_j_wasgo_buffer_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_apply_impulse(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, const uint8_t * p_j, int p_j_wasgo_buffer_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_apply_torque_impulse(WasGoId wasgo_id, const uint8_t * p_j, int p_j_wasgo_buffer_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_angular_velocity(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_center_of_mass(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_contact_idx);
-int _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider_id(WasGoId wasgo_id, int p_contact_idx);
-WasGoId _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider_object(WasGoId wasgo_id, int p_contact_idx);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_contact_idx);
-int _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider_shape(WasGoId wasgo_id, int p_contact_idx);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider_velocity_at_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_contact_idx);
-int _wasgo_PhysicsDirectBodyState_wrapper_get_contact_count(WasGoId wasgo_id);
-float _wasgo_PhysicsDirectBodyState_wrapper_get_contact_impulse(WasGoId wasgo_id, int p_contact_idx);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_contact_local_normal(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_contact_idx);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_contact_local_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_contact_idx);
-int _wasgo_PhysicsDirectBodyState_wrapper_get_contact_local_shape(WasGoId wasgo_id, int p_contact_idx);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_inverse_inertia(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_PhysicsDirectBodyState_wrapper_get_inverse_mass(WasGoId wasgo_id);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_linear_velocity(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_principal_inertia_axes(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_PhysicsDirectBodyState_wrapper_get_space_state(WasGoId wasgo_id);
-float _wasgo_PhysicsDirectBodyState_wrapper_get_step(WasGoId wasgo_id);
-float _wasgo_PhysicsDirectBodyState_wrapper_get_total_angular_damp(WasGoId wasgo_id);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_total_gravity(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_PhysicsDirectBodyState_wrapper_get_total_linear_damp(WasGoId wasgo_id);
-void _wasgo_PhysicsDirectBodyState_wrapper_get_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_integrate_forces(WasGoId wasgo_id);
-int _wasgo_PhysicsDirectBodyState_wrapper_is_sleeping(WasGoId wasgo_id);
-void _wasgo_PhysicsDirectBodyState_wrapper_set_angular_velocity(WasGoId wasgo_id, const uint8_t * p_velocity, int p_velocity_wasgo_buffer_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_set_linear_velocity(WasGoId wasgo_id, const uint8_t * p_velocity, int p_velocity_wasgo_buffer_size);
-void _wasgo_PhysicsDirectBodyState_wrapper_set_sleep_state(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_PhysicsDirectBodyState_wrapper_set_transform(WasGoId wasgo_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_add_central_force(WasGoID wasgo_id, const uint8_t * p_force, int p_force_wasgo_buffer_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_add_force(WasGoID wasgo_id, const uint8_t * p_force, int p_force_wasgo_buffer_size, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_add_torque(WasGoID wasgo_id, const uint8_t * p_torque, int p_torque_wasgo_buffer_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_apply_central_impulse(WasGoID wasgo_id, const uint8_t * p_j, int p_j_wasgo_buffer_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_apply_impulse(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, const uint8_t * p_j, int p_j_wasgo_buffer_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_apply_torque_impulse(WasGoID wasgo_id, const uint8_t * p_j, int p_j_wasgo_buffer_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_angular_velocity(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_center_of_mass(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_contact_idx);
+int _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider_id(WasGoID wasgo_id, int p_contact_idx);
+WasGoID _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider_object(WasGoID wasgo_id, int p_contact_idx);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_contact_idx);
+int _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider_shape(WasGoID wasgo_id, int p_contact_idx);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_contact_collider_velocity_at_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_contact_idx);
+int _wasgo_PhysicsDirectBodyState_wrapper_get_contact_count(WasGoID wasgo_id);
+float _wasgo_PhysicsDirectBodyState_wrapper_get_contact_impulse(WasGoID wasgo_id, int p_contact_idx);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_contact_local_normal(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_contact_idx);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_contact_local_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_contact_idx);
+int _wasgo_PhysicsDirectBodyState_wrapper_get_contact_local_shape(WasGoID wasgo_id, int p_contact_idx);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_inverse_inertia(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_PhysicsDirectBodyState_wrapper_get_inverse_mass(WasGoID wasgo_id);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_linear_velocity(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_principal_inertia_axes(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_PhysicsDirectBodyState_wrapper_get_space_state(WasGoID wasgo_id);
+float _wasgo_PhysicsDirectBodyState_wrapper_get_step(WasGoID wasgo_id);
+float _wasgo_PhysicsDirectBodyState_wrapper_get_total_angular_damp(WasGoID wasgo_id);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_total_gravity(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_PhysicsDirectBodyState_wrapper_get_total_linear_damp(WasGoID wasgo_id);
+void _wasgo_PhysicsDirectBodyState_wrapper_get_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_integrate_forces(WasGoID wasgo_id);
+int _wasgo_PhysicsDirectBodyState_wrapper_is_sleeping(WasGoID wasgo_id);
+void _wasgo_PhysicsDirectBodyState_wrapper_set_angular_velocity(WasGoID wasgo_id, const uint8_t * p_velocity, int p_velocity_wasgo_buffer_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_set_linear_velocity(WasGoID wasgo_id, const uint8_t * p_velocity, int p_velocity_wasgo_buffer_size);
+void _wasgo_PhysicsDirectBodyState_wrapper_set_sleep_state(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_PhysicsDirectBodyState_wrapper_set_transform(WasGoID wasgo_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_PhysicsDirectBodyState_constructor();
+    WasGoID _wasgo_PhysicsDirectBodyState_constructor();
             
 }
 #endif

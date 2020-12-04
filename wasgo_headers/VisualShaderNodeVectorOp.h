@@ -26,7 +26,7 @@ void set_operator(VisualShaderNodeVectorOp::Operator p_op);
 
 protected:
 public:
-explicit VisualShaderNodeVectorOp(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorOp(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorOp(VisualShaderNode other);
 VisualShaderNodeVectorOp new_instance();
             
@@ -35,11 +35,11 @@ VisualShaderNodeVectorOp new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_VisualShaderNodeVectorOp_wrapper_get_operator(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeVectorOp_wrapper_set_operator(WasGoId wasgo_id, WasGoId p_op);
+WasGoID _wasgo_VisualShaderNodeVectorOp_wrapper_get_operator(WasGoID wasgo_id);
+void _wasgo_VisualShaderNodeVectorOp_wrapper_set_operator(WasGoID wasgo_id, WasGoID p_op);
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeVectorOp_constructor();
+    WasGoID _wasgo_VisualShaderNodeVectorOp_constructor();
             
 }
 #endif

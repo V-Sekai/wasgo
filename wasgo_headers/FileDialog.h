@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "VBoxContainer.h"
 #include "ConfirmationDialog.h"
-#include "LineEdit.h"
 #include "Variant.h"
+#include "LineEdit.h"
+#include "VBoxContainer.h"
+#include "ustring.h"
 class FileDialog : public ConfirmationDialog{
 public:
 enum Access{
@@ -48,7 +48,7 @@ void set_show_hidden_files(bool p_show);
 
 protected:
 public:
-explicit FileDialog(WasGoId p_wasgo_id);
+explicit FileDialog(WasGoID p_wasgo_id);
 explicit FileDialog(ConfirmationDialog other);
 FileDialog new_instance();
             
@@ -57,31 +57,31 @@ FileDialog new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_FileDialog_wrapper_add_filter(WasGoId wasgo_id, const uint8_t * p_filter, int p_filter_wasgo_buffer_size);
-void _wasgo_FileDialog_wrapper_clear_filters(WasGoId wasgo_id);
-void _wasgo_FileDialog_wrapper_deselect_items(WasGoId wasgo_id);
-WasGoId _wasgo_FileDialog_wrapper_get_access(WasGoId wasgo_id);
-void _wasgo_FileDialog_wrapper_get_current_dir(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_FileDialog_wrapper_get_current_file(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_FileDialog_wrapper_get_current_path(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_FileDialog_wrapper_get_filters(WasGoId wasgo_id);
-WasGoId _wasgo_FileDialog_wrapper_get_line_edit(WasGoId wasgo_id);
-WasGoId _wasgo_FileDialog_wrapper_get_mode(WasGoId wasgo_id);
-WasGoId _wasgo_FileDialog_wrapper_get_vbox(WasGoId wasgo_id);
-void _wasgo_FileDialog_wrapper_invalidate(WasGoId wasgo_id);
-int _wasgo_FileDialog_wrapper_is_mode_overriding_title(WasGoId wasgo_id);
-int _wasgo_FileDialog_wrapper_is_showing_hidden_files(WasGoId wasgo_id);
-void _wasgo_FileDialog_wrapper_set_access(WasGoId wasgo_id, WasGoId p_access);
-void _wasgo_FileDialog_wrapper_set_current_dir(WasGoId wasgo_id, const uint8_t * p_dir, int p_dir_wasgo_buffer_size);
-void _wasgo_FileDialog_wrapper_set_current_file(WasGoId wasgo_id, const uint8_t * p_file, int p_file_wasgo_buffer_size);
-void _wasgo_FileDialog_wrapper_set_current_path(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-void _wasgo_FileDialog_wrapper_set_filters(WasGoId wasgo_id, WasGoId p_filters);
-void _wasgo_FileDialog_wrapper_set_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_FileDialog_wrapper_set_mode_overrides_title(WasGoId wasgo_id, bool p_override);
-void _wasgo_FileDialog_wrapper_set_show_hidden_files(WasGoId wasgo_id, bool p_show);
+void _wasgo_FileDialog_wrapper_add_filter(WasGoID wasgo_id, const uint8_t * p_filter, int p_filter_wasgo_buffer_size);
+void _wasgo_FileDialog_wrapper_clear_filters(WasGoID wasgo_id);
+void _wasgo_FileDialog_wrapper_deselect_items(WasGoID wasgo_id);
+WasGoID _wasgo_FileDialog_wrapper_get_access(WasGoID wasgo_id);
+void _wasgo_FileDialog_wrapper_get_current_dir(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_FileDialog_wrapper_get_current_file(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_FileDialog_wrapper_get_current_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_FileDialog_wrapper_get_filters(WasGoID wasgo_id);
+WasGoID _wasgo_FileDialog_wrapper_get_line_edit(WasGoID wasgo_id);
+WasGoID _wasgo_FileDialog_wrapper_get_mode(WasGoID wasgo_id);
+WasGoID _wasgo_FileDialog_wrapper_get_vbox(WasGoID wasgo_id);
+void _wasgo_FileDialog_wrapper_invalidate(WasGoID wasgo_id);
+int _wasgo_FileDialog_wrapper_is_mode_overriding_title(WasGoID wasgo_id);
+int _wasgo_FileDialog_wrapper_is_showing_hidden_files(WasGoID wasgo_id);
+void _wasgo_FileDialog_wrapper_set_access(WasGoID wasgo_id, WasGoID p_access);
+void _wasgo_FileDialog_wrapper_set_current_dir(WasGoID wasgo_id, const uint8_t * p_dir, int p_dir_wasgo_buffer_size);
+void _wasgo_FileDialog_wrapper_set_current_file(WasGoID wasgo_id, const uint8_t * p_file, int p_file_wasgo_buffer_size);
+void _wasgo_FileDialog_wrapper_set_current_path(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_FileDialog_wrapper_set_filters(WasGoID wasgo_id, WasGoID p_filters);
+void _wasgo_FileDialog_wrapper_set_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_FileDialog_wrapper_set_mode_overrides_title(WasGoID wasgo_id, bool p_override);
+void _wasgo_FileDialog_wrapper_set_show_hidden_files(WasGoID wasgo_id, bool p_show);
 
     //constructor wrappers
-    WasGoId _wasgo_FileDialog_constructor();
+    WasGoID _wasgo_FileDialog_constructor();
             
 }
 #endif

@@ -8,7 +8,7 @@ void CenterContainer::set_use_top_left(bool p_enable){
 	_wasgo_CenterContainer_wrapper_set_use_top_left(wasgo_id, p_enable);
 }
 
-CenterContainer::CenterContainer(WasGoId p_wasgo_id) : Container(p_wasgo_id){
+CenterContainer::CenterContainer(WasGoID p_wasgo_id) : Container(p_wasgo_id){
 }
 CenterContainer::CenterContainer(Container other) : Container(other._get_wasgo_id()){
     wasgo_id = _wasgo_CenterContainer_constructor();

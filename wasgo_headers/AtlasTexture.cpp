@@ -52,7 +52,7 @@ void AtlasTexture::set_region(Rect2 p_region){
 	_wasgo_AtlasTexture_wrapper_set_region(wasgo_id, wasgo_buffer_region, wasgo_size_region);
 }
 
-AtlasTexture::AtlasTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
+AtlasTexture::AtlasTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 AtlasTexture::AtlasTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_AtlasTexture_constructor();

@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "AudioBusLayout.h"
 
-AudioBusLayout::AudioBusLayout(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+AudioBusLayout::AudioBusLayout(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 AudioBusLayout::AudioBusLayout(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioBusLayout_constructor();

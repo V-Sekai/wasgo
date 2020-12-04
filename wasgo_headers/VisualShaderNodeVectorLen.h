@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeVectorLen(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorLen(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorLen(VisualShaderNode other);
 VisualShaderNodeVectorLen new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeVectorLen new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeVectorLen_constructor();
+    WasGoID _wasgo_VisualShaderNodeVectorLen_constructor();
             
 }
 #endif

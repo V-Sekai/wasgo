@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit MarginContainer(WasGoId p_wasgo_id);
+explicit MarginContainer(WasGoID p_wasgo_id);
 explicit MarginContainer(Container other);
 MarginContainer new_instance();
             
@@ -21,7 +21,7 @@ MarginContainer new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_MarginContainer_constructor();
+    WasGoID _wasgo_MarginContainer_constructor();
             
 }
 #endif

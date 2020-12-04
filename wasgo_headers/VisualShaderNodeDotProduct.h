@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeDotProduct(WasGoId p_wasgo_id);
+explicit VisualShaderNodeDotProduct(WasGoID p_wasgo_id);
 explicit VisualShaderNodeDotProduct(VisualShaderNode other);
 VisualShaderNodeDotProduct new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeDotProduct new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeDotProduct_constructor();
+    WasGoID _wasgo_VisualShaderNodeDotProduct_constructor();
             
 }
 #endif

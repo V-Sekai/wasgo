@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
 #include "PhysicsBody.h"
+#include "Vector3.h"
 #include "PhysicsMaterial.h"
 class StaticBody : public PhysicsBody{
 public:
@@ -22,7 +22,7 @@ void set_physics_material_override(PhysicsMaterial p_physics_material_override);
 
 protected:
 public:
-explicit StaticBody(WasGoId p_wasgo_id);
+explicit StaticBody(WasGoID p_wasgo_id);
 explicit StaticBody(PhysicsBody other);
 StaticBody new_instance();
             
@@ -31,19 +31,19 @@ StaticBody new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_StaticBody_wrapper_get_bounce(WasGoId wasgo_id);
-void _wasgo_StaticBody_wrapper_get_constant_angular_velocity(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_StaticBody_wrapper_get_constant_linear_velocity(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_StaticBody_wrapper_get_friction(WasGoId wasgo_id);
-WasGoId _wasgo_StaticBody_wrapper_get_physics_material_override(WasGoId wasgo_id);
-void _wasgo_StaticBody_wrapper_set_bounce(WasGoId wasgo_id, float p_bounce);
-void _wasgo_StaticBody_wrapper_set_constant_angular_velocity(WasGoId wasgo_id, const uint8_t * p_vel, int p_vel_wasgo_buffer_size);
-void _wasgo_StaticBody_wrapper_set_constant_linear_velocity(WasGoId wasgo_id, const uint8_t * p_vel, int p_vel_wasgo_buffer_size);
-void _wasgo_StaticBody_wrapper_set_friction(WasGoId wasgo_id, float p_friction);
-void _wasgo_StaticBody_wrapper_set_physics_material_override(WasGoId wasgo_id, WasGoId p_physics_material_override);
+float _wasgo_StaticBody_wrapper_get_bounce(WasGoID wasgo_id);
+void _wasgo_StaticBody_wrapper_get_constant_angular_velocity(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_StaticBody_wrapper_get_constant_linear_velocity(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_StaticBody_wrapper_get_friction(WasGoID wasgo_id);
+WasGoID _wasgo_StaticBody_wrapper_get_physics_material_override(WasGoID wasgo_id);
+void _wasgo_StaticBody_wrapper_set_bounce(WasGoID wasgo_id, float p_bounce);
+void _wasgo_StaticBody_wrapper_set_constant_angular_velocity(WasGoID wasgo_id, const uint8_t * p_vel, int p_vel_wasgo_buffer_size);
+void _wasgo_StaticBody_wrapper_set_constant_linear_velocity(WasGoID wasgo_id, const uint8_t * p_vel, int p_vel_wasgo_buffer_size);
+void _wasgo_StaticBody_wrapper_set_friction(WasGoID wasgo_id, float p_friction);
+void _wasgo_StaticBody_wrapper_set_physics_material_override(WasGoID wasgo_id, WasGoID p_physics_material_override);
 
     //constructor wrappers
-    WasGoId _wasgo_StaticBody_constructor();
+    WasGoID _wasgo_StaticBody_constructor();
             
 }
 #endif

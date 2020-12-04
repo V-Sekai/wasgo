@@ -17,7 +17,7 @@ void InputEventJoypadButton::set_pressure(float p_pressure){
 	_wasgo_InputEventJoypadButton_wrapper_set_pressure(wasgo_id, p_pressure);
 }
 
-InputEventJoypadButton::InputEventJoypadButton(WasGoId p_wasgo_id) : InputEvent(p_wasgo_id){
+InputEventJoypadButton::InputEventJoypadButton(WasGoID p_wasgo_id) : InputEvent(p_wasgo_id){
 }
 InputEventJoypadButton::InputEventJoypadButton(InputEvent other) : InputEvent(other._get_wasgo_id()){
     wasgo_id = _wasgo_InputEventJoypadButton_constructor();

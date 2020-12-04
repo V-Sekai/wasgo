@@ -14,7 +14,7 @@ void ExternalTexture::set_size(Vector2 p_size){
 	_wasgo_ExternalTexture_wrapper_set_size(wasgo_id, wasgo_buffer_size, wasgo_size_size);
 }
 
-ExternalTexture::ExternalTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
+ExternalTexture::ExternalTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 ExternalTexture::ExternalTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_ExternalTexture_constructor();

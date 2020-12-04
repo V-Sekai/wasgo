@@ -22,7 +22,7 @@ void set_hinting(DynamicFontData::Hinting p_mode);
 
 protected:
 public:
-explicit DynamicFontData(WasGoId p_wasgo_id);
+explicit DynamicFontData(WasGoID p_wasgo_id);
 explicit DynamicFontData(Resource other);
 DynamicFontData new_instance();
             
@@ -31,15 +31,15 @@ DynamicFontData new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_DynamicFontData_wrapper_get_font_path(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_DynamicFontData_wrapper_get_hinting(WasGoId wasgo_id);
-int _wasgo_DynamicFontData_wrapper_is_antialiased(WasGoId wasgo_id);
-void _wasgo_DynamicFontData_wrapper_set_antialiased(WasGoId wasgo_id, bool p_antialiased);
-void _wasgo_DynamicFontData_wrapper_set_font_path(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-void _wasgo_DynamicFontData_wrapper_set_hinting(WasGoId wasgo_id, WasGoId p_mode);
+void _wasgo_DynamicFontData_wrapper_get_font_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_DynamicFontData_wrapper_get_hinting(WasGoID wasgo_id);
+int _wasgo_DynamicFontData_wrapper_is_antialiased(WasGoID wasgo_id);
+void _wasgo_DynamicFontData_wrapper_set_antialiased(WasGoID wasgo_id, bool p_antialiased);
+void _wasgo_DynamicFontData_wrapper_set_font_path(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_DynamicFontData_wrapper_set_hinting(WasGoID wasgo_id, WasGoID p_mode);
 
     //constructor wrappers
-    WasGoId _wasgo_DynamicFontData_constructor();
+    WasGoID _wasgo_DynamicFontData_constructor();
             
 }
 #endif

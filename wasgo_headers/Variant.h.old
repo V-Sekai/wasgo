@@ -3,7 +3,7 @@
 
 #include "wasgo/wasgo.h"
 // class WasGo;
-typedef uint32_t WasGoId;
+typedef uint32_t WasGoID;
 
 #include "Array.h"
 #include "Color.h"
@@ -106,13 +106,13 @@ typedef PoolVector<Color> PoolColorArray;
 
 class Variant {
 protected:
-	WasGoId wasgo_id;
-	Variant(WasGoId id) {
+	WasGoID wasgo_id;
+	Variant(WasGoID id) {
 		wasgo_id = id;
 	}
 
 public:
-	static Variant from_wasgo_id(WasGoId id) {
+	static Variant from_wasgo_id(WasGoID id) {
 		return Variant(id);
 	}
 	// If this changes the table in variant_op must be updated

@@ -14,7 +14,7 @@ void LightOccluder2D::set_occluder_polygon(OccluderPolygon2D p_polygon){
 	_wasgo_LightOccluder2D_wrapper_set_occluder_polygon(wasgo_id, p_polygon._get_wasgo_id());
 }
 
-LightOccluder2D::LightOccluder2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+LightOccluder2D::LightOccluder2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 LightOccluder2D::LightOccluder2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_LightOccluder2D_constructor();

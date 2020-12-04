@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "Variant.h"
+#include "Reference.h"
 #include "error_list.h"
 #include "ustring.h"
 class XMLParser : public Reference{
@@ -39,7 +39,7 @@ void skip_section();
 
 protected:
 public:
-explicit XMLParser(WasGoId p_wasgo_id);
+explicit XMLParser(WasGoID p_wasgo_id);
 explicit XMLParser(Reference other);
 XMLParser new_instance();
             
@@ -48,26 +48,26 @@ XMLParser new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_XMLParser_wrapper_get_attribute_count(WasGoId wasgo_id);
-void _wasgo_XMLParser_wrapper_get_attribute_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-void _wasgo_XMLParser_wrapper_get_attribute_value(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-int _wasgo_XMLParser_wrapper_get_current_line(WasGoId wasgo_id);
-void _wasgo_XMLParser_wrapper_get_named_attribute_value(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_XMLParser_wrapper_get_named_attribute_value_safe(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_XMLParser_wrapper_get_node_data(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_XMLParser_wrapper_get_node_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_XMLParser_wrapper_get_node_offset(WasGoId wasgo_id);
-WasGoId _wasgo_XMLParser_wrapper_get_node_type(WasGoId wasgo_id);
-int _wasgo_XMLParser_wrapper_has_attribute(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_XMLParser_wrapper_is_empty(WasGoId wasgo_id);
-WasGoId _wasgo_XMLParser_wrapper_open(WasGoId wasgo_id, const uint8_t * p_file, int p_file_wasgo_buffer_size);
-WasGoId _wasgo_XMLParser_wrapper_open_buffer(WasGoId wasgo_id, WasGoId p_buffer);
-WasGoId _wasgo_XMLParser_wrapper_read(WasGoId wasgo_id);
-WasGoId _wasgo_XMLParser_wrapper_seek(WasGoId wasgo_id, int p_position);
-void _wasgo_XMLParser_wrapper_skip_section(WasGoId wasgo_id);
+int _wasgo_XMLParser_wrapper_get_attribute_count(WasGoID wasgo_id);
+void _wasgo_XMLParser_wrapper_get_attribute_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+void _wasgo_XMLParser_wrapper_get_attribute_value(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+int _wasgo_XMLParser_wrapper_get_current_line(WasGoID wasgo_id);
+void _wasgo_XMLParser_wrapper_get_named_attribute_value(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_XMLParser_wrapper_get_named_attribute_value_safe(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_XMLParser_wrapper_get_node_data(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_XMLParser_wrapper_get_node_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_XMLParser_wrapper_get_node_offset(WasGoID wasgo_id);
+WasGoID _wasgo_XMLParser_wrapper_get_node_type(WasGoID wasgo_id);
+int _wasgo_XMLParser_wrapper_has_attribute(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_XMLParser_wrapper_is_empty(WasGoID wasgo_id);
+WasGoID _wasgo_XMLParser_wrapper_open(WasGoID wasgo_id, const uint8_t * p_file, int p_file_wasgo_buffer_size);
+WasGoID _wasgo_XMLParser_wrapper_open_buffer(WasGoID wasgo_id, WasGoID p_buffer);
+WasGoID _wasgo_XMLParser_wrapper_read(WasGoID wasgo_id);
+WasGoID _wasgo_XMLParser_wrapper_seek(WasGoID wasgo_id, int p_position);
+void _wasgo_XMLParser_wrapper_skip_section(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_XMLParser_constructor();
+    WasGoID _wasgo_XMLParser_constructor();
             
 }
 #endif

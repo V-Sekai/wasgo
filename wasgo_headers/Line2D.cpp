@@ -130,7 +130,7 @@ void Line2D::set_width(float p_width){
 	_wasgo_Line2D_wrapper_set_width(wasgo_id, p_width);
 }
 
-Line2D::Line2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+Line2D::Line2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Line2D::Line2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Line2D_constructor();

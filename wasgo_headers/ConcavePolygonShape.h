@@ -13,7 +13,7 @@ void set_faces(PoolVector3Array p_faces);
 
 protected:
 public:
-explicit ConcavePolygonShape(WasGoId p_wasgo_id);
+explicit ConcavePolygonShape(WasGoID p_wasgo_id);
 explicit ConcavePolygonShape(Shape other);
 ConcavePolygonShape new_instance();
             
@@ -22,11 +22,11 @@ ConcavePolygonShape new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_ConcavePolygonShape_wrapper_get_faces(WasGoId wasgo_id);
-void _wasgo_ConcavePolygonShape_wrapper_set_faces(WasGoId wasgo_id, WasGoId p_faces);
+WasGoID _wasgo_ConcavePolygonShape_wrapper_get_faces(WasGoID wasgo_id);
+void _wasgo_ConcavePolygonShape_wrapper_set_faces(WasGoID wasgo_id, WasGoID p_faces);
 
     //constructor wrappers
-    WasGoId _wasgo_ConcavePolygonShape_constructor();
+    WasGoID _wasgo_ConcavePolygonShape_constructor();
             
 }
 #endif

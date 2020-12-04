@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
 #include "Spatial.h"
-#include "RID.h"
+#include "Vector3.h"
 #include "Object.h"
+#include "RID.h"
 class RayCast : public Spatial{
 public:
 void add_exception(Object p_node);
@@ -38,7 +38,7 @@ void set_exclude_parent_body(bool p_mask);
 
 protected:
 public:
-explicit RayCast(WasGoId p_wasgo_id);
+explicit RayCast(WasGoID p_wasgo_id);
 explicit RayCast(Spatial other);
 RayCast new_instance();
             
@@ -47,34 +47,34 @@ RayCast new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_RayCast_wrapper_add_exception(WasGoId wasgo_id, WasGoId p_node);
-void _wasgo_RayCast_wrapper_add_exception_rid(WasGoId wasgo_id, const uint8_t * p_rid, int p_rid_wasgo_buffer_size);
-void _wasgo_RayCast_wrapper_clear_exceptions(WasGoId wasgo_id);
-void _wasgo_RayCast_wrapper_force_raycast_update(WasGoId wasgo_id);
-void _wasgo_RayCast_wrapper_get_cast_to(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_RayCast_wrapper_get_collider(WasGoId wasgo_id);
-int _wasgo_RayCast_wrapper_get_collider_shape(WasGoId wasgo_id);
-int _wasgo_RayCast_wrapper_get_collision_mask(WasGoId wasgo_id);
-int _wasgo_RayCast_wrapper_get_collision_mask_bit(WasGoId wasgo_id, int p_bit);
-void _wasgo_RayCast_wrapper_get_collision_normal(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_RayCast_wrapper_get_collision_point(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_RayCast_wrapper_get_exclude_parent_body(WasGoId wasgo_id);
-int _wasgo_RayCast_wrapper_is_collide_with_areas_enabled(WasGoId wasgo_id);
-int _wasgo_RayCast_wrapper_is_collide_with_bodies_enabled(WasGoId wasgo_id);
-int _wasgo_RayCast_wrapper_is_colliding(WasGoId wasgo_id);
-int _wasgo_RayCast_wrapper_is_enabled(WasGoId wasgo_id);
-void _wasgo_RayCast_wrapper_remove_exception(WasGoId wasgo_id, WasGoId p_node);
-void _wasgo_RayCast_wrapper_remove_exception_rid(WasGoId wasgo_id, const uint8_t * p_rid, int p_rid_wasgo_buffer_size);
-void _wasgo_RayCast_wrapper_set_cast_to(WasGoId wasgo_id, const uint8_t * p_local_point, int p_local_point_wasgo_buffer_size);
-void _wasgo_RayCast_wrapper_set_collide_with_areas(WasGoId wasgo_id, bool p_enable);
-void _wasgo_RayCast_wrapper_set_collide_with_bodies(WasGoId wasgo_id, bool p_enable);
-void _wasgo_RayCast_wrapper_set_collision_mask(WasGoId wasgo_id, int p_mask);
-void _wasgo_RayCast_wrapper_set_collision_mask_bit(WasGoId wasgo_id, int p_bit, bool p_value);
-void _wasgo_RayCast_wrapper_set_enabled(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_RayCast_wrapper_set_exclude_parent_body(WasGoId wasgo_id, bool p_mask);
+void _wasgo_RayCast_wrapper_add_exception(WasGoID wasgo_id, WasGoID p_node);
+void _wasgo_RayCast_wrapper_add_exception_rid(WasGoID wasgo_id, const uint8_t * p_rid, int p_rid_wasgo_buffer_size);
+void _wasgo_RayCast_wrapper_clear_exceptions(WasGoID wasgo_id);
+void _wasgo_RayCast_wrapper_force_raycast_update(WasGoID wasgo_id);
+void _wasgo_RayCast_wrapper_get_cast_to(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_RayCast_wrapper_get_collider(WasGoID wasgo_id);
+int _wasgo_RayCast_wrapper_get_collider_shape(WasGoID wasgo_id);
+int _wasgo_RayCast_wrapper_get_collision_mask(WasGoID wasgo_id);
+int _wasgo_RayCast_wrapper_get_collision_mask_bit(WasGoID wasgo_id, int p_bit);
+void _wasgo_RayCast_wrapper_get_collision_normal(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_RayCast_wrapper_get_collision_point(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_RayCast_wrapper_get_exclude_parent_body(WasGoID wasgo_id);
+int _wasgo_RayCast_wrapper_is_collide_with_areas_enabled(WasGoID wasgo_id);
+int _wasgo_RayCast_wrapper_is_collide_with_bodies_enabled(WasGoID wasgo_id);
+int _wasgo_RayCast_wrapper_is_colliding(WasGoID wasgo_id);
+int _wasgo_RayCast_wrapper_is_enabled(WasGoID wasgo_id);
+void _wasgo_RayCast_wrapper_remove_exception(WasGoID wasgo_id, WasGoID p_node);
+void _wasgo_RayCast_wrapper_remove_exception_rid(WasGoID wasgo_id, const uint8_t * p_rid, int p_rid_wasgo_buffer_size);
+void _wasgo_RayCast_wrapper_set_cast_to(WasGoID wasgo_id, const uint8_t * p_local_point, int p_local_point_wasgo_buffer_size);
+void _wasgo_RayCast_wrapper_set_collide_with_areas(WasGoID wasgo_id, bool p_enable);
+void _wasgo_RayCast_wrapper_set_collide_with_bodies(WasGoID wasgo_id, bool p_enable);
+void _wasgo_RayCast_wrapper_set_collision_mask(WasGoID wasgo_id, int p_mask);
+void _wasgo_RayCast_wrapper_set_collision_mask_bit(WasGoID wasgo_id, int p_bit, bool p_value);
+void _wasgo_RayCast_wrapper_set_enabled(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_RayCast_wrapper_set_exclude_parent_body(WasGoID wasgo_id, bool p_mask);
 
     //constructor wrappers
-    WasGoId _wasgo_RayCast_constructor();
+    WasGoID _wasgo_RayCast_constructor();
             
 }
 #endif

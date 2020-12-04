@@ -298,7 +298,7 @@ void Animation::value_track_set_update_mode(int p_track_idx, Animation::UpdateMo
 	_wasgo_Animation_wrapper_value_track_set_update_mode(wasgo_id, p_track_idx, p_mode._get_wasgo_id());
 }
 
-Animation::Animation(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+Animation::Animation(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Animation::Animation(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Animation_constructor();

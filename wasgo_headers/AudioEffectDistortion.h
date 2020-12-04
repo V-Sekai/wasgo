@@ -27,7 +27,7 @@ void set_pre_gain(float p_pre_gain);
 
 protected:
 public:
-explicit AudioEffectDistortion(WasGoId p_wasgo_id);
+explicit AudioEffectDistortion(WasGoID p_wasgo_id);
 explicit AudioEffectDistortion(AudioEffect other);
 AudioEffectDistortion new_instance();
             
@@ -36,19 +36,19 @@ AudioEffectDistortion new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_AudioEffectDistortion_wrapper_get_drive(WasGoId wasgo_id);
-float _wasgo_AudioEffectDistortion_wrapper_get_keep_hf_hz(WasGoId wasgo_id);
-WasGoId _wasgo_AudioEffectDistortion_wrapper_get_mode(WasGoId wasgo_id);
-float _wasgo_AudioEffectDistortion_wrapper_get_post_gain(WasGoId wasgo_id);
-float _wasgo_AudioEffectDistortion_wrapper_get_pre_gain(WasGoId wasgo_id);
-void _wasgo_AudioEffectDistortion_wrapper_set_drive(WasGoId wasgo_id, float p_drive);
-void _wasgo_AudioEffectDistortion_wrapper_set_keep_hf_hz(WasGoId wasgo_id, float p_keep_hf_hz);
-void _wasgo_AudioEffectDistortion_wrapper_set_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_AudioEffectDistortion_wrapper_set_post_gain(WasGoId wasgo_id, float p_post_gain);
-void _wasgo_AudioEffectDistortion_wrapper_set_pre_gain(WasGoId wasgo_id, float p_pre_gain);
+float _wasgo_AudioEffectDistortion_wrapper_get_drive(WasGoID wasgo_id);
+float _wasgo_AudioEffectDistortion_wrapper_get_keep_hf_hz(WasGoID wasgo_id);
+WasGoID _wasgo_AudioEffectDistortion_wrapper_get_mode(WasGoID wasgo_id);
+float _wasgo_AudioEffectDistortion_wrapper_get_post_gain(WasGoID wasgo_id);
+float _wasgo_AudioEffectDistortion_wrapper_get_pre_gain(WasGoID wasgo_id);
+void _wasgo_AudioEffectDistortion_wrapper_set_drive(WasGoID wasgo_id, float p_drive);
+void _wasgo_AudioEffectDistortion_wrapper_set_keep_hf_hz(WasGoID wasgo_id, float p_keep_hf_hz);
+void _wasgo_AudioEffectDistortion_wrapper_set_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_AudioEffectDistortion_wrapper_set_post_gain(WasGoID wasgo_id, float p_post_gain);
+void _wasgo_AudioEffectDistortion_wrapper_set_pre_gain(WasGoID wasgo_id, float p_pre_gain);
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectDistortion_constructor();
+    WasGoID _wasgo_AudioEffectDistortion_constructor();
             
 }
 #endif

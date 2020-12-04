@@ -35,7 +35,7 @@ void set_size(Vector2 p_size);
 
 protected:
 public:
-explicit VisualShaderNodeGroupBase(WasGoId p_wasgo_id);
+explicit VisualShaderNodeGroupBase(WasGoID p_wasgo_id);
 explicit VisualShaderNodeGroupBase(VisualShaderNode other);
 VisualShaderNodeGroupBase new_instance();
             
@@ -44,32 +44,32 @@ VisualShaderNodeGroupBase new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_VisualShaderNodeGroupBase_wrapper_add_input_port(WasGoId wasgo_id, int p_id, int p_type, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_add_output_port(WasGoId wasgo_id, int p_id, int p_type, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_clear_input_ports(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_clear_output_ports(WasGoId wasgo_id);
-int _wasgo_VisualShaderNodeGroupBase_wrapper_get_free_input_port_id(WasGoId wasgo_id);
-int _wasgo_VisualShaderNodeGroupBase_wrapper_get_free_output_port_id(WasGoId wasgo_id);
-int _wasgo_VisualShaderNodeGroupBase_wrapper_get_input_port_count(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_get_inputs(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_VisualShaderNodeGroupBase_wrapper_get_output_port_count(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_get_outputs(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_get_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_VisualShaderNodeGroupBase_wrapper_has_input_port(WasGoId wasgo_id, int p_id);
-int _wasgo_VisualShaderNodeGroupBase_wrapper_has_output_port(WasGoId wasgo_id, int p_id);
-int _wasgo_VisualShaderNodeGroupBase_wrapper_is_valid_port_name(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_remove_input_port(WasGoId wasgo_id, int p_id);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_remove_output_port(WasGoId wasgo_id, int p_id);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_set_input_port_name(WasGoId wasgo_id, int p_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_set_input_port_type(WasGoId wasgo_id, int p_id, int p_type);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_set_inputs(WasGoId wasgo_id, const uint8_t * p_inputs, int p_inputs_wasgo_buffer_size);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_set_output_port_name(WasGoId wasgo_id, int p_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_set_output_port_type(WasGoId wasgo_id, int p_id, int p_type);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_set_outputs(WasGoId wasgo_id, const uint8_t * p_outputs, int p_outputs_wasgo_buffer_size);
-void _wasgo_VisualShaderNodeGroupBase_wrapper_set_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_add_input_port(WasGoID wasgo_id, int p_id, int p_type, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_add_output_port(WasGoID wasgo_id, int p_id, int p_type, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_clear_input_ports(WasGoID wasgo_id);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_clear_output_ports(WasGoID wasgo_id);
+int _wasgo_VisualShaderNodeGroupBase_wrapper_get_free_input_port_id(WasGoID wasgo_id);
+int _wasgo_VisualShaderNodeGroupBase_wrapper_get_free_output_port_id(WasGoID wasgo_id);
+int _wasgo_VisualShaderNodeGroupBase_wrapper_get_input_port_count(WasGoID wasgo_id);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_get_inputs(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_VisualShaderNodeGroupBase_wrapper_get_output_port_count(WasGoID wasgo_id);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_get_outputs(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_get_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_VisualShaderNodeGroupBase_wrapper_has_input_port(WasGoID wasgo_id, int p_id);
+int _wasgo_VisualShaderNodeGroupBase_wrapper_has_output_port(WasGoID wasgo_id, int p_id);
+int _wasgo_VisualShaderNodeGroupBase_wrapper_is_valid_port_name(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_remove_input_port(WasGoID wasgo_id, int p_id);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_remove_output_port(WasGoID wasgo_id, int p_id);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_set_input_port_name(WasGoID wasgo_id, int p_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_set_input_port_type(WasGoID wasgo_id, int p_id, int p_type);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_set_inputs(WasGoID wasgo_id, const uint8_t * p_inputs, int p_inputs_wasgo_buffer_size);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_set_output_port_name(WasGoID wasgo_id, int p_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_set_output_port_type(WasGoID wasgo_id, int p_id, int p_type);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_set_outputs(WasGoID wasgo_id, const uint8_t * p_outputs, int p_outputs_wasgo_buffer_size);
+void _wasgo_VisualShaderNodeGroupBase_wrapper_set_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeGroupBase_constructor();
+    WasGoID _wasgo_VisualShaderNodeGroupBase_constructor();
             
 }
 #endif

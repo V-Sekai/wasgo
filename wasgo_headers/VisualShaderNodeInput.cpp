@@ -31,7 +31,7 @@ void VisualShaderNodeInput::set_input_name(String p_name){
 	_wasgo_VisualShaderNodeInput_wrapper_set_input_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
 
-VisualShaderNodeInput::VisualShaderNodeInput(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeInput::VisualShaderNodeInput(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeInput::VisualShaderNodeInput(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeInput_constructor();

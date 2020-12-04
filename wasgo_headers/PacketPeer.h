@@ -24,19 +24,19 @@ void set_encode_buffer_max_size(int p_max_size);
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_PacketPeer_wrapper_get_available_packet_count(WasGoId wasgo_id);
-int _wasgo_PacketPeer_wrapper_get_encode_buffer_max_size(WasGoId wasgo_id);
-WasGoId _wasgo_PacketPeer_wrapper_get_packet(WasGoId wasgo_id);
-WasGoId _wasgo_PacketPeer_wrapper_get_packet_error(WasGoId wasgo_id);
-WasGoId _wasgo_PacketPeer_wrapper_get_var(WasGoId wasgo_id, bool p_allow_objects);
-int _wasgo_PacketPeer_wrapper_is_object_decoding_allowed(WasGoId wasgo_id);
-WasGoId _wasgo_PacketPeer_wrapper_put_packet(WasGoId wasgo_id, WasGoId p_buffer);
-WasGoId _wasgo_PacketPeer_wrapper_put_var(WasGoId wasgo_id, WasGoId p_var, bool p_full_objects);
-void _wasgo_PacketPeer_wrapper_set_allow_object_decoding(WasGoId wasgo_id, bool p_enable);
-void _wasgo_PacketPeer_wrapper_set_encode_buffer_max_size(WasGoId wasgo_id, int p_max_size);
+int _wasgo_PacketPeer_wrapper_get_available_packet_count(WasGoID wasgo_id);
+int _wasgo_PacketPeer_wrapper_get_encode_buffer_max_size(WasGoID wasgo_id);
+WasGoID _wasgo_PacketPeer_wrapper_get_packet(WasGoID wasgo_id);
+WasGoID _wasgo_PacketPeer_wrapper_get_packet_error(WasGoID wasgo_id);
+WasGoID _wasgo_PacketPeer_wrapper_get_var(WasGoID wasgo_id, bool p_allow_objects);
+int _wasgo_PacketPeer_wrapper_is_object_decoding_allowed(WasGoID wasgo_id);
+WasGoID _wasgo_PacketPeer_wrapper_put_packet(WasGoID wasgo_id, WasGoID p_buffer);
+WasGoID _wasgo_PacketPeer_wrapper_put_var(WasGoID wasgo_id, WasGoID p_var, bool p_full_objects);
+void _wasgo_PacketPeer_wrapper_set_allow_object_decoding(WasGoID wasgo_id, bool p_enable);
+void _wasgo_PacketPeer_wrapper_set_encode_buffer_max_size(WasGoID wasgo_id, int p_max_size);
 
     //constructor wrappers
-    WasGoId _wasgo_PacketPeer_constructor();
+    WasGoID _wasgo_PacketPeer_constructor();
             
 }
 #endif

@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit JavaClass(WasGoId p_wasgo_id);
+explicit JavaClass(WasGoID p_wasgo_id);
 explicit JavaClass(Reference other);
 JavaClass new_instance();
             
@@ -21,7 +21,7 @@ JavaClass new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_JavaClass_constructor();
+    WasGoID _wasgo_JavaClass_constructor();
             
 }
 #endif

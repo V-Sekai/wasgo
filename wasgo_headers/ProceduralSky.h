@@ -51,7 +51,7 @@ void set_texture_size(ProceduralSky::TextureSize p_size);
 
 protected:
 public:
-explicit ProceduralSky(WasGoId p_wasgo_id);
+explicit ProceduralSky(WasGoID p_wasgo_id);
 explicit ProceduralSky(Sky other);
 ProceduralSky new_instance();
             
@@ -60,41 +60,41 @@ ProceduralSky new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ProceduralSky_wrapper_get_ground_bottom_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_ProceduralSky_wrapper_get_ground_curve(WasGoId wasgo_id);
-float _wasgo_ProceduralSky_wrapper_get_ground_energy(WasGoId wasgo_id);
-void _wasgo_ProceduralSky_wrapper_get_ground_horizon_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_ProceduralSky_wrapper_get_sky_curve(WasGoId wasgo_id);
-float _wasgo_ProceduralSky_wrapper_get_sky_energy(WasGoId wasgo_id);
-void _wasgo_ProceduralSky_wrapper_get_sky_horizon_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_ProceduralSky_wrapper_get_sky_top_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_ProceduralSky_wrapper_get_sun_angle_max(WasGoId wasgo_id);
-float _wasgo_ProceduralSky_wrapper_get_sun_angle_min(WasGoId wasgo_id);
-void _wasgo_ProceduralSky_wrapper_get_sun_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_ProceduralSky_wrapper_get_sun_curve(WasGoId wasgo_id);
-float _wasgo_ProceduralSky_wrapper_get_sun_energy(WasGoId wasgo_id);
-float _wasgo_ProceduralSky_wrapper_get_sun_latitude(WasGoId wasgo_id);
-float _wasgo_ProceduralSky_wrapper_get_sun_longitude(WasGoId wasgo_id);
-WasGoId _wasgo_ProceduralSky_wrapper_get_texture_size(WasGoId wasgo_id);
-void _wasgo_ProceduralSky_wrapper_set_ground_bottom_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_ProceduralSky_wrapper_set_ground_curve(WasGoId wasgo_id, float p_curve);
-void _wasgo_ProceduralSky_wrapper_set_ground_energy(WasGoId wasgo_id, float p_energy);
-void _wasgo_ProceduralSky_wrapper_set_ground_horizon_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_ProceduralSky_wrapper_set_sky_curve(WasGoId wasgo_id, float p_curve);
-void _wasgo_ProceduralSky_wrapper_set_sky_energy(WasGoId wasgo_id, float p_energy);
-void _wasgo_ProceduralSky_wrapper_set_sky_horizon_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_ProceduralSky_wrapper_set_sky_top_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_ProceduralSky_wrapper_set_sun_angle_max(WasGoId wasgo_id, float p_degrees);
-void _wasgo_ProceduralSky_wrapper_set_sun_angle_min(WasGoId wasgo_id, float p_degrees);
-void _wasgo_ProceduralSky_wrapper_set_sun_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_ProceduralSky_wrapper_set_sun_curve(WasGoId wasgo_id, float p_curve);
-void _wasgo_ProceduralSky_wrapper_set_sun_energy(WasGoId wasgo_id, float p_energy);
-void _wasgo_ProceduralSky_wrapper_set_sun_latitude(WasGoId wasgo_id, float p_degrees);
-void _wasgo_ProceduralSky_wrapper_set_sun_longitude(WasGoId wasgo_id, float p_degrees);
-void _wasgo_ProceduralSky_wrapper_set_texture_size(WasGoId wasgo_id, WasGoId p_size);
+void _wasgo_ProceduralSky_wrapper_get_ground_bottom_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_ProceduralSky_wrapper_get_ground_curve(WasGoID wasgo_id);
+float _wasgo_ProceduralSky_wrapper_get_ground_energy(WasGoID wasgo_id);
+void _wasgo_ProceduralSky_wrapper_get_ground_horizon_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_ProceduralSky_wrapper_get_sky_curve(WasGoID wasgo_id);
+float _wasgo_ProceduralSky_wrapper_get_sky_energy(WasGoID wasgo_id);
+void _wasgo_ProceduralSky_wrapper_get_sky_horizon_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_ProceduralSky_wrapper_get_sky_top_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_ProceduralSky_wrapper_get_sun_angle_max(WasGoID wasgo_id);
+float _wasgo_ProceduralSky_wrapper_get_sun_angle_min(WasGoID wasgo_id);
+void _wasgo_ProceduralSky_wrapper_get_sun_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_ProceduralSky_wrapper_get_sun_curve(WasGoID wasgo_id);
+float _wasgo_ProceduralSky_wrapper_get_sun_energy(WasGoID wasgo_id);
+float _wasgo_ProceduralSky_wrapper_get_sun_latitude(WasGoID wasgo_id);
+float _wasgo_ProceduralSky_wrapper_get_sun_longitude(WasGoID wasgo_id);
+WasGoID _wasgo_ProceduralSky_wrapper_get_texture_size(WasGoID wasgo_id);
+void _wasgo_ProceduralSky_wrapper_set_ground_bottom_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_ProceduralSky_wrapper_set_ground_curve(WasGoID wasgo_id, float p_curve);
+void _wasgo_ProceduralSky_wrapper_set_ground_energy(WasGoID wasgo_id, float p_energy);
+void _wasgo_ProceduralSky_wrapper_set_ground_horizon_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_ProceduralSky_wrapper_set_sky_curve(WasGoID wasgo_id, float p_curve);
+void _wasgo_ProceduralSky_wrapper_set_sky_energy(WasGoID wasgo_id, float p_energy);
+void _wasgo_ProceduralSky_wrapper_set_sky_horizon_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_ProceduralSky_wrapper_set_sky_top_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_ProceduralSky_wrapper_set_sun_angle_max(WasGoID wasgo_id, float p_degrees);
+void _wasgo_ProceduralSky_wrapper_set_sun_angle_min(WasGoID wasgo_id, float p_degrees);
+void _wasgo_ProceduralSky_wrapper_set_sun_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_ProceduralSky_wrapper_set_sun_curve(WasGoID wasgo_id, float p_curve);
+void _wasgo_ProceduralSky_wrapper_set_sun_energy(WasGoID wasgo_id, float p_energy);
+void _wasgo_ProceduralSky_wrapper_set_sun_latitude(WasGoID wasgo_id, float p_degrees);
+void _wasgo_ProceduralSky_wrapper_set_sun_longitude(WasGoID wasgo_id, float p_degrees);
+void _wasgo_ProceduralSky_wrapper_set_texture_size(WasGoID wasgo_id, WasGoID p_size);
 
     //constructor wrappers
-    WasGoId _wasgo_ProceduralSky_constructor();
+    WasGoID _wasgo_ProceduralSky_constructor();
             
 }
 #endif

@@ -100,7 +100,7 @@ void BakedLightmap::set_propagation(float p_propagation){
 	_wasgo_BakedLightmap_wrapper_set_propagation(wasgo_id, p_propagation);
 }
 
-BakedLightmap::BakedLightmap(WasGoId p_wasgo_id) : VisualInstance(p_wasgo_id){
+BakedLightmap::BakedLightmap(WasGoID p_wasgo_id) : VisualInstance(p_wasgo_id){
 }
 BakedLightmap::BakedLightmap(VisualInstance other) : VisualInstance(other._get_wasgo_id()){
     wasgo_id = _wasgo_BakedLightmap_constructor();

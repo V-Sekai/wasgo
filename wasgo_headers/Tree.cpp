@@ -165,7 +165,7 @@ void Tree::set_select_mode(Tree::SelectMode p_mode){
 	_wasgo_Tree_wrapper_set_select_mode(wasgo_id, p_mode._get_wasgo_id());
 }
 
-Tree::Tree(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+Tree::Tree(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 Tree::Tree(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_Tree_constructor();

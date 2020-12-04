@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "VisualShaderNodeScalarSwitch.h"
 
-VisualShaderNodeScalarSwitch::VisualShaderNodeScalarSwitch(WasGoId p_wasgo_id) : VisualShaderNodeSwitch(p_wasgo_id){
+VisualShaderNodeScalarSwitch::VisualShaderNodeScalarSwitch(WasGoID p_wasgo_id) : VisualShaderNodeSwitch(p_wasgo_id){
 }
 VisualShaderNodeScalarSwitch::VisualShaderNodeScalarSwitch(VisualShaderNodeSwitch other) : VisualShaderNodeSwitch(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeScalarSwitch_constructor();

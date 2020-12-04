@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit AudioStreamMicrophone(WasGoId p_wasgo_id);
+explicit AudioStreamMicrophone(WasGoID p_wasgo_id);
 explicit AudioStreamMicrophone(AudioStream other);
 AudioStreamMicrophone new_instance();
             
@@ -21,7 +21,7 @@ AudioStreamMicrophone new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_AudioStreamMicrophone_constructor();
+    WasGoID _wasgo_AudioStreamMicrophone_constructor();
             
 }
 #endif

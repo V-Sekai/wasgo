@@ -14,7 +14,7 @@ void MenuButton::set_switch_on_hover(bool p_enable){
 	_wasgo_MenuButton_wrapper_set_switch_on_hover(wasgo_id, p_enable);
 }
 
-MenuButton::MenuButton(WasGoId p_wasgo_id) : Button(p_wasgo_id){
+MenuButton::MenuButton(WasGoID p_wasgo_id) : Button(p_wasgo_id){
 }
 MenuButton::MenuButton(Button other) : Button(other._get_wasgo_id()){
     wasgo_id = _wasgo_MenuButton_constructor();

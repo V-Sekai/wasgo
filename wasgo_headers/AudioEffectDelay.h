@@ -36,7 +36,7 @@ void set_tap2_pan(float p_amount);
 
 protected:
 public:
-explicit AudioEffectDelay(WasGoId p_wasgo_id);
+explicit AudioEffectDelay(WasGoID p_wasgo_id);
 explicit AudioEffectDelay(AudioEffect other);
 AudioEffectDelay new_instance();
             
@@ -45,35 +45,35 @@ AudioEffectDelay new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_AudioEffectDelay_wrapper_get_dry(WasGoId wasgo_id);
-float _wasgo_AudioEffectDelay_wrapper_get_feedback_delay_ms(WasGoId wasgo_id);
-float _wasgo_AudioEffectDelay_wrapper_get_feedback_level_db(WasGoId wasgo_id);
-float _wasgo_AudioEffectDelay_wrapper_get_feedback_lowpass(WasGoId wasgo_id);
-float _wasgo_AudioEffectDelay_wrapper_get_tap1_delay_ms(WasGoId wasgo_id);
-float _wasgo_AudioEffectDelay_wrapper_get_tap1_level_db(WasGoId wasgo_id);
-float _wasgo_AudioEffectDelay_wrapper_get_tap1_pan(WasGoId wasgo_id);
-float _wasgo_AudioEffectDelay_wrapper_get_tap2_delay_ms(WasGoId wasgo_id);
-float _wasgo_AudioEffectDelay_wrapper_get_tap2_level_db(WasGoId wasgo_id);
-float _wasgo_AudioEffectDelay_wrapper_get_tap2_pan(WasGoId wasgo_id);
-int _wasgo_AudioEffectDelay_wrapper_is_feedback_active(WasGoId wasgo_id);
-int _wasgo_AudioEffectDelay_wrapper_is_tap1_active(WasGoId wasgo_id);
-int _wasgo_AudioEffectDelay_wrapper_is_tap2_active(WasGoId wasgo_id);
-void _wasgo_AudioEffectDelay_wrapper_set_dry(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_feedback_active(WasGoId wasgo_id, bool p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_feedback_delay_ms(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_feedback_level_db(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_feedback_lowpass(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_tap1_active(WasGoId wasgo_id, bool p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_tap1_delay_ms(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_tap1_level_db(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_tap1_pan(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_tap2_active(WasGoId wasgo_id, bool p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_tap2_delay_ms(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_tap2_level_db(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectDelay_wrapper_set_tap2_pan(WasGoId wasgo_id, float p_amount);
+float _wasgo_AudioEffectDelay_wrapper_get_dry(WasGoID wasgo_id);
+float _wasgo_AudioEffectDelay_wrapper_get_feedback_delay_ms(WasGoID wasgo_id);
+float _wasgo_AudioEffectDelay_wrapper_get_feedback_level_db(WasGoID wasgo_id);
+float _wasgo_AudioEffectDelay_wrapper_get_feedback_lowpass(WasGoID wasgo_id);
+float _wasgo_AudioEffectDelay_wrapper_get_tap1_delay_ms(WasGoID wasgo_id);
+float _wasgo_AudioEffectDelay_wrapper_get_tap1_level_db(WasGoID wasgo_id);
+float _wasgo_AudioEffectDelay_wrapper_get_tap1_pan(WasGoID wasgo_id);
+float _wasgo_AudioEffectDelay_wrapper_get_tap2_delay_ms(WasGoID wasgo_id);
+float _wasgo_AudioEffectDelay_wrapper_get_tap2_level_db(WasGoID wasgo_id);
+float _wasgo_AudioEffectDelay_wrapper_get_tap2_pan(WasGoID wasgo_id);
+int _wasgo_AudioEffectDelay_wrapper_is_feedback_active(WasGoID wasgo_id);
+int _wasgo_AudioEffectDelay_wrapper_is_tap1_active(WasGoID wasgo_id);
+int _wasgo_AudioEffectDelay_wrapper_is_tap2_active(WasGoID wasgo_id);
+void _wasgo_AudioEffectDelay_wrapper_set_dry(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_feedback_active(WasGoID wasgo_id, bool p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_feedback_delay_ms(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_feedback_level_db(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_feedback_lowpass(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_tap1_active(WasGoID wasgo_id, bool p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_tap1_delay_ms(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_tap1_level_db(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_tap1_pan(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_tap2_active(WasGoID wasgo_id, bool p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_tap2_delay_ms(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_tap2_level_db(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectDelay_wrapper_set_tap2_pan(WasGoID wasgo_id, float p_amount);
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectDelay_constructor();
+    WasGoID _wasgo_AudioEffectDelay_constructor();
             
 }
 #endif

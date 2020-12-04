@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeVectorRefract(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorRefract(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorRefract(VisualShaderNode other);
 VisualShaderNodeVectorRefract new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeVectorRefract new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeVectorRefract_constructor();
+    WasGoID _wasgo_VisualShaderNodeVectorRefract_constructor();
             
 }
 #endif

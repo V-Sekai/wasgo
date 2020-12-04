@@ -18,7 +18,7 @@ void set_rough(bool p_rough);
 
 protected:
 public:
-explicit PhysicsMaterial(WasGoId p_wasgo_id);
+explicit PhysicsMaterial(WasGoID p_wasgo_id);
 explicit PhysicsMaterial(Resource other);
 PhysicsMaterial new_instance();
             
@@ -27,17 +27,17 @@ PhysicsMaterial new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_PhysicsMaterial_wrapper_get_bounce(WasGoId wasgo_id);
-float _wasgo_PhysicsMaterial_wrapper_get_friction(WasGoId wasgo_id);
-int _wasgo_PhysicsMaterial_wrapper_is_absorbent(WasGoId wasgo_id);
-int _wasgo_PhysicsMaterial_wrapper_is_rough(WasGoId wasgo_id);
-void _wasgo_PhysicsMaterial_wrapper_set_absorbent(WasGoId wasgo_id, bool p_absorbent);
-void _wasgo_PhysicsMaterial_wrapper_set_bounce(WasGoId wasgo_id, float p_bounce);
-void _wasgo_PhysicsMaterial_wrapper_set_friction(WasGoId wasgo_id, float p_friction);
-void _wasgo_PhysicsMaterial_wrapper_set_rough(WasGoId wasgo_id, bool p_rough);
+float _wasgo_PhysicsMaterial_wrapper_get_bounce(WasGoID wasgo_id);
+float _wasgo_PhysicsMaterial_wrapper_get_friction(WasGoID wasgo_id);
+int _wasgo_PhysicsMaterial_wrapper_is_absorbent(WasGoID wasgo_id);
+int _wasgo_PhysicsMaterial_wrapper_is_rough(WasGoID wasgo_id);
+void _wasgo_PhysicsMaterial_wrapper_set_absorbent(WasGoID wasgo_id, bool p_absorbent);
+void _wasgo_PhysicsMaterial_wrapper_set_bounce(WasGoID wasgo_id, float p_bounce);
+void _wasgo_PhysicsMaterial_wrapper_set_friction(WasGoID wasgo_id, float p_friction);
+void _wasgo_PhysicsMaterial_wrapper_set_rough(WasGoID wasgo_id, bool p_rough);
 
     //constructor wrappers
-    WasGoId _wasgo_PhysicsMaterial_constructor();
+    WasGoID _wasgo_PhysicsMaterial_constructor();
             
 }
 #endif

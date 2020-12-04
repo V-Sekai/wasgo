@@ -4,18 +4,18 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Transform2D.h"
-#include "Vector2.h"
-#include "ustring.h"
-#include "ShaderMaterial.h"
-#include "Texture.h"
-#include "Color.h"
-#include "OccluderPolygon2D.h"
-#include "Resource.h"
 #include "Rect2.h"
-#include "NavigationPolygon.h"
+#include "Color.h"
+#include "Vector2.h"
 #include "Shape2D.h"
+#include "Resource.h"
 #include "Variant.h"
+#include "OccluderPolygon2D.h"
+#include "Transform2D.h"
+#include "ShaderMaterial.h"
+#include "NavigationPolygon.h"
+#include "Texture.h"
+#include "ustring.h"
 class TileSet : public Resource{
 public:
 enum AutotileBindings{
@@ -107,7 +107,7 @@ void tile_set_z_index(int p_id, int p_z_index);
 
 protected:
 public:
-explicit TileSet(WasGoId p_wasgo_id);
+explicit TileSet(WasGoID p_wasgo_id);
 explicit TileSet(Resource other);
 TileSet new_instance();
             
@@ -116,74 +116,74 @@ TileSet new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_TileSet_wrapper_autotile_clear_bitmask_map(WasGoId wasgo_id, int p_id);
-int _wasgo_TileSet_wrapper_autotile_get_bitmask(WasGoId wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
-WasGoId _wasgo_TileSet_wrapper_autotile_get_bitmask_mode(WasGoId wasgo_id, int p_id);
-void _wasgo_TileSet_wrapper_autotile_get_icon_coordinate(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
-WasGoId _wasgo_TileSet_wrapper_autotile_get_light_occluder(WasGoId wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
-WasGoId _wasgo_TileSet_wrapper_autotile_get_navigation_polygon(WasGoId wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_autotile_get_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
-int _wasgo_TileSet_wrapper_autotile_get_spacing(WasGoId wasgo_id, int p_id);
-int _wasgo_TileSet_wrapper_autotile_get_subtile_priority(WasGoId wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
-int _wasgo_TileSet_wrapper_autotile_get_z_index(WasGoId wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_autotile_set_bitmask(WasGoId wasgo_id, int p_id, const uint8_t * p_bitmask, int p_bitmask_wasgo_buffer_size, int p_flag);
-void _wasgo_TileSet_wrapper_autotile_set_bitmask_mode(WasGoId wasgo_id, int p_id, WasGoId p_mode);
-void _wasgo_TileSet_wrapper_autotile_set_icon_coordinate(WasGoId wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_autotile_set_light_occluder(WasGoId wasgo_id, int p_id, WasGoId p_light_occluder, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_autotile_set_navigation_polygon(WasGoId wasgo_id, int p_id, WasGoId p_navigation_polygon, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_autotile_set_size(WasGoId wasgo_id, int p_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_autotile_set_spacing(WasGoId wasgo_id, int p_id, int p_spacing);
-void _wasgo_TileSet_wrapper_autotile_set_subtile_priority(WasGoId wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size, int p_priority);
-void _wasgo_TileSet_wrapper_autotile_set_z_index(WasGoId wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size, int p_z_index);
-void _wasgo_TileSet_wrapper_clear(WasGoId wasgo_id);
-void _wasgo_TileSet_wrapper_create_tile(WasGoId wasgo_id, int p_id);
-int _wasgo_TileSet_wrapper_find_tile_by_name(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_TileSet_wrapper_get_last_unused_tile_id(WasGoId wasgo_id);
-WasGoId _wasgo_TileSet_wrapper_get_tiles_ids(WasGoId wasgo_id);
-void _wasgo_TileSet_wrapper_remove_tile(WasGoId wasgo_id, int p_id);
-void _wasgo_TileSet_wrapper_tile_add_shape(WasGoId wasgo_id, int p_id, WasGoId p_shape, const uint8_t * p_shape_transform, int p_shape_transform_wasgo_buffer_size, bool p_one_way, const uint8_t * p_autotile_coord, int p_autotile_coord_wasgo_buffer_size);
-WasGoId _wasgo_TileSet_wrapper_tile_get_light_occluder(WasGoId wasgo_id, int p_id);
-WasGoId _wasgo_TileSet_wrapper_tile_get_material(WasGoId wasgo_id, int p_id);
-void _wasgo_TileSet_wrapper_tile_get_modulate(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
-void _wasgo_TileSet_wrapper_tile_get_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
-WasGoId _wasgo_TileSet_wrapper_tile_get_navigation_polygon(WasGoId wasgo_id, int p_id);
-void _wasgo_TileSet_wrapper_tile_get_navigation_polygon_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
-WasGoId _wasgo_TileSet_wrapper_tile_get_normal_map(WasGoId wasgo_id, int p_id);
-void _wasgo_TileSet_wrapper_tile_get_occluder_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
-void _wasgo_TileSet_wrapper_tile_get_region(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
-WasGoId _wasgo_TileSet_wrapper_tile_get_shape(WasGoId wasgo_id, int p_id, int p_shape_id);
-int _wasgo_TileSet_wrapper_tile_get_shape_count(WasGoId wasgo_id, int p_id);
-void _wasgo_TileSet_wrapper_tile_get_shape_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id, int p_shape_id);
-int _wasgo_TileSet_wrapper_tile_get_shape_one_way(WasGoId wasgo_id, int p_id, int p_shape_id);
-float _wasgo_TileSet_wrapper_tile_get_shape_one_way_margin(WasGoId wasgo_id, int p_id, int p_shape_id);
-void _wasgo_TileSet_wrapper_tile_get_shape_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id, int p_shape_id);
-WasGoId _wasgo_TileSet_wrapper_tile_get_shapes(WasGoId wasgo_id, int p_id);
-WasGoId _wasgo_TileSet_wrapper_tile_get_texture(WasGoId wasgo_id, int p_id);
-void _wasgo_TileSet_wrapper_tile_get_texture_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
-WasGoId _wasgo_TileSet_wrapper_tile_get_tile_mode(WasGoId wasgo_id, int p_id);
-int _wasgo_TileSet_wrapper_tile_get_z_index(WasGoId wasgo_id, int p_id);
-void _wasgo_TileSet_wrapper_tile_set_light_occluder(WasGoId wasgo_id, int p_id, WasGoId p_light_occluder);
-void _wasgo_TileSet_wrapper_tile_set_material(WasGoId wasgo_id, int p_id, WasGoId p_material);
-void _wasgo_TileSet_wrapper_tile_set_modulate(WasGoId wasgo_id, int p_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_tile_set_name(WasGoId wasgo_id, int p_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_tile_set_navigation_polygon(WasGoId wasgo_id, int p_id, WasGoId p_navigation_polygon);
-void _wasgo_TileSet_wrapper_tile_set_navigation_polygon_offset(WasGoId wasgo_id, int p_id, const uint8_t * p_navigation_polygon_offset, int p_navigation_polygon_offset_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_tile_set_normal_map(WasGoId wasgo_id, int p_id, WasGoId p_normal_map);
-void _wasgo_TileSet_wrapper_tile_set_occluder_offset(WasGoId wasgo_id, int p_id, const uint8_t * p_occluder_offset, int p_occluder_offset_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_tile_set_region(WasGoId wasgo_id, int p_id, const uint8_t * p_region, int p_region_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_tile_set_shape(WasGoId wasgo_id, int p_id, int p_shape_id, WasGoId p_shape);
-void _wasgo_TileSet_wrapper_tile_set_shape_offset(WasGoId wasgo_id, int p_id, int p_shape_id, const uint8_t * p_shape_offset, int p_shape_offset_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_tile_set_shape_one_way(WasGoId wasgo_id, int p_id, int p_shape_id, bool p_one_way);
-void _wasgo_TileSet_wrapper_tile_set_shape_one_way_margin(WasGoId wasgo_id, int p_id, int p_shape_id, float p_one_way);
-void _wasgo_TileSet_wrapper_tile_set_shape_transform(WasGoId wasgo_id, int p_id, int p_shape_id, const uint8_t * p_shape_transform, int p_shape_transform_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_tile_set_shapes(WasGoId wasgo_id, int p_id, WasGoId p_shapes);
-void _wasgo_TileSet_wrapper_tile_set_texture(WasGoId wasgo_id, int p_id, WasGoId p_texture);
-void _wasgo_TileSet_wrapper_tile_set_texture_offset(WasGoId wasgo_id, int p_id, const uint8_t * p_texture_offset, int p_texture_offset_wasgo_buffer_size);
-void _wasgo_TileSet_wrapper_tile_set_tile_mode(WasGoId wasgo_id, int p_id, WasGoId p_tilemode);
-void _wasgo_TileSet_wrapper_tile_set_z_index(WasGoId wasgo_id, int p_id, int p_z_index);
+void _wasgo_TileSet_wrapper_autotile_clear_bitmask_map(WasGoID wasgo_id, int p_id);
+int _wasgo_TileSet_wrapper_autotile_get_bitmask(WasGoID wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
+WasGoID _wasgo_TileSet_wrapper_autotile_get_bitmask_mode(WasGoID wasgo_id, int p_id);
+void _wasgo_TileSet_wrapper_autotile_get_icon_coordinate(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
+WasGoID _wasgo_TileSet_wrapper_autotile_get_light_occluder(WasGoID wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
+WasGoID _wasgo_TileSet_wrapper_autotile_get_navigation_polygon(WasGoID wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_autotile_get_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
+int _wasgo_TileSet_wrapper_autotile_get_spacing(WasGoID wasgo_id, int p_id);
+int _wasgo_TileSet_wrapper_autotile_get_subtile_priority(WasGoID wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
+int _wasgo_TileSet_wrapper_autotile_get_z_index(WasGoID wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_autotile_set_bitmask(WasGoID wasgo_id, int p_id, const uint8_t * p_bitmask, int p_bitmask_wasgo_buffer_size, int p_flag);
+void _wasgo_TileSet_wrapper_autotile_set_bitmask_mode(WasGoID wasgo_id, int p_id, WasGoID p_mode);
+void _wasgo_TileSet_wrapper_autotile_set_icon_coordinate(WasGoID wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_autotile_set_light_occluder(WasGoID wasgo_id, int p_id, WasGoID p_light_occluder, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_autotile_set_navigation_polygon(WasGoID wasgo_id, int p_id, WasGoID p_navigation_polygon, const uint8_t * p_coord, int p_coord_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_autotile_set_size(WasGoID wasgo_id, int p_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_autotile_set_spacing(WasGoID wasgo_id, int p_id, int p_spacing);
+void _wasgo_TileSet_wrapper_autotile_set_subtile_priority(WasGoID wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size, int p_priority);
+void _wasgo_TileSet_wrapper_autotile_set_z_index(WasGoID wasgo_id, int p_id, const uint8_t * p_coord, int p_coord_wasgo_buffer_size, int p_z_index);
+void _wasgo_TileSet_wrapper_clear(WasGoID wasgo_id);
+void _wasgo_TileSet_wrapper_create_tile(WasGoID wasgo_id, int p_id);
+int _wasgo_TileSet_wrapper_find_tile_by_name(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_TileSet_wrapper_get_last_unused_tile_id(WasGoID wasgo_id);
+WasGoID _wasgo_TileSet_wrapper_get_tiles_ids(WasGoID wasgo_id);
+void _wasgo_TileSet_wrapper_remove_tile(WasGoID wasgo_id, int p_id);
+void _wasgo_TileSet_wrapper_tile_add_shape(WasGoID wasgo_id, int p_id, WasGoID p_shape, const uint8_t * p_shape_transform, int p_shape_transform_wasgo_buffer_size, bool p_one_way, const uint8_t * p_autotile_coord, int p_autotile_coord_wasgo_buffer_size);
+WasGoID _wasgo_TileSet_wrapper_tile_get_light_occluder(WasGoID wasgo_id, int p_id);
+WasGoID _wasgo_TileSet_wrapper_tile_get_material(WasGoID wasgo_id, int p_id);
+void _wasgo_TileSet_wrapper_tile_get_modulate(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
+void _wasgo_TileSet_wrapper_tile_get_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
+WasGoID _wasgo_TileSet_wrapper_tile_get_navigation_polygon(WasGoID wasgo_id, int p_id);
+void _wasgo_TileSet_wrapper_tile_get_navigation_polygon_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
+WasGoID _wasgo_TileSet_wrapper_tile_get_normal_map(WasGoID wasgo_id, int p_id);
+void _wasgo_TileSet_wrapper_tile_get_occluder_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
+void _wasgo_TileSet_wrapper_tile_get_region(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
+WasGoID _wasgo_TileSet_wrapper_tile_get_shape(WasGoID wasgo_id, int p_id, int p_shape_id);
+int _wasgo_TileSet_wrapper_tile_get_shape_count(WasGoID wasgo_id, int p_id);
+void _wasgo_TileSet_wrapper_tile_get_shape_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id, int p_shape_id);
+int _wasgo_TileSet_wrapper_tile_get_shape_one_way(WasGoID wasgo_id, int p_id, int p_shape_id);
+float _wasgo_TileSet_wrapper_tile_get_shape_one_way_margin(WasGoID wasgo_id, int p_id, int p_shape_id);
+void _wasgo_TileSet_wrapper_tile_get_shape_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id, int p_shape_id);
+WasGoID _wasgo_TileSet_wrapper_tile_get_shapes(WasGoID wasgo_id, int p_id);
+WasGoID _wasgo_TileSet_wrapper_tile_get_texture(WasGoID wasgo_id, int p_id);
+void _wasgo_TileSet_wrapper_tile_get_texture_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
+WasGoID _wasgo_TileSet_wrapper_tile_get_tile_mode(WasGoID wasgo_id, int p_id);
+int _wasgo_TileSet_wrapper_tile_get_z_index(WasGoID wasgo_id, int p_id);
+void _wasgo_TileSet_wrapper_tile_set_light_occluder(WasGoID wasgo_id, int p_id, WasGoID p_light_occluder);
+void _wasgo_TileSet_wrapper_tile_set_material(WasGoID wasgo_id, int p_id, WasGoID p_material);
+void _wasgo_TileSet_wrapper_tile_set_modulate(WasGoID wasgo_id, int p_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_tile_set_name(WasGoID wasgo_id, int p_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_tile_set_navigation_polygon(WasGoID wasgo_id, int p_id, WasGoID p_navigation_polygon);
+void _wasgo_TileSet_wrapper_tile_set_navigation_polygon_offset(WasGoID wasgo_id, int p_id, const uint8_t * p_navigation_polygon_offset, int p_navigation_polygon_offset_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_tile_set_normal_map(WasGoID wasgo_id, int p_id, WasGoID p_normal_map);
+void _wasgo_TileSet_wrapper_tile_set_occluder_offset(WasGoID wasgo_id, int p_id, const uint8_t * p_occluder_offset, int p_occluder_offset_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_tile_set_region(WasGoID wasgo_id, int p_id, const uint8_t * p_region, int p_region_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_tile_set_shape(WasGoID wasgo_id, int p_id, int p_shape_id, WasGoID p_shape);
+void _wasgo_TileSet_wrapper_tile_set_shape_offset(WasGoID wasgo_id, int p_id, int p_shape_id, const uint8_t * p_shape_offset, int p_shape_offset_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_tile_set_shape_one_way(WasGoID wasgo_id, int p_id, int p_shape_id, bool p_one_way);
+void _wasgo_TileSet_wrapper_tile_set_shape_one_way_margin(WasGoID wasgo_id, int p_id, int p_shape_id, float p_one_way);
+void _wasgo_TileSet_wrapper_tile_set_shape_transform(WasGoID wasgo_id, int p_id, int p_shape_id, const uint8_t * p_shape_transform, int p_shape_transform_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_tile_set_shapes(WasGoID wasgo_id, int p_id, WasGoID p_shapes);
+void _wasgo_TileSet_wrapper_tile_set_texture(WasGoID wasgo_id, int p_id, WasGoID p_texture);
+void _wasgo_TileSet_wrapper_tile_set_texture_offset(WasGoID wasgo_id, int p_id, const uint8_t * p_texture_offset, int p_texture_offset_wasgo_buffer_size);
+void _wasgo_TileSet_wrapper_tile_set_tile_mode(WasGoID wasgo_id, int p_id, WasGoID p_tilemode);
+void _wasgo_TileSet_wrapper_tile_set_z_index(WasGoID wasgo_id, int p_id, int p_z_index);
 
     //constructor wrappers
-    WasGoId _wasgo_TileSet_constructor();
+    WasGoID _wasgo_TileSet_constructor();
             
 }
 #endif

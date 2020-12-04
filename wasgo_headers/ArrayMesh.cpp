@@ -113,7 +113,7 @@ void ArrayMesh::surface_update_region(int p_surf_idx, int p_offset, PoolByteArra
 	_wasgo_ArrayMesh_wrapper_surface_update_region(wasgo_id, p_surf_idx, p_offset, p_data._get_wasgo_id());
 }
 
-ArrayMesh::ArrayMesh(WasGoId p_wasgo_id) : Mesh(p_wasgo_id){
+ArrayMesh::ArrayMesh(WasGoID p_wasgo_id) : Mesh(p_wasgo_id){
 }
 ArrayMesh::ArrayMesh(Mesh other) : Mesh(other._get_wasgo_id()){
     wasgo_id = _wasgo_ArrayMesh_constructor();

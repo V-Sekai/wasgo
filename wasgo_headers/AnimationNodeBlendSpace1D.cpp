@@ -60,7 +60,7 @@ void AnimationNodeBlendSpace1D::set_value_label(String p_text){
 	_wasgo_AnimationNodeBlendSpace1D_wrapper_set_value_label(wasgo_id, wasgo_buffer_text, wasgo_size_text);
 }
 
-AnimationNodeBlendSpace1D::AnimationNodeBlendSpace1D(WasGoId p_wasgo_id) : AnimationRootNode(p_wasgo_id){
+AnimationNodeBlendSpace1D::AnimationNodeBlendSpace1D(WasGoID p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
 AnimationNodeBlendSpace1D::AnimationNodeBlendSpace1D(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeBlendSpace1D_constructor();

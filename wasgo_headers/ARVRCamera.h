@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit ARVRCamera(WasGoId p_wasgo_id);
+explicit ARVRCamera(WasGoID p_wasgo_id);
 explicit ARVRCamera(Camera other);
 ARVRCamera new_instance();
             
@@ -21,7 +21,7 @@ ARVRCamera new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_ARVRCamera_constructor();
+    WasGoID _wasgo_ARVRCamera_constructor();
             
 }
 #endif

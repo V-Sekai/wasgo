@@ -67,7 +67,7 @@ void Translation::set_locale(String p_locale){
 	_wasgo_Translation_wrapper_set_locale(wasgo_id, wasgo_buffer_locale, wasgo_size_locale);
 }
 
-Translation::Translation(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+Translation::Translation(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Translation::Translation(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Translation_constructor();

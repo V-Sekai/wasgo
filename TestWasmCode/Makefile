@@ -32,6 +32,15 @@ CPPFLAGS += -nostdlib
 # CPPFLAGS += -Wl,--no-threads
 # CPPFLAGS += -Wl,--export-all
 CPPFLAGS += -Wl,--export=_notification
+CPPFLAGS += -Wl,--export=_ready
+CPPFLAGS += -Wl,--export=_process
+CPPFLAGS += -Wl,--export=_physics_process
+CPPFLAGS += -Wl,--export=_input
+CPPFLAGS += -Wl,--export=_unhandled_input
+CPPFLAGS += -Wl,--export=_unhandled_key_input
+CPPFLAGS += -Wl,--export=_wasgo_input
+CPPFLAGS += -Wl,--export=_wasgo_unhandled_input
+CPPFLAGS += -Wl,--export=_wasgo_unhandled_key_input
 CPPFLAGS += -Wl,--allow-undefined
 # CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\wasgo_headers
 # CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\godot\modules\WasGo\thirdparty\wasm-micro-runtime\wamr-sdk\opt\wasi-sdk\lib\clang\10.0.0\include

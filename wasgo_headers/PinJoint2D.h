@@ -12,7 +12,7 @@ void set_softness(float p_softness);
 
 protected:
 public:
-explicit PinJoint2D(WasGoId p_wasgo_id);
+explicit PinJoint2D(WasGoID p_wasgo_id);
 explicit PinJoint2D(Joint2D other);
 PinJoint2D new_instance();
             
@@ -21,11 +21,11 @@ PinJoint2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_PinJoint2D_wrapper_get_softness(WasGoId wasgo_id);
-void _wasgo_PinJoint2D_wrapper_set_softness(WasGoId wasgo_id, float p_softness);
+float _wasgo_PinJoint2D_wrapper_get_softness(WasGoID wasgo_id);
+void _wasgo_PinJoint2D_wrapper_set_softness(WasGoID wasgo_id, float p_softness);
 
     //constructor wrappers
-    WasGoId _wasgo_PinJoint2D_constructor();
+    WasGoID _wasgo_PinJoint2D_constructor();
             
 }
 #endif

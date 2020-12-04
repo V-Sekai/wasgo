@@ -39,7 +39,7 @@ void AnimationNodeTransition::set_input_caption(int p_input, String p_caption){
 	_wasgo_AnimationNodeTransition_wrapper_set_input_caption(wasgo_id, p_input, wasgo_buffer_caption, wasgo_size_caption);
 }
 
-AnimationNodeTransition::AnimationNodeTransition(WasGoId p_wasgo_id) : AnimationNode(p_wasgo_id){
+AnimationNodeTransition::AnimationNodeTransition(WasGoID p_wasgo_id) : AnimationNode(p_wasgo_id){
 }
 AnimationNodeTransition::AnimationNodeTransition(AnimationNode other) : AnimationNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeTransition_constructor();

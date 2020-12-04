@@ -17,7 +17,7 @@ int ResourceFormatSaver::save(String p_path, Resource p_resource, int p_flags){
 	return (int) _wasgo_ResourceFormatSaver_wrapper_save(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_resource._get_wasgo_id(), p_flags);
 }
 
-ResourceFormatSaver::ResourceFormatSaver(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+ResourceFormatSaver::ResourceFormatSaver(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 ResourceFormatSaver::ResourceFormatSaver(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_ResourceFormatSaver_constructor();

@@ -46,7 +46,7 @@ void set_function(VisualShaderNodeScalarFunc::Function p_func);
 
 protected:
 public:
-explicit VisualShaderNodeScalarFunc(WasGoId p_wasgo_id);
+explicit VisualShaderNodeScalarFunc(WasGoID p_wasgo_id);
 explicit VisualShaderNodeScalarFunc(VisualShaderNode other);
 VisualShaderNodeScalarFunc new_instance();
             
@@ -55,11 +55,11 @@ VisualShaderNodeScalarFunc new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_VisualShaderNodeScalarFunc_wrapper_get_function(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeScalarFunc_wrapper_set_function(WasGoId wasgo_id, WasGoId p_func);
+WasGoID _wasgo_VisualShaderNodeScalarFunc_wrapper_get_function(WasGoID wasgo_id);
+void _wasgo_VisualShaderNodeScalarFunc_wrapper_set_function(WasGoID wasgo_id, WasGoID p_func);
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeScalarFunc_constructor();
+    WasGoID _wasgo_VisualShaderNodeScalarFunc_constructor();
             
 }
 #endif

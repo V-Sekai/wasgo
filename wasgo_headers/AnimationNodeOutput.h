@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit AnimationNodeOutput(WasGoId p_wasgo_id);
+explicit AnimationNodeOutput(WasGoID p_wasgo_id);
 explicit AnimationNodeOutput(AnimationNode other);
 AnimationNodeOutput new_instance();
             
@@ -21,7 +21,7 @@ AnimationNodeOutput new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_AnimationNodeOutput_constructor();
+    WasGoID _wasgo_AnimationNodeOutput_constructor();
             
 }
 #endif

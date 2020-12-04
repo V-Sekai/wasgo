@@ -8,7 +8,7 @@ void VisualShaderNodeVectorOp::set_operator(VisualShaderNodeVectorOp::Operator p
 	_wasgo_VisualShaderNodeVectorOp_wrapper_set_operator(wasgo_id, p_op._get_wasgo_id());
 }
 
-VisualShaderNodeVectorOp::VisualShaderNodeVectorOp(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeVectorOp::VisualShaderNodeVectorOp(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeVectorOp::VisualShaderNodeVectorOp(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeVectorOp_constructor();

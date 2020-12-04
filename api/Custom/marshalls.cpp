@@ -45,11 +45,11 @@
 // 	ADD_PROPERTY(PropertyInfo(Variant::INT, "object_id"), "set_object_id", "get_object_id");
 // }
 
-// void EncodedObjectAsID::set_object_id(WasGoId p_id) {
+// void EncodedObjectAsID::set_object_id(WasGoID p_id) {
 // 	id = p_id;
 // }
 
-// WasGoId EncodedObjectAsID::get_object_id() const {
+// WasGoID EncodedObjectAsID::get_object_id() const {
 
 // 	return id;
 // }

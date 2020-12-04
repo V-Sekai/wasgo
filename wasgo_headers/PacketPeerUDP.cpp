@@ -87,7 +87,7 @@ Error PacketPeerUDP::wait(){
 	return Error(_wasgo_PacketPeerUDP_wrapper_wait(wasgo_id));
 }
 
-PacketPeerUDP::PacketPeerUDP(WasGoId p_wasgo_id) : PacketPeer(p_wasgo_id){
+PacketPeerUDP::PacketPeerUDP(WasGoID p_wasgo_id) : PacketPeer(p_wasgo_id){
 }
 PacketPeerUDP::PacketPeerUDP(PacketPeer other) : PacketPeer(other._get_wasgo_id()){
     wasgo_id = _wasgo_PacketPeerUDP_constructor();

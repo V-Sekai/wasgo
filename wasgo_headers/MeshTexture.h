@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Vector2.h"
 #include "Texture.h"
 #include "Mesh.h"
-#include "Vector2.h"
 class MeshTexture : public Texture{
 public:
 Texture get_base_texture();
@@ -18,7 +18,7 @@ void set_mesh(Mesh p_mesh);
 
 protected:
 public:
-explicit MeshTexture(WasGoId p_wasgo_id);
+explicit MeshTexture(WasGoID p_wasgo_id);
 explicit MeshTexture(Texture other);
 MeshTexture new_instance();
             
@@ -27,15 +27,15 @@ MeshTexture new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_MeshTexture_wrapper_get_base_texture(WasGoId wasgo_id);
-void _wasgo_MeshTexture_wrapper_get_image_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_MeshTexture_wrapper_get_mesh(WasGoId wasgo_id);
-void _wasgo_MeshTexture_wrapper_set_base_texture(WasGoId wasgo_id, WasGoId p_texture);
-void _wasgo_MeshTexture_wrapper_set_image_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
-void _wasgo_MeshTexture_wrapper_set_mesh(WasGoId wasgo_id, WasGoId p_mesh);
+WasGoID _wasgo_MeshTexture_wrapper_get_base_texture(WasGoID wasgo_id);
+void _wasgo_MeshTexture_wrapper_get_image_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_MeshTexture_wrapper_get_mesh(WasGoID wasgo_id);
+void _wasgo_MeshTexture_wrapper_set_base_texture(WasGoID wasgo_id, WasGoID p_texture);
+void _wasgo_MeshTexture_wrapper_set_image_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
+void _wasgo_MeshTexture_wrapper_set_mesh(WasGoID wasgo_id, WasGoID p_mesh);
 
     //constructor wrappers
-    WasGoId _wasgo_MeshTexture_constructor();
+    WasGoID _wasgo_MeshTexture_constructor();
             
 }
 #endif

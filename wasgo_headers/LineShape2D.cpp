@@ -27,7 +27,7 @@ void LineShape2D::set_normal(Vector2 p_normal){
 	_wasgo_LineShape2D_wrapper_set_normal(wasgo_id, wasgo_buffer_normal, wasgo_size_normal);
 }
 
-LineShape2D::LineShape2D(WasGoId p_wasgo_id) : Shape2D(p_wasgo_id){
+LineShape2D::LineShape2D(WasGoID p_wasgo_id) : Shape2D(p_wasgo_id){
 }
 LineShape2D::LineShape2D(Shape2D other) : Shape2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_LineShape2D_constructor();

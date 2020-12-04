@@ -40,7 +40,7 @@ void SegmentShape2D::set_b(Vector2 p_b){
 	_wasgo_SegmentShape2D_wrapper_set_b(wasgo_id, wasgo_buffer_b, wasgo_size_b);
 }
 
-SegmentShape2D::SegmentShape2D(WasGoId p_wasgo_id) : Shape2D(p_wasgo_id){
+SegmentShape2D::SegmentShape2D(WasGoID p_wasgo_id) : Shape2D(p_wasgo_id){
 }
 SegmentShape2D::SegmentShape2D(Shape2D other) : Shape2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_SegmentShape2D_constructor();

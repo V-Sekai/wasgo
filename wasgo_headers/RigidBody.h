@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
-#include "PhysicsMaterial.h"
 #include "Basis.h"
-#include "PhysicsBody.h"
-#include "PhysicsServer.h"
+#include "Vector3.h"
 #include "Variant.h"
+#include "PhysicsServer.h"
+#include "PhysicsMaterial.h"
+#include "PhysicsBody.h"
 class RigidBody : public PhysicsBody{
 public:
 enum Mode{
@@ -66,7 +66,7 @@ void set_weight(float p_weight);
 
 protected:
 public:
-explicit RigidBody(WasGoId p_wasgo_id);
+explicit RigidBody(WasGoID p_wasgo_id);
 explicit RigidBody(PhysicsBody other);
 RigidBody new_instance();
             
@@ -75,54 +75,54 @@ RigidBody new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_RigidBody_wrapper_add_central_force(WasGoId wasgo_id, const uint8_t * p_force, int p_force_wasgo_buffer_size);
-void _wasgo_RigidBody_wrapper_add_force(WasGoId wasgo_id, const uint8_t * p_force, int p_force_wasgo_buffer_size, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_RigidBody_wrapper_add_torque(WasGoId wasgo_id, const uint8_t * p_torque, int p_torque_wasgo_buffer_size);
-void _wasgo_RigidBody_wrapper_apply_central_impulse(WasGoId wasgo_id, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
-void _wasgo_RigidBody_wrapper_apply_impulse(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
-void _wasgo_RigidBody_wrapper_apply_torque_impulse(WasGoId wasgo_id, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
-float _wasgo_RigidBody_wrapper_get_angular_damp(WasGoId wasgo_id);
-void _wasgo_RigidBody_wrapper_get_angular_velocity(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_RigidBody_wrapper_get_axis_lock(WasGoId wasgo_id, WasGoId p_axis);
-float _wasgo_RigidBody_wrapper_get_bounce(WasGoId wasgo_id);
-WasGoId _wasgo_RigidBody_wrapper_get_colliding_bodies(WasGoId wasgo_id);
-float _wasgo_RigidBody_wrapper_get_friction(WasGoId wasgo_id);
-float _wasgo_RigidBody_wrapper_get_gravity_scale(WasGoId wasgo_id);
-void _wasgo_RigidBody_wrapper_get_inverse_inertia_tensor(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_RigidBody_wrapper_get_linear_damp(WasGoId wasgo_id);
-void _wasgo_RigidBody_wrapper_get_linear_velocity(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_RigidBody_wrapper_get_mass(WasGoId wasgo_id);
-int _wasgo_RigidBody_wrapper_get_max_contacts_reported(WasGoId wasgo_id);
-WasGoId _wasgo_RigidBody_wrapper_get_mode(WasGoId wasgo_id);
-WasGoId _wasgo_RigidBody_wrapper_get_physics_material_override(WasGoId wasgo_id);
-float _wasgo_RigidBody_wrapper_get_weight(WasGoId wasgo_id);
-int _wasgo_RigidBody_wrapper_is_able_to_sleep(WasGoId wasgo_id);
-int _wasgo_RigidBody_wrapper_is_contact_monitor_enabled(WasGoId wasgo_id);
-int _wasgo_RigidBody_wrapper_is_sleeping(WasGoId wasgo_id);
-int _wasgo_RigidBody_wrapper_is_using_continuous_collision_detection(WasGoId wasgo_id);
-int _wasgo_RigidBody_wrapper_is_using_custom_integrator(WasGoId wasgo_id);
-void _wasgo_RigidBody_wrapper_set_angular_damp(WasGoId wasgo_id, float p_angular_damp);
-void _wasgo_RigidBody_wrapper_set_angular_velocity(WasGoId wasgo_id, const uint8_t * p_angular_velocity, int p_angular_velocity_wasgo_buffer_size);
-void _wasgo_RigidBody_wrapper_set_axis_lock(WasGoId wasgo_id, WasGoId p_axis, bool p_lock);
-void _wasgo_RigidBody_wrapper_set_axis_velocity(WasGoId wasgo_id, const uint8_t * p_axis_velocity, int p_axis_velocity_wasgo_buffer_size);
-void _wasgo_RigidBody_wrapper_set_bounce(WasGoId wasgo_id, float p_bounce);
-void _wasgo_RigidBody_wrapper_set_can_sleep(WasGoId wasgo_id, bool p_able_to_sleep);
-void _wasgo_RigidBody_wrapper_set_contact_monitor(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_RigidBody_wrapper_set_friction(WasGoId wasgo_id, float p_friction);
-void _wasgo_RigidBody_wrapper_set_gravity_scale(WasGoId wasgo_id, float p_gravity_scale);
-void _wasgo_RigidBody_wrapper_set_linear_damp(WasGoId wasgo_id, float p_linear_damp);
-void _wasgo_RigidBody_wrapper_set_linear_velocity(WasGoId wasgo_id, const uint8_t * p_linear_velocity, int p_linear_velocity_wasgo_buffer_size);
-void _wasgo_RigidBody_wrapper_set_mass(WasGoId wasgo_id, float p_mass);
-void _wasgo_RigidBody_wrapper_set_max_contacts_reported(WasGoId wasgo_id, int p_amount);
-void _wasgo_RigidBody_wrapper_set_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_RigidBody_wrapper_set_physics_material_override(WasGoId wasgo_id, WasGoId p_physics_material_override);
-void _wasgo_RigidBody_wrapper_set_sleeping(WasGoId wasgo_id, bool p_sleeping);
-void _wasgo_RigidBody_wrapper_set_use_continuous_collision_detection(WasGoId wasgo_id, bool p_enable);
-void _wasgo_RigidBody_wrapper_set_use_custom_integrator(WasGoId wasgo_id, bool p_enable);
-void _wasgo_RigidBody_wrapper_set_weight(WasGoId wasgo_id, float p_weight);
+void _wasgo_RigidBody_wrapper_add_central_force(WasGoID wasgo_id, const uint8_t * p_force, int p_force_wasgo_buffer_size);
+void _wasgo_RigidBody_wrapper_add_force(WasGoID wasgo_id, const uint8_t * p_force, int p_force_wasgo_buffer_size, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_RigidBody_wrapper_add_torque(WasGoID wasgo_id, const uint8_t * p_torque, int p_torque_wasgo_buffer_size);
+void _wasgo_RigidBody_wrapper_apply_central_impulse(WasGoID wasgo_id, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
+void _wasgo_RigidBody_wrapper_apply_impulse(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
+void _wasgo_RigidBody_wrapper_apply_torque_impulse(WasGoID wasgo_id, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
+float _wasgo_RigidBody_wrapper_get_angular_damp(WasGoID wasgo_id);
+void _wasgo_RigidBody_wrapper_get_angular_velocity(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_RigidBody_wrapper_get_axis_lock(WasGoID wasgo_id, WasGoID p_axis);
+float _wasgo_RigidBody_wrapper_get_bounce(WasGoID wasgo_id);
+WasGoID _wasgo_RigidBody_wrapper_get_colliding_bodies(WasGoID wasgo_id);
+float _wasgo_RigidBody_wrapper_get_friction(WasGoID wasgo_id);
+float _wasgo_RigidBody_wrapper_get_gravity_scale(WasGoID wasgo_id);
+void _wasgo_RigidBody_wrapper_get_inverse_inertia_tensor(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_RigidBody_wrapper_get_linear_damp(WasGoID wasgo_id);
+void _wasgo_RigidBody_wrapper_get_linear_velocity(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_RigidBody_wrapper_get_mass(WasGoID wasgo_id);
+int _wasgo_RigidBody_wrapper_get_max_contacts_reported(WasGoID wasgo_id);
+WasGoID _wasgo_RigidBody_wrapper_get_mode(WasGoID wasgo_id);
+WasGoID _wasgo_RigidBody_wrapper_get_physics_material_override(WasGoID wasgo_id);
+float _wasgo_RigidBody_wrapper_get_weight(WasGoID wasgo_id);
+int _wasgo_RigidBody_wrapper_is_able_to_sleep(WasGoID wasgo_id);
+int _wasgo_RigidBody_wrapper_is_contact_monitor_enabled(WasGoID wasgo_id);
+int _wasgo_RigidBody_wrapper_is_sleeping(WasGoID wasgo_id);
+int _wasgo_RigidBody_wrapper_is_using_continuous_collision_detection(WasGoID wasgo_id);
+int _wasgo_RigidBody_wrapper_is_using_custom_integrator(WasGoID wasgo_id);
+void _wasgo_RigidBody_wrapper_set_angular_damp(WasGoID wasgo_id, float p_angular_damp);
+void _wasgo_RigidBody_wrapper_set_angular_velocity(WasGoID wasgo_id, const uint8_t * p_angular_velocity, int p_angular_velocity_wasgo_buffer_size);
+void _wasgo_RigidBody_wrapper_set_axis_lock(WasGoID wasgo_id, WasGoID p_axis, bool p_lock);
+void _wasgo_RigidBody_wrapper_set_axis_velocity(WasGoID wasgo_id, const uint8_t * p_axis_velocity, int p_axis_velocity_wasgo_buffer_size);
+void _wasgo_RigidBody_wrapper_set_bounce(WasGoID wasgo_id, float p_bounce);
+void _wasgo_RigidBody_wrapper_set_can_sleep(WasGoID wasgo_id, bool p_able_to_sleep);
+void _wasgo_RigidBody_wrapper_set_contact_monitor(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_RigidBody_wrapper_set_friction(WasGoID wasgo_id, float p_friction);
+void _wasgo_RigidBody_wrapper_set_gravity_scale(WasGoID wasgo_id, float p_gravity_scale);
+void _wasgo_RigidBody_wrapper_set_linear_damp(WasGoID wasgo_id, float p_linear_damp);
+void _wasgo_RigidBody_wrapper_set_linear_velocity(WasGoID wasgo_id, const uint8_t * p_linear_velocity, int p_linear_velocity_wasgo_buffer_size);
+void _wasgo_RigidBody_wrapper_set_mass(WasGoID wasgo_id, float p_mass);
+void _wasgo_RigidBody_wrapper_set_max_contacts_reported(WasGoID wasgo_id, int p_amount);
+void _wasgo_RigidBody_wrapper_set_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_RigidBody_wrapper_set_physics_material_override(WasGoID wasgo_id, WasGoID p_physics_material_override);
+void _wasgo_RigidBody_wrapper_set_sleeping(WasGoID wasgo_id, bool p_sleeping);
+void _wasgo_RigidBody_wrapper_set_use_continuous_collision_detection(WasGoID wasgo_id, bool p_enable);
+void _wasgo_RigidBody_wrapper_set_use_custom_integrator(WasGoID wasgo_id, bool p_enable);
+void _wasgo_RigidBody_wrapper_set_weight(WasGoID wasgo_id, float p_weight);
 
     //constructor wrappers
-    WasGoId _wasgo_RigidBody_constructor();
+    WasGoID _wasgo_RigidBody_constructor();
             
 }
 #endif

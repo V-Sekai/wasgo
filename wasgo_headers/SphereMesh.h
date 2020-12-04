@@ -20,7 +20,7 @@ void set_rings(int p_rings);
 
 protected:
 public:
-explicit SphereMesh(WasGoId p_wasgo_id);
+explicit SphereMesh(WasGoID p_wasgo_id);
 explicit SphereMesh(PrimitiveMesh other);
 SphereMesh new_instance();
             
@@ -29,19 +29,19 @@ SphereMesh new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_SphereMesh_wrapper_get_height(WasGoId wasgo_id);
-int _wasgo_SphereMesh_wrapper_get_is_hemisphere(WasGoId wasgo_id);
-int _wasgo_SphereMesh_wrapper_get_radial_segments(WasGoId wasgo_id);
-float _wasgo_SphereMesh_wrapper_get_radius(WasGoId wasgo_id);
-int _wasgo_SphereMesh_wrapper_get_rings(WasGoId wasgo_id);
-void _wasgo_SphereMesh_wrapper_set_height(WasGoId wasgo_id, float p_height);
-void _wasgo_SphereMesh_wrapper_set_is_hemisphere(WasGoId wasgo_id, bool p_is_hemisphere);
-void _wasgo_SphereMesh_wrapper_set_radial_segments(WasGoId wasgo_id, int p_radial_segments);
-void _wasgo_SphereMesh_wrapper_set_radius(WasGoId wasgo_id, float p_radius);
-void _wasgo_SphereMesh_wrapper_set_rings(WasGoId wasgo_id, int p_rings);
+float _wasgo_SphereMesh_wrapper_get_height(WasGoID wasgo_id);
+int _wasgo_SphereMesh_wrapper_get_is_hemisphere(WasGoID wasgo_id);
+int _wasgo_SphereMesh_wrapper_get_radial_segments(WasGoID wasgo_id);
+float _wasgo_SphereMesh_wrapper_get_radius(WasGoID wasgo_id);
+int _wasgo_SphereMesh_wrapper_get_rings(WasGoID wasgo_id);
+void _wasgo_SphereMesh_wrapper_set_height(WasGoID wasgo_id, float p_height);
+void _wasgo_SphereMesh_wrapper_set_is_hemisphere(WasGoID wasgo_id, bool p_is_hemisphere);
+void _wasgo_SphereMesh_wrapper_set_radial_segments(WasGoID wasgo_id, int p_radial_segments);
+void _wasgo_SphereMesh_wrapper_set_radius(WasGoID wasgo_id, float p_radius);
+void _wasgo_SphereMesh_wrapper_set_rings(WasGoID wasgo_id, int p_rings);
 
     //constructor wrappers
-    WasGoId _wasgo_SphereMesh_constructor();
+    WasGoID _wasgo_SphereMesh_constructor();
             
 }
 #endif

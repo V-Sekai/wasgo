@@ -136,7 +136,7 @@ void Area2D::set_space_override_mode(Area2D::SpaceOverride p_space_override_mode
 	_wasgo_Area2D_wrapper_set_space_override_mode(wasgo_id, p_space_override_mode._get_wasgo_id());
 }
 
-Area2D::Area2D(WasGoId p_wasgo_id) : CollisionObject2D(p_wasgo_id){
+Area2D::Area2D(WasGoID p_wasgo_id) : CollisionObject2D(p_wasgo_id){
 }
 Area2D::Area2D(CollisionObject2D other) : CollisionObject2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Area2D_constructor();

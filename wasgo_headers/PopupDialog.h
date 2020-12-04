@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit PopupDialog(WasGoId p_wasgo_id);
+explicit PopupDialog(WasGoID p_wasgo_id);
 explicit PopupDialog(Popup other);
 PopupDialog new_instance();
             
@@ -21,7 +21,7 @@ PopupDialog new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_PopupDialog_constructor();
+    WasGoID _wasgo_PopupDialog_constructor();
             
 }
 #endif

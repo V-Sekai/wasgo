@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeVectorScalarMix(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorScalarMix(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorScalarMix(VisualShaderNode other);
 VisualShaderNodeVectorScalarMix new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeVectorScalarMix new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeVectorScalarMix_constructor();
+    WasGoID _wasgo_VisualShaderNodeVectorScalarMix_constructor();
             
 }
 #endif

@@ -13,7 +13,7 @@ void set_curve(Curve2D p_curve);
 
 protected:
 public:
-explicit Path2D(WasGoId p_wasgo_id);
+explicit Path2D(WasGoID p_wasgo_id);
 explicit Path2D(Node2D other);
 Path2D new_instance();
             
@@ -22,11 +22,11 @@ Path2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Path2D_wrapper_get_curve(WasGoId wasgo_id);
-void _wasgo_Path2D_wrapper_set_curve(WasGoId wasgo_id, WasGoId p_curve);
+WasGoID _wasgo_Path2D_wrapper_get_curve(WasGoID wasgo_id);
+void _wasgo_Path2D_wrapper_set_curve(WasGoID wasgo_id, WasGoID p_curve);
 
     //constructor wrappers
-    WasGoId _wasgo_Path2D_constructor();
+    WasGoID _wasgo_Path2D_constructor();
             
 }
 #endif

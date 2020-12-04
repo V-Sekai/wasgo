@@ -21,7 +21,7 @@ void VisualShaderNodeColorConstant::set_constant(Color p_value){
 	_wasgo_VisualShaderNodeColorConstant_wrapper_set_constant(wasgo_id, wasgo_buffer_value, wasgo_size_value);
 }
 
-VisualShaderNodeColorConstant::VisualShaderNodeColorConstant(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeColorConstant::VisualShaderNodeColorConstant(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeColorConstant::VisualShaderNodeColorConstant(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeColorConstant_constructor();

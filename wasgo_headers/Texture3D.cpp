@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "Texture3D.h"
 
-Texture3D::Texture3D(WasGoId p_wasgo_id) : TextureLayered(p_wasgo_id){
+Texture3D::Texture3D(WasGoID p_wasgo_id) : TextureLayered(p_wasgo_id){
 }
 Texture3D::Texture3D(TextureLayered other) : TextureLayered(other._get_wasgo_id()){
     wasgo_id = _wasgo_Texture3D_constructor();

@@ -19,14 +19,14 @@ Error wait();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_ResourceInteractiveLoader_wrapper_get_resource(WasGoId wasgo_id);
-int _wasgo_ResourceInteractiveLoader_wrapper_get_stage(WasGoId wasgo_id);
-int _wasgo_ResourceInteractiveLoader_wrapper_get_stage_count(WasGoId wasgo_id);
-WasGoId _wasgo_ResourceInteractiveLoader_wrapper_poll(WasGoId wasgo_id);
-WasGoId _wasgo_ResourceInteractiveLoader_wrapper_wait(WasGoId wasgo_id);
+WasGoID _wasgo_ResourceInteractiveLoader_wrapper_get_resource(WasGoID wasgo_id);
+int _wasgo_ResourceInteractiveLoader_wrapper_get_stage(WasGoID wasgo_id);
+int _wasgo_ResourceInteractiveLoader_wrapper_get_stage_count(WasGoID wasgo_id);
+WasGoID _wasgo_ResourceInteractiveLoader_wrapper_poll(WasGoID wasgo_id);
+WasGoID _wasgo_ResourceInteractiveLoader_wrapper_wait(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_ResourceInteractiveLoader_constructor();
+    WasGoID _wasgo_ResourceInteractiveLoader_constructor();
             
 }
 #endif

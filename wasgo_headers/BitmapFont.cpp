@@ -59,7 +59,7 @@ void BitmapFont::set_height(float p_px){
 	_wasgo_BitmapFont_wrapper_set_height(wasgo_id, p_px);
 }
 
-BitmapFont::BitmapFont(WasGoId p_wasgo_id) : Font(p_wasgo_id){
+BitmapFont::BitmapFont(WasGoID p_wasgo_id) : Font(p_wasgo_id){
 }
 BitmapFont::BitmapFont(Font other) : Font(other._get_wasgo_id()){
     wasgo_id = _wasgo_BitmapFont_constructor();

@@ -294,7 +294,7 @@ void Image::unlock(){
 	_wasgo_Image_wrapper_unlock(wasgo_id);
 }
 
-Image::Image(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+Image::Image(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Image::Image(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Image_constructor();

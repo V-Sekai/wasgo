@@ -26,7 +26,7 @@ bool MainLoop::iteration(float p_delta){
 	return (bool) _wasgo_MainLoop_wrapper_iteration(wasgo_id, p_delta);
 }
 
-MainLoop::MainLoop(WasGoId p_wasgo_id) : Object(p_wasgo_id){
+MainLoop::MainLoop(WasGoID p_wasgo_id) : Object(p_wasgo_id){
 }
 MainLoop::MainLoop(Object other) : Object(other._get_wasgo_id()){
     wasgo_id = _wasgo_MainLoop_constructor();

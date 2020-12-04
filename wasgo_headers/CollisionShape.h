@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Shape.h"
 #include "Spatial.h"
+#include "Shape.h"
 #include "Resource.h"
 class CollisionShape : public Spatial{
 public:
@@ -18,7 +18,7 @@ void set_shape(Shape p_shape);
 
 protected:
 public:
-explicit CollisionShape(WasGoId p_wasgo_id);
+explicit CollisionShape(WasGoID p_wasgo_id);
 explicit CollisionShape(Spatial other);
 CollisionShape new_instance();
             
@@ -27,15 +27,15 @@ CollisionShape new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_CollisionShape_wrapper_get_shape(WasGoId wasgo_id);
-int _wasgo_CollisionShape_wrapper_is_disabled(WasGoId wasgo_id);
-void _wasgo_CollisionShape_wrapper_make_convex_from_brothers(WasGoId wasgo_id);
-void _wasgo_CollisionShape_wrapper_resource_changed(WasGoId wasgo_id, WasGoId p_resource);
-void _wasgo_CollisionShape_wrapper_set_disabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_CollisionShape_wrapper_set_shape(WasGoId wasgo_id, WasGoId p_shape);
+WasGoID _wasgo_CollisionShape_wrapper_get_shape(WasGoID wasgo_id);
+int _wasgo_CollisionShape_wrapper_is_disabled(WasGoID wasgo_id);
+void _wasgo_CollisionShape_wrapper_make_convex_from_brothers(WasGoID wasgo_id);
+void _wasgo_CollisionShape_wrapper_resource_changed(WasGoID wasgo_id, WasGoID p_resource);
+void _wasgo_CollisionShape_wrapper_set_disabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_CollisionShape_wrapper_set_shape(WasGoID wasgo_id, WasGoID p_shape);
 
     //constructor wrappers
-    WasGoId _wasgo_CollisionShape_constructor();
+    WasGoID _wasgo_CollisionShape_constructor();
             
 }
 #endif

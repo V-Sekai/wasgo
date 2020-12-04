@@ -182,7 +182,7 @@ float Tween::tell(){
 	return (float) _wasgo_Tween_wrapper_tell(wasgo_id);
 }
 
-Tween::Tween(WasGoId p_wasgo_id) : Node(p_wasgo_id){
+Tween::Tween(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 Tween::Tween(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_Tween_constructor();

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "AudioStream.h"
 #include "error_list.h"
 #include "Variant.h"
+#include "AudioStream.h"
+#include "ustring.h"
 class AudioStreamSample : public AudioStream{
 public:
 enum Format{
@@ -39,7 +39,7 @@ void set_stereo(bool p_stereo);
 
 protected:
 public:
-explicit AudioStreamSample(WasGoId p_wasgo_id);
+explicit AudioStreamSample(WasGoID p_wasgo_id);
 explicit AudioStreamSample(AudioStream other);
 AudioStreamSample new_instance();
             
@@ -48,24 +48,24 @@ AudioStreamSample new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_AudioStreamSample_wrapper_get_data(WasGoId wasgo_id);
-WasGoId _wasgo_AudioStreamSample_wrapper_get_format(WasGoId wasgo_id);
-int _wasgo_AudioStreamSample_wrapper_get_loop_begin(WasGoId wasgo_id);
-int _wasgo_AudioStreamSample_wrapper_get_loop_end(WasGoId wasgo_id);
-WasGoId _wasgo_AudioStreamSample_wrapper_get_loop_mode(WasGoId wasgo_id);
-int _wasgo_AudioStreamSample_wrapper_get_mix_rate(WasGoId wasgo_id);
-int _wasgo_AudioStreamSample_wrapper_is_stereo(WasGoId wasgo_id);
-WasGoId _wasgo_AudioStreamSample_wrapper_save_to_wav(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-void _wasgo_AudioStreamSample_wrapper_set_data(WasGoId wasgo_id, WasGoId p_data);
-void _wasgo_AudioStreamSample_wrapper_set_format(WasGoId wasgo_id, WasGoId p_format);
-void _wasgo_AudioStreamSample_wrapper_set_loop_begin(WasGoId wasgo_id, int p_loop_begin);
-void _wasgo_AudioStreamSample_wrapper_set_loop_end(WasGoId wasgo_id, int p_loop_end);
-void _wasgo_AudioStreamSample_wrapper_set_loop_mode(WasGoId wasgo_id, WasGoId p_loop_mode);
-void _wasgo_AudioStreamSample_wrapper_set_mix_rate(WasGoId wasgo_id, int p_mix_rate);
-void _wasgo_AudioStreamSample_wrapper_set_stereo(WasGoId wasgo_id, bool p_stereo);
+WasGoID _wasgo_AudioStreamSample_wrapper_get_data(WasGoID wasgo_id);
+WasGoID _wasgo_AudioStreamSample_wrapper_get_format(WasGoID wasgo_id);
+int _wasgo_AudioStreamSample_wrapper_get_loop_begin(WasGoID wasgo_id);
+int _wasgo_AudioStreamSample_wrapper_get_loop_end(WasGoID wasgo_id);
+WasGoID _wasgo_AudioStreamSample_wrapper_get_loop_mode(WasGoID wasgo_id);
+int _wasgo_AudioStreamSample_wrapper_get_mix_rate(WasGoID wasgo_id);
+int _wasgo_AudioStreamSample_wrapper_is_stereo(WasGoID wasgo_id);
+WasGoID _wasgo_AudioStreamSample_wrapper_save_to_wav(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_AudioStreamSample_wrapper_set_data(WasGoID wasgo_id, WasGoID p_data);
+void _wasgo_AudioStreamSample_wrapper_set_format(WasGoID wasgo_id, WasGoID p_format);
+void _wasgo_AudioStreamSample_wrapper_set_loop_begin(WasGoID wasgo_id, int p_loop_begin);
+void _wasgo_AudioStreamSample_wrapper_set_loop_end(WasGoID wasgo_id, int p_loop_end);
+void _wasgo_AudioStreamSample_wrapper_set_loop_mode(WasGoID wasgo_id, WasGoID p_loop_mode);
+void _wasgo_AudioStreamSample_wrapper_set_mix_rate(WasGoID wasgo_id, int p_mix_rate);
+void _wasgo_AudioStreamSample_wrapper_set_stereo(WasGoID wasgo_id, bool p_stereo);
 
     //constructor wrappers
-    WasGoId _wasgo_AudioStreamSample_constructor();
+    WasGoID _wasgo_AudioStreamSample_constructor();
             
 }
 #endif

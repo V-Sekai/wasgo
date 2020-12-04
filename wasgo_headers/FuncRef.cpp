@@ -33,7 +33,7 @@ void FuncRef::set_instance(Object p_instance){
 	_wasgo_FuncRef_wrapper_set_instance(wasgo_id, p_instance._get_wasgo_id());
 }
 
-FuncRef::FuncRef(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+FuncRef::FuncRef(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 FuncRef::FuncRef(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_FuncRef_constructor();

@@ -22,7 +22,7 @@ void set_suffix(String p_suffix);
 
 protected:
 public:
-explicit SpinBox(WasGoId p_wasgo_id);
+explicit SpinBox(WasGoID p_wasgo_id);
 explicit SpinBox(Range other);
 SpinBox new_instance();
             
@@ -31,19 +31,19 @@ SpinBox new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_SpinBox_wrapper_apply(WasGoId wasgo_id);
-WasGoId _wasgo_SpinBox_wrapper_get_align(WasGoId wasgo_id);
-WasGoId _wasgo_SpinBox_wrapper_get_line_edit(WasGoId wasgo_id);
-void _wasgo_SpinBox_wrapper_get_prefix(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_SpinBox_wrapper_get_suffix(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_SpinBox_wrapper_is_editable(WasGoId wasgo_id);
-void _wasgo_SpinBox_wrapper_set_align(WasGoId wasgo_id, WasGoId p_align);
-void _wasgo_SpinBox_wrapper_set_editable(WasGoId wasgo_id, bool p_editable);
-void _wasgo_SpinBox_wrapper_set_prefix(WasGoId wasgo_id, const uint8_t * p_prefix, int p_prefix_wasgo_buffer_size);
-void _wasgo_SpinBox_wrapper_set_suffix(WasGoId wasgo_id, const uint8_t * p_suffix, int p_suffix_wasgo_buffer_size);
+void _wasgo_SpinBox_wrapper_apply(WasGoID wasgo_id);
+WasGoID _wasgo_SpinBox_wrapper_get_align(WasGoID wasgo_id);
+WasGoID _wasgo_SpinBox_wrapper_get_line_edit(WasGoID wasgo_id);
+void _wasgo_SpinBox_wrapper_get_prefix(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_SpinBox_wrapper_get_suffix(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_SpinBox_wrapper_is_editable(WasGoID wasgo_id);
+void _wasgo_SpinBox_wrapper_set_align(WasGoID wasgo_id, WasGoID p_align);
+void _wasgo_SpinBox_wrapper_set_editable(WasGoID wasgo_id, bool p_editable);
+void _wasgo_SpinBox_wrapper_set_prefix(WasGoID wasgo_id, const uint8_t * p_prefix, int p_prefix_wasgo_buffer_size);
+void _wasgo_SpinBox_wrapper_set_suffix(WasGoID wasgo_id, const uint8_t * p_suffix, int p_suffix_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_SpinBox_constructor();
+    WasGoID _wasgo_SpinBox_constructor();
             
 }
 #endif

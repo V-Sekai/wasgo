@@ -120,7 +120,7 @@ void Navigation::set_up_vector(Vector3 p_up){
 	_wasgo_Navigation_wrapper_set_up_vector(wasgo_id, wasgo_buffer_up, wasgo_size_up);
 }
 
-Navigation::Navigation(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
+Navigation::Navigation(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 Navigation::Navigation(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_Navigation_constructor();

@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeIf(WasGoId p_wasgo_id);
+explicit VisualShaderNodeIf(WasGoID p_wasgo_id);
 explicit VisualShaderNodeIf(VisualShaderNode other);
 VisualShaderNodeIf new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeIf new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeIf_constructor();
+    WasGoID _wasgo_VisualShaderNodeIf_constructor();
             
 }
 #endif

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "ustring.h"
-#include "PacketPeer.h"
 #include "X509Certificate.h"
 #include "PacketPeerUDP.h"
+#include "error_list.h"
+#include "PacketPeer.h"
+#include "ustring.h"
 class PacketPeerDTLS : public PacketPeer{
 public:
 enum Status{
@@ -25,7 +25,7 @@ void poll();
 
 protected:
 public:
-explicit PacketPeerDTLS(WasGoId p_wasgo_id);
+explicit PacketPeerDTLS(WasGoID p_wasgo_id);
 explicit PacketPeerDTLS(PacketPeer other);
 PacketPeerDTLS new_instance();
             
@@ -34,13 +34,13 @@ PacketPeerDTLS new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_PacketPeerDTLS_wrapper_connect_to_peer(WasGoId wasgo_id, WasGoId p_packet_peer, bool p_validate_certs, const uint8_t * p_for_hostname, int p_for_hostname_wasgo_buffer_size, WasGoId p_valid_certificate);
-void _wasgo_PacketPeerDTLS_wrapper_disconnect_from_peer(WasGoId wasgo_id);
-WasGoId _wasgo_PacketPeerDTLS_wrapper_get_status(WasGoId wasgo_id);
-void _wasgo_PacketPeerDTLS_wrapper_poll(WasGoId wasgo_id);
+WasGoID _wasgo_PacketPeerDTLS_wrapper_connect_to_peer(WasGoID wasgo_id, WasGoID p_packet_peer, bool p_validate_certs, const uint8_t * p_for_hostname, int p_for_hostname_wasgo_buffer_size, WasGoID p_valid_certificate);
+void _wasgo_PacketPeerDTLS_wrapper_disconnect_from_peer(WasGoID wasgo_id);
+WasGoID _wasgo_PacketPeerDTLS_wrapper_get_status(WasGoID wasgo_id);
+void _wasgo_PacketPeerDTLS_wrapper_poll(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_PacketPeerDTLS_constructor();
+    WasGoID _wasgo_PacketPeerDTLS_constructor();
             
 }
 #endif

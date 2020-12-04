@@ -186,14 +186,14 @@ static inline double decode_double(const uint8_t *p_arr) {
 // class EncodedObjectAsID : public Reference {
 // 	// GDCLASS(EncodedObjectAsID, Reference);
 
-// 	WasGoId id;
+// 	WasGoID id;
 
 // protected:
 // 	static void _bind_methods();
 
 // public:
-// 	void set_object_id(WasGoId p_id);
-// 	WasGoId get_object_id() const;
+// 	void set_object_id(WasGoID p_id);
+// 	WasGoID get_object_id() const;
 
 // 	EncodedObjectAsID();
 // };

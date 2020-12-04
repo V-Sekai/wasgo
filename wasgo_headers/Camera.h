@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Environment.h"
-#include "Vector3.h"
 #include "Vector2.h"
+#include "Environment.h"
 #include "Spatial.h"
-#include "Transform.h"
-#include "RID.h"
+#include "Vector3.h"
 #include "Variant.h"
+#include "RID.h"
+#include "Transform.h"
 class Camera : public Spatial{
 public:
 enum DopplerTracking{
@@ -72,7 +72,7 @@ Vector2 unproject_position(Vector3 p_world_point);
 
 protected:
 public:
-explicit Camera(WasGoId p_wasgo_id);
+explicit Camera(WasGoID p_wasgo_id);
 explicit Camera(Spatial other);
 Camera new_instance();
             
@@ -81,51 +81,51 @@ Camera new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Camera_wrapper_clear_current(WasGoId wasgo_id, bool p_enable_next);
-void _wasgo_Camera_wrapper_get_camera_rid(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Camera_wrapper_get_camera_transform(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Camera_wrapper_get_cull_mask(WasGoId wasgo_id);
-int _wasgo_Camera_wrapper_get_cull_mask_bit(WasGoId wasgo_id, int p_layer);
-WasGoId _wasgo_Camera_wrapper_get_doppler_tracking(WasGoId wasgo_id);
-WasGoId _wasgo_Camera_wrapper_get_environment(WasGoId wasgo_id);
-float _wasgo_Camera_wrapper_get_fov(WasGoId wasgo_id);
-WasGoId _wasgo_Camera_wrapper_get_frustum(WasGoId wasgo_id);
-void _wasgo_Camera_wrapper_get_frustum_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_Camera_wrapper_get_h_offset(WasGoId wasgo_id);
-WasGoId _wasgo_Camera_wrapper_get_keep_aspect_mode(WasGoId wasgo_id);
-WasGoId _wasgo_Camera_wrapper_get_projection(WasGoId wasgo_id);
-float _wasgo_Camera_wrapper_get_size(WasGoId wasgo_id);
-float _wasgo_Camera_wrapper_get_v_offset(WasGoId wasgo_id);
-float _wasgo_Camera_wrapper_get_zfar(WasGoId wasgo_id);
-float _wasgo_Camera_wrapper_get_znear(WasGoId wasgo_id);
-int _wasgo_Camera_wrapper_is_current(WasGoId wasgo_id);
-int _wasgo_Camera_wrapper_is_position_behind(WasGoId wasgo_id, const uint8_t * p_world_point, int p_world_point_wasgo_buffer_size);
-void _wasgo_Camera_wrapper_make_current(WasGoId wasgo_id);
-void _wasgo_Camera_wrapper_project_local_ray_normal(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_screen_point, int p_screen_point_wasgo_buffer_size);
-void _wasgo_Camera_wrapper_project_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_screen_point, int p_screen_point_wasgo_buffer_size, float p_z_depth);
-void _wasgo_Camera_wrapper_project_ray_normal(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_screen_point, int p_screen_point_wasgo_buffer_size);
-void _wasgo_Camera_wrapper_project_ray_origin(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_screen_point, int p_screen_point_wasgo_buffer_size);
-void _wasgo_Camera_wrapper_set_cull_mask(WasGoId wasgo_id, int p_mask);
-void _wasgo_Camera_wrapper_set_cull_mask_bit(WasGoId wasgo_id, int p_layer, bool p_enable);
-void _wasgo_Camera_wrapper_set_current(WasGoId wasgo_id, bool p_arg0);
-void _wasgo_Camera_wrapper_set_doppler_tracking(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Camera_wrapper_set_environment(WasGoId wasgo_id, WasGoId p_env);
-void _wasgo_Camera_wrapper_set_fov(WasGoId wasgo_id, float p_arg0);
-void _wasgo_Camera_wrapper_set_frustum(WasGoId wasgo_id, float p_size, const uint8_t * p_offset, int p_offset_wasgo_buffer_size, float p_z_near, float p_z_far);
-void _wasgo_Camera_wrapper_set_frustum_offset(WasGoId wasgo_id, const uint8_t * p_arg0, int p_arg0_wasgo_buffer_size);
-void _wasgo_Camera_wrapper_set_h_offset(WasGoId wasgo_id, float p_ofs);
-void _wasgo_Camera_wrapper_set_keep_aspect_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Camera_wrapper_set_orthogonal(WasGoId wasgo_id, float p_size, float p_z_near, float p_z_far);
-void _wasgo_Camera_wrapper_set_perspective(WasGoId wasgo_id, float p_fov, float p_z_near, float p_z_far);
-void _wasgo_Camera_wrapper_set_projection(WasGoId wasgo_id, WasGoId p_arg0);
-void _wasgo_Camera_wrapper_set_size(WasGoId wasgo_id, float p_arg0);
-void _wasgo_Camera_wrapper_set_v_offset(WasGoId wasgo_id, float p_ofs);
-void _wasgo_Camera_wrapper_set_zfar(WasGoId wasgo_id, float p_arg0);
-void _wasgo_Camera_wrapper_set_znear(WasGoId wasgo_id, float p_arg0);
-void _wasgo_Camera_wrapper_unproject_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_world_point, int p_world_point_wasgo_buffer_size);
+void _wasgo_Camera_wrapper_clear_current(WasGoID wasgo_id, bool p_enable_next);
+void _wasgo_Camera_wrapper_get_camera_rid(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Camera_wrapper_get_camera_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Camera_wrapper_get_cull_mask(WasGoID wasgo_id);
+int _wasgo_Camera_wrapper_get_cull_mask_bit(WasGoID wasgo_id, int p_layer);
+WasGoID _wasgo_Camera_wrapper_get_doppler_tracking(WasGoID wasgo_id);
+WasGoID _wasgo_Camera_wrapper_get_environment(WasGoID wasgo_id);
+float _wasgo_Camera_wrapper_get_fov(WasGoID wasgo_id);
+WasGoID _wasgo_Camera_wrapper_get_frustum(WasGoID wasgo_id);
+void _wasgo_Camera_wrapper_get_frustum_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_Camera_wrapper_get_h_offset(WasGoID wasgo_id);
+WasGoID _wasgo_Camera_wrapper_get_keep_aspect_mode(WasGoID wasgo_id);
+WasGoID _wasgo_Camera_wrapper_get_projection(WasGoID wasgo_id);
+float _wasgo_Camera_wrapper_get_size(WasGoID wasgo_id);
+float _wasgo_Camera_wrapper_get_v_offset(WasGoID wasgo_id);
+float _wasgo_Camera_wrapper_get_zfar(WasGoID wasgo_id);
+float _wasgo_Camera_wrapper_get_znear(WasGoID wasgo_id);
+int _wasgo_Camera_wrapper_is_current(WasGoID wasgo_id);
+int _wasgo_Camera_wrapper_is_position_behind(WasGoID wasgo_id, const uint8_t * p_world_point, int p_world_point_wasgo_buffer_size);
+void _wasgo_Camera_wrapper_make_current(WasGoID wasgo_id);
+void _wasgo_Camera_wrapper_project_local_ray_normal(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_screen_point, int p_screen_point_wasgo_buffer_size);
+void _wasgo_Camera_wrapper_project_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_screen_point, int p_screen_point_wasgo_buffer_size, float p_z_depth);
+void _wasgo_Camera_wrapper_project_ray_normal(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_screen_point, int p_screen_point_wasgo_buffer_size);
+void _wasgo_Camera_wrapper_project_ray_origin(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_screen_point, int p_screen_point_wasgo_buffer_size);
+void _wasgo_Camera_wrapper_set_cull_mask(WasGoID wasgo_id, int p_mask);
+void _wasgo_Camera_wrapper_set_cull_mask_bit(WasGoID wasgo_id, int p_layer, bool p_enable);
+void _wasgo_Camera_wrapper_set_current(WasGoID wasgo_id, bool p_arg0);
+void _wasgo_Camera_wrapper_set_doppler_tracking(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Camera_wrapper_set_environment(WasGoID wasgo_id, WasGoID p_env);
+void _wasgo_Camera_wrapper_set_fov(WasGoID wasgo_id, float p_arg0);
+void _wasgo_Camera_wrapper_set_frustum(WasGoID wasgo_id, float p_size, const uint8_t * p_offset, int p_offset_wasgo_buffer_size, float p_z_near, float p_z_far);
+void _wasgo_Camera_wrapper_set_frustum_offset(WasGoID wasgo_id, const uint8_t * p_arg0, int p_arg0_wasgo_buffer_size);
+void _wasgo_Camera_wrapper_set_h_offset(WasGoID wasgo_id, float p_ofs);
+void _wasgo_Camera_wrapper_set_keep_aspect_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Camera_wrapper_set_orthogonal(WasGoID wasgo_id, float p_size, float p_z_near, float p_z_far);
+void _wasgo_Camera_wrapper_set_perspective(WasGoID wasgo_id, float p_fov, float p_z_near, float p_z_far);
+void _wasgo_Camera_wrapper_set_projection(WasGoID wasgo_id, WasGoID p_arg0);
+void _wasgo_Camera_wrapper_set_size(WasGoID wasgo_id, float p_arg0);
+void _wasgo_Camera_wrapper_set_v_offset(WasGoID wasgo_id, float p_ofs);
+void _wasgo_Camera_wrapper_set_zfar(WasGoID wasgo_id, float p_arg0);
+void _wasgo_Camera_wrapper_set_znear(WasGoID wasgo_id, float p_arg0);
+void _wasgo_Camera_wrapper_unproject_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_world_point, int p_world_point_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_Camera_constructor();
+    WasGoID _wasgo_Camera_constructor();
             
 }
 #endif

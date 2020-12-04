@@ -8,7 +8,7 @@ void InputEventMagnifyGesture::set_factor(float p_factor){
 	_wasgo_InputEventMagnifyGesture_wrapper_set_factor(wasgo_id, p_factor);
 }
 
-InputEventMagnifyGesture::InputEventMagnifyGesture(WasGoId p_wasgo_id) : InputEventGesture(p_wasgo_id){
+InputEventMagnifyGesture::InputEventMagnifyGesture(WasGoID p_wasgo_id) : InputEventGesture(p_wasgo_id){
 }
 InputEventMagnifyGesture::InputEventMagnifyGesture(InputEventGesture other) : InputEventGesture(other._get_wasgo_id()){
     wasgo_id = _wasgo_InputEventMagnifyGesture_constructor();

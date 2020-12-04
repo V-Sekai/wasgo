@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Node2D.h"
 #include "MultiMesh.h"
 #include "Texture.h"
-#include "Node2D.h"
 class MultiMeshInstance2D : public Node2D{
 public:
 MultiMesh get_multimesh();
@@ -18,7 +18,7 @@ void set_texture(Texture p_texture);
 
 protected:
 public:
-explicit MultiMeshInstance2D(WasGoId p_wasgo_id);
+explicit MultiMeshInstance2D(WasGoID p_wasgo_id);
 explicit MultiMeshInstance2D(Node2D other);
 MultiMeshInstance2D new_instance();
             
@@ -27,15 +27,15 @@ MultiMeshInstance2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_MultiMeshInstance2D_wrapper_get_multimesh(WasGoId wasgo_id);
-WasGoId _wasgo_MultiMeshInstance2D_wrapper_get_normal_map(WasGoId wasgo_id);
-WasGoId _wasgo_MultiMeshInstance2D_wrapper_get_texture(WasGoId wasgo_id);
-void _wasgo_MultiMeshInstance2D_wrapper_set_multimesh(WasGoId wasgo_id, WasGoId p_multimesh);
-void _wasgo_MultiMeshInstance2D_wrapper_set_normal_map(WasGoId wasgo_id, WasGoId p_normal_map);
-void _wasgo_MultiMeshInstance2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
+WasGoID _wasgo_MultiMeshInstance2D_wrapper_get_multimesh(WasGoID wasgo_id);
+WasGoID _wasgo_MultiMeshInstance2D_wrapper_get_normal_map(WasGoID wasgo_id);
+WasGoID _wasgo_MultiMeshInstance2D_wrapper_get_texture(WasGoID wasgo_id);
+void _wasgo_MultiMeshInstance2D_wrapper_set_multimesh(WasGoID wasgo_id, WasGoID p_multimesh);
+void _wasgo_MultiMeshInstance2D_wrapper_set_normal_map(WasGoID wasgo_id, WasGoID p_normal_map);
+void _wasgo_MultiMeshInstance2D_wrapper_set_texture(WasGoID wasgo_id, WasGoID p_texture);
 
     //constructor wrappers
-    WasGoId _wasgo_MultiMeshInstance2D_constructor();
+    WasGoID _wasgo_MultiMeshInstance2D_constructor();
             
 }
 #endif

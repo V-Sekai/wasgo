@@ -113,7 +113,7 @@ void ReflectionProbe::set_update_mode(ReflectionProbe::UpdateMode p_mode){
 	_wasgo_ReflectionProbe_wrapper_set_update_mode(wasgo_id, p_mode._get_wasgo_id());
 }
 
-ReflectionProbe::ReflectionProbe(WasGoId p_wasgo_id) : VisualInstance(p_wasgo_id){
+ReflectionProbe::ReflectionProbe(WasGoID p_wasgo_id) : VisualInstance(p_wasgo_id){
 }
 ReflectionProbe::ReflectionProbe(VisualInstance other) : VisualInstance(other._get_wasgo_id()){
     wasgo_id = _wasgo_ReflectionProbe_constructor();

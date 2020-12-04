@@ -112,7 +112,7 @@ void PhysicalBone::set_weight(float p_weight){
 	_wasgo_PhysicalBone_wrapper_set_weight(wasgo_id, p_weight);
 }
 
-PhysicalBone::PhysicalBone(WasGoId p_wasgo_id) : PhysicsBody(p_wasgo_id){
+PhysicalBone::PhysicalBone(WasGoID p_wasgo_id) : PhysicsBody(p_wasgo_id){
 }
 PhysicalBone::PhysicalBone(PhysicsBody other) : PhysicsBody(other._get_wasgo_id()){
     wasgo_id = _wasgo_PhysicalBone_constructor();

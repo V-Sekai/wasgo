@@ -115,7 +115,7 @@ void Tabs::set_tabs_rearrange_group(int p_group_id){
 	_wasgo_Tabs_wrapper_set_tabs_rearrange_group(wasgo_id, p_group_id);
 }
 
-Tabs::Tabs(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+Tabs::Tabs(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 Tabs::Tabs(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_Tabs_constructor();

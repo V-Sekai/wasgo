@@ -15,11 +15,11 @@ void set_uniform_name(String p_name);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_VisualShaderNodeUniform_wrapper_get_uniform_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_VisualShaderNodeUniform_wrapper_set_uniform_name(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_VisualShaderNodeUniform_wrapper_get_uniform_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_VisualShaderNodeUniform_wrapper_set_uniform_name(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeUniform_constructor();
+    WasGoID _wasgo_VisualShaderNodeUniform_constructor();
             
 }
 #endif

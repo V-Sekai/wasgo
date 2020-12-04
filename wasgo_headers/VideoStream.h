@@ -14,7 +14,7 @@ public:
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VideoStream_constructor();
+    WasGoID _wasgo_VideoStream_constructor();
             
 }
 #endif

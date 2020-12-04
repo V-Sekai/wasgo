@@ -290,7 +290,7 @@ void PopupMenu::toggle_item_multistate(int p_idx){
 	_wasgo_PopupMenu_wrapper_toggle_item_multistate(wasgo_id, p_idx);
 }
 
-PopupMenu::PopupMenu(WasGoId p_wasgo_id) : Popup(p_wasgo_id){
+PopupMenu::PopupMenu(WasGoID p_wasgo_id) : Popup(p_wasgo_id){
 }
 PopupMenu::PopupMenu(Popup other) : Popup(other._get_wasgo_id()){
     wasgo_id = _wasgo_PopupMenu_constructor();

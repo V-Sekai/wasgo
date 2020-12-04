@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit ResourceFormatLoaderWasm(WasGoId p_wasgo_id);
+explicit ResourceFormatLoaderWasm(WasGoID p_wasgo_id);
 explicit ResourceFormatLoaderWasm(ResourceFormatLoader other);
 ResourceFormatLoaderWasm new_instance();
             
@@ -21,7 +21,7 @@ ResourceFormatLoaderWasm new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_ResourceFormatLoaderWasm_constructor();
+    WasGoID _wasgo_ResourceFormatLoaderWasm_constructor();
             
 }
 #endif

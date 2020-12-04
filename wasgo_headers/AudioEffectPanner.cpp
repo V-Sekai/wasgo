@@ -8,7 +8,7 @@ void AudioEffectPanner::set_pan(float p_cpanume){
 	_wasgo_AudioEffectPanner_wrapper_set_pan(wasgo_id, p_cpanume);
 }
 
-AudioEffectPanner::AudioEffectPanner(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+AudioEffectPanner::AudioEffectPanner(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectPanner::AudioEffectPanner(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectPanner_constructor();

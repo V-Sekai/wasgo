@@ -8,7 +8,7 @@ void VisualShaderNodeColorFunc::set_function(VisualShaderNodeColorFunc::Function
 	_wasgo_VisualShaderNodeColorFunc_wrapper_set_function(wasgo_id, p_func._get_wasgo_id());
 }
 
-VisualShaderNodeColorFunc::VisualShaderNodeColorFunc(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeColorFunc::VisualShaderNodeColorFunc(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeColorFunc::VisualShaderNodeColorFunc(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeColorFunc_constructor();

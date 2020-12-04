@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Spatial.h"
-#include "RID.h"
 #include "AABB.h"
+#include "RID.h"
 class VisualInstance : public Spatial{
 public:
 AABB get_aabb();
@@ -23,18 +23,18 @@ void set_layer_mask_bit(int p_layer, bool p_enabled);
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_VisualInstance_wrapper_get_aabb(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_VisualInstance_wrapper_get_base(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_VisualInstance_wrapper_get_instance(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_VisualInstance_wrapper_get_layer_mask(WasGoId wasgo_id);
-int _wasgo_VisualInstance_wrapper_get_layer_mask_bit(WasGoId wasgo_id, int p_layer);
-void _wasgo_VisualInstance_wrapper_get_transformed_aabb(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_VisualInstance_wrapper_set_base(WasGoId wasgo_id, const uint8_t * p_base, int p_base_wasgo_buffer_size);
-void _wasgo_VisualInstance_wrapper_set_layer_mask(WasGoId wasgo_id, int p_mask);
-void _wasgo_VisualInstance_wrapper_set_layer_mask_bit(WasGoId wasgo_id, int p_layer, bool p_enabled);
+void _wasgo_VisualInstance_wrapper_get_aabb(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_VisualInstance_wrapper_get_base(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_VisualInstance_wrapper_get_instance(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_VisualInstance_wrapper_get_layer_mask(WasGoID wasgo_id);
+int _wasgo_VisualInstance_wrapper_get_layer_mask_bit(WasGoID wasgo_id, int p_layer);
+void _wasgo_VisualInstance_wrapper_get_transformed_aabb(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_VisualInstance_wrapper_set_base(WasGoID wasgo_id, const uint8_t * p_base, int p_base_wasgo_buffer_size);
+void _wasgo_VisualInstance_wrapper_set_layer_mask(WasGoID wasgo_id, int p_mask);
+void _wasgo_VisualInstance_wrapper_set_layer_mask_bit(WasGoID wasgo_id, int p_layer, bool p_enabled);
 
     //constructor wrappers
-    WasGoId _wasgo_VisualInstance_constructor();
+    WasGoID _wasgo_VisualInstance_constructor();
             
 }
 #endif

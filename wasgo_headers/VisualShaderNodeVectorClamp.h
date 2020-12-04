@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeVectorClamp(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorClamp(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorClamp(VisualShaderNode other);
 VisualShaderNodeVectorClamp new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeVectorClamp new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeVectorClamp_constructor();
+    WasGoID _wasgo_VisualShaderNodeVectorClamp_constructor();
             
 }
 #endif

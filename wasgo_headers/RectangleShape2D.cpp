@@ -21,7 +21,7 @@ void RectangleShape2D::set_extents(Vector2 p_extents){
 	_wasgo_RectangleShape2D_wrapper_set_extents(wasgo_id, wasgo_buffer_extents, wasgo_size_extents);
 }
 
-RectangleShape2D::RectangleShape2D(WasGoId p_wasgo_id) : Shape2D(p_wasgo_id){
+RectangleShape2D::RectangleShape2D(WasGoID p_wasgo_id) : Shape2D(p_wasgo_id){
 }
 RectangleShape2D::RectangleShape2D(Shape2D other) : Shape2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_RectangleShape2D_constructor();

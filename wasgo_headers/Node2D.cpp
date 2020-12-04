@@ -228,7 +228,7 @@ void Node2D::translate(Vector2 p_offset){
 	_wasgo_Node2D_wrapper_translate(wasgo_id, wasgo_buffer_offset, wasgo_size_offset);
 }
 
-Node2D::Node2D(WasGoId p_wasgo_id) : CanvasItem(p_wasgo_id){
+Node2D::Node2D(WasGoID p_wasgo_id) : CanvasItem(p_wasgo_id){
 }
 Node2D::Node2D(CanvasItem other) : CanvasItem(other._get_wasgo_id()){
     wasgo_id = _wasgo_Node2D_constructor();

@@ -14,7 +14,7 @@ void unlock();
 
 protected:
 public:
-explicit Mutex(WasGoId p_wasgo_id);
+explicit Mutex(WasGoID p_wasgo_id);
 explicit Mutex(Reference other);
 Mutex new_instance();
             
@@ -23,12 +23,12 @@ Mutex new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Mutex_wrapper_lock(WasGoId wasgo_id);
-WasGoId _wasgo_Mutex_wrapper_try_lock(WasGoId wasgo_id);
-void _wasgo_Mutex_wrapper_unlock(WasGoId wasgo_id);
+void _wasgo_Mutex_wrapper_lock(WasGoID wasgo_id);
+WasGoID _wasgo_Mutex_wrapper_try_lock(WasGoID wasgo_id);
+void _wasgo_Mutex_wrapper_unlock(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_Mutex_constructor();
+    WasGoID _wasgo_Mutex_constructor();
             
 }
 #endif

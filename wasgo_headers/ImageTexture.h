@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "Vector2.h"
-#include "ustring.h"
-#include "Texture.h"
 #include "Image.h"
+#include "Vector2.h"
+#include "error_list.h"
+#include "Texture.h"
+#include "ustring.h"
 class ImageTexture : public Texture{
 public:
 enum Storage{
@@ -29,7 +29,7 @@ void set_storage(ImageTexture::Storage p_mode);
 
 protected:
 public:
-explicit ImageTexture(WasGoId p_wasgo_id);
+explicit ImageTexture(WasGoID p_wasgo_id);
 explicit ImageTexture(Texture other);
 ImageTexture new_instance();
             
@@ -38,19 +38,19 @@ ImageTexture new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ImageTexture_wrapper_create(WasGoId wasgo_id, int p_width, int p_height, WasGoId p_format, int p_flags);
-void _wasgo_ImageTexture_wrapper_create_from_image(WasGoId wasgo_id, WasGoId p_image, int p_flags);
-WasGoId _wasgo_ImageTexture_wrapper_get_format(WasGoId wasgo_id);
-float _wasgo_ImageTexture_wrapper_get_lossy_storage_quality(WasGoId wasgo_id);
-WasGoId _wasgo_ImageTexture_wrapper_get_storage(WasGoId wasgo_id);
-WasGoId _wasgo_ImageTexture_wrapper_load(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-void _wasgo_ImageTexture_wrapper_set_data(WasGoId wasgo_id, WasGoId p_image);
-void _wasgo_ImageTexture_wrapper_set_lossy_storage_quality(WasGoId wasgo_id, float p_quality);
-void _wasgo_ImageTexture_wrapper_set_size_override(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
-void _wasgo_ImageTexture_wrapper_set_storage(WasGoId wasgo_id, WasGoId p_mode);
+void _wasgo_ImageTexture_wrapper_create(WasGoID wasgo_id, int p_width, int p_height, WasGoID p_format, int p_flags);
+void _wasgo_ImageTexture_wrapper_create_from_image(WasGoID wasgo_id, WasGoID p_image, int p_flags);
+WasGoID _wasgo_ImageTexture_wrapper_get_format(WasGoID wasgo_id);
+float _wasgo_ImageTexture_wrapper_get_lossy_storage_quality(WasGoID wasgo_id);
+WasGoID _wasgo_ImageTexture_wrapper_get_storage(WasGoID wasgo_id);
+WasGoID _wasgo_ImageTexture_wrapper_load(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_ImageTexture_wrapper_set_data(WasGoID wasgo_id, WasGoID p_image);
+void _wasgo_ImageTexture_wrapper_set_lossy_storage_quality(WasGoID wasgo_id, float p_quality);
+void _wasgo_ImageTexture_wrapper_set_size_override(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
+void _wasgo_ImageTexture_wrapper_set_storage(WasGoID wasgo_id, WasGoID p_mode);
 
     //constructor wrappers
-    WasGoId _wasgo_ImageTexture_constructor();
+    WasGoID _wasgo_ImageTexture_constructor();
             
 }
 #endif

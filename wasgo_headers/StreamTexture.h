@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "error_list.h"
+#include "Texture.h"
 #include "ustring.h"
 class StreamTexture : public Texture{
 public:
@@ -14,7 +14,7 @@ Error load(String p_path);
 
 protected:
 public:
-explicit StreamTexture(WasGoId p_wasgo_id);
+explicit StreamTexture(WasGoID p_wasgo_id);
 explicit StreamTexture(Texture other);
 StreamTexture new_instance();
             
@@ -23,11 +23,11 @@ StreamTexture new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_StreamTexture_wrapper_get_load_path(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_StreamTexture_wrapper_load(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_StreamTexture_wrapper_get_load_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_StreamTexture_wrapper_load(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_StreamTexture_constructor();
+    WasGoID _wasgo_StreamTexture_constructor();
             
 }
 #endif

@@ -44,7 +44,7 @@ void ScrollContainer::set_v_scroll(int p_value){
 	_wasgo_ScrollContainer_wrapper_set_v_scroll(wasgo_id, p_value);
 }
 
-ScrollContainer::ScrollContainer(WasGoId p_wasgo_id) : Container(p_wasgo_id){
+ScrollContainer::ScrollContainer(WasGoID p_wasgo_id) : Container(p_wasgo_id){
 }
 ScrollContainer::ScrollContainer(Container other) : Container(other._get_wasgo_id()){
     wasgo_id = _wasgo_ScrollContainer_constructor();

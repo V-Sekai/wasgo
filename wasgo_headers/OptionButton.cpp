@@ -93,7 +93,7 @@ void OptionButton::set_item_text(int p_idx, String p_text){
 	_wasgo_OptionButton_wrapper_set_item_text(wasgo_id, p_idx, wasgo_buffer_text, wasgo_size_text);
 }
 
-OptionButton::OptionButton(WasGoId p_wasgo_id) : Button(p_wasgo_id){
+OptionButton::OptionButton(WasGoID p_wasgo_id) : Button(p_wasgo_id){
 }
 OptionButton::OptionButton(Button other) : Button(other._get_wasgo_id()){
     wasgo_id = _wasgo_OptionButton_constructor();

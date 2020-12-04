@@ -4,19 +4,19 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Rect2.h"
+#include "Font.h"
+#include "Color.h"
+#include "Texture.h"
+#include "Vector2.h"
+#include "CanvasItem.h"
+#include "Variant.h"
+#include "NodePath.h"
+#include "StyleBox.h"
+#include "Theme.h"
 #include "Shader.h"
 #include "Margin.h"
-#include "StyleBox.h"
-#include "Vector2.h"
 #include "ustring.h"
-#include "Texture.h"
-#include "NodePath.h"
-#include "Color.h"
-#include "Rect2.h"
-#include "Theme.h"
-#include "CanvasItem.h"
-#include "Font.h"
-#include "Variant.h"
 class Control : public CanvasItem{
 public:
 enum Anchor{
@@ -192,7 +192,7 @@ void warp_mouse(Vector2 p_to_position);
 
 protected:
 public:
-explicit Control(WasGoId p_wasgo_id);
+explicit Control(WasGoID p_wasgo_id);
 explicit Control(CanvasItem other);
 Control new_instance();
             
@@ -201,110 +201,110 @@ Control new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Control_wrapper_accept_event(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_add_color_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_Control_wrapper_add_constant_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, int p_constant);
-void _wasgo_Control_wrapper_add_font_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoId p_font);
-void _wasgo_Control_wrapper_add_icon_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoId p_texture);
-void _wasgo_Control_wrapper_add_shader_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoId p_shader);
-void _wasgo_Control_wrapper_add_stylebox_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoId p_stylebox);
-int _wasgo_Control_wrapper_can_drop_data(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, WasGoId p_data);
-void _wasgo_Control_wrapper_drop_data(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, WasGoId p_data);
-void _wasgo_Control_wrapper_force_drag(WasGoId wasgo_id, WasGoId p_data, WasGoId p_preview);
-float _wasgo_Control_wrapper_get_anchor(WasGoId wasgo_id, WasGoId p_margin);
-void _wasgo_Control_wrapper_get_begin(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Control_wrapper_get_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
-void _wasgo_Control_wrapper_get_combined_minimum_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Control_wrapper_get_constant(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
-WasGoId _wasgo_Control_wrapper_get_cursor_shape(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_Control_wrapper_get_custom_minimum_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Control_wrapper_get_default_cursor_shape(WasGoId wasgo_id);
-WasGoId _wasgo_Control_wrapper_get_drag_data(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_Control_wrapper_get_end(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Control_wrapper_get_focus_mode(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_get_focus_neighbour(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoId p_margin);
-void _wasgo_Control_wrapper_get_focus_next(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Control_wrapper_get_focus_owner(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_get_focus_previous(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Control_wrapper_get_font(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
-void _wasgo_Control_wrapper_get_global_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Control_wrapper_get_global_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Control_wrapper_get_h_grow_direction(WasGoId wasgo_id);
-int _wasgo_Control_wrapper_get_h_size_flags(WasGoId wasgo_id);
-WasGoId _wasgo_Control_wrapper_get_icon(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
-float _wasgo_Control_wrapper_get_margin(WasGoId wasgo_id, WasGoId p_margin);
-void _wasgo_Control_wrapper_get_minimum_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Control_wrapper_get_mouse_filter(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_get_parent_area_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Control_wrapper_get_parent_control(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_get_pivot_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Control_wrapper_get_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Control_wrapper_get_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_Control_wrapper_get_rotation(WasGoId wasgo_id);
-float _wasgo_Control_wrapper_get_rotation_degrees(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_get_scale(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Control_wrapper_get_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_Control_wrapper_get_stretch_ratio(WasGoId wasgo_id);
-WasGoId _wasgo_Control_wrapper_get_stylebox(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
-WasGoId _wasgo_Control_wrapper_get_theme(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_get_tooltip(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_at_position, int p_at_position_wasgo_buffer_size);
-WasGoId _wasgo_Control_wrapper_get_v_grow_direction(WasGoId wasgo_id);
-int _wasgo_Control_wrapper_get_v_size_flags(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_grab_click_focus(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_grab_focus(WasGoId wasgo_id);
-int _wasgo_Control_wrapper_has_color(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
-int _wasgo_Control_wrapper_has_color_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_Control_wrapper_has_constant(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
-int _wasgo_Control_wrapper_has_constant_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_Control_wrapper_has_focus(WasGoId wasgo_id);
-int _wasgo_Control_wrapper_has_font(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
-int _wasgo_Control_wrapper_has_font_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_Control_wrapper_has_icon(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
-int _wasgo_Control_wrapper_has_icon_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_Control_wrapper_has_point(WasGoId wasgo_id, const uint8_t * p_point, int p_point_wasgo_buffer_size);
-int _wasgo_Control_wrapper_has_shader_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_Control_wrapper_has_stylebox(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
-int _wasgo_Control_wrapper_has_stylebox_override(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-int _wasgo_Control_wrapper_is_clipping_contents(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_minimum_size_changed(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_release_focus(WasGoId wasgo_id);
-void _wasgo_Control_wrapper_set_anchor(WasGoId wasgo_id, WasGoId p_margin, float p_anchor, bool p_keep_margin, bool p_push_opposite_anchor);
-void _wasgo_Control_wrapper_set_anchor_and_margin(WasGoId wasgo_id, WasGoId p_margin, float p_anchor, float p_offset, bool p_push_opposite_anchor);
-void _wasgo_Control_wrapper_set_anchors_and_margins_preset(WasGoId wasgo_id, WasGoId p_preset, WasGoId p_resize_mode, int p_margin);
-void _wasgo_Control_wrapper_set_anchors_preset(WasGoId wasgo_id, WasGoId p_preset, bool p_keep_margins);
-void _wasgo_Control_wrapper_set_begin(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_Control_wrapper_set_clip_contents(WasGoId wasgo_id, bool p_enable);
-void _wasgo_Control_wrapper_set_custom_minimum_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
-void _wasgo_Control_wrapper_set_default_cursor_shape(WasGoId wasgo_id, WasGoId p_shape);
-void _wasgo_Control_wrapper_set_drag_forwarding(WasGoId wasgo_id, WasGoId p_target);
-void _wasgo_Control_wrapper_set_drag_preview(WasGoId wasgo_id, WasGoId p_control);
-void _wasgo_Control_wrapper_set_end(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_Control_wrapper_set_focus_mode(WasGoId wasgo_id, WasGoId p_mode);
-void _wasgo_Control_wrapper_set_focus_neighbour(WasGoId wasgo_id, WasGoId p_margin, const uint8_t * p_neighbour, int p_neighbour_wasgo_buffer_size);
-void _wasgo_Control_wrapper_set_focus_next(WasGoId wasgo_id, const uint8_t * p_next, int p_next_wasgo_buffer_size);
-void _wasgo_Control_wrapper_set_focus_previous(WasGoId wasgo_id, const uint8_t * p_previous, int p_previous_wasgo_buffer_size);
-void _wasgo_Control_wrapper_set_global_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, bool p_keep_margins);
-void _wasgo_Control_wrapper_set_h_grow_direction(WasGoId wasgo_id, WasGoId p_direction);
-void _wasgo_Control_wrapper_set_h_size_flags(WasGoId wasgo_id, int p_flags);
-void _wasgo_Control_wrapper_set_margin(WasGoId wasgo_id, WasGoId p_margin, float p_offset);
-void _wasgo_Control_wrapper_set_margins_preset(WasGoId wasgo_id, WasGoId p_preset, WasGoId p_resize_mode, int p_margin);
-void _wasgo_Control_wrapper_set_mouse_filter(WasGoId wasgo_id, WasGoId p_filter);
-void _wasgo_Control_wrapper_set_pivot_offset(WasGoId wasgo_id, const uint8_t * p_pivot_offset, int p_pivot_offset_wasgo_buffer_size);
-void _wasgo_Control_wrapper_set_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, bool p_keep_margins);
-void _wasgo_Control_wrapper_set_rotation(WasGoId wasgo_id, float p_radians);
-void _wasgo_Control_wrapper_set_rotation_degrees(WasGoId wasgo_id, float p_degrees);
-void _wasgo_Control_wrapper_set_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
-void _wasgo_Control_wrapper_set_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size, bool p_keep_margins);
-void _wasgo_Control_wrapper_set_stretch_ratio(WasGoId wasgo_id, float p_ratio);
-void _wasgo_Control_wrapper_set_theme(WasGoId wasgo_id, WasGoId p_theme);
-void _wasgo_Control_wrapper_set_tooltip(WasGoId wasgo_id, const uint8_t * p_tooltip, int p_tooltip_wasgo_buffer_size);
-void _wasgo_Control_wrapper_set_v_grow_direction(WasGoId wasgo_id, WasGoId p_direction);
-void _wasgo_Control_wrapper_set_v_size_flags(WasGoId wasgo_id, int p_flags);
-void _wasgo_Control_wrapper_show_modal(WasGoId wasgo_id, bool p_exclusive);
-void _wasgo_Control_wrapper_warp_mouse(WasGoId wasgo_id, const uint8_t * p_to_position, int p_to_position_wasgo_buffer_size);
+void _wasgo_Control_wrapper_accept_event(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_add_color_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_Control_wrapper_add_constant_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, int p_constant);
+void _wasgo_Control_wrapper_add_font_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoID p_font);
+void _wasgo_Control_wrapper_add_icon_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoID p_texture);
+void _wasgo_Control_wrapper_add_shader_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoID p_shader);
+void _wasgo_Control_wrapper_add_stylebox_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoID p_stylebox);
+int _wasgo_Control_wrapper_can_drop_data(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, WasGoID p_data);
+void _wasgo_Control_wrapper_drop_data(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, WasGoID p_data);
+void _wasgo_Control_wrapper_force_drag(WasGoID wasgo_id, WasGoID p_data, WasGoID p_preview);
+float _wasgo_Control_wrapper_get_anchor(WasGoID wasgo_id, WasGoID p_margin);
+void _wasgo_Control_wrapper_get_begin(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Control_wrapper_get_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
+void _wasgo_Control_wrapper_get_combined_minimum_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Control_wrapper_get_constant(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
+WasGoID _wasgo_Control_wrapper_get_cursor_shape(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_Control_wrapper_get_custom_minimum_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Control_wrapper_get_default_cursor_shape(WasGoID wasgo_id);
+WasGoID _wasgo_Control_wrapper_get_drag_data(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_Control_wrapper_get_end(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Control_wrapper_get_focus_mode(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_get_focus_neighbour(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoID p_margin);
+void _wasgo_Control_wrapper_get_focus_next(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Control_wrapper_get_focus_owner(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_get_focus_previous(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Control_wrapper_get_font(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
+void _wasgo_Control_wrapper_get_global_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Control_wrapper_get_global_rect(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Control_wrapper_get_h_grow_direction(WasGoID wasgo_id);
+int _wasgo_Control_wrapper_get_h_size_flags(WasGoID wasgo_id);
+WasGoID _wasgo_Control_wrapper_get_icon(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
+float _wasgo_Control_wrapper_get_margin(WasGoID wasgo_id, WasGoID p_margin);
+void _wasgo_Control_wrapper_get_minimum_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Control_wrapper_get_mouse_filter(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_get_parent_area_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Control_wrapper_get_parent_control(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_get_pivot_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Control_wrapper_get_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Control_wrapper_get_rect(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_Control_wrapper_get_rotation(WasGoID wasgo_id);
+float _wasgo_Control_wrapper_get_rotation_degrees(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_get_scale(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Control_wrapper_get_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_Control_wrapper_get_stretch_ratio(WasGoID wasgo_id);
+WasGoID _wasgo_Control_wrapper_get_stylebox(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
+WasGoID _wasgo_Control_wrapper_get_theme(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_get_tooltip(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_at_position, int p_at_position_wasgo_buffer_size);
+WasGoID _wasgo_Control_wrapper_get_v_grow_direction(WasGoID wasgo_id);
+int _wasgo_Control_wrapper_get_v_size_flags(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_grab_click_focus(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_grab_focus(WasGoID wasgo_id);
+int _wasgo_Control_wrapper_has_color(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
+int _wasgo_Control_wrapper_has_color_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_Control_wrapper_has_constant(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
+int _wasgo_Control_wrapper_has_constant_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_Control_wrapper_has_focus(WasGoID wasgo_id);
+int _wasgo_Control_wrapper_has_font(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
+int _wasgo_Control_wrapper_has_font_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_Control_wrapper_has_icon(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
+int _wasgo_Control_wrapper_has_icon_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_Control_wrapper_has_point(WasGoID wasgo_id, const uint8_t * p_point, int p_point_wasgo_buffer_size);
+int _wasgo_Control_wrapper_has_shader_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_Control_wrapper_has_stylebox(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size);
+int _wasgo_Control_wrapper_has_stylebox_override(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+int _wasgo_Control_wrapper_is_clipping_contents(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_minimum_size_changed(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_release_focus(WasGoID wasgo_id);
+void _wasgo_Control_wrapper_set_anchor(WasGoID wasgo_id, WasGoID p_margin, float p_anchor, bool p_keep_margin, bool p_push_opposite_anchor);
+void _wasgo_Control_wrapper_set_anchor_and_margin(WasGoID wasgo_id, WasGoID p_margin, float p_anchor, float p_offset, bool p_push_opposite_anchor);
+void _wasgo_Control_wrapper_set_anchors_and_margins_preset(WasGoID wasgo_id, WasGoID p_preset, WasGoID p_resize_mode, int p_margin);
+void _wasgo_Control_wrapper_set_anchors_preset(WasGoID wasgo_id, WasGoID p_preset, bool p_keep_margins);
+void _wasgo_Control_wrapper_set_begin(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_Control_wrapper_set_clip_contents(WasGoID wasgo_id, bool p_enable);
+void _wasgo_Control_wrapper_set_custom_minimum_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
+void _wasgo_Control_wrapper_set_default_cursor_shape(WasGoID wasgo_id, WasGoID p_shape);
+void _wasgo_Control_wrapper_set_drag_forwarding(WasGoID wasgo_id, WasGoID p_target);
+void _wasgo_Control_wrapper_set_drag_preview(WasGoID wasgo_id, WasGoID p_control);
+void _wasgo_Control_wrapper_set_end(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_Control_wrapper_set_focus_mode(WasGoID wasgo_id, WasGoID p_mode);
+void _wasgo_Control_wrapper_set_focus_neighbour(WasGoID wasgo_id, WasGoID p_margin, const uint8_t * p_neighbour, int p_neighbour_wasgo_buffer_size);
+void _wasgo_Control_wrapper_set_focus_next(WasGoID wasgo_id, const uint8_t * p_next, int p_next_wasgo_buffer_size);
+void _wasgo_Control_wrapper_set_focus_previous(WasGoID wasgo_id, const uint8_t * p_previous, int p_previous_wasgo_buffer_size);
+void _wasgo_Control_wrapper_set_global_position(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, bool p_keep_margins);
+void _wasgo_Control_wrapper_set_h_grow_direction(WasGoID wasgo_id, WasGoID p_direction);
+void _wasgo_Control_wrapper_set_h_size_flags(WasGoID wasgo_id, int p_flags);
+void _wasgo_Control_wrapper_set_margin(WasGoID wasgo_id, WasGoID p_margin, float p_offset);
+void _wasgo_Control_wrapper_set_margins_preset(WasGoID wasgo_id, WasGoID p_preset, WasGoID p_resize_mode, int p_margin);
+void _wasgo_Control_wrapper_set_mouse_filter(WasGoID wasgo_id, WasGoID p_filter);
+void _wasgo_Control_wrapper_set_pivot_offset(WasGoID wasgo_id, const uint8_t * p_pivot_offset, int p_pivot_offset_wasgo_buffer_size);
+void _wasgo_Control_wrapper_set_position(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, bool p_keep_margins);
+void _wasgo_Control_wrapper_set_rotation(WasGoID wasgo_id, float p_radians);
+void _wasgo_Control_wrapper_set_rotation_degrees(WasGoID wasgo_id, float p_degrees);
+void _wasgo_Control_wrapper_set_scale(WasGoID wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
+void _wasgo_Control_wrapper_set_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size, bool p_keep_margins);
+void _wasgo_Control_wrapper_set_stretch_ratio(WasGoID wasgo_id, float p_ratio);
+void _wasgo_Control_wrapper_set_theme(WasGoID wasgo_id, WasGoID p_theme);
+void _wasgo_Control_wrapper_set_tooltip(WasGoID wasgo_id, const uint8_t * p_tooltip, int p_tooltip_wasgo_buffer_size);
+void _wasgo_Control_wrapper_set_v_grow_direction(WasGoID wasgo_id, WasGoID p_direction);
+void _wasgo_Control_wrapper_set_v_size_flags(WasGoID wasgo_id, int p_flags);
+void _wasgo_Control_wrapper_show_modal(WasGoID wasgo_id, bool p_exclusive);
+void _wasgo_Control_wrapper_warp_mouse(WasGoID wasgo_id, const uint8_t * p_to_position, int p_to_position_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_Control_constructor();
+    WasGoID _wasgo_Control_constructor();
             
 }
 #endif

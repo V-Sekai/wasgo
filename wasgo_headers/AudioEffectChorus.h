@@ -28,7 +28,7 @@ void set_wet(float p_amount);
 
 protected:
 public:
-explicit AudioEffectChorus(WasGoId p_wasgo_id);
+explicit AudioEffectChorus(WasGoID p_wasgo_id);
 explicit AudioEffectChorus(AudioEffect other);
 AudioEffectChorus new_instance();
             
@@ -37,27 +37,27 @@ AudioEffectChorus new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_AudioEffectChorus_wrapper_get_dry(WasGoId wasgo_id);
-int _wasgo_AudioEffectChorus_wrapper_get_voice_count(WasGoId wasgo_id);
-float _wasgo_AudioEffectChorus_wrapper_get_voice_cutoff_hz(WasGoId wasgo_id, int p_voice_idx);
-float _wasgo_AudioEffectChorus_wrapper_get_voice_delay_ms(WasGoId wasgo_id, int p_voice_idx);
-float _wasgo_AudioEffectChorus_wrapper_get_voice_depth_ms(WasGoId wasgo_id, int p_voice_idx);
-float _wasgo_AudioEffectChorus_wrapper_get_voice_level_db(WasGoId wasgo_id, int p_voice_idx);
-float _wasgo_AudioEffectChorus_wrapper_get_voice_pan(WasGoId wasgo_id, int p_voice_idx);
-float _wasgo_AudioEffectChorus_wrapper_get_voice_rate_hz(WasGoId wasgo_id, int p_voice_idx);
-float _wasgo_AudioEffectChorus_wrapper_get_wet(WasGoId wasgo_id);
-void _wasgo_AudioEffectChorus_wrapper_set_dry(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectChorus_wrapper_set_voice_count(WasGoId wasgo_id, int p_voices);
-void _wasgo_AudioEffectChorus_wrapper_set_voice_cutoff_hz(WasGoId wasgo_id, int p_voice_idx, float p_cutoff_hz);
-void _wasgo_AudioEffectChorus_wrapper_set_voice_delay_ms(WasGoId wasgo_id, int p_voice_idx, float p_delay_ms);
-void _wasgo_AudioEffectChorus_wrapper_set_voice_depth_ms(WasGoId wasgo_id, int p_voice_idx, float p_depth_ms);
-void _wasgo_AudioEffectChorus_wrapper_set_voice_level_db(WasGoId wasgo_id, int p_voice_idx, float p_level_db);
-void _wasgo_AudioEffectChorus_wrapper_set_voice_pan(WasGoId wasgo_id, int p_voice_idx, float p_pan);
-void _wasgo_AudioEffectChorus_wrapper_set_voice_rate_hz(WasGoId wasgo_id, int p_voice_idx, float p_rate_hz);
-void _wasgo_AudioEffectChorus_wrapper_set_wet(WasGoId wasgo_id, float p_amount);
+float _wasgo_AudioEffectChorus_wrapper_get_dry(WasGoID wasgo_id);
+int _wasgo_AudioEffectChorus_wrapper_get_voice_count(WasGoID wasgo_id);
+float _wasgo_AudioEffectChorus_wrapper_get_voice_cutoff_hz(WasGoID wasgo_id, int p_voice_idx);
+float _wasgo_AudioEffectChorus_wrapper_get_voice_delay_ms(WasGoID wasgo_id, int p_voice_idx);
+float _wasgo_AudioEffectChorus_wrapper_get_voice_depth_ms(WasGoID wasgo_id, int p_voice_idx);
+float _wasgo_AudioEffectChorus_wrapper_get_voice_level_db(WasGoID wasgo_id, int p_voice_idx);
+float _wasgo_AudioEffectChorus_wrapper_get_voice_pan(WasGoID wasgo_id, int p_voice_idx);
+float _wasgo_AudioEffectChorus_wrapper_get_voice_rate_hz(WasGoID wasgo_id, int p_voice_idx);
+float _wasgo_AudioEffectChorus_wrapper_get_wet(WasGoID wasgo_id);
+void _wasgo_AudioEffectChorus_wrapper_set_dry(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectChorus_wrapper_set_voice_count(WasGoID wasgo_id, int p_voices);
+void _wasgo_AudioEffectChorus_wrapper_set_voice_cutoff_hz(WasGoID wasgo_id, int p_voice_idx, float p_cutoff_hz);
+void _wasgo_AudioEffectChorus_wrapper_set_voice_delay_ms(WasGoID wasgo_id, int p_voice_idx, float p_delay_ms);
+void _wasgo_AudioEffectChorus_wrapper_set_voice_depth_ms(WasGoID wasgo_id, int p_voice_idx, float p_depth_ms);
+void _wasgo_AudioEffectChorus_wrapper_set_voice_level_db(WasGoID wasgo_id, int p_voice_idx, float p_level_db);
+void _wasgo_AudioEffectChorus_wrapper_set_voice_pan(WasGoID wasgo_id, int p_voice_idx, float p_pan);
+void _wasgo_AudioEffectChorus_wrapper_set_voice_rate_hz(WasGoID wasgo_id, int p_voice_idx, float p_rate_hz);
+void _wasgo_AudioEffectChorus_wrapper_set_wet(WasGoID wasgo_id, float p_amount);
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectChorus_constructor();
+    WasGoID _wasgo_AudioEffectChorus_constructor();
             
 }
 #endif

@@ -95,7 +95,7 @@ void VehicleWheel::set_use_as_traction(bool p_enable){
 	_wasgo_VehicleWheel_wrapper_set_use_as_traction(wasgo_id, p_enable);
 }
 
-VehicleWheel::VehicleWheel(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
+VehicleWheel::VehicleWheel(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 VehicleWheel::VehicleWheel(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_VehicleWheel_constructor();

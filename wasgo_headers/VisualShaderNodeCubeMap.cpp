@@ -20,7 +20,7 @@ void VisualShaderNodeCubeMap::set_texture_type(VisualShaderNodeCubeMap::TextureT
 	_wasgo_VisualShaderNodeCubeMap_wrapper_set_texture_type(wasgo_id, p_value._get_wasgo_id());
 }
 
-VisualShaderNodeCubeMap::VisualShaderNodeCubeMap(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeCubeMap::VisualShaderNodeCubeMap(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeCubeMap::VisualShaderNodeCubeMap(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeCubeMap_constructor();

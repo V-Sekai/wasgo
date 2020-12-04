@@ -66,7 +66,7 @@ void AcceptDialog::set_text(String p_text){
 	_wasgo_AcceptDialog_wrapper_set_text(wasgo_id, wasgo_buffer_text, wasgo_size_text);
 }
 
-AcceptDialog::AcceptDialog(WasGoId p_wasgo_id) : WindowDialog(p_wasgo_id){
+AcceptDialog::AcceptDialog(WasGoID p_wasgo_id) : WindowDialog(p_wasgo_id){
 }
 AcceptDialog::AcceptDialog(WindowDialog other) : WindowDialog(other._get_wasgo_id()){
     wasgo_id = _wasgo_AcceptDialog_constructor();

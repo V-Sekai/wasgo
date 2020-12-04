@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit AnimationRootNode(WasGoId p_wasgo_id);
+explicit AnimationRootNode(WasGoID p_wasgo_id);
 explicit AnimationRootNode(AnimationNode other);
 AnimationRootNode new_instance();
             
@@ -21,7 +21,7 @@ AnimationRootNode new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_AnimationRootNode_constructor();
+    WasGoID _wasgo_AnimationRootNode_constructor();
             
 }
 #endif

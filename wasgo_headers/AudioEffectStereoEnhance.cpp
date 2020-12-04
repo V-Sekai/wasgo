@@ -20,7 +20,7 @@ void AudioEffectStereoEnhance::set_time_pullout(float p_amount){
 	_wasgo_AudioEffectStereoEnhance_wrapper_set_time_pullout(wasgo_id, p_amount);
 }
 
-AudioEffectStereoEnhance::AudioEffectStereoEnhance(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+AudioEffectStereoEnhance::AudioEffectStereoEnhance(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectStereoEnhance::AudioEffectStereoEnhance(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectStereoEnhance_constructor();

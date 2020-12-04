@@ -14,7 +14,7 @@ void set_radius(float p_radius);
 
 protected:
 public:
-explicit CapsuleShape2D(WasGoId p_wasgo_id);
+explicit CapsuleShape2D(WasGoID p_wasgo_id);
 explicit CapsuleShape2D(Shape2D other);
 CapsuleShape2D new_instance();
             
@@ -23,13 +23,13 @@ CapsuleShape2D new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_CapsuleShape2D_wrapper_get_height(WasGoId wasgo_id);
-float _wasgo_CapsuleShape2D_wrapper_get_radius(WasGoId wasgo_id);
-void _wasgo_CapsuleShape2D_wrapper_set_height(WasGoId wasgo_id, float p_height);
-void _wasgo_CapsuleShape2D_wrapper_set_radius(WasGoId wasgo_id, float p_radius);
+float _wasgo_CapsuleShape2D_wrapper_get_height(WasGoID wasgo_id);
+float _wasgo_CapsuleShape2D_wrapper_get_radius(WasGoID wasgo_id);
+void _wasgo_CapsuleShape2D_wrapper_set_height(WasGoID wasgo_id, float p_height);
+void _wasgo_CapsuleShape2D_wrapper_set_radius(WasGoID wasgo_id, float p_radius);
 
     //constructor wrappers
-    WasGoId _wasgo_CapsuleShape2D_constructor();
+    WasGoID _wasgo_CapsuleShape2D_constructor();
             
 }
 #endif

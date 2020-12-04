@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit JNISingleton(WasGoId p_wasgo_id);
+explicit JNISingleton(WasGoID p_wasgo_id);
 explicit JNISingleton(Object other);
 JNISingleton new_instance();
             
@@ -21,7 +21,7 @@ JNISingleton new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_JNISingleton_constructor();
+    WasGoID _wasgo_JNISingleton_constructor();
             
 }
 #endif

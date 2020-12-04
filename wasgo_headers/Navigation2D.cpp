@@ -63,7 +63,7 @@ void Navigation2D::navpoly_set_transform(int p_id, Transform2D p_xform){
 	_wasgo_Navigation2D_wrapper_navpoly_set_transform(wasgo_id, p_id, wasgo_buffer_xform, wasgo_size_xform);
 }
 
-Navigation2D::Navigation2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+Navigation2D::Navigation2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Navigation2D::Navigation2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Navigation2D_constructor();

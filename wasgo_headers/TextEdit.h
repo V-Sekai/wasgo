@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Control.h"
-#include "ustring.h"
 #include "Color.h"
 #include "PopupMenu.h"
 #include "Variant.h"
+#include "Control.h"
+#include "ustring.h"
 class TextEdit : public Control{
 public:
 enum MenuItems{
@@ -131,7 +131,7 @@ void unhide_all_lines();
 
 protected:
 public:
-explicit TextEdit(WasGoId p_wasgo_id);
+explicit TextEdit(WasGoID p_wasgo_id);
 explicit TextEdit(Control other);
 TextEdit new_instance();
             
@@ -140,107 +140,107 @@ TextEdit new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_TextEdit_wrapper_add_color_region(WasGoId wasgo_id, const uint8_t * p_begin_key, int p_begin_key_wasgo_buffer_size, const uint8_t * p_end_key, int p_end_key_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size, bool p_line_only);
-void _wasgo_TextEdit_wrapper_add_keyword_color(WasGoId wasgo_id, const uint8_t * p_keyword, int p_keyword_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-int _wasgo_TextEdit_wrapper_can_fold(WasGoId wasgo_id, int p_line);
-void _wasgo_TextEdit_wrapper_center_viewport_to_cursor(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_clear_colors(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_clear_undo_history(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_copy(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_cursor_get_blink_enabled(WasGoId wasgo_id);
-float _wasgo_TextEdit_wrapper_cursor_get_blink_speed(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_cursor_get_column(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_cursor_get_line(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_cursor_is_block_mode(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_cursor_set_blink_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_cursor_set_blink_speed(WasGoId wasgo_id, float p_blink_speed);
-void _wasgo_TextEdit_wrapper_cursor_set_block_mode(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_cursor_set_column(WasGoId wasgo_id, int p_column, bool p_adjust_viewport);
-void _wasgo_TextEdit_wrapper_cursor_set_line(WasGoId wasgo_id, int p_line, bool p_adjust_viewport, bool p_can_be_hidden, int p_wrap_index);
-void _wasgo_TextEdit_wrapper_cut(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_deselect(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_draw_minimap(WasGoId wasgo_id, bool p_draw);
-void _wasgo_TextEdit_wrapper_fold_all_lines(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_fold_line(WasGoId wasgo_id, int p_line);
-WasGoId _wasgo_TextEdit_wrapper_get_breakpoints(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_get_h_scroll(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_get_keyword_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_keyword, int p_keyword_wasgo_buffer_size);
-void _wasgo_TextEdit_wrapper_get_line(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_line);
-int _wasgo_TextEdit_wrapper_get_line_count(WasGoId wasgo_id);
-WasGoId _wasgo_TextEdit_wrapper_get_menu(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_get_minimap_width(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_get_selection_from_column(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_get_selection_from_line(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_get_selection_text(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_TextEdit_wrapper_get_selection_to_column(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_get_selection_to_line(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_get_text(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_TextEdit_wrapper_get_v_scroll(WasGoId wasgo_id);
-float _wasgo_TextEdit_wrapper_get_v_scroll_speed(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_get_word_under_cursor(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_TextEdit_wrapper_has_keyword_color(WasGoId wasgo_id, const uint8_t * p_keyword, int p_keyword_wasgo_buffer_size);
-void _wasgo_TextEdit_wrapper_insert_text_at_cursor(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-int _wasgo_TextEdit_wrapper_is_breakpoint_gutter_enabled(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_context_menu_enabled(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_drawing_fold_gutter(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_drawing_minimap(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_drawing_spaces(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_drawing_tabs(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_folded(WasGoId wasgo_id, int p_line);
-int _wasgo_TextEdit_wrapper_is_hiding_enabled(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_highlight_all_occurrences_enabled(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_highlight_current_line_enabled(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_line_hidden(WasGoId wasgo_id, int p_line);
-int _wasgo_TextEdit_wrapper_is_overriding_selected_font_color(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_readonly(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_right_click_moving_caret(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_selecting_enabled(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_selection_active(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_shortcut_keys_enabled(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_show_line_numbers_enabled(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_smooth_scroll_enabled(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_syntax_coloring_enabled(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_virtual_keyboard_enabled(WasGoId wasgo_id);
-int _wasgo_TextEdit_wrapper_is_wrap_enabled(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_menu_option(WasGoId wasgo_id, int p_option);
-void _wasgo_TextEdit_wrapper_paste(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_redo(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_remove_breakpoints(WasGoId wasgo_id);
-WasGoId _wasgo_TextEdit_wrapper_search(WasGoId wasgo_id, const uint8_t * p_key, int p_key_wasgo_buffer_size, int p_flags, int p_from_line, int p_from_column);
-void _wasgo_TextEdit_wrapper_select(WasGoId wasgo_id, int p_from_line, int p_from_column, int p_to_line, int p_to_column);
-void _wasgo_TextEdit_wrapper_select_all(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_set_breakpoint_gutter_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_context_menu_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_draw_fold_gutter(WasGoId wasgo_id, bool p_arg0);
-void _wasgo_TextEdit_wrapper_set_draw_spaces(WasGoId wasgo_id, bool p_arg0);
-void _wasgo_TextEdit_wrapper_set_draw_tabs(WasGoId wasgo_id, bool p_arg0);
-void _wasgo_TextEdit_wrapper_set_h_scroll(WasGoId wasgo_id, int p_value);
-void _wasgo_TextEdit_wrapper_set_hiding_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_highlight_all_occurrences(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_highlight_current_line(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_TextEdit_wrapper_set_line(WasGoId wasgo_id, int p_line, const uint8_t * p_new_text, int p_new_text_wasgo_buffer_size);
-void _wasgo_TextEdit_wrapper_set_line_as_hidden(WasGoId wasgo_id, int p_line, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_minimap_width(WasGoId wasgo_id, int p_width);
-void _wasgo_TextEdit_wrapper_set_override_selected_font_color(WasGoId wasgo_id, bool p_override);
-void _wasgo_TextEdit_wrapper_set_readonly(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_right_click_moves_caret(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_selecting_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_shortcut_keys_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_show_line_numbers(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_smooth_scroll_enable(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_syntax_coloring(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-void _wasgo_TextEdit_wrapper_set_v_scroll(WasGoId wasgo_id, float p_value);
-void _wasgo_TextEdit_wrapper_set_v_scroll_speed(WasGoId wasgo_id, float p_speed);
-void _wasgo_TextEdit_wrapper_set_virtual_keyboard_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_set_wrap_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_TextEdit_wrapper_toggle_fold_line(WasGoId wasgo_id, int p_line);
-void _wasgo_TextEdit_wrapper_undo(WasGoId wasgo_id);
-void _wasgo_TextEdit_wrapper_unfold_line(WasGoId wasgo_id, int p_line);
-void _wasgo_TextEdit_wrapper_unhide_all_lines(WasGoId wasgo_id);
+void _wasgo_TextEdit_wrapper_add_color_region(WasGoID wasgo_id, const uint8_t * p_begin_key, int p_begin_key_wasgo_buffer_size, const uint8_t * p_end_key, int p_end_key_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size, bool p_line_only);
+void _wasgo_TextEdit_wrapper_add_keyword_color(WasGoID wasgo_id, const uint8_t * p_keyword, int p_keyword_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+int _wasgo_TextEdit_wrapper_can_fold(WasGoID wasgo_id, int p_line);
+void _wasgo_TextEdit_wrapper_center_viewport_to_cursor(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_clear_colors(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_clear_undo_history(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_copy(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_cursor_get_blink_enabled(WasGoID wasgo_id);
+float _wasgo_TextEdit_wrapper_cursor_get_blink_speed(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_cursor_get_column(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_cursor_get_line(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_cursor_is_block_mode(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_cursor_set_blink_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_cursor_set_blink_speed(WasGoID wasgo_id, float p_blink_speed);
+void _wasgo_TextEdit_wrapper_cursor_set_block_mode(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_cursor_set_column(WasGoID wasgo_id, int p_column, bool p_adjust_viewport);
+void _wasgo_TextEdit_wrapper_cursor_set_line(WasGoID wasgo_id, int p_line, bool p_adjust_viewport, bool p_can_be_hidden, int p_wrap_index);
+void _wasgo_TextEdit_wrapper_cut(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_deselect(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_draw_minimap(WasGoID wasgo_id, bool p_draw);
+void _wasgo_TextEdit_wrapper_fold_all_lines(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_fold_line(WasGoID wasgo_id, int p_line);
+WasGoID _wasgo_TextEdit_wrapper_get_breakpoints(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_get_h_scroll(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_get_keyword_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_keyword, int p_keyword_wasgo_buffer_size);
+void _wasgo_TextEdit_wrapper_get_line(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_line);
+int _wasgo_TextEdit_wrapper_get_line_count(WasGoID wasgo_id);
+WasGoID _wasgo_TextEdit_wrapper_get_menu(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_get_minimap_width(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_get_selection_from_column(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_get_selection_from_line(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_get_selection_text(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_TextEdit_wrapper_get_selection_to_column(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_get_selection_to_line(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_get_text(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_TextEdit_wrapper_get_v_scroll(WasGoID wasgo_id);
+float _wasgo_TextEdit_wrapper_get_v_scroll_speed(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_get_word_under_cursor(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_TextEdit_wrapper_has_keyword_color(WasGoID wasgo_id, const uint8_t * p_keyword, int p_keyword_wasgo_buffer_size);
+void _wasgo_TextEdit_wrapper_insert_text_at_cursor(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+int _wasgo_TextEdit_wrapper_is_breakpoint_gutter_enabled(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_context_menu_enabled(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_drawing_fold_gutter(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_drawing_minimap(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_drawing_spaces(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_drawing_tabs(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_folded(WasGoID wasgo_id, int p_line);
+int _wasgo_TextEdit_wrapper_is_hiding_enabled(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_highlight_all_occurrences_enabled(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_highlight_current_line_enabled(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_line_hidden(WasGoID wasgo_id, int p_line);
+int _wasgo_TextEdit_wrapper_is_overriding_selected_font_color(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_readonly(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_right_click_moving_caret(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_selecting_enabled(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_selection_active(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_shortcut_keys_enabled(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_show_line_numbers_enabled(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_smooth_scroll_enabled(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_syntax_coloring_enabled(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_virtual_keyboard_enabled(WasGoID wasgo_id);
+int _wasgo_TextEdit_wrapper_is_wrap_enabled(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_menu_option(WasGoID wasgo_id, int p_option);
+void _wasgo_TextEdit_wrapper_paste(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_redo(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_remove_breakpoints(WasGoID wasgo_id);
+WasGoID _wasgo_TextEdit_wrapper_search(WasGoID wasgo_id, const uint8_t * p_key, int p_key_wasgo_buffer_size, int p_flags, int p_from_line, int p_from_column);
+void _wasgo_TextEdit_wrapper_select(WasGoID wasgo_id, int p_from_line, int p_from_column, int p_to_line, int p_to_column);
+void _wasgo_TextEdit_wrapper_select_all(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_set_breakpoint_gutter_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_context_menu_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_draw_fold_gutter(WasGoID wasgo_id, bool p_arg0);
+void _wasgo_TextEdit_wrapper_set_draw_spaces(WasGoID wasgo_id, bool p_arg0);
+void _wasgo_TextEdit_wrapper_set_draw_tabs(WasGoID wasgo_id, bool p_arg0);
+void _wasgo_TextEdit_wrapper_set_h_scroll(WasGoID wasgo_id, int p_value);
+void _wasgo_TextEdit_wrapper_set_hiding_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_highlight_all_occurrences(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_highlight_current_line(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_TextEdit_wrapper_set_line(WasGoID wasgo_id, int p_line, const uint8_t * p_new_text, int p_new_text_wasgo_buffer_size);
+void _wasgo_TextEdit_wrapper_set_line_as_hidden(WasGoID wasgo_id, int p_line, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_minimap_width(WasGoID wasgo_id, int p_width);
+void _wasgo_TextEdit_wrapper_set_override_selected_font_color(WasGoID wasgo_id, bool p_override);
+void _wasgo_TextEdit_wrapper_set_readonly(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_right_click_moves_caret(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_selecting_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_shortcut_keys_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_show_line_numbers(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_smooth_scroll_enable(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_syntax_coloring(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_text(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_TextEdit_wrapper_set_v_scroll(WasGoID wasgo_id, float p_value);
+void _wasgo_TextEdit_wrapper_set_v_scroll_speed(WasGoID wasgo_id, float p_speed);
+void _wasgo_TextEdit_wrapper_set_virtual_keyboard_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_set_wrap_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_TextEdit_wrapper_toggle_fold_line(WasGoID wasgo_id, int p_line);
+void _wasgo_TextEdit_wrapper_undo(WasGoID wasgo_id);
+void _wasgo_TextEdit_wrapper_unfold_line(WasGoID wasgo_id, int p_line);
+void _wasgo_TextEdit_wrapper_unhide_all_lines(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_TextEdit_constructor();
+    WasGoID _wasgo_TextEdit_constructor();
             
 }
 #endif

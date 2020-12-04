@@ -127,7 +127,7 @@ void MultiMesh::set_visible_instance_count(int p_count){
 	_wasgo_MultiMesh_wrapper_set_visible_instance_count(wasgo_id, p_count);
 }
 
-MultiMesh::MultiMesh(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+MultiMesh::MultiMesh(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 MultiMesh::MultiMesh(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_MultiMesh_constructor();

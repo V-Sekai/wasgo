@@ -54,27 +54,27 @@ void set_shadow_reverse_cull_face(bool p_enable);
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_Light_wrapper_get_bake_mode(WasGoId wasgo_id);
-void _wasgo_Light_wrapper_get_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Light_wrapper_get_cull_mask(WasGoId wasgo_id);
-float _wasgo_Light_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
-void _wasgo_Light_wrapper_get_shadow_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Light_wrapper_get_shadow_reverse_cull_face(WasGoId wasgo_id);
-int _wasgo_Light_wrapper_has_shadow(WasGoId wasgo_id);
-int _wasgo_Light_wrapper_is_editor_only(WasGoId wasgo_id);
-int _wasgo_Light_wrapper_is_negative(WasGoId wasgo_id);
-void _wasgo_Light_wrapper_set_bake_mode(WasGoId wasgo_id, WasGoId p_bake_mode);
-void _wasgo_Light_wrapper_set_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_Light_wrapper_set_cull_mask(WasGoId wasgo_id, int p_cull_mask);
-void _wasgo_Light_wrapper_set_editor_only(WasGoId wasgo_id, bool p_editor_only);
-void _wasgo_Light_wrapper_set_negative(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Light_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
-void _wasgo_Light_wrapper_set_shadow(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_Light_wrapper_set_shadow_color(WasGoId wasgo_id, const uint8_t * p_shadow_color, int p_shadow_color_wasgo_buffer_size);
-void _wasgo_Light_wrapper_set_shadow_reverse_cull_face(WasGoId wasgo_id, bool p_enable);
+WasGoID _wasgo_Light_wrapper_get_bake_mode(WasGoID wasgo_id);
+void _wasgo_Light_wrapper_get_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Light_wrapper_get_cull_mask(WasGoID wasgo_id);
+float _wasgo_Light_wrapper_get_param(WasGoID wasgo_id, WasGoID p_param);
+void _wasgo_Light_wrapper_get_shadow_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Light_wrapper_get_shadow_reverse_cull_face(WasGoID wasgo_id);
+int _wasgo_Light_wrapper_has_shadow(WasGoID wasgo_id);
+int _wasgo_Light_wrapper_is_editor_only(WasGoID wasgo_id);
+int _wasgo_Light_wrapper_is_negative(WasGoID wasgo_id);
+void _wasgo_Light_wrapper_set_bake_mode(WasGoID wasgo_id, WasGoID p_bake_mode);
+void _wasgo_Light_wrapper_set_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_Light_wrapper_set_cull_mask(WasGoID wasgo_id, int p_cull_mask);
+void _wasgo_Light_wrapper_set_editor_only(WasGoID wasgo_id, bool p_editor_only);
+void _wasgo_Light_wrapper_set_negative(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Light_wrapper_set_param(WasGoID wasgo_id, WasGoID p_param, float p_value);
+void _wasgo_Light_wrapper_set_shadow(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_Light_wrapper_set_shadow_color(WasGoID wasgo_id, const uint8_t * p_shadow_color, int p_shadow_color_wasgo_buffer_size);
+void _wasgo_Light_wrapper_set_shadow_reverse_cull_face(WasGoID wasgo_id, bool p_enable);
 
     //constructor wrappers
-    WasGoId _wasgo_Light_constructor();
+    WasGoID _wasgo_Light_constructor();
             
 }
 #endif

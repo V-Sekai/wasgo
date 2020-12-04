@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Variant.h"
+#include "Resource.h"
 class NavigationPolygon : public Resource{
 public:
 void add_outline(PoolVector2Array p_outline);
@@ -25,7 +25,7 @@ void set_vertices(PoolVector2Array p_vertices);
 
 protected:
 public:
-explicit NavigationPolygon(WasGoId p_wasgo_id);
+explicit NavigationPolygon(WasGoID p_wasgo_id);
 explicit NavigationPolygon(Resource other);
 NavigationPolygon new_instance();
             
@@ -34,23 +34,23 @@ NavigationPolygon new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_NavigationPolygon_wrapper_add_outline(WasGoId wasgo_id, WasGoId p_outline);
-void _wasgo_NavigationPolygon_wrapper_add_outline_at_index(WasGoId wasgo_id, WasGoId p_outline, int p_index);
-void _wasgo_NavigationPolygon_wrapper_add_polygon(WasGoId wasgo_id, WasGoId p_polygon);
-void _wasgo_NavigationPolygon_wrapper_clear_outlines(WasGoId wasgo_id);
-void _wasgo_NavigationPolygon_wrapper_clear_polygons(WasGoId wasgo_id);
-WasGoId _wasgo_NavigationPolygon_wrapper_get_outline(WasGoId wasgo_id, int p_idx);
-int _wasgo_NavigationPolygon_wrapper_get_outline_count(WasGoId wasgo_id);
-WasGoId _wasgo_NavigationPolygon_wrapper_get_polygon(WasGoId wasgo_id, int p_idx);
-int _wasgo_NavigationPolygon_wrapper_get_polygon_count(WasGoId wasgo_id);
-WasGoId _wasgo_NavigationPolygon_wrapper_get_vertices(WasGoId wasgo_id);
-void _wasgo_NavigationPolygon_wrapper_make_polygons_from_outlines(WasGoId wasgo_id);
-void _wasgo_NavigationPolygon_wrapper_remove_outline(WasGoId wasgo_id, int p_idx);
-void _wasgo_NavigationPolygon_wrapper_set_outline(WasGoId wasgo_id, int p_idx, WasGoId p_outline);
-void _wasgo_NavigationPolygon_wrapper_set_vertices(WasGoId wasgo_id, WasGoId p_vertices);
+void _wasgo_NavigationPolygon_wrapper_add_outline(WasGoID wasgo_id, WasGoID p_outline);
+void _wasgo_NavigationPolygon_wrapper_add_outline_at_index(WasGoID wasgo_id, WasGoID p_outline, int p_index);
+void _wasgo_NavigationPolygon_wrapper_add_polygon(WasGoID wasgo_id, WasGoID p_polygon);
+void _wasgo_NavigationPolygon_wrapper_clear_outlines(WasGoID wasgo_id);
+void _wasgo_NavigationPolygon_wrapper_clear_polygons(WasGoID wasgo_id);
+WasGoID _wasgo_NavigationPolygon_wrapper_get_outline(WasGoID wasgo_id, int p_idx);
+int _wasgo_NavigationPolygon_wrapper_get_outline_count(WasGoID wasgo_id);
+WasGoID _wasgo_NavigationPolygon_wrapper_get_polygon(WasGoID wasgo_id, int p_idx);
+int _wasgo_NavigationPolygon_wrapper_get_polygon_count(WasGoID wasgo_id);
+WasGoID _wasgo_NavigationPolygon_wrapper_get_vertices(WasGoID wasgo_id);
+void _wasgo_NavigationPolygon_wrapper_make_polygons_from_outlines(WasGoID wasgo_id);
+void _wasgo_NavigationPolygon_wrapper_remove_outline(WasGoID wasgo_id, int p_idx);
+void _wasgo_NavigationPolygon_wrapper_set_outline(WasGoID wasgo_id, int p_idx, WasGoID p_outline);
+void _wasgo_NavigationPolygon_wrapper_set_vertices(WasGoID wasgo_id, WasGoID p_vertices);
 
     //constructor wrappers
-    WasGoId _wasgo_NavigationPolygon_constructor();
+    WasGoID _wasgo_NavigationPolygon_constructor();
             
 }
 #endif

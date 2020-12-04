@@ -14,7 +14,7 @@ void NavigationMeshInstance::set_navigation_mesh(NavigationMesh p_navmesh){
 	_wasgo_NavigationMeshInstance_wrapper_set_navigation_mesh(wasgo_id, p_navmesh._get_wasgo_id());
 }
 
-NavigationMeshInstance::NavigationMeshInstance(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
+NavigationMeshInstance::NavigationMeshInstance(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 NavigationMeshInstance::NavigationMeshInstance(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_NavigationMeshInstance_constructor();

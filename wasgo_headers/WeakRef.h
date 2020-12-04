@@ -12,7 +12,7 @@ Variant get_ref();
 
 protected:
 public:
-explicit WeakRef(WasGoId p_wasgo_id);
+explicit WeakRef(WasGoID p_wasgo_id);
 explicit WeakRef(Reference other);
 WeakRef new_instance();
             
@@ -21,10 +21,10 @@ WeakRef new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_WeakRef_wrapper_get_ref(WasGoId wasgo_id);
+WasGoID _wasgo_WeakRef_wrapper_get_ref(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_WeakRef_constructor();
+    WasGoID _wasgo_WeakRef_constructor();
             
 }
 #endif

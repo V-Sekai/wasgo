@@ -16,7 +16,7 @@ void set_recording_active(bool p_record);
 
 protected:
 public:
-explicit AudioEffectRecord(WasGoId p_wasgo_id);
+explicit AudioEffectRecord(WasGoID p_wasgo_id);
 explicit AudioEffectRecord(AudioEffect other);
 AudioEffectRecord new_instance();
             
@@ -25,14 +25,14 @@ AudioEffectRecord new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_AudioEffectRecord_wrapper_get_format(WasGoId wasgo_id);
-WasGoId _wasgo_AudioEffectRecord_wrapper_get_recording(WasGoId wasgo_id);
-int _wasgo_AudioEffectRecord_wrapper_is_recording_active(WasGoId wasgo_id);
-void _wasgo_AudioEffectRecord_wrapper_set_format(WasGoId wasgo_id, WasGoId p_format);
-void _wasgo_AudioEffectRecord_wrapper_set_recording_active(WasGoId wasgo_id, bool p_record);
+WasGoID _wasgo_AudioEffectRecord_wrapper_get_format(WasGoID wasgo_id);
+WasGoID _wasgo_AudioEffectRecord_wrapper_get_recording(WasGoID wasgo_id);
+int _wasgo_AudioEffectRecord_wrapper_is_recording_active(WasGoID wasgo_id);
+void _wasgo_AudioEffectRecord_wrapper_set_format(WasGoID wasgo_id, WasGoID p_format);
+void _wasgo_AudioEffectRecord_wrapper_set_recording_active(WasGoID wasgo_id, bool p_record);
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectRecord_constructor();
+    WasGoID _wasgo_AudioEffectRecord_constructor();
             
 }
 #endif

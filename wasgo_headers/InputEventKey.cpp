@@ -23,7 +23,7 @@ void InputEventKey::set_unicode(int p_unicode){
 	_wasgo_InputEventKey_wrapper_set_unicode(wasgo_id, p_unicode);
 }
 
-InputEventKey::InputEventKey(WasGoId p_wasgo_id) : InputEventWithModifiers(p_wasgo_id){
+InputEventKey::InputEventKey(WasGoID p_wasgo_id) : InputEventWithModifiers(p_wasgo_id){
 }
 InputEventKey::InputEventKey(InputEventWithModifiers other) : InputEventWithModifiers(other._get_wasgo_id()){
     wasgo_id = _wasgo_InputEventKey_constructor();

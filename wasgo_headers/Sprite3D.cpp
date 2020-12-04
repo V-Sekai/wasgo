@@ -70,7 +70,7 @@ void Sprite3D::set_vframes(int p_vframes){
 	_wasgo_Sprite3D_wrapper_set_vframes(wasgo_id, p_vframes);
 }
 
-Sprite3D::Sprite3D(WasGoId p_wasgo_id) : SpriteBase3D(p_wasgo_id){
+Sprite3D::Sprite3D(WasGoID p_wasgo_id) : SpriteBase3D(p_wasgo_id){
 }
 Sprite3D::Sprite3D(SpriteBase3D other) : SpriteBase3D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Sprite3D_constructor();

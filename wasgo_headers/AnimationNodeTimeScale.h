@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit AnimationNodeTimeScale(WasGoId p_wasgo_id);
+explicit AnimationNodeTimeScale(WasGoID p_wasgo_id);
 explicit AnimationNodeTimeScale(AnimationNode other);
 AnimationNodeTimeScale new_instance();
             
@@ -21,7 +21,7 @@ AnimationNodeTimeScale new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_AnimationNodeTimeScale_constructor();
+    WasGoID _wasgo_AnimationNodeTimeScale_constructor();
             
 }
 #endif

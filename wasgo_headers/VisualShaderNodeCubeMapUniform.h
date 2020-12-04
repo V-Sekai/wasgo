@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeCubeMapUniform(WasGoId p_wasgo_id);
+explicit VisualShaderNodeCubeMapUniform(WasGoID p_wasgo_id);
 explicit VisualShaderNodeCubeMapUniform(VisualShaderNodeTextureUniform other);
 VisualShaderNodeCubeMapUniform new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeCubeMapUniform new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeCubeMapUniform_constructor();
+    WasGoID _wasgo_VisualShaderNodeCubeMapUniform_constructor();
             
 }
 #endif

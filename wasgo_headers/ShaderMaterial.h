@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Shader.h"
 #include "Variant.h"
+#include "Shader.h"
 #include "Material.h"
 #include "ustring.h"
 class ShaderMaterial : public Material{
@@ -19,7 +19,7 @@ void set_shader_param(String p_param, Variant p_value);
 
 protected:
 public:
-explicit ShaderMaterial(WasGoId p_wasgo_id);
+explicit ShaderMaterial(WasGoID p_wasgo_id);
 explicit ShaderMaterial(Material other);
 ShaderMaterial new_instance();
             
@@ -28,15 +28,15 @@ ShaderMaterial new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_ShaderMaterial_wrapper_get_shader(WasGoId wasgo_id);
-WasGoId _wasgo_ShaderMaterial_wrapper_get_shader_param(WasGoId wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size);
-int _wasgo_ShaderMaterial_wrapper_property_can_revert(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-WasGoId _wasgo_ShaderMaterial_wrapper_property_get_revert(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_ShaderMaterial_wrapper_set_shader(WasGoId wasgo_id, WasGoId p_shader);
-void _wasgo_ShaderMaterial_wrapper_set_shader_param(WasGoId wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size, WasGoId p_value);
+WasGoID _wasgo_ShaderMaterial_wrapper_get_shader(WasGoID wasgo_id);
+WasGoID _wasgo_ShaderMaterial_wrapper_get_shader_param(WasGoID wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size);
+int _wasgo_ShaderMaterial_wrapper_property_can_revert(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+WasGoID _wasgo_ShaderMaterial_wrapper_property_get_revert(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_ShaderMaterial_wrapper_set_shader(WasGoID wasgo_id, WasGoID p_shader);
+void _wasgo_ShaderMaterial_wrapper_set_shader_param(WasGoID wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size, WasGoID p_value);
 
     //constructor wrappers
-    WasGoId _wasgo_ShaderMaterial_constructor();
+    WasGoID _wasgo_ShaderMaterial_constructor();
             
 }
 #endif

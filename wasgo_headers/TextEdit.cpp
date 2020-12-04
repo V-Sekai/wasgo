@@ -397,7 +397,7 @@ void TextEdit::unhide_all_lines(){
 	_wasgo_TextEdit_wrapper_unhide_all_lines(wasgo_id);
 }
 
-TextEdit::TextEdit(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+TextEdit::TextEdit(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 TextEdit::TextEdit(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_TextEdit_constructor();

@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VisualShaderNodeColorUniform(WasGoId p_wasgo_id);
+explicit VisualShaderNodeColorUniform(WasGoID p_wasgo_id);
 explicit VisualShaderNodeColorUniform(VisualShaderNodeUniform other);
 VisualShaderNodeColorUniform new_instance();
             
@@ -21,7 +21,7 @@ VisualShaderNodeColorUniform new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeColorUniform_constructor();
+    WasGoID _wasgo_VisualShaderNodeColorUniform_constructor();
             
 }
 #endif

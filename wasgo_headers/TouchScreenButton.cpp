@@ -72,7 +72,7 @@ void TouchScreenButton::set_visibility_mode(TouchScreenButton::VisibilityMode p_
 	_wasgo_TouchScreenButton_wrapper_set_visibility_mode(wasgo_id, p_mode._get_wasgo_id());
 }
 
-TouchScreenButton::TouchScreenButton(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+TouchScreenButton::TouchScreenButton(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 TouchScreenButton::TouchScreenButton(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_TouchScreenButton_constructor();

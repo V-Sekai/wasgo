@@ -226,7 +226,7 @@ void RichTextLabel::set_visible_characters(int p_amount){
 	_wasgo_RichTextLabel_wrapper_set_visible_characters(wasgo_id, p_amount);
 }
 
-RichTextLabel::RichTextLabel(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+RichTextLabel::RichTextLabel(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 RichTextLabel::RichTextLabel(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_RichTextLabel_constructor();

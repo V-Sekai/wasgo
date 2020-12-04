@@ -21,7 +21,7 @@ void VisualShaderNodeTransformConstant::set_constant(Transform p_value){
 	_wasgo_VisualShaderNodeTransformConstant_wrapper_set_constant(wasgo_id, wasgo_buffer_value, wasgo_size_value);
 }
 
-VisualShaderNodeTransformConstant::VisualShaderNodeTransformConstant(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeTransformConstant::VisualShaderNodeTransformConstant(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeTransformConstant::VisualShaderNodeTransformConstant(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeTransformConstant_constructor();

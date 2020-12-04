@@ -43,7 +43,7 @@ void CameraFeed::set_transform(Transform2D p_transform){
 	_wasgo_CameraFeed_wrapper_set_transform(wasgo_id, wasgo_buffer_transform, wasgo_size_transform);
 }
 
-CameraFeed::CameraFeed(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+CameraFeed::CameraFeed(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 CameraFeed::CameraFeed(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_CameraFeed_constructor();

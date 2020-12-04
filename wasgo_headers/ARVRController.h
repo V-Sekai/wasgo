@@ -24,7 +24,7 @@ void set_rumble(float p_rumble);
 
 protected:
 public:
-explicit ARVRController(WasGoId p_wasgo_id);
+explicit ARVRController(WasGoID p_wasgo_id);
 explicit ARVRController(Spatial other);
 ARVRController new_instance();
             
@@ -33,20 +33,20 @@ ARVRController new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_ARVRController_wrapper_get_controller_id(WasGoId wasgo_id);
-void _wasgo_ARVRController_wrapper_get_controller_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_ARVRController_wrapper_get_hand(WasGoId wasgo_id);
-int _wasgo_ARVRController_wrapper_get_is_active(WasGoId wasgo_id);
-float _wasgo_ARVRController_wrapper_get_joystick_axis(WasGoId wasgo_id, int p_axis);
-int _wasgo_ARVRController_wrapper_get_joystick_id(WasGoId wasgo_id);
-WasGoId _wasgo_ARVRController_wrapper_get_mesh(WasGoId wasgo_id);
-float _wasgo_ARVRController_wrapper_get_rumble(WasGoId wasgo_id);
-int _wasgo_ARVRController_wrapper_is_button_pressed(WasGoId wasgo_id, int p_button);
-void _wasgo_ARVRController_wrapper_set_controller_id(WasGoId wasgo_id, int p_controller_id);
-void _wasgo_ARVRController_wrapper_set_rumble(WasGoId wasgo_id, float p_rumble);
+int _wasgo_ARVRController_wrapper_get_controller_id(WasGoID wasgo_id);
+void _wasgo_ARVRController_wrapper_get_controller_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_ARVRController_wrapper_get_hand(WasGoID wasgo_id);
+int _wasgo_ARVRController_wrapper_get_is_active(WasGoID wasgo_id);
+float _wasgo_ARVRController_wrapper_get_joystick_axis(WasGoID wasgo_id, int p_axis);
+int _wasgo_ARVRController_wrapper_get_joystick_id(WasGoID wasgo_id);
+WasGoID _wasgo_ARVRController_wrapper_get_mesh(WasGoID wasgo_id);
+float _wasgo_ARVRController_wrapper_get_rumble(WasGoID wasgo_id);
+int _wasgo_ARVRController_wrapper_is_button_pressed(WasGoID wasgo_id, int p_button);
+void _wasgo_ARVRController_wrapper_set_controller_id(WasGoID wasgo_id, int p_controller_id);
+void _wasgo_ARVRController_wrapper_set_rumble(WasGoID wasgo_id, float p_rumble);
 
     //constructor wrappers
-    WasGoId _wasgo_ARVRController_constructor();
+    WasGoID _wasgo_ARVRController_constructor();
             
 }
 #endif

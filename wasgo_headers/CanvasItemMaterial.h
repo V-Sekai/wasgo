@@ -34,7 +34,7 @@ void set_particles_animation(bool p_particles_anim);
 
 protected:
 public:
-explicit CanvasItemMaterial(WasGoId p_wasgo_id);
+explicit CanvasItemMaterial(WasGoID p_wasgo_id);
 explicit CanvasItemMaterial(Material other);
 CanvasItemMaterial new_instance();
             
@@ -43,21 +43,21 @@ CanvasItemMaterial new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_CanvasItemMaterial_wrapper_get_blend_mode(WasGoId wasgo_id);
-WasGoId _wasgo_CanvasItemMaterial_wrapper_get_light_mode(WasGoId wasgo_id);
-int _wasgo_CanvasItemMaterial_wrapper_get_particles_anim_h_frames(WasGoId wasgo_id);
-int _wasgo_CanvasItemMaterial_wrapper_get_particles_anim_loop(WasGoId wasgo_id);
-int _wasgo_CanvasItemMaterial_wrapper_get_particles_anim_v_frames(WasGoId wasgo_id);
-int _wasgo_CanvasItemMaterial_wrapper_get_particles_animation(WasGoId wasgo_id);
-void _wasgo_CanvasItemMaterial_wrapper_set_blend_mode(WasGoId wasgo_id, WasGoId p_blend_mode);
-void _wasgo_CanvasItemMaterial_wrapper_set_light_mode(WasGoId wasgo_id, WasGoId p_light_mode);
-void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_h_frames(WasGoId wasgo_id, int p_frames);
-void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_loop(WasGoId wasgo_id, bool p_loop);
-void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_v_frames(WasGoId wasgo_id, int p_frames);
-void _wasgo_CanvasItemMaterial_wrapper_set_particles_animation(WasGoId wasgo_id, bool p_particles_anim);
+WasGoID _wasgo_CanvasItemMaterial_wrapper_get_blend_mode(WasGoID wasgo_id);
+WasGoID _wasgo_CanvasItemMaterial_wrapper_get_light_mode(WasGoID wasgo_id);
+int _wasgo_CanvasItemMaterial_wrapper_get_particles_anim_h_frames(WasGoID wasgo_id);
+int _wasgo_CanvasItemMaterial_wrapper_get_particles_anim_loop(WasGoID wasgo_id);
+int _wasgo_CanvasItemMaterial_wrapper_get_particles_anim_v_frames(WasGoID wasgo_id);
+int _wasgo_CanvasItemMaterial_wrapper_get_particles_animation(WasGoID wasgo_id);
+void _wasgo_CanvasItemMaterial_wrapper_set_blend_mode(WasGoID wasgo_id, WasGoID p_blend_mode);
+void _wasgo_CanvasItemMaterial_wrapper_set_light_mode(WasGoID wasgo_id, WasGoID p_light_mode);
+void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_h_frames(WasGoID wasgo_id, int p_frames);
+void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_loop(WasGoID wasgo_id, bool p_loop);
+void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_v_frames(WasGoID wasgo_id, int p_frames);
+void _wasgo_CanvasItemMaterial_wrapper_set_particles_animation(WasGoID wasgo_id, bool p_particles_anim);
 
     //constructor wrappers
-    WasGoId _wasgo_CanvasItemMaterial_constructor();
+    WasGoID _wasgo_CanvasItemMaterial_constructor();
             
 }
 #endif

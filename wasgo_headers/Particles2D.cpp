@@ -124,7 +124,7 @@ void Particles2D::set_visibility_rect(Rect2 p_visibility_rect){
 	_wasgo_Particles2D_wrapper_set_visibility_rect(wasgo_id, wasgo_buffer_visibility_rect, wasgo_size_visibility_rect);
 }
 
-Particles2D::Particles2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
+Particles2D::Particles2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Particles2D::Particles2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Particles2D_constructor();

@@ -12,7 +12,7 @@ void set_constant(bool p_value);
 
 protected:
 public:
-explicit VisualShaderNodeBooleanConstant(WasGoId p_wasgo_id);
+explicit VisualShaderNodeBooleanConstant(WasGoID p_wasgo_id);
 explicit VisualShaderNodeBooleanConstant(VisualShaderNode other);
 VisualShaderNodeBooleanConstant new_instance();
             
@@ -21,11 +21,11 @@ VisualShaderNodeBooleanConstant new_instance();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_VisualShaderNodeBooleanConstant_wrapper_get_constant(WasGoId wasgo_id);
-void _wasgo_VisualShaderNodeBooleanConstant_wrapper_set_constant(WasGoId wasgo_id, bool p_value);
+int _wasgo_VisualShaderNodeBooleanConstant_wrapper_get_constant(WasGoID wasgo_id);
+void _wasgo_VisualShaderNodeBooleanConstant_wrapper_set_constant(WasGoID wasgo_id, bool p_value);
 
     //constructor wrappers
-    WasGoId _wasgo_VisualShaderNodeBooleanConstant_constructor();
+    WasGoID _wasgo_VisualShaderNodeBooleanConstant_constructor();
             
 }
 #endif

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "Resource.h"
+#include "Texture.h"
 #include "ustring.h"
 class Shader : public Resource{
 public:
@@ -25,7 +25,7 @@ void set_default_texture_param(String p_param, Texture p_texture);
 
 protected:
 public:
-explicit Shader(WasGoId p_wasgo_id);
+explicit Shader(WasGoID p_wasgo_id);
 explicit Shader(Resource other);
 Shader new_instance();
             
@@ -34,17 +34,17 @@ Shader new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Shader_wrapper_get_code(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Shader_wrapper_get_custom_defines(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoId _wasgo_Shader_wrapper_get_default_texture_param(WasGoId wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size);
-WasGoId _wasgo_Shader_wrapper_get_mode(WasGoId wasgo_id);
-int _wasgo_Shader_wrapper_has_param(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_Shader_wrapper_set_code(WasGoId wasgo_id, const uint8_t * p_code, int p_code_wasgo_buffer_size);
-void _wasgo_Shader_wrapper_set_custom_defines(WasGoId wasgo_id, const uint8_t * p_custom_defines, int p_custom_defines_wasgo_buffer_size);
-void _wasgo_Shader_wrapper_set_default_texture_param(WasGoId wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size, WasGoId p_texture);
+void _wasgo_Shader_wrapper_get_code(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Shader_wrapper_get_custom_defines(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+WasGoID _wasgo_Shader_wrapper_get_default_texture_param(WasGoID wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size);
+WasGoID _wasgo_Shader_wrapper_get_mode(WasGoID wasgo_id);
+int _wasgo_Shader_wrapper_has_param(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_Shader_wrapper_set_code(WasGoID wasgo_id, const uint8_t * p_code, int p_code_wasgo_buffer_size);
+void _wasgo_Shader_wrapper_set_custom_defines(WasGoID wasgo_id, const uint8_t * p_custom_defines, int p_custom_defines_wasgo_buffer_size);
+void _wasgo_Shader_wrapper_set_default_texture_param(WasGoID wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size, WasGoID p_texture);
 
     //constructor wrappers
-    WasGoId _wasgo_Shader_constructor();
+    WasGoID _wasgo_Shader_constructor();
             
 }
 #endif

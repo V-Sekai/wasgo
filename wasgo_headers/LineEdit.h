@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "PopupMenu.h"
-#include "Texture.h"
 #include "Control.h"
+#include "Texture.h"
+#include "PopupMenu.h"
 #include "ustring.h"
 class LineEdit : public Control{
 public:
@@ -75,7 +75,7 @@ void set_virtual_keyboard_enabled(bool p_enable);
 
 protected:
 public:
-explicit LineEdit(WasGoId p_wasgo_id);
+explicit LineEdit(WasGoID p_wasgo_id);
 explicit LineEdit(Control other);
 LineEdit new_instance();
             
@@ -84,55 +84,55 @@ LineEdit new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_LineEdit_wrapper_append_at_cursor(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-void _wasgo_LineEdit_wrapper_clear(WasGoId wasgo_id);
-int _wasgo_LineEdit_wrapper_cursor_get_blink_enabled(WasGoId wasgo_id);
-float _wasgo_LineEdit_wrapper_cursor_get_blink_speed(WasGoId wasgo_id);
-void _wasgo_LineEdit_wrapper_cursor_set_blink_enabled(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_LineEdit_wrapper_cursor_set_blink_speed(WasGoId wasgo_id, float p_blink_speed);
-void _wasgo_LineEdit_wrapper_delete_char_at_cursor(WasGoId wasgo_id);
-void _wasgo_LineEdit_wrapper_delete_text(WasGoId wasgo_id, int p_from_column, int p_to_column);
-void _wasgo_LineEdit_wrapper_deselect(WasGoId wasgo_id);
-WasGoId _wasgo_LineEdit_wrapper_get_align(WasGoId wasgo_id);
-int _wasgo_LineEdit_wrapper_get_cursor_position(WasGoId wasgo_id);
-int _wasgo_LineEdit_wrapper_get_expand_to_text_length(WasGoId wasgo_id);
-int _wasgo_LineEdit_wrapper_get_max_length(WasGoId wasgo_id);
-WasGoId _wasgo_LineEdit_wrapper_get_menu(WasGoId wasgo_id);
-void _wasgo_LineEdit_wrapper_get_placeholder(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_LineEdit_wrapper_get_placeholder_alpha(WasGoId wasgo_id);
-WasGoId _wasgo_LineEdit_wrapper_get_right_icon(WasGoId wasgo_id);
-int _wasgo_LineEdit_wrapper_get_scroll_offset(WasGoId wasgo_id);
-void _wasgo_LineEdit_wrapper_get_secret_character(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_LineEdit_wrapper_get_text(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_LineEdit_wrapper_is_clear_button_enabled(WasGoId wasgo_id);
-int _wasgo_LineEdit_wrapper_is_context_menu_enabled(WasGoId wasgo_id);
-int _wasgo_LineEdit_wrapper_is_editable(WasGoId wasgo_id);
-int _wasgo_LineEdit_wrapper_is_secret(WasGoId wasgo_id);
-int _wasgo_LineEdit_wrapper_is_selecting_enabled(WasGoId wasgo_id);
-int _wasgo_LineEdit_wrapper_is_shortcut_keys_enabled(WasGoId wasgo_id);
-int _wasgo_LineEdit_wrapper_is_virtual_keyboard_enabled(WasGoId wasgo_id);
-void _wasgo_LineEdit_wrapper_menu_option(WasGoId wasgo_id, int p_option);
-void _wasgo_LineEdit_wrapper_select(WasGoId wasgo_id, int p_from, int p_to);
-void _wasgo_LineEdit_wrapper_select_all(WasGoId wasgo_id);
-void _wasgo_LineEdit_wrapper_set_align(WasGoId wasgo_id, WasGoId p_align);
-void _wasgo_LineEdit_wrapper_set_clear_button_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_LineEdit_wrapper_set_context_menu_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_LineEdit_wrapper_set_cursor_position(WasGoId wasgo_id, int p_position);
-void _wasgo_LineEdit_wrapper_set_editable(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_LineEdit_wrapper_set_expand_to_text_length(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_LineEdit_wrapper_set_max_length(WasGoId wasgo_id, int p_chars);
-void _wasgo_LineEdit_wrapper_set_placeholder(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-void _wasgo_LineEdit_wrapper_set_placeholder_alpha(WasGoId wasgo_id, float p_alpha);
-void _wasgo_LineEdit_wrapper_set_right_icon(WasGoId wasgo_id, WasGoId p_icon);
-void _wasgo_LineEdit_wrapper_set_secret(WasGoId wasgo_id, bool p_enabled);
-void _wasgo_LineEdit_wrapper_set_secret_character(WasGoId wasgo_id, const uint8_t * p_character, int p_character_wasgo_buffer_size);
-void _wasgo_LineEdit_wrapper_set_selecting_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_LineEdit_wrapper_set_shortcut_keys_enabled(WasGoId wasgo_id, bool p_enable);
-void _wasgo_LineEdit_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
-void _wasgo_LineEdit_wrapper_set_virtual_keyboard_enabled(WasGoId wasgo_id, bool p_enable);
+void _wasgo_LineEdit_wrapper_append_at_cursor(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_LineEdit_wrapper_clear(WasGoID wasgo_id);
+int _wasgo_LineEdit_wrapper_cursor_get_blink_enabled(WasGoID wasgo_id);
+float _wasgo_LineEdit_wrapper_cursor_get_blink_speed(WasGoID wasgo_id);
+void _wasgo_LineEdit_wrapper_cursor_set_blink_enabled(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_LineEdit_wrapper_cursor_set_blink_speed(WasGoID wasgo_id, float p_blink_speed);
+void _wasgo_LineEdit_wrapper_delete_char_at_cursor(WasGoID wasgo_id);
+void _wasgo_LineEdit_wrapper_delete_text(WasGoID wasgo_id, int p_from_column, int p_to_column);
+void _wasgo_LineEdit_wrapper_deselect(WasGoID wasgo_id);
+WasGoID _wasgo_LineEdit_wrapper_get_align(WasGoID wasgo_id);
+int _wasgo_LineEdit_wrapper_get_cursor_position(WasGoID wasgo_id);
+int _wasgo_LineEdit_wrapper_get_expand_to_text_length(WasGoID wasgo_id);
+int _wasgo_LineEdit_wrapper_get_max_length(WasGoID wasgo_id);
+WasGoID _wasgo_LineEdit_wrapper_get_menu(WasGoID wasgo_id);
+void _wasgo_LineEdit_wrapper_get_placeholder(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_LineEdit_wrapper_get_placeholder_alpha(WasGoID wasgo_id);
+WasGoID _wasgo_LineEdit_wrapper_get_right_icon(WasGoID wasgo_id);
+int _wasgo_LineEdit_wrapper_get_scroll_offset(WasGoID wasgo_id);
+void _wasgo_LineEdit_wrapper_get_secret_character(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_LineEdit_wrapper_get_text(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_LineEdit_wrapper_is_clear_button_enabled(WasGoID wasgo_id);
+int _wasgo_LineEdit_wrapper_is_context_menu_enabled(WasGoID wasgo_id);
+int _wasgo_LineEdit_wrapper_is_editable(WasGoID wasgo_id);
+int _wasgo_LineEdit_wrapper_is_secret(WasGoID wasgo_id);
+int _wasgo_LineEdit_wrapper_is_selecting_enabled(WasGoID wasgo_id);
+int _wasgo_LineEdit_wrapper_is_shortcut_keys_enabled(WasGoID wasgo_id);
+int _wasgo_LineEdit_wrapper_is_virtual_keyboard_enabled(WasGoID wasgo_id);
+void _wasgo_LineEdit_wrapper_menu_option(WasGoID wasgo_id, int p_option);
+void _wasgo_LineEdit_wrapper_select(WasGoID wasgo_id, int p_from, int p_to);
+void _wasgo_LineEdit_wrapper_select_all(WasGoID wasgo_id);
+void _wasgo_LineEdit_wrapper_set_align(WasGoID wasgo_id, WasGoID p_align);
+void _wasgo_LineEdit_wrapper_set_clear_button_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_LineEdit_wrapper_set_context_menu_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_LineEdit_wrapper_set_cursor_position(WasGoID wasgo_id, int p_position);
+void _wasgo_LineEdit_wrapper_set_editable(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_LineEdit_wrapper_set_expand_to_text_length(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_LineEdit_wrapper_set_max_length(WasGoID wasgo_id, int p_chars);
+void _wasgo_LineEdit_wrapper_set_placeholder(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_LineEdit_wrapper_set_placeholder_alpha(WasGoID wasgo_id, float p_alpha);
+void _wasgo_LineEdit_wrapper_set_right_icon(WasGoID wasgo_id, WasGoID p_icon);
+void _wasgo_LineEdit_wrapper_set_secret(WasGoID wasgo_id, bool p_enabled);
+void _wasgo_LineEdit_wrapper_set_secret_character(WasGoID wasgo_id, const uint8_t * p_character, int p_character_wasgo_buffer_size);
+void _wasgo_LineEdit_wrapper_set_selecting_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_LineEdit_wrapper_set_shortcut_keys_enabled(WasGoID wasgo_id, bool p_enable);
+void _wasgo_LineEdit_wrapper_set_text(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
+void _wasgo_LineEdit_wrapper_set_virtual_keyboard_enabled(WasGoID wasgo_id, bool p_enable);
 
     //constructor wrappers
-    WasGoId _wasgo_LineEdit_constructor();
+    WasGoID _wasgo_LineEdit_constructor();
             
 }
 #endif

@@ -29,7 +29,7 @@ Error PCKPacker::pck_start(String p_pck_name, int p_alignment = (int) 0){
 	return Error(_wasgo_PCKPacker_wrapper_pck_start(wasgo_id, wasgo_buffer_pck_name, wasgo_size_pck_name, p_alignment));
 }
 
-PCKPacker::PCKPacker(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+PCKPacker::PCKPacker(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 PCKPacker::PCKPacker(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_PCKPacker_constructor();

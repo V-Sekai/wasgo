@@ -21,7 +21,7 @@ void ViewportTexture::set_viewport_path_in_scene(NodePath p_path){
 	_wasgo_ViewportTexture_wrapper_set_viewport_path_in_scene(wasgo_id, wasgo_buffer_path, wasgo_size_path);
 }
 
-ViewportTexture::ViewportTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
+ViewportTexture::ViewportTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 ViewportTexture::ViewportTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_ViewportTexture_constructor();

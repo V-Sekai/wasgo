@@ -140,7 +140,7 @@ void VisualShaderNodeGroupBase::set_size(Vector2 p_size){
 	_wasgo_VisualShaderNodeGroupBase_wrapper_set_size(wasgo_id, wasgo_buffer_size, wasgo_size_size);
 }
 
-VisualShaderNodeGroupBase::VisualShaderNodeGroupBase(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+VisualShaderNodeGroupBase::VisualShaderNodeGroupBase(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeGroupBase::VisualShaderNodeGroupBase(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeGroupBase_constructor();

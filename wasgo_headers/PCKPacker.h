@@ -15,7 +15,7 @@ Error pck_start(String p_pck_name, int p_alignment = (int) 0);
 
 protected:
 public:
-explicit PCKPacker(WasGoId p_wasgo_id);
+explicit PCKPacker(WasGoID p_wasgo_id);
 explicit PCKPacker(Reference other);
 PCKPacker new_instance();
             
@@ -24,12 +24,12 @@ PCKPacker new_instance();
 
 //Wrapper Functions
 extern "C"{
-WasGoId _wasgo_PCKPacker_wrapper_add_file(WasGoId wasgo_id, const uint8_t * p_pck_path, int p_pck_path_wasgo_buffer_size, const uint8_t * p_source_path, int p_source_path_wasgo_buffer_size);
-WasGoId _wasgo_PCKPacker_wrapper_flush(WasGoId wasgo_id, bool p_verbose);
-WasGoId _wasgo_PCKPacker_wrapper_pck_start(WasGoId wasgo_id, const uint8_t * p_pck_name, int p_pck_name_wasgo_buffer_size, int p_alignment);
+WasGoID _wasgo_PCKPacker_wrapper_add_file(WasGoID wasgo_id, const uint8_t * p_pck_path, int p_pck_path_wasgo_buffer_size, const uint8_t * p_source_path, int p_source_path_wasgo_buffer_size);
+WasGoID _wasgo_PCKPacker_wrapper_flush(WasGoID wasgo_id, bool p_verbose);
+WasGoID _wasgo_PCKPacker_wrapper_pck_start(WasGoID wasgo_id, const uint8_t * p_pck_name, int p_pck_name_wasgo_buffer_size, int p_alignment);
 
     //constructor wrappers
-    WasGoId _wasgo_PCKPacker_constructor();
+    WasGoID _wasgo_PCKPacker_constructor();
             
 }
 #endif

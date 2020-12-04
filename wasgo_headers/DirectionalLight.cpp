@@ -20,7 +20,7 @@ void DirectionalLight::set_shadow_mode(DirectionalLight::ShadowMode p_mode){
 	_wasgo_DirectionalLight_wrapper_set_shadow_mode(wasgo_id, p_mode._get_wasgo_id());
 }
 
-DirectionalLight::DirectionalLight(WasGoId p_wasgo_id) : Light(p_wasgo_id){
+DirectionalLight::DirectionalLight(WasGoID p_wasgo_id) : Light(p_wasgo_id){
 }
 DirectionalLight::DirectionalLight(Light other) : Light(other._get_wasgo_id()){
     wasgo_id = _wasgo_DirectionalLight_constructor();

@@ -291,7 +291,7 @@ void ItemList::unselect_all(){
 	_wasgo_ItemList_wrapper_unselect_all(wasgo_id);
 }
 
-ItemList::ItemList(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+ItemList::ItemList(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 ItemList::ItemList(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_ItemList_constructor();

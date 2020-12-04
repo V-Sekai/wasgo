@@ -14,7 +14,7 @@ void set_aabb(AABB p_rect);
 
 protected:
 public:
-explicit VisibilityNotifier(WasGoId p_wasgo_id);
+explicit VisibilityNotifier(WasGoID p_wasgo_id);
 explicit VisibilityNotifier(Spatial other);
 VisibilityNotifier new_instance();
             
@@ -23,12 +23,12 @@ VisibilityNotifier new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_VisibilityNotifier_wrapper_get_aabb(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_VisibilityNotifier_wrapper_is_on_screen(WasGoId wasgo_id);
-void _wasgo_VisibilityNotifier_wrapper_set_aabb(WasGoId wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size);
+void _wasgo_VisibilityNotifier_wrapper_get_aabb(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_VisibilityNotifier_wrapper_is_on_screen(WasGoID wasgo_id);
+void _wasgo_VisibilityNotifier_wrapper_set_aabb(WasGoID wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_VisibilityNotifier_constructor();
+    WasGoID _wasgo_VisibilityNotifier_constructor();
             
 }
 #endif

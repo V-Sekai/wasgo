@@ -16,7 +16,7 @@ void set_time_pullout(float p_amount);
 
 protected:
 public:
-explicit AudioEffectStereoEnhance(WasGoId p_wasgo_id);
+explicit AudioEffectStereoEnhance(WasGoID p_wasgo_id);
 explicit AudioEffectStereoEnhance(AudioEffect other);
 AudioEffectStereoEnhance new_instance();
             
@@ -25,15 +25,15 @@ AudioEffectStereoEnhance new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_AudioEffectStereoEnhance_wrapper_get_pan_pullout(WasGoId wasgo_id);
-float _wasgo_AudioEffectStereoEnhance_wrapper_get_surround(WasGoId wasgo_id);
-float _wasgo_AudioEffectStereoEnhance_wrapper_get_time_pullout(WasGoId wasgo_id);
-void _wasgo_AudioEffectStereoEnhance_wrapper_set_pan_pullout(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectStereoEnhance_wrapper_set_surround(WasGoId wasgo_id, float p_amount);
-void _wasgo_AudioEffectStereoEnhance_wrapper_set_time_pullout(WasGoId wasgo_id, float p_amount);
+float _wasgo_AudioEffectStereoEnhance_wrapper_get_pan_pullout(WasGoID wasgo_id);
+float _wasgo_AudioEffectStereoEnhance_wrapper_get_surround(WasGoID wasgo_id);
+float _wasgo_AudioEffectStereoEnhance_wrapper_get_time_pullout(WasGoID wasgo_id);
+void _wasgo_AudioEffectStereoEnhance_wrapper_set_pan_pullout(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectStereoEnhance_wrapper_set_surround(WasGoID wasgo_id, float p_amount);
+void _wasgo_AudioEffectStereoEnhance_wrapper_set_time_pullout(WasGoID wasgo_id, float p_amount);
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectStereoEnhance_constructor();
+    WasGoID _wasgo_AudioEffectStereoEnhance_constructor();
             
 }
 #endif

@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit TriangleMesh(WasGoId p_wasgo_id);
+explicit TriangleMesh(WasGoID p_wasgo_id);
 explicit TriangleMesh(Reference other);
 TriangleMesh new_instance();
             
@@ -21,7 +21,7 @@ TriangleMesh new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_TriangleMesh_constructor();
+    WasGoID _wasgo_TriangleMesh_constructor();
             
 }
 #endif

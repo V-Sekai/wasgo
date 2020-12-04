@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "Vector2.h"
-#include "ustring.h"
 #include "Color.h"
+#include "Vector2.h"
 #include "Resource.h"
-#include "Rect2.h"
 #include "Variant.h"
+#include "error_list.h"
+#include "Rect2.h"
+#include "ustring.h"
 class Image : public Resource{
 public:
 enum AlphaMode{
@@ -134,7 +134,7 @@ void unlock();
 
 protected:
 public:
-explicit Image(WasGoId p_wasgo_id);
+explicit Image(WasGoID p_wasgo_id);
 explicit Image(Resource other);
 Image new_instance();
             
@@ -143,63 +143,63 @@ Image new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Image_wrapper_blend_rect(WasGoId wasgo_id, WasGoId p_src, const uint8_t * p_src_rect, int p_src_rect_wasgo_buffer_size, const uint8_t * p_dst, int p_dst_wasgo_buffer_size);
-void _wasgo_Image_wrapper_blend_rect_mask(WasGoId wasgo_id, WasGoId p_src, WasGoId p_mask, const uint8_t * p_src_rect, int p_src_rect_wasgo_buffer_size, const uint8_t * p_dst, int p_dst_wasgo_buffer_size);
-void _wasgo_Image_wrapper_blit_rect(WasGoId wasgo_id, WasGoId p_src, const uint8_t * p_src_rect, int p_src_rect_wasgo_buffer_size, const uint8_t * p_dst, int p_dst_wasgo_buffer_size);
-void _wasgo_Image_wrapper_blit_rect_mask(WasGoId wasgo_id, WasGoId p_src, WasGoId p_mask, const uint8_t * p_src_rect, int p_src_rect_wasgo_buffer_size, const uint8_t * p_dst, int p_dst_wasgo_buffer_size);
-void _wasgo_Image_wrapper_bumpmap_to_normalmap(WasGoId wasgo_id, float p_bump_scale);
-void _wasgo_Image_wrapper_clear_mipmaps(WasGoId wasgo_id);
-WasGoId _wasgo_Image_wrapper_compress(WasGoId wasgo_id, WasGoId p_mode, WasGoId p_source, float p_lossy_quality);
-void _wasgo_Image_wrapper_convert(WasGoId wasgo_id, WasGoId p_format);
-void _wasgo_Image_wrapper_copy_from(WasGoId wasgo_id, WasGoId p_src);
-void _wasgo_Image_wrapper_create(WasGoId wasgo_id, int p_width, int p_height, bool p_use_mipmaps, WasGoId p_format);
-void _wasgo_Image_wrapper_create_from_data(WasGoId wasgo_id, int p_width, int p_height, bool p_use_mipmaps, WasGoId p_format, WasGoId p_data);
-void _wasgo_Image_wrapper_crop(WasGoId wasgo_id, int p_width, int p_height);
-WasGoId _wasgo_Image_wrapper_decompress(WasGoId wasgo_id);
-WasGoId _wasgo_Image_wrapper_detect_alpha(WasGoId wasgo_id);
-void _wasgo_Image_wrapper_expand_x2_hq2x(WasGoId wasgo_id);
-void _wasgo_Image_wrapper_fill(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_Image_wrapper_fix_alpha_edges(WasGoId wasgo_id);
-void _wasgo_Image_wrapper_flip_x(WasGoId wasgo_id);
-void _wasgo_Image_wrapper_flip_y(WasGoId wasgo_id);
-WasGoId _wasgo_Image_wrapper_generate_mipmaps(WasGoId wasgo_id, bool p_renormalize);
-WasGoId _wasgo_Image_wrapper_get_data(WasGoId wasgo_id);
-WasGoId _wasgo_Image_wrapper_get_format(WasGoId wasgo_id);
-int _wasgo_Image_wrapper_get_height(WasGoId wasgo_id);
-int _wasgo_Image_wrapper_get_mipmap_offset(WasGoId wasgo_id, int p_mipmap);
-void _wasgo_Image_wrapper_get_pixel(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_x, int p_y);
-void _wasgo_Image_wrapper_get_pixelv(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_src, int p_src_wasgo_buffer_size);
-WasGoId _wasgo_Image_wrapper_get_rect(WasGoId wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size);
-void _wasgo_Image_wrapper_get_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Image_wrapper_get_used_rect(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-int _wasgo_Image_wrapper_get_width(WasGoId wasgo_id);
-int _wasgo_Image_wrapper_has_mipmaps(WasGoId wasgo_id);
-int _wasgo_Image_wrapper_is_compressed(WasGoId wasgo_id);
-int _wasgo_Image_wrapper_is_empty(WasGoId wasgo_id);
-int _wasgo_Image_wrapper_is_invisible(WasGoId wasgo_id);
-WasGoId _wasgo_Image_wrapper_load(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_Image_wrapper_load_bmp_from_buffer(WasGoId wasgo_id, WasGoId p_buffer);
-WasGoId _wasgo_Image_wrapper_load_jpg_from_buffer(WasGoId wasgo_id, WasGoId p_buffer);
-WasGoId _wasgo_Image_wrapper_load_png_from_buffer(WasGoId wasgo_id, WasGoId p_buffer);
-WasGoId _wasgo_Image_wrapper_load_tga_from_buffer(WasGoId wasgo_id, WasGoId p_buffer);
-WasGoId _wasgo_Image_wrapper_load_webp_from_buffer(WasGoId wasgo_id, WasGoId p_buffer);
-void _wasgo_Image_wrapper_lock(WasGoId wasgo_id);
-void _wasgo_Image_wrapper_normalmap_to_xy(WasGoId wasgo_id);
-void _wasgo_Image_wrapper_premultiply_alpha(WasGoId wasgo_id);
-void _wasgo_Image_wrapper_resize(WasGoId wasgo_id, int p_width, int p_height, WasGoId p_interpolation);
-void _wasgo_Image_wrapper_resize_to_po2(WasGoId wasgo_id, bool p_square);
-WasGoId _wasgo_Image_wrapper_rgbe_to_srgb(WasGoId wasgo_id);
-WasGoId _wasgo_Image_wrapper_save_exr(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, bool p_grayscale);
-WasGoId _wasgo_Image_wrapper_save_png(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_Image_wrapper_save_png_to_buffer(WasGoId wasgo_id);
-void _wasgo_Image_wrapper_set_pixel(WasGoId wasgo_id, int p_x, int p_y, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_Image_wrapper_set_pixelv(WasGoId wasgo_id, const uint8_t * p_dst, int p_dst_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_Image_wrapper_shrink_x2(WasGoId wasgo_id);
-void _wasgo_Image_wrapper_srgb_to_linear(WasGoId wasgo_id);
-void _wasgo_Image_wrapper_unlock(WasGoId wasgo_id);
+void _wasgo_Image_wrapper_blend_rect(WasGoID wasgo_id, WasGoID p_src, const uint8_t * p_src_rect, int p_src_rect_wasgo_buffer_size, const uint8_t * p_dst, int p_dst_wasgo_buffer_size);
+void _wasgo_Image_wrapper_blend_rect_mask(WasGoID wasgo_id, WasGoID p_src, WasGoID p_mask, const uint8_t * p_src_rect, int p_src_rect_wasgo_buffer_size, const uint8_t * p_dst, int p_dst_wasgo_buffer_size);
+void _wasgo_Image_wrapper_blit_rect(WasGoID wasgo_id, WasGoID p_src, const uint8_t * p_src_rect, int p_src_rect_wasgo_buffer_size, const uint8_t * p_dst, int p_dst_wasgo_buffer_size);
+void _wasgo_Image_wrapper_blit_rect_mask(WasGoID wasgo_id, WasGoID p_src, WasGoID p_mask, const uint8_t * p_src_rect, int p_src_rect_wasgo_buffer_size, const uint8_t * p_dst, int p_dst_wasgo_buffer_size);
+void _wasgo_Image_wrapper_bumpmap_to_normalmap(WasGoID wasgo_id, float p_bump_scale);
+void _wasgo_Image_wrapper_clear_mipmaps(WasGoID wasgo_id);
+WasGoID _wasgo_Image_wrapper_compress(WasGoID wasgo_id, WasGoID p_mode, WasGoID p_source, float p_lossy_quality);
+void _wasgo_Image_wrapper_convert(WasGoID wasgo_id, WasGoID p_format);
+void _wasgo_Image_wrapper_copy_from(WasGoID wasgo_id, WasGoID p_src);
+void _wasgo_Image_wrapper_create(WasGoID wasgo_id, int p_width, int p_height, bool p_use_mipmaps, WasGoID p_format);
+void _wasgo_Image_wrapper_create_from_data(WasGoID wasgo_id, int p_width, int p_height, bool p_use_mipmaps, WasGoID p_format, WasGoID p_data);
+void _wasgo_Image_wrapper_crop(WasGoID wasgo_id, int p_width, int p_height);
+WasGoID _wasgo_Image_wrapper_decompress(WasGoID wasgo_id);
+WasGoID _wasgo_Image_wrapper_detect_alpha(WasGoID wasgo_id);
+void _wasgo_Image_wrapper_expand_x2_hq2x(WasGoID wasgo_id);
+void _wasgo_Image_wrapper_fill(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_Image_wrapper_fix_alpha_edges(WasGoID wasgo_id);
+void _wasgo_Image_wrapper_flip_x(WasGoID wasgo_id);
+void _wasgo_Image_wrapper_flip_y(WasGoID wasgo_id);
+WasGoID _wasgo_Image_wrapper_generate_mipmaps(WasGoID wasgo_id, bool p_renormalize);
+WasGoID _wasgo_Image_wrapper_get_data(WasGoID wasgo_id);
+WasGoID _wasgo_Image_wrapper_get_format(WasGoID wasgo_id);
+int _wasgo_Image_wrapper_get_height(WasGoID wasgo_id);
+int _wasgo_Image_wrapper_get_mipmap_offset(WasGoID wasgo_id, int p_mipmap);
+void _wasgo_Image_wrapper_get_pixel(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_x, int p_y);
+void _wasgo_Image_wrapper_get_pixelv(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_src, int p_src_wasgo_buffer_size);
+WasGoID _wasgo_Image_wrapper_get_rect(WasGoID wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size);
+void _wasgo_Image_wrapper_get_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_Image_wrapper_get_used_rect(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+int _wasgo_Image_wrapper_get_width(WasGoID wasgo_id);
+int _wasgo_Image_wrapper_has_mipmaps(WasGoID wasgo_id);
+int _wasgo_Image_wrapper_is_compressed(WasGoID wasgo_id);
+int _wasgo_Image_wrapper_is_empty(WasGoID wasgo_id);
+int _wasgo_Image_wrapper_is_invisible(WasGoID wasgo_id);
+WasGoID _wasgo_Image_wrapper_load(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_Image_wrapper_load_bmp_from_buffer(WasGoID wasgo_id, WasGoID p_buffer);
+WasGoID _wasgo_Image_wrapper_load_jpg_from_buffer(WasGoID wasgo_id, WasGoID p_buffer);
+WasGoID _wasgo_Image_wrapper_load_png_from_buffer(WasGoID wasgo_id, WasGoID p_buffer);
+WasGoID _wasgo_Image_wrapper_load_tga_from_buffer(WasGoID wasgo_id, WasGoID p_buffer);
+WasGoID _wasgo_Image_wrapper_load_webp_from_buffer(WasGoID wasgo_id, WasGoID p_buffer);
+void _wasgo_Image_wrapper_lock(WasGoID wasgo_id);
+void _wasgo_Image_wrapper_normalmap_to_xy(WasGoID wasgo_id);
+void _wasgo_Image_wrapper_premultiply_alpha(WasGoID wasgo_id);
+void _wasgo_Image_wrapper_resize(WasGoID wasgo_id, int p_width, int p_height, WasGoID p_interpolation);
+void _wasgo_Image_wrapper_resize_to_po2(WasGoID wasgo_id, bool p_square);
+WasGoID _wasgo_Image_wrapper_rgbe_to_srgb(WasGoID wasgo_id);
+WasGoID _wasgo_Image_wrapper_save_exr(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, bool p_grayscale);
+WasGoID _wasgo_Image_wrapper_save_png(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_Image_wrapper_save_png_to_buffer(WasGoID wasgo_id);
+void _wasgo_Image_wrapper_set_pixel(WasGoID wasgo_id, int p_x, int p_y, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_Image_wrapper_set_pixelv(WasGoID wasgo_id, const uint8_t * p_dst, int p_dst_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_Image_wrapper_shrink_x2(WasGoID wasgo_id);
+void _wasgo_Image_wrapper_srgb_to_linear(WasGoID wasgo_id);
+void _wasgo_Image_wrapper_unlock(WasGoID wasgo_id);
 
     //constructor wrappers
-    WasGoId _wasgo_Image_constructor();
+    WasGoID _wasgo_Image_constructor();
             
 }
 #endif

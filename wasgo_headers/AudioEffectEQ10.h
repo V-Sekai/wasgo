@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit AudioEffectEQ10(WasGoId p_wasgo_id);
+explicit AudioEffectEQ10(WasGoID p_wasgo_id);
 explicit AudioEffectEQ10(AudioEffectEQ other);
 AudioEffectEQ10 new_instance();
             
@@ -21,7 +21,7 @@ AudioEffectEQ10 new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectEQ10_constructor();
+    WasGoID _wasgo_AudioEffectEQ10_constructor();
             
 }
 #endif

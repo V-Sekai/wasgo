@@ -21,7 +21,7 @@ void ColorRect::set_frame_color(Color p_color){
 	_wasgo_ColorRect_wrapper_set_frame_color(wasgo_id, wasgo_buffer_color, wasgo_size_color);
 }
 
-ColorRect::ColorRect(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+ColorRect::ColorRect(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 ColorRect::ColorRect(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_ColorRect_constructor();

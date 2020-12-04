@@ -25,7 +25,7 @@ void set_threshold(float p_threshold);
 
 protected:
 public:
-explicit AudioEffectCompressor(WasGoId p_wasgo_id);
+explicit AudioEffectCompressor(WasGoID p_wasgo_id);
 explicit AudioEffectCompressor(AudioEffect other);
 AudioEffectCompressor new_instance();
             
@@ -34,23 +34,23 @@ AudioEffectCompressor new_instance();
 
 //Wrapper Functions
 extern "C"{
-float _wasgo_AudioEffectCompressor_wrapper_get_attack_us(WasGoId wasgo_id);
-float _wasgo_AudioEffectCompressor_wrapper_get_gain(WasGoId wasgo_id);
-float _wasgo_AudioEffectCompressor_wrapper_get_mix(WasGoId wasgo_id);
-float _wasgo_AudioEffectCompressor_wrapper_get_ratio(WasGoId wasgo_id);
-float _wasgo_AudioEffectCompressor_wrapper_get_release_ms(WasGoId wasgo_id);
-void _wasgo_AudioEffectCompressor_wrapper_get_sidechain(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-float _wasgo_AudioEffectCompressor_wrapper_get_threshold(WasGoId wasgo_id);
-void _wasgo_AudioEffectCompressor_wrapper_set_attack_us(WasGoId wasgo_id, float p_attack_us);
-void _wasgo_AudioEffectCompressor_wrapper_set_gain(WasGoId wasgo_id, float p_gain);
-void _wasgo_AudioEffectCompressor_wrapper_set_mix(WasGoId wasgo_id, float p_mix);
-void _wasgo_AudioEffectCompressor_wrapper_set_ratio(WasGoId wasgo_id, float p_ratio);
-void _wasgo_AudioEffectCompressor_wrapper_set_release_ms(WasGoId wasgo_id, float p_release_ms);
-void _wasgo_AudioEffectCompressor_wrapper_set_sidechain(WasGoId wasgo_id, const uint8_t * p_sidechain, int p_sidechain_wasgo_buffer_size);
-void _wasgo_AudioEffectCompressor_wrapper_set_threshold(WasGoId wasgo_id, float p_threshold);
+float _wasgo_AudioEffectCompressor_wrapper_get_attack_us(WasGoID wasgo_id);
+float _wasgo_AudioEffectCompressor_wrapper_get_gain(WasGoID wasgo_id);
+float _wasgo_AudioEffectCompressor_wrapper_get_mix(WasGoID wasgo_id);
+float _wasgo_AudioEffectCompressor_wrapper_get_ratio(WasGoID wasgo_id);
+float _wasgo_AudioEffectCompressor_wrapper_get_release_ms(WasGoID wasgo_id);
+void _wasgo_AudioEffectCompressor_wrapper_get_sidechain(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+float _wasgo_AudioEffectCompressor_wrapper_get_threshold(WasGoID wasgo_id);
+void _wasgo_AudioEffectCompressor_wrapper_set_attack_us(WasGoID wasgo_id, float p_attack_us);
+void _wasgo_AudioEffectCompressor_wrapper_set_gain(WasGoID wasgo_id, float p_gain);
+void _wasgo_AudioEffectCompressor_wrapper_set_mix(WasGoID wasgo_id, float p_mix);
+void _wasgo_AudioEffectCompressor_wrapper_set_ratio(WasGoID wasgo_id, float p_ratio);
+void _wasgo_AudioEffectCompressor_wrapper_set_release_ms(WasGoID wasgo_id, float p_release_ms);
+void _wasgo_AudioEffectCompressor_wrapper_set_sidechain(WasGoID wasgo_id, const uint8_t * p_sidechain, int p_sidechain_wasgo_buffer_size);
+void _wasgo_AudioEffectCompressor_wrapper_set_threshold(WasGoID wasgo_id, float p_threshold);
 
     //constructor wrappers
-    WasGoId _wasgo_AudioEffectCompressor_constructor();
+    WasGoID _wasgo_AudioEffectCompressor_constructor();
             
 }
 #endif

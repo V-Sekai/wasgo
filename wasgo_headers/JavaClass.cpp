@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "JavaClass.h"
 
-JavaClass::JavaClass(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
+JavaClass::JavaClass(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 JavaClass::JavaClass(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_JavaClass_constructor();

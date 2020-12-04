@@ -80,7 +80,7 @@ void AudioEffectDelay::set_tap2_pan(float p_amount){
 	_wasgo_AudioEffectDelay_wrapper_set_tap2_pan(wasgo_id, p_amount);
 }
 
-AudioEffectDelay::AudioEffectDelay(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
+AudioEffectDelay::AudioEffectDelay(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectDelay::AudioEffectDelay(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectDelay_constructor();

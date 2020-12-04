@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
 #include "Reference.h"
+#include "error_list.h"
 #include "Variant.h"
 #include "ustring.h"
 class ConfigFile : public Reference{
@@ -28,7 +28,7 @@ void set_value(String p_section, String p_key, Variant p_value);
 
 protected:
 public:
-explicit ConfigFile(WasGoId p_wasgo_id);
+explicit ConfigFile(WasGoID p_wasgo_id);
 explicit ConfigFile(Reference other);
 ConfigFile new_instance();
             
@@ -37,24 +37,24 @@ ConfigFile new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ConfigFile_wrapper_erase_section(WasGoId wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size);
-void _wasgo_ConfigFile_wrapper_erase_section_key(WasGoId wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size);
-WasGoId _wasgo_ConfigFile_wrapper_get_section_keys(WasGoId wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size);
-WasGoId _wasgo_ConfigFile_wrapper_get_sections(WasGoId wasgo_id);
-WasGoId _wasgo_ConfigFile_wrapper_get_value(WasGoId wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size, WasGoId p_default);
-int _wasgo_ConfigFile_wrapper_has_section(WasGoId wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size);
-int _wasgo_ConfigFile_wrapper_has_section_key(WasGoId wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size);
-WasGoId _wasgo_ConfigFile_wrapper_load(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_ConfigFile_wrapper_load_encrypted(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoId p_key);
-WasGoId _wasgo_ConfigFile_wrapper_load_encrypted_pass(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, const uint8_t * p_password, int p_password_wasgo_buffer_size);
-WasGoId _wasgo_ConfigFile_wrapper_parse(WasGoId wasgo_id, const uint8_t * p_data, int p_data_wasgo_buffer_size);
-WasGoId _wasgo_ConfigFile_wrapper_save(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoId _wasgo_ConfigFile_wrapper_save_encrypted(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoId p_key);
-WasGoId _wasgo_ConfigFile_wrapper_save_encrypted_pass(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, const uint8_t * p_password, int p_password_wasgo_buffer_size);
-void _wasgo_ConfigFile_wrapper_set_value(WasGoId wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size, WasGoId p_value);
+void _wasgo_ConfigFile_wrapper_erase_section(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size);
+void _wasgo_ConfigFile_wrapper_erase_section_key(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size);
+WasGoID _wasgo_ConfigFile_wrapper_get_section_keys(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size);
+WasGoID _wasgo_ConfigFile_wrapper_get_sections(WasGoID wasgo_id);
+WasGoID _wasgo_ConfigFile_wrapper_get_value(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size, WasGoID p_default);
+int _wasgo_ConfigFile_wrapper_has_section(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size);
+int _wasgo_ConfigFile_wrapper_has_section_key(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size);
+WasGoID _wasgo_ConfigFile_wrapper_load(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_ConfigFile_wrapper_load_encrypted(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_key);
+WasGoID _wasgo_ConfigFile_wrapper_load_encrypted_pass(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, const uint8_t * p_password, int p_password_wasgo_buffer_size);
+WasGoID _wasgo_ConfigFile_wrapper_parse(WasGoID wasgo_id, const uint8_t * p_data, int p_data_wasgo_buffer_size);
+WasGoID _wasgo_ConfigFile_wrapper_save(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+WasGoID _wasgo_ConfigFile_wrapper_save_encrypted(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_key);
+WasGoID _wasgo_ConfigFile_wrapper_save_encrypted_pass(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, const uint8_t * p_password, int p_password_wasgo_buffer_size);
+void _wasgo_ConfigFile_wrapper_set_value(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size, WasGoID p_value);
 
     //constructor wrappers
-    WasGoId _wasgo_ConfigFile_constructor();
+    WasGoID _wasgo_ConfigFile_constructor();
             
 }
 #endif

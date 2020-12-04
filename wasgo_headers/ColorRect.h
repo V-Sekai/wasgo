@@ -13,7 +13,7 @@ void set_frame_color(Color p_color);
 
 protected:
 public:
-explicit ColorRect(WasGoId p_wasgo_id);
+explicit ColorRect(WasGoID p_wasgo_id);
 explicit ColorRect(Control other);
 ColorRect new_instance();
             
@@ -22,11 +22,11 @@ ColorRect new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ColorRect_wrapper_get_frame_color(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_ColorRect_wrapper_set_frame_color(WasGoId wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_ColorRect_wrapper_get_frame_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_ColorRect_wrapper_set_frame_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_ColorRect_constructor();
+    WasGoID _wasgo_ColorRect_constructor();
             
 }
 #endif

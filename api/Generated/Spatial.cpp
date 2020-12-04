@@ -321,7 +321,7 @@ void Spatial::update_gizmo(){
 	_wasgo_Spatial_wrapper_update_gizmo(wasgo_id);
 }
 
-// Spatial::Spatial(WasGoId p_wasgo_id) : Node(p_wasgo_id){
+// Spatial::Spatial(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 // }
 // Spatial::Spatial(){
 //     wasgo_id = _wasgo_Spatial_constructor();
@@ -330,7 +330,11 @@ void Spatial::update_gizmo(){
 //     _wasgo_Spatial_destructor(wasgo_id);
 // }
 
-Spatial::Spatial(WasGoId p_wasgo_id) : Node(p_wasgo_id) {
+Spatial::Spatial(WasGoID p_wasgo_id) : Node(p_wasgo_id) {
+}
+
+Spatial::Spatial() : Node(){
+    
 }
 
 Spatial::Spatial(Node node) : Node(node._get_wasgo_id()) {

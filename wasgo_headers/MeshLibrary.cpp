@@ -88,7 +88,7 @@ void MeshLibrary::set_item_shapes(int p_id, Array p_shapes){
 	_wasgo_MeshLibrary_wrapper_set_item_shapes(wasgo_id, p_id, p_shapes._get_wasgo_id());
 }
 
-MeshLibrary::MeshLibrary(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+MeshLibrary::MeshLibrary(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 MeshLibrary::MeshLibrary(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_MeshLibrary_constructor();

@@ -51,7 +51,7 @@ void NinePatchRect::set_v_axis_stretch_mode(NinePatchRect::AxisStretchMode p_mod
 	_wasgo_NinePatchRect_wrapper_set_v_axis_stretch_mode(wasgo_id, p_mode._get_wasgo_id());
 }
 
-NinePatchRect::NinePatchRect(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+NinePatchRect::NinePatchRect(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 NinePatchRect::NinePatchRect(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_NinePatchRect_constructor();

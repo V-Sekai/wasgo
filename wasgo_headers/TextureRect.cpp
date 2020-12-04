@@ -32,7 +32,7 @@ void TextureRect::set_texture(Texture p_texture){
 	_wasgo_TextureRect_wrapper_set_texture(wasgo_id, p_texture._get_wasgo_id());
 }
 
-TextureRect::TextureRect(WasGoId p_wasgo_id) : Control(p_wasgo_id){
+TextureRect::TextureRect(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 TextureRect::TextureRect(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_TextureRect_constructor();

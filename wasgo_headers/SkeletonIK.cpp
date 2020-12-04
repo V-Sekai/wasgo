@@ -139,7 +139,7 @@ void SkeletonIK::stop(){
 	_wasgo_SkeletonIK_wrapper_stop(wasgo_id);
 }
 
-SkeletonIK::SkeletonIK(WasGoId p_wasgo_id) : Node(p_wasgo_id){
+SkeletonIK::SkeletonIK(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 SkeletonIK::SkeletonIK(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_SkeletonIK_constructor();

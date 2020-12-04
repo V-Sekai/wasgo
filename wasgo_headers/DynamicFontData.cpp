@@ -33,7 +33,7 @@ void DynamicFontData::set_hinting(DynamicFontData::Hinting p_mode){
 	_wasgo_DynamicFontData_wrapper_set_hinting(wasgo_id, p_mode._get_wasgo_id());
 }
 
-DynamicFontData::DynamicFontData(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+DynamicFontData::DynamicFontData(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 DynamicFontData::DynamicFontData(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_DynamicFontData_constructor();

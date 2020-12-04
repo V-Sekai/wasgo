@@ -10,7 +10,7 @@ public:
 
 protected:
 public:
-explicit VSlider(WasGoId p_wasgo_id);
+explicit VSlider(WasGoID p_wasgo_id);
 explicit VSlider(Slider other);
 VSlider new_instance();
             
@@ -21,7 +21,7 @@ VSlider new_instance();
 extern "C"{
 
     //constructor wrappers
-    WasGoId _wasgo_VSlider_constructor();
+    WasGoID _wasgo_VSlider_constructor();
             
 }
 #endif

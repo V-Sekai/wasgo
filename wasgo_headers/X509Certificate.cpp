@@ -20,7 +20,7 @@ Error X509Certificate::save(String p_path){
 	return Error(_wasgo_X509Certificate_wrapper_save(wasgo_id, wasgo_buffer_path, wasgo_size_path));
 }
 
-X509Certificate::X509Certificate(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+X509Certificate::X509Certificate(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 X509Certificate::X509Certificate(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_X509Certificate_constructor();

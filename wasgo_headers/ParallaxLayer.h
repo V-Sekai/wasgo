@@ -17,7 +17,7 @@ void set_motion_scale(Vector2 p_scale);
 
 protected:
 public:
-explicit ParallaxLayer(WasGoId p_wasgo_id);
+explicit ParallaxLayer(WasGoID p_wasgo_id);
 explicit ParallaxLayer(Node2D other);
 ParallaxLayer new_instance();
             
@@ -26,15 +26,15 @@ ParallaxLayer new_instance();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ParallaxLayer_wrapper_get_mirroring(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_ParallaxLayer_wrapper_get_motion_offset(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_ParallaxLayer_wrapper_get_motion_scale(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_ParallaxLayer_wrapper_set_mirroring(WasGoId wasgo_id, const uint8_t * p_mirror, int p_mirror_wasgo_buffer_size);
-void _wasgo_ParallaxLayer_wrapper_set_motion_offset(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
-void _wasgo_ParallaxLayer_wrapper_set_motion_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
+void _wasgo_ParallaxLayer_wrapper_get_mirroring(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_ParallaxLayer_wrapper_get_motion_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_ParallaxLayer_wrapper_get_motion_scale(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_ParallaxLayer_wrapper_set_mirroring(WasGoID wasgo_id, const uint8_t * p_mirror, int p_mirror_wasgo_buffer_size);
+void _wasgo_ParallaxLayer_wrapper_set_motion_offset(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
+void _wasgo_ParallaxLayer_wrapper_set_motion_scale(WasGoID wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
 
     //constructor wrappers
-    WasGoId _wasgo_ParallaxLayer_constructor();
+    WasGoID _wasgo_ParallaxLayer_constructor();
             
 }
 #endif

@@ -72,7 +72,7 @@ void BitMap::set_bit_rect(Rect2 p_rect, bool p_bit){
 	_wasgo_BitMap_wrapper_set_bit_rect(wasgo_id, wasgo_buffer_rect, wasgo_size_rect, p_bit);
 }
 
-BitMap::BitMap(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+BitMap::BitMap(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 BitMap::BitMap(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_BitMap_constructor();

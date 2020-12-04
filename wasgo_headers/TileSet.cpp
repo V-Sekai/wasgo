@@ -405,7 +405,7 @@ void TileSet::tile_set_z_index(int p_id, int p_z_index){
 	_wasgo_TileSet_wrapper_tile_set_z_index(wasgo_id, p_id, p_z_index);
 }
 
-TileSet::TileSet(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
+TileSet::TileSet(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 TileSet::TileSet(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_TileSet_constructor();
