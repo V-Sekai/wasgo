@@ -9,10 +9,10 @@ class Panel : public Control{
 public:
 
 protected:
-Panel(WasGoId p_wasgo_id);
 public:
-Panel();
-~Panel();
+explicit Panel(WasGoId p_wasgo_id);
+explicit Panel(Control other);
+Panel new_instance();
             
 };
 
@@ -20,9 +20,8 @@ Panel();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Panel_constructor();
-    void _wasgo_Panel_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

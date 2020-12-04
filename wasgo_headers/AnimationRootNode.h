@@ -9,10 +9,10 @@ class AnimationRootNode : public AnimationNode{
 public:
 
 protected:
-AnimationRootNode(WasGoId p_wasgo_id);
 public:
-AnimationRootNode();
-~AnimationRootNode();
+explicit AnimationRootNode(WasGoId p_wasgo_id);
+explicit AnimationRootNode(AnimationNode other);
+AnimationRootNode new_instance();
             
 };
 
@@ -20,9 +20,8 @@ AnimationRootNode();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationRootNode_constructor();
-    void _wasgo_AnimationRootNode_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

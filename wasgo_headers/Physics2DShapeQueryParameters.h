@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "RID.h"
 #include "Transform2D.h"
 #include "Variant.h"
-#include "Reference.h"
 #include "Vector2.h"
+#include "Reference.h"
+#include "RID.h"
+#include "Resource.h"
 class Physics2DShapeQueryParameters : public Reference{
 public:
 int get_collision_layer();
@@ -31,10 +31,10 @@ void set_shape_rid(RID p_shape);
 void set_transform(Transform2D p_transform);
 
 protected:
-Physics2DShapeQueryParameters(WasGoId p_wasgo_id);
 public:
-Physics2DShapeQueryParameters();
-~Physics2DShapeQueryParameters();
+explicit Physics2DShapeQueryParameters(WasGoId p_wasgo_id);
+explicit Physics2DShapeQueryParameters(Reference other);
+Physics2DShapeQueryParameters new_instance();
             
 };
 
@@ -59,9 +59,8 @@ void _wasgo_Physics2DShapeQueryParameters_wrapper_set_shape(WasGoId wasgo_id, Wa
 void _wasgo_Physics2DShapeQueryParameters_wrapper_set_shape_rid(WasGoId wasgo_id, const uint8_t * p_shape, int p_shape_wasgo_buffer_size);
 void _wasgo_Physics2DShapeQueryParameters_wrapper_set_transform(WasGoId wasgo_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Physics2DShapeQueryParameters_constructor();
-    void _wasgo_Physics2DShapeQueryParameters_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

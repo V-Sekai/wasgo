@@ -89,8 +89,8 @@ void SoftBody::set_linear_stiffness(float p_linear_stiffness){
 void SoftBody::set_parent_collision_ignore(NodePath p_parent_collision_ignore){
 
     Variant wasgo_var_parent_collision_ignore = p_parent_collision_ignore;
-    uint8_t wasgo_buffer_parent_collision_ignore[256];
-    int wasgo_size_parent_collision_ignore = 256;
+    int wasgo_size_parent_collision_ignore = String(p_parent_collision_ignore).size();
+    uint8_t wasgo_buffer_parent_collision_ignore[wasgo_size_parent_collision_ignore];
     encode_variant(wasgo_var_parent_collision_ignore, wasgo_buffer_parent_collision_ignore, wasgo_size_parent_collision_ignore);
     
 	_wasgo_SoftBody_wrapper_set_parent_collision_ignore(wasgo_id, wasgo_buffer_parent_collision_ignore, wasgo_size_parent_collision_ignore);
@@ -116,9 +116,9 @@ void SoftBody::set_volume_stiffness(float p_volume_stiffness){
 
 SoftBody::SoftBody(WasGoId p_wasgo_id) : MeshInstance(p_wasgo_id){
 }
-SoftBody::SoftBody(){
+SoftBody::SoftBody(MeshInstance other) : MeshInstance(other._get_wasgo_id()){
     wasgo_id = _wasgo_SoftBody_constructor();
 }
-SoftBody::~SoftBody(){
-    _wasgo_SoftBody_destructor(wasgo_id);
+SoftBody::new_instance(){
+    return SoftBody(_wasgo_SoftBody_constructor());
 }

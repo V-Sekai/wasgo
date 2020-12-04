@@ -4,14 +4,14 @@
 Button AcceptDialog::add_button(String p_text, bool p_right = (bool) false, String p_action = (String) ){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 
     Variant wasgo_var_action = p_action;
-    uint8_t wasgo_buffer_action[256];
-    int wasgo_size_action = 256;
+    int wasgo_size_action = String(p_action).size();
+    uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
 	return Button(_wasgo_AcceptDialog_wrapper_add_button(wasgo_id, wasgo_buffer_text, wasgo_size_text, p_right, wasgo_buffer_action, wasgo_size_action));
@@ -19,8 +19,8 @@ Button AcceptDialog::add_button(String p_text, bool p_right = (bool) false, Stri
 Button AcceptDialog::add_cancel(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return Button(_wasgo_AcceptDialog_wrapper_add_cancel(wasgo_id, wasgo_buffer_name, wasgo_size_name));
@@ -59,8 +59,8 @@ void AcceptDialog::set_hide_on_ok(bool p_enabled){
 void AcceptDialog::set_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_AcceptDialog_wrapper_set_text(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -68,9 +68,9 @@ void AcceptDialog::set_text(String p_text){
 
 AcceptDialog::AcceptDialog(WasGoId p_wasgo_id) : WindowDialog(p_wasgo_id){
 }
-AcceptDialog::AcceptDialog(){
+AcceptDialog::AcceptDialog(WindowDialog other) : WindowDialog(other._get_wasgo_id()){
     wasgo_id = _wasgo_AcceptDialog_constructor();
 }
-AcceptDialog::~AcceptDialog(){
-    _wasgo_AcceptDialog_destructor(wasgo_id);
+AcceptDialog::new_instance(){
+    return AcceptDialog(_wasgo_AcceptDialog_constructor());
 }

@@ -10,9 +10,9 @@ void Path::set_curve(Curve3D p_curve){
 
 Path::Path(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-Path::Path(){
+Path::Path(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_Path_constructor();
 }
-Path::~Path(){
-    _wasgo_Path_destructor(wasgo_id);
+Path::new_instance(){
+    return Path(_wasgo_Path_constructor());
 }

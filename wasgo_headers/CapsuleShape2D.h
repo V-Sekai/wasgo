@@ -13,10 +13,10 @@ void set_height(float p_height);
 void set_radius(float p_radius);
 
 protected:
-CapsuleShape2D(WasGoId p_wasgo_id);
 public:
-CapsuleShape2D();
-~CapsuleShape2D();
+explicit CapsuleShape2D(WasGoId p_wasgo_id);
+explicit CapsuleShape2D(Shape2D other);
+CapsuleShape2D new_instance();
             
 };
 
@@ -28,9 +28,8 @@ float _wasgo_CapsuleShape2D_wrapper_get_radius(WasGoId wasgo_id);
 void _wasgo_CapsuleShape2D_wrapper_set_height(WasGoId wasgo_id, float p_height);
 void _wasgo_CapsuleShape2D_wrapper_set_radius(WasGoId wasgo_id, float p_radius);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CapsuleShape2D_constructor();
-    void _wasgo_CapsuleShape2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

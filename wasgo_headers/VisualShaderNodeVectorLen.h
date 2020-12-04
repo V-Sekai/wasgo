@@ -9,10 +9,10 @@ class VisualShaderNodeVectorLen : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeVectorLen(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeVectorLen();
-~VisualShaderNodeVectorLen();
+explicit VisualShaderNodeVectorLen(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorLen(VisualShaderNode other);
+VisualShaderNodeVectorLen new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeVectorLen();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeVectorLen_constructor();
-    void _wasgo_VisualShaderNodeVectorLen_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

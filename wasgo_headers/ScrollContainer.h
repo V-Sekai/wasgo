@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "VScrollBar.h"
 #include "Container.h"
 #include "HScrollBar.h"
+#include "VScrollBar.h"
 class ScrollContainer : public Container{
 public:
 int get_deadzone();
@@ -25,10 +25,10 @@ void set_h_scroll(int p_value);
 void set_v_scroll(int p_value);
 
 protected:
-ScrollContainer(WasGoId p_wasgo_id);
 public:
-ScrollContainer();
-~ScrollContainer();
+explicit ScrollContainer(WasGoId p_wasgo_id);
+explicit ScrollContainer(Container other);
+ScrollContainer new_instance();
             
 };
 
@@ -50,9 +50,8 @@ void _wasgo_ScrollContainer_wrapper_set_follow_focus(WasGoId wasgo_id, bool p_en
 void _wasgo_ScrollContainer_wrapper_set_h_scroll(WasGoId wasgo_id, int p_value);
 void _wasgo_ScrollContainer_wrapper_set_v_scroll(WasGoId wasgo_id, int p_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ScrollContainer_constructor();
-    void _wasgo_ScrollContainer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

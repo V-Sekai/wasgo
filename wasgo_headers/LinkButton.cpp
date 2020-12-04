@@ -17,8 +17,8 @@ LinkButton::UnderlineMode LinkButton::get_underline_mode(){
 void LinkButton::set_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_LinkButton_wrapper_set_text(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -29,9 +29,9 @@ void LinkButton::set_underline_mode(LinkButton::UnderlineMode p_underline_mode){
 
 LinkButton::LinkButton(WasGoId p_wasgo_id) : BaseButton(p_wasgo_id){
 }
-LinkButton::LinkButton(){
+LinkButton::LinkButton(BaseButton other) : BaseButton(other._get_wasgo_id()){
     wasgo_id = _wasgo_LinkButton_constructor();
 }
-LinkButton::~LinkButton(){
-    _wasgo_LinkButton_destructor(wasgo_id);
+LinkButton::new_instance(){
+    return LinkButton(_wasgo_LinkButton_constructor());
 }

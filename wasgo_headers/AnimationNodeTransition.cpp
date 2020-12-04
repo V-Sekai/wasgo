@@ -32,8 +32,8 @@ void AnimationNodeTransition::set_input_as_auto_advance(int p_input, bool p_enab
 void AnimationNodeTransition::set_input_caption(int p_input, String p_caption){
 
     Variant wasgo_var_caption = p_caption;
-    uint8_t wasgo_buffer_caption[256];
-    int wasgo_size_caption = 256;
+    int wasgo_size_caption = String(p_caption).size();
+    uint8_t wasgo_buffer_caption[wasgo_size_caption];
     encode_variant(wasgo_var_caption, wasgo_buffer_caption, wasgo_size_caption);
     
 	_wasgo_AnimationNodeTransition_wrapper_set_input_caption(wasgo_id, p_input, wasgo_buffer_caption, wasgo_size_caption);
@@ -41,9 +41,9 @@ void AnimationNodeTransition::set_input_caption(int p_input, String p_caption){
 
 AnimationNodeTransition::AnimationNodeTransition(WasGoId p_wasgo_id) : AnimationNode(p_wasgo_id){
 }
-AnimationNodeTransition::AnimationNodeTransition(){
+AnimationNodeTransition::AnimationNodeTransition(AnimationNode other) : AnimationNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeTransition_constructor();
 }
-AnimationNodeTransition::~AnimationNodeTransition(){
-    _wasgo_AnimationNodeTransition_destructor(wasgo_id);
+AnimationNodeTransition::new_instance(){
+    return AnimationNodeTransition(_wasgo_AnimationNodeTransition_constructor());
 }

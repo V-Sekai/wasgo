@@ -15,10 +15,10 @@ VisualShaderNodeColorFunc::Function get_function();
 void set_function(VisualShaderNodeColorFunc::Function p_func);
 
 protected:
-VisualShaderNodeColorFunc(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeColorFunc();
-~VisualShaderNodeColorFunc();
+explicit VisualShaderNodeColorFunc(WasGoId p_wasgo_id);
+explicit VisualShaderNodeColorFunc(VisualShaderNode other);
+VisualShaderNodeColorFunc new_instance();
             
 };
 
@@ -28,9 +28,8 @@ extern "C"{
 WasGoId _wasgo_VisualShaderNodeColorFunc_wrapper_get_function(WasGoId wasgo_id);
 void _wasgo_VisualShaderNodeColorFunc_wrapper_set_function(WasGoId wasgo_id, WasGoId p_func);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeColorFunc_constructor();
-    void _wasgo_VisualShaderNodeColorFunc_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

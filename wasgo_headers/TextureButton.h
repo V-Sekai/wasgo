@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "BitMap.h"
 #include "BaseButton.h"
+#include "Texture.h"
 class TextureButton : public BaseButton{
 public:
 enum StretchMode{
@@ -36,10 +36,10 @@ void set_pressed_texture(Texture p_texture);
 void set_stretch_mode(TextureButton::StretchMode p_p_mode);
 
 protected:
-TextureButton(WasGoId p_wasgo_id);
 public:
-TextureButton();
-~TextureButton();
+explicit TextureButton(WasGoId p_wasgo_id);
+explicit TextureButton(BaseButton other);
+TextureButton new_instance();
             
 };
 
@@ -63,9 +63,8 @@ void _wasgo_TextureButton_wrapper_set_normal_texture(WasGoId wasgo_id, WasGoId p
 void _wasgo_TextureButton_wrapper_set_pressed_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_TextureButton_wrapper_set_stretch_mode(WasGoId wasgo_id, WasGoId p_p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TextureButton_constructor();
-    void _wasgo_TextureButton_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

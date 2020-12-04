@@ -29,9 +29,9 @@ void BackBufferCopy::set_rect(Rect2 p_rect){
 
 BackBufferCopy::BackBufferCopy(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-BackBufferCopy::BackBufferCopy(){
+BackBufferCopy::BackBufferCopy(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_BackBufferCopy_constructor();
 }
-BackBufferCopy::~BackBufferCopy(){
-    _wasgo_BackBufferCopy_destructor(wasgo_id);
+BackBufferCopy::new_instance(){
+    return BackBufferCopy(_wasgo_BackBufferCopy_constructor());
 }

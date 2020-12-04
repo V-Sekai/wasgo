@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Material.h"
-#include "Color.h"
 #include "Texture.h"
+#include "Color.h"
+#include "Material.h"
 #include "Vector3.h"
 class SpatialMaterial : public Material{
 public:
@@ -240,10 +240,10 @@ void set_uv2_scale(Vector3 p_scale);
 void set_uv2_triplanar_blend_sharpness(float p_sharpness);
 
 protected:
-SpatialMaterial(WasGoId p_wasgo_id);
 public:
-SpatialMaterial();
-~SpatialMaterial();
+explicit SpatialMaterial(WasGoId p_wasgo_id);
+explicit SpatialMaterial(Material other);
+SpatialMaterial new_instance();
             
 };
 
@@ -365,9 +365,8 @@ void _wasgo_SpatialMaterial_wrapper_set_uv2_offset(WasGoId wasgo_id, const uint8
 void _wasgo_SpatialMaterial_wrapper_set_uv2_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
 void _wasgo_SpatialMaterial_wrapper_set_uv2_triplanar_blend_sharpness(WasGoId wasgo_id, float p_sharpness);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SpatialMaterial_constructor();
-    void _wasgo_SpatialMaterial_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

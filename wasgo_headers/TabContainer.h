@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Node.h"
+#include "Control.h"
+#include "Container.h"
 #include "Popup.h"
 #include "ustring.h"
-#include "Node.h"
-#include "Container.h"
 #include "Texture.h"
-#include "Control.h"
 class TabContainer : public Container{
 public:
 enum TabAlign{
@@ -43,10 +43,10 @@ void set_tabs_visible(bool p_visible);
 void set_use_hidden_tabs_for_min_size(bool p_enabled);
 
 protected:
-TabContainer(WasGoId p_wasgo_id);
 public:
-TabContainer();
-~TabContainer();
+explicit TabContainer(WasGoId p_wasgo_id);
+explicit TabContainer(Container other);
+TabContainer new_instance();
             
 };
 
@@ -78,9 +78,8 @@ void _wasgo_TabContainer_wrapper_set_tabs_rearrange_group(WasGoId wasgo_id, int 
 void _wasgo_TabContainer_wrapper_set_tabs_visible(WasGoId wasgo_id, bool p_visible);
 void _wasgo_TabContainer_wrapper_set_use_hidden_tabs_for_min_size(WasGoId wasgo_id, bool p_enabled);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TabContainer_constructor();
-    void _wasgo_TabContainer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -6,11 +6,11 @@
 
 #include "Vector3.h"
 #include "Basis.h"
+#include "ustring.h"
 #include "Mesh.h"
 #include "ARVRServer.h"
-#include "ustring.h"
-#include "Transform.h"
 #include "Object.h"
+#include "Transform.h"
 class ARVRPositionalTracker : public Object{
 public:
 enum TrackerHand{
@@ -33,10 +33,10 @@ ARVRServer::TrackerType get_type();
 void set_rumble(float p_rumble);
 
 protected:
-ARVRPositionalTracker(WasGoId p_wasgo_id);
 public:
-ARVRPositionalTracker();
-~ARVRPositionalTracker();
+explicit ARVRPositionalTracker(WasGoId p_wasgo_id);
+explicit ARVRPositionalTracker(Object other);
+ARVRPositionalTracker new_instance();
             
 };
 
@@ -57,9 +57,8 @@ void _wasgo_ARVRPositionalTracker_wrapper_get_transform(WasGoId wasgo_id, uint8_
 WasGoId _wasgo_ARVRPositionalTracker_wrapper_get_type(WasGoId wasgo_id);
 void _wasgo_ARVRPositionalTracker_wrapper_set_rumble(WasGoId wasgo_id, float p_rumble);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ARVRPositionalTracker_constructor();
-    void _wasgo_ARVRPositionalTracker_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

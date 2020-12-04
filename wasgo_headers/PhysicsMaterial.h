@@ -17,10 +17,10 @@ void set_friction(float p_friction);
 void set_rough(bool p_rough);
 
 protected:
-PhysicsMaterial(WasGoId p_wasgo_id);
 public:
-PhysicsMaterial();
-~PhysicsMaterial();
+explicit PhysicsMaterial(WasGoId p_wasgo_id);
+explicit PhysicsMaterial(Resource other);
+PhysicsMaterial new_instance();
             
 };
 
@@ -36,9 +36,8 @@ void _wasgo_PhysicsMaterial_wrapper_set_bounce(WasGoId wasgo_id, float p_bounce)
 void _wasgo_PhysicsMaterial_wrapper_set_friction(WasGoId wasgo_id, float p_friction);
 void _wasgo_PhysicsMaterial_wrapper_set_rough(WasGoId wasgo_id, bool p_rough);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PhysicsMaterial_constructor();
-    void _wasgo_PhysicsMaterial_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

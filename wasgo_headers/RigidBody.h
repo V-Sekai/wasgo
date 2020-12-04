@@ -5,11 +5,11 @@
 #include "wasgo\wasgo.h"
 
 #include "Vector3.h"
-#include "PhysicsServer.h"
+#include "PhysicsMaterial.h"
 #include "Basis.h"
 #include "PhysicsBody.h"
+#include "PhysicsServer.h"
 #include "Variant.h"
-#include "PhysicsMaterial.h"
 class RigidBody : public PhysicsBody{
 public:
 enum Mode{
@@ -65,10 +65,10 @@ void set_use_custom_integrator(bool p_enable);
 void set_weight(float p_weight);
 
 protected:
-RigidBody(WasGoId p_wasgo_id);
 public:
-RigidBody();
-~RigidBody();
+explicit RigidBody(WasGoId p_wasgo_id);
+explicit RigidBody(PhysicsBody other);
+RigidBody new_instance();
             
 };
 
@@ -121,9 +121,8 @@ void _wasgo_RigidBody_wrapper_set_use_continuous_collision_detection(WasGoId was
 void _wasgo_RigidBody_wrapper_set_use_custom_integrator(WasGoId wasgo_id, bool p_enable);
 void _wasgo_RigidBody_wrapper_set_weight(WasGoId wasgo_id, float p_weight);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_RigidBody_constructor();
-    void _wasgo_RigidBody_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

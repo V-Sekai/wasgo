@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "PrimitiveMesh.h"
 #include "Vector3.h"
+#include "PrimitiveMesh.h"
 class CubeMesh : public PrimitiveMesh{
 public:
 Vector3 get_size();
@@ -18,10 +18,10 @@ void set_subdivide_height(int p_divisions);
 void set_subdivide_width(int p_subdivide);
 
 protected:
-CubeMesh(WasGoId p_wasgo_id);
 public:
-CubeMesh();
-~CubeMesh();
+explicit CubeMesh(WasGoId p_wasgo_id);
+explicit CubeMesh(PrimitiveMesh other);
+CubeMesh new_instance();
             
 };
 
@@ -37,9 +37,8 @@ void _wasgo_CubeMesh_wrapper_set_subdivide_depth(WasGoId wasgo_id, int p_divisio
 void _wasgo_CubeMesh_wrapper_set_subdivide_height(WasGoId wasgo_id, int p_divisions);
 void _wasgo_CubeMesh_wrapper_set_subdivide_width(WasGoId wasgo_id, int p_subdivide);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CubeMesh_constructor();
-    void _wasgo_CubeMesh_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

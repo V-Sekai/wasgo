@@ -140,9 +140,9 @@ void Sprite::set_vframes(int p_vframes){
 
 Sprite::Sprite(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-Sprite::Sprite(){
+Sprite::Sprite(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Sprite_constructor();
 }
-Sprite::~Sprite(){
-    _wasgo_Sprite_destructor(wasgo_id);
+Sprite::new_instance(){
+    return Sprite(_wasgo_Sprite_constructor());
 }

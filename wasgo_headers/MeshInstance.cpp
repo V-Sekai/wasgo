@@ -44,8 +44,8 @@ void MeshInstance::set_mesh(Mesh p_mesh){
 void MeshInstance::set_skeleton_path(NodePath p_skeleton_path){
 
     Variant wasgo_var_skeleton_path = p_skeleton_path;
-    uint8_t wasgo_buffer_skeleton_path[256];
-    int wasgo_size_skeleton_path = 256;
+    int wasgo_size_skeleton_path = String(p_skeleton_path).size();
+    uint8_t wasgo_buffer_skeleton_path[wasgo_size_skeleton_path];
     encode_variant(wasgo_var_skeleton_path, wasgo_buffer_skeleton_path, wasgo_size_skeleton_path);
     
 	_wasgo_MeshInstance_wrapper_set_skeleton_path(wasgo_id, wasgo_buffer_skeleton_path, wasgo_size_skeleton_path);
@@ -62,9 +62,9 @@ void MeshInstance::set_surface_material(int p_surface, Material p_material){
 
 MeshInstance::MeshInstance(WasGoId p_wasgo_id) : GeometryInstance(p_wasgo_id){
 }
-MeshInstance::MeshInstance(){
+MeshInstance::MeshInstance(GeometryInstance other) : GeometryInstance(other._get_wasgo_id()){
     wasgo_id = _wasgo_MeshInstance_constructor();
 }
-MeshInstance::~MeshInstance(){
-    _wasgo_MeshInstance_destructor(wasgo_id);
+MeshInstance::new_instance(){
+    return MeshInstance(_wasgo_MeshInstance_constructor());
 }

@@ -4,9 +4,9 @@
 
 AudioEffectBandPassFilter::AudioEffectBandPassFilter(WasGoId p_wasgo_id) : AudioEffectFilter(p_wasgo_id){
 }
-AudioEffectBandPassFilter::AudioEffectBandPassFilter(){
+AudioEffectBandPassFilter::AudioEffectBandPassFilter(AudioEffectFilter other) : AudioEffectFilter(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectBandPassFilter_constructor();
 }
-AudioEffectBandPassFilter::~AudioEffectBandPassFilter(){
-    _wasgo_AudioEffectBandPassFilter_destructor(wasgo_id);
+AudioEffectBandPassFilter::new_instance(){
+    return AudioEffectBandPassFilter(_wasgo_AudioEffectBandPassFilter_constructor());
 }

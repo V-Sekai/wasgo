@@ -7,8 +7,8 @@ void RichTextLabel::add_image(Texture p_image, int p_width = (int) 0, int p_heig
 void RichTextLabel::add_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_RichTextLabel_wrapper_add_text(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -16,8 +16,8 @@ void RichTextLabel::add_text(String p_text){
 Error RichTextLabel::append_bbcode(String p_bbcode){
 
     Variant wasgo_var_bbcode = p_bbcode;
-    uint8_t wasgo_buffer_bbcode[256];
-    int wasgo_size_bbcode = 256;
+    int wasgo_size_bbcode = String(p_bbcode).size();
+    uint8_t wasgo_buffer_bbcode[wasgo_size_bbcode];
     encode_variant(wasgo_var_bbcode, wasgo_buffer_bbcode, wasgo_size_bbcode);
     
 	return Error(_wasgo_RichTextLabel_wrapper_append_bbcode(wasgo_id, wasgo_buffer_bbcode, wasgo_size_bbcode));
@@ -102,8 +102,8 @@ void RichTextLabel::newline(){
 Error RichTextLabel::parse_bbcode(String p_bbcode){
 
     Variant wasgo_var_bbcode = p_bbcode;
-    uint8_t wasgo_buffer_bbcode[256];
-    int wasgo_size_bbcode = 256;
+    int wasgo_size_bbcode = String(p_bbcode).size();
+    uint8_t wasgo_buffer_bbcode[wasgo_size_bbcode];
     encode_variant(wasgo_var_bbcode, wasgo_buffer_bbcode, wasgo_size_bbcode);
     
 	return Error(_wasgo_RichTextLabel_wrapper_parse_bbcode(wasgo_id, wasgo_buffer_bbcode, wasgo_size_bbcode));
@@ -174,8 +174,8 @@ void RichTextLabel::scroll_to_line(int p_line){
 void RichTextLabel::set_bbcode(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_RichTextLabel_wrapper_set_bbcode(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -213,8 +213,8 @@ void RichTextLabel::set_table_column_expand(int p_column, bool p_expand, int p_r
 void RichTextLabel::set_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_RichTextLabel_wrapper_set_text(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -228,9 +228,9 @@ void RichTextLabel::set_visible_characters(int p_amount){
 
 RichTextLabel::RichTextLabel(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-RichTextLabel::RichTextLabel(){
+RichTextLabel::RichTextLabel(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_RichTextLabel_constructor();
 }
-RichTextLabel::~RichTextLabel(){
-    _wasgo_RichTextLabel_destructor(wasgo_id);
+RichTextLabel::new_instance(){
+    return RichTextLabel(_wasgo_RichTextLabel_constructor());
 }

@@ -17,9 +17,8 @@ extern "C"{
 float _wasgo_Shape_wrapper_get_margin(WasGoId wasgo_id);
 void _wasgo_Shape_wrapper_set_margin(WasGoId wasgo_id, float p_margin);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Shape_constructor();
-    void _wasgo_Shape_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -9,10 +9,10 @@ class TextureArray : public TextureLayered{
 public:
 
 protected:
-TextureArray(WasGoId p_wasgo_id);
 public:
-TextureArray();
-~TextureArray();
+explicit TextureArray(WasGoId p_wasgo_id);
+explicit TextureArray(TextureLayered other);
+TextureArray new_instance();
             
 };
 
@@ -20,9 +20,8 @@ TextureArray();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TextureArray_constructor();
-    void _wasgo_TextureArray_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

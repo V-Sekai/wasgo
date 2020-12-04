@@ -4,9 +4,9 @@
 
 AudioStreamMicrophone::AudioStreamMicrophone(WasGoId p_wasgo_id) : AudioStream(p_wasgo_id){
 }
-AudioStreamMicrophone::AudioStreamMicrophone(){
+AudioStreamMicrophone::AudioStreamMicrophone(AudioStream other) : AudioStream(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioStreamMicrophone_constructor();
 }
-AudioStreamMicrophone::~AudioStreamMicrophone(){
-    _wasgo_AudioStreamMicrophone_destructor(wasgo_id);
+AudioStreamMicrophone::new_instance(){
+    return AudioStreamMicrophone(_wasgo_AudioStreamMicrophone_constructor());
 }

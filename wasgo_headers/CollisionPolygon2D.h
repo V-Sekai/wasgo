@@ -24,10 +24,10 @@ void set_one_way_collision_margin(float p_margin);
 void set_polygon(PoolVector2Array p_polygon);
 
 protected:
-CollisionPolygon2D(WasGoId p_wasgo_id);
 public:
-CollisionPolygon2D();
-~CollisionPolygon2D();
+explicit CollisionPolygon2D(WasGoId p_wasgo_id);
+explicit CollisionPolygon2D(Node2D other);
+CollisionPolygon2D new_instance();
             
 };
 
@@ -45,9 +45,8 @@ void _wasgo_CollisionPolygon2D_wrapper_set_one_way_collision(WasGoId wasgo_id, b
 void _wasgo_CollisionPolygon2D_wrapper_set_one_way_collision_margin(WasGoId wasgo_id, float p_margin);
 void _wasgo_CollisionPolygon2D_wrapper_set_polygon(WasGoId wasgo_id, WasGoId p_polygon);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CollisionPolygon2D_constructor();
-    void _wasgo_CollisionPolygon2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "InputEvent.h"
+#include "ustring.h"
 class InputEventAction : public InputEvent{
 public:
 String get_action();
@@ -15,10 +15,10 @@ void set_pressed(bool p_pressed);
 void set_strength(float p_strength);
 
 protected:
-InputEventAction(WasGoId p_wasgo_id);
 public:
-InputEventAction();
-~InputEventAction();
+explicit InputEventAction(WasGoId p_wasgo_id);
+explicit InputEventAction(InputEvent other);
+InputEventAction new_instance();
             
 };
 
@@ -31,9 +31,8 @@ void _wasgo_InputEventAction_wrapper_set_action(WasGoId wasgo_id, const uint8_t 
 void _wasgo_InputEventAction_wrapper_set_pressed(WasGoId wasgo_id, bool p_pressed);
 void _wasgo_InputEventAction_wrapper_set_strength(WasGoId wasgo_id, float p_strength);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InputEventAction_constructor();
-    void _wasgo_InputEventAction_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

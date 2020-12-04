@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Button.h"
-#include "ustring.h"
+#include "Label.h"
 #include "Node.h"
 #include "WindowDialog.h"
-#include "Label.h"
+#include "Button.h"
+#include "ustring.h"
 class AcceptDialog : public WindowDialog{
 public:
 Button add_button(String p_text, bool p_right = (bool) false, String p_action = (String) );
@@ -24,10 +24,10 @@ void set_hide_on_ok(bool p_enabled);
 void set_text(String p_text);
 
 protected:
-AcceptDialog(WasGoId p_wasgo_id);
 public:
-AcceptDialog();
-~AcceptDialog();
+explicit AcceptDialog(WasGoId p_wasgo_id);
+explicit AcceptDialog(WindowDialog other);
+AcceptDialog new_instance();
             
 };
 
@@ -46,9 +46,8 @@ void _wasgo_AcceptDialog_wrapper_set_autowrap(WasGoId wasgo_id, bool p_autowrap)
 void _wasgo_AcceptDialog_wrapper_set_hide_on_ok(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_AcceptDialog_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AcceptDialog_constructor();
-    void _wasgo_AcceptDialog_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

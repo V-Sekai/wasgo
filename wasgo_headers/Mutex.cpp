@@ -13,9 +13,9 @@ void Mutex::unlock(){
 
 Mutex::Mutex(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-Mutex::Mutex(){
+Mutex::Mutex(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Mutex_constructor();
 }
-Mutex::~Mutex(){
-    _wasgo_Mutex_destructor(wasgo_id);
+Mutex::new_instance(){
+    return Mutex(_wasgo_Mutex_constructor());
 }

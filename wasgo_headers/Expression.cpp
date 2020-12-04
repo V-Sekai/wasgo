@@ -20,8 +20,8 @@ bool Expression::has_execute_failed(){
 Error Expression::parse(String p_expression, PoolStringArray p_input_names = (PoolStringArray) []){
 
     Variant wasgo_var_expression = p_expression;
-    uint8_t wasgo_buffer_expression[256];
-    int wasgo_size_expression = 256;
+    int wasgo_size_expression = String(p_expression).size();
+    uint8_t wasgo_buffer_expression[wasgo_size_expression];
     encode_variant(wasgo_var_expression, wasgo_buffer_expression, wasgo_size_expression);
     
 	return Error(_wasgo_Expression_wrapper_parse(wasgo_id, wasgo_buffer_expression, wasgo_size_expression, p_input_names._get_wasgo_id()));
@@ -29,9 +29,9 @@ Error Expression::parse(String p_expression, PoolStringArray p_input_names = (Po
 
 Expression::Expression(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-Expression::Expression(){
+Expression::Expression(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Expression_constructor();
 }
-Expression::~Expression(){
-    _wasgo_Expression_destructor(wasgo_id);
+Expression::new_instance(){
+    return Expression(_wasgo_Expression_constructor());
 }

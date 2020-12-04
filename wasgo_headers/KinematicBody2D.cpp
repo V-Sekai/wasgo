@@ -125,9 +125,9 @@ bool KinematicBody2D::test_move(Transform2D p_from, Vector2 p_rel_vec, bool p_in
 
 KinematicBody2D::KinematicBody2D(WasGoId p_wasgo_id) : PhysicsBody2D(p_wasgo_id){
 }
-KinematicBody2D::KinematicBody2D(){
+KinematicBody2D::KinematicBody2D(PhysicsBody2D other) : PhysicsBody2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_KinematicBody2D_constructor();
 }
-KinematicBody2D::~KinematicBody2D(){
-    _wasgo_KinematicBody2D_destructor(wasgo_id);
+KinematicBody2D::new_instance(){
+    return KinematicBody2D(_wasgo_KinematicBody2D_constructor());
 }

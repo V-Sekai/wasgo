@@ -4,8 +4,8 @@
 void BakedLightmapData::add_user(NodePath p_path, Texture p_lightmap, int p_instance){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_BakedLightmapData_wrapper_add_user(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_lightmap._get_wasgo_id(), p_instance);
@@ -88,9 +88,9 @@ void BakedLightmapData::set_octree(PoolByteArray p_octree){
 
 BakedLightmapData::BakedLightmapData(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-BakedLightmapData::BakedLightmapData(){
+BakedLightmapData::BakedLightmapData(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_BakedLightmapData_constructor();
 }
-BakedLightmapData::~BakedLightmapData(){
-    _wasgo_BakedLightmapData_destructor(wasgo_id);
+BakedLightmapData::new_instance(){
+    return BakedLightmapData(_wasgo_BakedLightmapData_constructor());
 }

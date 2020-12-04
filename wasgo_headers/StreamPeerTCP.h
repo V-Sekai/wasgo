@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "error_list.h"
-#include "ustring.h"
 #include "StreamPeer.h"
+#include "ustring.h"
 class StreamPeerTCP : public StreamPeer{
 public:
 enum Status{
@@ -24,10 +24,10 @@ bool is_connected_to_host();
 void set_no_delay(bool p_enabled);
 
 protected:
-StreamPeerTCP(WasGoId p_wasgo_id);
 public:
-StreamPeerTCP();
-~StreamPeerTCP();
+explicit StreamPeerTCP(WasGoId p_wasgo_id);
+explicit StreamPeerTCP(StreamPeer other);
+StreamPeerTCP new_instance();
             
 };
 
@@ -42,9 +42,8 @@ WasGoId _wasgo_StreamPeerTCP_wrapper_get_status(WasGoId wasgo_id);
 int _wasgo_StreamPeerTCP_wrapper_is_connected_to_host(WasGoId wasgo_id);
 void _wasgo_StreamPeerTCP_wrapper_set_no_delay(WasGoId wasgo_id, bool p_enabled);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_StreamPeerTCP_constructor();
-    void _wasgo_StreamPeerTCP_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

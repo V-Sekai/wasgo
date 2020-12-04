@@ -83,9 +83,9 @@ void GIProbe::set_subdiv(GIProbe::Subdiv p_subdiv){
 
 GIProbe::GIProbe(WasGoId p_wasgo_id) : VisualInstance(p_wasgo_id){
 }
-GIProbe::GIProbe(){
+GIProbe::GIProbe(VisualInstance other) : VisualInstance(other._get_wasgo_id()){
     wasgo_id = _wasgo_GIProbe_constructor();
 }
-GIProbe::~GIProbe(){
-    _wasgo_GIProbe_destructor(wasgo_id);
+GIProbe::new_instance(){
+    return GIProbe(_wasgo_GIProbe_constructor());
 }

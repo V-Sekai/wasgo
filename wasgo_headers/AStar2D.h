@@ -34,10 +34,10 @@ void set_point_position(int p_id, Vector2 p_position);
 void set_point_weight_scale(int p_id, float p_weight_scale);
 
 protected:
-AStar2D(WasGoId p_wasgo_id);
 public:
-AStar2D();
-~AStar2D();
+explicit AStar2D(WasGoId p_wasgo_id);
+explicit AStar2D(Reference other);
+AStar2D new_instance();
             
 };
 
@@ -68,9 +68,8 @@ void _wasgo_AStar2D_wrapper_set_point_disabled(WasGoId wasgo_id, int p_id, bool 
 void _wasgo_AStar2D_wrapper_set_point_position(WasGoId wasgo_id, int p_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 void _wasgo_AStar2D_wrapper_set_point_weight_scale(WasGoId wasgo_id, int p_id, float p_weight_scale);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AStar2D_constructor();
-    void _wasgo_AStar2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

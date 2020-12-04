@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Material.h"
 #include "AABB.h"
+#include "Material.h"
 #include "VisualInstance.h"
 class GeometryInstance : public VisualInstance{
 public:
@@ -60,9 +60,8 @@ void _wasgo_GeometryInstance_wrapper_set_lod_min_distance(WasGoId wasgo_id, floa
 void _wasgo_GeometryInstance_wrapper_set_lod_min_hysteresis(WasGoId wasgo_id, float p_mode);
 void _wasgo_GeometryInstance_wrapper_set_material_override(WasGoId wasgo_id, WasGoId p_material);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_GeometryInstance_constructor();
-    void _wasgo_GeometryInstance_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

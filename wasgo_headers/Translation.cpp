@@ -4,14 +4,14 @@
 void Translation::add_message(String p_src_message, String p_xlated_message){
 
     Variant wasgo_var_src_message = p_src_message;
-    uint8_t wasgo_buffer_src_message[256];
-    int wasgo_size_src_message = 256;
+    int wasgo_size_src_message = String(p_src_message).size();
+    uint8_t wasgo_buffer_src_message[wasgo_size_src_message];
     encode_variant(wasgo_var_src_message, wasgo_buffer_src_message, wasgo_size_src_message);
     
 
     Variant wasgo_var_xlated_message = p_xlated_message;
-    uint8_t wasgo_buffer_xlated_message[256];
-    int wasgo_size_xlated_message = 256;
+    int wasgo_size_xlated_message = String(p_xlated_message).size();
+    uint8_t wasgo_buffer_xlated_message[wasgo_size_xlated_message];
     encode_variant(wasgo_var_xlated_message, wasgo_buffer_xlated_message, wasgo_size_xlated_message);
     
 	_wasgo_Translation_wrapper_add_message(wasgo_id, wasgo_buffer_src_message, wasgo_size_src_message, wasgo_buffer_xlated_message, wasgo_size_xlated_message);
@@ -19,8 +19,8 @@ void Translation::add_message(String p_src_message, String p_xlated_message){
 void Translation::erase_message(String p_src_message){
 
     Variant wasgo_var_src_message = p_src_message;
-    uint8_t wasgo_buffer_src_message[256];
-    int wasgo_size_src_message = 256;
+    int wasgo_size_src_message = String(p_src_message).size();
+    uint8_t wasgo_buffer_src_message[wasgo_size_src_message];
     encode_variant(wasgo_var_src_message, wasgo_buffer_src_message, wasgo_size_src_message);
     
 	_wasgo_Translation_wrapper_erase_message(wasgo_id, wasgo_buffer_src_message, wasgo_size_src_message);
@@ -38,8 +38,8 @@ String Translation::get_locale(){
 String Translation::get_message(String p_src_message){
 
     Variant wasgo_var_src_message = p_src_message;
-    uint8_t wasgo_buffer_src_message[256];
-    int wasgo_size_src_message = 256;
+    int wasgo_size_src_message = String(p_src_message).size();
+    uint8_t wasgo_buffer_src_message[wasgo_size_src_message];
     encode_variant(wasgo_var_src_message, wasgo_buffer_src_message, wasgo_size_src_message);
     
 
@@ -60,8 +60,8 @@ PoolStringArray Translation::get_message_list(){
 void Translation::set_locale(String p_locale){
 
     Variant wasgo_var_locale = p_locale;
-    uint8_t wasgo_buffer_locale[256];
-    int wasgo_size_locale = 256;
+    int wasgo_size_locale = String(p_locale).size();
+    uint8_t wasgo_buffer_locale[wasgo_size_locale];
     encode_variant(wasgo_var_locale, wasgo_buffer_locale, wasgo_size_locale);
     
 	_wasgo_Translation_wrapper_set_locale(wasgo_id, wasgo_buffer_locale, wasgo_size_locale);
@@ -69,9 +69,9 @@ void Translation::set_locale(String p_locale){
 
 Translation::Translation(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-Translation::Translation(){
+Translation::Translation(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Translation_constructor();
 }
-Translation::~Translation(){
-    _wasgo_Translation_destructor(wasgo_id);
+Translation::new_instance(){
+    return Translation(_wasgo_Translation_constructor());
 }

@@ -126,9 +126,9 @@ void Particles::set_visibility_aabb(::AABB p_aabb){
 
 Particles::Particles(WasGoId p_wasgo_id) : GeometryInstance(p_wasgo_id){
 }
-Particles::Particles(){
+Particles::Particles(GeometryInstance other) : GeometryInstance(other._get_wasgo_id()){
     wasgo_id = _wasgo_Particles_constructor();
 }
-Particles::~Particles(){
-    _wasgo_Particles_destructor(wasgo_id);
+Particles::new_instance(){
+    return Particles(_wasgo_Particles_constructor());
 }

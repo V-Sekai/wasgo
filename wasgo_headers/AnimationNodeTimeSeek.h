@@ -9,10 +9,10 @@ class AnimationNodeTimeSeek : public AnimationNode{
 public:
 
 protected:
-AnimationNodeTimeSeek(WasGoId p_wasgo_id);
 public:
-AnimationNodeTimeSeek();
-~AnimationNodeTimeSeek();
+explicit AnimationNodeTimeSeek(WasGoId p_wasgo_id);
+explicit AnimationNodeTimeSeek(AnimationNode other);
+AnimationNodeTimeSeek new_instance();
             
 };
 
@@ -20,9 +20,8 @@ AnimationNodeTimeSeek();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeTimeSeek_constructor();
-    void _wasgo_AnimationNodeTimeSeek_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

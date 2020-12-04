@@ -9,10 +9,10 @@ class VSplitContainer : public SplitContainer{
 public:
 
 protected:
-VSplitContainer(WasGoId p_wasgo_id);
 public:
-VSplitContainer();
-~VSplitContainer();
+explicit VSplitContainer(WasGoId p_wasgo_id);
+explicit VSplitContainer(SplitContainer other);
+VSplitContainer new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VSplitContainer();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VSplitContainer_constructor();
-    void _wasgo_VSplitContainer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

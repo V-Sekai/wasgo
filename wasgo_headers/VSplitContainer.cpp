@@ -4,9 +4,9 @@
 
 VSplitContainer::VSplitContainer(WasGoId p_wasgo_id) : SplitContainer(p_wasgo_id){
 }
-VSplitContainer::VSplitContainer(){
+VSplitContainer::VSplitContainer(SplitContainer other) : SplitContainer(other._get_wasgo_id()){
     wasgo_id = _wasgo_VSplitContainer_constructor();
 }
-VSplitContainer::~VSplitContainer(){
-    _wasgo_VSplitContainer_destructor(wasgo_id);
+VSplitContainer::new_instance(){
+    return VSplitContainer(_wasgo_VSplitContainer_constructor());
 }

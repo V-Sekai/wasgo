@@ -17,10 +17,10 @@ void set_default_length(float p_default_length);
 void set_rest(Transform2D p_rest);
 
 protected:
-Bone2D(WasGoId p_wasgo_id);
 public:
-Bone2D();
-~Bone2D();
+explicit Bone2D(WasGoId p_wasgo_id);
+explicit Bone2D(Node2D other);
+Bone2D new_instance();
             
 };
 
@@ -35,9 +35,8 @@ void _wasgo_Bone2D_wrapper_get_skeleton_rest(WasGoId wasgo_id, uint8_t * wasgo_r
 void _wasgo_Bone2D_wrapper_set_default_length(WasGoId wasgo_id, float p_default_length);
 void _wasgo_Bone2D_wrapper_set_rest(WasGoId wasgo_id, const uint8_t * p_rest, int p_rest_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Bone2D_constructor();
-    void _wasgo_Bone2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

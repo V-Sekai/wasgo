@@ -7,8 +7,8 @@ void ARVRServer::center_on_hmd(ARVRServer::RotationMode p_rotation_mode, bool p_
 ARVRInterface ARVRServer::find_interface(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return ARVRInterface(_wasgo_ARVRServer_wrapper_find_interface(wasgo_id, wasgo_buffer_name, wasgo_size_name));
@@ -72,9 +72,9 @@ void ARVRServer::set_world_scale(float p_arg0){
 
 ARVRServer::ARVRServer(WasGoId p_wasgo_id) : Object(p_wasgo_id){
 }
-ARVRServer::ARVRServer(){
+ARVRServer::ARVRServer(Object other) : Object(other._get_wasgo_id()){
     wasgo_id = _wasgo_ARVRServer_constructor();
 }
-ARVRServer::~ARVRServer(){
-    _wasgo_ARVRServer_destructor(wasgo_id);
+ARVRServer::new_instance(){
+    return ARVRServer(_wasgo_ARVRServer_constructor());
 }

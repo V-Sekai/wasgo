@@ -10,9 +10,9 @@ void VisibilityEnabler::set_enabler(VisibilityEnabler::Enabler p_enabler, bool p
 
 VisibilityEnabler::VisibilityEnabler(WasGoId p_wasgo_id) : VisibilityNotifier(p_wasgo_id){
 }
-VisibilityEnabler::VisibilityEnabler(){
+VisibilityEnabler::VisibilityEnabler(VisibilityNotifier other) : VisibilityNotifier(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisibilityEnabler_constructor();
 }
-VisibilityEnabler::~VisibilityEnabler(){
-    _wasgo_VisibilityEnabler_destructor(wasgo_id);
+VisibilityEnabler::new_instance(){
+    return VisibilityEnabler(_wasgo_VisibilityEnabler_constructor());
 }

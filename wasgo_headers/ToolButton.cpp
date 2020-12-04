@@ -4,9 +4,9 @@
 
 ToolButton::ToolButton(WasGoId p_wasgo_id) : Button(p_wasgo_id){
 }
-ToolButton::ToolButton(){
+ToolButton::ToolButton(Button other) : Button(other._get_wasgo_id()){
     wasgo_id = _wasgo_ToolButton_constructor();
 }
-ToolButton::~ToolButton(){
-    _wasgo_ToolButton_destructor(wasgo_id);
+ToolButton::new_instance(){
+    return ToolButton(_wasgo_ToolButton_constructor());
 }

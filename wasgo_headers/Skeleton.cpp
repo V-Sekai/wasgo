@@ -4,8 +4,8 @@
 void Skeleton::add_bone(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_Skeleton_wrapper_add_bone(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -22,8 +22,8 @@ void Skeleton::clear_bones_global_pose_override(){
 int Skeleton::find_bone(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (int) _wasgo_Skeleton_wrapper_find_bone(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -171,9 +171,9 @@ void Skeleton::unparent_bone_and_rest(int p_bone_idx){
 
 Skeleton::Skeleton(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-Skeleton::Skeleton(){
+Skeleton::Skeleton(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_Skeleton_constructor();
 }
-Skeleton::~Skeleton(){
-    _wasgo_Skeleton_destructor(wasgo_id);
+Skeleton::new_instance(){
+    return Skeleton(_wasgo_Skeleton_constructor());
 }

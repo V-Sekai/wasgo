@@ -4,9 +4,9 @@
 
 VisualShaderNodeVectorDecompose::VisualShaderNodeVectorDecompose(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeVectorDecompose::VisualShaderNodeVectorDecompose(){
+VisualShaderNodeVectorDecompose::VisualShaderNodeVectorDecompose(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeVectorDecompose_constructor();
 }
-VisualShaderNodeVectorDecompose::~VisualShaderNodeVectorDecompose(){
-    _wasgo_VisualShaderNodeVectorDecompose_destructor(wasgo_id);
+VisualShaderNodeVectorDecompose::new_instance(){
+    return VisualShaderNodeVectorDecompose(_wasgo_VisualShaderNodeVectorDecompose_constructor());
 }

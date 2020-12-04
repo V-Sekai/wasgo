@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Vector3.h"
 #include "Color.h"
 #include "VisualInstance.h"
-#include "Vector3.h"
 class ReflectionProbe : public VisualInstance{
 public:
 enum UpdateMode{
@@ -39,10 +39,10 @@ void set_origin_offset(Vector3 p_origin_offset);
 void set_update_mode(ReflectionProbe::UpdateMode p_mode);
 
 protected:
-ReflectionProbe(WasGoId p_wasgo_id);
 public:
-ReflectionProbe();
-~ReflectionProbe();
+explicit ReflectionProbe(WasGoId p_wasgo_id);
+explicit ReflectionProbe(VisualInstance other);
+ReflectionProbe new_instance();
             
 };
 
@@ -74,9 +74,8 @@ void _wasgo_ReflectionProbe_wrapper_set_max_distance(WasGoId wasgo_id, float p_m
 void _wasgo_ReflectionProbe_wrapper_set_origin_offset(WasGoId wasgo_id, const uint8_t * p_origin_offset, int p_origin_offset_wasgo_buffer_size);
 void _wasgo_ReflectionProbe_wrapper_set_update_mode(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ReflectionProbe_constructor();
-    void _wasgo_ReflectionProbe_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

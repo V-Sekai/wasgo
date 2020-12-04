@@ -17,10 +17,10 @@ void set_rest_length(float p_rest_length);
 void set_stiffness(float p_stiffness);
 
 protected:
-DampedSpringJoint2D(WasGoId p_wasgo_id);
 public:
-DampedSpringJoint2D();
-~DampedSpringJoint2D();
+explicit DampedSpringJoint2D(WasGoId p_wasgo_id);
+explicit DampedSpringJoint2D(Joint2D other);
+DampedSpringJoint2D new_instance();
             
 };
 
@@ -36,9 +36,8 @@ void _wasgo_DampedSpringJoint2D_wrapper_set_length(WasGoId wasgo_id, float p_len
 void _wasgo_DampedSpringJoint2D_wrapper_set_rest_length(WasGoId wasgo_id, float p_rest_length);
 void _wasgo_DampedSpringJoint2D_wrapper_set_stiffness(WasGoId wasgo_id, float p_stiffness);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_DampedSpringJoint2D_constructor();
-    void _wasgo_DampedSpringJoint2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

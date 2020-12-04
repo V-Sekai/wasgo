@@ -48,8 +48,8 @@ void Skin::set_bind_count(int p_bind_count){
 void Skin::set_bind_name(int p_bind_index, String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_Skin_wrapper_set_bind_name(wasgo_id, p_bind_index, wasgo_buffer_name, wasgo_size_name);
@@ -66,9 +66,9 @@ void Skin::set_bind_pose(int p_bind_index, Transform p_pose){
 
 Skin::Skin(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-Skin::Skin(){
+Skin::Skin(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Skin_constructor();
 }
-Skin::~Skin(){
-    _wasgo_Skin_destructor(wasgo_id);
+Skin::new_instance(){
+    return Skin(_wasgo_Skin_constructor());
 }

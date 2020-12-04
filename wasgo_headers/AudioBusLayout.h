@@ -9,10 +9,10 @@ class AudioBusLayout : public Resource{
 public:
 
 protected:
-AudioBusLayout(WasGoId p_wasgo_id);
 public:
-AudioBusLayout();
-~AudioBusLayout();
+explicit AudioBusLayout(WasGoId p_wasgo_id);
+explicit AudioBusLayout(Resource other);
+AudioBusLayout new_instance();
             
 };
 
@@ -20,9 +20,8 @@ AudioBusLayout();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioBusLayout_constructor();
-    void _wasgo_AudioBusLayout_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

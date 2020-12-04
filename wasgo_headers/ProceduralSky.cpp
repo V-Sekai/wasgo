@@ -165,9 +165,9 @@ void ProceduralSky::set_texture_size(ProceduralSky::TextureSize p_size){
 
 ProceduralSky::ProceduralSky(WasGoId p_wasgo_id) : Sky(p_wasgo_id){
 }
-ProceduralSky::ProceduralSky(){
+ProceduralSky::ProceduralSky(Sky other) : Sky(other._get_wasgo_id()){
     wasgo_id = _wasgo_ProceduralSky_constructor();
 }
-ProceduralSky::~ProceduralSky(){
-    _wasgo_ProceduralSky_destructor(wasgo_id);
+ProceduralSky::new_instance(){
+    return ProceduralSky(_wasgo_ProceduralSky_constructor());
 }

@@ -40,9 +40,9 @@ void CanvasItemMaterial::set_particles_animation(bool p_particles_anim){
 
 CanvasItemMaterial::CanvasItemMaterial(WasGoId p_wasgo_id) : Material(p_wasgo_id){
 }
-CanvasItemMaterial::CanvasItemMaterial(){
+CanvasItemMaterial::CanvasItemMaterial(Material other) : Material(other._get_wasgo_id()){
     wasgo_id = _wasgo_CanvasItemMaterial_constructor();
 }
-CanvasItemMaterial::~CanvasItemMaterial(){
-    _wasgo_CanvasItemMaterial_destructor(wasgo_id);
+CanvasItemMaterial::new_instance(){
+    return CanvasItemMaterial(_wasgo_CanvasItemMaterial_constructor());
 }

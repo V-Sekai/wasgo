@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Transform2D.h"
+#include "Object.h"
+#include "Shape2D.h"
 #include "Node2D.h"
 #include "RID.h"
-#include "Transform2D.h"
 #include "Variant.h"
-#include "Shape2D.h"
-#include "Object.h"
 class CollisionObject2D : public Node2D{
 public:
 int create_shape_owner(Object p_owner);
@@ -62,9 +62,8 @@ void _wasgo_CollisionObject2D_wrapper_shape_owner_set_one_way_collision(WasGoId 
 void _wasgo_CollisionObject2D_wrapper_shape_owner_set_one_way_collision_margin(WasGoId wasgo_id, int p_owner_id, float p_margin);
 void _wasgo_CollisionObject2D_wrapper_shape_owner_set_transform(WasGoId wasgo_id, int p_owner_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CollisionObject2D_constructor();
-    void _wasgo_CollisionObject2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

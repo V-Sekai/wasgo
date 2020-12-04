@@ -10,9 +10,9 @@ void AnimationNodeAdd2::set_use_sync(bool p_enable){
 
 AnimationNodeAdd2::AnimationNodeAdd2(WasGoId p_wasgo_id) : AnimationNode(p_wasgo_id){
 }
-AnimationNodeAdd2::AnimationNodeAdd2(){
+AnimationNodeAdd2::AnimationNodeAdd2(AnimationNode other) : AnimationNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeAdd2_constructor();
 }
-AnimationNodeAdd2::~AnimationNodeAdd2(){
-    _wasgo_AnimationNodeAdd2_destructor(wasgo_id);
+AnimationNodeAdd2::new_instance(){
+    return AnimationNodeAdd2(_wasgo_AnimationNodeAdd2_constructor());
 }

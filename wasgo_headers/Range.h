@@ -58,9 +58,8 @@ void _wasgo_Range_wrapper_set_value(WasGoId wasgo_id, float p_value);
 void _wasgo_Range_wrapper_share(WasGoId wasgo_id, WasGoId p_with);
 void _wasgo_Range_wrapper_unshare(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Range_constructor();
-    void _wasgo_Range_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

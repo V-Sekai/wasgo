@@ -23,8 +23,8 @@ void WindowDialog::set_resizable(bool p_resizable){
 void WindowDialog::set_title(String p_title){
 
     Variant wasgo_var_title = p_title;
-    uint8_t wasgo_buffer_title[256];
-    int wasgo_size_title = 256;
+    int wasgo_size_title = String(p_title).size();
+    uint8_t wasgo_buffer_title[wasgo_size_title];
     encode_variant(wasgo_var_title, wasgo_buffer_title, wasgo_size_title);
     
 	_wasgo_WindowDialog_wrapper_set_title(wasgo_id, wasgo_buffer_title, wasgo_size_title);
@@ -32,9 +32,9 @@ void WindowDialog::set_title(String p_title){
 
 WindowDialog::WindowDialog(WasGoId p_wasgo_id) : Popup(p_wasgo_id){
 }
-WindowDialog::WindowDialog(){
+WindowDialog::WindowDialog(Popup other) : Popup(other._get_wasgo_id()){
     wasgo_id = _wasgo_WindowDialog_constructor();
 }
-WindowDialog::~WindowDialog(){
-    _wasgo_WindowDialog_destructor(wasgo_id);
+WindowDialog::new_instance(){
+    return WindowDialog(_wasgo_WindowDialog_constructor());
 }

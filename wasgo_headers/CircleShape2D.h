@@ -11,10 +11,10 @@ float get_radius();
 void set_radius(float p_radius);
 
 protected:
-CircleShape2D(WasGoId p_wasgo_id);
 public:
-CircleShape2D();
-~CircleShape2D();
+explicit CircleShape2D(WasGoId p_wasgo_id);
+explicit CircleShape2D(Shape2D other);
+CircleShape2D new_instance();
             
 };
 
@@ -24,9 +24,8 @@ extern "C"{
 float _wasgo_CircleShape2D_wrapper_get_radius(WasGoId wasgo_id);
 void _wasgo_CircleShape2D_wrapper_set_radius(WasGoId wasgo_id, float p_radius);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CircleShape2D_constructor();
-    void _wasgo_CircleShape2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

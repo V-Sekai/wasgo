@@ -4,8 +4,8 @@
 void AnimationNodeStateMachine::add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2((0, 0))){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
@@ -19,14 +19,14 @@ void AnimationNodeStateMachine::add_node(String p_name, AnimationNode p_node, Ve
 void AnimationNodeStateMachine::add_transition(String p_from, String p_to, AnimationNodeStateMachineTransition p_transition){
 
     Variant wasgo_var_from = p_from;
-    uint8_t wasgo_buffer_from[256];
-    int wasgo_size_from = 256;
+    int wasgo_size_from = String(p_from).size();
+    uint8_t wasgo_buffer_from[wasgo_size_from];
     encode_variant(wasgo_var_from, wasgo_buffer_from, wasgo_size_from);
     
 
     Variant wasgo_var_to = p_to;
-    uint8_t wasgo_buffer_to[256];
-    int wasgo_size_to = 256;
+    int wasgo_size_to = String(p_to).size();
+    uint8_t wasgo_buffer_to[wasgo_size_to];
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
 	_wasgo_AnimationNodeStateMachine_wrapper_add_transition(wasgo_id, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_to, wasgo_size_to, p_transition._get_wasgo_id());
@@ -54,8 +54,8 @@ Vector2 AnimationNodeStateMachine::get_graph_offset(){
 AnimationNode AnimationNodeStateMachine::get_node(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return AnimationNode(_wasgo_AnimationNodeStateMachine_wrapper_get_node(wasgo_id, wasgo_buffer_name, wasgo_size_name));
@@ -73,8 +73,8 @@ String AnimationNodeStateMachine::get_node_name(AnimationNode p_node){
 Vector2 AnimationNodeStateMachine::get_node_position(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
@@ -125,8 +125,8 @@ String AnimationNodeStateMachine::get_transition_to(int p_idx){
 bool AnimationNodeStateMachine::has_node(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (bool) _wasgo_AnimationNodeStateMachine_wrapper_has_node(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -134,14 +134,14 @@ bool AnimationNodeStateMachine::has_node(String p_name){
 bool AnimationNodeStateMachine::has_transition(String p_from, String p_to){
 
     Variant wasgo_var_from = p_from;
-    uint8_t wasgo_buffer_from[256];
-    int wasgo_size_from = 256;
+    int wasgo_size_from = String(p_from).size();
+    uint8_t wasgo_buffer_from[wasgo_size_from];
     encode_variant(wasgo_var_from, wasgo_buffer_from, wasgo_size_from);
     
 
     Variant wasgo_var_to = p_to;
-    uint8_t wasgo_buffer_to[256];
-    int wasgo_size_to = 256;
+    int wasgo_size_to = String(p_to).size();
+    uint8_t wasgo_buffer_to[wasgo_size_to];
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
 	return (bool) _wasgo_AnimationNodeStateMachine_wrapper_has_transition(wasgo_id, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_to, wasgo_size_to);
@@ -149,8 +149,8 @@ bool AnimationNodeStateMachine::has_transition(String p_from, String p_to){
 void AnimationNodeStateMachine::remove_node(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_AnimationNodeStateMachine_wrapper_remove_node(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -158,14 +158,14 @@ void AnimationNodeStateMachine::remove_node(String p_name){
 void AnimationNodeStateMachine::remove_transition(String p_from, String p_to){
 
     Variant wasgo_var_from = p_from;
-    uint8_t wasgo_buffer_from[256];
-    int wasgo_size_from = 256;
+    int wasgo_size_from = String(p_from).size();
+    uint8_t wasgo_buffer_from[wasgo_size_from];
     encode_variant(wasgo_var_from, wasgo_buffer_from, wasgo_size_from);
     
 
     Variant wasgo_var_to = p_to;
-    uint8_t wasgo_buffer_to[256];
-    int wasgo_size_to = 256;
+    int wasgo_size_to = String(p_to).size();
+    uint8_t wasgo_buffer_to[wasgo_size_to];
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
 	_wasgo_AnimationNodeStateMachine_wrapper_remove_transition(wasgo_id, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_to, wasgo_size_to);
@@ -176,14 +176,14 @@ void AnimationNodeStateMachine::remove_transition_by_index(int p_idx){
 void AnimationNodeStateMachine::rename_node(String p_name, String p_new_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_new_name = p_new_name;
-    uint8_t wasgo_buffer_new_name[256];
-    int wasgo_size_new_name = 256;
+    int wasgo_size_new_name = String(p_new_name).size();
+    uint8_t wasgo_buffer_new_name[wasgo_size_new_name];
     encode_variant(wasgo_var_new_name, wasgo_buffer_new_name, wasgo_size_new_name);
     
 	_wasgo_AnimationNodeStateMachine_wrapper_rename_node(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_new_name, wasgo_size_new_name);
@@ -191,8 +191,8 @@ void AnimationNodeStateMachine::rename_node(String p_name, String p_new_name){
 void AnimationNodeStateMachine::replace_node(String p_name, AnimationNode p_node){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_AnimationNodeStateMachine_wrapper_replace_node(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_node._get_wasgo_id());
@@ -200,8 +200,8 @@ void AnimationNodeStateMachine::replace_node(String p_name, AnimationNode p_node
 void AnimationNodeStateMachine::set_end_node(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_AnimationNodeStateMachine_wrapper_set_end_node(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -218,8 +218,8 @@ void AnimationNodeStateMachine::set_graph_offset(Vector2 p_offset){
 void AnimationNodeStateMachine::set_node_position(String p_name, Vector2 p_position){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
@@ -233,8 +233,8 @@ void AnimationNodeStateMachine::set_node_position(String p_name, Vector2 p_posit
 void AnimationNodeStateMachine::set_start_node(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_AnimationNodeStateMachine_wrapper_set_start_node(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -242,9 +242,9 @@ void AnimationNodeStateMachine::set_start_node(String p_name){
 
 AnimationNodeStateMachine::AnimationNodeStateMachine(WasGoId p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
-AnimationNodeStateMachine::AnimationNodeStateMachine(){
+AnimationNodeStateMachine::AnimationNodeStateMachine(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeStateMachine_constructor();
 }
-AnimationNodeStateMachine::~AnimationNodeStateMachine(){
-    _wasgo_AnimationNodeStateMachine_destructor(wasgo_id);
+AnimationNodeStateMachine::new_instance(){
+    return AnimationNodeStateMachine(_wasgo_AnimationNodeStateMachine_constructor());
 }

@@ -7,8 +7,8 @@ Error StreamPeerSSL::accept_stream(StreamPeer p_stream, CryptoKey p_private_key,
 Error StreamPeerSSL::connect_to_stream(StreamPeer p_stream, bool p_validate_certs = (bool) false, String p_for_hostname = (String) , X509Certificate p_valid_certificate = (X509Certificate) [object:null]){
 
     Variant wasgo_var_for_hostname = p_for_hostname;
-    uint8_t wasgo_buffer_for_hostname[256];
-    int wasgo_size_for_hostname = 256;
+    int wasgo_size_for_hostname = String(p_for_hostname).size();
+    uint8_t wasgo_buffer_for_hostname[wasgo_size_for_hostname];
     encode_variant(wasgo_var_for_hostname, wasgo_buffer_for_hostname, wasgo_size_for_hostname);
     
 	return Error(_wasgo_StreamPeerSSL_wrapper_connect_to_stream(wasgo_id, p_stream._get_wasgo_id(), p_validate_certs, wasgo_buffer_for_hostname, wasgo_size_for_hostname, p_valid_certificate._get_wasgo_id()));
@@ -31,9 +31,9 @@ void StreamPeerSSL::set_blocking_handshake_enabled(bool p_enabled){
 
 StreamPeerSSL::StreamPeerSSL(WasGoId p_wasgo_id) : StreamPeer(p_wasgo_id){
 }
-StreamPeerSSL::StreamPeerSSL(){
+StreamPeerSSL::StreamPeerSSL(StreamPeer other) : StreamPeer(other._get_wasgo_id()){
     wasgo_id = _wasgo_StreamPeerSSL_constructor();
 }
-StreamPeerSSL::~StreamPeerSSL(){
-    _wasgo_StreamPeerSSL_destructor(wasgo_id);
+StreamPeerSSL::new_instance(){
+    return StreamPeerSSL(_wasgo_StreamPeerSSL_constructor());
 }

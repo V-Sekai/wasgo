@@ -17,8 +17,8 @@ String InputEvent::as_text(){
 float InputEvent::get_action_strength(String p_action){
 
     Variant wasgo_var_action = p_action;
-    uint8_t wasgo_buffer_action[256];
-    int wasgo_size_action = 256;
+    int wasgo_size_action = String(p_action).size();
+    uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
 	return (float) _wasgo_InputEvent_wrapper_get_action_strength(wasgo_id, wasgo_buffer_action, wasgo_size_action);
@@ -29,8 +29,8 @@ int InputEvent::get_device(){
 bool InputEvent::is_action(String p_action){
 
     Variant wasgo_var_action = p_action;
-    uint8_t wasgo_buffer_action[256];
-    int wasgo_size_action = 256;
+    int wasgo_size_action = String(p_action).size();
+    uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
 	return (bool) _wasgo_InputEvent_wrapper_is_action(wasgo_id, wasgo_buffer_action, wasgo_size_action);
@@ -38,8 +38,8 @@ bool InputEvent::is_action(String p_action){
 bool InputEvent::is_action_pressed(String p_action, bool p_allow_echo = (bool) false){
 
     Variant wasgo_var_action = p_action;
-    uint8_t wasgo_buffer_action[256];
-    int wasgo_size_action = 256;
+    int wasgo_size_action = String(p_action).size();
+    uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
 	return (bool) _wasgo_InputEvent_wrapper_is_action_pressed(wasgo_id, wasgo_buffer_action, wasgo_size_action, p_allow_echo);
@@ -47,8 +47,8 @@ bool InputEvent::is_action_pressed(String p_action, bool p_allow_echo = (bool) f
 bool InputEvent::is_action_released(String p_action){
 
     Variant wasgo_var_action = p_action;
-    uint8_t wasgo_buffer_action[256];
-    int wasgo_size_action = 256;
+    int wasgo_size_action = String(p_action).size();
+    uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
 	return (bool) _wasgo_InputEvent_wrapper_is_action_released(wasgo_id, wasgo_buffer_action, wasgo_size_action);

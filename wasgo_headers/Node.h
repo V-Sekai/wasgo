@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "MultiplayerAPI.h"
-#include "Object.h"
 #include "ustring.h"
-#include "Variant.h"
 #include "NodePath.h"
 #include "SceneTree.h"
+#include "Object.h"
+#include "MultiplayerAPI.h"
 #include "Viewport.h"
+#include "Variant.h"
 class Node : public Object{
 public:
 enum DuplicateFlags{
@@ -113,10 +113,10 @@ void set_scene_instance_load_placeholder(bool p_load_placeholder);
 void update_configuration_warning();
 
 protected:
-Node(WasGoId p_wasgo_id);
 public:
-Node();
-~Node();
+explicit Node(WasGoId p_wasgo_id);
+explicit Node(Object other);
+Node new_instance();
             
 };
 
@@ -211,9 +211,8 @@ void _wasgo_Node_wrapper_set_process_unhandled_key_input(WasGoId wasgo_id, bool 
 void _wasgo_Node_wrapper_set_scene_instance_load_placeholder(WasGoId wasgo_id, bool p_load_placeholder);
 void _wasgo_Node_wrapper_update_configuration_warning(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Node_constructor();
-    void _wasgo_Node_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -21,10 +21,10 @@ void set_cull_mode(OccluderPolygon2D::CullMode p_cull_mode);
 void set_polygon(PoolVector2Array p_polygon);
 
 protected:
-OccluderPolygon2D(WasGoId p_wasgo_id);
 public:
-OccluderPolygon2D();
-~OccluderPolygon2D();
+explicit OccluderPolygon2D(WasGoId p_wasgo_id);
+explicit OccluderPolygon2D(Resource other);
+OccluderPolygon2D new_instance();
             
 };
 
@@ -38,9 +38,8 @@ void _wasgo_OccluderPolygon2D_wrapper_set_closed(WasGoId wasgo_id, bool p_closed
 void _wasgo_OccluderPolygon2D_wrapper_set_cull_mode(WasGoId wasgo_id, WasGoId p_cull_mode);
 void _wasgo_OccluderPolygon2D_wrapper_set_polygon(WasGoId wasgo_id, WasGoId p_polygon);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_OccluderPolygon2D_constructor();
-    void _wasgo_OccluderPolygon2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

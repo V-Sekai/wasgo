@@ -18,10 +18,10 @@ void set_margin(Rect2 p_margin);
 void set_region(Rect2 p_region);
 
 protected:
-AtlasTexture(WasGoId p_wasgo_id);
 public:
-AtlasTexture();
-~AtlasTexture();
+explicit AtlasTexture(WasGoId p_wasgo_id);
+explicit AtlasTexture(Texture other);
+AtlasTexture new_instance();
             
 };
 
@@ -37,9 +37,8 @@ void _wasgo_AtlasTexture_wrapper_set_filter_clip(WasGoId wasgo_id, bool p_enable
 void _wasgo_AtlasTexture_wrapper_set_margin(WasGoId wasgo_id, const uint8_t * p_margin, int p_margin_wasgo_buffer_size);
 void _wasgo_AtlasTexture_wrapper_set_region(WasGoId wasgo_id, const uint8_t * p_region, int p_region_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AtlasTexture_constructor();
-    void _wasgo_AtlasTexture_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

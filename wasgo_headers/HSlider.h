@@ -9,10 +9,10 @@ class HSlider : public Slider{
 public:
 
 protected:
-HSlider(WasGoId p_wasgo_id);
 public:
-HSlider();
-~HSlider();
+explicit HSlider(WasGoId p_wasgo_id);
+explicit HSlider(Slider other);
+HSlider new_instance();
             
 };
 
@@ -20,9 +20,8 @@ HSlider();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_HSlider_constructor();
-    void _wasgo_HSlider_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

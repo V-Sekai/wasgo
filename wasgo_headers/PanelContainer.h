@@ -9,10 +9,10 @@ class PanelContainer : public Container{
 public:
 
 protected:
-PanelContainer(WasGoId p_wasgo_id);
 public:
-PanelContainer();
-~PanelContainer();
+explicit PanelContainer(WasGoId p_wasgo_id);
+explicit PanelContainer(Container other);
+PanelContainer new_instance();
             
 };
 
@@ -20,9 +20,8 @@ PanelContainer();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PanelContainer_constructor();
-    void _wasgo_PanelContainer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,9 +4,9 @@
 
 VisualShaderNodeBooleanUniform::VisualShaderNodeBooleanUniform(WasGoId p_wasgo_id) : VisualShaderNodeUniform(p_wasgo_id){
 }
-VisualShaderNodeBooleanUniform::VisualShaderNodeBooleanUniform(){
+VisualShaderNodeBooleanUniform::VisualShaderNodeBooleanUniform(VisualShaderNodeUniform other) : VisualShaderNodeUniform(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeBooleanUniform_constructor();
 }
-VisualShaderNodeBooleanUniform::~VisualShaderNodeBooleanUniform(){
-    _wasgo_VisualShaderNodeBooleanUniform_destructor(wasgo_id);
+VisualShaderNodeBooleanUniform::new_instance(){
+    return VisualShaderNodeBooleanUniform(_wasgo_VisualShaderNodeBooleanUniform_constructor());
 }

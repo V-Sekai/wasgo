@@ -28,9 +28,9 @@ void RandomNumberGenerator::set_seed(int p_seed){
 
 RandomNumberGenerator::RandomNumberGenerator(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-RandomNumberGenerator::RandomNumberGenerator(){
+RandomNumberGenerator::RandomNumberGenerator(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_RandomNumberGenerator_constructor();
 }
-RandomNumberGenerator::~RandomNumberGenerator(){
-    _wasgo_RandomNumberGenerator_destructor(wasgo_id);
+RandomNumberGenerator::new_instance(){
+    return RandomNumberGenerator(_wasgo_RandomNumberGenerator_constructor());
 }

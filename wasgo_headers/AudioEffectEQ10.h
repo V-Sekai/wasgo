@@ -9,10 +9,10 @@ class AudioEffectEQ10 : public AudioEffectEQ{
 public:
 
 protected:
-AudioEffectEQ10(WasGoId p_wasgo_id);
 public:
-AudioEffectEQ10();
-~AudioEffectEQ10();
+explicit AudioEffectEQ10(WasGoId p_wasgo_id);
+explicit AudioEffectEQ10(AudioEffectEQ other);
+AudioEffectEQ10 new_instance();
             
 };
 
@@ -20,9 +20,8 @@ AudioEffectEQ10();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectEQ10_constructor();
-    void _wasgo_AudioEffectEQ10_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -13,10 +13,10 @@ Error try_lock();
 void unlock();
 
 protected:
-Mutex(WasGoId p_wasgo_id);
 public:
-Mutex();
-~Mutex();
+explicit Mutex(WasGoId p_wasgo_id);
+explicit Mutex(Reference other);
+Mutex new_instance();
             
 };
 
@@ -27,9 +27,8 @@ void _wasgo_Mutex_wrapper_lock(WasGoId wasgo_id);
 WasGoId _wasgo_Mutex_wrapper_try_lock(WasGoId wasgo_id);
 void _wasgo_Mutex_wrapper_unlock(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Mutex_constructor();
-    void _wasgo_Mutex_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

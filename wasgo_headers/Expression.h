@@ -6,9 +6,9 @@
 
 #include "error_list.h"
 #include "ustring.h"
-#include "Variant.h"
 #include "Reference.h"
 #include "Object.h"
+#include "Variant.h"
 class Expression : public Reference{
 public:
 Variant execute(Array p_inputs = (Array) [], Object p_base_instance = (Object) "", bool p_show_error = (bool) true);
@@ -17,10 +17,10 @@ bool has_execute_failed();
 Error parse(String p_expression, PoolStringArray p_input_names = (PoolStringArray) []);
 
 protected:
-Expression(WasGoId p_wasgo_id);
 public:
-Expression();
-~Expression();
+explicit Expression(WasGoId p_wasgo_id);
+explicit Expression(Reference other);
+Expression new_instance();
             
 };
 
@@ -32,9 +32,8 @@ void _wasgo_Expression_wrapper_get_error_text(WasGoId wasgo_id, uint8_t * wasgo_
 int _wasgo_Expression_wrapper_has_execute_failed(WasGoId wasgo_id);
 WasGoId _wasgo_Expression_wrapper_parse(WasGoId wasgo_id, const uint8_t * p_expression, int p_expression_wasgo_buffer_size, WasGoId p_input_names);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Expression_constructor();
-    void _wasgo_Expression_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

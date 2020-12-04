@@ -4,9 +4,9 @@
 
 AudioEffectNotchFilter::AudioEffectNotchFilter(WasGoId p_wasgo_id) : AudioEffectFilter(p_wasgo_id){
 }
-AudioEffectNotchFilter::AudioEffectNotchFilter(){
+AudioEffectNotchFilter::AudioEffectNotchFilter(AudioEffectFilter other) : AudioEffectFilter(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectNotchFilter_constructor();
 }
-AudioEffectNotchFilter::~AudioEffectNotchFilter(){
-    _wasgo_AudioEffectNotchFilter_destructor(wasgo_id);
+AudioEffectNotchFilter::new_instance(){
+    return AudioEffectNotchFilter(_wasgo_AudioEffectNotchFilter_constructor());
 }

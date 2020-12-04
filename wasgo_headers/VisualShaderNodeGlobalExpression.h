@@ -9,10 +9,10 @@ class VisualShaderNodeGlobalExpression : public VisualShaderNodeExpression{
 public:
 
 protected:
-VisualShaderNodeGlobalExpression(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeGlobalExpression();
-~VisualShaderNodeGlobalExpression();
+explicit VisualShaderNodeGlobalExpression(WasGoId p_wasgo_id);
+explicit VisualShaderNodeGlobalExpression(VisualShaderNodeExpression other);
+VisualShaderNodeGlobalExpression new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeGlobalExpression();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeGlobalExpression_constructor();
-    void _wasgo_VisualShaderNodeGlobalExpression_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,8 +4,8 @@
 void Polygon2D::add_bone(NodePath p_path, PoolRealArray p_weights){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_Polygon2D_wrapper_add_bone(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_weights._get_wasgo_id());
@@ -121,8 +121,8 @@ void Polygon2D::set_antialiased(bool p_antialiased){
 void Polygon2D::set_bone_path(int p_index, NodePath p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_Polygon2D_wrapper_set_bone_path(wasgo_id, p_index, wasgo_buffer_path, wasgo_size_path);
@@ -166,8 +166,8 @@ void Polygon2D::set_polygons(Array p_polygons){
 void Polygon2D::set_skeleton(NodePath p_skeleton){
 
     Variant wasgo_var_skeleton = p_skeleton;
-    uint8_t wasgo_buffer_skeleton[256];
-    int wasgo_size_skeleton = 256;
+    int wasgo_size_skeleton = String(p_skeleton).size();
+    uint8_t wasgo_buffer_skeleton[wasgo_size_skeleton];
     encode_variant(wasgo_var_skeleton, wasgo_buffer_skeleton, wasgo_size_skeleton);
     
 	_wasgo_Polygon2D_wrapper_set_skeleton(wasgo_id, wasgo_buffer_skeleton, wasgo_size_skeleton);
@@ -208,9 +208,9 @@ void Polygon2D::set_vertex_colors(PoolColorArray p_vertex_colors){
 
 Polygon2D::Polygon2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-Polygon2D::Polygon2D(){
+Polygon2D::Polygon2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Polygon2D_constructor();
 }
-Polygon2D::~Polygon2D(){
-    _wasgo_Polygon2D_destructor(wasgo_id);
+Polygon2D::new_instance(){
+    return Polygon2D(_wasgo_Polygon2D_constructor());
 }

@@ -5,13 +5,13 @@
 #include "wasgo\wasgo.h"
 
 #include "Vector3.h"
-#include "RID.h"
-#include "ustring.h"
-#include "Variant.h"
 #include "PhysicsDirectBodyState.h"
+#include "ustring.h"
 #include "PhysicsDirectSpaceState.h"
-#include "Transform.h"
 #include "Object.h"
+#include "Transform.h"
+#include "RID.h"
+#include "Variant.h"
 class PhysicsServer : public Object{
 public:
 enum AreaBodyStatus{
@@ -407,9 +407,8 @@ int _wasgo_PhysicsServer_wrapper_space_is_active(WasGoId wasgo_id, const uint8_t
 void _wasgo_PhysicsServer_wrapper_space_set_active(WasGoId wasgo_id, const uint8_t * p_space, int p_space_wasgo_buffer_size, bool p_active);
 void _wasgo_PhysicsServer_wrapper_space_set_param(WasGoId wasgo_id, const uint8_t * p_space, int p_space_wasgo_buffer_size, WasGoId p_param, float p_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PhysicsServer_constructor();
-    void _wasgo_PhysicsServer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

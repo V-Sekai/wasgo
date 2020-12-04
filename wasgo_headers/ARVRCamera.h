@@ -9,10 +9,10 @@ class ARVRCamera : public Camera{
 public:
 
 protected:
-ARVRCamera(WasGoId p_wasgo_id);
 public:
-ARVRCamera();
-~ARVRCamera();
+explicit ARVRCamera(WasGoId p_wasgo_id);
+explicit ARVRCamera(Camera other);
+ARVRCamera new_instance();
             
 };
 
@@ -20,9 +20,8 @@ ARVRCamera();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ARVRCamera_constructor();
-    void _wasgo_ARVRCamera_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

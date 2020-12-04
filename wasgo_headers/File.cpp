@@ -10,8 +10,8 @@ bool File::eof_reached(){
 bool File::file_exists(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return (bool) _wasgo_File_wrapper_file_exists(wasgo_id, wasgo_buffer_path, wasgo_size_path);
@@ -44,8 +44,8 @@ PoolByteArray File::get_buffer(int p_len){
 PoolStringArray File::get_csv_line(String p_delim = String(,)){
 
     Variant wasgo_var_delim = p_delim;
-    uint8_t wasgo_buffer_delim[256];
-    int wasgo_size_delim = 256;
+    int wasgo_size_delim = String(p_delim).size();
+    uint8_t wasgo_buffer_delim[wasgo_size_delim];
     encode_variant(wasgo_var_delim, wasgo_buffer_delim, wasgo_size_delim);
     
 	return PoolStringArray(_wasgo_File_wrapper_get_csv_line(wasgo_id, wasgo_buffer_delim, wasgo_size_delim));
@@ -78,8 +78,8 @@ String File::get_line(){
 String File::get_md5(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 
@@ -94,8 +94,8 @@ String File::get_md5(String p_path){
 int File::get_modified_time(String p_file){
 
     Variant wasgo_var_file = p_file;
-    uint8_t wasgo_buffer_file[256];
-    int wasgo_size_file = 256;
+    int wasgo_size_file = String(p_file).size();
+    uint8_t wasgo_buffer_file[wasgo_size_file];
     encode_variant(wasgo_var_file, wasgo_buffer_file, wasgo_size_file);
     
 	return (int) _wasgo_File_wrapper_get_modified_time(wasgo_id, wasgo_buffer_file, wasgo_size_file);
@@ -139,8 +139,8 @@ float File::get_real(){
 String File::get_sha256(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 
@@ -161,8 +161,8 @@ bool File::is_open(){
 Error File::open(String p_path, File::ModeFlags p_flags){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return Error(_wasgo_File_wrapper_open(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_flags._get_wasgo_id()));
@@ -170,8 +170,8 @@ Error File::open(String p_path, File::ModeFlags p_flags){
 Error File::open_compressed(String p_path, File::ModeFlags p_mode_flags, File::CompressionMode p_compression_mode = (File::CompressionMode) 0){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return Error(_wasgo_File_wrapper_open_compressed(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_mode_flags._get_wasgo_id(), p_compression_mode._get_wasgo_id()));
@@ -179,8 +179,8 @@ Error File::open_compressed(String p_path, File::ModeFlags p_mode_flags, File::C
 Error File::open_encrypted(String p_path, File::ModeFlags p_mode_flags, PoolByteArray p_key){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return Error(_wasgo_File_wrapper_open_encrypted(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_mode_flags._get_wasgo_id(), p_key._get_wasgo_id()));
@@ -188,14 +188,14 @@ Error File::open_encrypted(String p_path, File::ModeFlags p_mode_flags, PoolByte
 Error File::open_encrypted_with_pass(String p_path, File::ModeFlags p_mode_flags, String p_pass){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 
     Variant wasgo_var_pass = p_pass;
-    uint8_t wasgo_buffer_pass[256];
-    int wasgo_size_pass = 256;
+    int wasgo_size_pass = String(p_pass).size();
+    uint8_t wasgo_buffer_pass[wasgo_size_pass];
     encode_variant(wasgo_var_pass, wasgo_buffer_pass, wasgo_size_pass);
     
 	return Error(_wasgo_File_wrapper_open_encrypted_with_pass(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_mode_flags._get_wasgo_id(), wasgo_buffer_pass, wasgo_size_pass));
@@ -227,8 +227,8 @@ void File::store_buffer(PoolByteArray p_buffer){
 void File::store_csv_line(PoolStringArray p_values, String p_delim = String(,)){
 
     Variant wasgo_var_delim = p_delim;
-    uint8_t wasgo_buffer_delim[256];
-    int wasgo_size_delim = 256;
+    int wasgo_size_delim = String(p_delim).size();
+    uint8_t wasgo_buffer_delim[wasgo_size_delim];
     encode_variant(wasgo_var_delim, wasgo_buffer_delim, wasgo_size_delim);
     
 	_wasgo_File_wrapper_store_csv_line(wasgo_id, p_values._get_wasgo_id(), wasgo_buffer_delim, wasgo_size_delim);
@@ -242,8 +242,8 @@ void File::store_float(float p_value){
 void File::store_line(String p_line){
 
     Variant wasgo_var_line = p_line;
-    uint8_t wasgo_buffer_line[256];
-    int wasgo_size_line = 256;
+    int wasgo_size_line = String(p_line).size();
+    uint8_t wasgo_buffer_line[wasgo_size_line];
     encode_variant(wasgo_var_line, wasgo_buffer_line, wasgo_size_line);
     
 	_wasgo_File_wrapper_store_line(wasgo_id, wasgo_buffer_line, wasgo_size_line);
@@ -251,8 +251,8 @@ void File::store_line(String p_line){
 void File::store_pascal_string(String p_string){
 
     Variant wasgo_var_string = p_string;
-    uint8_t wasgo_buffer_string[256];
-    int wasgo_size_string = 256;
+    int wasgo_size_string = String(p_string).size();
+    uint8_t wasgo_buffer_string[wasgo_size_string];
     encode_variant(wasgo_var_string, wasgo_buffer_string, wasgo_size_string);
     
 	_wasgo_File_wrapper_store_pascal_string(wasgo_id, wasgo_buffer_string, wasgo_size_string);
@@ -263,8 +263,8 @@ void File::store_real(float p_value){
 void File::store_string(String p_string){
 
     Variant wasgo_var_string = p_string;
-    uint8_t wasgo_buffer_string[256];
-    int wasgo_size_string = 256;
+    int wasgo_size_string = String(p_string).size();
+    uint8_t wasgo_buffer_string[wasgo_size_string];
     encode_variant(wasgo_var_string, wasgo_buffer_string, wasgo_size_string);
     
 	_wasgo_File_wrapper_store_string(wasgo_id, wasgo_buffer_string, wasgo_size_string);
@@ -275,9 +275,9 @@ void File::store_var(Variant p_value, bool p_full_objects = (bool) false){
 
 File::File(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-File::File(){
+File::File(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_File_constructor();
 }
-File::~File(){
-    _wasgo_File_destructor(wasgo_id);
+File::new_instance(){
+    return File(_wasgo_File_constructor());
 }

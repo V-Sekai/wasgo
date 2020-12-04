@@ -6,11 +6,11 @@
 
 #include "Vector3.h"
 #include "GeometryInstance.h"
-#include "Mesh.h"
-#include "Plane.h"
-#include "Color.h"
-#include "Texture.h"
 #include "Vector2.h"
+#include "Texture.h"
+#include "Mesh.h"
+#include "Color.h"
+#include "Plane.h"
 class ImmediateGeometry : public GeometryInstance{
 public:
 void add_sphere(int p_lats, int p_lons, float p_radius, bool p_add_uv = (bool) true);
@@ -25,10 +25,10 @@ void set_uv(Vector2 p_uv);
 void set_uv2(Vector2 p_uv);
 
 protected:
-ImmediateGeometry(WasGoId p_wasgo_id);
 public:
-ImmediateGeometry();
-~ImmediateGeometry();
+explicit ImmediateGeometry(WasGoId p_wasgo_id);
+explicit ImmediateGeometry(GeometryInstance other);
+ImmediateGeometry new_instance();
             
 };
 
@@ -46,9 +46,8 @@ void _wasgo_ImmediateGeometry_wrapper_set_tangent(WasGoId wasgo_id, const uint8_
 void _wasgo_ImmediateGeometry_wrapper_set_uv(WasGoId wasgo_id, const uint8_t * p_uv, int p_uv_wasgo_buffer_size);
 void _wasgo_ImmediateGeometry_wrapper_set_uv2(WasGoId wasgo_id, const uint8_t * p_uv, int p_uv_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ImmediateGeometry_constructor();
-    void _wasgo_ImmediateGeometry_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -25,10 +25,10 @@ void set_spread(float p_amount);
 void set_wet(float p_amount);
 
 protected:
-AudioEffectReverb(WasGoId p_wasgo_id);
 public:
-AudioEffectReverb();
-~AudioEffectReverb();
+explicit AudioEffectReverb(WasGoId p_wasgo_id);
+explicit AudioEffectReverb(AudioEffect other);
+AudioEffectReverb new_instance();
             
 };
 
@@ -52,9 +52,8 @@ void _wasgo_AudioEffectReverb_wrapper_set_room_size(WasGoId wasgo_id, float p_si
 void _wasgo_AudioEffectReverb_wrapper_set_spread(WasGoId wasgo_id, float p_amount);
 void _wasgo_AudioEffectReverb_wrapper_set_wet(WasGoId wasgo_id, float p_amount);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectReverb_constructor();
-    void _wasgo_AudioEffectReverb_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

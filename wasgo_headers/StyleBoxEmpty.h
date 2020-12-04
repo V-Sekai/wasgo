@@ -9,10 +9,10 @@ class StyleBoxEmpty : public StyleBox{
 public:
 
 protected:
-StyleBoxEmpty(WasGoId p_wasgo_id);
 public:
-StyleBoxEmpty();
-~StyleBoxEmpty();
+explicit StyleBoxEmpty(WasGoId p_wasgo_id);
+explicit StyleBoxEmpty(StyleBox other);
+StyleBoxEmpty new_instance();
             
 };
 
@@ -20,9 +20,8 @@ StyleBoxEmpty();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_StyleBoxEmpty_constructor();
-    void _wasgo_StyleBoxEmpty_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

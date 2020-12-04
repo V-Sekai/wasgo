@@ -9,10 +9,10 @@ class PopupDialog : public Popup{
 public:
 
 protected:
-PopupDialog(WasGoId p_wasgo_id);
 public:
-PopupDialog();
-~PopupDialog();
+explicit PopupDialog(WasGoId p_wasgo_id);
+explicit PopupDialog(Popup other);
+PopupDialog new_instance();
             
 };
 
@@ -20,9 +20,8 @@ PopupDialog();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PopupDialog_constructor();
-    void _wasgo_PopupDialog_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

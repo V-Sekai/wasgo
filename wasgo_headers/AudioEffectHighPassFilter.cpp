@@ -4,9 +4,9 @@
 
 AudioEffectHighPassFilter::AudioEffectHighPassFilter(WasGoId p_wasgo_id) : AudioEffectFilter(p_wasgo_id){
 }
-AudioEffectHighPassFilter::AudioEffectHighPassFilter(){
+AudioEffectHighPassFilter::AudioEffectHighPassFilter(AudioEffectFilter other) : AudioEffectFilter(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectHighPassFilter_constructor();
 }
-AudioEffectHighPassFilter::~AudioEffectHighPassFilter(){
-    _wasgo_AudioEffectHighPassFilter_destructor(wasgo_id);
+AudioEffectHighPassFilter::new_instance(){
+    return AudioEffectHighPassFilter(_wasgo_AudioEffectHighPassFilter_constructor());
 }

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "AudioEffect.h"
+#include "ustring.h"
 class AudioEffectCompressor : public AudioEffect{
 public:
 float get_attack_us();
@@ -24,10 +24,10 @@ void set_sidechain(String p_sidechain);
 void set_threshold(float p_threshold);
 
 protected:
-AudioEffectCompressor(WasGoId p_wasgo_id);
 public:
-AudioEffectCompressor();
-~AudioEffectCompressor();
+explicit AudioEffectCompressor(WasGoId p_wasgo_id);
+explicit AudioEffectCompressor(AudioEffect other);
+AudioEffectCompressor new_instance();
             
 };
 
@@ -49,9 +49,8 @@ void _wasgo_AudioEffectCompressor_wrapper_set_release_ms(WasGoId wasgo_id, float
 void _wasgo_AudioEffectCompressor_wrapper_set_sidechain(WasGoId wasgo_id, const uint8_t * p_sidechain, int p_sidechain_wasgo_buffer_size);
 void _wasgo_AudioEffectCompressor_wrapper_set_threshold(WasGoId wasgo_id, float p_threshold);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectCompressor_constructor();
-    void _wasgo_AudioEffectCompressor_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

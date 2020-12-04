@@ -13,10 +13,10 @@ void set_buffer_length(float p_seconds);
 void set_mix_rate(float p_hz);
 
 protected:
-AudioStreamGenerator(WasGoId p_wasgo_id);
 public:
-AudioStreamGenerator();
-~AudioStreamGenerator();
+explicit AudioStreamGenerator(WasGoId p_wasgo_id);
+explicit AudioStreamGenerator(AudioStream other);
+AudioStreamGenerator new_instance();
             
 };
 
@@ -28,9 +28,8 @@ float _wasgo_AudioStreamGenerator_wrapper_get_mix_rate(WasGoId wasgo_id);
 void _wasgo_AudioStreamGenerator_wrapper_set_buffer_length(WasGoId wasgo_id, float p_seconds);
 void _wasgo_AudioStreamGenerator_wrapper_set_mix_rate(WasGoId wasgo_id, float p_hz);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioStreamGenerator_constructor();
-    void _wasgo_AudioStreamGenerator_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

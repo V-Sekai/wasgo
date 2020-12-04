@@ -25,10 +25,10 @@ void set_pressure(int p_pressure);
 void set_velocity(int p_velocity);
 
 protected:
-InputEventMIDI(WasGoId p_wasgo_id);
 public:
-InputEventMIDI();
-~InputEventMIDI();
+explicit InputEventMIDI(WasGoId p_wasgo_id);
+explicit InputEventMIDI(InputEvent other);
+InputEventMIDI new_instance();
             
 };
 
@@ -52,9 +52,8 @@ void _wasgo_InputEventMIDI_wrapper_set_pitch(WasGoId wasgo_id, int p_pitch);
 void _wasgo_InputEventMIDI_wrapper_set_pressure(WasGoId wasgo_id, int p_pressure);
 void _wasgo_InputEventMIDI_wrapper_set_velocity(WasGoId wasgo_id, int p_velocity);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InputEventMIDI_constructor();
-    void _wasgo_InputEventMIDI_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

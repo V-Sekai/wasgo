@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgo.h"
 
-#include "VScrollBar.h"
-#include "ustring.h"
-#include "Variant.h"
-#include "Rect2.h"
-#include "Color.h"
-#include "Texture.h"
-#include "Vector2.h"
 #include "Control.h"
+#include "Vector2.h"
+#include "ustring.h"
+#include "Texture.h"
+#include "Color.h"
+#include "Rect2.h"
+#include "VScrollBar.h"
+#include "Variant.h"
 class ItemList : public Control{
 public:
 enum IconMode{
@@ -86,10 +86,10 @@ void unselect(int p_idx);
 void unselect_all();
 
 protected:
-ItemList(WasGoId p_wasgo_id);
 public:
-ItemList();
-~ItemList();
+explicit ItemList(WasGoId p_wasgo_id);
+explicit ItemList(Control other);
+ItemList new_instance();
             
 };
 
@@ -159,9 +159,8 @@ void _wasgo_ItemList_wrapper_sort_items_by_text(WasGoId wasgo_id);
 void _wasgo_ItemList_wrapper_unselect(WasGoId wasgo_id, int p_idx);
 void _wasgo_ItemList_wrapper_unselect_all(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ItemList_constructor();
-    void _wasgo_ItemList_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

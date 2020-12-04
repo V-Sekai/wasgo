@@ -5,11 +5,11 @@
 #include "wasgo\wasgo.h"
 
 #include "error_list.h"
-#include "Font.h"
-#include "ustring.h"
-#include "Rect2.h"
-#include "Texture.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "Texture.h"
+#include "Rect2.h"
+#include "Font.h"
 class BitmapFont : public Font{
 public:
 void add_char(int p_character, int p_texture, Rect2 p_rect, Vector2 p_align = Vector2((0, 0)), float p_advance = (float) -1);
@@ -27,10 +27,10 @@ void set_fallback(BitmapFont p_fallback);
 void set_height(float p_px);
 
 protected:
-BitmapFont(WasGoId p_wasgo_id);
 public:
-BitmapFont();
-~BitmapFont();
+explicit BitmapFont(WasGoId p_wasgo_id);
+explicit BitmapFont(Font other);
+BitmapFont new_instance();
             
 };
 
@@ -51,9 +51,8 @@ void _wasgo_BitmapFont_wrapper_set_distance_field_hint(WasGoId wasgo_id, bool p_
 void _wasgo_BitmapFont_wrapper_set_fallback(WasGoId wasgo_id, WasGoId p_fallback);
 void _wasgo_BitmapFont_wrapper_set_height(WasGoId wasgo_id, float p_px);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_BitmapFont_constructor();
-    void _wasgo_BitmapFont_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Transform2D.h"
 #include "TileSet.h"
-#include "Variant.h"
-#include "Rect2.h"
 #include "Vector2.h"
+#include "Rect2.h"
+#include "Node2D.h"
+#include "Variant.h"
 class TileMap : public Node2D{
 public:
 enum HalfOffset{
@@ -89,10 +89,10 @@ void update_dirty_quadrants();
 Vector2 world_to_map(Vector2 p_world_position);
 
 protected:
-TileMap(WasGoId p_wasgo_id);
 public:
-TileMap();
-~TileMap();
+explicit TileMap(WasGoId p_wasgo_id);
+explicit TileMap(Node2D other);
+TileMap new_instance();
             
 };
 
@@ -158,9 +158,8 @@ void _wasgo_TileMap_wrapper_update_bitmask_region(WasGoId wasgo_id, const uint8_
 void _wasgo_TileMap_wrapper_update_dirty_quadrants(WasGoId wasgo_id);
 void _wasgo_TileMap_wrapper_world_to_map(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_world_position, int p_world_position_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TileMap_constructor();
-    void _wasgo_TileMap_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

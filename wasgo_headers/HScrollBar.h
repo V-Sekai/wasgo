@@ -9,10 +9,10 @@ class HScrollBar : public ScrollBar{
 public:
 
 protected:
-HScrollBar(WasGoId p_wasgo_id);
 public:
-HScrollBar();
-~HScrollBar();
+explicit HScrollBar(WasGoId p_wasgo_id);
+explicit HScrollBar(ScrollBar other);
+HScrollBar new_instance();
             
 };
 
@@ -20,9 +20,8 @@ HScrollBar();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_HScrollBar_constructor();
-    void _wasgo_HScrollBar_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -71,8 +71,8 @@ void TabContainer::set_tab_icon(int p_tab_idx, Texture p_icon){
 void TabContainer::set_tab_title(int p_tab_idx, String p_title){
 
     Variant wasgo_var_title = p_title;
-    uint8_t wasgo_buffer_title[256];
-    int wasgo_size_title = 256;
+    int wasgo_size_title = String(p_title).size();
+    uint8_t wasgo_buffer_title[wasgo_size_title];
     encode_variant(wasgo_var_title, wasgo_buffer_title, wasgo_size_title);
     
 	_wasgo_TabContainer_wrapper_set_tab_title(wasgo_id, p_tab_idx, wasgo_buffer_title, wasgo_size_title);
@@ -89,9 +89,9 @@ void TabContainer::set_use_hidden_tabs_for_min_size(bool p_enabled){
 
 TabContainer::TabContainer(WasGoId p_wasgo_id) : Container(p_wasgo_id){
 }
-TabContainer::TabContainer(){
+TabContainer::TabContainer(Container other) : Container(other._get_wasgo_id()){
     wasgo_id = _wasgo_TabContainer_constructor();
 }
-TabContainer::~TabContainer(){
-    _wasgo_TabContainer_destructor(wasgo_id);
+TabContainer::new_instance(){
+    return TabContainer(_wasgo_TabContainer_constructor());
 }

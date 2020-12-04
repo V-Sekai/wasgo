@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "LineEdit.h"
 #include "Range.h"
+#include "LineEdit.h"
 #include "ustring.h"
 class SpinBox : public Range{
 public:
@@ -21,10 +21,10 @@ void set_prefix(String p_prefix);
 void set_suffix(String p_suffix);
 
 protected:
-SpinBox(WasGoId p_wasgo_id);
 public:
-SpinBox();
-~SpinBox();
+explicit SpinBox(WasGoId p_wasgo_id);
+explicit SpinBox(Range other);
+SpinBox new_instance();
             
 };
 
@@ -42,9 +42,8 @@ void _wasgo_SpinBox_wrapper_set_editable(WasGoId wasgo_id, bool p_editable);
 void _wasgo_SpinBox_wrapper_set_prefix(WasGoId wasgo_id, const uint8_t * p_prefix, int p_prefix_wasgo_buffer_size);
 void _wasgo_SpinBox_wrapper_set_suffix(WasGoId wasgo_id, const uint8_t * p_suffix, int p_suffix_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SpinBox_constructor();
-    void _wasgo_SpinBox_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

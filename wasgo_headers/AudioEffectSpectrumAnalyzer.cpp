@@ -22,9 +22,9 @@ void AudioEffectSpectrumAnalyzer::set_tap_back_pos(float p_seconds){
 
 AudioEffectSpectrumAnalyzer::AudioEffectSpectrumAnalyzer(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
-AudioEffectSpectrumAnalyzer::AudioEffectSpectrumAnalyzer(){
+AudioEffectSpectrumAnalyzer::AudioEffectSpectrumAnalyzer(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectSpectrumAnalyzer_constructor();
 }
-AudioEffectSpectrumAnalyzer::~AudioEffectSpectrumAnalyzer(){
-    _wasgo_AudioEffectSpectrumAnalyzer_destructor(wasgo_id);
+AudioEffectSpectrumAnalyzer::new_instance(){
+    return AudioEffectSpectrumAnalyzer(_wasgo_AudioEffectSpectrumAnalyzer_constructor());
 }

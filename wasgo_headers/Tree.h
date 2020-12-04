@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "Rect2.h"
-#include "TreeItem.h"
-#include "Object.h"
-#include "Vector2.h"
 #include "Control.h"
+#include "Vector2.h"
+#include "ustring.h"
+#include "TreeItem.h"
+#include "Rect2.h"
+#include "Object.h"
 class Tree : public Control{
 public:
 enum DropModeFlags{
@@ -61,10 +61,10 @@ void set_hide_root(bool p_enable);
 void set_select_mode(Tree::SelectMode p_mode);
 
 protected:
-Tree(WasGoId p_wasgo_id);
 public:
-Tree();
-~Tree();
+explicit Tree(WasGoId p_wasgo_id);
+explicit Tree(Control other);
+Tree new_instance();
             
 };
 
@@ -109,9 +109,8 @@ void _wasgo_Tree_wrapper_set_hide_folding(WasGoId wasgo_id, bool p_hide);
 void _wasgo_Tree_wrapper_set_hide_root(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Tree_wrapper_set_select_mode(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Tree_constructor();
-    void _wasgo_Tree_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

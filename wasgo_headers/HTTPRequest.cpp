@@ -41,14 +41,14 @@ bool HTTPRequest::is_using_threads(){
 Error HTTPRequest::request(String p_url, PoolStringArray p_custom_headers = (PoolStringArray) [], bool p_ssl_validate_domain = (bool) true, HTTPClient::Method p_method = (HTTPClient::Method) 0, String p_request_data = (String) ){
 
     Variant wasgo_var_url = p_url;
-    uint8_t wasgo_buffer_url[256];
-    int wasgo_size_url = 256;
+    int wasgo_size_url = String(p_url).size();
+    uint8_t wasgo_buffer_url[wasgo_size_url];
     encode_variant(wasgo_var_url, wasgo_buffer_url, wasgo_size_url);
     
 
     Variant wasgo_var_request_data = p_request_data;
-    uint8_t wasgo_buffer_request_data[256];
-    int wasgo_size_request_data = 256;
+    int wasgo_size_request_data = String(p_request_data).size();
+    uint8_t wasgo_buffer_request_data[wasgo_size_request_data];
     encode_variant(wasgo_var_request_data, wasgo_buffer_request_data, wasgo_size_request_data);
     
 	return Error(_wasgo_HTTPRequest_wrapper_request(wasgo_id, wasgo_buffer_url, wasgo_size_url, p_custom_headers._get_wasgo_id(), p_ssl_validate_domain, p_method._get_wasgo_id(), wasgo_buffer_request_data, wasgo_size_request_data));
@@ -62,8 +62,8 @@ void HTTPRequest::set_download_chunk_size(int p_arg0){
 void HTTPRequest::set_download_file(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_HTTPRequest_wrapper_set_download_file(wasgo_id, wasgo_buffer_path, wasgo_size_path);
@@ -80,9 +80,9 @@ void HTTPRequest::set_use_threads(bool p_enable){
 
 HTTPRequest::HTTPRequest(WasGoId p_wasgo_id) : Node(p_wasgo_id){
 }
-HTTPRequest::HTTPRequest(){
+HTTPRequest::HTTPRequest(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_HTTPRequest_constructor();
 }
-HTTPRequest::~HTTPRequest(){
-    _wasgo_HTTPRequest_destructor(wasgo_id);
+HTTPRequest::new_instance(){
+    return HTTPRequest(_wasgo_HTTPRequest_constructor());
 }

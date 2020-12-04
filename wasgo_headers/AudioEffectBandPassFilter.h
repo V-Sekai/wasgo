@@ -9,10 +9,10 @@ class AudioEffectBandPassFilter : public AudioEffectFilter{
 public:
 
 protected:
-AudioEffectBandPassFilter(WasGoId p_wasgo_id);
 public:
-AudioEffectBandPassFilter();
-~AudioEffectBandPassFilter();
+explicit AudioEffectBandPassFilter(WasGoId p_wasgo_id);
+explicit AudioEffectBandPassFilter(AudioEffectFilter other);
+AudioEffectBandPassFilter new_instance();
             
 };
 
@@ -20,9 +20,8 @@ AudioEffectBandPassFilter();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectBandPassFilter_constructor();
-    void _wasgo_AudioEffectBandPassFilter_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

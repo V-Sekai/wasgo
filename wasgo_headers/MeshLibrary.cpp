@@ -10,8 +10,8 @@ void MeshLibrary::create_item(int p_id){
 int MeshLibrary::find_item_by_name(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (int) _wasgo_MeshLibrary_wrapper_find_item_by_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -63,8 +63,8 @@ void MeshLibrary::set_item_mesh(int p_id, Mesh p_mesh){
 void MeshLibrary::set_item_name(int p_id, String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_MeshLibrary_wrapper_set_item_name(wasgo_id, p_id, wasgo_buffer_name, wasgo_size_name);
@@ -90,9 +90,9 @@ void MeshLibrary::set_item_shapes(int p_id, Array p_shapes){
 
 MeshLibrary::MeshLibrary(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-MeshLibrary::MeshLibrary(){
+MeshLibrary::MeshLibrary(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_MeshLibrary_constructor();
 }
-MeshLibrary::~MeshLibrary(){
-    _wasgo_MeshLibrary_destructor(wasgo_id);
+MeshLibrary::new_instance(){
+    return MeshLibrary(_wasgo_MeshLibrary_constructor());
 }

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
 #include "NodePath.h"
+#include "Spatial.h"
 class RemoteTransform : public Spatial{
 public:
 void force_update_cache();
@@ -21,10 +21,10 @@ void set_update_scale(bool p_update_remote_scale);
 void set_use_global_coordinates(bool p_use_global_coordinates);
 
 protected:
-RemoteTransform(WasGoId p_wasgo_id);
 public:
-RemoteTransform();
-~RemoteTransform();
+explicit RemoteTransform(WasGoId p_wasgo_id);
+explicit RemoteTransform(Spatial other);
+RemoteTransform new_instance();
             
 };
 
@@ -43,9 +43,8 @@ void _wasgo_RemoteTransform_wrapper_set_update_rotation(WasGoId wasgo_id, bool p
 void _wasgo_RemoteTransform_wrapper_set_update_scale(WasGoId wasgo_id, bool p_update_remote_scale);
 void _wasgo_RemoteTransform_wrapper_set_use_global_coordinates(WasGoId wasgo_id, bool p_use_global_coordinates);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_RemoteTransform_constructor();
-    void _wasgo_RemoteTransform_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

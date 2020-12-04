@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Reference.h"
-#include "Object.h"
 #include "RID.h"
+#include "Object.h"
 class Physics2DShapeQueryResult : public Reference{
 public:
 int get_result_count();
@@ -25,9 +25,8 @@ int _wasgo_Physics2DShapeQueryResult_wrapper_get_result_object_id(WasGoId wasgo_
 int _wasgo_Physics2DShapeQueryResult_wrapper_get_result_object_shape(WasGoId wasgo_id, int p_idx);
 void _wasgo_Physics2DShapeQueryResult_wrapper_get_result_rid(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Physics2DShapeQueryResult_constructor();
-    void _wasgo_Physics2DShapeQueryResult_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

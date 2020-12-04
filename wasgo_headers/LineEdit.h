@@ -6,8 +6,8 @@
 
 #include "PopupMenu.h"
 #include "Texture.h"
-#include "ustring.h"
 #include "Control.h"
+#include "ustring.h"
 class LineEdit : public Control{
 public:
 enum Align{
@@ -74,10 +74,10 @@ void set_text(String p_text);
 void set_virtual_keyboard_enabled(bool p_enable);
 
 protected:
-LineEdit(WasGoId p_wasgo_id);
 public:
-LineEdit();
-~LineEdit();
+explicit LineEdit(WasGoId p_wasgo_id);
+explicit LineEdit(Control other);
+LineEdit new_instance();
             
 };
 
@@ -131,9 +131,8 @@ void _wasgo_LineEdit_wrapper_set_shortcut_keys_enabled(WasGoId wasgo_id, bool p_
 void _wasgo_LineEdit_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 void _wasgo_LineEdit_wrapper_set_virtual_keyboard_enabled(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_LineEdit_constructor();
-    void _wasgo_LineEdit_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

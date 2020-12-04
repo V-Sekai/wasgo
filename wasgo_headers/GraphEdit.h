@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "ustring.h"
-#include "Variant.h"
 #include "Node.h"
-#include "HBoxContainer.h"
-#include "Vector2.h"
 #include "Control.h"
+#include "error_list.h"
+#include "Vector2.h"
+#include "ustring.h"
+#include "HBoxContainer.h"
+#include "Variant.h"
 class GraphEdit : public Control{
 public:
 void add_valid_connection_type(int p_from_type, int p_to_type);
@@ -40,10 +40,10 @@ void set_use_snap(bool p_enable);
 void set_zoom(float p_p_zoom);
 
 protected:
-GraphEdit(WasGoId p_wasgo_id);
 public:
-GraphEdit();
-~GraphEdit();
+explicit GraphEdit(WasGoId p_wasgo_id);
+explicit GraphEdit(Control other);
+GraphEdit new_instance();
             
 };
 
@@ -76,9 +76,8 @@ void _wasgo_GraphEdit_wrapper_set_snap(WasGoId wasgo_id, int p_pixels);
 void _wasgo_GraphEdit_wrapper_set_use_snap(WasGoId wasgo_id, bool p_enable);
 void _wasgo_GraphEdit_wrapper_set_zoom(WasGoId wasgo_id, float p_p_zoom);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_GraphEdit_constructor();
-    void _wasgo_GraphEdit_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

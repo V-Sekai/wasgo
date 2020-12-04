@@ -7,8 +7,8 @@ void ItemList::add_icon_item(Texture p_icon, bool p_selectable = (bool) true){
 void ItemList::add_item(String p_text, Texture p_icon = (Texture) "", bool p_selectable = (bool) true){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_ItemList_wrapper_add_item(wasgo_id, wasgo_buffer_text, wasgo_size_text, p_icon._get_wasgo_id(), p_selectable);
@@ -251,8 +251,8 @@ void ItemList::set_item_selectable(int p_idx, bool p_selectable){
 void ItemList::set_item_text(int p_idx, String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_ItemList_wrapper_set_item_text(wasgo_id, p_idx, wasgo_buffer_text, wasgo_size_text);
@@ -260,8 +260,8 @@ void ItemList::set_item_text(int p_idx, String p_text){
 void ItemList::set_item_tooltip(int p_idx, String p_tooltip){
 
     Variant wasgo_var_tooltip = p_tooltip;
-    uint8_t wasgo_buffer_tooltip[256];
-    int wasgo_size_tooltip = 256;
+    int wasgo_size_tooltip = String(p_tooltip).size();
+    uint8_t wasgo_buffer_tooltip[wasgo_size_tooltip];
     encode_variant(wasgo_var_tooltip, wasgo_buffer_tooltip, wasgo_size_tooltip);
     
 	_wasgo_ItemList_wrapper_set_item_tooltip(wasgo_id, p_idx, wasgo_buffer_tooltip, wasgo_size_tooltip);
@@ -293,9 +293,9 @@ void ItemList::unselect_all(){
 
 ItemList::ItemList(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-ItemList::ItemList(){
+ItemList::ItemList(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_ItemList_constructor();
 }
-ItemList::~ItemList(){
-    _wasgo_ItemList_destructor(wasgo_id);
+ItemList::new_instance(){
+    return ItemList(_wasgo_ItemList_constructor());
 }

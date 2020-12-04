@@ -13,10 +13,10 @@ void set_length(float p_length);
 void set_slips_on_slope(bool p_active);
 
 protected:
-RayShape2D(WasGoId p_wasgo_id);
 public:
-RayShape2D();
-~RayShape2D();
+explicit RayShape2D(WasGoId p_wasgo_id);
+explicit RayShape2D(Shape2D other);
+RayShape2D new_instance();
             
 };
 
@@ -28,9 +28,8 @@ int _wasgo_RayShape2D_wrapper_get_slips_on_slope(WasGoId wasgo_id);
 void _wasgo_RayShape2D_wrapper_set_length(WasGoId wasgo_id, float p_length);
 void _wasgo_RayShape2D_wrapper_set_slips_on_slope(WasGoId wasgo_id, bool p_active);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_RayShape2D_constructor();
-    void _wasgo_RayShape2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

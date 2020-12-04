@@ -13,10 +13,10 @@ Error pack(Variant p_value);
 int size();
 
 protected:
-PackedDataContainer(WasGoId p_wasgo_id);
 public:
-PackedDataContainer();
-~PackedDataContainer();
+explicit PackedDataContainer(WasGoId p_wasgo_id);
+explicit PackedDataContainer(Resource other);
+PackedDataContainer new_instance();
             
 };
 
@@ -26,9 +26,8 @@ extern "C"{
 WasGoId _wasgo_PackedDataContainer_wrapper_pack(WasGoId wasgo_id, WasGoId p_value);
 int _wasgo_PackedDataContainer_wrapper_size(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PackedDataContainer_constructor();
-    void _wasgo_PackedDataContainer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

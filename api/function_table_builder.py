@@ -530,14 +530,14 @@ def write_native_wrapper_header(file_path, api_dict):
 
     def cast_args(arg):
         if arg["type"] == "bool" or arg["type"] == "int" or arg["type"] == "float":
-            return "{0} {1} = ({0}) p_{1};".format(arg["type"], arg["name"])
+            return "Variant v_{1} = ({0}) p_{1};".format(arg["type"], arg["name"])
         elif arg["type"] in wasm_variants:
-            size = size_from_type(arg["type"])
-            return "Variant v_{1} = {0}();\n\t\t\tdecode_variant(v_{1}, p_{1}, {2});\n\t\t\tVariant * {1} = &v_{1};".format(arg["type"], arg["name"], size)
+            return "Variant v_{1} = {0}();\n\t\t\tdecode_variant(v_{1}, p_{1}, p_wasgo_buffer_size_{1});\n\t\t\tVariant * {1} = &v_{1};".format(arg["type"], arg["name"])
         elif arg["type"] in variants:
-            return "{0} *{1} = ({0} *)state->lookup_variant(p_{1});".format(arg["type"], arg["name"])
+            # return "{0} *{1} = ({0} *)state->lookup_variant(p_{1});".format(arg["type"], arg["name"])
+            return "Variant v_{0} = state->lookup_object(p_{0});".format(arg["name"])
         else:
-            return "{0} *{1} = ({0} *) state->lookup_object(p_{1});".format(arg["type"], arg["name"])
+            return "Variant v_{0} = state->lookup_object(p_{0});".format(arg["name"])
 
     for class_name in [api_class for api_class in api_dict if api_dict[api_class]["is_reference"] == False and api_class in class_whitelist]:
         out += wrap_constructor_destructor(class_name)
@@ -548,25 +548,26 @@ def write_native_wrapper_header(file_path, api_dict):
             for arg in method["arguments"].values():
                 wasgo_args += ["{0} p_{1}".format(wrapper_argument_types(arg["type"]), arg["name"])]
                 if arg["type"] in wasm_variants:
-                    wasgo_args += ["int p_wasgo_buffer_size_{0}".format("wasgo_buffer_size_" + arg["name"])]
+                    wasgo_args += ["int p_wasgo_buffer_size_{0}".format(arg["name"])]
             out += ["\n{0} {1}({2}){{".format(wrapper_return_types(method["return_type"]), wrapper_method_names(class_name, method["name"]), ", ".join(wasgo_args)),
                     "\tWasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);",
                     "\tif(state){"
                     ]
             if class_name in variants:
                 out += [
-                    "\t\t{0} *caller = ({0}*) state->lookup_variant(caller_id);".format(class_name)]
+                    # "\t\t{0} *caller = ({0}*) state->lookup_variant(caller_id);".format(class_name)
+                    "\t\t{0} *caller = ({0}*) &(state->lookup_object(caller_id));".format(class_name)
+                    ]
             else:
                 out += [
-                    "\t\t{0} *caller = ({0} *) state->lookup_object(caller_id);".format(class_name)]
+                    "\t\t{0} *caller = ({0} *) ((Object *) state->lookup_object(caller_id));".format(class_name)
+                    ]
 
             out += ["\t\tif(caller){",
                     ]
 
-            out += ["\t\t\t{0}".format(cast_args(arg))
-                    for arg in method["arguments"].values()]
-            arg_list = ["(Variant *)&" + arg["name"] if (arg["type"] == "bool" or arg["type"] == "int" or arg["type"] == "float") or "::" in arg["type"] else "(Variant *)" + arg["name"]
-                        for arg in method["arguments"].values()]
+            out += ["\t\t\t{0}".format(cast_args(arg))for arg in method["arguments"].values()]
+            arg_list = ["& v_" + arg["name"] for arg in method["arguments"].values()]
             # arg_string = ", ".join( arg_list)
             arg_string = "" 
             if len(arg_list) > 0:
@@ -594,7 +595,7 @@ def write_native_wrapper_header(file_path, api_dict):
                 out += ["\t\t\tVariant::CallError error;",
                         "\t\t\t" + arg_string,
                         "\t\t\tVariant wasgo_ret = caller->call((String)\"{0}\", varargs, {1}, error);".format(method["name"], len(arg_list)),
-                        "\t\t\tif(error.error != Variant::CallError::CALL_OK){throw \"BAD WASGO CALL\";}",
+                        "\t\t\tif(error.error != Variant::CallError::CALL_OK){{print_line(\"BAD WASGO CALL: {0}\");}}".format(method["name"]),
                         "\t\t}",
                         "\t}",
                         "\treturn;",
@@ -606,7 +607,7 @@ def write_native_wrapper_header(file_path, api_dict):
                     "\t\t\t" + arg_string,
                     "\t\t\tVariant wasgo_local_ret = caller->call((String)\"{0}\", varargs, {1}, error);".format(method["name"], len(arg_list)),
                     "\t\t\tError wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);",
-                    "\t\t\tif(error.error != Variant::CallError::CALL_OK){throw \"BAD WASGO CALL\";}",
+                    "\t\t\tif(error.error != Variant::CallError::CALL_OK){{print_line(\"BAD WASGO CALL: {0}\");}}".format(method["name"]),
                     "\t\t}",
                     "\t}"
                     "}"
@@ -615,7 +616,7 @@ def write_native_wrapper_header(file_path, api_dict):
                 out += ["\t\t\tVariant::CallError error;",
                         "\t\t\t" + arg_string,
                         "\t\t\t{0} wasgo_ret = ({0}) caller->call((String)\"{1}\", varargs, {2}, error);".format(wrapper_return_types(method["return_type"]), method["name"], len(arg_list)),
-                        "\t\t\tif(error.error != Variant::CallError::CALL_OK){throw \"BAD WASGO CALL\";}",
+                        "\t\t\tif(error.error != Variant::CallError::CALL_OK){{print_line(\"BAD WASGO CALL: {0}\");}}".format(method["name"]),
                         "\t\t\treturn wasgo_ret;",
                         "\t\t}",
                         "\t}",
@@ -626,7 +627,7 @@ def write_native_wrapper_header(file_path, api_dict):
                 out += ["\t\t\tVariant::CallError error;",
                         "\t\t\t" + arg_string,
                         "\t\t\tVariant wasgo_ret = caller->call((String)\"{0}\", varargs, {1}, error);".format(method["name"], len(arg_list)),
-                        "\t\t\tif(error.error != Variant::CallError::CALL_OK){throw \"BAD WASGO CALL\";}",
+                        "\t\t\tif(error.error != Variant::CallError::CALL_OK){{print_line(\"BAD WASGO CALL: {0}\");}}".format(method["name"]),
                         "\t\t\treturn state->handle_return_variant(wasgo_ret);",
                         "\t\t}",
                         "\t}",
@@ -688,7 +689,6 @@ def write_function_table(file_path, api_dict):
     def constructor_destructor_wrappers(class_name):
         return ["""
     EXPORT_WASM_API_WITH_SIG(_wasgo_{0}_constructor,\"()i\"),
-    EXPORT_WASM_API_WITH_SIG(_wasgo_{0}_destructor,\"(i)\"),
         """.format(class_name)]
 
     def register_header_function_interface(name, contents):
@@ -788,15 +788,15 @@ def write_wasm_class_headers(file_path, api_dict):
             arg_list = ["uint8_t * wasgo_ret", "int wasgo_ret_size"] + arg_list
         return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGoId"), name, ", ".join(["WasGoId wasgo_id"] + arg_list))
     
-    def constructor_and_destructor(class_name):
+    def constructor(class_name, base_class):
         out = [
             """
 protected:
-{0}(WasGoId p_wasgo_id);
 public:
-{0}();
-~{0}();
-            """.format(class_name)
+explicit {0}(WasGoId p_wasgo_id);
+explicit {0}({1} other);
+{0} new_instance();
+            """.format(class_name, base_class)
         ]
         return out
 
@@ -863,7 +863,7 @@ public:
             n, class_dict['methods'])
 
         if (class_dict["instanciable"] and not class_dict["singleton"]):
-            header_file_data += constructor_and_destructor(n)
+            header_file_data += constructor(n, diff_type_names(class_dict["base_class"]))
 
         header_file_data += ["};"]
         
@@ -873,9 +873,8 @@ public:
         header_file_data += [single_wrapper(wrapper_method_names(n, method_name), api_dict[class_name]["methods"][method_name]["return_type"], api_dict[class_dict["name"]]["methods"][method_name]["arguments"].values()) for method_name in class_dict["methods"]]
         header_file_data += [
             """
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_{0}_constructor();
-    void _wasgo_{0}_destructor(WasGoId p_wasgo_id);
             """.format(n)
         ]
         header_file_data += ["}",
@@ -917,14 +916,23 @@ def write_wasm_classes(file_path, api_dict):
     def wrapper_body(class_name, method_name, return_type, arguments):
         out = ["{0} {1}::{2}({3}){{".format(diff_type_names(return_type), class_name, method_name, arg_string(arguments))]
         for arg in arguments:
-            if arg["type"] in wasm_variants:
+            if arg["type"] in wasm_variants_string:
+                out += [
+                    """
+    Variant wasgo_var_{0} = p_{0};
+    int wasgo_size_{0} = String(p_{0}).size();
+    uint8_t wasgo_buffer_{0}[wasgo_size_{0}];
+    encode_variant(wasgo_var_{0}, wasgo_buffer_{0}, wasgo_size_{0});
+    """.format(arg["name"])
+                ]
+            elif arg["type"] in wasm_variants:
                 out += [
                     """
     Variant wasgo_var_{0} = p_{0};
     uint8_t wasgo_buffer_{0}[{1}];
     int wasgo_size_{0} = {1};
     encode_variant(wasgo_var_{0}, wasgo_buffer_{0}, wasgo_size_{0});
-    """.format(arg["name"], size_from_type(arg["type"]), wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))
+    """.format(arg["name"], size_from_type(arg["type"]))
                 ]
         if (return_type == "void"):
             out += ["\t{0}({1});".format(wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))]
@@ -963,11 +971,11 @@ def write_wasm_classes(file_path, api_dict):
             """
 {0}::{0}(WasGoId p_wasgo_id) : {1}(p_wasgo_id){{
 }}
-{0}::{0}(){{
+{0}::{0}({1} other) : {1}(other._get_wasgo_id()){{
     wasgo_id = _wasgo_{0}_constructor();
 }}
-{0}::~{0}(){{
-    _wasgo_{0}_destructor(wasgo_id);
+{0}::new_instance(){{
+    return {0}(_wasgo_{0}_constructor());
 }}""".format(class_name, base_class)
         ]
         return out

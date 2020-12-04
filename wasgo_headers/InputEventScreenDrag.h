@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "InputEvent.h"
+#include "Vector2.h"
 class InputEventScreenDrag : public InputEvent{
 public:
 int get_index();
@@ -18,10 +18,10 @@ void set_relative(Vector2 p_relative);
 void set_speed(Vector2 p_speed);
 
 protected:
-InputEventScreenDrag(WasGoId p_wasgo_id);
 public:
-InputEventScreenDrag();
-~InputEventScreenDrag();
+explicit InputEventScreenDrag(WasGoId p_wasgo_id);
+explicit InputEventScreenDrag(InputEvent other);
+InputEventScreenDrag new_instance();
             
 };
 
@@ -37,9 +37,8 @@ void _wasgo_InputEventScreenDrag_wrapper_set_position(WasGoId wasgo_id, const ui
 void _wasgo_InputEventScreenDrag_wrapper_set_relative(WasGoId wasgo_id, const uint8_t * p_relative, int p_relative_wasgo_buffer_size);
 void _wasgo_InputEventScreenDrag_wrapper_set_speed(WasGoId wasgo_id, const uint8_t * p_speed, int p_speed_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InputEventScreenDrag_constructor();
-    void _wasgo_InputEventScreenDrag_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

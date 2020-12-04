@@ -9,10 +9,10 @@ class WasGoRuntime : public Object{
 public:
 
 protected:
-WasGoRuntime(WasGoId p_wasgo_id);
 public:
-WasGoRuntime();
-~WasGoRuntime();
+explicit WasGoRuntime(WasGoId p_wasgo_id);
+explicit WasGoRuntime(Object other);
+WasGoRuntime new_instance();
             
 };
 
@@ -20,9 +20,8 @@ WasGoRuntime();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_WasGoRuntime_constructor();
-    void _wasgo_WasGoRuntime_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

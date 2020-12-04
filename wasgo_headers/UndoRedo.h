@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Variant.h"
 #include "Object.h"
 #include "ustring.h"
-#include "Variant.h"
 class UndoRedo : public Object{
 public:
 enum MergeMode{
@@ -32,10 +32,10 @@ bool redo();
 bool undo();
 
 protected:
-UndoRedo(WasGoId p_wasgo_id);
 public:
-UndoRedo();
-~UndoRedo();
+explicit UndoRedo(WasGoId p_wasgo_id);
+explicit UndoRedo(Object other);
+UndoRedo new_instance();
             
 };
 
@@ -59,9 +59,8 @@ int _wasgo_UndoRedo_wrapper_is_commiting_action(WasGoId wasgo_id);
 int _wasgo_UndoRedo_wrapper_redo(WasGoId wasgo_id);
 int _wasgo_UndoRedo_wrapper_undo(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_UndoRedo_constructor();
-    void _wasgo_UndoRedo_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

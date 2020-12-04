@@ -4,9 +4,9 @@
 
 VisualShaderNodeVectorRefract::VisualShaderNodeVectorRefract(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeVectorRefract::VisualShaderNodeVectorRefract(){
+VisualShaderNodeVectorRefract::VisualShaderNodeVectorRefract(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeVectorRefract_constructor();
 }
-VisualShaderNodeVectorRefract::~VisualShaderNodeVectorRefract(){
-    _wasgo_VisualShaderNodeVectorRefract_destructor(wasgo_id);
+VisualShaderNodeVectorRefract::new_instance(){
+    return VisualShaderNodeVectorRefract(_wasgo_VisualShaderNodeVectorRefract_constructor());
 }

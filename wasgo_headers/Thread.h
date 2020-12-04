@@ -6,9 +6,9 @@
 
 #include "error_list.h"
 #include "ustring.h"
-#include "Variant.h"
 #include "Reference.h"
 #include "Object.h"
+#include "Variant.h"
 class Thread : public Reference{
 public:
 enum Priority{
@@ -22,10 +22,10 @@ Error start(Object p_instance, String p_method, Variant p_userdata = (Variant) "
 Variant wait_to_finish();
 
 protected:
-Thread(WasGoId p_wasgo_id);
 public:
-Thread();
-~Thread();
+explicit Thread(WasGoId p_wasgo_id);
+explicit Thread(Reference other);
+Thread new_instance();
             
 };
 
@@ -37,9 +37,8 @@ int _wasgo_Thread_wrapper_is_active(WasGoId wasgo_id);
 WasGoId _wasgo_Thread_wrapper_start(WasGoId wasgo_id, WasGoId p_instance, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoId p_userdata, WasGoId p_priority);
 WasGoId _wasgo_Thread_wrapper_wait_to_finish(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Thread_constructor();
-    void _wasgo_Thread_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

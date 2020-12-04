@@ -15,9 +15,8 @@ float get_length();
 extern "C"{
 float _wasgo_AudioStream_wrapper_get_length(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioStream_constructor();
-    void _wasgo_AudioStream_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "error_list.h"
-#include "X509Certificate.h"
 #include "ustring.h"
-#include "PacketPeerUDP.h"
 #include "PacketPeer.h"
+#include "X509Certificate.h"
+#include "PacketPeerUDP.h"
 class PacketPeerDTLS : public PacketPeer{
 public:
 enum Status{
@@ -24,10 +24,10 @@ PacketPeerDTLS::Status get_status();
 void poll();
 
 protected:
-PacketPeerDTLS(WasGoId p_wasgo_id);
 public:
-PacketPeerDTLS();
-~PacketPeerDTLS();
+explicit PacketPeerDTLS(WasGoId p_wasgo_id);
+explicit PacketPeerDTLS(PacketPeer other);
+PacketPeerDTLS new_instance();
             
 };
 
@@ -39,9 +39,8 @@ void _wasgo_PacketPeerDTLS_wrapper_disconnect_from_peer(WasGoId wasgo_id);
 WasGoId _wasgo_PacketPeerDTLS_wrapper_get_status(WasGoId wasgo_id);
 void _wasgo_PacketPeerDTLS_wrapper_poll(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PacketPeerDTLS_constructor();
-    void _wasgo_PacketPeerDTLS_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

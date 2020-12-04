@@ -17,8 +17,8 @@ float InputEventAction::get_strength(){
 void InputEventAction::set_action(String p_action){
 
     Variant wasgo_var_action = p_action;
-    uint8_t wasgo_buffer_action[256];
-    int wasgo_size_action = 256;
+    int wasgo_size_action = String(p_action).size();
+    uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
 	_wasgo_InputEventAction_wrapper_set_action(wasgo_id, wasgo_buffer_action, wasgo_size_action);
@@ -32,9 +32,9 @@ void InputEventAction::set_strength(float p_strength){
 
 InputEventAction::InputEventAction(WasGoId p_wasgo_id) : InputEvent(p_wasgo_id){
 }
-InputEventAction::InputEventAction(){
+InputEventAction::InputEventAction(InputEvent other) : InputEvent(other._get_wasgo_id()){
     wasgo_id = _wasgo_InputEventAction_constructor();
 }
-InputEventAction::~InputEventAction(){
-    _wasgo_InputEventAction_destructor(wasgo_id);
+InputEventAction::new_instance(){
+    return InputEventAction(_wasgo_InputEventAction_constructor());
 }

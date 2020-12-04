@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "RID.h"
+#include "Vector2.h"
 #include "ustring.h"
 #include "Color.h"
-#include "Vector2.h"
+#include "RID.h"
+#include "Resource.h"
 class Font : public Resource{
 public:
 void draw(RID p_canvas_item, Vector2 p_position, String p_string, Color p_modulate = Color(1,1,1,1), int p_clip_w = (int) -1, Color p_outline_modulate = Color(1,1,1,1));
@@ -39,9 +39,8 @@ int _wasgo_Font_wrapper_has_outline(WasGoId wasgo_id);
 int _wasgo_Font_wrapper_is_distance_field_hint(WasGoId wasgo_id);
 void _wasgo_Font_wrapper_update_changes(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Font_constructor();
-    void _wasgo_Font_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

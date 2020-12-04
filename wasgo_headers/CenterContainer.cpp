@@ -10,9 +10,9 @@ void CenterContainer::set_use_top_left(bool p_enable){
 
 CenterContainer::CenterContainer(WasGoId p_wasgo_id) : Container(p_wasgo_id){
 }
-CenterContainer::CenterContainer(){
+CenterContainer::CenterContainer(Container other) : Container(other._get_wasgo_id()){
     wasgo_id = _wasgo_CenterContainer_constructor();
 }
-CenterContainer::~CenterContainer(){
-    _wasgo_CenterContainer_destructor(wasgo_id);
+CenterContainer::new_instance(){
+    return CenterContainer(_wasgo_CenterContainer_constructor());
 }

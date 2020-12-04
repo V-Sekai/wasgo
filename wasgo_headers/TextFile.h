@@ -9,10 +9,10 @@ class TextFile : public Resource{
 public:
 
 protected:
-TextFile(WasGoId p_wasgo_id);
 public:
-TextFile();
-~TextFile();
+explicit TextFile(WasGoId p_wasgo_id);
+explicit TextFile(Resource other);
+TextFile new_instance();
             
 };
 
@@ -20,9 +20,8 @@ TextFile();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TextFile_constructor();
-    void _wasgo_TextFile_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

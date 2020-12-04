@@ -4,8 +4,8 @@
 void ProximityGroup::broadcast(String p_name, Variant p_parameters){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_ProximityGroup_wrapper_broadcast(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_parameters._get_wasgo_id());
@@ -48,8 +48,8 @@ void ProximityGroup::set_grid_radius(Vector3 p_radius){
 void ProximityGroup::set_group_name(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_ProximityGroup_wrapper_set_group_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -57,9 +57,9 @@ void ProximityGroup::set_group_name(String p_name){
 
 ProximityGroup::ProximityGroup(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-ProximityGroup::ProximityGroup(){
+ProximityGroup::ProximityGroup(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_ProximityGroup_constructor();
 }
-ProximityGroup::~ProximityGroup(){
-    _wasgo_ProximityGroup_destructor(wasgo_id);
+ProximityGroup::new_instance(){
+    return ProximityGroup(_wasgo_ProximityGroup_constructor());
 }

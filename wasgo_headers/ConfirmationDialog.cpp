@@ -7,9 +7,9 @@ Button ConfirmationDialog::get_cancel(){
 
 ConfirmationDialog::ConfirmationDialog(WasGoId p_wasgo_id) : AcceptDialog(p_wasgo_id){
 }
-ConfirmationDialog::ConfirmationDialog(){
+ConfirmationDialog::ConfirmationDialog(AcceptDialog other) : AcceptDialog(other._get_wasgo_id()){
     wasgo_id = _wasgo_ConfirmationDialog_constructor();
 }
-ConfirmationDialog::~ConfirmationDialog(){
-    _wasgo_ConfirmationDialog_destructor(wasgo_id);
+ConfirmationDialog::new_instance(){
+    return ConfirmationDialog(_wasgo_ConfirmationDialog_constructor());
 }

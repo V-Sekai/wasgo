@@ -18,10 +18,10 @@ void set_input_as_auto_advance(int p_input, bool p_enable);
 void set_input_caption(int p_input, String p_caption);
 
 protected:
-AnimationNodeTransition(WasGoId p_wasgo_id);
 public:
-AnimationNodeTransition();
-~AnimationNodeTransition();
+explicit AnimationNodeTransition(WasGoId p_wasgo_id);
+explicit AnimationNodeTransition(AnimationNode other);
+AnimationNodeTransition new_instance();
             
 };
 
@@ -37,9 +37,8 @@ void _wasgo_AnimationNodeTransition_wrapper_set_enabled_inputs(WasGoId wasgo_id,
 void _wasgo_AnimationNodeTransition_wrapper_set_input_as_auto_advance(WasGoId wasgo_id, int p_input, bool p_enable);
 void _wasgo_AnimationNodeTransition_wrapper_set_input_caption(WasGoId wasgo_id, int p_input, const uint8_t * p_caption, int p_caption_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeTransition_constructor();
-    void _wasgo_AnimationNodeTransition_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

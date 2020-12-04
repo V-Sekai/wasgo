@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "Texture.h"
-#include "Vector2.h"
-#include "Node2D.h"
 #include "Rect2.h"
+#include "Node2D.h"
+#include "Vector2.h"
 class Sprite : public Node2D{
 public:
 int get_frame();
@@ -40,10 +40,10 @@ void set_texture(Texture p_texture);
 void set_vframes(int p_vframes);
 
 protected:
-Sprite(WasGoId p_wasgo_id);
 public:
-Sprite();
-~Sprite();
+explicit Sprite(WasGoId p_wasgo_id);
+explicit Sprite(Node2D other);
+Sprite new_instance();
             
 };
 
@@ -79,9 +79,8 @@ void _wasgo_Sprite_wrapper_set_region_rect(WasGoId wasgo_id, const uint8_t * p_r
 void _wasgo_Sprite_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_Sprite_wrapper_set_vframes(WasGoId wasgo_id, int p_vframes);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Sprite_constructor();
-    void _wasgo_Sprite_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

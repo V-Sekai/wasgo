@@ -168,8 +168,8 @@ void GraphNode::set_slot(int p_idx, bool p_enable_left, int p_type_left, Color p
 void GraphNode::set_title(String p_title){
 
     Variant wasgo_var_title = p_title;
-    uint8_t wasgo_buffer_title[256];
-    int wasgo_size_title = 256;
+    int wasgo_size_title = String(p_title).size();
+    uint8_t wasgo_buffer_title[wasgo_size_title];
     encode_variant(wasgo_var_title, wasgo_buffer_title, wasgo_size_title);
     
 	_wasgo_GraphNode_wrapper_set_title(wasgo_id, wasgo_buffer_title, wasgo_size_title);
@@ -177,9 +177,9 @@ void GraphNode::set_title(String p_title){
 
 GraphNode::GraphNode(WasGoId p_wasgo_id) : Container(p_wasgo_id){
 }
-GraphNode::GraphNode(){
+GraphNode::GraphNode(Container other) : Container(other._get_wasgo_id()){
     wasgo_id = _wasgo_GraphNode_constructor();
 }
-GraphNode::~GraphNode(){
-    _wasgo_GraphNode_destructor(wasgo_id);
+GraphNode::new_instance(){
+    return GraphNode(_wasgo_GraphNode_constructor());
 }

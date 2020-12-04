@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "VideoStream.h"
 #include "Texture.h"
-#include "ustring.h"
 #include "Control.h"
+#include "VideoStream.h"
+#include "ustring.h"
 class VideoPlayer : public Control{
 public:
 int get_audio_track();
@@ -37,10 +37,10 @@ void set_volume_db(float p_db);
 void stop();
 
 protected:
-VideoPlayer(WasGoId p_wasgo_id);
 public:
-VideoPlayer();
-~VideoPlayer();
+explicit VideoPlayer(WasGoId p_wasgo_id);
+explicit VideoPlayer(Control other);
+VideoPlayer new_instance();
             
 };
 
@@ -73,9 +73,8 @@ void _wasgo_VideoPlayer_wrapper_set_volume(WasGoId wasgo_id, float p_volume);
 void _wasgo_VideoPlayer_wrapper_set_volume_db(WasGoId wasgo_id, float p_db);
 void _wasgo_VideoPlayer_wrapper_stop(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VideoPlayer_constructor();
-    void _wasgo_VideoPlayer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

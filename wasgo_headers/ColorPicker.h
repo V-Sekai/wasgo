@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
 #include "BoxContainer.h"
+#include "Color.h"
 #include "Variant.h"
 class ColorPicker : public BoxContainer{
 public:
@@ -28,10 +28,10 @@ void set_presets_visible(bool p_visible);
 void set_raw_mode(bool p_mode);
 
 protected:
-ColorPicker(WasGoId p_wasgo_id);
 public:
-ColorPicker();
-~ColorPicker();
+explicit ColorPicker(WasGoId p_wasgo_id);
+explicit ColorPicker(BoxContainer other);
+ColorPicker new_instance();
             
 };
 
@@ -56,9 +56,8 @@ void _wasgo_ColorPicker_wrapper_set_presets_enabled(WasGoId wasgo_id, bool p_ena
 void _wasgo_ColorPicker_wrapper_set_presets_visible(WasGoId wasgo_id, bool p_visible);
 void _wasgo_ColorPicker_wrapper_set_raw_mode(WasGoId wasgo_id, bool p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ColorPicker_constructor();
-    void _wasgo_ColorPicker_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

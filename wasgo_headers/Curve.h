@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Vector2.h"
+#include "Resource.h"
 class Curve : public Resource{
 public:
 enum TangentMode{
@@ -40,10 +40,10 @@ void set_point_right_tangent(int p_index, float p_tangent);
 void set_point_value(int p_index, float p_y);
 
 protected:
-Curve(WasGoId p_wasgo_id);
 public:
-Curve();
-~Curve();
+explicit Curve(WasGoId p_wasgo_id);
+explicit Curve(Resource other);
+Curve new_instance();
             
 };
 
@@ -76,9 +76,8 @@ void _wasgo_Curve_wrapper_set_point_right_mode(WasGoId wasgo_id, int p_index, Wa
 void _wasgo_Curve_wrapper_set_point_right_tangent(WasGoId wasgo_id, int p_index, float p_tangent);
 void _wasgo_Curve_wrapper_set_point_value(WasGoId wasgo_id, int p_index, float p_y);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Curve_constructor();
-    void _wasgo_Curve_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

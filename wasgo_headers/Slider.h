@@ -29,9 +29,8 @@ void _wasgo_Slider_wrapper_set_scrollable(WasGoId wasgo_id, bool p_scrollable);
 void _wasgo_Slider_wrapper_set_ticks(WasGoId wasgo_id, int p_count);
 void _wasgo_Slider_wrapper_set_ticks_on_borders(WasGoId wasgo_id, bool p_ticks_on_border);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Slider_constructor();
-    void _wasgo_Slider_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -6,11 +6,11 @@
 
 #include "Environment.h"
 #include "Vector3.h"
+#include "Vector2.h"
+#include "Spatial.h"
+#include "Transform.h"
 #include "RID.h"
 #include "Variant.h"
-#include "Transform.h"
-#include "Spatial.h"
-#include "Vector2.h"
 class Camera : public Spatial{
 public:
 enum DopplerTracking{
@@ -71,10 +71,10 @@ void set_znear(float p_arg0);
 Vector2 unproject_position(Vector3 p_world_point);
 
 protected:
-Camera(WasGoId p_wasgo_id);
 public:
-Camera();
-~Camera();
+explicit Camera(WasGoId p_wasgo_id);
+explicit Camera(Spatial other);
+Camera new_instance();
             
 };
 
@@ -124,9 +124,8 @@ void _wasgo_Camera_wrapper_set_zfar(WasGoId wasgo_id, float p_arg0);
 void _wasgo_Camera_wrapper_set_znear(WasGoId wasgo_id, float p_arg0);
 void _wasgo_Camera_wrapper_unproject_position(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_world_point, int p_world_point_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Camera_constructor();
-    void _wasgo_Camera_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

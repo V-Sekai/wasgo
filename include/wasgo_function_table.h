@@ -127,7 +127,6 @@ EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_object,"(*~i)"),
 	EXPORT_WASM_API_WITH_SIG(_wasgo_Node_wrapper_update_configuration_warning, "(i)"),
 
     EXPORT_WASM_API_WITH_SIG(_wasgo_Node_constructor,"()i"),
-    EXPORT_WASM_API_WITH_SIG(_wasgo_Node_destructor,"(i)"),
         
 	EXPORT_WASM_API_WITH_SIG(_wasgo_SceneTree_wrapper_call_group, "(i*~*~)i"),
 	EXPORT_WASM_API_WITH_SIG(_wasgo_SceneTree_wrapper_call_group_flags, "(iI*~*~)i"),
@@ -178,7 +177,6 @@ EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_object,"(*~i)"),
 	EXPORT_WASM_API_WITH_SIG(_wasgo_SceneTree_wrapper_set_use_font_oversampling, "(ii)"),
 
     EXPORT_WASM_API_WITH_SIG(_wasgo_SceneTree_constructor,"()i"),
-    EXPORT_WASM_API_WITH_SIG(_wasgo_SceneTree_destructor,"(i)"),
         
 	EXPORT_WASM_API_WITH_SIG(_wasgo_Spatial_wrapper_force_update_transform, "(i)"),
 	EXPORT_WASM_API_WITH_SIG(_wasgo_Spatial_wrapper_get_gizmo, "(i)i"),
@@ -231,7 +229,6 @@ EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_object,"(*~i)"),
 	EXPORT_WASM_API_WITH_SIG(_wasgo_Spatial_wrapper_update_gizmo, "(i)"),
 
     EXPORT_WASM_API_WITH_SIG(_wasgo_Spatial_constructor,"()i"),
-    EXPORT_WASM_API_WITH_SIG(_wasgo_Spatial_destructor,"(i)"),
         
 	EXPORT_WASM_API_WITH_SIG(_wasgo_SpatialVelocityTracker_wrapper_get_tracked_linear_velocity, "(i*~)"),
 	EXPORT_WASM_API_WITH_SIG(_wasgo_SpatialVelocityTracker_wrapper_is_tracking_physics_step, "(i)I"),
@@ -240,7 +237,6 @@ EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_object,"(*~i)"),
 	EXPORT_WASM_API_WITH_SIG(_wasgo_SpatialVelocityTracker_wrapper_update_position, "(i*~)"),
 
     EXPORT_WASM_API_WITH_SIG(_wasgo_SpatialVelocityTracker_constructor,"()i"),
-    EXPORT_WASM_API_WITH_SIG(_wasgo_SpatialVelocityTracker_destructor,"(i)"),
         
 };
 #endif

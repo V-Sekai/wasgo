@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "Resource.h"
+#include "Rect2.h"
 #include "Vector2.h"
 #include "Variant.h"
-#include "Rect2.h"
 class PolygonPathFinder : public Resource{
 public:
 PoolVector2Array find_path(Vector2 p_from, Vector2 p_to);
@@ -20,10 +20,10 @@ void set_point_penalty(int p_idx, float p_penalty);
 void setup(PoolVector2Array p_points, PoolIntArray p_connections);
 
 protected:
-PolygonPathFinder(WasGoId p_wasgo_id);
 public:
-PolygonPathFinder();
-~PolygonPathFinder();
+explicit PolygonPathFinder(WasGoId p_wasgo_id);
+explicit PolygonPathFinder(Resource other);
+PolygonPathFinder new_instance();
             
 };
 
@@ -39,9 +39,8 @@ int _wasgo_PolygonPathFinder_wrapper_is_point_inside(WasGoId wasgo_id, const uin
 void _wasgo_PolygonPathFinder_wrapper_set_point_penalty(WasGoId wasgo_id, int p_idx, float p_penalty);
 void _wasgo_PolygonPathFinder_wrapper_setup(WasGoId wasgo_id, WasGoId p_points, WasGoId p_connections);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PolygonPathFinder_constructor();
-    void _wasgo_PolygonPathFinder_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

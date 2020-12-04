@@ -9,10 +9,10 @@ class AnimationNodeTimeScale : public AnimationNode{
 public:
 
 protected:
-AnimationNodeTimeScale(WasGoId p_wasgo_id);
 public:
-AnimationNodeTimeScale();
-~AnimationNodeTimeScale();
+explicit AnimationNodeTimeScale(WasGoId p_wasgo_id);
+explicit AnimationNodeTimeScale(AnimationNode other);
+AnimationNodeTimeScale new_instance();
             
 };
 
@@ -20,9 +20,8 @@ AnimationNodeTimeScale();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeTimeScale_constructor();
-    void _wasgo_AnimationNodeTimeScale_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

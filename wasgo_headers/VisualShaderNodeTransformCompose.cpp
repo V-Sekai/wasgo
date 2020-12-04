@@ -4,9 +4,9 @@
 
 VisualShaderNodeTransformCompose::VisualShaderNodeTransformCompose(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeTransformCompose::VisualShaderNodeTransformCompose(){
+VisualShaderNodeTransformCompose::VisualShaderNodeTransformCompose(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeTransformCompose_constructor();
 }
-VisualShaderNodeTransformCompose::~VisualShaderNodeTransformCompose(){
-    _wasgo_VisualShaderNodeTransformCompose_destructor(wasgo_id);
+VisualShaderNodeTransformCompose::new_instance(){
+    return VisualShaderNodeTransformCompose(_wasgo_VisualShaderNodeTransformCompose_constructor());
 }

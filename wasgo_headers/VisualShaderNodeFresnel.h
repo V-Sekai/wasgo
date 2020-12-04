@@ -9,10 +9,10 @@ class VisualShaderNodeFresnel : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeFresnel(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeFresnel();
-~VisualShaderNodeFresnel();
+explicit VisualShaderNodeFresnel(WasGoId p_wasgo_id);
+explicit VisualShaderNodeFresnel(VisualShaderNode other);
+VisualShaderNodeFresnel new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeFresnel();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeFresnel_constructor();
-    void _wasgo_VisualShaderNodeFresnel_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

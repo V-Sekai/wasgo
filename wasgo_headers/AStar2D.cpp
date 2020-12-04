@@ -111,9 +111,9 @@ void AStar2D::set_point_weight_scale(int p_id, float p_weight_scale){
 
 AStar2D::AStar2D(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-AStar2D::AStar2D(){
+AStar2D::AStar2D(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_AStar2D_constructor();
 }
-AStar2D::~AStar2D(){
-    _wasgo_AStar2D_destructor(wasgo_id);
+AStar2D::new_instance(){
+    return AStar2D(_wasgo_AStar2D_constructor());
 }

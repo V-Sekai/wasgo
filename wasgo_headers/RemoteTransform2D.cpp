@@ -29,8 +29,8 @@ bool RemoteTransform2D::get_use_global_coordinates(){
 void RemoteTransform2D::set_remote_node(NodePath p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_RemoteTransform2D_wrapper_set_remote_node(wasgo_id, wasgo_buffer_path, wasgo_size_path);
@@ -50,9 +50,9 @@ void RemoteTransform2D::set_use_global_coordinates(bool p_use_global_coordinates
 
 RemoteTransform2D::RemoteTransform2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-RemoteTransform2D::RemoteTransform2D(){
+RemoteTransform2D::RemoteTransform2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_RemoteTransform2D_constructor();
 }
-RemoteTransform2D::~RemoteTransform2D(){
-    _wasgo_RemoteTransform2D_destructor(wasgo_id);
+RemoteTransform2D::new_instance(){
+    return RemoteTransform2D(_wasgo_RemoteTransform2D_constructor());
 }

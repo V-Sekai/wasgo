@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "error_list.h"
+#include "Vector2.h"
 #include "ustring.h"
 #include "Texture.h"
 #include "Image.h"
-#include "Vector2.h"
 class ImageTexture : public Texture{
 public:
 enum Storage{
@@ -28,10 +28,10 @@ void set_size_override(Vector2 p_size);
 void set_storage(ImageTexture::Storage p_mode);
 
 protected:
-ImageTexture(WasGoId p_wasgo_id);
 public:
-ImageTexture();
-~ImageTexture();
+explicit ImageTexture(WasGoId p_wasgo_id);
+explicit ImageTexture(Texture other);
+ImageTexture new_instance();
             
 };
 
@@ -49,9 +49,8 @@ void _wasgo_ImageTexture_wrapper_set_lossy_storage_quality(WasGoId wasgo_id, flo
 void _wasgo_ImageTexture_wrapper_set_size_override(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
 void _wasgo_ImageTexture_wrapper_set_storage(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ImageTexture_constructor();
-    void _wasgo_ImageTexture_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

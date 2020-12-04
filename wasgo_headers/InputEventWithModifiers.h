@@ -33,9 +33,8 @@ void _wasgo_InputEventWithModifiers_wrapper_set_control(WasGoId wasgo_id, bool p
 void _wasgo_InputEventWithModifiers_wrapper_set_metakey(WasGoId wasgo_id, bool p_enable);
 void _wasgo_InputEventWithModifiers_wrapper_set_shift(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InputEventWithModifiers_constructor();
-    void _wasgo_InputEventWithModifiers_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,9 +4,9 @@
 
 VisualShaderNodeVectorInterp::VisualShaderNodeVectorInterp(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeVectorInterp::VisualShaderNodeVectorInterp(){
+VisualShaderNodeVectorInterp::VisualShaderNodeVectorInterp(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeVectorInterp_constructor();
 }
-VisualShaderNodeVectorInterp::~VisualShaderNodeVectorInterp(){
-    _wasgo_VisualShaderNodeVectorInterp_destructor(wasgo_id);
+VisualShaderNodeVectorInterp::new_instance(){
+    return VisualShaderNodeVectorInterp(_wasgo_VisualShaderNodeVectorInterp_constructor());
 }

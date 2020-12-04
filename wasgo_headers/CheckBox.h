@@ -9,10 +9,10 @@ class CheckBox : public Button{
 public:
 
 protected:
-CheckBox(WasGoId p_wasgo_id);
 public:
-CheckBox();
-~CheckBox();
+explicit CheckBox(WasGoId p_wasgo_id);
+explicit CheckBox(Button other);
+CheckBox new_instance();
             
 };
 
@@ -20,9 +20,8 @@ CheckBox();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CheckBox_constructor();
-    void _wasgo_CheckBox_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

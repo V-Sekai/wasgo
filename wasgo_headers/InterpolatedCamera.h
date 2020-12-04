@@ -18,10 +18,10 @@ void set_target(Object p_target);
 void set_target_path(NodePath p_target_path);
 
 protected:
-InterpolatedCamera(WasGoId p_wasgo_id);
 public:
-InterpolatedCamera();
-~InterpolatedCamera();
+explicit InterpolatedCamera(WasGoId p_wasgo_id);
+explicit InterpolatedCamera(Camera other);
+InterpolatedCamera new_instance();
             
 };
 
@@ -36,9 +36,8 @@ void _wasgo_InterpolatedCamera_wrapper_set_speed(WasGoId wasgo_id, float p_speed
 void _wasgo_InterpolatedCamera_wrapper_set_target(WasGoId wasgo_id, WasGoId p_target);
 void _wasgo_InterpolatedCamera_wrapper_set_target_path(WasGoId wasgo_id, const uint8_t * p_target_path, int p_target_path_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InterpolatedCamera_constructor();
-    void _wasgo_InterpolatedCamera_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

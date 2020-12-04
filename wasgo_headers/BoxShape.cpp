@@ -23,9 +23,9 @@ void BoxShape::set_extents(Vector3 p_extents){
 
 BoxShape::BoxShape(WasGoId p_wasgo_id) : Shape(p_wasgo_id){
 }
-BoxShape::BoxShape(){
+BoxShape::BoxShape(Shape other) : Shape(other._get_wasgo_id()){
     wasgo_id = _wasgo_BoxShape_constructor();
 }
-BoxShape::~BoxShape(){
-    _wasgo_BoxShape_destructor(wasgo_id);
+BoxShape::new_instance(){
+    return BoxShape(_wasgo_BoxShape_constructor());
 }

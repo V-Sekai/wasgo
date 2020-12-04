@@ -10,9 +10,9 @@ void YSort::set_sort_enabled(bool p_enabled){
 
 YSort::YSort(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-YSort::YSort(){
+YSort::YSort(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_YSort_constructor();
 }
-YSort::~YSort(){
-    _wasgo_YSort_destructor(wasgo_id);
+YSort::new_instance(){
+    return YSort(_wasgo_YSort_constructor());
 }

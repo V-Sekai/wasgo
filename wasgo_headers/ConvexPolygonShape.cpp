@@ -10,9 +10,9 @@ void ConvexPolygonShape::set_points(PoolVector3Array p_points){
 
 ConvexPolygonShape::ConvexPolygonShape(WasGoId p_wasgo_id) : Shape(p_wasgo_id){
 }
-ConvexPolygonShape::ConvexPolygonShape(){
+ConvexPolygonShape::ConvexPolygonShape(Shape other) : Shape(other._get_wasgo_id()){
     wasgo_id = _wasgo_ConvexPolygonShape_constructor();
 }
-ConvexPolygonShape::~ConvexPolygonShape(){
-    _wasgo_ConvexPolygonShape_destructor(wasgo_id);
+ConvexPolygonShape::new_instance(){
+    return ConvexPolygonShape(_wasgo_ConvexPolygonShape_constructor());
 }

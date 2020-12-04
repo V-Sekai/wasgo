@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Camera.h"
-#include "Object.h"
 #include "RID.h"
+#include "Object.h"
 class ClippedCamera : public Camera{
 public:
 enum ProcessMode{
@@ -33,10 +33,10 @@ void set_margin(float p_margin);
 void set_process_mode(ClippedCamera::ProcessMode p_process_mode);
 
 protected:
-ClippedCamera(WasGoId p_wasgo_id);
 public:
-ClippedCamera();
-~ClippedCamera();
+explicit ClippedCamera(WasGoId p_wasgo_id);
+explicit ClippedCamera(Camera other);
+ClippedCamera new_instance();
             
 };
 
@@ -62,9 +62,8 @@ void _wasgo_ClippedCamera_wrapper_set_collision_mask_bit(WasGoId wasgo_id, int p
 void _wasgo_ClippedCamera_wrapper_set_margin(WasGoId wasgo_id, float p_margin);
 void _wasgo_ClippedCamera_wrapper_set_process_mode(WasGoId wasgo_id, WasGoId p_process_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ClippedCamera_constructor();
-    void _wasgo_ClippedCamera_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

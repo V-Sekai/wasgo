@@ -18,10 +18,10 @@ void set_piece_texture(int p_idx, Texture p_texture);
 void set_size(Vector2 p_size);
 
 protected:
-LargeTexture(WasGoId p_wasgo_id);
 public:
-LargeTexture();
-~LargeTexture();
+explicit LargeTexture(WasGoId p_wasgo_id);
+explicit LargeTexture(Texture other);
+LargeTexture new_instance();
             
 };
 
@@ -37,9 +37,8 @@ void _wasgo_LargeTexture_wrapper_set_piece_offset(WasGoId wasgo_id, int p_idx, c
 void _wasgo_LargeTexture_wrapper_set_piece_texture(WasGoId wasgo_id, int p_idx, WasGoId p_texture);
 void _wasgo_LargeTexture_wrapper_set_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_LargeTexture_constructor();
-    void _wasgo_LargeTexture_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

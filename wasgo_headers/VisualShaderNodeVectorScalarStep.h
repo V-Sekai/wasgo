@@ -9,10 +9,10 @@ class VisualShaderNodeVectorScalarStep : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeVectorScalarStep(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeVectorScalarStep();
-~VisualShaderNodeVectorScalarStep();
+explicit VisualShaderNodeVectorScalarStep(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorScalarStep(VisualShaderNode other);
+VisualShaderNodeVectorScalarStep new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeVectorScalarStep();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeVectorScalarStep_constructor();
-    void _wasgo_VisualShaderNodeVectorScalarStep_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

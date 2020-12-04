@@ -35,9 +35,8 @@ WasGoId _wasgo_PacketPeer_wrapper_put_var(WasGoId wasgo_id, WasGoId p_var, bool 
 void _wasgo_PacketPeer_wrapper_set_allow_object_decoding(WasGoId wasgo_id, bool p_enable);
 void _wasgo_PacketPeer_wrapper_set_encode_buffer_max_size(WasGoId wasgo_id, int p_max_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PacketPeer_constructor();
-    void _wasgo_PacketPeer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

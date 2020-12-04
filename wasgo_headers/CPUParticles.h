@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
-#include "GeometryInstance.h"
-#include "Mesh.h"
-#include "Curve.h"
-#include "Variant.h"
 #include "Node.h"
-#include "Color.h"
+#include "Vector3.h"
+#include "Curve.h"
+#include "GeometryInstance.h"
 #include "Gradient.h"
+#include "Mesh.h"
+#include "Color.h"
+#include "Variant.h"
 class CPUParticles : public GeometryInstance{
 public:
 enum DrawOrder{
@@ -112,10 +112,10 @@ void set_spread(float p_degrees);
 void set_use_local_coordinates(bool p_enable);
 
 protected:
-CPUParticles(WasGoId p_wasgo_id);
 public:
-CPUParticles();
-~CPUParticles();
+explicit CPUParticles(WasGoId p_wasgo_id);
+explicit CPUParticles(GeometryInstance other);
+CPUParticles new_instance();
             
 };
 
@@ -185,9 +185,8 @@ void _wasgo_CPUParticles_wrapper_set_speed_scale(WasGoId wasgo_id, float p_scale
 void _wasgo_CPUParticles_wrapper_set_spread(WasGoId wasgo_id, float p_degrees);
 void _wasgo_CPUParticles_wrapper_set_use_local_coordinates(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CPUParticles_constructor();
-    void _wasgo_CPUParticles_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

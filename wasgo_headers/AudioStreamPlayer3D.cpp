@@ -95,8 +95,8 @@ void AudioStreamPlayer3D::set_autoplay(bool p_enable){
 void AudioStreamPlayer3D::set_bus(String p_bus){
 
     Variant wasgo_var_bus = p_bus;
-    uint8_t wasgo_buffer_bus[256];
-    int wasgo_size_bus = 256;
+    int wasgo_size_bus = String(p_bus).size();
+    uint8_t wasgo_buffer_bus[wasgo_size_bus];
     encode_variant(wasgo_var_bus, wasgo_buffer_bus, wasgo_size_bus);
     
 	_wasgo_AudioStreamPlayer3D_wrapper_set_bus(wasgo_id, wasgo_buffer_bus, wasgo_size_bus);
@@ -143,9 +143,9 @@ void AudioStreamPlayer3D::stop(){
 
 AudioStreamPlayer3D::AudioStreamPlayer3D(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-AudioStreamPlayer3D::AudioStreamPlayer3D(){
+AudioStreamPlayer3D::AudioStreamPlayer3D(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioStreamPlayer3D_constructor();
 }
-AudioStreamPlayer3D::~AudioStreamPlayer3D(){
-    _wasgo_AudioStreamPlayer3D_destructor(wasgo_id);
+AudioStreamPlayer3D::new_instance(){
+    return AudioStreamPlayer3D(_wasgo_AudioStreamPlayer3D_constructor());
 }

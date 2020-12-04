@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
-#include "StyleBox.h"
-#include "Corner.h"
 #include "Margin.h"
+#include "StyleBox.h"
 #include "Vector2.h"
+#include "Color.h"
+#include "Corner.h"
 class StyleBoxFlat : public StyleBox{
 public:
 int get_aa_size();
@@ -45,10 +45,10 @@ void set_shadow_offset(Vector2 p_offset);
 void set_shadow_size(int p_size);
 
 protected:
-StyleBoxFlat(WasGoId p_wasgo_id);
 public:
-StyleBoxFlat();
-~StyleBoxFlat();
+explicit StyleBoxFlat(WasGoId p_wasgo_id);
+explicit StyleBoxFlat(StyleBox other);
+StyleBoxFlat new_instance();
             
 };
 
@@ -88,9 +88,8 @@ void _wasgo_StyleBoxFlat_wrapper_set_shadow_color(WasGoId wasgo_id, const uint8_
 void _wasgo_StyleBoxFlat_wrapper_set_shadow_offset(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
 void _wasgo_StyleBoxFlat_wrapper_set_shadow_size(WasGoId wasgo_id, int p_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_StyleBoxFlat_constructor();
-    void _wasgo_StyleBoxFlat_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,9 +4,9 @@
 
 VSeparator::VSeparator(WasGoId p_wasgo_id) : Separator(p_wasgo_id){
 }
-VSeparator::VSeparator(){
+VSeparator::VSeparator(Separator other) : Separator(other._get_wasgo_id()){
     wasgo_id = _wasgo_VSeparator_constructor();
 }
-VSeparator::~VSeparator(){
-    _wasgo_VSeparator_destructor(wasgo_id);
+VSeparator::new_instance(){
+    return VSeparator(_wasgo_VSeparator_constructor());
 }

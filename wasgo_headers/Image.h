@@ -5,12 +5,12 @@
 #include "wasgo\wasgo.h"
 
 #include "error_list.h"
-#include "Resource.h"
-#include "ustring.h"
-#include "Variant.h"
-#include "Rect2.h"
-#include "Color.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "Color.h"
+#include "Resource.h"
+#include "Rect2.h"
+#include "Variant.h"
 class Image : public Resource{
 public:
 enum AlphaMode{
@@ -133,10 +133,10 @@ void srgb_to_linear();
 void unlock();
 
 protected:
-Image(WasGoId p_wasgo_id);
 public:
-Image();
-~Image();
+explicit Image(WasGoId p_wasgo_id);
+explicit Image(Resource other);
+Image new_instance();
             
 };
 
@@ -198,9 +198,8 @@ void _wasgo_Image_wrapper_shrink_x2(WasGoId wasgo_id);
 void _wasgo_Image_wrapper_srgb_to_linear(WasGoId wasgo_id);
 void _wasgo_Image_wrapper_unlock(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Image_constructor();
-    void _wasgo_Image_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

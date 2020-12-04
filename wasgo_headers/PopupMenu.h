@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ShortCut.h"
 #include "Popup.h"
 #include "ustring.h"
-#include "Variant.h"
 #include "Texture.h"
+#include "ShortCut.h"
+#include "Variant.h"
 class PopupMenu : public Popup{
 public:
 void add_check_item(String p_label, int p_id = (int) -1, int p_accel = (int) 0);
@@ -76,10 +76,10 @@ void toggle_item_checked(int p_idx);
 void toggle_item_multistate(int p_idx);
 
 protected:
-PopupMenu(WasGoId p_wasgo_id);
 public:
-PopupMenu();
-~PopupMenu();
+explicit PopupMenu(WasGoId p_wasgo_id);
+explicit PopupMenu(Popup other);
+PopupMenu new_instance();
             
 };
 
@@ -150,9 +150,8 @@ void _wasgo_PopupMenu_wrapper_set_submenu_popup_delay(WasGoId wasgo_id, float p_
 void _wasgo_PopupMenu_wrapper_toggle_item_checked(WasGoId wasgo_id, int p_idx);
 void _wasgo_PopupMenu_wrapper_toggle_item_multistate(WasGoId wasgo_id, int p_idx);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PopupMenu_constructor();
-    void _wasgo_PopupMenu_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

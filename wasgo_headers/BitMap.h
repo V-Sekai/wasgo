@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Variant.h"
+#include "Vector2.h"
 #include "Rect2.h"
 #include "Image.h"
-#include "Vector2.h"
+#include "Resource.h"
 class BitMap : public Resource{
 public:
 void create(Vector2 p_size);
@@ -22,10 +22,10 @@ void set_bit(Vector2 p_position, bool p_bit);
 void set_bit_rect(Rect2 p_rect, bool p_bit);
 
 protected:
-BitMap(WasGoId p_wasgo_id);
 public:
-BitMap();
-~BitMap();
+explicit BitMap(WasGoId p_wasgo_id);
+explicit BitMap(Resource other);
+BitMap new_instance();
             
 };
 
@@ -42,9 +42,8 @@ WasGoId _wasgo_BitMap_wrapper_opaque_to_polygons(WasGoId wasgo_id, const uint8_t
 void _wasgo_BitMap_wrapper_set_bit(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, bool p_bit);
 void _wasgo_BitMap_wrapper_set_bit_rect(WasGoId wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, bool p_bit);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_BitMap_constructor();
-    void _wasgo_BitMap_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

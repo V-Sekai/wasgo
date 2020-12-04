@@ -4,9 +4,9 @@
 
 VisualShaderNodeVectorSmoothStep::VisualShaderNodeVectorSmoothStep(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeVectorSmoothStep::VisualShaderNodeVectorSmoothStep(){
+VisualShaderNodeVectorSmoothStep::VisualShaderNodeVectorSmoothStep(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeVectorSmoothStep_constructor();
 }
-VisualShaderNodeVectorSmoothStep::~VisualShaderNodeVectorSmoothStep(){
-    _wasgo_VisualShaderNodeVectorSmoothStep_destructor(wasgo_id);
+VisualShaderNodeVectorSmoothStep::new_instance(){
+    return VisualShaderNodeVectorSmoothStep(_wasgo_VisualShaderNodeVectorSmoothStep_constructor());
 }

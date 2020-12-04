@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Transform2D.h"
+#include "Vector2.h"
+#include "Color.h"
 #include "Resource.h"
 #include "RID.h"
-#include "Transform2D.h"
 #include "Variant.h"
-#include "Color.h"
-#include "Vector2.h"
 class Shape2D : public Resource{
 public:
 bool collide(Transform2D p_local_xform, Shape2D p_with_shape, Transform2D p_shape_xform);
@@ -32,9 +32,8 @@ void _wasgo_Shape2D_wrapper_draw(WasGoId wasgo_id, const uint8_t * p_canvas_item
 float _wasgo_Shape2D_wrapper_get_custom_solver_bias(WasGoId wasgo_id);
 void _wasgo_Shape2D_wrapper_set_custom_solver_bias(WasGoId wasgo_id, float p_bias);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Shape2D_constructor();
-    void _wasgo_Shape2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

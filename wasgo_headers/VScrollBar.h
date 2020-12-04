@@ -9,10 +9,10 @@ class VScrollBar : public ScrollBar{
 public:
 
 protected:
-VScrollBar(WasGoId p_wasgo_id);
 public:
-VScrollBar();
-~VScrollBar();
+explicit VScrollBar(WasGoId p_wasgo_id);
+explicit VScrollBar(ScrollBar other);
+VScrollBar new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VScrollBar();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VScrollBar_constructor();
-    void _wasgo_VScrollBar_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Curve.h"
-#include "Variant.h"
-#include "Color.h"
-#include "Gradient.h"
-#include "Texture.h"
 #include "Vector2.h"
+#include "Texture.h"
+#include "Gradient.h"
+#include "Color.h"
+#include "Node2D.h"
+#include "Variant.h"
 class Line2D : public Node2D{
 public:
 enum LineCapMode{
@@ -62,10 +62,10 @@ void set_texture_mode(Line2D::LineTextureMode p_mode);
 void set_width(float p_width);
 
 protected:
-Line2D(WasGoId p_wasgo_id);
 public:
-Line2D();
-~Line2D();
+explicit Line2D(WasGoId p_wasgo_id);
+explicit Line2D(Node2D other);
+Line2D new_instance();
             
 };
 
@@ -105,9 +105,8 @@ void _wasgo_Line2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_Line2D_wrapper_set_texture_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_Line2D_wrapper_set_width(WasGoId wasgo_id, float p_width);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Line2D_constructor();
-    void _wasgo_Line2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

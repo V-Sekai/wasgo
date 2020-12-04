@@ -4,9 +4,9 @@
 
 VisualShaderNodeCustom::VisualShaderNodeCustom(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeCustom::VisualShaderNodeCustom(){
+VisualShaderNodeCustom::VisualShaderNodeCustom(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeCustom_constructor();
 }
-VisualShaderNodeCustom::~VisualShaderNodeCustom(){
-    _wasgo_VisualShaderNodeCustom_destructor(wasgo_id);
+VisualShaderNodeCustom::new_instance(){
+    return VisualShaderNodeCustom(_wasgo_VisualShaderNodeCustom_constructor());
 }

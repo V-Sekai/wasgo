@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Texture.h"
-#include "ustring.h"
+#include "Resource.h"
 #include "Variant.h"
+#include "ustring.h"
 class SpriteFrames : public Resource{
 public:
 void add_animation(String p_anim);
@@ -28,10 +28,10 @@ void set_animation_speed(String p_anim, float p_speed);
 void set_frame(String p_anim, int p_idx, Texture p_txt);
 
 protected:
-SpriteFrames(WasGoId p_wasgo_id);
 public:
-SpriteFrames();
-~SpriteFrames();
+explicit SpriteFrames(WasGoId p_wasgo_id);
+explicit SpriteFrames(Resource other);
+SpriteFrames new_instance();
             
 };
 
@@ -55,9 +55,8 @@ void _wasgo_SpriteFrames_wrapper_set_animation_loop(WasGoId wasgo_id, const uint
 void _wasgo_SpriteFrames_wrapper_set_animation_speed(WasGoId wasgo_id, const uint8_t * p_anim, int p_anim_wasgo_buffer_size, float p_speed);
 void _wasgo_SpriteFrames_wrapper_set_frame(WasGoId wasgo_id, const uint8_t * p_anim, int p_anim_wasgo_buffer_size, int p_idx, WasGoId p_txt);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SpriteFrames_constructor();
-    void _wasgo_SpriteFrames_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

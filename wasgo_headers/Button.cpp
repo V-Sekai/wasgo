@@ -41,8 +41,8 @@ void Button::set_flat(bool p_enabled){
 void Button::set_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_Button_wrapper_set_text(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -53,9 +53,9 @@ void Button::set_text_align(Button::TextAlign p_align){
 
 Button::Button(WasGoId p_wasgo_id) : BaseButton(p_wasgo_id){
 }
-Button::Button(){
+Button::Button(BaseButton other) : BaseButton(other._get_wasgo_id()){
     wasgo_id = _wasgo_Button_constructor();
 }
-Button::~Button(){
-    _wasgo_Button_destructor(wasgo_id);
+Button::new_instance(){
+    return Button(_wasgo_Button_constructor());
 }

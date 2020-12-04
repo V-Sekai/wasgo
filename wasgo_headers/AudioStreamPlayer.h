@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "AudioStreamPlayback.h"
 #include "Node.h"
 #include "AudioStream.h"
+#include "AudioStreamPlayback.h"
+#include "ustring.h"
 class AudioStreamPlayer : public Node{
 public:
 enum MixTarget{
@@ -37,10 +37,10 @@ void set_volume_db(float p_volume_db);
 void stop();
 
 protected:
-AudioStreamPlayer(WasGoId p_wasgo_id);
 public:
-AudioStreamPlayer();
-~AudioStreamPlayer();
+explicit AudioStreamPlayer(WasGoId p_wasgo_id);
+explicit AudioStreamPlayer(Node other);
+AudioStreamPlayer new_instance();
             
 };
 
@@ -68,9 +68,8 @@ void _wasgo_AudioStreamPlayer_wrapper_set_stream_paused(WasGoId wasgo_id, bool p
 void _wasgo_AudioStreamPlayer_wrapper_set_volume_db(WasGoId wasgo_id, float p_volume_db);
 void _wasgo_AudioStreamPlayer_wrapper_stop(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioStreamPlayer_constructor();
-    void _wasgo_AudioStreamPlayer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "Reference.h"
-#include "ustring.h"
 #include "PacketPeerUDP.h"
+#include "Reference.h"
+#include "error_list.h"
+#include "ustring.h"
 class UDPServer : public Reference{
 public:
 int get_max_pending_connections();
@@ -20,10 +20,10 @@ void stop();
 PacketPeerUDP take_connection();
 
 protected:
-UDPServer(WasGoId p_wasgo_id);
 public:
-UDPServer();
-~UDPServer();
+explicit UDPServer(WasGoId p_wasgo_id);
+explicit UDPServer(Reference other);
+UDPServer new_instance();
             
 };
 
@@ -39,9 +39,8 @@ void _wasgo_UDPServer_wrapper_set_max_pending_connections(WasGoId wasgo_id, int 
 void _wasgo_UDPServer_wrapper_stop(WasGoId wasgo_id);
 WasGoId _wasgo_UDPServer_wrapper_take_connection(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_UDPServer_constructor();
-    void _wasgo_UDPServer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

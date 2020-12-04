@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "VisualShaderNode.h"
-#include "ustring.h"
 #include "Vector2.h"
+#include "ustring.h"
 class VisualShaderNodeGroupBase : public VisualShaderNode{
 public:
 void add_input_port(int p_id, int p_type, String p_name);
@@ -34,10 +34,10 @@ void set_outputs(String p_outputs);
 void set_size(Vector2 p_size);
 
 protected:
-VisualShaderNodeGroupBase(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeGroupBase();
-~VisualShaderNodeGroupBase();
+explicit VisualShaderNodeGroupBase(WasGoId p_wasgo_id);
+explicit VisualShaderNodeGroupBase(VisualShaderNode other);
+VisualShaderNodeGroupBase new_instance();
             
 };
 
@@ -68,9 +68,8 @@ void _wasgo_VisualShaderNodeGroupBase_wrapper_set_output_port_type(WasGoId wasgo
 void _wasgo_VisualShaderNodeGroupBase_wrapper_set_outputs(WasGoId wasgo_id, const uint8_t * p_outputs, int p_outputs_wasgo_buffer_size);
 void _wasgo_VisualShaderNodeGroupBase_wrapper_set_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeGroupBase_constructor();
-    void _wasgo_VisualShaderNodeGroupBase_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

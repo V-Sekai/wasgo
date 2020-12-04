@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
 #include "ustring.h"
-#include "Variant.h"
 #include "AudioStream.h"
+#include "error_list.h"
+#include "Variant.h"
 class AudioStreamSample : public AudioStream{
 public:
 enum Format{
@@ -38,10 +38,10 @@ void set_mix_rate(int p_mix_rate);
 void set_stereo(bool p_stereo);
 
 protected:
-AudioStreamSample(WasGoId p_wasgo_id);
 public:
-AudioStreamSample();
-~AudioStreamSample();
+explicit AudioStreamSample(WasGoId p_wasgo_id);
+explicit AudioStreamSample(AudioStream other);
+AudioStreamSample new_instance();
             
 };
 
@@ -64,9 +64,8 @@ void _wasgo_AudioStreamSample_wrapper_set_loop_mode(WasGoId wasgo_id, WasGoId p_
 void _wasgo_AudioStreamSample_wrapper_set_mix_rate(WasGoId wasgo_id, int p_mix_rate);
 void _wasgo_AudioStreamSample_wrapper_set_stereo(WasGoId wasgo_id, bool p_stereo);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioStreamSample_constructor();
-    void _wasgo_AudioStreamSample_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

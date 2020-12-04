@@ -14,8 +14,8 @@ String VisualShaderNodeExpression::get_expression(){
 void VisualShaderNodeExpression::set_expression(String p_expression){
 
     Variant wasgo_var_expression = p_expression;
-    uint8_t wasgo_buffer_expression[256];
-    int wasgo_size_expression = 256;
+    int wasgo_size_expression = String(p_expression).size();
+    uint8_t wasgo_buffer_expression[wasgo_size_expression];
     encode_variant(wasgo_var_expression, wasgo_buffer_expression, wasgo_size_expression);
     
 	_wasgo_VisualShaderNodeExpression_wrapper_set_expression(wasgo_id, wasgo_buffer_expression, wasgo_size_expression);
@@ -23,9 +23,9 @@ void VisualShaderNodeExpression::set_expression(String p_expression){
 
 VisualShaderNodeExpression::VisualShaderNodeExpression(WasGoId p_wasgo_id) : VisualShaderNodeGroupBase(p_wasgo_id){
 }
-VisualShaderNodeExpression::VisualShaderNodeExpression(){
+VisualShaderNodeExpression::VisualShaderNodeExpression(VisualShaderNodeGroupBase other) : VisualShaderNodeGroupBase(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeExpression_constructor();
 }
-VisualShaderNodeExpression::~VisualShaderNodeExpression(){
-    _wasgo_VisualShaderNodeExpression_destructor(wasgo_id);
+VisualShaderNodeExpression::new_instance(){
+    return VisualShaderNodeExpression(_wasgo_VisualShaderNodeExpression_constructor());
 }

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "Reference.h"
-#include "ustring.h"
 #include "StreamPeerTCP.h"
+#include "Reference.h"
+#include "error_list.h"
+#include "ustring.h"
 class TCP_Server : public Reference{
 public:
 bool is_connection_available();
@@ -17,10 +17,10 @@ void stop();
 StreamPeerTCP take_connection();
 
 protected:
-TCP_Server(WasGoId p_wasgo_id);
 public:
-TCP_Server();
-~TCP_Server();
+explicit TCP_Server(WasGoId p_wasgo_id);
+explicit TCP_Server(Reference other);
+TCP_Server new_instance();
             
 };
 
@@ -33,9 +33,8 @@ WasGoId _wasgo_TCP_Server_wrapper_listen(WasGoId wasgo_id, int p_port, const uin
 void _wasgo_TCP_Server_wrapper_stop(WasGoId wasgo_id);
 WasGoId _wasgo_TCP_Server_wrapper_take_connection(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TCP_Server_constructor();
-    void _wasgo_TCP_Server_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

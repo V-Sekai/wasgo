@@ -9,10 +9,10 @@ class VisualShaderNodeSwitch : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeSwitch(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeSwitch();
-~VisualShaderNodeSwitch();
+explicit VisualShaderNodeSwitch(WasGoId p_wasgo_id);
+explicit VisualShaderNodeSwitch(VisualShaderNode other);
+VisualShaderNodeSwitch new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeSwitch();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeSwitch_constructor();
-    void _wasgo_VisualShaderNodeSwitch_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

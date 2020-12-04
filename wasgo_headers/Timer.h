@@ -27,10 +27,10 @@ void start(float p_time_sec = (float) -1);
 void stop();
 
 protected:
-Timer(WasGoId p_wasgo_id);
 public:
-Timer();
-~Timer();
+explicit Timer(WasGoId p_wasgo_id);
+explicit Timer(Node other);
+Timer new_instance();
             
 };
 
@@ -52,9 +52,8 @@ void _wasgo_Timer_wrapper_set_wait_time(WasGoId wasgo_id, float p_time_sec);
 void _wasgo_Timer_wrapper_start(WasGoId wasgo_id, float p_time_sec);
 void _wasgo_Timer_wrapper_stop(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Timer_constructor();
-    void _wasgo_Timer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

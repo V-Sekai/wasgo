@@ -9,10 +9,10 @@ class VisualShaderNodeVectorRefract : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeVectorRefract(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeVectorRefract();
-~VisualShaderNodeVectorRefract();
+explicit VisualShaderNodeVectorRefract(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorRefract(VisualShaderNode other);
+VisualShaderNodeVectorRefract new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeVectorRefract();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeVectorRefract_constructor();
-    void _wasgo_VisualShaderNodeVectorRefract_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

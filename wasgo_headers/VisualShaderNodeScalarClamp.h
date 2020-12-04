@@ -9,10 +9,10 @@ class VisualShaderNodeScalarClamp : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeScalarClamp(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeScalarClamp();
-~VisualShaderNodeScalarClamp();
+explicit VisualShaderNodeScalarClamp(WasGoId p_wasgo_id);
+explicit VisualShaderNodeScalarClamp(VisualShaderNode other);
+VisualShaderNodeScalarClamp new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeScalarClamp();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeScalarClamp_constructor();
-    void _wasgo_VisualShaderNodeScalarClamp_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

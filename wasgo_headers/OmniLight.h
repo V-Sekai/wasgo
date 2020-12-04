@@ -21,10 +21,10 @@ void set_shadow_detail(OmniLight::ShadowDetail p_detail);
 void set_shadow_mode(OmniLight::ShadowMode p_mode);
 
 protected:
-OmniLight(WasGoId p_wasgo_id);
 public:
-OmniLight();
-~OmniLight();
+explicit OmniLight(WasGoId p_wasgo_id);
+explicit OmniLight(Light other);
+OmniLight new_instance();
             
 };
 
@@ -36,9 +36,8 @@ WasGoId _wasgo_OmniLight_wrapper_get_shadow_mode(WasGoId wasgo_id);
 void _wasgo_OmniLight_wrapper_set_shadow_detail(WasGoId wasgo_id, WasGoId p_detail);
 void _wasgo_OmniLight_wrapper_set_shadow_mode(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_OmniLight_constructor();
-    void _wasgo_OmniLight_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

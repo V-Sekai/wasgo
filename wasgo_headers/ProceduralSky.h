@@ -50,10 +50,10 @@ void set_sun_longitude(float p_degrees);
 void set_texture_size(ProceduralSky::TextureSize p_size);
 
 protected:
-ProceduralSky(WasGoId p_wasgo_id);
 public:
-ProceduralSky();
-~ProceduralSky();
+explicit ProceduralSky(WasGoId p_wasgo_id);
+explicit ProceduralSky(Sky other);
+ProceduralSky new_instance();
             
 };
 
@@ -93,9 +93,8 @@ void _wasgo_ProceduralSky_wrapper_set_sun_latitude(WasGoId wasgo_id, float p_deg
 void _wasgo_ProceduralSky_wrapper_set_sun_longitude(WasGoId wasgo_id, float p_degrees);
 void _wasgo_ProceduralSky_wrapper_set_texture_size(WasGoId wasgo_id, WasGoId p_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ProceduralSky_constructor();
-    void _wasgo_ProceduralSky_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

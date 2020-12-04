@@ -45,9 +45,9 @@ void Bone2D::set_rest(Transform2D p_rest){
 
 Bone2D::Bone2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-Bone2D::Bone2D(){
+Bone2D::Bone2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Bone2D_constructor();
 }
-Bone2D::~Bone2D(){
-    _wasgo_Bone2D_destructor(wasgo_id);
+Bone2D::new_instance(){
+    return Bone2D(_wasgo_Bone2D_constructor());
 }

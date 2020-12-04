@@ -4,9 +4,9 @@
 
 AnimationNodeTimeSeek::AnimationNodeTimeSeek(WasGoId p_wasgo_id) : AnimationNode(p_wasgo_id){
 }
-AnimationNodeTimeSeek::AnimationNodeTimeSeek(){
+AnimationNodeTimeSeek::AnimationNodeTimeSeek(AnimationNode other) : AnimationNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeTimeSeek_constructor();
 }
-AnimationNodeTimeSeek::~AnimationNodeTimeSeek(){
-    _wasgo_AnimationNodeTimeSeek_destructor(wasgo_id);
+AnimationNodeTimeSeek::new_instance(){
+    return AnimationNodeTimeSeek(_wasgo_AnimationNodeTimeSeek_constructor());
 }

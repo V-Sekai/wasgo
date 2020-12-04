@@ -46,14 +46,14 @@ bool AnimationTree::is_active(){
 void AnimationTree::rename_parameter(String p_old_name, String p_new_name){
 
     Variant wasgo_var_old_name = p_old_name;
-    uint8_t wasgo_buffer_old_name[256];
-    int wasgo_size_old_name = 256;
+    int wasgo_size_old_name = String(p_old_name).size();
+    uint8_t wasgo_buffer_old_name[wasgo_size_old_name];
     encode_variant(wasgo_var_old_name, wasgo_buffer_old_name, wasgo_size_old_name);
     
 
     Variant wasgo_var_new_name = p_new_name;
-    uint8_t wasgo_buffer_new_name[256];
-    int wasgo_size_new_name = 256;
+    int wasgo_size_new_name = String(p_new_name).size();
+    uint8_t wasgo_buffer_new_name[wasgo_size_new_name];
     encode_variant(wasgo_var_new_name, wasgo_buffer_new_name, wasgo_size_new_name);
     
 	_wasgo_AnimationTree_wrapper_rename_parameter(wasgo_id, wasgo_buffer_old_name, wasgo_size_old_name, wasgo_buffer_new_name, wasgo_size_new_name);
@@ -64,8 +64,8 @@ void AnimationTree::set_active(bool p_active){
 void AnimationTree::set_animation_player(NodePath p_root){
 
     Variant wasgo_var_root = p_root;
-    uint8_t wasgo_buffer_root[256];
-    int wasgo_size_root = 256;
+    int wasgo_size_root = String(p_root).size();
+    uint8_t wasgo_buffer_root[wasgo_size_root];
     encode_variant(wasgo_var_root, wasgo_buffer_root, wasgo_size_root);
     
 	_wasgo_AnimationTree_wrapper_set_animation_player(wasgo_id, wasgo_buffer_root, wasgo_size_root);
@@ -76,8 +76,8 @@ void AnimationTree::set_process_mode(AnimationTree::AnimationProcessMode p_mode)
 void AnimationTree::set_root_motion_track(NodePath p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_AnimationTree_wrapper_set_root_motion_track(wasgo_id, wasgo_buffer_path, wasgo_size_path);
@@ -88,9 +88,9 @@ void AnimationTree::set_tree_root(AnimationNode p_root){
 
 AnimationTree::AnimationTree(WasGoId p_wasgo_id) : Node(p_wasgo_id){
 }
-AnimationTree::AnimationTree(){
+AnimationTree::AnimationTree(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationTree_constructor();
 }
-AnimationTree::~AnimationTree(){
-    _wasgo_AnimationTree_destructor(wasgo_id);
+AnimationTree::new_instance(){
+    return AnimationTree(_wasgo_AnimationTree_constructor());
 }

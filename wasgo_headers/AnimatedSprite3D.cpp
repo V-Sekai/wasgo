@@ -23,8 +23,8 @@ bool AnimatedSprite3D::is_playing(){
 void AnimatedSprite3D::play(String p_anim = (String) ){
 
     Variant wasgo_var_anim = p_anim;
-    uint8_t wasgo_buffer_anim[256];
-    int wasgo_size_anim = 256;
+    int wasgo_size_anim = String(p_anim).size();
+    uint8_t wasgo_buffer_anim[wasgo_size_anim];
     encode_variant(wasgo_var_anim, wasgo_buffer_anim, wasgo_size_anim);
     
 	_wasgo_AnimatedSprite3D_wrapper_play(wasgo_id, wasgo_buffer_anim, wasgo_size_anim);
@@ -32,8 +32,8 @@ void AnimatedSprite3D::play(String p_anim = (String) ){
 void AnimatedSprite3D::set_animation(String p_animation){
 
     Variant wasgo_var_animation = p_animation;
-    uint8_t wasgo_buffer_animation[256];
-    int wasgo_size_animation = 256;
+    int wasgo_size_animation = String(p_animation).size();
+    uint8_t wasgo_buffer_animation[wasgo_size_animation];
     encode_variant(wasgo_var_animation, wasgo_buffer_animation, wasgo_size_animation);
     
 	_wasgo_AnimatedSprite3D_wrapper_set_animation(wasgo_id, wasgo_buffer_animation, wasgo_size_animation);
@@ -50,9 +50,9 @@ void AnimatedSprite3D::stop(){
 
 AnimatedSprite3D::AnimatedSprite3D(WasGoId p_wasgo_id) : SpriteBase3D(p_wasgo_id){
 }
-AnimatedSprite3D::AnimatedSprite3D(){
+AnimatedSprite3D::AnimatedSprite3D(SpriteBase3D other) : SpriteBase3D(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimatedSprite3D_constructor();
 }
-AnimatedSprite3D::~AnimatedSprite3D(){
-    _wasgo_AnimatedSprite3D_destructor(wasgo_id);
+AnimatedSprite3D::new_instance(){
+    return AnimatedSprite3D(_wasgo_AnimatedSprite3D_constructor());
 }

@@ -29,8 +29,8 @@ void JSONParseResult::set_error_line(int p_error_line){
 void JSONParseResult::set_error_string(String p_error_string){
 
     Variant wasgo_var_error_string = p_error_string;
-    uint8_t wasgo_buffer_error_string[256];
-    int wasgo_size_error_string = 256;
+    int wasgo_size_error_string = String(p_error_string).size();
+    uint8_t wasgo_buffer_error_string[wasgo_size_error_string];
     encode_variant(wasgo_var_error_string, wasgo_buffer_error_string, wasgo_size_error_string);
     
 	_wasgo_JSONParseResult_wrapper_set_error_string(wasgo_id, wasgo_buffer_error_string, wasgo_size_error_string);
@@ -41,9 +41,9 @@ void JSONParseResult::set_result(Variant p_result){
 
 JSONParseResult::JSONParseResult(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-JSONParseResult::JSONParseResult(){
+JSONParseResult::JSONParseResult(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_JSONParseResult_constructor();
 }
-JSONParseResult::~JSONParseResult(){
-    _wasgo_JSONParseResult_destructor(wasgo_id);
+JSONParseResult::new_instance(){
+    return JSONParseResult(_wasgo_JSONParseResult_constructor());
 }

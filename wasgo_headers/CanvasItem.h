@@ -4,22 +4,22 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Font.h"
-#include "Mesh.h"
 #include "MultiMesh.h"
-#include "RID.h"
-#include "World2D.h"
-#include "Transform2D.h"
-#include "ustring.h"
-#include "Variant.h"
-#include "Rect2.h"
 #include "Node.h"
-#include "Color.h"
+#include "Transform2D.h"
 #include "StyleBox.h"
-#include "Material.h"
-#include "Texture.h"
+#include "World2D.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "RID.h"
+#include "Texture.h"
+#include "Mesh.h"
+#include "Color.h"
+#include "Rect2.h"
 #include "InputEvent.h"
+#include "Font.h"
+#include "Material.h"
+#include "Variant.h"
 class CanvasItem : public Node{
 public:
 enum BlendMode{
@@ -154,9 +154,8 @@ void _wasgo_CanvasItem_wrapper_set_visible(WasGoId wasgo_id, bool p_visible);
 void _wasgo_CanvasItem_wrapper_show(WasGoId wasgo_id);
 void _wasgo_CanvasItem_wrapper_update(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CanvasItem_constructor();
-    void _wasgo_CanvasItem_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

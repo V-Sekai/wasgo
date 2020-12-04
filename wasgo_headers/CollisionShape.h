@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
 #include "Shape.h"
+#include "Spatial.h"
 #include "Resource.h"
 class CollisionShape : public Spatial{
 public:
@@ -17,10 +17,10 @@ void set_disabled(bool p_enable);
 void set_shape(Shape p_shape);
 
 protected:
-CollisionShape(WasGoId p_wasgo_id);
 public:
-CollisionShape();
-~CollisionShape();
+explicit CollisionShape(WasGoId p_wasgo_id);
+explicit CollisionShape(Spatial other);
+CollisionShape new_instance();
             
 };
 
@@ -34,9 +34,8 @@ void _wasgo_CollisionShape_wrapper_resource_changed(WasGoId wasgo_id, WasGoId p_
 void _wasgo_CollisionShape_wrapper_set_disabled(WasGoId wasgo_id, bool p_enable);
 void _wasgo_CollisionShape_wrapper_set_shape(WasGoId wasgo_id, WasGoId p_shape);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CollisionShape_constructor();
-    void _wasgo_CollisionShape_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

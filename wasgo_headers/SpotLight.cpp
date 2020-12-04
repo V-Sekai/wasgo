@@ -4,9 +4,9 @@
 
 SpotLight::SpotLight(WasGoId p_wasgo_id) : Light(p_wasgo_id){
 }
-SpotLight::SpotLight(){
+SpotLight::SpotLight(Light other) : Light(other._get_wasgo_id()){
     wasgo_id = _wasgo_SpotLight_constructor();
 }
-SpotLight::~SpotLight(){
-    _wasgo_SpotLight_destructor(wasgo_id);
+SpotLight::new_instance(){
+    return SpotLight(_wasgo_SpotLight_constructor());
 }

@@ -14,10 +14,10 @@ void set_pressed(bool p_pressed);
 void set_pressure(float p_pressure);
 
 protected:
-InputEventJoypadButton(WasGoId p_wasgo_id);
 public:
-InputEventJoypadButton();
-~InputEventJoypadButton();
+explicit InputEventJoypadButton(WasGoId p_wasgo_id);
+explicit InputEventJoypadButton(InputEvent other);
+InputEventJoypadButton new_instance();
             
 };
 
@@ -30,9 +30,8 @@ void _wasgo_InputEventJoypadButton_wrapper_set_button_index(WasGoId wasgo_id, in
 void _wasgo_InputEventJoypadButton_wrapper_set_pressed(WasGoId wasgo_id, bool p_pressed);
 void _wasgo_InputEventJoypadButton_wrapper_set_pressure(WasGoId wasgo_id, float p_pressure);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InputEventJoypadButton_constructor();
-    void _wasgo_InputEventJoypadButton_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

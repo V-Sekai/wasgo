@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "BaseButton.h"
 #include "Resource.h"
+#include "BaseButton.h"
 #include "Variant.h"
 class ButtonGroup : public Resource{
 public:
@@ -13,10 +13,10 @@ Array get_buttons();
 BaseButton get_pressed_button();
 
 protected:
-ButtonGroup(WasGoId p_wasgo_id);
 public:
-ButtonGroup();
-~ButtonGroup();
+explicit ButtonGroup(WasGoId p_wasgo_id);
+explicit ButtonGroup(Resource other);
+ButtonGroup new_instance();
             
 };
 
@@ -26,9 +26,8 @@ extern "C"{
 WasGoId _wasgo_ButtonGroup_wrapper_get_buttons(WasGoId wasgo_id);
 WasGoId _wasgo_ButtonGroup_wrapper_get_pressed_button(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ButtonGroup_constructor();
-    void _wasgo_ButtonGroup_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

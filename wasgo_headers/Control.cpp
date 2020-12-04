@@ -7,8 +7,8 @@ void Control::accept_event(){
 void Control::add_color_override(String p_name, Color p_color){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
@@ -22,8 +22,8 @@ void Control::add_color_override(String p_name, Color p_color){
 void Control::add_constant_override(String p_name, int p_constant){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_Control_wrapper_add_constant_override(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_constant);
@@ -31,8 +31,8 @@ void Control::add_constant_override(String p_name, int p_constant){
 void Control::add_font_override(String p_name, Font p_font){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_Control_wrapper_add_font_override(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_font._get_wasgo_id());
@@ -40,8 +40,8 @@ void Control::add_font_override(String p_name, Font p_font){
 void Control::add_icon_override(String p_name, Texture p_texture){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_Control_wrapper_add_icon_override(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_texture._get_wasgo_id());
@@ -49,8 +49,8 @@ void Control::add_icon_override(String p_name, Texture p_texture){
 void Control::add_shader_override(String p_name, Shader p_shader){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_Control_wrapper_add_shader_override(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_shader._get_wasgo_id());
@@ -58,8 +58,8 @@ void Control::add_shader_override(String p_name, Shader p_shader){
 void Control::add_stylebox_override(String p_name, StyleBox p_stylebox){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_Control_wrapper_add_stylebox_override(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_stylebox._get_wasgo_id());
@@ -101,14 +101,14 @@ Vector2 Control::get_begin(){
 Color Control::get_color(String p_name, String p_node_type = (String) ){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_node_type = p_node_type;
-    uint8_t wasgo_buffer_node_type[256];
-    int wasgo_size_node_type = 256;
+    int wasgo_size_node_type = String(p_node_type).size();
+    uint8_t wasgo_buffer_node_type[wasgo_size_node_type];
     encode_variant(wasgo_var_node_type, wasgo_buffer_node_type, wasgo_size_node_type);
     
 
@@ -133,14 +133,14 @@ Vector2 Control::get_combined_minimum_size(){
 int Control::get_constant(String p_name, String p_node_type = (String) ){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_node_type = p_node_type;
-    uint8_t wasgo_buffer_node_type[256];
-    int wasgo_size_node_type = 256;
+    int wasgo_size_node_type = String(p_node_type).size();
+    uint8_t wasgo_buffer_node_type[wasgo_size_node_type];
     encode_variant(wasgo_var_node_type, wasgo_buffer_node_type, wasgo_size_node_type);
     
 	return (int) _wasgo_Control_wrapper_get_constant(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_node_type, wasgo_size_node_type);
@@ -225,14 +225,14 @@ NodePath Control::get_focus_previous(){
 Font Control::get_font(String p_name, String p_node_type = (String) ){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_node_type = p_node_type;
-    uint8_t wasgo_buffer_node_type[256];
-    int wasgo_size_node_type = 256;
+    int wasgo_size_node_type = String(p_node_type).size();
+    uint8_t wasgo_buffer_node_type[wasgo_size_node_type];
     encode_variant(wasgo_var_node_type, wasgo_buffer_node_type, wasgo_size_node_type);
     
 	return Font(_wasgo_Control_wrapper_get_font(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_node_type, wasgo_size_node_type));
@@ -266,14 +266,14 @@ int Control::get_h_size_flags(){
 Texture Control::get_icon(String p_name, String p_node_type = (String) ){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_node_type = p_node_type;
-    uint8_t wasgo_buffer_node_type[256];
-    int wasgo_size_node_type = 256;
+    int wasgo_size_node_type = String(p_node_type).size();
+    uint8_t wasgo_buffer_node_type[wasgo_size_node_type];
     encode_variant(wasgo_var_node_type, wasgo_buffer_node_type, wasgo_size_node_type);
     
 	return Texture(_wasgo_Control_wrapper_get_icon(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_node_type, wasgo_size_node_type));
@@ -369,14 +369,14 @@ float Control::get_stretch_ratio(){
 StyleBox Control::get_stylebox(String p_name, String p_node_type = (String) ){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_node_type = p_node_type;
-    uint8_t wasgo_buffer_node_type[256];
-    int wasgo_size_node_type = 256;
+    int wasgo_size_node_type = String(p_node_type).size();
+    uint8_t wasgo_buffer_node_type[wasgo_size_node_type];
     encode_variant(wasgo_var_node_type, wasgo_buffer_node_type, wasgo_size_node_type);
     
 	return StyleBox(_wasgo_Control_wrapper_get_stylebox(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_node_type, wasgo_size_node_type));
@@ -415,14 +415,14 @@ void Control::grab_focus(){
 bool Control::has_color(String p_name, String p_node_type = (String) ){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_node_type = p_node_type;
-    uint8_t wasgo_buffer_node_type[256];
-    int wasgo_size_node_type = 256;
+    int wasgo_size_node_type = String(p_node_type).size();
+    uint8_t wasgo_buffer_node_type[wasgo_size_node_type];
     encode_variant(wasgo_var_node_type, wasgo_buffer_node_type, wasgo_size_node_type);
     
 	return (bool) _wasgo_Control_wrapper_has_color(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_node_type, wasgo_size_node_type);
@@ -430,8 +430,8 @@ bool Control::has_color(String p_name, String p_node_type = (String) ){
 bool Control::has_color_override(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (bool) _wasgo_Control_wrapper_has_color_override(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -439,14 +439,14 @@ bool Control::has_color_override(String p_name){
 bool Control::has_constant(String p_name, String p_node_type = (String) ){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_node_type = p_node_type;
-    uint8_t wasgo_buffer_node_type[256];
-    int wasgo_size_node_type = 256;
+    int wasgo_size_node_type = String(p_node_type).size();
+    uint8_t wasgo_buffer_node_type[wasgo_size_node_type];
     encode_variant(wasgo_var_node_type, wasgo_buffer_node_type, wasgo_size_node_type);
     
 	return (bool) _wasgo_Control_wrapper_has_constant(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_node_type, wasgo_size_node_type);
@@ -454,8 +454,8 @@ bool Control::has_constant(String p_name, String p_node_type = (String) ){
 bool Control::has_constant_override(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (bool) _wasgo_Control_wrapper_has_constant_override(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -466,14 +466,14 @@ bool Control::has_focus(){
 bool Control::has_font(String p_name, String p_node_type = (String) ){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_node_type = p_node_type;
-    uint8_t wasgo_buffer_node_type[256];
-    int wasgo_size_node_type = 256;
+    int wasgo_size_node_type = String(p_node_type).size();
+    uint8_t wasgo_buffer_node_type[wasgo_size_node_type];
     encode_variant(wasgo_var_node_type, wasgo_buffer_node_type, wasgo_size_node_type);
     
 	return (bool) _wasgo_Control_wrapper_has_font(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_node_type, wasgo_size_node_type);
@@ -481,8 +481,8 @@ bool Control::has_font(String p_name, String p_node_type = (String) ){
 bool Control::has_font_override(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (bool) _wasgo_Control_wrapper_has_font_override(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -490,14 +490,14 @@ bool Control::has_font_override(String p_name){
 bool Control::has_icon(String p_name, String p_node_type = (String) ){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_node_type = p_node_type;
-    uint8_t wasgo_buffer_node_type[256];
-    int wasgo_size_node_type = 256;
+    int wasgo_size_node_type = String(p_node_type).size();
+    uint8_t wasgo_buffer_node_type[wasgo_size_node_type];
     encode_variant(wasgo_var_node_type, wasgo_buffer_node_type, wasgo_size_node_type);
     
 	return (bool) _wasgo_Control_wrapper_has_icon(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_node_type, wasgo_size_node_type);
@@ -505,8 +505,8 @@ bool Control::has_icon(String p_name, String p_node_type = (String) ){
 bool Control::has_icon_override(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (bool) _wasgo_Control_wrapper_has_icon_override(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -523,8 +523,8 @@ bool Control::has_point(Vector2 p_point){
 bool Control::has_shader_override(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (bool) _wasgo_Control_wrapper_has_shader_override(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -532,14 +532,14 @@ bool Control::has_shader_override(String p_name){
 bool Control::has_stylebox(String p_name, String p_node_type = (String) ){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_node_type = p_node_type;
-    uint8_t wasgo_buffer_node_type[256];
-    int wasgo_size_node_type = 256;
+    int wasgo_size_node_type = String(p_node_type).size();
+    uint8_t wasgo_buffer_node_type[wasgo_size_node_type];
     encode_variant(wasgo_var_node_type, wasgo_buffer_node_type, wasgo_size_node_type);
     
 	return (bool) _wasgo_Control_wrapper_has_stylebox(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_node_type, wasgo_size_node_type);
@@ -547,8 +547,8 @@ bool Control::has_stylebox(String p_name, String p_node_type = (String) ){
 bool Control::has_stylebox_override(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (bool) _wasgo_Control_wrapper_has_stylebox_override(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -619,8 +619,8 @@ void Control::set_focus_mode(Control::FocusMode p_mode){
 void Control::set_focus_neighbour(Margin p_margin, NodePath p_neighbour){
 
     Variant wasgo_var_neighbour = p_neighbour;
-    uint8_t wasgo_buffer_neighbour[256];
-    int wasgo_size_neighbour = 256;
+    int wasgo_size_neighbour = String(p_neighbour).size();
+    uint8_t wasgo_buffer_neighbour[wasgo_size_neighbour];
     encode_variant(wasgo_var_neighbour, wasgo_buffer_neighbour, wasgo_size_neighbour);
     
 	_wasgo_Control_wrapper_set_focus_neighbour(wasgo_id, p_margin._get_wasgo_id(), wasgo_buffer_neighbour, wasgo_size_neighbour);
@@ -628,8 +628,8 @@ void Control::set_focus_neighbour(Margin p_margin, NodePath p_neighbour){
 void Control::set_focus_next(NodePath p_next){
 
     Variant wasgo_var_next = p_next;
-    uint8_t wasgo_buffer_next[256];
-    int wasgo_size_next = 256;
+    int wasgo_size_next = String(p_next).size();
+    uint8_t wasgo_buffer_next[wasgo_size_next];
     encode_variant(wasgo_var_next, wasgo_buffer_next, wasgo_size_next);
     
 	_wasgo_Control_wrapper_set_focus_next(wasgo_id, wasgo_buffer_next, wasgo_size_next);
@@ -637,8 +637,8 @@ void Control::set_focus_next(NodePath p_next){
 void Control::set_focus_previous(NodePath p_previous){
 
     Variant wasgo_var_previous = p_previous;
-    uint8_t wasgo_buffer_previous[256];
-    int wasgo_size_previous = 256;
+    int wasgo_size_previous = String(p_previous).size();
+    uint8_t wasgo_buffer_previous[wasgo_size_previous];
     encode_variant(wasgo_var_previous, wasgo_buffer_previous, wasgo_size_previous);
     
 	_wasgo_Control_wrapper_set_focus_previous(wasgo_id, wasgo_buffer_previous, wasgo_size_previous);
@@ -718,8 +718,8 @@ void Control::set_theme(Theme p_theme){
 void Control::set_tooltip(String p_tooltip){
 
     Variant wasgo_var_tooltip = p_tooltip;
-    uint8_t wasgo_buffer_tooltip[256];
-    int wasgo_size_tooltip = 256;
+    int wasgo_size_tooltip = String(p_tooltip).size();
+    uint8_t wasgo_buffer_tooltip[wasgo_size_tooltip];
     encode_variant(wasgo_var_tooltip, wasgo_buffer_tooltip, wasgo_size_tooltip);
     
 	_wasgo_Control_wrapper_set_tooltip(wasgo_id, wasgo_buffer_tooltip, wasgo_size_tooltip);
@@ -745,9 +745,9 @@ void Control::warp_mouse(Vector2 p_to_position){
 
 Control::Control(WasGoId p_wasgo_id) : CanvasItem(p_wasgo_id){
 }
-Control::Control(){
+Control::Control(CanvasItem other) : CanvasItem(other._get_wasgo_id()){
     wasgo_id = _wasgo_Control_constructor();
 }
-Control::~Control(){
-    _wasgo_Control_destructor(wasgo_id);
+Control::new_instance(){
+    return Control(_wasgo_Control_constructor());
 }

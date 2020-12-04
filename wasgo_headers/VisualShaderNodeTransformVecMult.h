@@ -17,10 +17,10 @@ VisualShaderNodeTransformVecMult::Operator get_operator();
 void set_operator(VisualShaderNodeTransformVecMult::Operator p_op);
 
 protected:
-VisualShaderNodeTransformVecMult(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeTransformVecMult();
-~VisualShaderNodeTransformVecMult();
+explicit VisualShaderNodeTransformVecMult(WasGoId p_wasgo_id);
+explicit VisualShaderNodeTransformVecMult(VisualShaderNode other);
+VisualShaderNodeTransformVecMult new_instance();
             
 };
 
@@ -30,9 +30,8 @@ extern "C"{
 WasGoId _wasgo_VisualShaderNodeTransformVecMult_wrapper_get_operator(WasGoId wasgo_id);
 void _wasgo_VisualShaderNodeTransformVecMult_wrapper_set_operator(WasGoId wasgo_id, WasGoId p_op);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeTransformVecMult_constructor();
-    void _wasgo_VisualShaderNodeTransformVecMult_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

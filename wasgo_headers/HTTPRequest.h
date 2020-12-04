@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Node.h"
 #include "error_list.h"
 #include "ustring.h"
-#include "Variant.h"
-#include "Node.h"
 #include "HTTPClient.h"
+#include "Variant.h"
 class HTTPRequest : public Node{
 public:
 enum Result{
@@ -45,10 +45,10 @@ void set_timeout(int p_timeout);
 void set_use_threads(bool p_enable);
 
 protected:
-HTTPRequest(WasGoId p_wasgo_id);
 public:
-HTTPRequest();
-~HTTPRequest();
+explicit HTTPRequest(WasGoId p_wasgo_id);
+explicit HTTPRequest(Node other);
+HTTPRequest new_instance();
             
 };
 
@@ -73,9 +73,8 @@ void _wasgo_HTTPRequest_wrapper_set_max_redirects(WasGoId wasgo_id, int p_amount
 void _wasgo_HTTPRequest_wrapper_set_timeout(WasGoId wasgo_id, int p_timeout);
 void _wasgo_HTTPRequest_wrapper_set_use_threads(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_HTTPRequest_constructor();
-    void _wasgo_HTTPRequest_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

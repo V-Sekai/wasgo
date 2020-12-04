@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Control.h"
-#include "Texture.h"
 #include "Margin.h"
 #include "Rect2.h"
+#include "Control.h"
+#include "Texture.h"
 class NinePatchRect : public Control{
 public:
 enum AxisStretchMode{
@@ -29,10 +29,10 @@ void set_texture(Texture p_texture);
 void set_v_axis_stretch_mode(NinePatchRect::AxisStretchMode p_mode);
 
 protected:
-NinePatchRect(WasGoId p_wasgo_id);
 public:
-NinePatchRect();
-~NinePatchRect();
+explicit NinePatchRect(WasGoId p_wasgo_id);
+explicit NinePatchRect(Control other);
+NinePatchRect new_instance();
             
 };
 
@@ -52,9 +52,8 @@ void _wasgo_NinePatchRect_wrapper_set_region_rect(WasGoId wasgo_id, const uint8_
 void _wasgo_NinePatchRect_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_NinePatchRect_wrapper_set_v_axis_stretch_mode(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_NinePatchRect_constructor();
-    void _wasgo_NinePatchRect_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

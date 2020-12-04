@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Resource.h"
 #include "Transform.h"
 #include "AABB.h"
-#include "Resource.h"
 #include "Variant.h"
 class GIProbeData : public Resource{
 public:
@@ -34,10 +34,10 @@ void set_propagation(float p_propagation);
 void set_to_cell_xform(Transform p_to_cell_xform);
 
 protected:
-GIProbeData(WasGoId p_wasgo_id);
 public:
-GIProbeData();
-~GIProbeData();
+explicit GIProbeData(WasGoId p_wasgo_id);
+explicit GIProbeData(Resource other);
+GIProbeData new_instance();
             
 };
 
@@ -67,9 +67,8 @@ void _wasgo_GIProbeData_wrapper_set_normal_bias(WasGoId wasgo_id, float p_bias);
 void _wasgo_GIProbeData_wrapper_set_propagation(WasGoId wasgo_id, float p_propagation);
 void _wasgo_GIProbeData_wrapper_set_to_cell_xform(WasGoId wasgo_id, const uint8_t * p_to_cell_xform, int p_to_cell_xform_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_GIProbeData_constructor();
-    void _wasgo_GIProbeData_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -5,11 +5,11 @@
 #include "wasgo\wasgo.h"
 
 #include "error_list.h"
+#include "ustring.h"
 #include "Mesh.h"
 #include "AABB.h"
-#include "ustring.h"
-#include "Variant.h"
 #include "Transform.h"
+#include "Variant.h"
 class ArrayMesh : public Mesh{
 public:
 enum ArrayFormat{
@@ -57,10 +57,10 @@ void surface_set_name(int p_surf_idx, String p_name);
 void surface_update_region(int p_surf_idx, int p_offset, PoolByteArray p_data);
 
 protected:
-ArrayMesh(WasGoId p_wasgo_id);
 public:
-ArrayMesh();
-~ArrayMesh();
+explicit ArrayMesh(WasGoId p_wasgo_id);
+explicit ArrayMesh(Mesh other);
+ArrayMesh new_instance();
             
 };
 
@@ -88,9 +88,8 @@ void _wasgo_ArrayMesh_wrapper_surface_remove(WasGoId wasgo_id, int p_surf_idx);
 void _wasgo_ArrayMesh_wrapper_surface_set_name(WasGoId wasgo_id, int p_surf_idx, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 void _wasgo_ArrayMesh_wrapper_surface_update_region(WasGoId wasgo_id, int p_surf_idx, int p_offset, WasGoId p_data);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ArrayMesh_constructor();
-    void _wasgo_ArrayMesh_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

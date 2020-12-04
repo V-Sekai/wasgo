@@ -62,8 +62,8 @@ void AudioStreamPlayer2D::set_autoplay(bool p_enable){
 void AudioStreamPlayer2D::set_bus(String p_bus){
 
     Variant wasgo_var_bus = p_bus;
-    uint8_t wasgo_buffer_bus[256];
-    int wasgo_size_bus = 256;
+    int wasgo_size_bus = String(p_bus).size();
+    uint8_t wasgo_buffer_bus[wasgo_size_bus];
     encode_variant(wasgo_var_bus, wasgo_buffer_bus, wasgo_size_bus);
     
 	_wasgo_AudioStreamPlayer2D_wrapper_set_bus(wasgo_id, wasgo_buffer_bus, wasgo_size_bus);
@@ -89,9 +89,9 @@ void AudioStreamPlayer2D::stop(){
 
 AudioStreamPlayer2D::AudioStreamPlayer2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-AudioStreamPlayer2D::AudioStreamPlayer2D(){
+AudioStreamPlayer2D::AudioStreamPlayer2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioStreamPlayer2D_constructor();
 }
-AudioStreamPlayer2D::~AudioStreamPlayer2D(){
-    _wasgo_AudioStreamPlayer2D_destructor(wasgo_id);
+AudioStreamPlayer2D::new_instance(){
+    return AudioStreamPlayer2D(_wasgo_AudioStreamPlayer2D_constructor());
 }

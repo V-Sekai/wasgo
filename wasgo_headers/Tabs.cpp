@@ -4,8 +4,8 @@
 void Tabs::add_tab(String p_title = (String) , Texture p_icon = (Texture) [object:null]){
 
     Variant wasgo_var_title = p_title;
-    uint8_t wasgo_buffer_title[256];
-    int wasgo_size_title = 256;
+    int wasgo_size_title = String(p_title).size();
+    uint8_t wasgo_buffer_title[wasgo_size_title];
     encode_variant(wasgo_var_title, wasgo_buffer_title, wasgo_size_title);
     
 	_wasgo_Tabs_wrapper_add_tab(wasgo_id, wasgo_buffer_title, wasgo_size_title, p_icon._get_wasgo_id());
@@ -105,8 +105,8 @@ void Tabs::set_tab_icon(int p_tab_idx, Texture p_icon){
 void Tabs::set_tab_title(int p_tab_idx, String p_title){
 
     Variant wasgo_var_title = p_title;
-    uint8_t wasgo_buffer_title[256];
-    int wasgo_size_title = 256;
+    int wasgo_size_title = String(p_title).size();
+    uint8_t wasgo_buffer_title[wasgo_size_title];
     encode_variant(wasgo_var_title, wasgo_buffer_title, wasgo_size_title);
     
 	_wasgo_Tabs_wrapper_set_tab_title(wasgo_id, p_tab_idx, wasgo_buffer_title, wasgo_size_title);
@@ -117,9 +117,9 @@ void Tabs::set_tabs_rearrange_group(int p_group_id){
 
 Tabs::Tabs(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-Tabs::Tabs(){
+Tabs::Tabs(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_Tabs_constructor();
 }
-Tabs::~Tabs(){
-    _wasgo_Tabs_destructor(wasgo_id);
+Tabs::new_instance(){
+    return Tabs(_wasgo_Tabs_constructor());
 }

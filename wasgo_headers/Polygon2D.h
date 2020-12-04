@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
-#include "Variant.h"
+#include "Vector2.h"
+#include "Texture.h"
 #include "NodePath.h"
 #include "Color.h"
-#include "Texture.h"
-#include "Vector2.h"
+#include "Node2D.h"
+#include "Variant.h"
 class Polygon2D : public Node2D{
 public:
 void add_bone(NodePath p_path, PoolRealArray p_weights);
@@ -54,10 +54,10 @@ void set_uv(PoolVector2Array p_uv);
 void set_vertex_colors(PoolColorArray p_vertex_colors);
 
 protected:
-Polygon2D(WasGoId p_wasgo_id);
 public:
-Polygon2D();
-~Polygon2D();
+explicit Polygon2D(WasGoId p_wasgo_id);
+explicit Polygon2D(Node2D other);
+Polygon2D new_instance();
             
 };
 
@@ -105,9 +105,8 @@ void _wasgo_Polygon2D_wrapper_set_texture_scale(WasGoId wasgo_id, const uint8_t 
 void _wasgo_Polygon2D_wrapper_set_uv(WasGoId wasgo_id, WasGoId p_uv);
 void _wasgo_Polygon2D_wrapper_set_vertex_colors(WasGoId wasgo_id, WasGoId p_vertex_colors);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Polygon2D_constructor();
-    void _wasgo_Polygon2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

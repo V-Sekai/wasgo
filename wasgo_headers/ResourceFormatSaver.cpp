@@ -10,8 +10,8 @@ bool ResourceFormatSaver::recognize(Resource p_resource){
 int ResourceFormatSaver::save(String p_path, Resource p_resource, int p_flags){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return (int) _wasgo_ResourceFormatSaver_wrapper_save(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_resource._get_wasgo_id(), p_flags);
@@ -19,9 +19,9 @@ int ResourceFormatSaver::save(String p_path, Resource p_resource, int p_flags){
 
 ResourceFormatSaver::ResourceFormatSaver(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-ResourceFormatSaver::ResourceFormatSaver(){
+ResourceFormatSaver::ResourceFormatSaver(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_ResourceFormatSaver_constructor();
 }
-ResourceFormatSaver::~ResourceFormatSaver(){
-    _wasgo_ResourceFormatSaver_destructor(wasgo_id);
+ResourceFormatSaver::new_instance(){
+    return ResourceFormatSaver(_wasgo_ResourceFormatSaver_constructor());
 }

@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Spatial.h"
-#include "AABB.h"
 #include "RID.h"
+#include "AABB.h"
 class VisualInstance : public Spatial{
 public:
 AABB get_aabb();
@@ -33,9 +33,8 @@ void _wasgo_VisualInstance_wrapper_set_base(WasGoId wasgo_id, const uint8_t * p_
 void _wasgo_VisualInstance_wrapper_set_layer_mask(WasGoId wasgo_id, int p_mask);
 void _wasgo_VisualInstance_wrapper_set_layer_mask_bit(WasGoId wasgo_id, int p_layer, bool p_enabled);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualInstance_constructor();
-    void _wasgo_VisualInstance_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

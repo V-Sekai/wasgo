@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Popup.h"
-#include "ustring.h"
 #include "TextureButton.h"
+#include "ustring.h"
 class WindowDialog : public Popup{
 public:
 TextureButton get_close_button();
@@ -16,10 +16,10 @@ void set_resizable(bool p_resizable);
 void set_title(String p_title);
 
 protected:
-WindowDialog(WasGoId p_wasgo_id);
 public:
-WindowDialog();
-~WindowDialog();
+explicit WindowDialog(WasGoId p_wasgo_id);
+explicit WindowDialog(Popup other);
+WindowDialog new_instance();
             
 };
 
@@ -32,9 +32,8 @@ void _wasgo_WindowDialog_wrapper_get_title(WasGoId wasgo_id, uint8_t * wasgo_ret
 void _wasgo_WindowDialog_wrapper_set_resizable(WasGoId wasgo_id, bool p_resizable);
 void _wasgo_WindowDialog_wrapper_set_title(WasGoId wasgo_id, const uint8_t * p_title, int p_title_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_WindowDialog_constructor();
-    void _wasgo_WindowDialog_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

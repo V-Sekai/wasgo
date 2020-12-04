@@ -26,9 +26,8 @@ void _wasgo_InputEventMouse_wrapper_set_button_mask(WasGoId wasgo_id, int p_butt
 void _wasgo_InputEventMouse_wrapper_set_global_position(WasGoId wasgo_id, const uint8_t * p_global_position, int p_global_position_wasgo_buffer_size);
 void _wasgo_InputEventMouse_wrapper_set_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InputEventMouse_constructor();
-    void _wasgo_InputEventMouse_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

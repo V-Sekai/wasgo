@@ -9,10 +9,10 @@ class VisualShaderNodeFaceForward : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeFaceForward(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeFaceForward();
-~VisualShaderNodeFaceForward();
+explicit VisualShaderNodeFaceForward(WasGoId p_wasgo_id);
+explicit VisualShaderNodeFaceForward(VisualShaderNode other);
+VisualShaderNodeFaceForward new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeFaceForward();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeFaceForward_constructor();
-    void _wasgo_VisualShaderNodeFaceForward_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "CanvasItem.h"
-#include "Transform2D.h"
-#include "Vector2.h"
 #include "Node.h"
+#include "Transform2D.h"
+#include "CanvasItem.h"
+#include "Vector2.h"
 class Node2D : public CanvasItem{
 public:
 void apply_scale(Vector2 p_ratio);
@@ -45,10 +45,10 @@ Vector2 to_local(Vector2 p_global_point);
 void translate(Vector2 p_offset);
 
 protected:
-Node2D(WasGoId p_wasgo_id);
 public:
-Node2D();
-~Node2D();
+explicit Node2D(WasGoId p_wasgo_id);
+explicit Node2D(CanvasItem other);
+Node2D new_instance();
             
 };
 
@@ -89,9 +89,8 @@ void _wasgo_Node2D_wrapper_to_global(WasGoId wasgo_id, uint8_t * wasgo_ret, int 
 void _wasgo_Node2D_wrapper_to_local(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_global_point, int p_global_point_wasgo_buffer_size);
 void _wasgo_Node2D_wrapper_translate(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Node2D_constructor();
-    void _wasgo_Node2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "RID.h"
 #include "Node2D.h"
+#include "RID.h"
 #include "Bone2D.h"
 class Skeleton2D : public Node2D{
 public:
@@ -14,10 +14,10 @@ int get_bone_count();
 RID get_skeleton();
 
 protected:
-Skeleton2D(WasGoId p_wasgo_id);
 public:
-Skeleton2D();
-~Skeleton2D();
+explicit Skeleton2D(WasGoId p_wasgo_id);
+explicit Skeleton2D(Node2D other);
+Skeleton2D new_instance();
             
 };
 
@@ -28,9 +28,8 @@ WasGoId _wasgo_Skeleton2D_wrapper_get_bone(WasGoId wasgo_id, int p_idx);
 int _wasgo_Skeleton2D_wrapper_get_bone_count(WasGoId wasgo_id);
 void _wasgo_Skeleton2D_wrapper_get_skeleton(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Skeleton2D_constructor();
-    void _wasgo_Skeleton2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

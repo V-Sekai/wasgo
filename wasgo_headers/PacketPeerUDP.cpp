@@ -7,8 +7,8 @@ void PacketPeerUDP::close(){
 Error PacketPeerUDP::connect_to_host(String p_host, int p_port){
 
     Variant wasgo_var_host = p_host;
-    uint8_t wasgo_buffer_host[256];
-    int wasgo_size_host = 256;
+    int wasgo_size_host = String(p_host).size();
+    uint8_t wasgo_buffer_host[wasgo_size_host];
     encode_variant(wasgo_var_host, wasgo_buffer_host, wasgo_size_host);
     
 	return Error(_wasgo_PacketPeerUDP_wrapper_connect_to_host(wasgo_id, wasgo_buffer_host, wasgo_size_host, p_port));
@@ -35,14 +35,14 @@ bool PacketPeerUDP::is_listening(){
 Error PacketPeerUDP::join_multicast_group(String p_multicast_address, String p_interface_name){
 
     Variant wasgo_var_multicast_address = p_multicast_address;
-    uint8_t wasgo_buffer_multicast_address[256];
-    int wasgo_size_multicast_address = 256;
+    int wasgo_size_multicast_address = String(p_multicast_address).size();
+    uint8_t wasgo_buffer_multicast_address[wasgo_size_multicast_address];
     encode_variant(wasgo_var_multicast_address, wasgo_buffer_multicast_address, wasgo_size_multicast_address);
     
 
     Variant wasgo_var_interface_name = p_interface_name;
-    uint8_t wasgo_buffer_interface_name[256];
-    int wasgo_size_interface_name = 256;
+    int wasgo_size_interface_name = String(p_interface_name).size();
+    uint8_t wasgo_buffer_interface_name[wasgo_size_interface_name];
     encode_variant(wasgo_var_interface_name, wasgo_buffer_interface_name, wasgo_size_interface_name);
     
 	return Error(_wasgo_PacketPeerUDP_wrapper_join_multicast_group(wasgo_id, wasgo_buffer_multicast_address, wasgo_size_multicast_address, wasgo_buffer_interface_name, wasgo_size_interface_name));
@@ -50,14 +50,14 @@ Error PacketPeerUDP::join_multicast_group(String p_multicast_address, String p_i
 Error PacketPeerUDP::leave_multicast_group(String p_multicast_address, String p_interface_name){
 
     Variant wasgo_var_multicast_address = p_multicast_address;
-    uint8_t wasgo_buffer_multicast_address[256];
-    int wasgo_size_multicast_address = 256;
+    int wasgo_size_multicast_address = String(p_multicast_address).size();
+    uint8_t wasgo_buffer_multicast_address[wasgo_size_multicast_address];
     encode_variant(wasgo_var_multicast_address, wasgo_buffer_multicast_address, wasgo_size_multicast_address);
     
 
     Variant wasgo_var_interface_name = p_interface_name;
-    uint8_t wasgo_buffer_interface_name[256];
-    int wasgo_size_interface_name = 256;
+    int wasgo_size_interface_name = String(p_interface_name).size();
+    uint8_t wasgo_buffer_interface_name[wasgo_size_interface_name];
     encode_variant(wasgo_var_interface_name, wasgo_buffer_interface_name, wasgo_size_interface_name);
     
 	return Error(_wasgo_PacketPeerUDP_wrapper_leave_multicast_group(wasgo_id, wasgo_buffer_multicast_address, wasgo_size_multicast_address, wasgo_buffer_interface_name, wasgo_size_interface_name));
@@ -65,8 +65,8 @@ Error PacketPeerUDP::leave_multicast_group(String p_multicast_address, String p_
 Error PacketPeerUDP::listen(int p_port, String p_bind_address = (String) *, int p_recv_buf_size = (int) 65536){
 
     Variant wasgo_var_bind_address = p_bind_address;
-    uint8_t wasgo_buffer_bind_address[256];
-    int wasgo_size_bind_address = 256;
+    int wasgo_size_bind_address = String(p_bind_address).size();
+    uint8_t wasgo_buffer_bind_address[wasgo_size_bind_address];
     encode_variant(wasgo_var_bind_address, wasgo_buffer_bind_address, wasgo_size_bind_address);
     
 	return Error(_wasgo_PacketPeerUDP_wrapper_listen(wasgo_id, p_port, wasgo_buffer_bind_address, wasgo_size_bind_address, p_recv_buf_size));
@@ -77,8 +77,8 @@ void PacketPeerUDP::set_broadcast_enabled(bool p_enabled){
 Error PacketPeerUDP::set_dest_address(String p_host, int p_port){
 
     Variant wasgo_var_host = p_host;
-    uint8_t wasgo_buffer_host[256];
-    int wasgo_size_host = 256;
+    int wasgo_size_host = String(p_host).size();
+    uint8_t wasgo_buffer_host[wasgo_size_host];
     encode_variant(wasgo_var_host, wasgo_buffer_host, wasgo_size_host);
     
 	return Error(_wasgo_PacketPeerUDP_wrapper_set_dest_address(wasgo_id, wasgo_buffer_host, wasgo_size_host, p_port));
@@ -89,9 +89,9 @@ Error PacketPeerUDP::wait(){
 
 PacketPeerUDP::PacketPeerUDP(WasGoId p_wasgo_id) : PacketPeer(p_wasgo_id){
 }
-PacketPeerUDP::PacketPeerUDP(){
+PacketPeerUDP::PacketPeerUDP(PacketPeer other) : PacketPeer(other._get_wasgo_id()){
     wasgo_id = _wasgo_PacketPeerUDP_constructor();
 }
-PacketPeerUDP::~PacketPeerUDP(){
-    _wasgo_PacketPeerUDP_destructor(wasgo_id);
+PacketPeerUDP::new_instance(){
+    return PacketPeerUDP(_wasgo_PacketPeerUDP_constructor());
 }

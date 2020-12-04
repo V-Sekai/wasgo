@@ -87,8 +87,8 @@ void BakedLightmap::set_hdr(bool p_hdr){
 void BakedLightmap::set_image_path(String p_image_path){
 
     Variant wasgo_var_image_path = p_image_path;
-    uint8_t wasgo_buffer_image_path[256];
-    int wasgo_size_image_path = 256;
+    int wasgo_size_image_path = String(p_image_path).size();
+    uint8_t wasgo_buffer_image_path[wasgo_size_image_path];
     encode_variant(wasgo_var_image_path, wasgo_buffer_image_path, wasgo_size_image_path);
     
 	_wasgo_BakedLightmap_wrapper_set_image_path(wasgo_id, wasgo_buffer_image_path, wasgo_size_image_path);
@@ -102,9 +102,9 @@ void BakedLightmap::set_propagation(float p_propagation){
 
 BakedLightmap::BakedLightmap(WasGoId p_wasgo_id) : VisualInstance(p_wasgo_id){
 }
-BakedLightmap::BakedLightmap(){
+BakedLightmap::BakedLightmap(VisualInstance other) : VisualInstance(other._get_wasgo_id()){
     wasgo_id = _wasgo_BakedLightmap_constructor();
 }
-BakedLightmap::~BakedLightmap(){
-    _wasgo_BakedLightmap_destructor(wasgo_id);
+BakedLightmap::new_instance(){
+    return BakedLightmap(_wasgo_BakedLightmap_constructor());
 }

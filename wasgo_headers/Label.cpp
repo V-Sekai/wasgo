@@ -71,8 +71,8 @@ void Label::set_percent_visible(float p_percent_visible){
 void Label::set_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_Label_wrapper_set_text(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -89,9 +89,9 @@ void Label::set_visible_characters(int p_amount){
 
 Label::Label(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-Label::Label(){
+Label::Label(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_Label_constructor();
 }
-Label::~Label(){
-    _wasgo_Label_destructor(wasgo_id);
+Label::new_instance(){
+    return Label(_wasgo_Label_constructor());
 }

@@ -4,9 +4,9 @@
 
 MarginContainer::MarginContainer(WasGoId p_wasgo_id) : Container(p_wasgo_id){
 }
-MarginContainer::MarginContainer(){
+MarginContainer::MarginContainer(Container other) : Container(other._get_wasgo_id()){
     wasgo_id = _wasgo_MarginContainer_constructor();
 }
-MarginContainer::~MarginContainer(){
-    _wasgo_MarginContainer_destructor(wasgo_id);
+MarginContainer::new_instance(){
+    return MarginContainer(_wasgo_MarginContainer_constructor());
 }

@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
 #include "CurveTexture.h"
+#include "Vector3.h"
 #include "GradientTexture.h"
+#include "Texture.h"
 #include "Color.h"
 #include "Material.h"
-#include "Texture.h"
 class ParticlesMaterial : public Material{
 public:
 enum EmissionShape{
@@ -85,10 +85,10 @@ void set_trail_divisor(int p_divisor);
 void set_trail_size_modifier(CurveTexture p_texture);
 
 protected:
-ParticlesMaterial(WasGoId p_wasgo_id);
 public:
-ParticlesMaterial();
-~ParticlesMaterial();
+explicit ParticlesMaterial(WasGoId p_wasgo_id);
+explicit ParticlesMaterial(Material other);
+ParticlesMaterial new_instance();
             
 };
 
@@ -138,9 +138,8 @@ void _wasgo_ParticlesMaterial_wrapper_set_trail_color_modifier(WasGoId wasgo_id,
 void _wasgo_ParticlesMaterial_wrapper_set_trail_divisor(WasGoId wasgo_id, int p_divisor);
 void _wasgo_ParticlesMaterial_wrapper_set_trail_size_modifier(WasGoId wasgo_id, WasGoId p_texture);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ParticlesMaterial_constructor();
-    void _wasgo_ParticlesMaterial_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

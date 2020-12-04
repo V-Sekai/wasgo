@@ -280,9 +280,9 @@ Vector2 TileMap::world_to_map(Vector2 p_world_position){
 
 TileMap::TileMap(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-TileMap::TileMap(){
+TileMap::TileMap(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_TileMap_constructor();
 }
-TileMap::~TileMap(){
-    _wasgo_TileMap_destructor(wasgo_id);
+TileMap::new_instance(){
+    return TileMap(_wasgo_TileMap_constructor());
 }

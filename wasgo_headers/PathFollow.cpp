@@ -46,9 +46,9 @@ void PathFollow::set_v_offset(float p_v_offset){
 
 PathFollow::PathFollow(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-PathFollow::PathFollow(){
+PathFollow::PathFollow(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_PathFollow_constructor();
 }
-PathFollow::~PathFollow(){
-    _wasgo_PathFollow_destructor(wasgo_id);
+PathFollow::new_instance(){
+    return PathFollow(_wasgo_PathFollow_constructor());
 }

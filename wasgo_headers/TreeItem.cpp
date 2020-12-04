@@ -4,8 +4,8 @@
 void TreeItem::add_button(int p_column, Texture p_button, int p_button_idx = (int) -1, bool p_disabled = (bool) false, String p_tooltip = (String) ){
 
     Variant wasgo_var_tooltip = p_tooltip;
-    uint8_t wasgo_buffer_tooltip[256];
-    int wasgo_size_tooltip = 256;
+    int wasgo_size_tooltip = String(p_tooltip).size();
+    uint8_t wasgo_buffer_tooltip[wasgo_size_tooltip];
     encode_variant(wasgo_var_tooltip, wasgo_buffer_tooltip, wasgo_size_tooltip);
     
 	_wasgo_TreeItem_wrapper_add_button(wasgo_id, p_column, p_button._get_wasgo_id(), p_button_idx, p_disabled, wasgo_buffer_tooltip, wasgo_size_tooltip);
@@ -13,8 +13,8 @@ void TreeItem::add_button(int p_column, Texture p_button, int p_button_idx = (in
 Variant TreeItem::call_recursive(String p_method){
 
     Variant wasgo_var_method = p_method;
-    uint8_t wasgo_buffer_method[256];
-    int wasgo_size_method = 256;
+    int wasgo_size_method = String(p_method).size();
+    uint8_t wasgo_buffer_method[wasgo_size_method];
     encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
     
 	return Variant(_wasgo_TreeItem_wrapper_call_recursive(wasgo_id, wasgo_buffer_method, wasgo_size_method));
@@ -237,8 +237,8 @@ void TreeItem::set_custom_color(int p_column, Color p_color){
 void TreeItem::set_custom_draw(int p_column, Object p_object, String p_callback){
 
     Variant wasgo_var_callback = p_callback;
-    uint8_t wasgo_buffer_callback[256];
-    int wasgo_size_callback = 256;
+    int wasgo_size_callback = String(p_callback).size();
+    uint8_t wasgo_buffer_callback[wasgo_size_callback];
     encode_variant(wasgo_var_callback, wasgo_buffer_callback, wasgo_size_callback);
     
 	_wasgo_TreeItem_wrapper_set_custom_draw(wasgo_id, p_column, p_object._get_wasgo_id(), wasgo_buffer_callback, wasgo_size_callback);
@@ -294,8 +294,8 @@ void TreeItem::set_selectable(int p_column, bool p_selectable){
 void TreeItem::set_suffix(int p_column, String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_TreeItem_wrapper_set_suffix(wasgo_id, p_column, wasgo_buffer_text, wasgo_size_text);
@@ -303,8 +303,8 @@ void TreeItem::set_suffix(int p_column, String p_text){
 void TreeItem::set_text(int p_column, String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_TreeItem_wrapper_set_text(wasgo_id, p_column, wasgo_buffer_text, wasgo_size_text);
@@ -315,8 +315,8 @@ void TreeItem::set_text_align(int p_column, TreeItem::TextAlign p_text_align){
 void TreeItem::set_tooltip(int p_column, String p_tooltip){
 
     Variant wasgo_var_tooltip = p_tooltip;
-    uint8_t wasgo_buffer_tooltip[256];
-    int wasgo_size_tooltip = 256;
+    int wasgo_size_tooltip = String(p_tooltip).size();
+    uint8_t wasgo_buffer_tooltip[wasgo_size_tooltip];
     encode_variant(wasgo_var_tooltip, wasgo_buffer_tooltip, wasgo_size_tooltip);
     
 	_wasgo_TreeItem_wrapper_set_tooltip(wasgo_id, p_column, wasgo_buffer_tooltip, wasgo_size_tooltip);

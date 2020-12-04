@@ -11,10 +11,10 @@ bool is_using_sync();
 void set_use_sync(bool p_enable);
 
 protected:
-AnimationNodeAdd2(WasGoId p_wasgo_id);
 public:
-AnimationNodeAdd2();
-~AnimationNodeAdd2();
+explicit AnimationNodeAdd2(WasGoId p_wasgo_id);
+explicit AnimationNodeAdd2(AnimationNode other);
+AnimationNodeAdd2 new_instance();
             
 };
 
@@ -24,9 +24,8 @@ extern "C"{
 int _wasgo_AnimationNodeAdd2_wrapper_is_using_sync(WasGoId wasgo_id);
 void _wasgo_AnimationNodeAdd2_wrapper_set_use_sync(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeAdd2_constructor();
-    void _wasgo_AnimationNodeAdd2_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -6,10 +6,10 @@
 
 #include "Vector3.h"
 #include "Basis.h"
-#include "RID.h"
 #include "PhysicsDirectSpaceState.h"
-#include "Transform.h"
 #include "Object.h"
+#include "Transform.h"
+#include "RID.h"
 class PhysicsDirectBodyState : public Object{
 public:
 void add_central_force(Vector3 p_force);
@@ -88,9 +88,8 @@ void _wasgo_PhysicsDirectBodyState_wrapper_set_linear_velocity(WasGoId wasgo_id,
 void _wasgo_PhysicsDirectBodyState_wrapper_set_sleep_state(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_PhysicsDirectBodyState_wrapper_set_transform(WasGoId wasgo_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PhysicsDirectBodyState_constructor();
-    void _wasgo_PhysicsDirectBodyState_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

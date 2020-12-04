@@ -27,10 +27,10 @@ void set_switch_mode(AnimationNodeStateMachineTransition::SwitchMode p_mode);
 void set_xfade_time(float p_secs);
 
 protected:
-AnimationNodeStateMachineTransition(WasGoId p_wasgo_id);
 public:
-AnimationNodeStateMachineTransition();
-~AnimationNodeStateMachineTransition();
+explicit AnimationNodeStateMachineTransition(WasGoId p_wasgo_id);
+explicit AnimationNodeStateMachineTransition(Resource other);
+AnimationNodeStateMachineTransition new_instance();
             
 };
 
@@ -50,9 +50,8 @@ void _wasgo_AnimationNodeStateMachineTransition_wrapper_set_priority(WasGoId was
 void _wasgo_AnimationNodeStateMachineTransition_wrapper_set_switch_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_AnimationNodeStateMachineTransition_wrapper_set_xfade_time(WasGoId wasgo_id, float p_secs);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeStateMachineTransition_constructor();
-    void _wasgo_AnimationNodeStateMachineTransition_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

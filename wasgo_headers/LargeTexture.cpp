@@ -53,9 +53,9 @@ void LargeTexture::set_size(Vector2 p_size){
 
 LargeTexture::LargeTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
 }
-LargeTexture::LargeTexture(){
+LargeTexture::LargeTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_LargeTexture_constructor();
 }
-LargeTexture::~LargeTexture(){
-    _wasgo_LargeTexture_destructor(wasgo_id);
+LargeTexture::new_instance(){
+    return LargeTexture(_wasgo_LargeTexture_constructor());
 }

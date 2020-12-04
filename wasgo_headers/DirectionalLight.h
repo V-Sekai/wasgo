@@ -24,10 +24,10 @@ void set_shadow_depth_range(DirectionalLight::ShadowDepthRange p_mode);
 void set_shadow_mode(DirectionalLight::ShadowMode p_mode);
 
 protected:
-DirectionalLight(WasGoId p_wasgo_id);
 public:
-DirectionalLight();
-~DirectionalLight();
+explicit DirectionalLight(WasGoId p_wasgo_id);
+explicit DirectionalLight(Light other);
+DirectionalLight new_instance();
             
 };
 
@@ -41,9 +41,8 @@ void _wasgo_DirectionalLight_wrapper_set_blend_splits(WasGoId wasgo_id, bool p_e
 void _wasgo_DirectionalLight_wrapper_set_shadow_depth_range(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_DirectionalLight_wrapper_set_shadow_mode(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_DirectionalLight_constructor();
-    void _wasgo_DirectionalLight_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

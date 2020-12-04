@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
-#include "ustring.h"
 #include "Node.h"
+#include "Reference.h"
 #include "RID.h"
+#include "ustring.h"
 class Resource : public Reference{
 public:
 Resource duplicate(bool p_subresources = (bool) false);
@@ -23,10 +23,10 @@ void setup_local_to_scene();
 void take_over_path(String p_path);
 
 protected:
-Resource(WasGoId p_wasgo_id);
 public:
-Resource();
-~Resource();
+explicit Resource(WasGoId p_wasgo_id);
+explicit Resource(Reference other);
+Resource new_instance();
             
 };
 
@@ -45,9 +45,8 @@ void _wasgo_Resource_wrapper_set_path(WasGoId wasgo_id, const uint8_t * p_path, 
 void _wasgo_Resource_wrapper_setup_local_to_scene(WasGoId wasgo_id);
 void _wasgo_Resource_wrapper_take_over_path(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Resource_constructor();
-    void _wasgo_Resource_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

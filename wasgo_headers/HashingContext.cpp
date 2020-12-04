@@ -13,9 +13,9 @@ Error HashingContext::update(PoolByteArray p_chunk){
 
 HashingContext::HashingContext(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-HashingContext::HashingContext(){
+HashingContext::HashingContext(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_HashingContext_constructor();
 }
-HashingContext::~HashingContext(){
-    _wasgo_HashingContext_destructor(wasgo_id);
+HashingContext::new_instance(){
+    return HashingContext(_wasgo_HashingContext_constructor());
 }

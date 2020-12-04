@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "NavigationMesh.h"
 #include "Vector3.h"
-#include "Variant.h"
+#include "NavigationMesh.h"
+#include "Object.h"
 #include "Transform.h"
 #include "Spatial.h"
-#include "Object.h"
+#include "Variant.h"
 class Navigation : public Spatial{
 public:
 Vector3 get_closest_point(Vector3 p_to_point);
@@ -24,10 +24,10 @@ void navmesh_set_transform(int p_id, Transform p_xform);
 void set_up_vector(Vector3 p_up);
 
 protected:
-Navigation(WasGoId p_wasgo_id);
 public:
-Navigation();
-~Navigation();
+explicit Navigation(WasGoId p_wasgo_id);
+explicit Navigation(Spatial other);
+Navigation new_instance();
             
 };
 
@@ -45,9 +45,8 @@ void _wasgo_Navigation_wrapper_navmesh_remove(WasGoId wasgo_id, int p_id);
 void _wasgo_Navigation_wrapper_navmesh_set_transform(WasGoId wasgo_id, int p_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
 void _wasgo_Navigation_wrapper_set_up_vector(WasGoId wasgo_id, const uint8_t * p_up, int p_up_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Navigation_constructor();
-    void _wasgo_Navigation_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

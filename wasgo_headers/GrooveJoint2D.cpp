@@ -16,9 +16,9 @@ void GrooveJoint2D::set_length(float p_length){
 
 GrooveJoint2D::GrooveJoint2D(WasGoId p_wasgo_id) : Joint2D(p_wasgo_id){
 }
-GrooveJoint2D::GrooveJoint2D(){
+GrooveJoint2D::GrooveJoint2D(Joint2D other) : Joint2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_GrooveJoint2D_constructor();
 }
-GrooveJoint2D::~GrooveJoint2D(){
-    _wasgo_GrooveJoint2D_destructor(wasgo_id);
+GrooveJoint2D::new_instance(){
+    return GrooveJoint2D(_wasgo_GrooveJoint2D_constructor());
 }

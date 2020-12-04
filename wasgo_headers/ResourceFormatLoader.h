@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Reference.h"
-#include "ustring.h"
 #include "Variant.h"
+#include "ustring.h"
 class ResourceFormatLoader : public Reference{
 public:
 void get_dependencies(String p_path, String p_add_types);
@@ -17,10 +17,10 @@ Variant load(String p_path, String p_original_path);
 int rename_dependencies(String p_path, String p_renames);
 
 protected:
-ResourceFormatLoader(WasGoId p_wasgo_id);
 public:
-ResourceFormatLoader();
-~ResourceFormatLoader();
+explicit ResourceFormatLoader(WasGoId p_wasgo_id);
+explicit ResourceFormatLoader(Reference other);
+ResourceFormatLoader new_instance();
             
 };
 
@@ -34,9 +34,8 @@ int _wasgo_ResourceFormatLoader_wrapper_handles_type(WasGoId wasgo_id, const uin
 WasGoId _wasgo_ResourceFormatLoader_wrapper_load(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, const uint8_t * p_original_path, int p_original_path_wasgo_buffer_size);
 int _wasgo_ResourceFormatLoader_wrapper_rename_dependencies(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, const uint8_t * p_renames, int p_renames_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ResourceFormatLoader_constructor();
-    void _wasgo_ResourceFormatLoader_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

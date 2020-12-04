@@ -9,10 +9,10 @@ class VisualShaderNodeVectorCompose : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeVectorCompose(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeVectorCompose();
-~VisualShaderNodeVectorCompose();
+explicit VisualShaderNodeVectorCompose(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorCompose(VisualShaderNode other);
+VisualShaderNodeVectorCompose new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeVectorCompose();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeVectorCompose_constructor();
-    void _wasgo_VisualShaderNodeVectorCompose_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

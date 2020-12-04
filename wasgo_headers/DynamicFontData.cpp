@@ -23,8 +23,8 @@ void DynamicFontData::set_antialiased(bool p_antialiased){
 void DynamicFontData::set_font_path(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_DynamicFontData_wrapper_set_font_path(wasgo_id, wasgo_buffer_path, wasgo_size_path);
@@ -35,9 +35,9 @@ void DynamicFontData::set_hinting(DynamicFontData::Hinting p_mode){
 
 DynamicFontData::DynamicFontData(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-DynamicFontData::DynamicFontData(){
+DynamicFontData::DynamicFontData(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_DynamicFontData_constructor();
 }
-DynamicFontData::~DynamicFontData(){
-    _wasgo_DynamicFontData_destructor(wasgo_id);
+DynamicFontData::new_instance(){
+    return DynamicFontData(_wasgo_DynamicFontData_constructor());
 }

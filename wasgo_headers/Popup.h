@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Rect2.h"
 #include "Control.h"
 #include "Vector2.h"
-#include "Rect2.h"
 class Popup : public Control{
 public:
 bool is_exclusive();
@@ -19,10 +19,10 @@ void set_as_minsize();
 void set_exclusive(bool p_enable);
 
 protected:
-Popup(WasGoId p_wasgo_id);
 public:
-Popup();
-~Popup();
+explicit Popup(WasGoId p_wasgo_id);
+explicit Popup(Control other);
+Popup new_instance();
             
 };
 
@@ -38,9 +38,8 @@ void _wasgo_Popup_wrapper_popup_centered_ratio(WasGoId wasgo_id, float p_ratio);
 void _wasgo_Popup_wrapper_set_as_minsize(WasGoId wasgo_id);
 void _wasgo_Popup_wrapper_set_exclusive(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Popup_constructor();
-    void _wasgo_Popup_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

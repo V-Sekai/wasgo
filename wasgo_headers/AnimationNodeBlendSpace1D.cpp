@@ -53,8 +53,8 @@ void AnimationNodeBlendSpace1D::set_snap(float p_snap){
 void AnimationNodeBlendSpace1D::set_value_label(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_AnimationNodeBlendSpace1D_wrapper_set_value_label(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -62,9 +62,9 @@ void AnimationNodeBlendSpace1D::set_value_label(String p_text){
 
 AnimationNodeBlendSpace1D::AnimationNodeBlendSpace1D(WasGoId p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
-AnimationNodeBlendSpace1D::AnimationNodeBlendSpace1D(){
+AnimationNodeBlendSpace1D::AnimationNodeBlendSpace1D(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeBlendSpace1D_constructor();
 }
-AnimationNodeBlendSpace1D::~AnimationNodeBlendSpace1D(){
-    _wasgo_AnimationNodeBlendSpace1D_destructor(wasgo_id);
+AnimationNodeBlendSpace1D::new_instance(){
+    return AnimationNodeBlendSpace1D(_wasgo_AnimationNodeBlendSpace1D_constructor());
 }

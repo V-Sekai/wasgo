@@ -155,8 +155,8 @@ void NavigationMesh::set_source_geometry_mode(int p_mask){
 void NavigationMesh::set_source_group_name(String p_mask){
 
     Variant wasgo_var_mask = p_mask;
-    uint8_t wasgo_buffer_mask[256];
-    int wasgo_size_mask = 256;
+    int wasgo_size_mask = String(p_mask).size();
+    uint8_t wasgo_buffer_mask[wasgo_size_mask];
     encode_variant(wasgo_var_mask, wasgo_buffer_mask, wasgo_size_mask);
     
 	_wasgo_NavigationMesh_wrapper_set_source_group_name(wasgo_id, wasgo_buffer_mask, wasgo_size_mask);
@@ -170,9 +170,9 @@ void NavigationMesh::set_verts_per_poly(float p_verts_per_poly){
 
 NavigationMesh::NavigationMesh(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-NavigationMesh::NavigationMesh(){
+NavigationMesh::NavigationMesh(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_NavigationMesh_constructor();
 }
-NavigationMesh::~NavigationMesh(){
-    _wasgo_NavigationMesh_destructor(wasgo_id);
+NavigationMesh::new_instance(){
+    return NavigationMesh(_wasgo_NavigationMesh_constructor());
 }

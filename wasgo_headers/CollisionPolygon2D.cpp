@@ -34,9 +34,9 @@ void CollisionPolygon2D::set_polygon(PoolVector2Array p_polygon){
 
 CollisionPolygon2D::CollisionPolygon2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-CollisionPolygon2D::CollisionPolygon2D(){
+CollisionPolygon2D::CollisionPolygon2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_CollisionPolygon2D_constructor();
 }
-CollisionPolygon2D::~CollisionPolygon2D(){
-    _wasgo_CollisionPolygon2D_destructor(wasgo_id);
+CollisionPolygon2D::new_instance(){
+    return CollisionPolygon2D(_wasgo_CollisionPolygon2D_constructor());
 }

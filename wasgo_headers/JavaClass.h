@@ -9,10 +9,10 @@ class JavaClass : public Reference{
 public:
 
 protected:
-JavaClass(WasGoId p_wasgo_id);
 public:
-JavaClass();
-~JavaClass();
+explicit JavaClass(WasGoId p_wasgo_id);
+explicit JavaClass(Reference other);
+JavaClass new_instance();
             
 };
 
@@ -20,9 +20,8 @@ JavaClass();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_JavaClass_constructor();
-    void _wasgo_JavaClass_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

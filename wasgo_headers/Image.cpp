@@ -200,8 +200,8 @@ bool Image::is_invisible(){
 Error Image::load(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return Error(_wasgo_Image_wrapper_load(wasgo_id, wasgo_buffer_path, wasgo_size_path));
@@ -242,8 +242,8 @@ Image Image::rgbe_to_srgb(){
 Error Image::save_exr(String p_path, bool p_grayscale = (bool) false){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return Error(_wasgo_Image_wrapper_save_exr(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_grayscale));
@@ -251,8 +251,8 @@ Error Image::save_exr(String p_path, bool p_grayscale = (bool) false){
 Error Image::save_png(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return Error(_wasgo_Image_wrapper_save_png(wasgo_id, wasgo_buffer_path, wasgo_size_path));
@@ -296,9 +296,9 @@ void Image::unlock(){
 
 Image::Image(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-Image::Image(){
+Image::Image(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Image_constructor();
 }
-Image::~Image(){
-    _wasgo_Image_destructor(wasgo_id);
+Image::new_instance(){
+    return Image(_wasgo_Image_constructor());
 }

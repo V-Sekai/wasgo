@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "ustring.h"
 #include "Reference.h"
 #include "Object.h"
-#include "ustring.h"
 #include "Variant.h"
 class FuncRef : public Reference{
 public:
@@ -18,10 +18,10 @@ void set_function(String p_name);
 void set_instance(Object p_instance);
 
 protected:
-FuncRef(WasGoId p_wasgo_id);
 public:
-FuncRef();
-~FuncRef();
+explicit FuncRef(WasGoId p_wasgo_id);
+explicit FuncRef(Reference other);
+FuncRef new_instance();
             
 };
 
@@ -35,9 +35,8 @@ int _wasgo_FuncRef_wrapper_is_valid(WasGoId wasgo_id);
 void _wasgo_FuncRef_wrapper_set_function(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 void _wasgo_FuncRef_wrapper_set_instance(WasGoId wasgo_id, WasGoId p_instance);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_FuncRef_constructor();
-    void _wasgo_FuncRef_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

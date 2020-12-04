@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "AnimationNode.h"
-#include "AnimationRootNode.h"
-#include "ustring.h"
-#include "AnimationNodeStateMachineTransition.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "AnimationNode.h"
+#include "AnimationNodeStateMachineTransition.h"
+#include "AnimationRootNode.h"
 class AnimationNodeStateMachine : public AnimationRootNode{
 public:
 void add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2((0, 0)));
@@ -36,10 +36,10 @@ void set_node_position(String p_name, Vector2 p_position);
 void set_start_node(String p_name);
 
 protected:
-AnimationNodeStateMachine(WasGoId p_wasgo_id);
 public:
-AnimationNodeStateMachine();
-~AnimationNodeStateMachine();
+explicit AnimationNodeStateMachine(WasGoId p_wasgo_id);
+explicit AnimationNodeStateMachine(AnimationRootNode other);
+AnimationNodeStateMachine new_instance();
             
 };
 
@@ -70,9 +70,8 @@ void _wasgo_AnimationNodeStateMachine_wrapper_set_graph_offset(WasGoId wasgo_id,
 void _wasgo_AnimationNodeStateMachine_wrapper_set_node_position(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 void _wasgo_AnimationNodeStateMachine_wrapper_set_start_node(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeStateMachine_constructor();
-    void _wasgo_AnimationNodeStateMachine_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
 #include "ustring.h"
 #include "Font.h"
+#include "Color.h"
 #include "DynamicFontData.h"
 class DynamicFont : public Font{
 public:
@@ -38,10 +38,10 @@ void set_use_filter(bool p_enable);
 void set_use_mipmaps(bool p_enable);
 
 protected:
-DynamicFont(WasGoId p_wasgo_id);
 public:
-DynamicFont();
-~DynamicFont();
+explicit DynamicFont(WasGoId p_wasgo_id);
+explicit DynamicFont(Font other);
+DynamicFont new_instance();
             
 };
 
@@ -69,9 +69,8 @@ void _wasgo_DynamicFont_wrapper_set_spacing(WasGoId wasgo_id, int p_type, int p_
 void _wasgo_DynamicFont_wrapper_set_use_filter(WasGoId wasgo_id, bool p_enable);
 void _wasgo_DynamicFont_wrapper_set_use_mipmaps(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_DynamicFont_constructor();
-    void _wasgo_DynamicFont_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

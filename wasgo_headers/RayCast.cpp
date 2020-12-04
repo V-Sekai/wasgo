@@ -118,9 +118,9 @@ void RayCast::set_exclude_parent_body(bool p_mask){
 
 RayCast::RayCast(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-RayCast::RayCast(){
+RayCast::RayCast(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_RayCast_constructor();
 }
-RayCast::~RayCast(){
-    _wasgo_RayCast_destructor(wasgo_id);
+RayCast::new_instance(){
+    return RayCast(_wasgo_RayCast_constructor());
 }

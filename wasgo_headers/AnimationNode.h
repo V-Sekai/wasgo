@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "ustring.h"
 #include "Variant.h"
+#include "ustring.h"
 #include "NodePath.h"
 #include "Object.h"
+#include "Resource.h"
 class AnimationNode : public Resource{
 public:
 enum FilterAction{
@@ -39,10 +39,10 @@ void set_filter_path(NodePath p_path, bool p_enable);
 void set_parameter(String p_name, Variant p_value);
 
 protected:
-AnimationNode(WasGoId p_wasgo_id);
 public:
-AnimationNode();
-~AnimationNode();
+explicit AnimationNode(WasGoId p_wasgo_id);
+explicit AnimationNode(Resource other);
+AnimationNode new_instance();
             
 };
 
@@ -70,9 +70,8 @@ void _wasgo_AnimationNode_wrapper_set_filter_enabled(WasGoId wasgo_id, bool p_en
 void _wasgo_AnimationNode_wrapper_set_filter_path(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, bool p_enable);
 void _wasgo_AnimationNode_wrapper_set_parameter(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, WasGoId p_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNode_constructor();
-    void _wasgo_AnimationNode_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

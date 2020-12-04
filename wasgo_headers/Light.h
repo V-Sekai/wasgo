@@ -73,9 +73,8 @@ void _wasgo_Light_wrapper_set_shadow(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_Light_wrapper_set_shadow_color(WasGoId wasgo_id, const uint8_t * p_shadow_color, int p_shadow_color_wasgo_buffer_size);
 void _wasgo_Light_wrapper_set_shadow_reverse_cull_face(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Light_constructor();
-    void _wasgo_Light_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

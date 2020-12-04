@@ -72,9 +72,9 @@ Vector3 KinematicCollision::get_travel(){
 
 KinematicCollision::KinematicCollision(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-KinematicCollision::KinematicCollision(){
+KinematicCollision::KinematicCollision(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_KinematicCollision_constructor();
 }
-KinematicCollision::~KinematicCollision(){
-    _wasgo_KinematicCollision_destructor(wasgo_id);
+KinematicCollision::new_instance(){
+    return KinematicCollision(_wasgo_KinematicCollision_constructor());
 }

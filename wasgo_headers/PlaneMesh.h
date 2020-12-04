@@ -16,10 +16,10 @@ void set_subdivide_depth(int p_subdivide);
 void set_subdivide_width(int p_subdivide);
 
 protected:
-PlaneMesh(WasGoId p_wasgo_id);
 public:
-PlaneMesh();
-~PlaneMesh();
+explicit PlaneMesh(WasGoId p_wasgo_id);
+explicit PlaneMesh(PrimitiveMesh other);
+PlaneMesh new_instance();
             
 };
 
@@ -33,9 +33,8 @@ void _wasgo_PlaneMesh_wrapper_set_size(WasGoId wasgo_id, const uint8_t * p_size,
 void _wasgo_PlaneMesh_wrapper_set_subdivide_depth(WasGoId wasgo_id, int p_subdivide);
 void _wasgo_PlaneMesh_wrapper_set_subdivide_width(WasGoId wasgo_id, int p_subdivide);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PlaneMesh_constructor();
-    void _wasgo_PlaneMesh_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

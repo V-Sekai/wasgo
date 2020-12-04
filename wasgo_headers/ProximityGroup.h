@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
 #include "Vector3.h"
-#include "ustring.h"
 #include "Variant.h"
+#include "Spatial.h"
+#include "ustring.h"
 class ProximityGroup : public Spatial{
 public:
 enum DispatchMode{
@@ -23,10 +23,10 @@ void set_grid_radius(Vector3 p_radius);
 void set_group_name(String p_name);
 
 protected:
-ProximityGroup(WasGoId p_wasgo_id);
 public:
-ProximityGroup();
-~ProximityGroup();
+explicit ProximityGroup(WasGoId p_wasgo_id);
+explicit ProximityGroup(Spatial other);
+ProximityGroup new_instance();
             
 };
 
@@ -41,9 +41,8 @@ void _wasgo_ProximityGroup_wrapper_set_dispatch_mode(WasGoId wasgo_id, WasGoId p
 void _wasgo_ProximityGroup_wrapper_set_grid_radius(WasGoId wasgo_id, const uint8_t * p_radius, int p_radius_wasgo_buffer_size);
 void _wasgo_ProximityGroup_wrapper_set_group_name(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ProximityGroup_constructor();
-    void _wasgo_ProximityGroup_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

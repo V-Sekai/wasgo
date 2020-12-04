@@ -4,9 +4,9 @@
 
 HScrollBar::HScrollBar(WasGoId p_wasgo_id) : ScrollBar(p_wasgo_id){
 }
-HScrollBar::HScrollBar(){
+HScrollBar::HScrollBar(ScrollBar other) : ScrollBar(other._get_wasgo_id()){
     wasgo_id = _wasgo_HScrollBar_constructor();
 }
-HScrollBar::~HScrollBar(){
-    _wasgo_HScrollBar_destructor(wasgo_id);
+HScrollBar::new_instance(){
+    return HScrollBar(_wasgo_HScrollBar_constructor());
 }

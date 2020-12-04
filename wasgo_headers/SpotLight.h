@@ -9,10 +9,10 @@ class SpotLight : public Light{
 public:
 
 protected:
-SpotLight(WasGoId p_wasgo_id);
 public:
-SpotLight();
-~SpotLight();
+explicit SpotLight(WasGoId p_wasgo_id);
+explicit SpotLight(Light other);
+SpotLight new_instance();
             
 };
 
@@ -20,9 +20,8 @@ SpotLight();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SpotLight_constructor();
-    void _wasgo_SpotLight_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

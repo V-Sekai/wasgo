@@ -23,9 +23,9 @@ void Listener::make_current(){
 
 Listener::Listener(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-Listener::Listener(){
+Listener::Listener(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_Listener_constructor();
 }
-Listener::~Listener(){
-    _wasgo_Listener_destructor(wasgo_id);
+Listener::new_instance(){
+    return Listener(_wasgo_Listener_constructor());
 }

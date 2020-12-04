@@ -19,10 +19,10 @@ void set_radius(float p_radius);
 void set_rings(int p_rings);
 
 protected:
-SphereMesh(WasGoId p_wasgo_id);
 public:
-SphereMesh();
-~SphereMesh();
+explicit SphereMesh(WasGoId p_wasgo_id);
+explicit SphereMesh(PrimitiveMesh other);
+SphereMesh new_instance();
             
 };
 
@@ -40,9 +40,8 @@ void _wasgo_SphereMesh_wrapper_set_radial_segments(WasGoId wasgo_id, int p_radia
 void _wasgo_SphereMesh_wrapper_set_radius(WasGoId wasgo_id, float p_radius);
 void _wasgo_SphereMesh_wrapper_set_rings(WasGoId wasgo_id, int p_rings);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SphereMesh_constructor();
-    void _wasgo_SphereMesh_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

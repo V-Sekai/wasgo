@@ -9,10 +9,10 @@ class VisualShaderNodeTransformUniform : public VisualShaderNodeUniform{
 public:
 
 protected:
-VisualShaderNodeTransformUniform(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeTransformUniform();
-~VisualShaderNodeTransformUniform();
+explicit VisualShaderNodeTransformUniform(WasGoId p_wasgo_id);
+explicit VisualShaderNodeTransformUniform(VisualShaderNodeUniform other);
+VisualShaderNodeTransformUniform new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeTransformUniform();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeTransformUniform_constructor();
-    void _wasgo_VisualShaderNodeTransformUniform_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

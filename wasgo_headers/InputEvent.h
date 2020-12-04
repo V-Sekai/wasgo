@@ -6,8 +6,8 @@
 
 #include "Resource.h"
 #include "Transform2D.h"
-#include "ustring.h"
 #include "Vector2.h"
+#include "ustring.h"
 class InputEvent : public Resource{
 public:
 bool accumulate(InputEvent p_with_event);
@@ -42,9 +42,8 @@ void _wasgo_InputEvent_wrapper_set_device(WasGoId wasgo_id, int p_device);
 int _wasgo_InputEvent_wrapper_shortcut_match(WasGoId wasgo_id, WasGoId p_event);
 WasGoId _wasgo_InputEvent_wrapper_xformed_by(WasGoId wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size, const uint8_t * p_local_ofs, int p_local_ofs_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InputEvent_constructor();
-    void _wasgo_InputEvent_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

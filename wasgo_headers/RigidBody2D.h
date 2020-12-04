@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
+#include "PhysicsMaterial.h"
+#include "Vector2.h"
 #include "PhysicsBody2D.h"
 #include "Physics2DTestMotionResult.h"
 #include "Variant.h"
-#include "PhysicsMaterial.h"
-#include "Vector2.h"
 class RigidBody2D : public PhysicsBody2D{
 public:
 enum CCDMode{
@@ -73,10 +73,10 @@ void set_weight(float p_weight);
 bool test_motion(Vector2 p_motion, bool p_infinite_inertia = (bool) true, float p_margin = (float) 0.08, Physics2DTestMotionResult p_result = (Physics2DTestMotionResult) "");
 
 protected:
-RigidBody2D(WasGoId p_wasgo_id);
 public:
-RigidBody2D();
-~RigidBody2D();
+explicit RigidBody2D(WasGoId p_wasgo_id);
+explicit RigidBody2D(PhysicsBody2D other);
+RigidBody2D new_instance();
             
 };
 
@@ -133,9 +133,8 @@ void _wasgo_RigidBody2D_wrapper_set_use_custom_integrator(WasGoId wasgo_id, bool
 void _wasgo_RigidBody2D_wrapper_set_weight(WasGoId wasgo_id, float p_weight);
 int _wasgo_RigidBody2D_wrapper_test_motion(WasGoId wasgo_id, const uint8_t * p_motion, int p_motion_wasgo_buffer_size, bool p_infinite_inertia, float p_margin, WasGoId p_result);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_RigidBody2D_constructor();
-    void _wasgo_RigidBody2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

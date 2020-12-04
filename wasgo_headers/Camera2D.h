@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Margin.h"
-#include "Vector2.h"
 #include "Node.h"
+#include "Node2D.h"
+#include "Vector2.h"
 class Camera2D : public Node2D{
 public:
 enum AnchorMode{
@@ -64,10 +64,10 @@ void set_v_offset(float p_ofs);
 void set_zoom(Vector2 p_zoom);
 
 protected:
-Camera2D(WasGoId p_wasgo_id);
 public:
-Camera2D();
-~Camera2D();
+explicit Camera2D(WasGoId p_wasgo_id);
+explicit Camera2D(Node2D other);
+Camera2D new_instance();
             
 };
 
@@ -119,9 +119,8 @@ void _wasgo_Camera2D_wrapper_set_v_drag_enabled(WasGoId wasgo_id, bool p_enabled
 void _wasgo_Camera2D_wrapper_set_v_offset(WasGoId wasgo_id, float p_ofs);
 void _wasgo_Camera2D_wrapper_set_zoom(WasGoId wasgo_id, const uint8_t * p_zoom, int p_zoom_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Camera2D_constructor();
-    void _wasgo_Camera2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

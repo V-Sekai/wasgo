@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "InputEvent.h"
 #include "Object.h"
 #include "ustring.h"
-#include "InputEvent.h"
 class MainLoop : public Object{
 public:
 void finish();
@@ -17,10 +17,10 @@ void input_text(String p_text);
 bool iteration(float p_delta);
 
 protected:
-MainLoop(WasGoId p_wasgo_id);
 public:
-MainLoop();
-~MainLoop();
+explicit MainLoop(WasGoId p_wasgo_id);
+explicit MainLoop(Object other);
+MainLoop new_instance();
             
 };
 
@@ -34,9 +34,8 @@ void _wasgo_MainLoop_wrapper_input_event(WasGoId wasgo_id, WasGoId p_event);
 void _wasgo_MainLoop_wrapper_input_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 int _wasgo_MainLoop_wrapper_iteration(WasGoId wasgo_id, float p_delta);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_MainLoop_constructor();
-    void _wasgo_MainLoop_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

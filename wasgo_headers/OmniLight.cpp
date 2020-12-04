@@ -16,9 +16,9 @@ void OmniLight::set_shadow_mode(OmniLight::ShadowMode p_mode){
 
 OmniLight::OmniLight(WasGoId p_wasgo_id) : Light(p_wasgo_id){
 }
-OmniLight::OmniLight(){
+OmniLight::OmniLight(Light other) : Light(other._get_wasgo_id()){
     wasgo_id = _wasgo_OmniLight_constructor();
 }
-OmniLight::~OmniLight(){
-    _wasgo_OmniLight_destructor(wasgo_id);
+OmniLight::new_instance(){
+    return OmniLight(_wasgo_OmniLight_constructor());
 }

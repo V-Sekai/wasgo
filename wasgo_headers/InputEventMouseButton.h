@@ -16,10 +16,10 @@ void set_factor(float p_factor);
 void set_pressed(bool p_pressed);
 
 protected:
-InputEventMouseButton(WasGoId p_wasgo_id);
 public:
-InputEventMouseButton();
-~InputEventMouseButton();
+explicit InputEventMouseButton(WasGoId p_wasgo_id);
+explicit InputEventMouseButton(InputEventMouse other);
+InputEventMouseButton new_instance();
             
 };
 
@@ -34,9 +34,8 @@ void _wasgo_InputEventMouseButton_wrapper_set_doubleclick(WasGoId wasgo_id, bool
 void _wasgo_InputEventMouseButton_wrapper_set_factor(WasGoId wasgo_id, float p_factor);
 void _wasgo_InputEventMouseButton_wrapper_set_pressed(WasGoId wasgo_id, bool p_pressed);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InputEventMouseButton_constructor();
-    void _wasgo_InputEventMouseButton_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

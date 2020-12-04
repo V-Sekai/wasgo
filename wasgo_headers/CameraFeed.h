@@ -29,10 +29,10 @@ void set_active(bool p_active);
 void set_transform(Transform2D p_transform);
 
 protected:
-CameraFeed(WasGoId p_wasgo_id);
 public:
-CameraFeed();
-~CameraFeed();
+explicit CameraFeed(WasGoId p_wasgo_id);
+explicit CameraFeed(Reference other);
+CameraFeed new_instance();
             
 };
 
@@ -47,9 +47,8 @@ int _wasgo_CameraFeed_wrapper_is_active(WasGoId wasgo_id);
 void _wasgo_CameraFeed_wrapper_set_active(WasGoId wasgo_id, bool p_active);
 void _wasgo_CameraFeed_wrapper_set_transform(WasGoId wasgo_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CameraFeed_constructor();
-    void _wasgo_CameraFeed_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

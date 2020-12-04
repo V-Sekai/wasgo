@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "NavigationMesh.h"
-#include "Resource.h"
-#include "Mesh.h"
 #include "ustring.h"
-#include "Variant.h"
-#include "Transform.h"
+#include "NavigationMesh.h"
 #include "Texture.h"
+#include "Mesh.h"
+#include "Resource.h"
+#include "Transform.h"
+#include "Variant.h"
 class MeshLibrary : public Resource{
 public:
 void clear();
@@ -33,10 +33,10 @@ void set_item_preview(int p_id, Texture p_texture);
 void set_item_shapes(int p_id, Array p_shapes);
 
 protected:
-MeshLibrary(WasGoId p_wasgo_id);
 public:
-MeshLibrary();
-~MeshLibrary();
+explicit MeshLibrary(WasGoId p_wasgo_id);
+explicit MeshLibrary(Resource other);
+MeshLibrary new_instance();
             
 };
 
@@ -62,9 +62,8 @@ void _wasgo_MeshLibrary_wrapper_set_item_navmesh_transform(WasGoId wasgo_id, int
 void _wasgo_MeshLibrary_wrapper_set_item_preview(WasGoId wasgo_id, int p_id, WasGoId p_texture);
 void _wasgo_MeshLibrary_wrapper_set_item_shapes(WasGoId wasgo_id, int p_id, WasGoId p_shapes);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_MeshLibrary_constructor();
-    void _wasgo_MeshLibrary_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

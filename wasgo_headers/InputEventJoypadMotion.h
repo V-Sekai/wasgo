@@ -13,10 +13,10 @@ void set_axis(int p_axis);
 void set_axis_value(float p_axis_value);
 
 protected:
-InputEventJoypadMotion(WasGoId p_wasgo_id);
 public:
-InputEventJoypadMotion();
-~InputEventJoypadMotion();
+explicit InputEventJoypadMotion(WasGoId p_wasgo_id);
+explicit InputEventJoypadMotion(InputEvent other);
+InputEventJoypadMotion new_instance();
             
 };
 
@@ -28,9 +28,8 @@ float _wasgo_InputEventJoypadMotion_wrapper_get_axis_value(WasGoId wasgo_id);
 void _wasgo_InputEventJoypadMotion_wrapper_set_axis(WasGoId wasgo_id, int p_axis);
 void _wasgo_InputEventJoypadMotion_wrapper_set_axis_value(WasGoId wasgo_id, float p_axis_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InputEventJoypadMotion_constructor();
-    void _wasgo_InputEventJoypadMotion_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

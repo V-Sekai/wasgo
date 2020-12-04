@@ -18,10 +18,10 @@ void set_speed(Vector2 p_speed);
 void set_tilt(Vector2 p_tilt);
 
 protected:
-InputEventMouseMotion(WasGoId p_wasgo_id);
 public:
-InputEventMouseMotion();
-~InputEventMouseMotion();
+explicit InputEventMouseMotion(WasGoId p_wasgo_id);
+explicit InputEventMouseMotion(InputEventMouse other);
+InputEventMouseMotion new_instance();
             
 };
 
@@ -37,9 +37,8 @@ void _wasgo_InputEventMouseMotion_wrapper_set_relative(WasGoId wasgo_id, const u
 void _wasgo_InputEventMouseMotion_wrapper_set_speed(WasGoId wasgo_id, const uint8_t * p_speed, int p_speed_wasgo_buffer_size);
 void _wasgo_InputEventMouseMotion_wrapper_set_tilt(WasGoId wasgo_id, const uint8_t * p_tilt, int p_tilt_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InputEventMouseMotion_constructor();
-    void _wasgo_InputEventMouseMotion_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

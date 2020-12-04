@@ -34,9 +34,9 @@ void TextureRect::set_texture(Texture p_texture){
 
 TextureRect::TextureRect(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-TextureRect::TextureRect(){
+TextureRect::TextureRect(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_TextureRect_constructor();
 }
-TextureRect::~TextureRect(){
-    _wasgo_TextureRect_destructor(wasgo_id);
+TextureRect::new_instance(){
+    return TextureRect(_wasgo_TextureRect_constructor());
 }

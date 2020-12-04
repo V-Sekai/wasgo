@@ -16,10 +16,10 @@ void set_output_buffer_max_size(int p_max_size_bytes);
 void set_stream_peer(StreamPeer p_peer);
 
 protected:
-PacketPeerStream(WasGoId p_wasgo_id);
 public:
-PacketPeerStream();
-~PacketPeerStream();
+explicit PacketPeerStream(WasGoId p_wasgo_id);
+explicit PacketPeerStream(PacketPeer other);
+PacketPeerStream new_instance();
             
 };
 
@@ -33,9 +33,8 @@ void _wasgo_PacketPeerStream_wrapper_set_input_buffer_max_size(WasGoId wasgo_id,
 void _wasgo_PacketPeerStream_wrapper_set_output_buffer_max_size(WasGoId wasgo_id, int p_max_size_bytes);
 void _wasgo_PacketPeerStream_wrapper_set_stream_peer(WasGoId wasgo_id, WasGoId p_peer);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PacketPeerStream_constructor();
-    void _wasgo_PacketPeerStream_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

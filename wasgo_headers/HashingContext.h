@@ -19,10 +19,10 @@ Error start(HashingContext::HashType p_type);
 Error update(PoolByteArray p_chunk);
 
 protected:
-HashingContext(WasGoId p_wasgo_id);
 public:
-HashingContext();
-~HashingContext();
+explicit HashingContext(WasGoId p_wasgo_id);
+explicit HashingContext(Reference other);
+HashingContext new_instance();
             
 };
 
@@ -33,9 +33,8 @@ WasGoId _wasgo_HashingContext_wrapper_finish(WasGoId wasgo_id);
 WasGoId _wasgo_HashingContext_wrapper_start(WasGoId wasgo_id, WasGoId p_type);
 WasGoId _wasgo_HashingContext_wrapper_update(WasGoId wasgo_id, WasGoId p_chunk);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_HashingContext_constructor();
-    void _wasgo_HashingContext_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

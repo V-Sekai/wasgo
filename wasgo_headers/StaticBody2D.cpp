@@ -47,9 +47,9 @@ void StaticBody2D::set_physics_material_override(PhysicsMaterial p_physics_mater
 
 StaticBody2D::StaticBody2D(WasGoId p_wasgo_id) : PhysicsBody2D(p_wasgo_id){
 }
-StaticBody2D::StaticBody2D(){
+StaticBody2D::StaticBody2D(PhysicsBody2D other) : PhysicsBody2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_StaticBody2D_constructor();
 }
-StaticBody2D::~StaticBody2D(){
-    _wasgo_StaticBody2D_destructor(wasgo_id);
+StaticBody2D::new_instance(){
+    return StaticBody2D(_wasgo_StaticBody2D_constructor());
 }

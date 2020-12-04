@@ -28,9 +28,9 @@ void AudioEffectFilter::set_resonance(float p_amount){
 
 AudioEffectFilter::AudioEffectFilter(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
-AudioEffectFilter::AudioEffectFilter(){
+AudioEffectFilter::AudioEffectFilter(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectFilter_constructor();
 }
-AudioEffectFilter::~AudioEffectFilter(){
-    _wasgo_AudioEffectFilter_destructor(wasgo_id);
+AudioEffectFilter::new_instance(){
+    return AudioEffectFilter(_wasgo_AudioEffectFilter_constructor());
 }

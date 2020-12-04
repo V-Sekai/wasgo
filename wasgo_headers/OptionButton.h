@@ -6,9 +6,9 @@
 
 #include "Button.h"
 #include "ustring.h"
-#include "Variant.h"
-#include "PopupMenu.h"
 #include "Texture.h"
+#include "PopupMenu.h"
+#include "Variant.h"
 class OptionButton : public Button{
 public:
 void add_icon_item(Texture p_texture, String p_label, int p_id = (int) -1);
@@ -35,10 +35,10 @@ void set_item_metadata(int p_idx, Variant p_metadata);
 void set_item_text(int p_idx, String p_text);
 
 protected:
-OptionButton(WasGoId p_wasgo_id);
 public:
-OptionButton();
-~OptionButton();
+explicit OptionButton(WasGoId p_wasgo_id);
+explicit OptionButton(Button other);
+OptionButton new_instance();
             
 };
 
@@ -68,9 +68,8 @@ void _wasgo_OptionButton_wrapper_set_item_id(WasGoId wasgo_id, int p_idx, int p_
 void _wasgo_OptionButton_wrapper_set_item_metadata(WasGoId wasgo_id, int p_idx, WasGoId p_metadata);
 void _wasgo_OptionButton_wrapper_set_item_text(WasGoId wasgo_id, int p_idx, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_OptionButton_constructor();
-    void _wasgo_OptionButton_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

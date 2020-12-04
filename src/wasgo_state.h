@@ -25,8 +25,8 @@ class WasGoState : public Node {
 	//Properties
 	Ref<WasmResource> wasm_script;
 	Dictionary properties = {}; //Properties to be passed to the script when it starts up
-	uint32_t stack_size = 8192000;
-	uint32_t heap_size = 8192000;
+	uint32_t stack_size = 8192;
+	uint32_t heap_size = 8192;
 
 public:
 	enum InterpolationType {
@@ -66,18 +66,18 @@ public:
 	int call_wasm_function(String func_name, int argc = 0, uint32_t *argv = nullptr);
 
 	int call_object_function(WasGoID object_id, int argc, uint32_t *argv);
-	int call_variant_function(WasGoID object_id, int argc, uint32_t *argv);
+	// int call_variant_function(WasGoID object_id, int argc, uint32_t *argv);
 	// int call_array_function(WasGoID array_id, int argc, uint32_t *argv);
 	// int call_dictionary_function(WasGoID dictionary_id, int argc, uint32_t *argv);
 
-	Object *lookup_object(WasGoID id);
-	Object *lookup_createdObject(WasGoID id);
-	Object *lookup_referencedObject(WasGoID id);
-	Variant *lookup_variant(WasGoID id);
+	Variant lookup_object(WasGoID id);
+	Variant lookup_createdObject(WasGoID id);
+	Variant lookup_referencedObject(WasGoID id);
+	// Variant *lookup_variant(WasGoID id);
 
-	WasGoID lookup_object_reverse(ObjectID id);
-	WasGoID lookup_createdObject_reverse(ObjectID id);
-	WasGoID lookup_referencedObject_reverse(ObjectID id);
+	WasGoID lookup_wasgo_object(Variant  obj);
+	WasGoID lookup_wasgo_createdObject(Variant  obj);
+	WasGoID lookup_wasgo_referencedObject(Variant  obj);
 	// WasGoID lookup_variant_reverse(Variant *);
 
 	bool is_active();
@@ -94,14 +94,10 @@ public:
 	// void _unhandled_key_input(InputEventKey event);
 
 	WasGoID generate_id();
-	WasGoID create_object(ObjectID obj_id);
-	WasGoID reference_object(ObjectID obj_id);
-	WasGoID create_variant(Variant var);
-	WasGoID create_object(Object obj);
-	WasGoID reference_object(Object obj);
-	WasGoID create_object(Object *obj);
-	WasGoID reference_object(Object *obj);
-	WasGoID reference_object(Ref<Object> ref);
+	// WasGoID create_variant(Variant var);
+	WasGoID create_object(Variant obj);
+	WasGoID reference_object(Variant obj);
+	// WasGoID reference_object(Ref<Object> ref);
 
 	WasGoID handle_return_variant(Variant var);
 
@@ -117,14 +113,14 @@ private:
 
 	wasm_function_inst_t notification_callback = nullptr;
 
-	HashMap<ObjectID, WasGoID> createdObjects;
-	HashMap<WasGoID, ObjectID> createdObjectsReverse;
-	HashMap<ObjectID, WasGoID> referencedObjects;
-	HashMap<WasGoID, ObjectID> referencedObjectsReverse;
+	Dictionary createdObjects;
+	Dictionary createdObjectsReverse;
+	Dictionary referencedObjects;
+	Dictionary referencedObjectsReverse;
 
 	//Only for special types that are not Objects. No referencing allowed. Everything is pass by value
 	// HashMap<Variant, WasGoID> createdVariants;
-	HashMap<WasGoID, Variant> createdVariantsReverse;
+	// HashMap<WasGoID, Variant> createdVariantsReverse;
 
 	HashMap<WasGoID, InterpolationType> networkedVariants;
 

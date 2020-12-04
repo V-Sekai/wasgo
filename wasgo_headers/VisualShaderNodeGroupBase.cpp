@@ -4,8 +4,8 @@
 void VisualShaderNodeGroupBase::add_input_port(int p_id, int p_type, String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_VisualShaderNodeGroupBase_wrapper_add_input_port(wasgo_id, p_id, p_type, wasgo_buffer_name, wasgo_size_name);
@@ -13,8 +13,8 @@ void VisualShaderNodeGroupBase::add_input_port(int p_id, int p_type, String p_na
 void VisualShaderNodeGroupBase::add_output_port(int p_id, int p_type, String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_VisualShaderNodeGroupBase_wrapper_add_output_port(wasgo_id, p_id, p_type, wasgo_buffer_name, wasgo_size_name);
@@ -76,8 +76,8 @@ bool VisualShaderNodeGroupBase::has_output_port(int p_id){
 bool VisualShaderNodeGroupBase::is_valid_port_name(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (bool) _wasgo_VisualShaderNodeGroupBase_wrapper_is_valid_port_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -91,8 +91,8 @@ void VisualShaderNodeGroupBase::remove_output_port(int p_id){
 void VisualShaderNodeGroupBase::set_input_port_name(int p_id, String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_VisualShaderNodeGroupBase_wrapper_set_input_port_name(wasgo_id, p_id, wasgo_buffer_name, wasgo_size_name);
@@ -103,8 +103,8 @@ void VisualShaderNodeGroupBase::set_input_port_type(int p_id, int p_type){
 void VisualShaderNodeGroupBase::set_inputs(String p_inputs){
 
     Variant wasgo_var_inputs = p_inputs;
-    uint8_t wasgo_buffer_inputs[256];
-    int wasgo_size_inputs = 256;
+    int wasgo_size_inputs = String(p_inputs).size();
+    uint8_t wasgo_buffer_inputs[wasgo_size_inputs];
     encode_variant(wasgo_var_inputs, wasgo_buffer_inputs, wasgo_size_inputs);
     
 	_wasgo_VisualShaderNodeGroupBase_wrapper_set_inputs(wasgo_id, wasgo_buffer_inputs, wasgo_size_inputs);
@@ -112,8 +112,8 @@ void VisualShaderNodeGroupBase::set_inputs(String p_inputs){
 void VisualShaderNodeGroupBase::set_output_port_name(int p_id, String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_VisualShaderNodeGroupBase_wrapper_set_output_port_name(wasgo_id, p_id, wasgo_buffer_name, wasgo_size_name);
@@ -124,8 +124,8 @@ void VisualShaderNodeGroupBase::set_output_port_type(int p_id, int p_type){
 void VisualShaderNodeGroupBase::set_outputs(String p_outputs){
 
     Variant wasgo_var_outputs = p_outputs;
-    uint8_t wasgo_buffer_outputs[256];
-    int wasgo_size_outputs = 256;
+    int wasgo_size_outputs = String(p_outputs).size();
+    uint8_t wasgo_buffer_outputs[wasgo_size_outputs];
     encode_variant(wasgo_var_outputs, wasgo_buffer_outputs, wasgo_size_outputs);
     
 	_wasgo_VisualShaderNodeGroupBase_wrapper_set_outputs(wasgo_id, wasgo_buffer_outputs, wasgo_size_outputs);
@@ -142,9 +142,9 @@ void VisualShaderNodeGroupBase::set_size(Vector2 p_size){
 
 VisualShaderNodeGroupBase::VisualShaderNodeGroupBase(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeGroupBase::VisualShaderNodeGroupBase(){
+VisualShaderNodeGroupBase::VisualShaderNodeGroupBase(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeGroupBase_constructor();
 }
-VisualShaderNodeGroupBase::~VisualShaderNodeGroupBase(){
-    _wasgo_VisualShaderNodeGroupBase_destructor(wasgo_id);
+VisualShaderNodeGroupBase::new_instance(){
+    return VisualShaderNodeGroupBase(_wasgo_VisualShaderNodeGroupBase_constructor());
 }

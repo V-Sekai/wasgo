@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "InputEvent.h"
+#include "Vector2.h"
 class InputEventScreenTouch : public InputEvent{
 public:
 int get_index();
@@ -15,10 +15,10 @@ void set_position(Vector2 p_position);
 void set_pressed(bool p_pressed);
 
 protected:
-InputEventScreenTouch(WasGoId p_wasgo_id);
 public:
-InputEventScreenTouch();
-~InputEventScreenTouch();
+explicit InputEventScreenTouch(WasGoId p_wasgo_id);
+explicit InputEventScreenTouch(InputEvent other);
+InputEventScreenTouch new_instance();
             
 };
 
@@ -31,9 +31,8 @@ void _wasgo_InputEventScreenTouch_wrapper_set_index(WasGoId wasgo_id, int p_inde
 void _wasgo_InputEventScreenTouch_wrapper_set_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 void _wasgo_InputEventScreenTouch_wrapper_set_pressed(WasGoId wasgo_id, bool p_pressed);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InputEventScreenTouch_constructor();
-    void _wasgo_InputEventScreenTouch_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

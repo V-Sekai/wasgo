@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "SpriteBase3D.h"
 #include "Texture.h"
-#include "Vector2.h"
 #include "Rect2.h"
+#include "SpriteBase3D.h"
+#include "Vector2.h"
 class Sprite3D : public SpriteBase3D{
 public:
 int get_frame();
@@ -26,10 +26,10 @@ void set_texture(Texture p_texture);
 void set_vframes(int p_vframes);
 
 protected:
-Sprite3D(WasGoId p_wasgo_id);
 public:
-Sprite3D();
-~Sprite3D();
+explicit Sprite3D(WasGoId p_wasgo_id);
+explicit Sprite3D(SpriteBase3D other);
+Sprite3D new_instance();
             
 };
 
@@ -51,9 +51,8 @@ void _wasgo_Sprite3D_wrapper_set_region_rect(WasGoId wasgo_id, const uint8_t * p
 void _wasgo_Sprite3D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_Sprite3D_wrapper_set_vframes(WasGoId wasgo_id, int p_vframes);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Sprite3D_constructor();
-    void _wasgo_Sprite3D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

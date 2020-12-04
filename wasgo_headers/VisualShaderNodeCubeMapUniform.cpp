@@ -4,9 +4,9 @@
 
 VisualShaderNodeCubeMapUniform::VisualShaderNodeCubeMapUniform(WasGoId p_wasgo_id) : VisualShaderNodeTextureUniform(p_wasgo_id){
 }
-VisualShaderNodeCubeMapUniform::VisualShaderNodeCubeMapUniform(){
+VisualShaderNodeCubeMapUniform::VisualShaderNodeCubeMapUniform(VisualShaderNodeTextureUniform other) : VisualShaderNodeTextureUniform(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeCubeMapUniform_constructor();
 }
-VisualShaderNodeCubeMapUniform::~VisualShaderNodeCubeMapUniform(){
-    _wasgo_VisualShaderNodeCubeMapUniform_destructor(wasgo_id);
+VisualShaderNodeCubeMapUniform::new_instance(){
+    return VisualShaderNodeCubeMapUniform(_wasgo_VisualShaderNodeCubeMapUniform_constructor());
 }

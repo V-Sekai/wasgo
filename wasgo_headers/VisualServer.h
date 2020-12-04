@@ -5,19 +5,19 @@
 #include "wasgo\wasgo.h"
 
 #include "Vector3.h"
-#include "Basis.h"
-#include "RID.h"
 #include "Transform2D.h"
-#include "ustring.h"
-#include "AABB.h"
-#include "Variant.h"
-#include "Rect2.h"
-#include "Plane.h"
-#include "Color.h"
-#include "Transform.h"
-#include "Object.h"
-#include "Image.h"
+#include "Basis.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "Color.h"
+#include "AABB.h"
+#include "Rect2.h"
+#include "Object.h"
+#include "Transform.h"
+#include "Plane.h"
+#include "RID.h"
+#include "Image.h"
+#include "Variant.h"
 class VisualServer : public Object{
 public:
 enum ArrayFormat{
@@ -1066,9 +1066,8 @@ void _wasgo_VisualServer_wrapper_viewport_set_use_debanding(WasGoId wasgo_id, co
 void _wasgo_VisualServer_wrapper_viewport_set_use_fxaa(WasGoId wasgo_id, const uint8_t * p_viewport, int p_viewport_wasgo_buffer_size, bool p_fxaa);
 void _wasgo_VisualServer_wrapper_viewport_set_vflip(WasGoId wasgo_id, const uint8_t * p_viewport, int p_viewport_wasgo_buffer_size, bool p_enabled);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualServer_constructor();
-    void _wasgo_VisualServer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Resource.h"
-#include "ustring.h"
 #include "Variant.h"
+#include "ustring.h"
 class AnimationNodeStateMachinePlayback : public Resource{
 public:
 String get_current_node();
@@ -17,10 +17,10 @@ void stop();
 void travel(String p_to_node);
 
 protected:
-AnimationNodeStateMachinePlayback(WasGoId p_wasgo_id);
 public:
-AnimationNodeStateMachinePlayback();
-~AnimationNodeStateMachinePlayback();
+explicit AnimationNodeStateMachinePlayback(WasGoId p_wasgo_id);
+explicit AnimationNodeStateMachinePlayback(Resource other);
+AnimationNodeStateMachinePlayback new_instance();
             
 };
 
@@ -34,9 +34,8 @@ void _wasgo_AnimationNodeStateMachinePlayback_wrapper_start(WasGoId wasgo_id, co
 void _wasgo_AnimationNodeStateMachinePlayback_wrapper_stop(WasGoId wasgo_id);
 void _wasgo_AnimationNodeStateMachinePlayback_wrapper_travel(WasGoId wasgo_id, const uint8_t * p_to_node, int p_to_node_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeStateMachinePlayback_constructor();
-    void _wasgo_AnimationNodeStateMachinePlayback_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

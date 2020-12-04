@@ -16,9 +16,9 @@ void InputEventJoypadMotion::set_axis_value(float p_axis_value){
 
 InputEventJoypadMotion::InputEventJoypadMotion(WasGoId p_wasgo_id) : InputEvent(p_wasgo_id){
 }
-InputEventJoypadMotion::InputEventJoypadMotion(){
+InputEventJoypadMotion::InputEventJoypadMotion(InputEvent other) : InputEvent(other._get_wasgo_id()){
     wasgo_id = _wasgo_InputEventJoypadMotion_constructor();
 }
-InputEventJoypadMotion::~InputEventJoypadMotion(){
-    _wasgo_InputEventJoypadMotion_destructor(wasgo_id);
+InputEventJoypadMotion::new_instance(){
+    return InputEventJoypadMotion(_wasgo_InputEventJoypadMotion_constructor());
 }

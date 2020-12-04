@@ -4,9 +4,9 @@
 
 ARVRCamera::ARVRCamera(WasGoId p_wasgo_id) : Camera(p_wasgo_id){
 }
-ARVRCamera::ARVRCamera(){
+ARVRCamera::ARVRCamera(Camera other) : Camera(other._get_wasgo_id()){
     wasgo_id = _wasgo_ARVRCamera_constructor();
 }
-ARVRCamera::~ARVRCamera(){
-    _wasgo_ARVRCamera_destructor(wasgo_id);
+ARVRCamera::new_instance(){
+    return ARVRCamera(_wasgo_ARVRCamera_constructor());
 }

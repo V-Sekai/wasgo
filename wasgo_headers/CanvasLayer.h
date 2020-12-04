@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Transform2D.h"
-#include "Vector2.h"
 #include "Node.h"
+#include "Transform2D.h"
 #include "RID.h"
+#include "Vector2.h"
 class CanvasLayer : public Node{
 public:
 RID get_canvas();
@@ -31,10 +31,10 @@ void set_scale(Vector2 p_scale);
 void set_transform(Transform2D p_transform);
 
 protected:
-CanvasLayer(WasGoId p_wasgo_id);
 public:
-CanvasLayer();
-~CanvasLayer();
+explicit CanvasLayer(WasGoId p_wasgo_id);
+explicit CanvasLayer(Node other);
+CanvasLayer new_instance();
             
 };
 
@@ -61,9 +61,8 @@ void _wasgo_CanvasLayer_wrapper_set_rotation_degrees(WasGoId wasgo_id, float p_d
 void _wasgo_CanvasLayer_wrapper_set_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
 void _wasgo_CanvasLayer_wrapper_set_transform(WasGoId wasgo_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CanvasLayer_constructor();
-    void _wasgo_CanvasLayer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

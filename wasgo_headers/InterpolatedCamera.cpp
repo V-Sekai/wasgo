@@ -29,8 +29,8 @@ void InterpolatedCamera::set_target(Object p_target){
 void InterpolatedCamera::set_target_path(NodePath p_target_path){
 
     Variant wasgo_var_target_path = p_target_path;
-    uint8_t wasgo_buffer_target_path[256];
-    int wasgo_size_target_path = 256;
+    int wasgo_size_target_path = String(p_target_path).size();
+    uint8_t wasgo_buffer_target_path[wasgo_size_target_path];
     encode_variant(wasgo_var_target_path, wasgo_buffer_target_path, wasgo_size_target_path);
     
 	_wasgo_InterpolatedCamera_wrapper_set_target_path(wasgo_id, wasgo_buffer_target_path, wasgo_size_target_path);
@@ -38,9 +38,9 @@ void InterpolatedCamera::set_target_path(NodePath p_target_path){
 
 InterpolatedCamera::InterpolatedCamera(WasGoId p_wasgo_id) : Camera(p_wasgo_id){
 }
-InterpolatedCamera::InterpolatedCamera(){
+InterpolatedCamera::InterpolatedCamera(Camera other) : Camera(other._get_wasgo_id()){
     wasgo_id = _wasgo_InterpolatedCamera_constructor();
 }
-InterpolatedCamera::~InterpolatedCamera(){
-    _wasgo_InterpolatedCamera_destructor(wasgo_id);
+InterpolatedCamera::new_instance(){
+    return InterpolatedCamera(_wasgo_InterpolatedCamera_constructor());
 }

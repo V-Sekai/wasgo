@@ -111,9 +111,9 @@ void AStar::set_point_weight_scale(int p_id, float p_weight_scale){
 
 AStar::AStar(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-AStar::AStar(){
+AStar::AStar(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_AStar_constructor();
 }
-AStar::~AStar(){
-    _wasgo_AStar_destructor(wasgo_id);
+AStar::new_instance(){
+    return AStar(_wasgo_AStar_constructor());
 }

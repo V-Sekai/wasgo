@@ -21,10 +21,10 @@ void set_font_path(String p_path);
 void set_hinting(DynamicFontData::Hinting p_mode);
 
 protected:
-DynamicFontData(WasGoId p_wasgo_id);
 public:
-DynamicFontData();
-~DynamicFontData();
+explicit DynamicFontData(WasGoId p_wasgo_id);
+explicit DynamicFontData(Resource other);
+DynamicFontData new_instance();
             
 };
 
@@ -38,9 +38,8 @@ void _wasgo_DynamicFontData_wrapper_set_antialiased(WasGoId wasgo_id, bool p_ant
 void _wasgo_DynamicFontData_wrapper_set_font_path(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
 void _wasgo_DynamicFontData_wrapper_set_hinting(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_DynamicFontData_constructor();
-    void _wasgo_DynamicFontData_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

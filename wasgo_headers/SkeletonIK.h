@@ -5,11 +5,11 @@
 #include "wasgo\wasgo.h"
 
 #include "Vector3.h"
-#include "ustring.h"
 #include "Node.h"
+#include "ustring.h"
 #include "NodePath.h"
-#include "Transform.h"
 #include "Skeleton.h"
+#include "Transform.h"
 class SkeletonIK : public Node{
 public:
 float get_interpolation();
@@ -38,10 +38,10 @@ void start(bool p_one_time = (bool) false);
 void stop();
 
 protected:
-SkeletonIK(WasGoId p_wasgo_id);
 public:
-SkeletonIK();
-~SkeletonIK();
+explicit SkeletonIK(WasGoId p_wasgo_id);
+explicit SkeletonIK(Node other);
+SkeletonIK new_instance();
             
 };
 
@@ -73,9 +73,8 @@ void _wasgo_SkeletonIK_wrapper_set_use_magnet(WasGoId wasgo_id, bool p_use);
 void _wasgo_SkeletonIK_wrapper_start(WasGoId wasgo_id, bool p_one_time);
 void _wasgo_SkeletonIK_wrapper_stop(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SkeletonIK_constructor();
-    void _wasgo_SkeletonIK_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

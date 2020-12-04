@@ -34,9 +34,9 @@ void CubeMap::set_storage(CubeMap::Storage p_mode){
 
 CubeMap::CubeMap(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-CubeMap::CubeMap(){
+CubeMap::CubeMap(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_CubeMap_constructor();
 }
-CubeMap::~CubeMap(){
-    _wasgo_CubeMap_destructor(wasgo_id);
+CubeMap::new_instance(){
+    return CubeMap(_wasgo_CubeMap_constructor());
 }

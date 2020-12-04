@@ -9,10 +9,10 @@ class VisualShaderNodeVectorDistance : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeVectorDistance(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeVectorDistance();
-~VisualShaderNodeVectorDistance();
+explicit VisualShaderNodeVectorDistance(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorDistance(VisualShaderNode other);
+VisualShaderNodeVectorDistance new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeVectorDistance();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeVectorDistance_constructor();
-    void _wasgo_VisualShaderNodeVectorDistance_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

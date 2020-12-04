@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Texture.h"
-#include "ustring.h"
 #include "BaseButton.h"
+#include "ustring.h"
 class Button : public BaseButton{
 public:
 enum TextAlign{
@@ -28,10 +28,10 @@ void set_text(String p_text);
 void set_text_align(Button::TextAlign p_align);
 
 protected:
-Button(WasGoId p_wasgo_id);
 public:
-Button();
-~Button();
+explicit Button(WasGoId p_wasgo_id);
+explicit Button(BaseButton other);
+Button new_instance();
             
 };
 
@@ -51,9 +51,8 @@ void _wasgo_Button_wrapper_set_flat(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_Button_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 void _wasgo_Button_wrapper_set_text_align(WasGoId wasgo_id, WasGoId p_align);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Button_constructor();
-    void _wasgo_Button_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

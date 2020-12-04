@@ -10,9 +10,9 @@ void VisualShaderNodeTransformFunc::set_function(VisualShaderNodeTransformFunc::
 
 VisualShaderNodeTransformFunc::VisualShaderNodeTransformFunc(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeTransformFunc::VisualShaderNodeTransformFunc(){
+VisualShaderNodeTransformFunc::VisualShaderNodeTransformFunc(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeTransformFunc_constructor();
 }
-VisualShaderNodeTransformFunc::~VisualShaderNodeTransformFunc(){
-    _wasgo_VisualShaderNodeTransformFunc_destructor(wasgo_id);
+VisualShaderNodeTransformFunc::new_instance(){
+    return VisualShaderNodeTransformFunc(_wasgo_VisualShaderNodeTransformFunc_constructor());
 }

@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "AABB.h"
-#include "Variant.h"
-#include "NodePath.h"
-#include "Transform.h"
 #include "Texture.h"
+#include "NodePath.h"
+#include "AABB.h"
+#include "Resource.h"
+#include "Transform.h"
+#include "Variant.h"
 class BakedLightmapData : public Resource{
 public:
 void add_user(NodePath p_path, Texture p_lightmap, int p_instance);
@@ -29,10 +29,10 @@ void set_energy(float p_energy);
 void set_octree(PoolByteArray p_octree);
 
 protected:
-BakedLightmapData(WasGoId p_wasgo_id);
 public:
-BakedLightmapData();
-~BakedLightmapData();
+explicit BakedLightmapData(WasGoId p_wasgo_id);
+explicit BakedLightmapData(Resource other);
+BakedLightmapData new_instance();
             
 };
 
@@ -55,9 +55,8 @@ void _wasgo_BakedLightmapData_wrapper_set_cell_subdiv(WasGoId wasgo_id, int p_ce
 void _wasgo_BakedLightmapData_wrapper_set_energy(WasGoId wasgo_id, float p_energy);
 void _wasgo_BakedLightmapData_wrapper_set_octree(WasGoId wasgo_id, WasGoId p_octree);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_BakedLightmapData_constructor();
-    void _wasgo_BakedLightmapData_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

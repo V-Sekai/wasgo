@@ -6,8 +6,8 @@
 
 #include "error_list.h"
 #include "Reference.h"
-#include "ustring.h"
 #include "Variant.h"
+#include "ustring.h"
 class ConfigFile : public Reference{
 public:
 void erase_section(String p_section);
@@ -27,10 +27,10 @@ Error save_encrypted_pass(String p_path, String p_password);
 void set_value(String p_section, String p_key, Variant p_value);
 
 protected:
-ConfigFile(WasGoId p_wasgo_id);
 public:
-ConfigFile();
-~ConfigFile();
+explicit ConfigFile(WasGoId p_wasgo_id);
+explicit ConfigFile(Reference other);
+ConfigFile new_instance();
             
 };
 
@@ -53,9 +53,8 @@ WasGoId _wasgo_ConfigFile_wrapper_save_encrypted(WasGoId wasgo_id, const uint8_t
 WasGoId _wasgo_ConfigFile_wrapper_save_encrypted_pass(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, const uint8_t * p_password, int p_password_wasgo_buffer_size);
 void _wasgo_ConfigFile_wrapper_set_value(WasGoId wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size, WasGoId p_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ConfigFile_constructor();
-    void _wasgo_ConfigFile_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

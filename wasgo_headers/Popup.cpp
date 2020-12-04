@@ -52,9 +52,9 @@ void Popup::set_exclusive(bool p_enable){
 
 Popup::Popup(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-Popup::Popup(){
+Popup::Popup(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_Popup_constructor();
 }
-Popup::~Popup(){
-    _wasgo_Popup_destructor(wasgo_id);
+Popup::new_instance(){
+    return Popup(_wasgo_Popup_constructor());
 }

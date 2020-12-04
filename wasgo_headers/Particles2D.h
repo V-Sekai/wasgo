@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Material.h"
 #include "Texture.h"
-#include "Node2D.h"
 #include "Rect2.h"
+#include "Node2D.h"
+#include "Material.h"
 class Particles2D : public Node2D{
 public:
 enum DrawOrder{
@@ -50,10 +50,10 @@ void set_use_local_coordinates(bool p_enable);
 void set_visibility_rect(Rect2 p_visibility_rect);
 
 protected:
-Particles2D(WasGoId p_wasgo_id);
 public:
-Particles2D();
-~Particles2D();
+explicit Particles2D(WasGoId p_wasgo_id);
+explicit Particles2D(Node2D other);
+Particles2D new_instance();
             
 };
 
@@ -95,9 +95,8 @@ void _wasgo_Particles2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture)
 void _wasgo_Particles2D_wrapper_set_use_local_coordinates(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Particles2D_wrapper_set_visibility_rect(WasGoId wasgo_id, const uint8_t * p_visibility_rect, int p_visibility_rect_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Particles2D_constructor();
-    void _wasgo_Particles2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

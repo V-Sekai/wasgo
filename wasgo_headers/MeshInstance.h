@@ -6,9 +6,9 @@
 
 #include "GeometryInstance.h"
 #include "Mesh.h"
-#include "Skin.h"
 #include "NodePath.h"
 #include "Material.h"
+#include "Skin.h"
 class MeshInstance : public GeometryInstance{
 public:
 void create_convex_collision();
@@ -28,10 +28,10 @@ void set_software_skinning_transform_normals(bool p_enabled);
 void set_surface_material(int p_surface, Material p_material);
 
 protected:
-MeshInstance(WasGoId p_wasgo_id);
 public:
-MeshInstance();
-~MeshInstance();
+explicit MeshInstance(WasGoId p_wasgo_id);
+explicit MeshInstance(GeometryInstance other);
+MeshInstance new_instance();
             
 };
 
@@ -54,9 +54,8 @@ void _wasgo_MeshInstance_wrapper_set_skin(WasGoId wasgo_id, WasGoId p_skin);
 void _wasgo_MeshInstance_wrapper_set_software_skinning_transform_normals(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_MeshInstance_wrapper_set_surface_material(WasGoId wasgo_id, int p_surface, WasGoId p_material);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_MeshInstance_constructor();
-    void _wasgo_MeshInstance_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

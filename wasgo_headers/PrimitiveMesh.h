@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Material.h"
-#include "AABB.h"
 #include "Mesh.h"
+#include "AABB.h"
 #include "Variant.h"
 class PrimitiveMesh : public Mesh{
 public:
@@ -30,9 +30,8 @@ void _wasgo_PrimitiveMesh_wrapper_set_custom_aabb(WasGoId wasgo_id, const uint8_
 void _wasgo_PrimitiveMesh_wrapper_set_flip_faces(WasGoId wasgo_id, bool p_flip_faces);
 void _wasgo_PrimitiveMesh_wrapper_set_material(WasGoId wasgo_id, WasGoId p_material);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PrimitiveMesh_constructor();
-    void _wasgo_PrimitiveMesh_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

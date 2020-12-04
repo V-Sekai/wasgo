@@ -10,9 +10,9 @@ void ProxyTexture::set_base(Texture p_base){
 
 ProxyTexture::ProxyTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
 }
-ProxyTexture::ProxyTexture(){
+ProxyTexture::ProxyTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_ProxyTexture_constructor();
 }
-ProxyTexture::~ProxyTexture(){
-    _wasgo_ProxyTexture_destructor(wasgo_id);
+ProxyTexture::new_instance(){
+    return ProxyTexture(_wasgo_ProxyTexture_constructor());
 }

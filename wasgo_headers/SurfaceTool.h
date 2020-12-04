@@ -5,16 +5,16 @@
 #include "wasgo\wasgo.h"
 
 #include "Vector3.h"
-#include "Mesh.h"
-#include "Reference.h"
-#include "ustring.h"
-#include "Plane.h"
-#include "Variant.h"
-#include "Color.h"
-#include "Transform.h"
-#include "ArrayMesh.h"
-#include "Material.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "Mesh.h"
+#include "Color.h"
+#include "ArrayMesh.h"
+#include "Reference.h"
+#include "Transform.h"
+#include "Plane.h"
+#include "Material.h"
+#include "Variant.h"
 class SurfaceTool : public Reference{
 public:
 void add_bones(PoolIntArray p_bones);
@@ -42,10 +42,10 @@ void index();
 void set_material(Material p_material);
 
 protected:
-SurfaceTool(WasGoId p_wasgo_id);
 public:
-SurfaceTool();
-~SurfaceTool();
+explicit SurfaceTool(WasGoId p_wasgo_id);
+explicit SurfaceTool(Reference other);
+SurfaceTool new_instance();
             
 };
 
@@ -76,9 +76,8 @@ void _wasgo_SurfaceTool_wrapper_generate_tangents(WasGoId wasgo_id);
 void _wasgo_SurfaceTool_wrapper_index(WasGoId wasgo_id);
 void _wasgo_SurfaceTool_wrapper_set_material(WasGoId wasgo_id, WasGoId p_material);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SurfaceTool_constructor();
-    void _wasgo_SurfaceTool_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

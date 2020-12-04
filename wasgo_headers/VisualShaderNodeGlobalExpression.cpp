@@ -4,9 +4,9 @@
 
 VisualShaderNodeGlobalExpression::VisualShaderNodeGlobalExpression(WasGoId p_wasgo_id) : VisualShaderNodeExpression(p_wasgo_id){
 }
-VisualShaderNodeGlobalExpression::VisualShaderNodeGlobalExpression(){
+VisualShaderNodeGlobalExpression::VisualShaderNodeGlobalExpression(VisualShaderNodeExpression other) : VisualShaderNodeExpression(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeGlobalExpression_constructor();
 }
-VisualShaderNodeGlobalExpression::~VisualShaderNodeGlobalExpression(){
-    _wasgo_VisualShaderNodeGlobalExpression_destructor(wasgo_id);
+VisualShaderNodeGlobalExpression::new_instance(){
+    return VisualShaderNodeGlobalExpression(_wasgo_VisualShaderNodeGlobalExpression_constructor());
 }

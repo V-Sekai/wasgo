@@ -33,8 +33,8 @@ void Joint::set_exclude_nodes_from_collision(bool p_enable){
 void Joint::set_node_a(NodePath p_node){
 
     Variant wasgo_var_node = p_node;
-    uint8_t wasgo_buffer_node[256];
-    int wasgo_size_node = 256;
+    int wasgo_size_node = String(p_node).size();
+    uint8_t wasgo_buffer_node[wasgo_size_node];
     encode_variant(wasgo_var_node, wasgo_buffer_node, wasgo_size_node);
     
 	_wasgo_Joint_wrapper_set_node_a(wasgo_id, wasgo_buffer_node, wasgo_size_node);
@@ -42,8 +42,8 @@ void Joint::set_node_a(NodePath p_node){
 void Joint::set_node_b(NodePath p_node){
 
     Variant wasgo_var_node = p_node;
-    uint8_t wasgo_buffer_node[256];
-    int wasgo_size_node = 256;
+    int wasgo_size_node = String(p_node).size();
+    uint8_t wasgo_buffer_node[wasgo_size_node];
     encode_variant(wasgo_var_node, wasgo_buffer_node, wasgo_size_node);
     
 	_wasgo_Joint_wrapper_set_node_b(wasgo_id, wasgo_buffer_node, wasgo_size_node);

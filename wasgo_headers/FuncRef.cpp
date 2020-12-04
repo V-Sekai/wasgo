@@ -23,8 +23,8 @@ bool FuncRef::is_valid(){
 void FuncRef::set_function(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_FuncRef_wrapper_set_function(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -35,9 +35,9 @@ void FuncRef::set_instance(Object p_instance){
 
 FuncRef::FuncRef(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-FuncRef::FuncRef(){
+FuncRef::FuncRef(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_FuncRef_constructor();
 }
-FuncRef::~FuncRef(){
-    _wasgo_FuncRef_destructor(wasgo_id);
+FuncRef::new_instance(){
+    return FuncRef(_wasgo_FuncRef_constructor());
 }

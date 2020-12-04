@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Shader.h"
+#include "Variant.h"
 #include "Material.h"
 #include "ustring.h"
-#include "Variant.h"
-#include "Shader.h"
 class ShaderMaterial : public Material{
 public:
 Shader get_shader();
@@ -18,10 +18,10 @@ void set_shader(Shader p_shader);
 void set_shader_param(String p_param, Variant p_value);
 
 protected:
-ShaderMaterial(WasGoId p_wasgo_id);
 public:
-ShaderMaterial();
-~ShaderMaterial();
+explicit ShaderMaterial(WasGoId p_wasgo_id);
+explicit ShaderMaterial(Material other);
+ShaderMaterial new_instance();
             
 };
 
@@ -35,9 +35,8 @@ WasGoId _wasgo_ShaderMaterial_wrapper_property_get_revert(WasGoId wasgo_id, cons
 void _wasgo_ShaderMaterial_wrapper_set_shader(WasGoId wasgo_id, WasGoId p_shader);
 void _wasgo_ShaderMaterial_wrapper_set_shader_param(WasGoId wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size, WasGoId p_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ShaderMaterial_constructor();
-    void _wasgo_ShaderMaterial_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

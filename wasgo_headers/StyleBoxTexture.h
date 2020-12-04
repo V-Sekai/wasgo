@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Rect2.h"
-#include "Color.h"
+#include "Margin.h"
 #include "StyleBox.h"
 #include "Texture.h"
-#include "Margin.h"
+#include "Color.h"
+#include "Rect2.h"
 class StyleBoxTexture : public StyleBox{
 public:
 enum AxisStretchMode{
@@ -38,10 +38,10 @@ void set_texture(Texture p_texture);
 void set_v_axis_stretch_mode(StyleBoxTexture::AxisStretchMode p_mode);
 
 protected:
-StyleBoxTexture(WasGoId p_wasgo_id);
 public:
-StyleBoxTexture();
-~StyleBoxTexture();
+explicit StyleBoxTexture(WasGoId p_wasgo_id);
+explicit StyleBoxTexture(StyleBox other);
+StyleBoxTexture new_instance();
             
 };
 
@@ -69,9 +69,8 @@ void _wasgo_StyleBoxTexture_wrapper_set_region_rect(WasGoId wasgo_id, const uint
 void _wasgo_StyleBoxTexture_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_StyleBoxTexture_wrapper_set_v_axis_stretch_mode(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_StyleBoxTexture_constructor();
-    void _wasgo_StyleBoxTexture_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

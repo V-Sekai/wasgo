@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "AnimationRootNode.h"
-#include "ustring.h"
 #include "Vector2.h"
+#include "ustring.h"
 class AnimationNodeBlendSpace2D : public AnimationRootNode{
 public:
 enum BlendMode{
@@ -41,10 +41,10 @@ void set_x_label(String p_text);
 void set_y_label(String p_text);
 
 protected:
-AnimationNodeBlendSpace2D(WasGoId p_wasgo_id);
 public:
-AnimationNodeBlendSpace2D();
-~AnimationNodeBlendSpace2D();
+explicit AnimationNodeBlendSpace2D(WasGoId p_wasgo_id);
+explicit AnimationNodeBlendSpace2D(AnimationRootNode other);
+AnimationNodeBlendSpace2D new_instance();
             
 };
 
@@ -77,9 +77,8 @@ void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_snap(WasGoId wasgo_id, const u
 void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_x_label(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 void _wasgo_AnimationNodeBlendSpace2D_wrapper_set_y_label(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeBlendSpace2D_constructor();
-    void _wasgo_AnimationNodeBlendSpace2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

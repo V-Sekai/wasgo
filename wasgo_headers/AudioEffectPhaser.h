@@ -19,10 +19,10 @@ void set_range_min_hz(float p_hz);
 void set_rate_hz(float p_hz);
 
 protected:
-AudioEffectPhaser(WasGoId p_wasgo_id);
 public:
-AudioEffectPhaser();
-~AudioEffectPhaser();
+explicit AudioEffectPhaser(WasGoId p_wasgo_id);
+explicit AudioEffectPhaser(AudioEffect other);
+AudioEffectPhaser new_instance();
             
 };
 
@@ -40,9 +40,8 @@ void _wasgo_AudioEffectPhaser_wrapper_set_range_max_hz(WasGoId wasgo_id, float p
 void _wasgo_AudioEffectPhaser_wrapper_set_range_min_hz(WasGoId wasgo_id, float p_hz);
 void _wasgo_AudioEffectPhaser_wrapper_set_rate_hz(WasGoId wasgo_id, float p_hz);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectPhaser_constructor();
-    void _wasgo_AudioEffectPhaser_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

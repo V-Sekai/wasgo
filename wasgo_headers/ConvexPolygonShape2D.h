@@ -13,10 +13,10 @@ void set_point_cloud(PoolVector2Array p_point_cloud);
 void set_points(PoolVector2Array p_points);
 
 protected:
-ConvexPolygonShape2D(WasGoId p_wasgo_id);
 public:
-ConvexPolygonShape2D();
-~ConvexPolygonShape2D();
+explicit ConvexPolygonShape2D(WasGoId p_wasgo_id);
+explicit ConvexPolygonShape2D(Shape2D other);
+ConvexPolygonShape2D new_instance();
             
 };
 
@@ -27,9 +27,8 @@ WasGoId _wasgo_ConvexPolygonShape2D_wrapper_get_points(WasGoId wasgo_id);
 void _wasgo_ConvexPolygonShape2D_wrapper_set_point_cloud(WasGoId wasgo_id, WasGoId p_point_cloud);
 void _wasgo_ConvexPolygonShape2D_wrapper_set_points(WasGoId wasgo_id, WasGoId p_points);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ConvexPolygonShape2D_constructor();
-    void _wasgo_ConvexPolygonShape2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

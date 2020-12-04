@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Control.h"
 #include "ustring.h"
-#include "Variant.h"
 #include "Color.h"
 #include "PopupMenu.h"
-#include "Control.h"
+#include "Variant.h"
 class TextEdit : public Control{
 public:
 enum MenuItems{
@@ -130,10 +130,10 @@ void unfold_line(int p_line);
 void unhide_all_lines();
 
 protected:
-TextEdit(WasGoId p_wasgo_id);
 public:
-TextEdit();
-~TextEdit();
+explicit TextEdit(WasGoId p_wasgo_id);
+explicit TextEdit(Control other);
+TextEdit new_instance();
             
 };
 
@@ -239,9 +239,8 @@ void _wasgo_TextEdit_wrapper_undo(WasGoId wasgo_id);
 void _wasgo_TextEdit_wrapper_unfold_line(WasGoId wasgo_id, int p_line);
 void _wasgo_TextEdit_wrapper_unhide_all_lines(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TextEdit_constructor();
-    void _wasgo_TextEdit_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

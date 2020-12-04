@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "VisualShaderNode.h"
 #include "CubeMap.h"
+#include "VisualShaderNode.h"
 class VisualShaderNodeCubeMap : public VisualShaderNode{
 public:
 enum Source{
@@ -25,10 +25,10 @@ void set_source(VisualShaderNodeCubeMap::Source p_value);
 void set_texture_type(VisualShaderNodeCubeMap::TextureType p_value);
 
 protected:
-VisualShaderNodeCubeMap(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeCubeMap();
-~VisualShaderNodeCubeMap();
+explicit VisualShaderNodeCubeMap(WasGoId p_wasgo_id);
+explicit VisualShaderNodeCubeMap(VisualShaderNode other);
+VisualShaderNodeCubeMap new_instance();
             
 };
 
@@ -42,9 +42,8 @@ void _wasgo_VisualShaderNodeCubeMap_wrapper_set_cube_map(WasGoId wasgo_id, WasGo
 void _wasgo_VisualShaderNodeCubeMap_wrapper_set_source(WasGoId wasgo_id, WasGoId p_value);
 void _wasgo_VisualShaderNodeCubeMap_wrapper_set_texture_type(WasGoId wasgo_id, WasGoId p_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeCubeMap_constructor();
-    void _wasgo_VisualShaderNodeCubeMap_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

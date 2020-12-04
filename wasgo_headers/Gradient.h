@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
 #include "Resource.h"
+#include "Color.h"
 #include "Variant.h"
 class Gradient : public Resource{
 public:
@@ -23,10 +23,10 @@ void set_offset(int p_point, float p_offset);
 void set_offsets(PoolRealArray p_offsets);
 
 protected:
-Gradient(WasGoId p_wasgo_id);
 public:
-Gradient();
-~Gradient();
+explicit Gradient(WasGoId p_wasgo_id);
+explicit Gradient(Resource other);
+Gradient new_instance();
             
 };
 
@@ -46,9 +46,8 @@ void _wasgo_Gradient_wrapper_set_colors(WasGoId wasgo_id, WasGoId p_colors);
 void _wasgo_Gradient_wrapper_set_offset(WasGoId wasgo_id, int p_point, float p_offset);
 void _wasgo_Gradient_wrapper_set_offsets(WasGoId wasgo_id, WasGoId p_offsets);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Gradient_constructor();
-    void _wasgo_Gradient_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

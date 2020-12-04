@@ -7,9 +7,9 @@ Variant WeakRef::get_ref(){
 
 WeakRef::WeakRef(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-WeakRef::WeakRef(){
+WeakRef::WeakRef(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_WeakRef_constructor();
 }
-WeakRef::~WeakRef(){
-    _wasgo_WeakRef_destructor(wasgo_id);
+WeakRef::new_instance(){
+    return WeakRef(_wasgo_WeakRef_constructor());
 }

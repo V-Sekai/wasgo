@@ -17,9 +17,8 @@ extern "C"{
 float _wasgo_ScrollBar_wrapper_get_custom_step(WasGoId wasgo_id);
 void _wasgo_ScrollBar_wrapper_set_custom_step(WasGoId wasgo_id, float p_step);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ScrollBar_constructor();
-    void _wasgo_ScrollBar_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

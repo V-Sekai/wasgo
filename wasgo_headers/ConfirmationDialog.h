@@ -4,17 +4,17 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Button.h"
 #include "AcceptDialog.h"
+#include "Button.h"
 class ConfirmationDialog : public AcceptDialog{
 public:
 Button get_cancel();
 
 protected:
-ConfirmationDialog(WasGoId p_wasgo_id);
 public:
-ConfirmationDialog();
-~ConfirmationDialog();
+explicit ConfirmationDialog(WasGoId p_wasgo_id);
+explicit ConfirmationDialog(AcceptDialog other);
+ConfirmationDialog new_instance();
             
 };
 
@@ -23,9 +23,8 @@ ConfirmationDialog();
 extern "C"{
 WasGoId _wasgo_ConfirmationDialog_wrapper_get_cancel(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ConfirmationDialog_constructor();
-    void _wasgo_ConfirmationDialog_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

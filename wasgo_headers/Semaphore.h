@@ -12,10 +12,10 @@ Error post();
 Error wait();
 
 protected:
-Semaphore(WasGoId p_wasgo_id);
 public:
-Semaphore();
-~Semaphore();
+explicit Semaphore(WasGoId p_wasgo_id);
+explicit Semaphore(Reference other);
+Semaphore new_instance();
             
 };
 
@@ -25,9 +25,8 @@ extern "C"{
 WasGoId _wasgo_Semaphore_wrapper_post(WasGoId wasgo_id);
 WasGoId _wasgo_Semaphore_wrapper_wait(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Semaphore_constructor();
-    void _wasgo_Semaphore_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

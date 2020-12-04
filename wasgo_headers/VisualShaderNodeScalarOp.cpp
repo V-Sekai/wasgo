@@ -10,9 +10,9 @@ void VisualShaderNodeScalarOp::set_operator(VisualShaderNodeScalarOp::Operator p
 
 VisualShaderNodeScalarOp::VisualShaderNodeScalarOp(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeScalarOp::VisualShaderNodeScalarOp(){
+VisualShaderNodeScalarOp::VisualShaderNodeScalarOp(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeScalarOp_constructor();
 }
-VisualShaderNodeScalarOp::~VisualShaderNodeScalarOp(){
-    _wasgo_VisualShaderNodeScalarOp_destructor(wasgo_id);
+VisualShaderNodeScalarOp::new_instance(){
+    return VisualShaderNodeScalarOp(_wasgo_VisualShaderNodeScalarOp_constructor());
 }

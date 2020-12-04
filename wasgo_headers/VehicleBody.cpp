@@ -22,9 +22,9 @@ void VehicleBody::set_steering(float p_steering){
 
 VehicleBody::VehicleBody(WasGoId p_wasgo_id) : RigidBody(p_wasgo_id){
 }
-VehicleBody::VehicleBody(){
+VehicleBody::VehicleBody(RigidBody other) : RigidBody(other._get_wasgo_id()){
     wasgo_id = _wasgo_VehicleBody_constructor();
 }
-VehicleBody::~VehicleBody(){
-    _wasgo_VehicleBody_destructor(wasgo_id);
+VehicleBody::new_instance(){
+    return VehicleBody(_wasgo_VehicleBody_constructor());
 }

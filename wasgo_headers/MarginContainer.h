@@ -9,10 +9,10 @@ class MarginContainer : public Container{
 public:
 
 protected:
-MarginContainer(WasGoId p_wasgo_id);
 public:
-MarginContainer();
-~MarginContainer();
+explicit MarginContainer(WasGoId p_wasgo_id);
+explicit MarginContainer(Container other);
+MarginContainer new_instance();
             
 };
 
@@ -20,9 +20,8 @@ MarginContainer();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_MarginContainer_constructor();
-    void _wasgo_MarginContainer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

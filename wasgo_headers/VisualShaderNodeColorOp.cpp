@@ -10,9 +10,9 @@ void VisualShaderNodeColorOp::set_operator(VisualShaderNodeColorOp::Operator p_o
 
 VisualShaderNodeColorOp::VisualShaderNodeColorOp(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeColorOp::VisualShaderNodeColorOp(){
+VisualShaderNodeColorOp::VisualShaderNodeColorOp(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeColorOp_constructor();
 }
-VisualShaderNodeColorOp::~VisualShaderNodeColorOp(){
-    _wasgo_VisualShaderNodeColorOp_destructor(wasgo_id);
+VisualShaderNodeColorOp::new_instance(){
+    return VisualShaderNodeColorOp(_wasgo_VisualShaderNodeColorOp_constructor());
 }

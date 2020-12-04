@@ -16,10 +16,10 @@ void set_map_depth(int p_height);
 void set_map_width(int p_width);
 
 protected:
-HeightMapShape(WasGoId p_wasgo_id);
 public:
-HeightMapShape();
-~HeightMapShape();
+explicit HeightMapShape(WasGoId p_wasgo_id);
+explicit HeightMapShape(Shape other);
+HeightMapShape new_instance();
             
 };
 
@@ -33,9 +33,8 @@ void _wasgo_HeightMapShape_wrapper_set_map_data(WasGoId wasgo_id, WasGoId p_data
 void _wasgo_HeightMapShape_wrapper_set_map_depth(WasGoId wasgo_id, int p_height);
 void _wasgo_HeightMapShape_wrapper_set_map_width(WasGoId wasgo_id, int p_width);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_HeightMapShape_constructor();
-    void _wasgo_HeightMapShape_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

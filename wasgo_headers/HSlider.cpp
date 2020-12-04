@@ -4,9 +4,9 @@
 
 HSlider::HSlider(WasGoId p_wasgo_id) : Slider(p_wasgo_id){
 }
-HSlider::HSlider(){
+HSlider::HSlider(Slider other) : Slider(other._get_wasgo_id()){
     wasgo_id = _wasgo_HSlider_constructor();
 }
-HSlider::~HSlider(){
-    _wasgo_HSlider_destructor(wasgo_id);
+HSlider::new_instance(){
+    return HSlider(_wasgo_HSlider_constructor());
 }

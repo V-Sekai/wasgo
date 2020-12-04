@@ -9,10 +9,10 @@ class VisualShaderNodeVectorClamp : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeVectorClamp(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeVectorClamp();
-~VisualShaderNodeVectorClamp();
+explicit VisualShaderNodeVectorClamp(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorClamp(VisualShaderNode other);
+VisualShaderNodeVectorClamp new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeVectorClamp();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeVectorClamp_constructor();
-    void _wasgo_VisualShaderNodeVectorClamp_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,9 +4,9 @@
 
 HSplitContainer::HSplitContainer(WasGoId p_wasgo_id) : SplitContainer(p_wasgo_id){
 }
-HSplitContainer::HSplitContainer(){
+HSplitContainer::HSplitContainer(SplitContainer other) : SplitContainer(other._get_wasgo_id()){
     wasgo_id = _wasgo_HSplitContainer_constructor();
 }
-HSplitContainer::~HSplitContainer(){
-    _wasgo_HSplitContainer_destructor(wasgo_id);
+HSplitContainer::new_instance(){
+    return HSplitContainer(_wasgo_HSplitContainer_constructor());
 }

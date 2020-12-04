@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Image.h"
+#include "Resource.h"
 class CubeMap : public Resource{
 public:
 enum Flags{
@@ -39,10 +39,10 @@ void set_side(CubeMap::Side p_side, Image p_image);
 void set_storage(CubeMap::Storage p_mode);
 
 protected:
-CubeMap(WasGoId p_wasgo_id);
 public:
-CubeMap();
-~CubeMap();
+explicit CubeMap(WasGoId p_wasgo_id);
+explicit CubeMap(Resource other);
+CubeMap new_instance();
             
 };
 
@@ -60,9 +60,8 @@ void _wasgo_CubeMap_wrapper_set_lossy_storage_quality(WasGoId wasgo_id, float p_
 void _wasgo_CubeMap_wrapper_set_side(WasGoId wasgo_id, WasGoId p_side, WasGoId p_image);
 void _wasgo_CubeMap_wrapper_set_storage(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CubeMap_constructor();
-    void _wasgo_CubeMap_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
 #include "MultiMesh.h"
+#include "Texture.h"
 #include "Node2D.h"
 class MultiMeshInstance2D : public Node2D{
 public:
@@ -17,10 +17,10 @@ void set_normal_map(Texture p_normal_map);
 void set_texture(Texture p_texture);
 
 protected:
-MultiMeshInstance2D(WasGoId p_wasgo_id);
 public:
-MultiMeshInstance2D();
-~MultiMeshInstance2D();
+explicit MultiMeshInstance2D(WasGoId p_wasgo_id);
+explicit MultiMeshInstance2D(Node2D other);
+MultiMeshInstance2D new_instance();
             
 };
 
@@ -34,9 +34,8 @@ void _wasgo_MultiMeshInstance2D_wrapper_set_multimesh(WasGoId wasgo_id, WasGoId 
 void _wasgo_MultiMeshInstance2D_wrapper_set_normal_map(WasGoId wasgo_id, WasGoId p_normal_map);
 void _wasgo_MultiMeshInstance2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_MultiMeshInstance2D_constructor();
-    void _wasgo_MultiMeshInstance2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

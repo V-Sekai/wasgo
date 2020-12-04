@@ -4,9 +4,9 @@
 
 VisualShaderNodeVectorDistance::VisualShaderNodeVectorDistance(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeVectorDistance::VisualShaderNodeVectorDistance(){
+VisualShaderNodeVectorDistance::VisualShaderNodeVectorDistance(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeVectorDistance_constructor();
 }
-VisualShaderNodeVectorDistance::~VisualShaderNodeVectorDistance(){
-    _wasgo_VisualShaderNodeVectorDistance_destructor(wasgo_id);
+VisualShaderNodeVectorDistance::new_instance(){
+    return VisualShaderNodeVectorDistance(_wasgo_VisualShaderNodeVectorDistance_constructor());
 }

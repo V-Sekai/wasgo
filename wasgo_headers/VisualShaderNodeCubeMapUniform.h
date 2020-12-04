@@ -9,10 +9,10 @@ class VisualShaderNodeCubeMapUniform : public VisualShaderNodeTextureUniform{
 public:
 
 protected:
-VisualShaderNodeCubeMapUniform(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeCubeMapUniform();
-~VisualShaderNodeCubeMapUniform();
+explicit VisualShaderNodeCubeMapUniform(WasGoId p_wasgo_id);
+explicit VisualShaderNodeCubeMapUniform(VisualShaderNodeTextureUniform other);
+VisualShaderNodeCubeMapUniform new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeCubeMapUniform();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeCubeMapUniform_constructor();
-    void _wasgo_VisualShaderNodeCubeMapUniform_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

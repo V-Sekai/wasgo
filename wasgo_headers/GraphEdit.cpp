@@ -16,14 +16,14 @@ void GraphEdit::clear_connections(){
 Error GraphEdit::connect_node(String p_from, int p_from_port, String p_to, int p_to_port){
 
     Variant wasgo_var_from = p_from;
-    uint8_t wasgo_buffer_from[256];
-    int wasgo_size_from = 256;
+    int wasgo_size_from = String(p_from).size();
+    uint8_t wasgo_buffer_from[wasgo_size_from];
     encode_variant(wasgo_var_from, wasgo_buffer_from, wasgo_size_from);
     
 
     Variant wasgo_var_to = p_to;
-    uint8_t wasgo_buffer_to[256];
-    int wasgo_size_to = 256;
+    int wasgo_size_to = String(p_to).size();
+    uint8_t wasgo_buffer_to[wasgo_size_to];
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
 	return Error(_wasgo_GraphEdit_wrapper_connect_node(wasgo_id, wasgo_buffer_from, wasgo_size_from, p_from_port, wasgo_buffer_to, wasgo_size_to, p_to_port));
@@ -31,14 +31,14 @@ Error GraphEdit::connect_node(String p_from, int p_from_port, String p_to, int p
 void GraphEdit::disconnect_node(String p_from, int p_from_port, String p_to, int p_to_port){
 
     Variant wasgo_var_from = p_from;
-    uint8_t wasgo_buffer_from[256];
-    int wasgo_size_from = 256;
+    int wasgo_size_from = String(p_from).size();
+    uint8_t wasgo_buffer_from[wasgo_size_from];
     encode_variant(wasgo_var_from, wasgo_buffer_from, wasgo_size_from);
     
 
     Variant wasgo_var_to = p_to;
-    uint8_t wasgo_buffer_to[256];
-    int wasgo_size_to = 256;
+    int wasgo_size_to = String(p_to).size();
+    uint8_t wasgo_buffer_to[wasgo_size_to];
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
 	_wasgo_GraphEdit_wrapper_disconnect_node(wasgo_id, wasgo_buffer_from, wasgo_size_from, p_from_port, wasgo_buffer_to, wasgo_size_to, p_to_port);
@@ -68,14 +68,14 @@ HBoxContainer GraphEdit::get_zoom_hbox(){
 bool GraphEdit::is_node_connected(String p_from, int p_from_port, String p_to, int p_to_port){
 
     Variant wasgo_var_from = p_from;
-    uint8_t wasgo_buffer_from[256];
-    int wasgo_size_from = 256;
+    int wasgo_size_from = String(p_from).size();
+    uint8_t wasgo_buffer_from[wasgo_size_from];
     encode_variant(wasgo_var_from, wasgo_buffer_from, wasgo_size_from);
     
 
     Variant wasgo_var_to = p_to;
-    uint8_t wasgo_buffer_to[256];
-    int wasgo_size_to = 256;
+    int wasgo_size_to = String(p_to).size();
+    uint8_t wasgo_buffer_to[wasgo_size_to];
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
 	return (bool) _wasgo_GraphEdit_wrapper_is_node_connected(wasgo_id, wasgo_buffer_from, wasgo_size_from, p_from_port, wasgo_buffer_to, wasgo_size_to, p_to_port);
@@ -101,14 +101,14 @@ void GraphEdit::remove_valid_right_disconnect_type(int p_type){
 void GraphEdit::set_connection_activity(String p_from, int p_from_port, String p_to, int p_to_port, float p_amount){
 
     Variant wasgo_var_from = p_from;
-    uint8_t wasgo_buffer_from[256];
-    int wasgo_size_from = 256;
+    int wasgo_size_from = String(p_from).size();
+    uint8_t wasgo_buffer_from[wasgo_size_from];
     encode_variant(wasgo_var_from, wasgo_buffer_from, wasgo_size_from);
     
 
     Variant wasgo_var_to = p_to;
-    uint8_t wasgo_buffer_to[256];
-    int wasgo_size_to = 256;
+    int wasgo_size_to = String(p_to).size();
+    uint8_t wasgo_buffer_to[wasgo_size_to];
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
 	_wasgo_GraphEdit_wrapper_set_connection_activity(wasgo_id, wasgo_buffer_from, wasgo_size_from, p_from_port, wasgo_buffer_to, wasgo_size_to, p_to_port, p_amount);
@@ -140,9 +140,9 @@ void GraphEdit::set_zoom(float p_p_zoom){
 
 GraphEdit::GraphEdit(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-GraphEdit::GraphEdit(){
+GraphEdit::GraphEdit(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_GraphEdit_constructor();
 }
-GraphEdit::~GraphEdit(){
-    _wasgo_GraphEdit_destructor(wasgo_id);
+GraphEdit::new_instance(){
+    return GraphEdit(_wasgo_GraphEdit_constructor());
 }

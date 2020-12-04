@@ -23,10 +23,10 @@ void set_gain(float p_amount);
 void set_resonance(float p_amount);
 
 protected:
-AudioEffectFilter(WasGoId p_wasgo_id);
 public:
-AudioEffectFilter();
-~AudioEffectFilter();
+explicit AudioEffectFilter(WasGoId p_wasgo_id);
+explicit AudioEffectFilter(AudioEffect other);
+AudioEffectFilter new_instance();
             
 };
 
@@ -42,9 +42,8 @@ void _wasgo_AudioEffectFilter_wrapper_set_db(WasGoId wasgo_id, WasGoId p_amount)
 void _wasgo_AudioEffectFilter_wrapper_set_gain(WasGoId wasgo_id, float p_amount);
 void _wasgo_AudioEffectFilter_wrapper_set_resonance(WasGoId wasgo_id, float p_amount);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectFilter_constructor();
-    void _wasgo_AudioEffectFilter_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

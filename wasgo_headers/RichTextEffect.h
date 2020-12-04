@@ -9,10 +9,10 @@ class RichTextEffect : public Resource{
 public:
 
 protected:
-RichTextEffect(WasGoId p_wasgo_id);
 public:
-RichTextEffect();
-~RichTextEffect();
+explicit RichTextEffect(WasGoId p_wasgo_id);
+explicit RichTextEffect(Resource other);
+RichTextEffect new_instance();
             
 };
 
@@ -20,9 +20,8 @@ RichTextEffect();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_RichTextEffect_constructor();
-    void _wasgo_RichTextEffect_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

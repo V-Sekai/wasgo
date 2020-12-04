@@ -81,8 +81,8 @@ void Area2D::set_angular_damp(float p_angular_damp){
 void Area2D::set_audio_bus_name(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_Area2D_wrapper_set_audio_bus_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -138,9 +138,9 @@ void Area2D::set_space_override_mode(Area2D::SpaceOverride p_space_override_mode
 
 Area2D::Area2D(WasGoId p_wasgo_id) : CollisionObject2D(p_wasgo_id){
 }
-Area2D::Area2D(){
+Area2D::Area2D(CollisionObject2D other) : CollisionObject2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Area2D_constructor();
 }
-Area2D::~Area2D(){
-    _wasgo_Area2D_destructor(wasgo_id);
+Area2D::new_instance(){
+    return Area2D(_wasgo_Area2D_constructor());
 }

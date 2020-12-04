@@ -9,10 +9,10 @@ class TriangleMesh : public Reference{
 public:
 
 protected:
-TriangleMesh(WasGoId p_wasgo_id);
 public:
-TriangleMesh();
-~TriangleMesh();
+explicit TriangleMesh(WasGoId p_wasgo_id);
+explicit TriangleMesh(Reference other);
+TriangleMesh new_instance();
             
 };
 
@@ -20,9 +20,8 @@ TriangleMesh();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TriangleMesh_constructor();
-    void _wasgo_TriangleMesh_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

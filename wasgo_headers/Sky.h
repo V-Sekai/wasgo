@@ -27,9 +27,8 @@ extern "C"{
 WasGoId _wasgo_Sky_wrapper_get_radiance_size(WasGoId wasgo_id);
 void _wasgo_Sky_wrapper_set_radiance_size(WasGoId wasgo_id, WasGoId p_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Sky_constructor();
-    void _wasgo_Sky_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

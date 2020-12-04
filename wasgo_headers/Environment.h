@@ -6,10 +6,10 @@
 
 #include "Vector3.h"
 #include "Basis.h"
-#include "Resource.h"
-#include "Color.h"
 #include "Sky.h"
 #include "Texture.h"
+#include "Color.h"
+#include "Resource.h"
 class Environment : public Resource{
 public:
 enum BGMode{
@@ -208,10 +208,10 @@ void set_tonemap_white(float p_white);
 void set_tonemapper(Environment::ToneMapper p_mode);
 
 protected:
-Environment(WasGoId p_wasgo_id);
 public:
-Environment();
-~Environment();
+explicit Environment(WasGoId p_wasgo_id);
+explicit Environment(Resource other);
+Environment new_instance();
             
 };
 
@@ -375,9 +375,8 @@ void _wasgo_Environment_wrapper_set_tonemap_exposure(WasGoId wasgo_id, float p_e
 void _wasgo_Environment_wrapper_set_tonemap_white(WasGoId wasgo_id, float p_white);
 void _wasgo_Environment_wrapper_set_tonemapper(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Environment_constructor();
-    void _wasgo_Environment_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

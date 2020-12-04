@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "Vector3.h"
-#include "PhysicsServer.h"
 #include "PhysicsBody.h"
 #include "KinematicCollision.h"
 #include "Transform.h"
+#include "PhysicsServer.h"
 class KinematicBody : public PhysicsBody{
 public:
 bool get_axis_lock(PhysicsServer::BodyAxis p_axis);
@@ -28,10 +28,10 @@ void set_safe_margin(float p_pixels);
 bool test_move(Transform p_from, Vector3 p_rel_vec, bool p_infinite_inertia = (bool) true);
 
 protected:
-KinematicBody(WasGoId p_wasgo_id);
 public:
-KinematicBody();
-~KinematicBody();
+explicit KinematicBody(WasGoId p_wasgo_id);
+explicit KinematicBody(PhysicsBody other);
+KinematicBody new_instance();
             
 };
 
@@ -54,9 +54,8 @@ void _wasgo_KinematicBody_wrapper_set_axis_lock(WasGoId wasgo_id, WasGoId p_axis
 void _wasgo_KinematicBody_wrapper_set_safe_margin(WasGoId wasgo_id, float p_pixels);
 int _wasgo_KinematicBody_wrapper_test_move(WasGoId wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_rel_vec, int p_rel_vec_wasgo_buffer_size, bool p_infinite_inertia);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_KinematicBody_constructor();
-    void _wasgo_KinematicBody_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

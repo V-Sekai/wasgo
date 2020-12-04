@@ -39,9 +39,9 @@ void World::set_fallback_environment(Environment p_env){
 
 World::World(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-World::World(){
+World::World(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_World_constructor();
 }
-World::~World(){
-    _wasgo_World_destructor(wasgo_id);
+World::new_instance(){
+    return World(_wasgo_World_constructor());
 }

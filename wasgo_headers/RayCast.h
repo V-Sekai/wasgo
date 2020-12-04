@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
-#include "Object.h"
 #include "Vector3.h"
+#include "Spatial.h"
 #include "RID.h"
+#include "Object.h"
 class RayCast : public Spatial{
 public:
 void add_exception(Object p_node);
@@ -37,10 +37,10 @@ void set_enabled(bool p_enabled);
 void set_exclude_parent_body(bool p_mask);
 
 protected:
-RayCast(WasGoId p_wasgo_id);
 public:
-RayCast();
-~RayCast();
+explicit RayCast(WasGoId p_wasgo_id);
+explicit RayCast(Spatial other);
+RayCast new_instance();
             
 };
 
@@ -73,9 +73,8 @@ void _wasgo_RayCast_wrapper_set_collision_mask_bit(WasGoId wasgo_id, int p_bit, 
 void _wasgo_RayCast_wrapper_set_enabled(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_RayCast_wrapper_set_exclude_parent_body(WasGoId wasgo_id, bool p_mask);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_RayCast_constructor();
-    void _wasgo_RayCast_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

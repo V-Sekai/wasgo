@@ -29,8 +29,8 @@ bool RemoteTransform::get_use_global_coordinates(){
 void RemoteTransform::set_remote_node(NodePath p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_RemoteTransform_wrapper_set_remote_node(wasgo_id, wasgo_buffer_path, wasgo_size_path);
@@ -50,9 +50,9 @@ void RemoteTransform::set_use_global_coordinates(bool p_use_global_coordinates){
 
 RemoteTransform::RemoteTransform(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-RemoteTransform::RemoteTransform(){
+RemoteTransform::RemoteTransform(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_RemoteTransform_constructor();
 }
-RemoteTransform::~RemoteTransform(){
-    _wasgo_RemoteTransform_destructor(wasgo_id);
+RemoteTransform::new_instance(){
+    return RemoteTransform(_wasgo_RemoteTransform_constructor());
 }

@@ -10,9 +10,9 @@ PacketPeerDTLS DTLSServer::take_connection(PacketPeerUDP p_udp_peer){
 
 DTLSServer::DTLSServer(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-DTLSServer::DTLSServer(){
+DTLSServer::DTLSServer(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_DTLSServer_constructor();
 }
-DTLSServer::~DTLSServer(){
-    _wasgo_DTLSServer_destructor(wasgo_id);
+DTLSServer::new_instance(){
+    return DTLSServer(_wasgo_DTLSServer_constructor());
 }

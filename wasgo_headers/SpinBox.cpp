@@ -42,8 +42,8 @@ void SpinBox::set_editable(bool p_editable){
 void SpinBox::set_prefix(String p_prefix){
 
     Variant wasgo_var_prefix = p_prefix;
-    uint8_t wasgo_buffer_prefix[256];
-    int wasgo_size_prefix = 256;
+    int wasgo_size_prefix = String(p_prefix).size();
+    uint8_t wasgo_buffer_prefix[wasgo_size_prefix];
     encode_variant(wasgo_var_prefix, wasgo_buffer_prefix, wasgo_size_prefix);
     
 	_wasgo_SpinBox_wrapper_set_prefix(wasgo_id, wasgo_buffer_prefix, wasgo_size_prefix);
@@ -51,8 +51,8 @@ void SpinBox::set_prefix(String p_prefix){
 void SpinBox::set_suffix(String p_suffix){
 
     Variant wasgo_var_suffix = p_suffix;
-    uint8_t wasgo_buffer_suffix[256];
-    int wasgo_size_suffix = 256;
+    int wasgo_size_suffix = String(p_suffix).size();
+    uint8_t wasgo_buffer_suffix[wasgo_size_suffix];
     encode_variant(wasgo_var_suffix, wasgo_buffer_suffix, wasgo_size_suffix);
     
 	_wasgo_SpinBox_wrapper_set_suffix(wasgo_id, wasgo_buffer_suffix, wasgo_size_suffix);
@@ -60,9 +60,9 @@ void SpinBox::set_suffix(String p_suffix){
 
 SpinBox::SpinBox(WasGoId p_wasgo_id) : Range(p_wasgo_id){
 }
-SpinBox::SpinBox(){
+SpinBox::SpinBox(Range other) : Range(other._get_wasgo_id()){
     wasgo_id = _wasgo_SpinBox_constructor();
 }
-SpinBox::~SpinBox(){
-    _wasgo_SpinBox_destructor(wasgo_id);
+SpinBox::new_instance(){
+    return SpinBox(_wasgo_SpinBox_constructor());
 }

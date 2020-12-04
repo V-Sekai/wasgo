@@ -9,10 +9,10 @@ class VisualShaderNodeOuterProduct : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeOuterProduct(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeOuterProduct();
-~VisualShaderNodeOuterProduct();
+explicit VisualShaderNodeOuterProduct(WasGoId p_wasgo_id);
+explicit VisualShaderNodeOuterProduct(VisualShaderNode other);
+VisualShaderNodeOuterProduct new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeOuterProduct();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeOuterProduct_constructor();
-    void _wasgo_VisualShaderNodeOuterProduct_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

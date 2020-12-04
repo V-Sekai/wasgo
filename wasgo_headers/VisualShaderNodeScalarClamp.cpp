@@ -4,9 +4,9 @@
 
 VisualShaderNodeScalarClamp::VisualShaderNodeScalarClamp(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeScalarClamp::VisualShaderNodeScalarClamp(){
+VisualShaderNodeScalarClamp::VisualShaderNodeScalarClamp(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeScalarClamp_constructor();
 }
-VisualShaderNodeScalarClamp::~VisualShaderNodeScalarClamp(){
-    _wasgo_VisualShaderNodeScalarClamp_destructor(wasgo_id);
+VisualShaderNodeScalarClamp::new_instance(){
+    return VisualShaderNodeScalarClamp(_wasgo_VisualShaderNodeScalarClamp_constructor());
 }

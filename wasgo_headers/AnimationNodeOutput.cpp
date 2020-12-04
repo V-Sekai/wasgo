@@ -4,9 +4,9 @@
 
 AnimationNodeOutput::AnimationNodeOutput(WasGoId p_wasgo_id) : AnimationNode(p_wasgo_id){
 }
-AnimationNodeOutput::AnimationNodeOutput(){
+AnimationNodeOutput::AnimationNodeOutput(AnimationNode other) : AnimationNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeOutput_constructor();
 }
-AnimationNodeOutput::~AnimationNodeOutput(){
-    _wasgo_AnimationNodeOutput_destructor(wasgo_id);
+AnimationNodeOutput::new_instance(){
+    return AnimationNodeOutput(_wasgo_AnimationNodeOutput_constructor());
 }

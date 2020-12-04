@@ -4,15 +4,15 @@
 
 #include "wasgo\wasgo.h"
 
-#include "RID.h"
-#include "Physics2DTestMotionResult.h"
 #include "Transform2D.h"
-#include "ustring.h"
-#include "Variant.h"
-#include "Physics2DDirectBodyState.h"
-#include "Object.h"
 #include "Physics2DDirectSpaceState.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "Physics2DDirectBodyState.h"
+#include "Physics2DTestMotionResult.h"
+#include "Object.h"
+#include "RID.h"
+#include "Variant.h"
 class Physics2DServer : public Object{
 public:
 enum AreaBodyStatus{
@@ -315,9 +315,8 @@ int _wasgo_Physics2DServer_wrapper_space_is_active(WasGoId wasgo_id, const uint8
 void _wasgo_Physics2DServer_wrapper_space_set_active(WasGoId wasgo_id, const uint8_t * p_space, int p_space_wasgo_buffer_size, bool p_active);
 void _wasgo_Physics2DServer_wrapper_space_set_param(WasGoId wasgo_id, const uint8_t * p_space, int p_space_wasgo_buffer_size, WasGoId p_param, float p_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Physics2DServer_constructor();
-    void _wasgo_Physics2DServer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -9,10 +9,10 @@ class VBoxContainer : public BoxContainer{
 public:
 
 protected:
-VBoxContainer(WasGoId p_wasgo_id);
 public:
-VBoxContainer();
-~VBoxContainer();
+explicit VBoxContainer(WasGoId p_wasgo_id);
+explicit VBoxContainer(BoxContainer other);
+VBoxContainer new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VBoxContainer();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VBoxContainer_constructor();
-    void _wasgo_VBoxContainer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

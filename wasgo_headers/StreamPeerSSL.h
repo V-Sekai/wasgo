@@ -6,9 +6,9 @@
 
 #include "CryptoKey.h"
 #include "error_list.h"
-#include "X509Certificate.h"
 #include "ustring.h"
 #include "StreamPeer.h"
+#include "X509Certificate.h"
 class StreamPeerSSL : public StreamPeer{
 public:
 enum Status{
@@ -27,10 +27,10 @@ void poll();
 void set_blocking_handshake_enabled(bool p_enabled);
 
 protected:
-StreamPeerSSL(WasGoId p_wasgo_id);
 public:
-StreamPeerSSL();
-~StreamPeerSSL();
+explicit StreamPeerSSL(WasGoId p_wasgo_id);
+explicit StreamPeerSSL(StreamPeer other);
+StreamPeerSSL new_instance();
             
 };
 
@@ -45,9 +45,8 @@ int _wasgo_StreamPeerSSL_wrapper_is_blocking_handshake_enabled(WasGoId wasgo_id)
 void _wasgo_StreamPeerSSL_wrapper_poll(WasGoId wasgo_id);
 void _wasgo_StreamPeerSSL_wrapper_set_blocking_handshake_enabled(WasGoId wasgo_id, bool p_enabled);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_StreamPeerSSL_constructor();
-    void _wasgo_StreamPeerSSL_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

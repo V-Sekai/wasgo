@@ -23,10 +23,10 @@ void set_oversampling(int p_amount);
 void set_pitch_scale(float p_rate);
 
 protected:
-AudioEffectPitchShift(WasGoId p_wasgo_id);
 public:
-AudioEffectPitchShift();
-~AudioEffectPitchShift();
+explicit AudioEffectPitchShift(WasGoId p_wasgo_id);
+explicit AudioEffectPitchShift(AudioEffect other);
+AudioEffectPitchShift new_instance();
             
 };
 
@@ -40,9 +40,8 @@ void _wasgo_AudioEffectPitchShift_wrapper_set_fft_size(WasGoId wasgo_id, WasGoId
 void _wasgo_AudioEffectPitchShift_wrapper_set_oversampling(WasGoId wasgo_id, int p_amount);
 void _wasgo_AudioEffectPitchShift_wrapper_set_pitch_scale(WasGoId wasgo_id, float p_rate);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectPitchShift_constructor();
-    void _wasgo_AudioEffectPitchShift_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

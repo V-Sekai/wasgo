@@ -125,9 +125,9 @@ bool KinematicBody::test_move(Transform p_from, Vector3 p_rel_vec, bool p_infini
 
 KinematicBody::KinematicBody(WasGoId p_wasgo_id) : PhysicsBody(p_wasgo_id){
 }
-KinematicBody::KinematicBody(){
+KinematicBody::KinematicBody(PhysicsBody other) : PhysicsBody(other._get_wasgo_id()){
     wasgo_id = _wasgo_KinematicBody_constructor();
 }
-KinematicBody::~KinematicBody(){
-    _wasgo_KinematicBody_destructor(wasgo_id);
+KinematicBody::new_instance(){
+    return KinematicBody(_wasgo_KinematicBody_constructor());
 }

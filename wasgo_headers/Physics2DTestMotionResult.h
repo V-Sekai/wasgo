@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
-#include "Object.h"
 #include "Vector2.h"
+#include "Reference.h"
 #include "RID.h"
+#include "Object.h"
 class Physics2DTestMotionResult : public Reference{
 public:
 Object get_collider();
@@ -21,10 +21,10 @@ Vector2 get_motion();
 Vector2 get_motion_remainder();
 
 protected:
-Physics2DTestMotionResult(WasGoId p_wasgo_id);
 public:
-Physics2DTestMotionResult();
-~Physics2DTestMotionResult();
+explicit Physics2DTestMotionResult(WasGoId p_wasgo_id);
+explicit Physics2DTestMotionResult(Reference other);
+Physics2DTestMotionResult new_instance();
             
 };
 
@@ -41,9 +41,8 @@ void _wasgo_Physics2DTestMotionResult_wrapper_get_collision_point(WasGoId wasgo_
 void _wasgo_Physics2DTestMotionResult_wrapper_get_motion(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_Physics2DTestMotionResult_wrapper_get_motion_remainder(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Physics2DTestMotionResult_constructor();
-    void _wasgo_Physics2DTestMotionResult_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

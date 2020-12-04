@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Animation.h"
-#include "error_list.h"
-#include "ustring.h"
-#include "Variant.h"
 #include "Node.h"
-#include "NodePath.h"
+#include "error_list.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "NodePath.h"
+#include "Animation.h"
+#include "Variant.h"
 class AnimationTreePlayer : public Node{
 public:
 enum AnimationProcessMode{
@@ -96,10 +96,10 @@ void transition_node_set_input_count(String p_id, int p_count);
 void transition_node_set_xfade_time(String p_id, float p_time_sec);
 
 protected:
-AnimationTreePlayer(WasGoId p_wasgo_id);
 public:
-AnimationTreePlayer();
-~AnimationTreePlayer();
+explicit AnimationTreePlayer(WasGoId p_wasgo_id);
+explicit AnimationTreePlayer(Node other);
+AnimationTreePlayer new_instance();
             
 };
 
@@ -172,9 +172,8 @@ void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_input_auto_advance(W
 void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_input_count(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, int p_count);
 void _wasgo_AnimationTreePlayer_wrapper_transition_node_set_xfade_time(WasGoId wasgo_id, const uint8_t * p_id, int p_id_wasgo_buffer_size, float p_time_sec);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationTreePlayer_constructor();
-    void _wasgo_AnimationTreePlayer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

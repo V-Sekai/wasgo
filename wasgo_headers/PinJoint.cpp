@@ -10,9 +10,9 @@ void PinJoint::set_param(PinJoint::Param p_param, float p_value){
 
 PinJoint::PinJoint(WasGoId p_wasgo_id) : Joint(p_wasgo_id){
 }
-PinJoint::PinJoint(){
+PinJoint::PinJoint(Joint other) : Joint(other._get_wasgo_id()){
     wasgo_id = _wasgo_PinJoint_constructor();
 }
-PinJoint::~PinJoint(){
-    _wasgo_PinJoint_destructor(wasgo_id);
+PinJoint::new_instance(){
+    return PinJoint(_wasgo_PinJoint_constructor());
 }

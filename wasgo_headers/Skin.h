@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "ustring.h"
+#include "Resource.h"
 #include "Transform.h"
 class Skin : public Resource{
 public:
@@ -21,10 +21,10 @@ void set_bind_name(int p_bind_index, String p_name);
 void set_bind_pose(int p_bind_index, Transform p_pose);
 
 protected:
-Skin(WasGoId p_wasgo_id);
 public:
-Skin();
-~Skin();
+explicit Skin(WasGoId p_wasgo_id);
+explicit Skin(Resource other);
+Skin new_instance();
             
 };
 
@@ -42,9 +42,8 @@ void _wasgo_Skin_wrapper_set_bind_count(WasGoId wasgo_id, int p_bind_count);
 void _wasgo_Skin_wrapper_set_bind_name(WasGoId wasgo_id, int p_bind_index, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 void _wasgo_Skin_wrapper_set_bind_pose(WasGoId wasgo_id, int p_bind_index, const uint8_t * p_pose, int p_pose_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Skin_constructor();
-    void _wasgo_Skin_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

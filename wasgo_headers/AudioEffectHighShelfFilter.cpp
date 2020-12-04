@@ -4,9 +4,9 @@
 
 AudioEffectHighShelfFilter::AudioEffectHighShelfFilter(WasGoId p_wasgo_id) : AudioEffectFilter(p_wasgo_id){
 }
-AudioEffectHighShelfFilter::AudioEffectHighShelfFilter(){
+AudioEffectHighShelfFilter::AudioEffectHighShelfFilter(AudioEffectFilter other) : AudioEffectFilter(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectHighShelfFilter_constructor();
 }
-AudioEffectHighShelfFilter::~AudioEffectHighShelfFilter(){
-    _wasgo_AudioEffectHighShelfFilter_destructor(wasgo_id);
+AudioEffectHighShelfFilter::new_instance(){
+    return AudioEffectHighShelfFilter(_wasgo_AudioEffectHighShelfFilter_constructor());
 }

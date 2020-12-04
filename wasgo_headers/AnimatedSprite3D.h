@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "SpriteFrames.h"
 #include "SpriteBase3D.h"
+#include "ustring.h"
 class AnimatedSprite3D : public SpriteBase3D{
 public:
 String get_animation();
@@ -20,10 +20,10 @@ void set_sprite_frames(SpriteFrames p_sprite_frames);
 void stop();
 
 protected:
-AnimatedSprite3D(WasGoId p_wasgo_id);
 public:
-AnimatedSprite3D();
-~AnimatedSprite3D();
+explicit AnimatedSprite3D(WasGoId p_wasgo_id);
+explicit AnimatedSprite3D(SpriteBase3D other);
+AnimatedSprite3D new_instance();
             
 };
 
@@ -40,9 +40,8 @@ void _wasgo_AnimatedSprite3D_wrapper_set_frame(WasGoId wasgo_id, int p_frame);
 void _wasgo_AnimatedSprite3D_wrapper_set_sprite_frames(WasGoId wasgo_id, WasGoId p_sprite_frames);
 void _wasgo_AnimatedSprite3D_wrapper_stop(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimatedSprite3D_constructor();
-    void _wasgo_AnimatedSprite3D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

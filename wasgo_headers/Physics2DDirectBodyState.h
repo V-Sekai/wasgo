@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "RID.h"
 #include "Transform2D.h"
-#include "Variant.h"
-#include "Object.h"
 #include "Physics2DDirectSpaceState.h"
 #include "Vector2.h"
+#include "Object.h"
+#include "RID.h"
+#include "Variant.h"
 class Physics2DDirectBodyState : public Object{
 public:
 void add_central_force(Vector2 p_force);
@@ -84,9 +84,8 @@ void _wasgo_Physics2DDirectBodyState_wrapper_set_linear_velocity(WasGoId wasgo_i
 void _wasgo_Physics2DDirectBodyState_wrapper_set_sleep_state(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_Physics2DDirectBodyState_wrapper_set_transform(WasGoId wasgo_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Physics2DDirectBodyState_constructor();
-    void _wasgo_Physics2DDirectBodyState_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgo.h"
 
-#include "RID.h"
-#include "Skin.h"
-#include "ustring.h"
-#include "Variant.h"
 #include "Node.h"
-#include "Transform.h"
+#include "ustring.h"
 #include "SkinReference.h"
 #include "Spatial.h"
+#include "Transform.h"
+#include "RID.h"
+#include "Skin.h"
+#include "Variant.h"
 class Skeleton : public Spatial{
 public:
 void add_bone(String p_name);
@@ -44,10 +44,10 @@ void unbind_child_node_from_bone(int p_bone_idx, Node p_node);
 void unparent_bone_and_rest(int p_bone_idx);
 
 protected:
-Skeleton(WasGoId p_wasgo_id);
 public:
-Skeleton();
-~Skeleton();
+explicit Skeleton(WasGoId p_wasgo_id);
+explicit Skeleton(Spatial other);
+Skeleton new_instance();
             
 };
 
@@ -83,9 +83,8 @@ void _wasgo_Skeleton_wrapper_set_bone_rest(WasGoId wasgo_id, int p_bone_idx, con
 void _wasgo_Skeleton_wrapper_unbind_child_node_from_bone(WasGoId wasgo_id, int p_bone_idx, WasGoId p_node);
 void _wasgo_Skeleton_wrapper_unparent_bone_and_rest(WasGoId wasgo_id, int p_bone_idx);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Skeleton_constructor();
-    void _wasgo_Skeleton_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

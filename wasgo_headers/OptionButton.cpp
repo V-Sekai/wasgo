@@ -4,8 +4,8 @@
 void OptionButton::add_icon_item(Texture p_texture, String p_label, int p_id = (int) -1){
 
     Variant wasgo_var_label = p_label;
-    uint8_t wasgo_buffer_label[256];
-    int wasgo_size_label = 256;
+    int wasgo_size_label = String(p_label).size();
+    uint8_t wasgo_buffer_label[wasgo_size_label];
     encode_variant(wasgo_var_label, wasgo_buffer_label, wasgo_size_label);
     
 	_wasgo_OptionButton_wrapper_add_icon_item(wasgo_id, p_texture._get_wasgo_id(), wasgo_buffer_label, wasgo_size_label, p_id);
@@ -13,8 +13,8 @@ void OptionButton::add_icon_item(Texture p_texture, String p_label, int p_id = (
 void OptionButton::add_item(String p_label, int p_id = (int) -1){
 
     Variant wasgo_var_label = p_label;
-    uint8_t wasgo_buffer_label[256];
-    int wasgo_size_label = 256;
+    int wasgo_size_label = String(p_label).size();
+    uint8_t wasgo_buffer_label[wasgo_size_label];
     encode_variant(wasgo_var_label, wasgo_buffer_label, wasgo_size_label);
     
 	_wasgo_OptionButton_wrapper_add_item(wasgo_id, wasgo_buffer_label, wasgo_size_label, p_id);
@@ -86,8 +86,8 @@ void OptionButton::set_item_metadata(int p_idx, Variant p_metadata){
 void OptionButton::set_item_text(int p_idx, String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_OptionButton_wrapper_set_item_text(wasgo_id, p_idx, wasgo_buffer_text, wasgo_size_text);
@@ -95,9 +95,9 @@ void OptionButton::set_item_text(int p_idx, String p_text){
 
 OptionButton::OptionButton(WasGoId p_wasgo_id) : Button(p_wasgo_id){
 }
-OptionButton::OptionButton(){
+OptionButton::OptionButton(Button other) : Button(other._get_wasgo_id()){
     wasgo_id = _wasgo_OptionButton_constructor();
 }
-OptionButton::~OptionButton(){
-    _wasgo_OptionButton_destructor(wasgo_id);
+OptionButton::new_instance(){
+    return OptionButton(_wasgo_OptionButton_constructor());
 }

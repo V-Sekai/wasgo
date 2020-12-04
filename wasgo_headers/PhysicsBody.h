@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "CollisionObject.h"
 #include "Node.h"
+#include "CollisionObject.h"
+#include "Variant.h"
 class PhysicsBody : public CollisionObject{
 public:
 void add_collision_exception_with(Node p_body);
@@ -37,9 +37,8 @@ void _wasgo_PhysicsBody_wrapper_set_collision_layer_bit(WasGoId wasgo_id, int p_
 void _wasgo_PhysicsBody_wrapper_set_collision_mask(WasGoId wasgo_id, int p_mask);
 void _wasgo_PhysicsBody_wrapper_set_collision_mask_bit(WasGoId wasgo_id, int p_bit, bool p_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PhysicsBody_constructor();
-    void _wasgo_PhysicsBody_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

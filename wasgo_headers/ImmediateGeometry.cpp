@@ -70,9 +70,9 @@ void ImmediateGeometry::set_uv2(Vector2 p_uv){
 
 ImmediateGeometry::ImmediateGeometry(WasGoId p_wasgo_id) : GeometryInstance(p_wasgo_id){
 }
-ImmediateGeometry::ImmediateGeometry(){
+ImmediateGeometry::ImmediateGeometry(GeometryInstance other) : GeometryInstance(other._get_wasgo_id()){
     wasgo_id = _wasgo_ImmediateGeometry_constructor();
 }
-ImmediateGeometry::~ImmediateGeometry(){
-    _wasgo_ImmediateGeometry_destructor(wasgo_id);
+ImmediateGeometry::new_instance(){
+    return ImmediateGeometry(_wasgo_ImmediateGeometry_constructor());
 }

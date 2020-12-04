@@ -11,10 +11,10 @@ int get_columns();
 void set_columns(int p_columns);
 
 protected:
-GridContainer(WasGoId p_wasgo_id);
 public:
-GridContainer();
-~GridContainer();
+explicit GridContainer(WasGoId p_wasgo_id);
+explicit GridContainer(Container other);
+GridContainer new_instance();
             
 };
 
@@ -24,9 +24,8 @@ extern "C"{
 int _wasgo_GridContainer_wrapper_get_columns(WasGoId wasgo_id);
 void _wasgo_GridContainer_wrapper_set_columns(WasGoId wasgo_id, int p_columns);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_GridContainer_constructor();
-    void _wasgo_GridContainer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

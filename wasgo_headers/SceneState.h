@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "PackedScene.h"
-#include "Variant.h"
 #include "NodePath.h"
+#include "PackedScene.h"
 #include "Reference.h"
+#include "Variant.h"
 class SceneState : public Reference{
 public:
 enum GenEditState{
@@ -62,9 +62,8 @@ WasGoId _wasgo_SceneState_wrapper_get_node_property_value(WasGoId wasgo_id, int 
 void _wasgo_SceneState_wrapper_get_node_type(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
 int _wasgo_SceneState_wrapper_is_node_instance_placeholder(WasGoId wasgo_id, int p_idx);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SceneState_constructor();
-    void _wasgo_SceneState_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

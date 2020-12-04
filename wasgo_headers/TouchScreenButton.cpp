@@ -41,8 +41,8 @@ bool TouchScreenButton::is_shape_visible(){
 void TouchScreenButton::set_action(String p_action){
 
     Variant wasgo_var_action = p_action;
-    uint8_t wasgo_buffer_action[256];
-    int wasgo_size_action = 256;
+    int wasgo_size_action = String(p_action).size();
+    uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
 	_wasgo_TouchScreenButton_wrapper_set_action(wasgo_id, wasgo_buffer_action, wasgo_size_action);
@@ -74,9 +74,9 @@ void TouchScreenButton::set_visibility_mode(TouchScreenButton::VisibilityMode p_
 
 TouchScreenButton::TouchScreenButton(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-TouchScreenButton::TouchScreenButton(){
+TouchScreenButton::TouchScreenButton(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_TouchScreenButton_constructor();
 }
-TouchScreenButton::~TouchScreenButton(){
-    _wasgo_TouchScreenButton_destructor(wasgo_id);
+TouchScreenButton::new_instance(){
+    return TouchScreenButton(_wasgo_TouchScreenButton_constructor());
 }

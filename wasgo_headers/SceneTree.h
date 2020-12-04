@@ -4,18 +4,18 @@
 
 #include "wasgo\wasgo.h"
 
-#include "MainLoop.h"
-#include "error_list.h"
-#include "MultiplayerAPI.h"
-#include "ustring.h"
-#include "PackedScene.h"
-#include "Variant.h"
 #include "Node.h"
-#include "NetworkedMultiplayerPeer.h"
-#include "Object.h"
-#include "Viewport.h"
+#include "error_list.h"
 #include "Vector2.h"
+#include "ustring.h"
 #include "SceneTreeTimer.h"
+#include "PackedScene.h"
+#include "NetworkedMultiplayerPeer.h"
+#include "MainLoop.h"
+#include "Object.h"
+#include "MultiplayerAPI.h"
+#include "Viewport.h"
+#include "Variant.h"
 class SceneTree : public MainLoop{
 public:
 enum GroupCallFlags{
@@ -85,10 +85,10 @@ void set_screen_stretch(SceneTree::StretchMode p_mode, SceneTree::StretchAspect 
 void set_use_font_oversampling(bool p_enable);
 
 protected:
-SceneTree(WasGoId p_wasgo_id);
 public:
-SceneTree();
-~SceneTree();
+explicit SceneTree(WasGoId p_wasgo_id);
+explicit SceneTree(MainLoop other);
+SceneTree new_instance();
             
 };
 
@@ -143,9 +143,8 @@ void _wasgo_SceneTree_wrapper_set_refuse_new_network_connections(WasGoId wasgo_i
 void _wasgo_SceneTree_wrapper_set_screen_stretch(WasGoId wasgo_id, WasGoId p_mode, WasGoId p_aspect, const uint8_t * p_minsize, int p_minsize_wasgo_buffer_size, float p_shrink);
 void _wasgo_SceneTree_wrapper_set_use_font_oversampling(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SceneTree_constructor();
-    void _wasgo_SceneTree_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

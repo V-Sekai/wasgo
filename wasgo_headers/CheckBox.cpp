@@ -4,9 +4,9 @@
 
 CheckBox::CheckBox(WasGoId p_wasgo_id) : Button(p_wasgo_id){
 }
-CheckBox::CheckBox(){
+CheckBox::CheckBox(Button other) : Button(other._get_wasgo_id()){
     wasgo_id = _wasgo_CheckBox_constructor();
 }
-CheckBox::~CheckBox(){
-    _wasgo_CheckBox_destructor(wasgo_id);
+CheckBox::new_instance(){
+    return CheckBox(_wasgo_CheckBox_constructor());
 }

@@ -30,10 +30,10 @@ void set_unit_offset(float p_unit_offset);
 void set_v_offset(float p_v_offset);
 
 protected:
-PathFollow(WasGoId p_wasgo_id);
 public:
-PathFollow();
-~PathFollow();
+explicit PathFollow(WasGoId p_wasgo_id);
+explicit PathFollow(Spatial other);
+PathFollow new_instance();
             
 };
 
@@ -55,9 +55,8 @@ void _wasgo_PathFollow_wrapper_set_rotation_mode(WasGoId wasgo_id, WasGoId p_rot
 void _wasgo_PathFollow_wrapper_set_unit_offset(WasGoId wasgo_id, float p_unit_offset);
 void _wasgo_PathFollow_wrapper_set_v_offset(WasGoId wasgo_id, float p_v_offset);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PathFollow_constructor();
-    void _wasgo_PathFollow_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

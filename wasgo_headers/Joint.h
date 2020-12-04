@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
 #include "NodePath.h"
+#include "Spatial.h"
 class Joint : public Spatial{
 public:
 bool get_exclude_nodes_from_collision();
@@ -30,9 +30,8 @@ void _wasgo_Joint_wrapper_set_node_a(WasGoId wasgo_id, const uint8_t * p_node, i
 void _wasgo_Joint_wrapper_set_node_b(WasGoId wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size);
 void _wasgo_Joint_wrapper_set_solver_priority(WasGoId wasgo_id, int p_priority);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Joint_constructor();
-    void _wasgo_Joint_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

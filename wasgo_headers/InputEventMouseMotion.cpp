@@ -67,9 +67,9 @@ void InputEventMouseMotion::set_tilt(Vector2 p_tilt){
 
 InputEventMouseMotion::InputEventMouseMotion(WasGoId p_wasgo_id) : InputEventMouse(p_wasgo_id){
 }
-InputEventMouseMotion::InputEventMouseMotion(){
+InputEventMouseMotion::InputEventMouseMotion(InputEventMouse other) : InputEventMouse(other._get_wasgo_id()){
     wasgo_id = _wasgo_InputEventMouseMotion_constructor();
 }
-InputEventMouseMotion::~InputEventMouseMotion(){
-    _wasgo_InputEventMouseMotion_destructor(wasgo_id);
+InputEventMouseMotion::new_instance(){
+    return InputEventMouseMotion(_wasgo_InputEventMouseMotion_constructor());
 }

@@ -100,8 +100,8 @@ void Area::set_angular_damp(float p_angular_damp){
 void Area::set_audio_bus(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_Area_wrapper_set_audio_bus(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -157,8 +157,8 @@ void Area::set_reverb_amount(float p_amount){
 void Area::set_reverb_bus(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_Area_wrapper_set_reverb_bus(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -175,9 +175,9 @@ void Area::set_use_reverb_bus(bool p_enable){
 
 Area::Area(WasGoId p_wasgo_id) : CollisionObject(p_wasgo_id){
 }
-Area::Area(){
+Area::Area(CollisionObject other) : CollisionObject(other._get_wasgo_id()){
     wasgo_id = _wasgo_Area_constructor();
 }
-Area::~Area(){
-    _wasgo_Area_destructor(wasgo_id);
+Area::new_instance(){
+    return Area(_wasgo_Area_constructor());
 }

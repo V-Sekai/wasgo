@@ -9,10 +9,10 @@ class AudioEffectHighPassFilter : public AudioEffectFilter{
 public:
 
 protected:
-AudioEffectHighPassFilter(WasGoId p_wasgo_id);
 public:
-AudioEffectHighPassFilter();
-~AudioEffectHighPassFilter();
+explicit AudioEffectHighPassFilter(WasGoId p_wasgo_id);
+explicit AudioEffectHighPassFilter(AudioEffectFilter other);
+AudioEffectHighPassFilter new_instance();
             
 };
 
@@ -20,9 +20,8 @@ AudioEffectHighPassFilter();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectHighPassFilter_constructor();
-    void _wasgo_AudioEffectHighPassFilter_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

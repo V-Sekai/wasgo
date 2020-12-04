@@ -14,10 +14,10 @@ void set_d(float p_d);
 void set_normal(Vector2 p_normal);
 
 protected:
-LineShape2D(WasGoId p_wasgo_id);
 public:
-LineShape2D();
-~LineShape2D();
+explicit LineShape2D(WasGoId p_wasgo_id);
+explicit LineShape2D(Shape2D other);
+LineShape2D new_instance();
             
 };
 
@@ -29,9 +29,8 @@ void _wasgo_LineShape2D_wrapper_get_normal(WasGoId wasgo_id, uint8_t * wasgo_ret
 void _wasgo_LineShape2D_wrapper_set_d(WasGoId wasgo_id, float p_d);
 void _wasgo_LineShape2D_wrapper_set_normal(WasGoId wasgo_id, const uint8_t * p_normal, int p_normal_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_LineShape2D_constructor();
-    void _wasgo_LineShape2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

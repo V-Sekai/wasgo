@@ -47,9 +47,9 @@ void StyleBoxLine::set_vertical(bool p_vertical){
 
 StyleBoxLine::StyleBoxLine(WasGoId p_wasgo_id) : StyleBox(p_wasgo_id){
 }
-StyleBoxLine::StyleBoxLine(){
+StyleBoxLine::StyleBoxLine(StyleBox other) : StyleBox(other._get_wasgo_id()){
     wasgo_id = _wasgo_StyleBoxLine_constructor();
 }
-StyleBoxLine::~StyleBoxLine(){
-    _wasgo_StyleBoxLine_destructor(wasgo_id);
+StyleBoxLine::new_instance(){
+    return StyleBoxLine(_wasgo_StyleBoxLine_constructor());
 }

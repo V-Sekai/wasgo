@@ -4,9 +4,9 @@
 
 VisualShaderNodeSwitch::VisualShaderNodeSwitch(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeSwitch::VisualShaderNodeSwitch(){
+VisualShaderNodeSwitch::VisualShaderNodeSwitch(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeSwitch_constructor();
 }
-VisualShaderNodeSwitch::~VisualShaderNodeSwitch(){
-    _wasgo_VisualShaderNodeSwitch_destructor(wasgo_id);
+VisualShaderNodeSwitch::new_instance(){
+    return VisualShaderNodeSwitch(_wasgo_VisualShaderNodeSwitch_constructor());
 }

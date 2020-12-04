@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "Reference.h"
-#include "ustring.h"
-#include "error_list.h"
 #include "Variant.h"
+#include "error_list.h"
+#include "ustring.h"
 class JSONParseResult : public Reference{
 public:
 Error get_error();
@@ -20,10 +20,10 @@ void set_error_string(String p_error_string);
 void set_result(Variant p_result);
 
 protected:
-JSONParseResult(WasGoId p_wasgo_id);
 public:
-JSONParseResult();
-~JSONParseResult();
+explicit JSONParseResult(WasGoId p_wasgo_id);
+explicit JSONParseResult(Reference other);
+JSONParseResult new_instance();
             
 };
 
@@ -39,9 +39,8 @@ void _wasgo_JSONParseResult_wrapper_set_error_line(WasGoId wasgo_id, int p_error
 void _wasgo_JSONParseResult_wrapper_set_error_string(WasGoId wasgo_id, const uint8_t * p_error_string, int p_error_string_wasgo_buffer_size);
 void _wasgo_JSONParseResult_wrapper_set_result(WasGoId wasgo_id, WasGoId p_result);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_JSONParseResult_constructor();
-    void _wasgo_JSONParseResult_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

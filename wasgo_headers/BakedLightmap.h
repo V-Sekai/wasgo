@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
-#include "BakedLightmapData.h"
-#include "ustring.h"
 #include "Node.h"
+#include "Vector3.h"
+#include "ustring.h"
+#include "BakedLightmapData.h"
 #include "VisualInstance.h"
 class BakedLightmap : public VisualInstance{
 public:
@@ -53,10 +53,10 @@ void set_light_data(BakedLightmapData p_data);
 void set_propagation(float p_propagation);
 
 protected:
-BakedLightmap(WasGoId p_wasgo_id);
 public:
-BakedLightmap();
-~BakedLightmap();
+explicit BakedLightmap(WasGoId p_wasgo_id);
+explicit BakedLightmap(VisualInstance other);
+BakedLightmap new_instance();
             
 };
 
@@ -88,9 +88,8 @@ void _wasgo_BakedLightmap_wrapper_set_image_path(WasGoId wasgo_id, const uint8_t
 void _wasgo_BakedLightmap_wrapper_set_light_data(WasGoId wasgo_id, WasGoId p_data);
 void _wasgo_BakedLightmap_wrapper_set_propagation(WasGoId wasgo_id, float p_propagation);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_BakedLightmap_constructor();
-    void _wasgo_BakedLightmap_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

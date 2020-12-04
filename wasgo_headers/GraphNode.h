@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "Color.h"
 #include "Container.h"
-#include "Texture.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "Texture.h"
+#include "Color.h"
 class GraphNode : public Container{
 public:
 enum Overlay{
@@ -49,10 +49,10 @@ void set_slot(int p_idx, bool p_enable_left, int p_type_left, Color p_color_left
 void set_title(String p_title);
 
 protected:
-GraphNode(WasGoId p_wasgo_id);
 public:
-GraphNode();
-~GraphNode();
+explicit GraphNode(WasGoId p_wasgo_id);
+explicit GraphNode(Container other);
+GraphNode new_instance();
             
 };
 
@@ -91,9 +91,8 @@ void _wasgo_GraphNode_wrapper_set_show_close_button(WasGoId wasgo_id, bool p_sho
 void _wasgo_GraphNode_wrapper_set_slot(WasGoId wasgo_id, int p_idx, bool p_enable_left, int p_type_left, const uint8_t * p_color_left, int p_color_left_wasgo_buffer_size, bool p_enable_right, int p_type_right, const uint8_t * p_color_right, int p_color_right_wasgo_buffer_size, WasGoId p_custom_left, WasGoId p_custom_right);
 void _wasgo_GraphNode_wrapper_set_title(WasGoId wasgo_id, const uint8_t * p_title, int p_title_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_GraphNode_constructor();
-    void _wasgo_GraphNode_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

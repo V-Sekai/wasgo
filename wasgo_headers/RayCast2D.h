@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Object.h"
 #include "Vector2.h"
 #include "Node2D.h"
 #include "RID.h"
+#include "Object.h"
 class RayCast2D : public Node2D{
 public:
 void add_exception(Object p_node);
@@ -37,10 +37,10 @@ void set_enabled(bool p_enabled);
 void set_exclude_parent_body(bool p_mask);
 
 protected:
-RayCast2D(WasGoId p_wasgo_id);
 public:
-RayCast2D();
-~RayCast2D();
+explicit RayCast2D(WasGoId p_wasgo_id);
+explicit RayCast2D(Node2D other);
+RayCast2D new_instance();
             
 };
 
@@ -73,9 +73,8 @@ void _wasgo_RayCast2D_wrapper_set_collision_mask_bit(WasGoId wasgo_id, int p_bit
 void _wasgo_RayCast2D_wrapper_set_enabled(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_RayCast2D_wrapper_set_exclude_parent_body(WasGoId wasgo_id, bool p_mask);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_RayCast2D_constructor();
-    void _wasgo_RayCast2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

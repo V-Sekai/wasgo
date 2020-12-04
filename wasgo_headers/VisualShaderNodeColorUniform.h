@@ -9,10 +9,10 @@ class VisualShaderNodeColorUniform : public VisualShaderNodeUniform{
 public:
 
 protected:
-VisualShaderNodeColorUniform(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeColorUniform();
-~VisualShaderNodeColorUniform();
+explicit VisualShaderNodeColorUniform(WasGoId p_wasgo_id);
+explicit VisualShaderNodeColorUniform(VisualShaderNodeUniform other);
+VisualShaderNodeColorUniform new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeColorUniform();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeColorUniform_constructor();
-    void _wasgo_VisualShaderNodeColorUniform_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

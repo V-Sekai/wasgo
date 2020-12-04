@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Vector2.h"
 #include "Reference.h"
 #include "Object.h"
-#include "Vector2.h"
 #include "Variant.h"
 class KinematicCollision2D : public Reference{
 public:
@@ -23,10 +23,10 @@ Vector2 get_remainder();
 Vector2 get_travel();
 
 protected:
-KinematicCollision2D(WasGoId p_wasgo_id);
 public:
-KinematicCollision2D();
-~KinematicCollision2D();
+explicit KinematicCollision2D(WasGoId p_wasgo_id);
+explicit KinematicCollision2D(Reference other);
+KinematicCollision2D new_instance();
             
 };
 
@@ -45,9 +45,8 @@ void _wasgo_KinematicCollision2D_wrapper_get_position(WasGoId wasgo_id, uint8_t 
 void _wasgo_KinematicCollision2D_wrapper_get_remainder(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_KinematicCollision2D_wrapper_get_travel(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_KinematicCollision2D_constructor();
-    void _wasgo_KinematicCollision2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

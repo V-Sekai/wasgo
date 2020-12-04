@@ -10,9 +10,9 @@ BaseButton ButtonGroup::get_pressed_button(){
 
 ButtonGroup::ButtonGroup(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-ButtonGroup::ButtonGroup(){
+ButtonGroup::ButtonGroup(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_ButtonGroup_constructor();
 }
-ButtonGroup::~ButtonGroup(){
-    _wasgo_ButtonGroup_destructor(wasgo_id);
+ButtonGroup::new_instance(){
+    return ButtonGroup(_wasgo_ButtonGroup_constructor());
 }

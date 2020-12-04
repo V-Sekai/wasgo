@@ -14,8 +14,8 @@ String VisualShaderNodeUniformRef::get_uniform_name(){
 void VisualShaderNodeUniformRef::set_uniform_name(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_VisualShaderNodeUniformRef_wrapper_set_uniform_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -23,9 +23,9 @@ void VisualShaderNodeUniformRef::set_uniform_name(String p_name){
 
 VisualShaderNodeUniformRef::VisualShaderNodeUniformRef(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeUniformRef::VisualShaderNodeUniformRef(){
+VisualShaderNodeUniformRef::VisualShaderNodeUniformRef(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeUniformRef_constructor();
 }
-VisualShaderNodeUniformRef::~VisualShaderNodeUniformRef(){
-    _wasgo_VisualShaderNodeUniformRef_destructor(wasgo_id);
+VisualShaderNodeUniformRef::new_instance(){
+    return VisualShaderNodeUniformRef(_wasgo_VisualShaderNodeUniformRef_constructor());
 }

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
-#include "ustring.h"
-#include "Vector2.h"
 #include "SpriteFrames.h"
+#include "Node2D.h"
+#include "Vector2.h"
+#include "ustring.h"
 class AnimatedSprite : public Node2D{
 public:
 String get_animation();
@@ -31,10 +31,10 @@ void set_sprite_frames(SpriteFrames p_sprite_frames);
 void stop();
 
 protected:
-AnimatedSprite(WasGoId p_wasgo_id);
 public:
-AnimatedSprite();
-~AnimatedSprite();
+explicit AnimatedSprite(WasGoId p_wasgo_id);
+explicit AnimatedSprite(Node2D other);
+AnimatedSprite new_instance();
             
 };
 
@@ -61,9 +61,8 @@ void _wasgo_AnimatedSprite_wrapper_set_speed_scale(WasGoId wasgo_id, float p_spe
 void _wasgo_AnimatedSprite_wrapper_set_sprite_frames(WasGoId wasgo_id, WasGoId p_sprite_frames);
 void _wasgo_AnimatedSprite_wrapper_stop(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimatedSprite_constructor();
-    void _wasgo_AnimatedSprite_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

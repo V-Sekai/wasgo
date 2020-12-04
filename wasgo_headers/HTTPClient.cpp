@@ -7,8 +7,8 @@ void HTTPClient::close(){
 Error HTTPClient::connect_to_host(String p_host, int p_port = (int) -1, bool p_use_ssl = (bool) false, bool p_verify_host = (bool) true){
 
     Variant wasgo_var_host = p_host;
-    uint8_t wasgo_buffer_host[256];
-    int wasgo_size_host = 256;
+    int wasgo_size_host = String(p_host).size();
+    uint8_t wasgo_buffer_host[wasgo_size_host];
     encode_variant(wasgo_var_host, wasgo_buffer_host, wasgo_size_host);
     
 	return Error(_wasgo_HTTPClient_wrapper_connect_to_host(wasgo_id, wasgo_buffer_host, wasgo_size_host, p_port, p_use_ssl, p_verify_host));
@@ -62,14 +62,14 @@ PoolByteArray HTTPClient::read_response_body_chunk(){
 Error HTTPClient::request(HTTPClient::Method p_method, String p_url, PoolStringArray p_headers, String p_body = (String) ){
 
     Variant wasgo_var_url = p_url;
-    uint8_t wasgo_buffer_url[256];
-    int wasgo_size_url = 256;
+    int wasgo_size_url = String(p_url).size();
+    uint8_t wasgo_buffer_url[wasgo_size_url];
     encode_variant(wasgo_var_url, wasgo_buffer_url, wasgo_size_url);
     
 
     Variant wasgo_var_body = p_body;
-    uint8_t wasgo_buffer_body[256];
-    int wasgo_size_body = 256;
+    int wasgo_size_body = String(p_body).size();
+    uint8_t wasgo_buffer_body[wasgo_size_body];
     encode_variant(wasgo_var_body, wasgo_buffer_body, wasgo_size_body);
     
 	return Error(_wasgo_HTTPClient_wrapper_request(wasgo_id, p_method._get_wasgo_id(), wasgo_buffer_url, wasgo_size_url, p_headers._get_wasgo_id(), wasgo_buffer_body, wasgo_size_body));
@@ -77,8 +77,8 @@ Error HTTPClient::request(HTTPClient::Method p_method, String p_url, PoolStringA
 Error HTTPClient::request_raw(HTTPClient::Method p_method, String p_url, PoolStringArray p_headers, PoolByteArray p_body){
 
     Variant wasgo_var_url = p_url;
-    uint8_t wasgo_buffer_url[256];
-    int wasgo_size_url = 256;
+    int wasgo_size_url = String(p_url).size();
+    uint8_t wasgo_buffer_url[wasgo_size_url];
     encode_variant(wasgo_var_url, wasgo_buffer_url, wasgo_size_url);
     
 	return Error(_wasgo_HTTPClient_wrapper_request_raw(wasgo_id, p_method._get_wasgo_id(), wasgo_buffer_url, wasgo_size_url, p_headers._get_wasgo_id(), p_body._get_wasgo_id()));
@@ -95,9 +95,9 @@ void HTTPClient::set_read_chunk_size(int p_bytes){
 
 HTTPClient::HTTPClient(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-HTTPClient::HTTPClient(){
+HTTPClient::HTTPClient(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_HTTPClient_constructor();
 }
-HTTPClient::~HTTPClient(){
-    _wasgo_HTTPClient_destructor(wasgo_id);
+HTTPClient::new_instance(){
+    return HTTPClient(_wasgo_HTTPClient_constructor());
 }

@@ -9,10 +9,10 @@ class AudioStreamMicrophone : public AudioStream{
 public:
 
 protected:
-AudioStreamMicrophone(WasGoId p_wasgo_id);
 public:
-AudioStreamMicrophone();
-~AudioStreamMicrophone();
+explicit AudioStreamMicrophone(WasGoId p_wasgo_id);
+explicit AudioStreamMicrophone(AudioStream other);
+AudioStreamMicrophone new_instance();
             
 };
 
@@ -20,9 +20,8 @@ AudioStreamMicrophone();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioStreamMicrophone_constructor();
-    void _wasgo_AudioStreamMicrophone_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

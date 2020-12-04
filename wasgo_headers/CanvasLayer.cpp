@@ -107,9 +107,9 @@ void CanvasLayer::set_transform(Transform2D p_transform){
 
 CanvasLayer::CanvasLayer(WasGoId p_wasgo_id) : Node(p_wasgo_id){
 }
-CanvasLayer::CanvasLayer(){
+CanvasLayer::CanvasLayer(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_CanvasLayer_constructor();
 }
-CanvasLayer::~CanvasLayer(){
-    _wasgo_CanvasLayer_destructor(wasgo_id);
+CanvasLayer::new_instance(){
+    return CanvasLayer(_wasgo_CanvasLayer_constructor());
 }

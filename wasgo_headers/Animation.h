@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Vector3.h"
+#include "Variant.h"
+#include "Vector2.h"
+#include "ustring.h"
+#include "NodePath.h"
 #include "Quat.h"
 #include "Resource.h"
-#include "Vector3.h"
-#include "ustring.h"
-#include "Variant.h"
-#include "NodePath.h"
-#include "Vector2.h"
 class Animation : public Resource{
 public:
 enum InterpolationType{
@@ -99,10 +99,10 @@ Variant value_track_interpolate(int p_track_idx, float p_time_sec);
 void value_track_set_update_mode(int p_track_idx, Animation::UpdateMode p_mode);
 
 protected:
-Animation(WasGoId p_wasgo_id);
 public:
-Animation();
-~Animation();
+explicit Animation(WasGoId p_wasgo_id);
+explicit Animation(Resource other);
+Animation new_instance();
             
 };
 
@@ -175,9 +175,8 @@ WasGoId _wasgo_Animation_wrapper_value_track_get_update_mode(WasGoId wasgo_id, i
 WasGoId _wasgo_Animation_wrapper_value_track_interpolate(WasGoId wasgo_id, int p_track_idx, float p_time_sec);
 void _wasgo_Animation_wrapper_value_track_set_update_mode(WasGoId wasgo_id, int p_track_idx, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Animation_constructor();
-    void _wasgo_Animation_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Animation.h"
+#include "Node.h"
 #include "error_list.h"
 #include "ustring.h"
-#include "Variant.h"
-#include "Node.h"
 #include "NodePath.h"
+#include "Animation.h"
+#include "Variant.h"
 class AnimationPlayer : public Node{
 public:
 enum AnimationMethodCallMode{
@@ -65,10 +65,10 @@ void set_speed_scale(float p_speed);
 void stop(bool p_reset = (bool) true);
 
 protected:
-AnimationPlayer(WasGoId p_wasgo_id);
 public:
-AnimationPlayer();
-~AnimationPlayer();
+explicit AnimationPlayer(WasGoId p_wasgo_id);
+explicit AnimationPlayer(Node other);
+AnimationPlayer new_instance();
             
 };
 
@@ -118,9 +118,8 @@ void _wasgo_AnimationPlayer_wrapper_set_root(WasGoId wasgo_id, const uint8_t * p
 void _wasgo_AnimationPlayer_wrapper_set_speed_scale(WasGoId wasgo_id, float p_speed);
 void _wasgo_AnimationPlayer_wrapper_stop(WasGoId wasgo_id, bool p_reset);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationPlayer_constructor();
-    void _wasgo_AnimationPlayer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

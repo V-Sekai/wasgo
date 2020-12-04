@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "Environment.h"
-#include "Resource.h"
-#include "PhysicsDirectSpaceState.h"
 #include "RID.h"
+#include "PhysicsDirectSpaceState.h"
+#include "Resource.h"
 class World : public Resource{
 public:
 PhysicsDirectSpaceState get_direct_space_state();
@@ -19,10 +19,10 @@ void set_environment(Environment p_env);
 void set_fallback_environment(Environment p_env);
 
 protected:
-World(WasGoId p_wasgo_id);
 public:
-World();
-~World();
+explicit World(WasGoId p_wasgo_id);
+explicit World(Resource other);
+World new_instance();
             
 };
 
@@ -37,9 +37,8 @@ void _wasgo_World_wrapper_get_space(WasGoId wasgo_id, uint8_t * wasgo_ret, int w
 void _wasgo_World_wrapper_set_environment(WasGoId wasgo_id, WasGoId p_env);
 void _wasgo_World_wrapper_set_fallback_environment(WasGoId wasgo_id, WasGoId p_env);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_World_constructor();
-    void _wasgo_World_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

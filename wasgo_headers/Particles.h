@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "Material.h"
-#include "AABB.h"
 #include "GeometryInstance.h"
 #include "Mesh.h"
+#include "AABB.h"
 class Particles : public GeometryInstance{
 public:
 enum DrawOrder{
@@ -51,10 +51,10 @@ void set_use_local_coordinates(bool p_enable);
 void set_visibility_aabb(AABB p_aabb);
 
 protected:
-Particles(WasGoId p_wasgo_id);
 public:
-Particles();
-~Particles();
+explicit Particles(WasGoId p_wasgo_id);
+explicit Particles(GeometryInstance other);
+Particles new_instance();
             
 };
 
@@ -96,9 +96,8 @@ void _wasgo_Particles_wrapper_set_speed_scale(WasGoId wasgo_id, float p_scale);
 void _wasgo_Particles_wrapper_set_use_local_coordinates(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Particles_wrapper_set_visibility_aabb(WasGoId wasgo_id, const uint8_t * p_aabb, int p_aabb_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Particles_constructor();
-    void _wasgo_Particles_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "VisualInstance.h"
-#include "Vector3.h"
-#include "Node.h"
 #include "GIProbeData.h"
+#include "Node.h"
+#include "Vector3.h"
+#include "VisualInstance.h"
 class GIProbe : public VisualInstance{
 public:
 enum Subdiv{
@@ -41,10 +41,10 @@ void set_propagation(float p_max);
 void set_subdiv(GIProbe::Subdiv p_subdiv);
 
 protected:
-GIProbe(WasGoId p_wasgo_id);
 public:
-GIProbe();
-~GIProbe();
+explicit GIProbe(WasGoId p_wasgo_id);
+explicit GIProbe(VisualInstance other);
+GIProbe new_instance();
             
 };
 
@@ -74,9 +74,8 @@ void _wasgo_GIProbe_wrapper_set_probe_data(WasGoId wasgo_id, WasGoId p_data);
 void _wasgo_GIProbe_wrapper_set_propagation(WasGoId wasgo_id, float p_max);
 void _wasgo_GIProbe_wrapper_set_subdiv(WasGoId wasgo_id, WasGoId p_subdiv);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_GIProbe_constructor();
-    void _wasgo_GIProbe_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "Vector3.h"
-#include "Mesh.h"
 #include "ustring.h"
-#include "Plane.h"
+#include "Mesh.h"
 #include "Spatial.h"
+#include "Plane.h"
 class ARVRAnchor : public Spatial{
 public:
 int get_anchor_id();
@@ -20,10 +20,10 @@ Vector3 get_size();
 void set_anchor_id(int p_anchor_id);
 
 protected:
-ARVRAnchor(WasGoId p_wasgo_id);
 public:
-ARVRAnchor();
-~ARVRAnchor();
+explicit ARVRAnchor(WasGoId p_wasgo_id);
+explicit ARVRAnchor(Spatial other);
+ARVRAnchor new_instance();
             
 };
 
@@ -38,9 +38,8 @@ void _wasgo_ARVRAnchor_wrapper_get_plane(WasGoId wasgo_id, uint8_t * wasgo_ret, 
 void _wasgo_ARVRAnchor_wrapper_get_size(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_ARVRAnchor_wrapper_set_anchor_id(WasGoId wasgo_id, int p_anchor_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ARVRAnchor_constructor();
-    void _wasgo_ARVRAnchor_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

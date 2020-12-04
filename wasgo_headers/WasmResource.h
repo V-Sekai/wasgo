@@ -11,10 +11,10 @@ public:
 PoolByteArray get_buf();
 
 protected:
-WasmResource(WasGoId p_wasgo_id);
 public:
-WasmResource();
-~WasmResource();
+explicit WasmResource(WasGoId p_wasgo_id);
+explicit WasmResource(Resource other);
+WasmResource new_instance();
             
 };
 
@@ -23,9 +23,8 @@ WasmResource();
 extern "C"{
 WasGoId _wasgo_WasmResource_wrapper_get_buf(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_WasmResource_constructor();
-    void _wasgo_WasmResource_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -13,9 +13,8 @@ public:
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VideoStream_constructor();
-    void _wasgo_VideoStream_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

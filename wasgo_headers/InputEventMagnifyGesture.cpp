@@ -10,9 +10,9 @@ void InputEventMagnifyGesture::set_factor(float p_factor){
 
 InputEventMagnifyGesture::InputEventMagnifyGesture(WasGoId p_wasgo_id) : InputEventGesture(p_wasgo_id){
 }
-InputEventMagnifyGesture::InputEventMagnifyGesture(){
+InputEventMagnifyGesture::InputEventMagnifyGesture(InputEventGesture other) : InputEventGesture(other._get_wasgo_id()){
     wasgo_id = _wasgo_InputEventMagnifyGesture_constructor();
 }
-InputEventMagnifyGesture::~InputEventMagnifyGesture(){
-    _wasgo_InputEventMagnifyGesture_destructor(wasgo_id);
+InputEventMagnifyGesture::new_instance(){
+    return InputEventMagnifyGesture(_wasgo_InputEventMagnifyGesture_constructor());
 }

@@ -4,9 +4,9 @@
 
 VisualShaderNodeColorUniform::VisualShaderNodeColorUniform(WasGoId p_wasgo_id) : VisualShaderNodeUniform(p_wasgo_id){
 }
-VisualShaderNodeColorUniform::VisualShaderNodeColorUniform(){
+VisualShaderNodeColorUniform::VisualShaderNodeColorUniform(VisualShaderNodeUniform other) : VisualShaderNodeUniform(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeColorUniform_constructor();
 }
-VisualShaderNodeColorUniform::~VisualShaderNodeColorUniform(){
-    _wasgo_VisualShaderNodeColorUniform_destructor(wasgo_id);
+VisualShaderNodeColorUniform::new_instance(){
+    return VisualShaderNodeColorUniform(_wasgo_VisualShaderNodeColorUniform_constructor());
 }

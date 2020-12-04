@@ -96,8 +96,8 @@ void SkeletonIK::set_override_tip_basis(bool p_override){
 void SkeletonIK::set_root_bone(String p_root_bone){
 
     Variant wasgo_var_root_bone = p_root_bone;
-    uint8_t wasgo_buffer_root_bone[256];
-    int wasgo_size_root_bone = 256;
+    int wasgo_size_root_bone = String(p_root_bone).size();
+    uint8_t wasgo_buffer_root_bone[wasgo_size_root_bone];
     encode_variant(wasgo_var_root_bone, wasgo_buffer_root_bone, wasgo_size_root_bone);
     
 	_wasgo_SkeletonIK_wrapper_set_root_bone(wasgo_id, wasgo_buffer_root_bone, wasgo_size_root_bone);
@@ -105,8 +105,8 @@ void SkeletonIK::set_root_bone(String p_root_bone){
 void SkeletonIK::set_target_node(NodePath p_node){
 
     Variant wasgo_var_node = p_node;
-    uint8_t wasgo_buffer_node[256];
-    int wasgo_size_node = 256;
+    int wasgo_size_node = String(p_node).size();
+    uint8_t wasgo_buffer_node[wasgo_size_node];
     encode_variant(wasgo_var_node, wasgo_buffer_node, wasgo_size_node);
     
 	_wasgo_SkeletonIK_wrapper_set_target_node(wasgo_id, wasgo_buffer_node, wasgo_size_node);
@@ -123,8 +123,8 @@ void SkeletonIK::set_target_transform(Transform p_target){
 void SkeletonIK::set_tip_bone(String p_tip_bone){
 
     Variant wasgo_var_tip_bone = p_tip_bone;
-    uint8_t wasgo_buffer_tip_bone[256];
-    int wasgo_size_tip_bone = 256;
+    int wasgo_size_tip_bone = String(p_tip_bone).size();
+    uint8_t wasgo_buffer_tip_bone[wasgo_size_tip_bone];
     encode_variant(wasgo_var_tip_bone, wasgo_buffer_tip_bone, wasgo_size_tip_bone);
     
 	_wasgo_SkeletonIK_wrapper_set_tip_bone(wasgo_id, wasgo_buffer_tip_bone, wasgo_size_tip_bone);
@@ -141,9 +141,9 @@ void SkeletonIK::stop(){
 
 SkeletonIK::SkeletonIK(WasGoId p_wasgo_id) : Node(p_wasgo_id){
 }
-SkeletonIK::SkeletonIK(){
+SkeletonIK::SkeletonIK(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_SkeletonIK_constructor();
 }
-SkeletonIK::~SkeletonIK(){
-    _wasgo_SkeletonIK_destructor(wasgo_id);
+SkeletonIK::new_instance(){
+    return SkeletonIK(_wasgo_SkeletonIK_constructor());
 }

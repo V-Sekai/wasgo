@@ -45,8 +45,8 @@ bool AnimatedSprite::is_playing(){
 void AnimatedSprite::play(String p_anim = (String) , bool p_backwards = (bool) false){
 
     Variant wasgo_var_anim = p_anim;
-    uint8_t wasgo_buffer_anim[256];
-    int wasgo_size_anim = 256;
+    int wasgo_size_anim = String(p_anim).size();
+    uint8_t wasgo_buffer_anim[wasgo_size_anim];
     encode_variant(wasgo_var_anim, wasgo_buffer_anim, wasgo_size_anim);
     
 	_wasgo_AnimatedSprite_wrapper_play(wasgo_id, wasgo_buffer_anim, wasgo_size_anim, p_backwards);
@@ -54,8 +54,8 @@ void AnimatedSprite::play(String p_anim = (String) , bool p_backwards = (bool) f
 void AnimatedSprite::set_animation(String p_animation){
 
     Variant wasgo_var_animation = p_animation;
-    uint8_t wasgo_buffer_animation[256];
-    int wasgo_size_animation = 256;
+    int wasgo_size_animation = String(p_animation).size();
+    uint8_t wasgo_buffer_animation[wasgo_size_animation];
     encode_variant(wasgo_var_animation, wasgo_buffer_animation, wasgo_size_animation);
     
 	_wasgo_AnimatedSprite_wrapper_set_animation(wasgo_id, wasgo_buffer_animation, wasgo_size_animation);
@@ -93,9 +93,9 @@ void AnimatedSprite::stop(){
 
 AnimatedSprite::AnimatedSprite(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-AnimatedSprite::AnimatedSprite(){
+AnimatedSprite::AnimatedSprite(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimatedSprite_constructor();
 }
-AnimatedSprite::~AnimatedSprite(){
-    _wasgo_AnimatedSprite_destructor(wasgo_id);
+AnimatedSprite::new_instance(){
+    return AnimatedSprite(_wasgo_AnimatedSprite_constructor());
 }

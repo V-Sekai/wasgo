@@ -19,8 +19,8 @@ ImageTexture::Storage ImageTexture::get_storage(){
 Error ImageTexture::load(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return Error(_wasgo_ImageTexture_wrapper_load(wasgo_id, wasgo_buffer_path, wasgo_size_path));
@@ -46,9 +46,9 @@ void ImageTexture::set_storage(ImageTexture::Storage p_mode){
 
 ImageTexture::ImageTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
 }
-ImageTexture::ImageTexture(){
+ImageTexture::ImageTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_ImageTexture_constructor();
 }
-ImageTexture::~ImageTexture(){
-    _wasgo_ImageTexture_destructor(wasgo_id);
+ImageTexture::new_instance(){
+    return ImageTexture(_wasgo_ImageTexture_constructor());
 }

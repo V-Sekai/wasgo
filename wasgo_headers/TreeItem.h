@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Object.h"
 #include "ustring.h"
-#include "Variant.h"
-#include "Rect2.h"
-#include "Color.h"
 #include "Texture.h"
+#include "Color.h"
+#include "Rect2.h"
+#include "Object.h"
+#include "Variant.h"
 class TreeItem : public Object{
 public:
 enum TextAlign{
@@ -166,9 +166,8 @@ void _wasgo_TreeItem_wrapper_set_text(WasGoId wasgo_id, int p_column, const uint
 void _wasgo_TreeItem_wrapper_set_text_align(WasGoId wasgo_id, int p_column, WasGoId p_text_align);
 void _wasgo_TreeItem_wrapper_set_tooltip(WasGoId wasgo_id, int p_column, const uint8_t * p_tooltip, int p_tooltip_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TreeItem_constructor();
-    void _wasgo_TreeItem_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

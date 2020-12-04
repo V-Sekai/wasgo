@@ -9,10 +9,10 @@ class VisualShaderNodeScalarInterp : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeScalarInterp(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeScalarInterp();
-~VisualShaderNodeScalarInterp();
+explicit VisualShaderNodeScalarInterp(WasGoId p_wasgo_id);
+explicit VisualShaderNodeScalarInterp(VisualShaderNode other);
+VisualShaderNodeScalarInterp new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeScalarInterp();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeScalarInterp_constructor();
-    void _wasgo_VisualShaderNodeScalarInterp_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

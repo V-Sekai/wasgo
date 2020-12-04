@@ -27,10 +27,10 @@ void set_mix_mode(AnimationNodeOneShot::MixMode p_mode);
 void set_use_sync(bool p_enable);
 
 protected:
-AnimationNodeOneShot(WasGoId p_wasgo_id);
 public:
-AnimationNodeOneShot();
-~AnimationNodeOneShot();
+explicit AnimationNodeOneShot(WasGoId p_wasgo_id);
+explicit AnimationNodeOneShot(AnimationNode other);
+AnimationNodeOneShot new_instance();
             
 };
 
@@ -52,9 +52,8 @@ void _wasgo_AnimationNodeOneShot_wrapper_set_fadeout_time(WasGoId wasgo_id, floa
 void _wasgo_AnimationNodeOneShot_wrapper_set_mix_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_AnimationNodeOneShot_wrapper_set_use_sync(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeOneShot_constructor();
-    void _wasgo_AnimationNodeOneShot_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

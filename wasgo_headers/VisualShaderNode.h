@@ -34,9 +34,8 @@ void _wasgo_VisualShaderNode_wrapper_set_default_input_values(WasGoId wasgo_id, 
 void _wasgo_VisualShaderNode_wrapper_set_input_port_default_value(WasGoId wasgo_id, int p_port, WasGoId p_value);
 void _wasgo_VisualShaderNode_wrapper_set_output_port_for_preview(WasGoId wasgo_id, int p_port);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNode_constructor();
-    void _wasgo_VisualShaderNode_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

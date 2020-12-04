@@ -40,10 +40,10 @@ void set_use_as_steering(bool p_enable);
 void set_use_as_traction(bool p_enable);
 
 protected:
-VehicleWheel(WasGoId p_wasgo_id);
 public:
-VehicleWheel();
-~VehicleWheel();
+explicit VehicleWheel(WasGoId p_wasgo_id);
+explicit VehicleWheel(Spatial other);
+VehicleWheel new_instance();
             
 };
 
@@ -82,9 +82,8 @@ void _wasgo_VehicleWheel_wrapper_set_suspension_travel(WasGoId wasgo_id, float p
 void _wasgo_VehicleWheel_wrapper_set_use_as_steering(WasGoId wasgo_id, bool p_enable);
 void _wasgo_VehicleWheel_wrapper_set_use_as_traction(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VehicleWheel_constructor();
-    void _wasgo_VehicleWheel_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

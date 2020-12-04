@@ -4,9 +4,9 @@
 
 AnimationNodeTimeScale::AnimationNodeTimeScale(WasGoId p_wasgo_id) : AnimationNode(p_wasgo_id){
 }
-AnimationNodeTimeScale::AnimationNodeTimeScale(){
+AnimationNodeTimeScale::AnimationNodeTimeScale(AnimationNode other) : AnimationNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeTimeScale_constructor();
 }
-AnimationNodeTimeScale::~AnimationNodeTimeScale(){
-    _wasgo_AnimationNodeTimeScale_destructor(wasgo_id);
+AnimationNodeTimeScale::new_instance(){
+    return AnimationNodeTimeScale(_wasgo_AnimationNodeTimeScale_constructor());
 }

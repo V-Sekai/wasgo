@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "RID.h"
 #include "Variant.h"
-#include "Transform.h"
 #include "Reference.h"
+#include "Transform.h"
+#include "RID.h"
+#include "Resource.h"
 class PhysicsShapeQueryParameters : public Reference{
 public:
 int get_collision_mask();
@@ -28,10 +28,10 @@ void set_shape_rid(RID p_shape);
 void set_transform(Transform p_transform);
 
 protected:
-PhysicsShapeQueryParameters(WasGoId p_wasgo_id);
 public:
-PhysicsShapeQueryParameters();
-~PhysicsShapeQueryParameters();
+explicit PhysicsShapeQueryParameters(WasGoId p_wasgo_id);
+explicit PhysicsShapeQueryParameters(Reference other);
+PhysicsShapeQueryParameters new_instance();
             
 };
 
@@ -54,9 +54,8 @@ void _wasgo_PhysicsShapeQueryParameters_wrapper_set_shape(WasGoId wasgo_id, WasG
 void _wasgo_PhysicsShapeQueryParameters_wrapper_set_shape_rid(WasGoId wasgo_id, const uint8_t * p_shape, int p_shape_wasgo_buffer_size);
 void _wasgo_PhysicsShapeQueryParameters_wrapper_set_transform(WasGoId wasgo_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PhysicsShapeQueryParameters_constructor();
-    void _wasgo_PhysicsShapeQueryParameters_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
-#include "ustring.h"
 #include "PackedScene.h"
 #include "Node.h"
+#include "Variant.h"
+#include "ustring.h"
 class InstancePlaceholder : public Node{
 public:
 Node create_instance(bool p_replace = (bool) false, PackedScene p_custom_scene = (PackedScene) "");
@@ -24,9 +24,8 @@ void _wasgo_InstancePlaceholder_wrapper_get_instance_path(WasGoId wasgo_id, uint
 WasGoId _wasgo_InstancePlaceholder_wrapper_get_stored_values(WasGoId wasgo_id, bool p_with_order);
 void _wasgo_InstancePlaceholder_wrapper_replace_by_instance(WasGoId wasgo_id, WasGoId p_custom_scene);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_InstancePlaceholder_constructor();
-    void _wasgo_InstancePlaceholder_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

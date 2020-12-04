@@ -4,21 +4,21 @@
 
 void WasGoState::_initialize() {
 	reference_object(this);
-	for (int i = 0; i < properties.size(); i++) {
-		Variant var = properties.values()[i];
-		switch(var.get_type()){
-			case (Variant::OBJECT): {
-				Object *obj = var;
-				reference_object(obj);
-			} break;
-			case (Variant::NODE_PATH): {
-				Node *node = get_node_or_null(var);
-				if (node) {
-					reference_object(node);
-				}
-			} break;
-		}
-	}
+	// for (int i = 0; i < properties.size(); i++) {
+	// 	Variant var = properties.values()[i];
+	// 	switch(var.get_type()){
+	// 		case (Variant::OBJECT): {
+	// 			Object *obj = var;
+	// 			reference_object(obj);
+	// 		} break;
+	// 		case (Variant::NODE_PATH): {
+	// 			Node *node = get_node_or_null(var);
+	// 			if (node) {
+	// 				reference_object(node);
+	// 			}
+	// 		} break;
+	// 	}
+	// }
 	if (wasm_script.is_valid()) {
 		module = WasGoRuntime::get_singleton()->load_module(wasm_script);
 		if (module) {
@@ -41,11 +41,14 @@ void WasGoState::_initialize() {
 }
 
 void WasGoState::_stop() {
-	if (exec_env) wasm_runtime_destroy_exec_env(exec_env);
+	if (exec_env){
+		wasm_runtime_destroy_exec_env(exec_env);
+	}
 	if (module_inst) {
 		if (wasm_buffer) wasm_runtime_module_free(module_inst, wasm_buffer);
 		wasm_runtime_deinstantiate(module_inst);
 	}
+	last_id = 0;
 	exec_env = nullptr;
 	module_inst = nullptr;
 	createdObjects.clear();
@@ -110,57 +113,62 @@ WasGoState::WasGoState() {
 	properties = {};
 	stack_size = 8192;
 	heap_size = 8192;
+	notification_callback = nullptr;
+	createdObjects = Dictionary();
+	createdObjectsReverse = Dictionary();
+	referencedObjects = Dictionary();
+	referencedObjectsReverse = Dictionary();
 }
 
 WasGoState::~WasGoState(){
 	_stop();
 }
 
-Object *WasGoState::lookup_object(WasGoID id) {
+Variant WasGoState::lookup_object(WasGoID id) {
 	if (createdObjectsReverse.has(id)) {
-		return ObjectDB::get_instance(createdObjectsReverse[id]);
+		return createdObjectsReverse[id];
 	} else if (referencedObjectsReverse.has(id)) {
-		return ObjectDB::get_instance(referencedObjectsReverse[id]);
+		return referencedObjectsReverse[id];
 	}
-	return nullptr;
+	return Variant();
 }
-Object *WasGoState::lookup_createdObject(WasGoID id) {
+Variant WasGoState::lookup_createdObject(WasGoID id) {
 	if (createdObjectsReverse.has(id)) {
-		return ObjectDB::get_instance(createdObjectsReverse[id]);
+		return createdObjectsReverse[id];
 	}
-	return nullptr;
+	return Variant();
 }
 
-Object *WasGoState::lookup_referencedObject(WasGoID id) {
+Variant WasGoState::lookup_referencedObject(WasGoID id) {
 	if (referencedObjectsReverse.has(id)) {
-		return ObjectDB::get_instance(referencedObjectsReverse[id]);
+		return referencedObjectsReverse[id];
 	}
-	return nullptr;
+	return Variant();
 }
-Variant *WasGoState::lookup_variant(WasGoID id){
-    if(createdVariantsReverse.has(id)){
-		return &createdVariantsReverse[id];
-	}
-	return nullptr;
-}
+// Variant *WasGoState::lookup_variant(WasGoID id){
+//     if(createdVariantsReverse.has(id)){
+// 		return &createdVariantsReverse[id];
+// 	}
+// 	return nullptr;
+// }
 
-WasGoState::WasGoID WasGoState::lookup_object_reverse(ObjectID id){
-	if(createdObjects.has(id)){
-		return createdObjects[id];
-	} else if (referencedObjects.has(id)){
-		return referencedObjects[id];
+WasGoState::WasGoID WasGoState::lookup_wasgo_object(Variant obj){
+	if(createdObjects.has(obj)){
+		return createdObjects[obj];
+	} else if (referencedObjects.has(obj)){
+		return referencedObjects[obj];
 	}
 	return 0;
 }
-WasGoState::WasGoID WasGoState::lookup_createdObject_reverse(ObjectID id){
-	if (createdObjects.has(id)) {
-		return createdObjects[id];
+WasGoState::WasGoID WasGoState::lookup_wasgo_createdObject(Variant obj){
+	if (createdObjects.has(obj)) {
+		return createdObjects[obj];
 	}
 	return 0;
 }
-WasGoState::WasGoID WasGoState::lookup_referencedObject_reverse(ObjectID id){
-	if (referencedObjects.has(id)) {
-		return referencedObjects[id];
+WasGoState::WasGoID WasGoState::lookup_wasgo_referencedObject(Variant obj){
+	if (referencedObjects.has(obj)) {
+		return referencedObjects[obj];
 	}
 	return 0;
 }
@@ -226,60 +234,62 @@ WasGoState::WasGoID WasGoState::generate_id(){
 	return last_id;
 }
 
-WasGoState::WasGoID WasGoState::create_object(ObjectID obj_id) {
+WasGoState::WasGoID WasGoState::create_object(Variant obj) {
 	WasGoID wasgo_id = 0;
-	if (createdObjects.has(obj_id)) {
-		wasgo_id = createdObjects[obj_id];
-	} else {
+	if (createdObjects.has(obj)) {
+		wasgo_id = createdObjects[obj];
+	}
+	else if (referencedObjects.has(obj)){
+		wasgo_id = referencedObjects[obj];
+	}
+	else {
 		wasgo_id = generate_id();
-		createdObjects.set(obj_id, wasgo_id);
-		createdObjectsReverse.set(wasgo_id, obj_id);
+		// createdObjects.set(obj, wasgo_id);
+		// createdObjectsReverse.set(wasgo_id, obj);
+		createdObjects[obj] = wasgo_id;
+		createdObjectsReverse[wasgo_id] = obj;
 	}
 	return wasgo_id;
 }
 
-WasGoState::WasGoID WasGoState::reference_object(ObjectID obj_id) {
+WasGoState::WasGoID WasGoState::reference_object(Variant obj) {
 	WasGoID wasgo_id = 0;
-	if (referencedObjects.has(obj_id)) {
-		wasgo_id = referencedObjects[obj_id];
+	if (referencedObjects.has(obj)) {
+		wasgo_id = referencedObjects[obj];
+	} if (createdObjects.has(obj)){
+		wasgo_id = createdObjects[obj];
 	} else {
 		wasgo_id = generate_id();
-		referencedObjects.set(obj_id, wasgo_id);
-		referencedObjectsReverse.set(wasgo_id, obj_id);
+		// referencedObjects.set(obj, wasgo_id);
+		// referencedObjectsReverse.set(wasgo_id, obj);
+		referencedObjects[obj] =  wasgo_id;
+		referencedObjectsReverse[wasgo_id] = obj;
 	}
 	return wasgo_id;
 }
 
-WasGoState::WasGoID WasGoState::create_variant(Variant var){
-	WasGoID wasgo_id = generate_id();
-	// createdVariants.set(var, wasgo_id);
-	createdVariantsReverse.set(wasgo_id, var);
-	return wasgo_id;
-}
+// WasGoState::WasGoID WasGoState::create_variant(Variant var){
+// 	WasGoID wasgo_id = generate_id();
+// 	// createdVariants.set(var, wasgo_id);
+// 	createdVariantsReverse.set(wasgo_id, var);
+// 	return wasgo_id;
+// }
 
-WasGoState::WasGoID WasGoState::create_object(Object obj) {
-	WasGoID wasgo_id = 0;
-	if (createdObjects.has(obj.get_instance_id())) {
-		wasgo_id = createdObjects[wasgo_id];
-	} else {
-		wasgo_id = generate_id();
-		createdObjects.set(obj.get_instance_id(), wasgo_id);
-		createdObjectsReverse.set(wasgo_id, obj.get_instance_id());
-	}
-	return wasgo_id;
-}
+// WasGoState::WasGoID WasGoState::create_object(Object obj) {
+// 	WasGoID wasgo_id = 0;
+// 	if (createdObjects.has(obj.get_instance_id())) {
+// 		wasgo_id = createdObjects[wasgo_id];
+// 	} else {
+// 		wasgo_id = generate_id();
+// 		createdObjects.set(obj.get_instance_id(), wasgo_id);
+// 		createdObjectsReverse.set(wasgo_id, obj.get_instance_id());
+// 	}
+// 	return wasgo_id;
+// }
 
-WasGoState::WasGoID WasGoState::reference_object(Object obj) {
-	WasGoID wasgo_id = 0;
-	if (referencedObjects.has(obj.get_instance_id())) {
-		wasgo_id = referencedObjects[wasgo_id];
-	} else {
-		wasgo_id = generate_id();
-		referencedObjects.set(obj.get_instance_id(), wasgo_id);
-		referencedObjectsReverse.set(wasgo_id, obj.get_instance_id());
-	}
-	return wasgo_id;
-}
+// WasGoState::WasGoID WasGoState::reference_object(Object obj) {
+// 	return reference_object(obj.get_instance_id());
+// }
 
 // WasGoState::WasGoID WasGoState::reference_object(Ref<Object> ref) {
 // 	WasGoID wasgo_id = 0;
@@ -294,37 +304,30 @@ WasGoState::WasGoID WasGoState::reference_object(Object obj) {
 // 	return wasgo_id;
 // }
 
-WasGoState::WasGoID WasGoState::create_object(Object *obj) {
-	//because we're receiving a pointer let's assume we're not responsible for cleaning up the object, so let's use a reference instead
-	return reference_object(obj);
-}
-
-WasGoState::WasGoID WasGoState::reference_object(Object *obj) {
-	return reference_object(obj->get_instance_id());
-}
-
 WasGoState::WasGoID WasGoState::handle_return_variant(Variant var){
-	WasGoID id = 0;
-	if(var.is_ref()){
-		if(var.get_type() == Variant::OBJECT){
-			RefPtr ref = RefPtr(var);
-			Object *obj = (Object *)ref.get_data();
-			id = reference_object(obj->get_instance_id());
-		} else {
-			//We shouldn't be able to get here
-			printf("ERROR: unexpected ref type");
-		}
-	} else {
-		if (var.get_type() == Variant::OBJECT) {
-			Object *obj = (Object *)var;
-			if (obj) {
-				id = create_object(obj->get_instance_id());
-			}
-		} else {
-			id = create_variant(var);
-		}
-	}
-	return id;
+	// WasGoID id = 0;
+	// if(var.is_ref()){
+	// 	if(var.get_type() == Variant::OBJECT){
+	// 		RefPtr ref = RefPtr(var);
+	// 		Object *obj = (Object *)ref.get_data();
+	// 		id = reference_object(obj);
+	// 	} else {
+	// 		//We shouldn't be able to get here
+	// 		printf("ERROR: unexpected ref type");
+	// 	}
+	// } else {
+	// 	// if (var.get_type() == Variant::OBJECT) {
+	// 	// 	Object *obj = (Object *)var;
+	// 	// 	if (obj) {
+	// 	// 		id = create_object(obj);
+	// 	// 	}
+	// 	// } else {
+	// 	// 	id = create_variant(var);
+	// 	// }
+	// 	id = create_object(var);
+	// }
+	// return id;
+	return create_object(var);
 }
 
 //Regular Node Callbacks
@@ -376,8 +379,12 @@ WasGoState::WasGoID WasGoState::handle_return_variant(Variant var){
 //     }
 // }
 
-WasGoState::WasGoID _wasgo_this_node(wasm_exec_env_t exec_env) {
-	return 1;
+WasGoState::WasGoID _wasgo_this_node(wasm_exec_env_t p_exec_env) {
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
+	if(state){
+		return state->lookup_wasgo_object(state);
+	}
+	return 0;
 }
 
 int _wasgo_get_property_bool(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size){
@@ -617,7 +624,7 @@ WasGoState::WasGoID _wasgo_get_property_object(wasm_exec_env_t p_exec_env, const
 	Variant name = String();
 	decode_variant(name, property_name, property_name_size);
 	Object *ret = state->get_property(name);
-	return state->lookup_object_reverse(ret->get_instance_id());
+	return state->lookup_wasgo_object(ret);
 }
 void _wasgo_set_property_object(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, WasGoState::WasGoID p_wasgo_id) {
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);

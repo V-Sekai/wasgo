@@ -16,9 +16,9 @@ void HingeJoint::set_param(HingeJoint::Param p_param, float p_value){
 
 HingeJoint::HingeJoint(WasGoId p_wasgo_id) : Joint(p_wasgo_id){
 }
-HingeJoint::HingeJoint(){
+HingeJoint::HingeJoint(Joint other) : Joint(other._get_wasgo_id()){
     wasgo_id = _wasgo_HingeJoint_constructor();
 }
-HingeJoint::~HingeJoint(){
-    _wasgo_HingeJoint_destructor(wasgo_id);
+HingeJoint::new_instance(){
+    return HingeJoint(_wasgo_HingeJoint_constructor());
 }

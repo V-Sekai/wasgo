@@ -182,9 +182,9 @@ void ParticlesMaterial::set_trail_size_modifier(CurveTexture p_texture){
 
 ParticlesMaterial::ParticlesMaterial(WasGoId p_wasgo_id) : Material(p_wasgo_id){
 }
-ParticlesMaterial::ParticlesMaterial(){
+ParticlesMaterial::ParticlesMaterial(Material other) : Material(other._get_wasgo_id()){
     wasgo_id = _wasgo_ParticlesMaterial_constructor();
 }
-ParticlesMaterial::~ParticlesMaterial(){
-    _wasgo_ParticlesMaterial_destructor(wasgo_id);
+ParticlesMaterial::new_instance(){
+    return ParticlesMaterial(_wasgo_ParticlesMaterial_constructor());
 }

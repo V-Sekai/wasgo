@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
+#include "AudioStream.h"
+#include "AudioStreamPlayback.h"
 #include "Spatial.h"
 #include "ustring.h"
-#include "AudioStreamPlayback.h"
-#include "AudioStream.h"
 class AudioStreamPlayer3D : public Spatial{
 public:
 enum AttenuationModel{
@@ -69,10 +69,10 @@ void set_unit_size(float p_unit_size);
 void stop();
 
 protected:
-AudioStreamPlayer3D(WasGoId p_wasgo_id);
 public:
-AudioStreamPlayer3D();
-~AudioStreamPlayer3D();
+explicit AudioStreamPlayer3D(WasGoId p_wasgo_id);
+explicit AudioStreamPlayer3D(Spatial other);
+AudioStreamPlayer3D new_instance();
             
 };
 
@@ -122,9 +122,8 @@ void _wasgo_AudioStreamPlayer3D_wrapper_set_unit_db(WasGoId wasgo_id, float p_un
 void _wasgo_AudioStreamPlayer3D_wrapper_set_unit_size(WasGoId wasgo_id, float p_unit_size);
 void _wasgo_AudioStreamPlayer3D_wrapper_stop(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioStreamPlayer3D_constructor();
-    void _wasgo_AudioStreamPlayer3D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

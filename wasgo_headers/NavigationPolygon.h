@@ -24,10 +24,10 @@ void set_outline(int p_idx, PoolVector2Array p_outline);
 void set_vertices(PoolVector2Array p_vertices);
 
 protected:
-NavigationPolygon(WasGoId p_wasgo_id);
 public:
-NavigationPolygon();
-~NavigationPolygon();
+explicit NavigationPolygon(WasGoId p_wasgo_id);
+explicit NavigationPolygon(Resource other);
+NavigationPolygon new_instance();
             
 };
 
@@ -49,9 +49,8 @@ void _wasgo_NavigationPolygon_wrapper_remove_outline(WasGoId wasgo_id, int p_idx
 void _wasgo_NavigationPolygon_wrapper_set_outline(WasGoId wasgo_id, int p_idx, WasGoId p_outline);
 void _wasgo_NavigationPolygon_wrapper_set_vertices(WasGoId wasgo_id, WasGoId p_vertices);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_NavigationPolygon_constructor();
-    void _wasgo_NavigationPolygon_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

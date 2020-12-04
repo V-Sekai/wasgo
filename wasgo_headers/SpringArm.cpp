@@ -52,9 +52,9 @@ void SpringArm::set_shape(Shape p_shape){
 
 SpringArm::SpringArm(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-SpringArm::SpringArm(){
+SpringArm::SpringArm(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_SpringArm_constructor();
 }
-SpringArm::~SpringArm(){
-    _wasgo_SpringArm_destructor(wasgo_id);
+SpringArm::new_instance(){
+    return SpringArm(_wasgo_SpringArm_constructor());
 }

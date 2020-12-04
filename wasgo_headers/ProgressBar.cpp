@@ -10,9 +10,9 @@ void ProgressBar::set_percent_visible(bool p_visible){
 
 ProgressBar::ProgressBar(WasGoId p_wasgo_id) : Range(p_wasgo_id){
 }
-ProgressBar::ProgressBar(){
+ProgressBar::ProgressBar(Range other) : Range(other._get_wasgo_id()){
     wasgo_id = _wasgo_ProgressBar_constructor();
 }
-ProgressBar::~ProgressBar(){
-    _wasgo_ProgressBar_destructor(wasgo_id);
+ProgressBar::new_instance(){
+    return ProgressBar(_wasgo_ProgressBar_constructor());
 }

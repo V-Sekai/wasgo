@@ -44,9 +44,9 @@ void ARVRController::set_rumble(float p_rumble){
 
 ARVRController::ARVRController(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-ARVRController::ARVRController(){
+ARVRController::ARVRController(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_ARVRController_constructor();
 }
-ARVRController::~ARVRController(){
-    _wasgo_ARVRController_destructor(wasgo_id);
+ARVRController::new_instance(){
+    return ARVRController(_wasgo_ARVRController_constructor());
 }

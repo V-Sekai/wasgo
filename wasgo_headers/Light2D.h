@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
 #include "Texture.h"
-#include "Vector2.h"
 #include "Node2D.h"
+#include "Color.h"
+#include "Vector2.h"
 class Light2D : public Node2D{
 public:
 enum Mode{
@@ -68,10 +68,10 @@ void set_z_range_max(int p_z);
 void set_z_range_min(int p_z);
 
 protected:
-Light2D(WasGoId p_wasgo_id);
 public:
-Light2D();
-~Light2D();
+explicit Light2D(WasGoId p_wasgo_id);
+explicit Light2D(Node2D other);
+Light2D new_instance();
             
 };
 
@@ -121,9 +121,8 @@ void _wasgo_Light2D_wrapper_set_texture_scale(WasGoId wasgo_id, float p_texture_
 void _wasgo_Light2D_wrapper_set_z_range_max(WasGoId wasgo_id, int p_z);
 void _wasgo_Light2D_wrapper_set_z_range_min(WasGoId wasgo_id, int p_z);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Light2D_constructor();
-    void _wasgo_Light2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

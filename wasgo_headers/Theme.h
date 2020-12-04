@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
+#include "StyleBox.h"
+#include "ustring.h"
+#include "Texture.h"
+#include "Color.h"
 #include "Resource.h"
 #include "Font.h"
-#include "ustring.h"
 #include "Variant.h"
-#include "Color.h"
-#include "StyleBox.h"
-#include "Texture.h"
 class Theme : public Resource{
 public:
 void clear();
@@ -47,10 +47,10 @@ void set_icon(String p_name, String p_node_type, Texture p_texture);
 void set_stylebox(String p_name, String p_node_type, StyleBox p_texture);
 
 protected:
-Theme(WasGoId p_wasgo_id);
 public:
-Theme();
-~Theme();
+explicit Theme(WasGoId p_wasgo_id);
+explicit Theme(Resource other);
+Theme new_instance();
             
 };
 
@@ -90,9 +90,8 @@ void _wasgo_Theme_wrapper_set_font(WasGoId wasgo_id, const uint8_t * p_name, int
 void _wasgo_Theme_wrapper_set_icon(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size, WasGoId p_texture);
 void _wasgo_Theme_wrapper_set_stylebox(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_node_type, int p_node_type_wasgo_buffer_size, WasGoId p_texture);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Theme_constructor();
-    void _wasgo_Theme_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Texture.h"
+#include "Resource.h"
 #include "ustring.h"
 class Shader : public Resource{
 public:
@@ -24,10 +24,10 @@ void set_custom_defines(String p_custom_defines);
 void set_default_texture_param(String p_param, Texture p_texture);
 
 protected:
-Shader(WasGoId p_wasgo_id);
 public:
-Shader();
-~Shader();
+explicit Shader(WasGoId p_wasgo_id);
+explicit Shader(Resource other);
+Shader new_instance();
             
 };
 
@@ -43,9 +43,8 @@ void _wasgo_Shader_wrapper_set_code(WasGoId wasgo_id, const uint8_t * p_code, in
 void _wasgo_Shader_wrapper_set_custom_defines(WasGoId wasgo_id, const uint8_t * p_custom_defines, int p_custom_defines_wasgo_buffer_size);
 void _wasgo_Shader_wrapper_set_default_texture_param(WasGoId wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size, WasGoId p_texture);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Shader_constructor();
-    void _wasgo_Shader_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

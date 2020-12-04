@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
-#include "ustring.h"
 #include "Mesh.h"
 #include "ARVRPositionalTracker.h"
+#include "Spatial.h"
+#include "ustring.h"
 class ARVRController : public Spatial{
 public:
 int get_controller_id();
@@ -23,10 +23,10 @@ void set_controller_id(int p_controller_id);
 void set_rumble(float p_rumble);
 
 protected:
-ARVRController(WasGoId p_wasgo_id);
 public:
-ARVRController();
-~ARVRController();
+explicit ARVRController(WasGoId p_wasgo_id);
+explicit ARVRController(Spatial other);
+ARVRController new_instance();
             
 };
 
@@ -45,9 +45,8 @@ int _wasgo_ARVRController_wrapper_is_button_pressed(WasGoId wasgo_id, int p_butt
 void _wasgo_ARVRController_wrapper_set_controller_id(WasGoId wasgo_id, int p_controller_id);
 void _wasgo_ARVRController_wrapper_set_rumble(WasGoId wasgo_id, float p_rumble);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ARVRController_constructor();
-    void _wasgo_ARVRController_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

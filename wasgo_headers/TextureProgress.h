@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Range.h"
-#include "Color.h"
-#include "Texture.h"
 #include "Margin.h"
+#include "Range.h"
 #include "Vector2.h"
+#include "Texture.h"
+#include "Color.h"
 class TextureProgress : public Range{
 public:
 enum FillMode{
@@ -48,10 +48,10 @@ void set_tint_under(Color p_tint);
 void set_under_texture(Texture p_tex);
 
 protected:
-TextureProgress(WasGoId p_wasgo_id);
 public:
-TextureProgress();
-~TextureProgress();
+explicit TextureProgress(WasGoId p_wasgo_id);
+explicit TextureProgress(Range other);
+TextureProgress new_instance();
             
 };
 
@@ -83,9 +83,8 @@ void _wasgo_TextureProgress_wrapper_set_tint_progress(WasGoId wasgo_id, const ui
 void _wasgo_TextureProgress_wrapper_set_tint_under(WasGoId wasgo_id, const uint8_t * p_tint, int p_tint_wasgo_buffer_size);
 void _wasgo_TextureProgress_wrapper_set_under_texture(WasGoId wasgo_id, WasGoId p_tex);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TextureProgress_constructor();
-    void _wasgo_TextureProgress_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

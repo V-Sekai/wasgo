@@ -145,8 +145,8 @@ void AnimationNodeBlendSpace2D::set_snap(Vector2 p_snap){
 void AnimationNodeBlendSpace2D::set_x_label(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_AnimationNodeBlendSpace2D_wrapper_set_x_label(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -154,8 +154,8 @@ void AnimationNodeBlendSpace2D::set_x_label(String p_text){
 void AnimationNodeBlendSpace2D::set_y_label(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_AnimationNodeBlendSpace2D_wrapper_set_y_label(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -163,9 +163,9 @@ void AnimationNodeBlendSpace2D::set_y_label(String p_text){
 
 AnimationNodeBlendSpace2D::AnimationNodeBlendSpace2D(WasGoId p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
-AnimationNodeBlendSpace2D::AnimationNodeBlendSpace2D(){
+AnimationNodeBlendSpace2D::AnimationNodeBlendSpace2D(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeBlendSpace2D_constructor();
 }
-AnimationNodeBlendSpace2D::~AnimationNodeBlendSpace2D(){
-    _wasgo_AnimationNodeBlendSpace2D_destructor(wasgo_id);
+AnimationNodeBlendSpace2D::new_instance(){
+    return AnimationNodeBlendSpace2D(_wasgo_AnimationNodeBlendSpace2D_constructor());
 }

@@ -31,10 +31,10 @@ void set_point_position(int p_idx, Vector2 p_position);
 PoolVector2Array tessellate(int p_max_stages = (int) 5, float p_tolerance_degrees = (float) 4);
 
 protected:
-Curve2D(WasGoId p_wasgo_id);
 public:
-Curve2D();
-~Curve2D();
+explicit Curve2D(WasGoId p_wasgo_id);
+explicit Curve2D(Resource other);
+Curve2D new_instance();
             
 };
 
@@ -62,9 +62,8 @@ void _wasgo_Curve2D_wrapper_set_point_out(WasGoId wasgo_id, int p_idx, const uin
 void _wasgo_Curve2D_wrapper_set_point_position(WasGoId wasgo_id, int p_idx, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 WasGoId _wasgo_Curve2D_wrapper_tessellate(WasGoId wasgo_id, int p_max_stages, float p_tolerance_degrees);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Curve2D_constructor();
-    void _wasgo_Curve2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

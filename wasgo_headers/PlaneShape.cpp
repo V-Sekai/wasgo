@@ -23,9 +23,9 @@ void PlaneShape::set_plane(Plane p_plane){
 
 PlaneShape::PlaneShape(WasGoId p_wasgo_id) : Shape(p_wasgo_id){
 }
-PlaneShape::PlaneShape(){
+PlaneShape::PlaneShape(Shape other) : Shape(other._get_wasgo_id()){
     wasgo_id = _wasgo_PlaneShape_constructor();
 }
-PlaneShape::~PlaneShape(){
-    _wasgo_PlaneShape_destructor(wasgo_id);
+PlaneShape::new_instance(){
+    return PlaneShape(_wasgo_PlaneShape_constructor());
 }

@@ -4,9 +4,9 @@
 
 VSlider::VSlider(WasGoId p_wasgo_id) : Slider(p_wasgo_id){
 }
-VSlider::VSlider(){
+VSlider::VSlider(Slider other) : Slider(other._get_wasgo_id()){
     wasgo_id = _wasgo_VSlider_constructor();
 }
-VSlider::~VSlider(){
-    _wasgo_VSlider_destructor(wasgo_id);
+VSlider::new_instance(){
+    return VSlider(_wasgo_VSlider_constructor());
 }

@@ -4,9 +4,9 @@
 
 VisualShaderNodeTextureUniformTriplanar::VisualShaderNodeTextureUniformTriplanar(WasGoId p_wasgo_id) : VisualShaderNodeTextureUniform(p_wasgo_id){
 }
-VisualShaderNodeTextureUniformTriplanar::VisualShaderNodeTextureUniformTriplanar(){
+VisualShaderNodeTextureUniformTriplanar::VisualShaderNodeTextureUniformTriplanar(VisualShaderNodeTextureUniform other) : VisualShaderNodeTextureUniform(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeTextureUniformTriplanar_constructor();
 }
-VisualShaderNodeTextureUniformTriplanar::~VisualShaderNodeTextureUniformTriplanar(){
-    _wasgo_VisualShaderNodeTextureUniformTriplanar_destructor(wasgo_id);
+VisualShaderNodeTextureUniformTriplanar::new_instance(){
+    return VisualShaderNodeTextureUniformTriplanar(_wasgo_VisualShaderNodeTextureUniformTriplanar_constructor());
 }

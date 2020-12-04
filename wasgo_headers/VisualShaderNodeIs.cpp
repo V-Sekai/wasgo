@@ -10,9 +10,9 @@ void VisualShaderNodeIs::set_function(VisualShaderNodeIs::Function p_func){
 
 VisualShaderNodeIs::VisualShaderNodeIs(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeIs::VisualShaderNodeIs(){
+VisualShaderNodeIs::VisualShaderNodeIs(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeIs_constructor();
 }
-VisualShaderNodeIs::~VisualShaderNodeIs(){
-    _wasgo_VisualShaderNodeIs_destructor(wasgo_id);
+VisualShaderNodeIs::new_instance(){
+    return VisualShaderNodeIs(_wasgo_VisualShaderNodeIs_constructor());
 }

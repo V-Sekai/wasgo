@@ -16,9 +16,9 @@ void RayShape::set_slips_on_slope(bool p_active){
 
 RayShape::RayShape(WasGoId p_wasgo_id) : Shape(p_wasgo_id){
 }
-RayShape::RayShape(){
+RayShape::RayShape(Shape other) : Shape(other._get_wasgo_id()){
     wasgo_id = _wasgo_RayShape_constructor();
 }
-RayShape::~RayShape(){
-    _wasgo_RayShape_destructor(wasgo_id);
+RayShape::new_instance(){
+    return RayShape(_wasgo_RayShape_constructor());
 }

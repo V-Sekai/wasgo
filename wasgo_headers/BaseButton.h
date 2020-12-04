@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ShortCut.h"
 #include "ButtonGroup.h"
 #include "Control.h"
+#include "ShortCut.h"
 class BaseButton : public Control{
 public:
 enum ActionMode{
@@ -70,9 +70,8 @@ void _wasgo_BaseButton_wrapper_set_shortcut(WasGoId wasgo_id, WasGoId p_shortcut
 void _wasgo_BaseButton_wrapper_set_shortcut_in_tooltip(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_BaseButton_wrapper_set_toggle_mode(WasGoId wasgo_id, bool p_enabled);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_BaseButton_constructor();
-    void _wasgo_BaseButton_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

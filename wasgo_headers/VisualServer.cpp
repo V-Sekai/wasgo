@@ -1646,8 +1646,8 @@ bool VisualServer::has_feature(VisualServer::Features p_feature){
 bool VisualServer::has_os_feature(String p_feature){
 
     Variant wasgo_var_feature = p_feature;
-    uint8_t wasgo_buffer_feature[256];
-    int wasgo_size_feature = 256;
+    int wasgo_size_feature = String(p_feature).size();
+    uint8_t wasgo_buffer_feature[wasgo_size_feature];
     encode_variant(wasgo_var_feature, wasgo_buffer_feature, wasgo_size_feature);
     
 	return (bool) _wasgo_VisualServer_wrapper_has_os_feature(wasgo_id, wasgo_buffer_feature, wasgo_size_feature);
@@ -2444,8 +2444,8 @@ Variant VisualServer::material_get_param(RID p_material, String p_parameter){
     
 
     Variant wasgo_var_parameter = p_parameter;
-    uint8_t wasgo_buffer_parameter[256];
-    int wasgo_size_parameter = 256;
+    int wasgo_size_parameter = String(p_parameter).size();
+    uint8_t wasgo_buffer_parameter[wasgo_size_parameter];
     encode_variant(wasgo_var_parameter, wasgo_buffer_parameter, wasgo_size_parameter);
     
 	return Variant(_wasgo_VisualServer_wrapper_material_get_param(wasgo_id, wasgo_buffer_material, wasgo_size_material, wasgo_buffer_parameter, wasgo_size_parameter));
@@ -2459,8 +2459,8 @@ Variant VisualServer::material_get_param_default(RID p_material, String p_parame
     
 
     Variant wasgo_var_parameter = p_parameter;
-    uint8_t wasgo_buffer_parameter[256];
-    int wasgo_size_parameter = 256;
+    int wasgo_size_parameter = String(p_parameter).size();
+    uint8_t wasgo_buffer_parameter[wasgo_size_parameter];
     encode_variant(wasgo_var_parameter, wasgo_buffer_parameter, wasgo_size_parameter);
     
 	return Variant(_wasgo_VisualServer_wrapper_material_get_param_default(wasgo_id, wasgo_buffer_material, wasgo_size_material, wasgo_buffer_parameter, wasgo_size_parameter));
@@ -2514,8 +2514,8 @@ void VisualServer::material_set_param(RID p_material, String p_parameter, Varian
     
 
     Variant wasgo_var_parameter = p_parameter;
-    uint8_t wasgo_buffer_parameter[256];
-    int wasgo_size_parameter = 256;
+    int wasgo_size_parameter = String(p_parameter).size();
+    uint8_t wasgo_buffer_parameter[wasgo_size_parameter];
     encode_variant(wasgo_var_parameter, wasgo_buffer_parameter, wasgo_size_parameter);
     
 	_wasgo_VisualServer_wrapper_material_set_param(wasgo_id, wasgo_buffer_material, wasgo_size_material, wasgo_buffer_parameter, wasgo_size_parameter, p_value._get_wasgo_id());
@@ -3414,8 +3414,8 @@ void VisualServer::reflection_probe_set_update_mode(RID p_probe, VisualServer::R
 void VisualServer::request_frame_drawn_callback(Object p_where, String p_method, Variant p_userdata){
 
     Variant wasgo_var_method = p_method;
-    uint8_t wasgo_buffer_method[256];
-    int wasgo_size_method = 256;
+    int wasgo_size_method = String(p_method).size();
+    uint8_t wasgo_buffer_method[wasgo_size_method];
     encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
     
 	_wasgo_VisualServer_wrapper_request_frame_drawn_callback(wasgo_id, p_where._get_wasgo_id(), wasgo_buffer_method, wasgo_size_method, p_userdata._get_wasgo_id());
@@ -3540,8 +3540,8 @@ RID VisualServer::shader_get_default_texture_param(RID p_shader, String p_name){
     
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
@@ -3571,8 +3571,8 @@ void VisualServer::shader_set_code(RID p_shader, String p_code){
     
 
     Variant wasgo_var_code = p_code;
-    uint8_t wasgo_buffer_code[256];
-    int wasgo_size_code = 256;
+    int wasgo_size_code = String(p_code).size();
+    uint8_t wasgo_buffer_code[wasgo_size_code];
     encode_variant(wasgo_var_code, wasgo_buffer_code, wasgo_size_code);
     
 	_wasgo_VisualServer_wrapper_shader_set_code(wasgo_id, wasgo_buffer_shader, wasgo_size_shader, wasgo_buffer_code, wasgo_size_code);
@@ -3586,8 +3586,8 @@ void VisualServer::shader_set_default_texture_param(RID p_shader, String p_name,
     
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
@@ -3891,8 +3891,8 @@ void VisualServer::texture_set_path(RID p_texture, String p_path){
     
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_VisualServer_wrapper_texture_set_path(wasgo_id, wasgo_buffer_texture, wasgo_size_texture, wasgo_buffer_path, wasgo_size_path);

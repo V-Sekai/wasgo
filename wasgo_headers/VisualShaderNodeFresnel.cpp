@@ -4,9 +4,9 @@
 
 VisualShaderNodeFresnel::VisualShaderNodeFresnel(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeFresnel::VisualShaderNodeFresnel(){
+VisualShaderNodeFresnel::VisualShaderNodeFresnel(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeFresnel_constructor();
 }
-VisualShaderNodeFresnel::~VisualShaderNodeFresnel(){
-    _wasgo_VisualShaderNodeFresnel_destructor(wasgo_id);
+VisualShaderNodeFresnel::new_instance(){
+    return VisualShaderNodeFresnel(_wasgo_VisualShaderNodeFresnel_constructor());
 }

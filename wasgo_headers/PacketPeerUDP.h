@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
 #include "PacketPeer.h"
+#include "error_list.h"
 #include "ustring.h"
 class PacketPeerUDP : public PacketPeer{
 public:
@@ -23,10 +23,10 @@ Error set_dest_address(String p_host, int p_port);
 Error wait();
 
 protected:
-PacketPeerUDP(WasGoId p_wasgo_id);
 public:
-PacketPeerUDP();
-~PacketPeerUDP();
+explicit PacketPeerUDP(WasGoId p_wasgo_id);
+explicit PacketPeerUDP(PacketPeer other);
+PacketPeerUDP new_instance();
             
 };
 
@@ -46,9 +46,8 @@ void _wasgo_PacketPeerUDP_wrapper_set_broadcast_enabled(WasGoId wasgo_id, bool p
 WasGoId _wasgo_PacketPeerUDP_wrapper_set_dest_address(WasGoId wasgo_id, const uint8_t * p_host, int p_host_wasgo_buffer_size, int p_port);
 WasGoId _wasgo_PacketPeerUDP_wrapper_wait(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PacketPeerUDP_constructor();
-    void _wasgo_PacketPeerUDP_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -14,8 +14,8 @@ String VisualShaderNodeUniform::get_uniform_name(){
 void VisualShaderNodeUniform::set_uniform_name(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_VisualShaderNodeUniform_wrapper_set_uniform_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);

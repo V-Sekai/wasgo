@@ -4,9 +4,9 @@
 
 HSeparator::HSeparator(WasGoId p_wasgo_id) : Separator(p_wasgo_id){
 }
-HSeparator::HSeparator(){
+HSeparator::HSeparator(Separator other) : Separator(other._get_wasgo_id()){
     wasgo_id = _wasgo_HSeparator_constructor();
 }
-HSeparator::~HSeparator(){
-    _wasgo_HSeparator_destructor(wasgo_id);
+HSeparator::new_instance(){
+    return HSeparator(_wasgo_HSeparator_constructor());
 }

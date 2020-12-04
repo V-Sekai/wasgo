@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "Node.h"
-#include "Variant.h"
-#include "CollisionObject2D.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "CollisionObject2D.h"
+#include "Variant.h"
 class Area2D : public CollisionObject2D{
 public:
 enum SpaceOverride{
@@ -56,10 +56,10 @@ void set_priority(float p_priority);
 void set_space_override_mode(Area2D::SpaceOverride p_space_override_mode);
 
 protected:
-Area2D(WasGoId p_wasgo_id);
 public:
-Area2D();
-~Area2D();
+explicit Area2D(WasGoId p_wasgo_id);
+explicit Area2D(CollisionObject2D other);
+Area2D new_instance();
             
 };
 
@@ -103,9 +103,8 @@ void _wasgo_Area2D_wrapper_set_monitoring(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Area2D_wrapper_set_priority(WasGoId wasgo_id, float p_priority);
 void _wasgo_Area2D_wrapper_set_space_override_mode(WasGoId wasgo_id, WasGoId p_space_override_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Area2D_constructor();
-    void _wasgo_Area2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

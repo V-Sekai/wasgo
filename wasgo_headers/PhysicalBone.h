@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "PhysicsBody.h"
 #include "Vector3.h"
+#include "PhysicsBody.h"
 #include "Transform.h"
 class PhysicalBone : public PhysicsBody{
 public:
@@ -41,10 +41,10 @@ void set_mass(float p_mass);
 void set_weight(float p_weight);
 
 protected:
-PhysicalBone(WasGoId p_wasgo_id);
 public:
-PhysicalBone();
-~PhysicalBone();
+explicit PhysicalBone(WasGoId p_wasgo_id);
+explicit PhysicalBone(PhysicsBody other);
+PhysicalBone new_instance();
             
 };
 
@@ -74,9 +74,8 @@ void _wasgo_PhysicalBone_wrapper_set_joint_type(WasGoId wasgo_id, WasGoId p_join
 void _wasgo_PhysicalBone_wrapper_set_mass(WasGoId wasgo_id, float p_mass);
 void _wasgo_PhysicalBone_wrapper_set_weight(WasGoId wasgo_id, float p_weight);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PhysicalBone_constructor();
-    void _wasgo_PhysicalBone_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -14,10 +14,10 @@ bool is_current();
 void make_current();
 
 protected:
-Listener(WasGoId p_wasgo_id);
 public:
-Listener();
-~Listener();
+explicit Listener(WasGoId p_wasgo_id);
+explicit Listener(Spatial other);
+Listener new_instance();
             
 };
 
@@ -29,9 +29,8 @@ void _wasgo_Listener_wrapper_get_listener_transform(WasGoId wasgo_id, uint8_t * 
 int _wasgo_Listener_wrapper_is_current(WasGoId wasgo_id);
 void _wasgo_Listener_wrapper_make_current(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Listener_constructor();
-    void _wasgo_Listener_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -28,7 +28,7 @@
 // /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
 // /*************************************************************************/
 
-// #include "variant.h"
+#include "variant.h"
 
 // #include "core_string_names.h"
 // #include "object.h"
@@ -143,16 +143,16 @@
 // #define CASE_TYPE(PREFIX, OP, TYPE) case TYPE:
 // #endif
 
-// Variant::operator bool() const {
+Variant::operator bool() const {
 
-// 	return booleanize();
-// }
+	return booleanize();
+}
 
-// // We consider all uninitialized or empty types to be false based on the type's
-// // zeroiness.
-// bool Variant::booleanize() const {
-// 	return !is_zero();
-// }
+// We consider all uninitialized or empty types to be false based on the type's
+// zeroiness.
+bool Variant::booleanize() const {
+	return !is_zero();
+}
 
 // #define _RETURN(m_what) \
 // 	{                   \

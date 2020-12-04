@@ -13,10 +13,10 @@ void set_height(float p_height);
 void set_radius(float p_radius);
 
 protected:
-CylinderShape(WasGoId p_wasgo_id);
 public:
-CylinderShape();
-~CylinderShape();
+explicit CylinderShape(WasGoId p_wasgo_id);
+explicit CylinderShape(Shape other);
+CylinderShape new_instance();
             
 };
 
@@ -28,9 +28,8 @@ float _wasgo_CylinderShape_wrapper_get_radius(WasGoId wasgo_id);
 void _wasgo_CylinderShape_wrapper_set_height(WasGoId wasgo_id, float p_height);
 void _wasgo_CylinderShape_wrapper_set_radius(WasGoId wasgo_id, float p_radius);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CylinderShape_constructor();
-    void _wasgo_CylinderShape_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

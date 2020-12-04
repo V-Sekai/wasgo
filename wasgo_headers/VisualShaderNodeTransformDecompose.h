@@ -9,10 +9,10 @@ class VisualShaderNodeTransformDecompose : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeTransformDecompose(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeTransformDecompose();
-~VisualShaderNodeTransformDecompose();
+explicit VisualShaderNodeTransformDecompose(WasGoId p_wasgo_id);
+explicit VisualShaderNodeTransformDecompose(VisualShaderNode other);
+VisualShaderNodeTransformDecompose new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeTransformDecompose();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeTransformDecompose_constructor();
-    void _wasgo_VisualShaderNodeTransformDecompose_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

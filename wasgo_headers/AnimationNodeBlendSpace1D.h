@@ -25,10 +25,10 @@ void set_snap(float p_snap);
 void set_value_label(String p_text);
 
 protected:
-AnimationNodeBlendSpace1D(WasGoId p_wasgo_id);
 public:
-AnimationNodeBlendSpace1D();
-~AnimationNodeBlendSpace1D();
+explicit AnimationNodeBlendSpace1D(WasGoId p_wasgo_id);
+explicit AnimationNodeBlendSpace1D(AnimationRootNode other);
+AnimationNodeBlendSpace1D new_instance();
             
 };
 
@@ -51,9 +51,8 @@ void _wasgo_AnimationNodeBlendSpace1D_wrapper_set_min_space(WasGoId wasgo_id, fl
 void _wasgo_AnimationNodeBlendSpace1D_wrapper_set_snap(WasGoId wasgo_id, float p_snap);
 void _wasgo_AnimationNodeBlendSpace1D_wrapper_set_value_label(WasGoId wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeBlendSpace1D_constructor();
-    void _wasgo_AnimationNodeBlendSpace1D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

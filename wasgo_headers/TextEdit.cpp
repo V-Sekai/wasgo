@@ -4,14 +4,14 @@
 void TextEdit::add_color_region(String p_begin_key, String p_end_key, Color p_color, bool p_line_only = (bool) false){
 
     Variant wasgo_var_begin_key = p_begin_key;
-    uint8_t wasgo_buffer_begin_key[256];
-    int wasgo_size_begin_key = 256;
+    int wasgo_size_begin_key = String(p_begin_key).size();
+    uint8_t wasgo_buffer_begin_key[wasgo_size_begin_key];
     encode_variant(wasgo_var_begin_key, wasgo_buffer_begin_key, wasgo_size_begin_key);
     
 
     Variant wasgo_var_end_key = p_end_key;
-    uint8_t wasgo_buffer_end_key[256];
-    int wasgo_size_end_key = 256;
+    int wasgo_size_end_key = String(p_end_key).size();
+    uint8_t wasgo_buffer_end_key[wasgo_size_end_key];
     encode_variant(wasgo_var_end_key, wasgo_buffer_end_key, wasgo_size_end_key);
     
 
@@ -25,8 +25,8 @@ void TextEdit::add_color_region(String p_begin_key, String p_end_key, Color p_co
 void TextEdit::add_keyword_color(String p_keyword, Color p_color){
 
     Variant wasgo_var_keyword = p_keyword;
-    uint8_t wasgo_buffer_keyword[256];
-    int wasgo_size_keyword = 256;
+    int wasgo_size_keyword = String(p_keyword).size();
+    uint8_t wasgo_buffer_keyword[wasgo_size_keyword];
     encode_variant(wasgo_var_keyword, wasgo_buffer_keyword, wasgo_size_keyword);
     
 
@@ -106,8 +106,8 @@ int TextEdit::get_h_scroll(){
 Color TextEdit::get_keyword_color(String p_keyword){
 
     Variant wasgo_var_keyword = p_keyword;
-    uint8_t wasgo_buffer_keyword[256];
-    int wasgo_size_keyword = 256;
+    int wasgo_size_keyword = String(p_keyword).size();
+    uint8_t wasgo_buffer_keyword[wasgo_size_keyword];
     encode_variant(wasgo_var_keyword, wasgo_buffer_keyword, wasgo_size_keyword);
     
 
@@ -189,8 +189,8 @@ String TextEdit::get_word_under_cursor(){
 bool TextEdit::has_keyword_color(String p_keyword){
 
     Variant wasgo_var_keyword = p_keyword;
-    uint8_t wasgo_buffer_keyword[256];
-    int wasgo_size_keyword = 256;
+    int wasgo_size_keyword = String(p_keyword).size();
+    uint8_t wasgo_buffer_keyword[wasgo_size_keyword];
     encode_variant(wasgo_var_keyword, wasgo_buffer_keyword, wasgo_size_keyword);
     
 	return (bool) _wasgo_TextEdit_wrapper_has_keyword_color(wasgo_id, wasgo_buffer_keyword, wasgo_size_keyword);
@@ -198,8 +198,8 @@ bool TextEdit::has_keyword_color(String p_keyword){
 void TextEdit::insert_text_at_cursor(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_TextEdit_wrapper_insert_text_at_cursor(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -285,8 +285,8 @@ void TextEdit::remove_breakpoints(){
 PoolIntArray TextEdit::search(String p_key, int p_flags, int p_from_line, int p_from_column){
 
     Variant wasgo_var_key = p_key;
-    uint8_t wasgo_buffer_key[256];
-    int wasgo_size_key = 256;
+    int wasgo_size_key = String(p_key).size();
+    uint8_t wasgo_buffer_key[wasgo_size_key];
     encode_variant(wasgo_var_key, wasgo_buffer_key, wasgo_size_key);
     
 	return PoolIntArray(_wasgo_TextEdit_wrapper_search(wasgo_id, wasgo_buffer_key, wasgo_size_key, p_flags, p_from_line, p_from_column));
@@ -327,8 +327,8 @@ void TextEdit::set_highlight_current_line(bool p_enabled){
 void TextEdit::set_line(int p_line, String p_new_text){
 
     Variant wasgo_var_new_text = p_new_text;
-    uint8_t wasgo_buffer_new_text[256];
-    int wasgo_size_new_text = 256;
+    int wasgo_size_new_text = String(p_new_text).size();
+    uint8_t wasgo_buffer_new_text[wasgo_size_new_text];
     encode_variant(wasgo_var_new_text, wasgo_buffer_new_text, wasgo_size_new_text);
     
 	_wasgo_TextEdit_wrapper_set_line(wasgo_id, p_line, wasgo_buffer_new_text, wasgo_size_new_text);
@@ -366,8 +366,8 @@ void TextEdit::set_syntax_coloring(bool p_enable){
 void TextEdit::set_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_TextEdit_wrapper_set_text(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -399,9 +399,9 @@ void TextEdit::unhide_all_lines(){
 
 TextEdit::TextEdit(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-TextEdit::TextEdit(){
+TextEdit::TextEdit(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_TextEdit_constructor();
 }
-TextEdit::~TextEdit(){
-    _wasgo_TextEdit_destructor(wasgo_id);
+TextEdit::new_instance(){
+    return TextEdit(_wasgo_TextEdit_constructor());
 }

@@ -6,8 +6,8 @@
 
 #include "ustring.h"
 #include "Node.h"
-#include "Variant.h"
 #include "WasmResource.h"
+#include "Variant.h"
 class WasGoState : public Node{
 public:
 int get_heap_size();
@@ -22,10 +22,10 @@ void set_stack_size(int p_p_stack_size);
 void set_wasm_script(WasmResource p_p_wasm_script);
 
 protected:
-WasGoState(WasGoId p_wasgo_id);
 public:
-WasGoState();
-~WasGoState();
+explicit WasGoState(WasGoId p_wasgo_id);
+explicit WasGoState(Node other);
+WasGoState new_instance();
             
 };
 
@@ -43,9 +43,8 @@ void _wasgo_WasGoState_wrapper_set_property(WasGoId wasgo_id, const uint8_t * p_
 void _wasgo_WasGoState_wrapper_set_stack_size(WasGoId wasgo_id, int p_p_stack_size);
 void _wasgo_WasGoState_wrapper_set_wasm_script(WasGoId wasgo_id, WasGoId p_p_wasm_script);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_WasGoState_constructor();
-    void _wasgo_WasGoState_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

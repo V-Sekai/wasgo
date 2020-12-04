@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
-#include "Curve.h"
-#include "Variant.h"
 #include "Node.h"
-#include "Color.h"
-#include "Gradient.h"
-#include "Texture.h"
+#include "Curve.h"
 #include "Vector2.h"
+#include "Texture.h"
+#include "Gradient.h"
+#include "Color.h"
+#include "Node2D.h"
+#include "Variant.h"
 class CPUParticles2D : public Node2D{
 public:
 enum DrawOrder{
@@ -111,10 +111,10 @@ void set_texture(Texture p_texture);
 void set_use_local_coordinates(bool p_enable);
 
 protected:
-CPUParticles2D(WasGoId p_wasgo_id);
 public:
-CPUParticles2D();
-~CPUParticles2D();
+explicit CPUParticles2D(WasGoId p_wasgo_id);
+explicit CPUParticles2D(Node2D other);
+CPUParticles2D new_instance();
             
 };
 
@@ -184,9 +184,8 @@ void _wasgo_CPUParticles2D_wrapper_set_spread(WasGoId wasgo_id, float p_degrees)
 void _wasgo_CPUParticles2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 void _wasgo_CPUParticles2D_wrapper_set_use_local_coordinates(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CPUParticles2D_constructor();
-    void _wasgo_CPUParticles2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

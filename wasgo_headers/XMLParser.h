@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
 #include "Reference.h"
-#include "ustring.h"
 #include "Variant.h"
+#include "error_list.h"
+#include "ustring.h"
 class XMLParser : public Reference{
 public:
 enum NodeType{
@@ -38,10 +38,10 @@ Error seek(int p_position);
 void skip_section();
 
 protected:
-XMLParser(WasGoId p_wasgo_id);
 public:
-XMLParser();
-~XMLParser();
+explicit XMLParser(WasGoId p_wasgo_id);
+explicit XMLParser(Reference other);
+XMLParser new_instance();
             
 };
 
@@ -66,9 +66,8 @@ WasGoId _wasgo_XMLParser_wrapper_read(WasGoId wasgo_id);
 WasGoId _wasgo_XMLParser_wrapper_seek(WasGoId wasgo_id, int p_position);
 void _wasgo_XMLParser_wrapper_skip_section(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_XMLParser_constructor();
-    void _wasgo_XMLParser_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

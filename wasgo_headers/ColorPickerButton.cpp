@@ -35,9 +35,9 @@ void ColorPickerButton::set_pick_color(Color p_color){
 
 ColorPickerButton::ColorPickerButton(WasGoId p_wasgo_id) : Button(p_wasgo_id){
 }
-ColorPickerButton::ColorPickerButton(){
+ColorPickerButton::ColorPickerButton(Button other) : Button(other._get_wasgo_id()){
     wasgo_id = _wasgo_ColorPickerButton_constructor();
 }
-ColorPickerButton::~ColorPickerButton(){
-    _wasgo_ColorPickerButton_destructor(wasgo_id);
+ColorPickerButton::new_instance(){
+    return ColorPickerButton(_wasgo_ColorPickerButton_constructor());
 }

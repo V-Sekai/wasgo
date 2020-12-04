@@ -10,9 +10,9 @@ void VisualShaderNodeBooleanConstant::set_constant(bool p_value){
 
 VisualShaderNodeBooleanConstant::VisualShaderNodeBooleanConstant(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeBooleanConstant::VisualShaderNodeBooleanConstant(){
+VisualShaderNodeBooleanConstant::VisualShaderNodeBooleanConstant(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeBooleanConstant_constructor();
 }
-VisualShaderNodeBooleanConstant::~VisualShaderNodeBooleanConstant(){
-    _wasgo_VisualShaderNodeBooleanConstant_destructor(wasgo_id);
+VisualShaderNodeBooleanConstant::new_instance(){
+    return VisualShaderNodeBooleanConstant(_wasgo_VisualShaderNodeBooleanConstant_constructor());
 }

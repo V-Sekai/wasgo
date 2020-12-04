@@ -4,8 +4,8 @@
 void AnimationNodeBlendTree::add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2((0, 0))){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
@@ -19,14 +19,14 @@ void AnimationNodeBlendTree::add_node(String p_name, AnimationNode p_node, Vecto
 void AnimationNodeBlendTree::connect_node(String p_input_node, int p_input_index, String p_output_node){
 
     Variant wasgo_var_input_node = p_input_node;
-    uint8_t wasgo_buffer_input_node[256];
-    int wasgo_size_input_node = 256;
+    int wasgo_size_input_node = String(p_input_node).size();
+    uint8_t wasgo_buffer_input_node[wasgo_size_input_node];
     encode_variant(wasgo_var_input_node, wasgo_buffer_input_node, wasgo_size_input_node);
     
 
     Variant wasgo_var_output_node = p_output_node;
-    uint8_t wasgo_buffer_output_node[256];
-    int wasgo_size_output_node = 256;
+    int wasgo_size_output_node = String(p_output_node).size();
+    uint8_t wasgo_buffer_output_node[wasgo_size_output_node];
     encode_variant(wasgo_var_output_node, wasgo_buffer_output_node, wasgo_size_output_node);
     
 	_wasgo_AnimationNodeBlendTree_wrapper_connect_node(wasgo_id, wasgo_buffer_input_node, wasgo_size_input_node, p_input_index, wasgo_buffer_output_node, wasgo_size_output_node);
@@ -34,8 +34,8 @@ void AnimationNodeBlendTree::connect_node(String p_input_node, int p_input_index
 void AnimationNodeBlendTree::disconnect_node(String p_input_node, int p_input_index){
 
     Variant wasgo_var_input_node = p_input_node;
-    uint8_t wasgo_buffer_input_node[256];
-    int wasgo_size_input_node = 256;
+    int wasgo_size_input_node = String(p_input_node).size();
+    uint8_t wasgo_buffer_input_node[wasgo_size_input_node];
     encode_variant(wasgo_var_input_node, wasgo_buffer_input_node, wasgo_size_input_node);
     
 	_wasgo_AnimationNodeBlendTree_wrapper_disconnect_node(wasgo_id, wasgo_buffer_input_node, wasgo_size_input_node, p_input_index);
@@ -53,8 +53,8 @@ Vector2 AnimationNodeBlendTree::get_graph_offset(){
 AnimationNode AnimationNodeBlendTree::get_node(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return AnimationNode(_wasgo_AnimationNodeBlendTree_wrapper_get_node(wasgo_id, wasgo_buffer_name, wasgo_size_name));
@@ -62,8 +62,8 @@ AnimationNode AnimationNodeBlendTree::get_node(String p_name){
 Vector2 AnimationNodeBlendTree::get_node_position(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
@@ -78,8 +78,8 @@ Vector2 AnimationNodeBlendTree::get_node_position(String p_name){
 bool AnimationNodeBlendTree::has_node(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (bool) _wasgo_AnimationNodeBlendTree_wrapper_has_node(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -87,8 +87,8 @@ bool AnimationNodeBlendTree::has_node(String p_name){
 void AnimationNodeBlendTree::remove_node(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_AnimationNodeBlendTree_wrapper_remove_node(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -96,14 +96,14 @@ void AnimationNodeBlendTree::remove_node(String p_name){
 void AnimationNodeBlendTree::rename_node(String p_name, String p_new_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_new_name = p_new_name;
-    uint8_t wasgo_buffer_new_name[256];
-    int wasgo_size_new_name = 256;
+    int wasgo_size_new_name = String(p_new_name).size();
+    uint8_t wasgo_buffer_new_name[wasgo_size_new_name];
     encode_variant(wasgo_var_new_name, wasgo_buffer_new_name, wasgo_size_new_name);
     
 	_wasgo_AnimationNodeBlendTree_wrapper_rename_node(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_new_name, wasgo_size_new_name);
@@ -120,8 +120,8 @@ void AnimationNodeBlendTree::set_graph_offset(Vector2 p_offset){
 void AnimationNodeBlendTree::set_node_position(String p_name, Vector2 p_position){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
@@ -135,9 +135,9 @@ void AnimationNodeBlendTree::set_node_position(String p_name, Vector2 p_position
 
 AnimationNodeBlendTree::AnimationNodeBlendTree(WasGoId p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
-AnimationNodeBlendTree::AnimationNodeBlendTree(){
+AnimationNodeBlendTree::AnimationNodeBlendTree(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeBlendTree_constructor();
 }
-AnimationNodeBlendTree::~AnimationNodeBlendTree(){
-    _wasgo_AnimationNodeBlendTree_destructor(wasgo_id);
+AnimationNodeBlendTree::new_instance(){
+    return AnimationNodeBlendTree(_wasgo_AnimationNodeBlendTree_constructor());
 }

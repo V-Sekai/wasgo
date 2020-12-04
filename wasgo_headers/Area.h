@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Node.h"
 #include "Vector3.h"
 #include "ustring.h"
-#include "Node.h"
-#include "Variant.h"
 #include "CollisionObject.h"
+#include "Variant.h"
 class Area : public CollisionObject{
 public:
 enum SpaceOverride{
@@ -64,10 +64,10 @@ void set_space_override_mode(Area::SpaceOverride p_enable);
 void set_use_reverb_bus(bool p_enable);
 
 protected:
-Area(WasGoId p_wasgo_id);
 public:
-Area();
-~Area();
+explicit Area(WasGoId p_wasgo_id);
+explicit Area(CollisionObject other);
+Area new_instance();
             
 };
 
@@ -119,9 +119,8 @@ void _wasgo_Area_wrapper_set_reverb_uniformity(WasGoId wasgo_id, float p_amount)
 void _wasgo_Area_wrapper_set_space_override_mode(WasGoId wasgo_id, WasGoId p_enable);
 void _wasgo_Area_wrapper_set_use_reverb_bus(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Area_constructor();
-    void _wasgo_Area_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

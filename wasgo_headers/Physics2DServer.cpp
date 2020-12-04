@@ -186,8 +186,8 @@ void Physics2DServer::area_set_area_monitor_callback(RID p_area, Object p_receiv
     
 
     Variant wasgo_var_method = p_method;
-    uint8_t wasgo_buffer_method[256];
-    int wasgo_size_method = 256;
+    int wasgo_size_method = String(p_method).size();
+    uint8_t wasgo_buffer_method[wasgo_size_method];
     encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
     
 	_wasgo_Physics2DServer_wrapper_area_set_area_monitor_callback(wasgo_id, wasgo_buffer_area, wasgo_size_area, p_receiver._get_wasgo_id(), wasgo_buffer_method, wasgo_size_method);
@@ -219,8 +219,8 @@ void Physics2DServer::area_set_monitor_callback(RID p_area, Object p_receiver, S
     
 
     Variant wasgo_var_method = p_method;
-    uint8_t wasgo_buffer_method[256];
-    int wasgo_size_method = 256;
+    int wasgo_size_method = String(p_method).size();
+    uint8_t wasgo_buffer_method[wasgo_size_method];
     encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
     
 	_wasgo_Physics2DServer_wrapper_area_set_monitor_callback(wasgo_id, wasgo_buffer_area, wasgo_size_area, p_receiver._get_wasgo_id(), wasgo_buffer_method, wasgo_size_method);
@@ -724,8 +724,8 @@ void Physics2DServer::body_set_force_integration_callback(RID p_body, Object p_r
     
 
     Variant wasgo_var_method = p_method;
-    uint8_t wasgo_buffer_method[256];
-    int wasgo_size_method = 256;
+    int wasgo_size_method = String(p_method).size();
+    uint8_t wasgo_buffer_method[wasgo_size_method];
     encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
     
 	_wasgo_Physics2DServer_wrapper_body_set_force_integration_callback(wasgo_id, wasgo_buffer_body, wasgo_size_body, p_receiver._get_wasgo_id(), wasgo_buffer_method, wasgo_size_method, p_userdata._get_wasgo_id());

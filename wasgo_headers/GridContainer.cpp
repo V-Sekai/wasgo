@@ -10,9 +10,9 @@ void GridContainer::set_columns(int p_columns){
 
 GridContainer::GridContainer(WasGoId p_wasgo_id) : Container(p_wasgo_id){
 }
-GridContainer::GridContainer(){
+GridContainer::GridContainer(Container other) : Container(other._get_wasgo_id()){
     wasgo_id = _wasgo_GridContainer_constructor();
 }
-GridContainer::~GridContainer(){
-    _wasgo_GridContainer_destructor(wasgo_id);
+GridContainer::new_instance(){
+    return GridContainer(_wasgo_GridContainer_constructor());
 }

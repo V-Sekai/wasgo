@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
 #include "StyleBox.h"
+#include "Color.h"
 class StyleBoxLine : public StyleBox{
 public:
 Color get_color();
@@ -20,10 +20,10 @@ void set_thickness(int p_thickness);
 void set_vertical(bool p_vertical);
 
 protected:
-StyleBoxLine(WasGoId p_wasgo_id);
 public:
-StyleBoxLine();
-~StyleBoxLine();
+explicit StyleBoxLine(WasGoId p_wasgo_id);
+explicit StyleBoxLine(StyleBox other);
+StyleBoxLine new_instance();
             
 };
 
@@ -41,9 +41,8 @@ void _wasgo_StyleBoxLine_wrapper_set_grow_end(WasGoId wasgo_id, float p_offset);
 void _wasgo_StyleBoxLine_wrapper_set_thickness(WasGoId wasgo_id, int p_thickness);
 void _wasgo_StyleBoxLine_wrapper_set_vertical(WasGoId wasgo_id, bool p_vertical);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_StyleBoxLine_constructor();
-    void _wasgo_StyleBoxLine_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Resource.h"
-#include "ustring.h"
 #include "InputEvent.h"
+#include "ustring.h"
 class ShortCut : public Resource{
 public:
 String get_as_text();
@@ -16,10 +16,10 @@ bool is_valid();
 void set_shortcut(InputEvent p_event);
 
 protected:
-ShortCut(WasGoId p_wasgo_id);
 public:
-ShortCut();
-~ShortCut();
+explicit ShortCut(WasGoId p_wasgo_id);
+explicit ShortCut(Resource other);
+ShortCut new_instance();
             
 };
 
@@ -32,9 +32,8 @@ int _wasgo_ShortCut_wrapper_is_shortcut(WasGoId wasgo_id, WasGoId p_event);
 int _wasgo_ShortCut_wrapper_is_valid(WasGoId wasgo_id);
 void _wasgo_ShortCut_wrapper_set_shortcut(WasGoId wasgo_id, WasGoId p_event);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ShortCut_constructor();
-    void _wasgo_ShortCut_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

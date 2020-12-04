@@ -153,8 +153,8 @@ void TileSet::create_tile(int p_id){
 int TileSet::find_tile_by_name(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (int) _wasgo_TileSet_wrapper_find_tile_by_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -317,8 +317,8 @@ void TileSet::tile_set_modulate(int p_id, Color p_color){
 void TileSet::tile_set_name(int p_id, String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_TileSet_wrapper_tile_set_name(wasgo_id, p_id, wasgo_buffer_name, wasgo_size_name);
@@ -407,9 +407,9 @@ void TileSet::tile_set_z_index(int p_id, int p_z_index){
 
 TileSet::TileSet(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-TileSet::TileSet(){
+TileSet::TileSet(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_TileSet_constructor();
 }
-TileSet::~TileSet(){
-    _wasgo_TileSet_destructor(wasgo_id);
+TileSet::new_instance(){
+    return TileSet(_wasgo_TileSet_constructor());
 }

@@ -42,9 +42,9 @@ void SegmentShape2D::set_b(Vector2 p_b){
 
 SegmentShape2D::SegmentShape2D(WasGoId p_wasgo_id) : Shape2D(p_wasgo_id){
 }
-SegmentShape2D::SegmentShape2D(){
+SegmentShape2D::SegmentShape2D(Shape2D other) : Shape2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_SegmentShape2D_constructor();
 }
-SegmentShape2D::~SegmentShape2D(){
-    _wasgo_SegmentShape2D_destructor(wasgo_id);
+SegmentShape2D::new_instance(){
+    return SegmentShape2D(_wasgo_SegmentShape2D_constructor());
 }

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "error_list.h"
-#include "Node.h"
 #include "SceneState.h"
+#include "Node.h"
+#include "error_list.h"
+#include "Resource.h"
 class PackedScene : public Resource{
 public:
 enum GenEditState{
@@ -21,10 +21,10 @@ Node instance(PackedScene::GenEditState p_edit_state = (PackedScene::GenEditStat
 Error pack(Node p_path);
 
 protected:
-PackedScene(WasGoId p_wasgo_id);
 public:
-PackedScene();
-~PackedScene();
+explicit PackedScene(WasGoId p_wasgo_id);
+explicit PackedScene(Resource other);
+PackedScene new_instance();
             
 };
 
@@ -36,9 +36,8 @@ WasGoId _wasgo_PackedScene_wrapper_get_state(WasGoId wasgo_id);
 WasGoId _wasgo_PackedScene_wrapper_instance(WasGoId wasgo_id, WasGoId p_edit_state);
 WasGoId _wasgo_PackedScene_wrapper_pack(WasGoId wasgo_id, WasGoId p_path);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PackedScene_constructor();
-    void _wasgo_PackedScene_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

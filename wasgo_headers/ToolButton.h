@@ -9,10 +9,10 @@ class ToolButton : public Button{
 public:
 
 protected:
-ToolButton(WasGoId p_wasgo_id);
 public:
-ToolButton();
-~ToolButton();
+explicit ToolButton(WasGoId p_wasgo_id);
+explicit ToolButton(Button other);
+ToolButton new_instance();
             
 };
 
@@ -20,9 +20,8 @@ ToolButton();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ToolButton_constructor();
-    void _wasgo_ToolButton_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

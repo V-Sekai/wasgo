@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "RID.h"
-#include "Rect2.h"
-#include "Color.h"
-#include "Image.h"
 #include "Vector2.h"
+#include "Color.h"
+#include "Rect2.h"
+#include "RID.h"
+#include "Image.h"
+#include "Resource.h"
 class Texture : public Resource{
 public:
 enum Flags{
@@ -48,9 +48,8 @@ int _wasgo_Texture_wrapper_get_width(WasGoId wasgo_id);
 int _wasgo_Texture_wrapper_has_alpha(WasGoId wasgo_id);
 void _wasgo_Texture_wrapper_set_flags(WasGoId wasgo_id, int p_flags);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Texture_constructor();
-    void _wasgo_Texture_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

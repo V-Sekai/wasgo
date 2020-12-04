@@ -4,8 +4,8 @@
 void ArrayMesh::add_blend_shape(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_ArrayMesh_wrapper_add_blend_shape(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -69,8 +69,8 @@ void ArrayMesh::set_custom_aabb(::AABB p_aabb){
 int ArrayMesh::surface_find_by_name(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (int) _wasgo_ArrayMesh_wrapper_surface_find_by_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -103,8 +103,8 @@ void ArrayMesh::surface_remove(int p_surf_idx){
 void ArrayMesh::surface_set_name(int p_surf_idx, String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_ArrayMesh_wrapper_surface_set_name(wasgo_id, p_surf_idx, wasgo_buffer_name, wasgo_size_name);
@@ -115,9 +115,9 @@ void ArrayMesh::surface_update_region(int p_surf_idx, int p_offset, PoolByteArra
 
 ArrayMesh::ArrayMesh(WasGoId p_wasgo_id) : Mesh(p_wasgo_id){
 }
-ArrayMesh::ArrayMesh(){
+ArrayMesh::ArrayMesh(Mesh other) : Mesh(other._get_wasgo_id()){
     wasgo_id = _wasgo_ArrayMesh_constructor();
 }
-ArrayMesh::~ArrayMesh(){
-    _wasgo_ArrayMesh_destructor(wasgo_id);
+ArrayMesh::new_instance(){
+    return ArrayMesh(_wasgo_ArrayMesh_constructor());
 }

@@ -17,8 +17,8 @@ String Animation::animation_track_get_key_animation(int p_track_idx, int p_key_i
 int Animation::animation_track_insert_key(int p_track_idx, float p_time, String p_animation){
 
     Variant wasgo_var_animation = p_animation;
-    uint8_t wasgo_buffer_animation[256];
-    int wasgo_size_animation = 256;
+    int wasgo_size_animation = String(p_animation).size();
+    uint8_t wasgo_buffer_animation[wasgo_size_animation];
     encode_variant(wasgo_var_animation, wasgo_buffer_animation, wasgo_size_animation);
     
 	return (int) _wasgo_Animation_wrapper_animation_track_insert_key(wasgo_id, p_track_idx, p_time, wasgo_buffer_animation, wasgo_size_animation);
@@ -26,8 +26,8 @@ int Animation::animation_track_insert_key(int p_track_idx, float p_time, String 
 void Animation::animation_track_set_key_animation(int p_track_idx, int p_key_idx, String p_animation){
 
     Variant wasgo_var_animation = p_animation;
-    uint8_t wasgo_buffer_animation[256];
-    int wasgo_size_animation = 256;
+    int wasgo_size_animation = String(p_animation).size();
+    uint8_t wasgo_buffer_animation[wasgo_size_animation];
     encode_variant(wasgo_var_animation, wasgo_buffer_animation, wasgo_size_animation);
     
 	_wasgo_Animation_wrapper_animation_track_set_key_animation(wasgo_id, p_track_idx, p_key_idx, wasgo_buffer_animation, wasgo_size_animation);
@@ -124,8 +124,8 @@ void Animation::copy_track(int p_track_idx, Animation p_to_animation){
 int Animation::find_track(NodePath p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return (int) _wasgo_Animation_wrapper_find_track(wasgo_id, wasgo_buffer_path, wasgo_size_path);
@@ -252,8 +252,8 @@ void Animation::track_set_key_value(int p_track_idx, int p_key, Variant p_value)
 void Animation::track_set_path(int p_track_idx, NodePath p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_Animation_wrapper_track_set_path(wasgo_id, p_track_idx, wasgo_buffer_path, wasgo_size_path);
@@ -300,9 +300,9 @@ void Animation::value_track_set_update_mode(int p_track_idx, Animation::UpdateMo
 
 Animation::Animation(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-Animation::Animation(){
+Animation::Animation(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Animation_constructor();
 }
-Animation::~Animation(){
-    _wasgo_Animation_destructor(wasgo_id);
+Animation::new_instance(){
+    return Animation(_wasgo_Animation_constructor());
 }

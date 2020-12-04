@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "LineEdit.h"
+#include "ustring.h"
 #include "VBoxContainer.h"
 #include "ConfirmationDialog.h"
-#include "ustring.h"
+#include "LineEdit.h"
 #include "Variant.h"
 class FileDialog : public ConfirmationDialog{
 public:
@@ -47,10 +47,10 @@ void set_mode_overrides_title(bool p_override);
 void set_show_hidden_files(bool p_show);
 
 protected:
-FileDialog(WasGoId p_wasgo_id);
 public:
-FileDialog();
-~FileDialog();
+explicit FileDialog(WasGoId p_wasgo_id);
+explicit FileDialog(ConfirmationDialog other);
+FileDialog new_instance();
             
 };
 
@@ -80,9 +80,8 @@ void _wasgo_FileDialog_wrapper_set_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_FileDialog_wrapper_set_mode_overrides_title(WasGoId wasgo_id, bool p_override);
 void _wasgo_FileDialog_wrapper_set_show_hidden_files(WasGoId wasgo_id, bool p_show);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_FileDialog_constructor();
-    void _wasgo_FileDialog_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

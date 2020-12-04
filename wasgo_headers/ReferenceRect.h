@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Color.h"
 #include "Control.h"
+#include "Color.h"
 class ReferenceRect : public Control{
 public:
 Color get_border_color();
@@ -16,10 +16,10 @@ void set_border_width(float p_width);
 void set_editor_only(bool p_enabled);
 
 protected:
-ReferenceRect(WasGoId p_wasgo_id);
 public:
-ReferenceRect();
-~ReferenceRect();
+explicit ReferenceRect(WasGoId p_wasgo_id);
+explicit ReferenceRect(Control other);
+ReferenceRect new_instance();
             
 };
 
@@ -33,9 +33,8 @@ void _wasgo_ReferenceRect_wrapper_set_border_color(WasGoId wasgo_id, const uint8
 void _wasgo_ReferenceRect_wrapper_set_border_width(WasGoId wasgo_id, float p_width);
 void _wasgo_ReferenceRect_wrapper_set_editor_only(WasGoId wasgo_id, bool p_enabled);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ReferenceRect_constructor();
-    void _wasgo_ReferenceRect_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

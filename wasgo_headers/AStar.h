@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "Vector3.h"
+#include "Reference.h"
 #include "Variant.h"
 class AStar : public Reference{
 public:
@@ -34,10 +34,10 @@ void set_point_position(int p_id, Vector3 p_position);
 void set_point_weight_scale(int p_id, float p_weight_scale);
 
 protected:
-AStar(WasGoId p_wasgo_id);
 public:
-AStar();
-~AStar();
+explicit AStar(WasGoId p_wasgo_id);
+explicit AStar(Reference other);
+AStar new_instance();
             
 };
 
@@ -68,9 +68,8 @@ void _wasgo_AStar_wrapper_set_point_disabled(WasGoId wasgo_id, int p_id, bool p_
 void _wasgo_AStar_wrapper_set_point_position(WasGoId wasgo_id, int p_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 void _wasgo_AStar_wrapper_set_point_weight_scale(WasGoId wasgo_id, int p_id, float p_weight_scale);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AStar_constructor();
-    void _wasgo_AStar_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

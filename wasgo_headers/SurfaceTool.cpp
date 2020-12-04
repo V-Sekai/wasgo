@@ -97,8 +97,8 @@ void SurfaceTool::create_from(Mesh p_existing, int p_surface){
 void SurfaceTool::create_from_blend_shape(Mesh p_existing, int p_surface, String p_blend_shape){
 
     Variant wasgo_var_blend_shape = p_blend_shape;
-    uint8_t wasgo_buffer_blend_shape[256];
-    int wasgo_size_blend_shape = 256;
+    int wasgo_size_blend_shape = String(p_blend_shape).size();
+    uint8_t wasgo_buffer_blend_shape[wasgo_size_blend_shape];
     encode_variant(wasgo_var_blend_shape, wasgo_buffer_blend_shape, wasgo_size_blend_shape);
     
 	_wasgo_SurfaceTool_wrapper_create_from_blend_shape(wasgo_id, p_existing._get_wasgo_id(), p_surface, wasgo_buffer_blend_shape, wasgo_size_blend_shape);
@@ -121,9 +121,9 @@ void SurfaceTool::set_material(Material p_material){
 
 SurfaceTool::SurfaceTool(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-SurfaceTool::SurfaceTool(){
+SurfaceTool::SurfaceTool(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_SurfaceTool_constructor();
 }
-SurfaceTool::~SurfaceTool(){
-    _wasgo_SurfaceTool_destructor(wasgo_id);
+SurfaceTool::new_instance(){
+    return SurfaceTool(_wasgo_SurfaceTool_constructor());
 }

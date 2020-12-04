@@ -11,10 +11,10 @@ float get_world_scale();
 void set_world_scale(float p_world_scale);
 
 protected:
-ARVROrigin(WasGoId p_wasgo_id);
 public:
-ARVROrigin();
-~ARVROrigin();
+explicit ARVROrigin(WasGoId p_wasgo_id);
+explicit ARVROrigin(Spatial other);
+ARVROrigin new_instance();
             
 };
 
@@ -24,9 +24,8 @@ extern "C"{
 float _wasgo_ARVROrigin_wrapper_get_world_scale(WasGoId wasgo_id);
 void _wasgo_ARVROrigin_wrapper_set_world_scale(WasGoId wasgo_id, float p_world_scale);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ARVROrigin_constructor();
-    void _wasgo_ARVROrigin_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

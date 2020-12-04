@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Texture.h"
-#include "Vector2.h"
 #include "Mesh.h"
+#include "Vector2.h"
 class MeshTexture : public Texture{
 public:
 Texture get_base_texture();
@@ -17,10 +17,10 @@ void set_image_size(Vector2 p_size);
 void set_mesh(Mesh p_mesh);
 
 protected:
-MeshTexture(WasGoId p_wasgo_id);
 public:
-MeshTexture();
-~MeshTexture();
+explicit MeshTexture(WasGoId p_wasgo_id);
+explicit MeshTexture(Texture other);
+MeshTexture new_instance();
             
 };
 
@@ -34,9 +34,8 @@ void _wasgo_MeshTexture_wrapper_set_base_texture(WasGoId wasgo_id, WasGoId p_tex
 void _wasgo_MeshTexture_wrapper_set_image_size(WasGoId wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
 void _wasgo_MeshTexture_wrapper_set_mesh(WasGoId wasgo_id, WasGoId p_mesh);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_MeshTexture_constructor();
-    void _wasgo_MeshTexture_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

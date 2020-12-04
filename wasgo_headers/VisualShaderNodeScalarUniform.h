@@ -9,10 +9,10 @@ class VisualShaderNodeScalarUniform : public VisualShaderNodeUniform{
 public:
 
 protected:
-VisualShaderNodeScalarUniform(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeScalarUniform();
-~VisualShaderNodeScalarUniform();
+explicit VisualShaderNodeScalarUniform(WasGoId p_wasgo_id);
+explicit VisualShaderNodeScalarUniform(VisualShaderNodeUniform other);
+VisualShaderNodeScalarUniform new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeScalarUniform();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeScalarUniform_constructor();
-    void _wasgo_VisualShaderNodeScalarUniform_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

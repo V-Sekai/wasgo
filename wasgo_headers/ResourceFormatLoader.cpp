@@ -4,14 +4,14 @@
 void ResourceFormatLoader::get_dependencies(String p_path, String p_add_types){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 
     Variant wasgo_var_add_types = p_add_types;
-    uint8_t wasgo_buffer_add_types[256];
-    int wasgo_size_add_types = 256;
+    int wasgo_size_add_types = String(p_add_types).size();
+    uint8_t wasgo_buffer_add_types[wasgo_size_add_types];
     encode_variant(wasgo_var_add_types, wasgo_buffer_add_types, wasgo_size_add_types);
     
 	_wasgo_ResourceFormatLoader_wrapper_get_dependencies(wasgo_id, wasgo_buffer_path, wasgo_size_path, wasgo_buffer_add_types, wasgo_size_add_types);
@@ -22,8 +22,8 @@ PoolStringArray ResourceFormatLoader::get_recognized_extensions(){
 String ResourceFormatLoader::get_resource_type(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 
@@ -38,8 +38,8 @@ String ResourceFormatLoader::get_resource_type(String p_path){
 bool ResourceFormatLoader::handles_type(String p_typename){
 
     Variant wasgo_var_typename = p_typename;
-    uint8_t wasgo_buffer_typename[256];
-    int wasgo_size_typename = 256;
+    int wasgo_size_typename = String(p_typename).size();
+    uint8_t wasgo_buffer_typename[wasgo_size_typename];
     encode_variant(wasgo_var_typename, wasgo_buffer_typename, wasgo_size_typename);
     
 	return (bool) _wasgo_ResourceFormatLoader_wrapper_handles_type(wasgo_id, wasgo_buffer_typename, wasgo_size_typename);
@@ -47,14 +47,14 @@ bool ResourceFormatLoader::handles_type(String p_typename){
 Variant ResourceFormatLoader::load(String p_path, String p_original_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 
     Variant wasgo_var_original_path = p_original_path;
-    uint8_t wasgo_buffer_original_path[256];
-    int wasgo_size_original_path = 256;
+    int wasgo_size_original_path = String(p_original_path).size();
+    uint8_t wasgo_buffer_original_path[wasgo_size_original_path];
     encode_variant(wasgo_var_original_path, wasgo_buffer_original_path, wasgo_size_original_path);
     
 	return Variant(_wasgo_ResourceFormatLoader_wrapper_load(wasgo_id, wasgo_buffer_path, wasgo_size_path, wasgo_buffer_original_path, wasgo_size_original_path));
@@ -62,14 +62,14 @@ Variant ResourceFormatLoader::load(String p_path, String p_original_path){
 int ResourceFormatLoader::rename_dependencies(String p_path, String p_renames){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 
     Variant wasgo_var_renames = p_renames;
-    uint8_t wasgo_buffer_renames[256];
-    int wasgo_size_renames = 256;
+    int wasgo_size_renames = String(p_renames).size();
+    uint8_t wasgo_buffer_renames[wasgo_size_renames];
     encode_variant(wasgo_var_renames, wasgo_buffer_renames, wasgo_size_renames);
     
 	return (int) _wasgo_ResourceFormatLoader_wrapper_rename_dependencies(wasgo_id, wasgo_buffer_path, wasgo_size_path, wasgo_buffer_renames, wasgo_size_renames);
@@ -77,9 +77,9 @@ int ResourceFormatLoader::rename_dependencies(String p_path, String p_renames){
 
 ResourceFormatLoader::ResourceFormatLoader(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-ResourceFormatLoader::ResourceFormatLoader(){
+ResourceFormatLoader::ResourceFormatLoader(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_ResourceFormatLoader_constructor();
 }
-ResourceFormatLoader::~ResourceFormatLoader(){
-    _wasgo_ResourceFormatLoader_destructor(wasgo_id);
+ResourceFormatLoader::new_instance(){
+    return ResourceFormatLoader(_wasgo_ResourceFormatLoader_constructor());
 }

@@ -30,8 +30,8 @@ int XMLParser::get_current_line(){
 String XMLParser::get_named_attribute_value(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
@@ -46,8 +46,8 @@ String XMLParser::get_named_attribute_value(String p_name){
 String XMLParser::get_named_attribute_value_safe(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
@@ -88,8 +88,8 @@ XMLParser::NodeType XMLParser::get_node_type(){
 bool XMLParser::has_attribute(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	return (bool) _wasgo_XMLParser_wrapper_has_attribute(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -100,8 +100,8 @@ bool XMLParser::is_empty(){
 Error XMLParser::open(String p_file){
 
     Variant wasgo_var_file = p_file;
-    uint8_t wasgo_buffer_file[256];
-    int wasgo_size_file = 256;
+    int wasgo_size_file = String(p_file).size();
+    uint8_t wasgo_buffer_file[wasgo_size_file];
     encode_variant(wasgo_var_file, wasgo_buffer_file, wasgo_size_file);
     
 	return Error(_wasgo_XMLParser_wrapper_open(wasgo_id, wasgo_buffer_file, wasgo_size_file));
@@ -121,9 +121,9 @@ void XMLParser::skip_section(){
 
 XMLParser::XMLParser(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-XMLParser::XMLParser(){
+XMLParser::XMLParser(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_XMLParser_constructor();
 }
-XMLParser::~XMLParser(){
-    _wasgo_XMLParser_destructor(wasgo_id);
+XMLParser::new_instance(){
+    return XMLParser(_wasgo_XMLParser_constructor());
 }

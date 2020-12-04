@@ -57,10 +57,10 @@ void set_param_z(Generic6DOFJoint::Param p_param, float p_value);
 void set_precision(int p_precision);
 
 protected:
-Generic6DOFJoint(WasGoId p_wasgo_id);
 public:
-Generic6DOFJoint();
-~Generic6DOFJoint();
+explicit Generic6DOFJoint(WasGoId p_wasgo_id);
+explicit Generic6DOFJoint(Joint other);
+Generic6DOFJoint new_instance();
             
 };
 
@@ -82,9 +82,8 @@ void _wasgo_Generic6DOFJoint_wrapper_set_param_y(WasGoId wasgo_id, WasGoId p_par
 void _wasgo_Generic6DOFJoint_wrapper_set_param_z(WasGoId wasgo_id, WasGoId p_param, float p_value);
 void _wasgo_Generic6DOFJoint_wrapper_set_precision(WasGoId wasgo_id, int p_precision);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Generic6DOFJoint_constructor();
-    void _wasgo_Generic6DOFJoint_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

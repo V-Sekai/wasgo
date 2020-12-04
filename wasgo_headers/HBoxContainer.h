@@ -9,10 +9,10 @@ class HBoxContainer : public BoxContainer{
 public:
 
 protected:
-HBoxContainer(WasGoId p_wasgo_id);
 public:
-HBoxContainer();
-~HBoxContainer();
+explicit HBoxContainer(WasGoId p_wasgo_id);
+explicit HBoxContainer(BoxContainer other);
+HBoxContainer new_instance();
             
 };
 
@@ -20,9 +20,8 @@ HBoxContainer();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_HBoxContainer_constructor();
-    void _wasgo_HBoxContainer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

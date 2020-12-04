@@ -25,10 +25,10 @@ void set_unit_offset(float p_unit_offset);
 void set_v_offset(float p_v_offset);
 
 protected:
-PathFollow2D(WasGoId p_wasgo_id);
 public:
-PathFollow2D();
-~PathFollow2D();
+explicit PathFollow2D(WasGoId p_wasgo_id);
+explicit PathFollow2D(Node2D other);
+PathFollow2D new_instance();
             
 };
 
@@ -52,9 +52,8 @@ void _wasgo_PathFollow2D_wrapper_set_rotate(WasGoId wasgo_id, bool p_enable);
 void _wasgo_PathFollow2D_wrapper_set_unit_offset(WasGoId wasgo_id, float p_unit_offset);
 void _wasgo_PathFollow2D_wrapper_set_v_offset(WasGoId wasgo_id, float p_v_offset);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PathFollow2D_constructor();
-    void _wasgo_PathFollow2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,18 +4,18 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ShaderMaterial.h"
-#include "Resource.h"
 #include "Transform2D.h"
-#include "ustring.h"
-#include "Variant.h"
-#include "Rect2.h"
-#include "Color.h"
-#include "Shape2D.h"
-#include "OccluderPolygon2D.h"
-#include "Texture.h"
-#include "NavigationPolygon.h"
 #include "Vector2.h"
+#include "ustring.h"
+#include "ShaderMaterial.h"
+#include "Texture.h"
+#include "Color.h"
+#include "OccluderPolygon2D.h"
+#include "Resource.h"
+#include "Rect2.h"
+#include "NavigationPolygon.h"
+#include "Shape2D.h"
+#include "Variant.h"
 class TileSet : public Resource{
 public:
 enum AutotileBindings{
@@ -106,10 +106,10 @@ void tile_set_tile_mode(int p_id, TileSet::TileMode p_tilemode);
 void tile_set_z_index(int p_id, int p_z_index);
 
 protected:
-TileSet(WasGoId p_wasgo_id);
 public:
-TileSet();
-~TileSet();
+explicit TileSet(WasGoId p_wasgo_id);
+explicit TileSet(Resource other);
+TileSet new_instance();
             
 };
 
@@ -182,9 +182,8 @@ void _wasgo_TileSet_wrapper_tile_set_texture_offset(WasGoId wasgo_id, int p_id, 
 void _wasgo_TileSet_wrapper_tile_set_tile_mode(WasGoId wasgo_id, int p_id, WasGoId p_tilemode);
 void _wasgo_TileSet_wrapper_tile_set_z_index(WasGoId wasgo_id, int p_id, int p_z_index);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TileSet_constructor();
-    void _wasgo_TileSet_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

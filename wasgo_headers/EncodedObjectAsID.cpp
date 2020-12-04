@@ -10,9 +10,9 @@ void EncodedObjectAsID::set_object_id(int p_id){
 
 EncodedObjectAsID::EncodedObjectAsID(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-EncodedObjectAsID::EncodedObjectAsID(){
+EncodedObjectAsID::EncodedObjectAsID(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_EncodedObjectAsID_constructor();
 }
-EncodedObjectAsID::~EncodedObjectAsID(){
-    _wasgo_EncodedObjectAsID_destructor(wasgo_id);
+EncodedObjectAsID::new_instance(){
+    return EncodedObjectAsID(_wasgo_EncodedObjectAsID_constructor());
 }

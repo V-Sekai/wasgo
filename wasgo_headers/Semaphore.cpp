@@ -10,9 +10,9 @@ Error Semaphore::wait(){
 
 Semaphore::Semaphore(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-Semaphore::Semaphore(){
+Semaphore::Semaphore(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Semaphore_constructor();
 }
-Semaphore::~Semaphore(){
-    _wasgo_Semaphore_destructor(wasgo_id);
+Semaphore::new_instance(){
+    return Semaphore(_wasgo_Semaphore_constructor());
 }

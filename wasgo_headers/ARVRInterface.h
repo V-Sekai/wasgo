@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Reference.h"
-#include "ustring.h"
 #include "Vector2.h"
+#include "ustring.h"
 class ARVRInterface : public Reference{
 public:
 enum Capabilities{
@@ -62,9 +62,8 @@ void _wasgo_ARVRInterface_wrapper_set_is_initialized(WasGoId wasgo_id, bool p_in
 void _wasgo_ARVRInterface_wrapper_set_is_primary(WasGoId wasgo_id, bool p_enable);
 void _wasgo_ARVRInterface_wrapper_uninitialize(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ARVRInterface_constructor();
-    void _wasgo_ARVRInterface_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

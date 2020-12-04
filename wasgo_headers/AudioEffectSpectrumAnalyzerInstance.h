@@ -20,9 +20,8 @@ Vector2 get_magnitude_for_frequency_range(float p_from_hz, float p_to_hz, AudioE
 extern "C"{
 void _wasgo_AudioEffectSpectrumAnalyzerInstance_wrapper_get_magnitude_for_frequency_range(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, float p_from_hz, float p_to_hz, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectSpectrumAnalyzerInstance_constructor();
-    void _wasgo_AudioEffectSpectrumAnalyzerInstance_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

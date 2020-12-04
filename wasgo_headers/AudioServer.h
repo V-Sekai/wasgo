@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "AudioEffectInstance.h"
-#include "AudioEffect.h"
 #include "AudioBusLayout.h"
 #include "ustring.h"
-#include "Variant.h"
+#include "AudioEffect.h"
 #include "Object.h"
+#include "AudioEffectInstance.h"
+#include "Variant.h"
 class AudioServer : public Object{
 public:
 enum SpeakerMode{
@@ -66,10 +66,10 @@ void swap_bus_effects(int p_bus_idx, int p_effect_idx, int p_by_effect_idx);
 void unlock();
 
 protected:
-AudioServer(WasGoId p_wasgo_id);
 public:
-AudioServer();
-~AudioServer();
+explicit AudioServer(WasGoId p_wasgo_id);
+explicit AudioServer(Object other);
+AudioServer new_instance();
             
 };
 
@@ -123,9 +123,8 @@ void _wasgo_AudioServer_wrapper_set_global_rate_scale(WasGoId wasgo_id, float p_
 void _wasgo_AudioServer_wrapper_swap_bus_effects(WasGoId wasgo_id, int p_bus_idx, int p_effect_idx, int p_by_effect_idx);
 void _wasgo_AudioServer_wrapper_unlock(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioServer_constructor();
-    void _wasgo_AudioServer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

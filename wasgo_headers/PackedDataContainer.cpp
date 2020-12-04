@@ -10,9 +10,9 @@ int PackedDataContainer::size(){
 
 PackedDataContainer::PackedDataContainer(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-PackedDataContainer::PackedDataContainer(){
+PackedDataContainer::PackedDataContainer(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_PackedDataContainer_constructor();
 }
-PackedDataContainer::~PackedDataContainer(){
-    _wasgo_PackedDataContainer_destructor(wasgo_id);
+PackedDataContainer::new_instance(){
+    return PackedDataContainer(_wasgo_PackedDataContainer_constructor());
 }

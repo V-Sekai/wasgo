@@ -9,10 +9,10 @@ class ResourceFormatLoaderWasm : public ResourceFormatLoader{
 public:
 
 protected:
-ResourceFormatLoaderWasm(WasGoId p_wasgo_id);
 public:
-ResourceFormatLoaderWasm();
-~ResourceFormatLoaderWasm();
+explicit ResourceFormatLoaderWasm(WasGoId p_wasgo_id);
+explicit ResourceFormatLoaderWasm(ResourceFormatLoader other);
+ResourceFormatLoaderWasm new_instance();
             
 };
 
@@ -20,9 +20,8 @@ ResourceFormatLoaderWasm();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ResourceFormatLoaderWasm_constructor();
-    void _wasgo_ResourceFormatLoaderWasm_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

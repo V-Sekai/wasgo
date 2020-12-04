@@ -4,9 +4,9 @@
 
 StyleBoxEmpty::StyleBoxEmpty(WasGoId p_wasgo_id) : StyleBox(p_wasgo_id){
 }
-StyleBoxEmpty::StyleBoxEmpty(){
+StyleBoxEmpty::StyleBoxEmpty(StyleBox other) : StyleBox(other._get_wasgo_id()){
     wasgo_id = _wasgo_StyleBoxEmpty_constructor();
 }
-StyleBoxEmpty::~StyleBoxEmpty(){
-    _wasgo_StyleBoxEmpty_destructor(wasgo_id);
+StyleBoxEmpty::new_instance(){
+    return StyleBoxEmpty(_wasgo_StyleBoxEmpty_constructor());
 }

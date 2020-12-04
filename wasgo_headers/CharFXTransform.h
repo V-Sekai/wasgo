@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Reference.h"
 #include "Color.h"
 #include "Vector2.h"
 #include "Variant.h"
-#include "Reference.h"
 class CharFXTransform : public Reference{
 public:
 int get_absolute_index();
@@ -28,10 +28,10 @@ void set_relative_index(int p_index);
 void set_visibility(bool p_visibility);
 
 protected:
-CharFXTransform(WasGoId p_wasgo_id);
 public:
-CharFXTransform();
-~CharFXTransform();
+explicit CharFXTransform(WasGoId p_wasgo_id);
+explicit CharFXTransform(Reference other);
+CharFXTransform new_instance();
             
 };
 
@@ -55,9 +55,8 @@ void _wasgo_CharFXTransform_wrapper_set_offset(WasGoId wasgo_id, const uint8_t *
 void _wasgo_CharFXTransform_wrapper_set_relative_index(WasGoId wasgo_id, int p_index);
 void _wasgo_CharFXTransform_wrapper_set_visibility(WasGoId wasgo_id, bool p_visibility);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CharFXTransform_constructor();
-    void _wasgo_CharFXTransform_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

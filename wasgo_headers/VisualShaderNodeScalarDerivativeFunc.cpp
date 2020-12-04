@@ -10,9 +10,9 @@ void VisualShaderNodeScalarDerivativeFunc::set_function(VisualShaderNodeScalarDe
 
 VisualShaderNodeScalarDerivativeFunc::VisualShaderNodeScalarDerivativeFunc(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeScalarDerivativeFunc::VisualShaderNodeScalarDerivativeFunc(){
+VisualShaderNodeScalarDerivativeFunc::VisualShaderNodeScalarDerivativeFunc(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeScalarDerivativeFunc_constructor();
 }
-VisualShaderNodeScalarDerivativeFunc::~VisualShaderNodeScalarDerivativeFunc(){
-    _wasgo_VisualShaderNodeScalarDerivativeFunc_destructor(wasgo_id);
+VisualShaderNodeScalarDerivativeFunc::new_instance(){
+    return VisualShaderNodeScalarDerivativeFunc(_wasgo_VisualShaderNodeScalarDerivativeFunc_constructor());
 }

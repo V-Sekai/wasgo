@@ -23,10 +23,10 @@ VisualShaderNodeScalarOp::Operator get_operator();
 void set_operator(VisualShaderNodeScalarOp::Operator p_op);
 
 protected:
-VisualShaderNodeScalarOp(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeScalarOp();
-~VisualShaderNodeScalarOp();
+explicit VisualShaderNodeScalarOp(WasGoId p_wasgo_id);
+explicit VisualShaderNodeScalarOp(VisualShaderNode other);
+VisualShaderNodeScalarOp new_instance();
             
 };
 
@@ -36,9 +36,8 @@ extern "C"{
 WasGoId _wasgo_VisualShaderNodeScalarOp_wrapper_get_operator(WasGoId wasgo_id);
 void _wasgo_VisualShaderNodeScalarOp_wrapper_set_operator(WasGoId wasgo_id, WasGoId p_op);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeScalarOp_constructor();
-    void _wasgo_VisualShaderNodeScalarOp_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

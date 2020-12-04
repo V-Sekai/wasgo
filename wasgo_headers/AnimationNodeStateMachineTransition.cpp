@@ -29,8 +29,8 @@ bool AnimationNodeStateMachineTransition::is_disabled(){
 void AnimationNodeStateMachineTransition::set_advance_condition(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_AnimationNodeStateMachineTransition_wrapper_set_advance_condition(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -53,9 +53,9 @@ void AnimationNodeStateMachineTransition::set_xfade_time(float p_secs){
 
 AnimationNodeStateMachineTransition::AnimationNodeStateMachineTransition(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-AnimationNodeStateMachineTransition::AnimationNodeStateMachineTransition(){
+AnimationNodeStateMachineTransition::AnimationNodeStateMachineTransition(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimationNodeStateMachineTransition_constructor();
 }
-AnimationNodeStateMachineTransition::~AnimationNodeStateMachineTransition(){
-    _wasgo_AnimationNodeStateMachineTransition_destructor(wasgo_id);
+AnimationNodeStateMachineTransition::new_instance(){
+    return AnimationNodeStateMachineTransition(_wasgo_AnimationNodeStateMachineTransition_constructor());
 }

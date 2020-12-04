@@ -6,11 +6,11 @@
 
 #include "Vector3.h"
 #include "GeometryInstance.h"
-#include "Rect2.h"
-#include "TriangleMesh.h"
-#include "SpatialMaterial.h"
-#include "Color.h"
 #include "Vector2.h"
+#include "Color.h"
+#include "TriangleMesh.h"
+#include "Rect2.h"
+#include "SpatialMaterial.h"
 class SpriteBase3D : public GeometryInstance{
 public:
 enum AlphaCutMode{
@@ -78,9 +78,8 @@ void _wasgo_SpriteBase3D_wrapper_set_offset(WasGoId wasgo_id, const uint8_t * p_
 void _wasgo_SpriteBase3D_wrapper_set_opacity(WasGoId wasgo_id, float p_opacity);
 void _wasgo_SpriteBase3D_wrapper_set_pixel_size(WasGoId wasgo_id, float p_pixel_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SpriteBase3D_constructor();
-    void _wasgo_SpriteBase3D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

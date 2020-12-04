@@ -22,9 +22,9 @@ void CollisionPolygon::set_polygon(PoolVector2Array p_polygon){
 
 CollisionPolygon::CollisionPolygon(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-CollisionPolygon::CollisionPolygon(){
+CollisionPolygon::CollisionPolygon(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_CollisionPolygon_constructor();
 }
-CollisionPolygon::~CollisionPolygon(){
-    _wasgo_CollisionPolygon_destructor(wasgo_id);
+CollisionPolygon::new_instance(){
+    return CollisionPolygon(_wasgo_CollisionPolygon_constructor());
 }

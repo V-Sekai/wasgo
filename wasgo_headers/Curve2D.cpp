@@ -161,9 +161,9 @@ PoolVector2Array Curve2D::tessellate(int p_max_stages = (int) 5, float p_toleran
 
 Curve2D::Curve2D(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-Curve2D::Curve2D(){
+Curve2D::Curve2D(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_Curve2D_constructor();
 }
-Curve2D::~Curve2D(){
-    _wasgo_Curve2D_destructor(wasgo_id);
+Curve2D::new_instance(){
+    return Curve2D(_wasgo_Curve2D_constructor());
 }

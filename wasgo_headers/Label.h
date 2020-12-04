@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "Control.h"
+#include "ustring.h"
 class Label : public Control{
 public:
 enum Align{
@@ -46,10 +46,10 @@ void set_valign(Label::VAlign p_valign);
 void set_visible_characters(int p_amount);
 
 protected:
-Label(WasGoId p_wasgo_id);
 public:
-Label();
-~Label();
+explicit Label(WasGoId p_wasgo_id);
+explicit Label(Control other);
+Label new_instance();
             
 };
 
@@ -81,9 +81,8 @@ void _wasgo_Label_wrapper_set_uppercase(WasGoId wasgo_id, bool p_enable);
 void _wasgo_Label_wrapper_set_valign(WasGoId wasgo_id, WasGoId p_valign);
 void _wasgo_Label_wrapper_set_visible_characters(WasGoId wasgo_id, int p_amount);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Label_constructor();
-    void _wasgo_Label_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

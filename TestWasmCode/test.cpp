@@ -16,7 +16,13 @@ void _notification(int p_what) {
 	// printf("test_int: %d\n", test_int);
 	if (path.booleanize()) {
 		Spatial node2 = (Spatial)this_node.get_node(path);
-		node2.rotate_object_local(Vector3(0, 1, 0), 0.1f);
+		if (node2._get_wasgo_id()) {
+			printf("rotating wasgo object id but not locally: %d\n", node2._get_wasgo_id());
+			// node2.rotate_object_local(Vector3(0, 1, 0), 0.1f);
+			node2.rotate_y(1);
+		} else {
+			printf("unable to rotate wasgo object id: %d\n", node2._get_wasgo_id());
+		}
 	} else {
 		printf("path was not valid :(\n");
 	}

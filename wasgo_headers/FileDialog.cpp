@@ -4,8 +4,8 @@
 void FileDialog::add_filter(String p_filter){
 
     Variant wasgo_var_filter = p_filter;
-    uint8_t wasgo_buffer_filter[256];
-    int wasgo_size_filter = 256;
+    int wasgo_size_filter = String(p_filter).size();
+    uint8_t wasgo_buffer_filter[wasgo_size_filter];
     encode_variant(wasgo_var_filter, wasgo_buffer_filter, wasgo_size_filter);
     
 	_wasgo_FileDialog_wrapper_add_filter(wasgo_id, wasgo_buffer_filter, wasgo_size_filter);
@@ -76,8 +76,8 @@ void FileDialog::set_access(FileDialog::Access p_access){
 void FileDialog::set_current_dir(String p_dir){
 
     Variant wasgo_var_dir = p_dir;
-    uint8_t wasgo_buffer_dir[256];
-    int wasgo_size_dir = 256;
+    int wasgo_size_dir = String(p_dir).size();
+    uint8_t wasgo_buffer_dir[wasgo_size_dir];
     encode_variant(wasgo_var_dir, wasgo_buffer_dir, wasgo_size_dir);
     
 	_wasgo_FileDialog_wrapper_set_current_dir(wasgo_id, wasgo_buffer_dir, wasgo_size_dir);
@@ -85,8 +85,8 @@ void FileDialog::set_current_dir(String p_dir){
 void FileDialog::set_current_file(String p_file){
 
     Variant wasgo_var_file = p_file;
-    uint8_t wasgo_buffer_file[256];
-    int wasgo_size_file = 256;
+    int wasgo_size_file = String(p_file).size();
+    uint8_t wasgo_buffer_file[wasgo_size_file];
     encode_variant(wasgo_var_file, wasgo_buffer_file, wasgo_size_file);
     
 	_wasgo_FileDialog_wrapper_set_current_file(wasgo_id, wasgo_buffer_file, wasgo_size_file);
@@ -94,8 +94,8 @@ void FileDialog::set_current_file(String p_file){
 void FileDialog::set_current_path(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_FileDialog_wrapper_set_current_path(wasgo_id, wasgo_buffer_path, wasgo_size_path);
@@ -115,9 +115,9 @@ void FileDialog::set_show_hidden_files(bool p_show){
 
 FileDialog::FileDialog(WasGoId p_wasgo_id) : ConfirmationDialog(p_wasgo_id){
 }
-FileDialog::FileDialog(){
+FileDialog::FileDialog(ConfirmationDialog other) : ConfirmationDialog(other._get_wasgo_id()){
     wasgo_id = _wasgo_FileDialog_constructor();
 }
-FileDialog::~FileDialog(){
-    _wasgo_FileDialog_destructor(wasgo_id);
+FileDialog::new_instance(){
+    return FileDialog(_wasgo_FileDialog_constructor());
 }

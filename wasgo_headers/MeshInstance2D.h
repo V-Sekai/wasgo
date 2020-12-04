@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Texture.h"
+#include "Node2D.h"
 #include "Mesh.h"
 class MeshInstance2D : public Node2D{
 public:
@@ -17,10 +17,10 @@ void set_normal_map(Texture p_normal_map);
 void set_texture(Texture p_texture);
 
 protected:
-MeshInstance2D(WasGoId p_wasgo_id);
 public:
-MeshInstance2D();
-~MeshInstance2D();
+explicit MeshInstance2D(WasGoId p_wasgo_id);
+explicit MeshInstance2D(Node2D other);
+MeshInstance2D new_instance();
             
 };
 
@@ -34,9 +34,8 @@ void _wasgo_MeshInstance2D_wrapper_set_mesh(WasGoId wasgo_id, WasGoId p_mesh);
 void _wasgo_MeshInstance2D_wrapper_set_normal_map(WasGoId wasgo_id, WasGoId p_normal_map);
 void _wasgo_MeshInstance2D_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_texture);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_MeshInstance2D_constructor();
-    void _wasgo_MeshInstance2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -7,9 +7,9 @@ void PHashTranslation::generate(Translation p_from){
 
 PHashTranslation::PHashTranslation(WasGoId p_wasgo_id) : Translation(p_wasgo_id){
 }
-PHashTranslation::PHashTranslation(){
+PHashTranslation::PHashTranslation(Translation other) : Translation(other._get_wasgo_id()){
     wasgo_id = _wasgo_PHashTranslation_constructor();
 }
-PHashTranslation::~PHashTranslation(){
-    _wasgo_PHashTranslation_destructor(wasgo_id);
+PHashTranslation::new_instance(){
+    return PHashTranslation(_wasgo_PHashTranslation_constructor());
 }

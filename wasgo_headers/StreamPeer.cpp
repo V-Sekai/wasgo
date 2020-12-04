@@ -93,8 +93,8 @@ Array StreamPeer::put_partial_data(PoolByteArray p_data){
 void StreamPeer::put_string(String p_value){
 
     Variant wasgo_var_value = p_value;
-    uint8_t wasgo_buffer_value[256];
-    int wasgo_size_value = 256;
+    int wasgo_size_value = String(p_value).size();
+    uint8_t wasgo_buffer_value[wasgo_size_value];
     encode_variant(wasgo_var_value, wasgo_buffer_value, wasgo_size_value);
     
 	_wasgo_StreamPeer_wrapper_put_string(wasgo_id, wasgo_buffer_value, wasgo_size_value);
@@ -114,8 +114,8 @@ void StreamPeer::put_u8(int p_value){
 void StreamPeer::put_utf8_string(String p_value){
 
     Variant wasgo_var_value = p_value;
-    uint8_t wasgo_buffer_value[256];
-    int wasgo_size_value = 256;
+    int wasgo_size_value = String(p_value).size();
+    uint8_t wasgo_buffer_value[wasgo_size_value];
     encode_variant(wasgo_var_value, wasgo_buffer_value, wasgo_size_value);
     
 	_wasgo_StreamPeer_wrapper_put_utf8_string(wasgo_id, wasgo_buffer_value, wasgo_size_value);

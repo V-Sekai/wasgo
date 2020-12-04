@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Reference.h"
 #include "Vector3.h"
+#include "Reference.h"
 class SpatialVelocityTracker : public Reference{
 public:
 Vector3 get_tracked_linear_velocity();
@@ -15,10 +15,10 @@ void set_track_physics_step(bool p_enable);
 void update_position(Vector3 p_position);
 
 protected:
-SpatialVelocityTracker(WasGoId p_wasgo_id);
 public:
-SpatialVelocityTracker();
-~SpatialVelocityTracker();
+explicit SpatialVelocityTracker(WasGoId p_wasgo_id);
+explicit SpatialVelocityTracker(Reference other);
+SpatialVelocityTracker new_instance();
             
 };
 
@@ -31,9 +31,8 @@ void _wasgo_SpatialVelocityTracker_wrapper_reset(WasGoId wasgo_id, const uint8_t
 void _wasgo_SpatialVelocityTracker_wrapper_set_track_physics_step(WasGoId wasgo_id, bool p_enable);
 void _wasgo_SpatialVelocityTracker_wrapper_update_position(WasGoId wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SpatialVelocityTracker_constructor();
-    void _wasgo_SpatialVelocityTracker_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

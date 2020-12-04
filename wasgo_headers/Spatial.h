@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "SpatialGizmo.h"
-#include "Vector3.h"
 #include "Node.h"
+#include "Vector3.h"
 #include "World.h"
+#include "SpatialGizmo.h"
 #include "Transform.h"
 class Spatial : public Node{
 public:
@@ -62,10 +62,10 @@ void translate_object_local(Vector3 p_offset);
 void update_gizmo();
 
 protected:
-Spatial(WasGoId p_wasgo_id);
 public:
-Spatial();
-~Spatial();
+explicit Spatial(WasGoId p_wasgo_id);
+explicit Spatial(Node other);
+Spatial new_instance();
             
 };
 
@@ -122,9 +122,8 @@ void _wasgo_Spatial_wrapper_translate(WasGoId wasgo_id, const uint8_t * p_offset
 void _wasgo_Spatial_wrapper_translate_object_local(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
 void _wasgo_Spatial_wrapper_update_gizmo(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Spatial_constructor();
-    void _wasgo_Spatial_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

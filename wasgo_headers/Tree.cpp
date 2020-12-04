@@ -140,8 +140,8 @@ void Tree::set_column_min_width(int p_column, int p_min_width){
 void Tree::set_column_title(int p_column, String p_title){
 
     Variant wasgo_var_title = p_title;
-    uint8_t wasgo_buffer_title[256];
-    int wasgo_size_title = 256;
+    int wasgo_size_title = String(p_title).size();
+    uint8_t wasgo_buffer_title[wasgo_size_title];
     encode_variant(wasgo_var_title, wasgo_buffer_title, wasgo_size_title);
     
 	_wasgo_Tree_wrapper_set_column_title(wasgo_id, p_column, wasgo_buffer_title, wasgo_size_title);
@@ -167,9 +167,9 @@ void Tree::set_select_mode(Tree::SelectMode p_mode){
 
 Tree::Tree(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-Tree::Tree(){
+Tree::Tree(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_Tree_constructor();
 }
-Tree::~Tree(){
-    _wasgo_Tree_destructor(wasgo_id);
+Tree::new_instance(){
+    return Tree(_wasgo_Tree_constructor());
 }

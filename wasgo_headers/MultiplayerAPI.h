@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
 #include "Node.h"
-#include "Variant.h"
-#include "NetworkedMultiplayerPeer.h"
+#include "error_list.h"
 #include "Reference.h"
+#include "NetworkedMultiplayerPeer.h"
+#include "Variant.h"
 class MultiplayerAPI : public Reference{
 public:
 enum RPCMode{
@@ -39,10 +39,10 @@ void set_refuse_new_network_connections(bool p_refuse);
 void set_root_node(Node p_node);
 
 protected:
-MultiplayerAPI(WasGoId p_wasgo_id);
 public:
-MultiplayerAPI();
-~MultiplayerAPI();
+explicit MultiplayerAPI(WasGoId p_wasgo_id);
+explicit MultiplayerAPI(Reference other);
+MultiplayerAPI new_instance();
             
 };
 
@@ -65,9 +65,8 @@ void _wasgo_MultiplayerAPI_wrapper_set_network_peer(WasGoId wasgo_id, WasGoId p_
 void _wasgo_MultiplayerAPI_wrapper_set_refuse_new_network_connections(WasGoId wasgo_id, bool p_refuse);
 void _wasgo_MultiplayerAPI_wrapper_set_root_node(WasGoId wasgo_id, WasGoId p_node);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_MultiplayerAPI_constructor();
-    void _wasgo_MultiplayerAPI_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

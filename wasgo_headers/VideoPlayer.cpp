@@ -69,8 +69,8 @@ void VideoPlayer::set_buffering_msec(int p_msec){
 void VideoPlayer::set_bus(String p_bus){
 
     Variant wasgo_var_bus = p_bus;
-    uint8_t wasgo_buffer_bus[256];
-    int wasgo_size_bus = 256;
+    int wasgo_size_bus = String(p_bus).size();
+    uint8_t wasgo_buffer_bus[wasgo_size_bus];
     encode_variant(wasgo_var_bus, wasgo_buffer_bus, wasgo_size_bus);
     
 	_wasgo_VideoPlayer_wrapper_set_bus(wasgo_id, wasgo_buffer_bus, wasgo_size_bus);
@@ -99,9 +99,9 @@ void VideoPlayer::stop(){
 
 VideoPlayer::VideoPlayer(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-VideoPlayer::VideoPlayer(){
+VideoPlayer::VideoPlayer(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_VideoPlayer_constructor();
 }
-VideoPlayer::~VideoPlayer(){
-    _wasgo_VideoPlayer_destructor(wasgo_id);
+VideoPlayer::new_instance(){
+    return VideoPlayer(_wasgo_VideoPlayer_constructor());
 }

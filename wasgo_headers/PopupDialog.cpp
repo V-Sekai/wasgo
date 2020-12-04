@@ -4,9 +4,9 @@
 
 PopupDialog::PopupDialog(WasGoId p_wasgo_id) : Popup(p_wasgo_id){
 }
-PopupDialog::PopupDialog(){
+PopupDialog::PopupDialog(Popup other) : Popup(other._get_wasgo_id()){
     wasgo_id = _wasgo_PopupDialog_constructor();
 }
-PopupDialog::~PopupDialog(){
-    _wasgo_PopupDialog_destructor(wasgo_id);
+PopupDialog::new_instance(){
+    return PopupDialog(_wasgo_PopupDialog_constructor());
 }

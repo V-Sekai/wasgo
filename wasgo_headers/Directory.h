@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
 #include "Reference.h"
+#include "error_list.h"
 #include "ustring.h"
 class Directory : public Reference{
 public:
@@ -29,10 +29,10 @@ Error remove(String p_path);
 Error rename(String p_from, String p_to);
 
 protected:
-Directory(WasGoId p_wasgo_id);
 public:
-Directory();
-~Directory();
+explicit Directory(WasGoId p_wasgo_id);
+explicit Directory(Reference other);
+Directory new_instance();
             
 };
 
@@ -58,9 +58,8 @@ WasGoId _wasgo_Directory_wrapper_open(WasGoId wasgo_id, const uint8_t * p_path, 
 WasGoId _wasgo_Directory_wrapper_remove(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
 WasGoId _wasgo_Directory_wrapper_rename(WasGoId wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Directory_constructor();
-    void _wasgo_Directory_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

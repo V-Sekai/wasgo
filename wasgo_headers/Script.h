@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "error_list.h"
-#include "Resource.h"
-#include "ustring.h"
 #include "Variant.h"
+#include "ustring.h"
 #include "Object.h"
+#include "Resource.h"
 class Script : public Resource{
 public:
 bool can_instance();
@@ -47,9 +47,8 @@ int _wasgo_Script_wrapper_is_tool(WasGoId wasgo_id);
 WasGoId _wasgo_Script_wrapper_reload(WasGoId wasgo_id, bool p_keep_state);
 void _wasgo_Script_wrapper_set_source_code(WasGoId wasgo_id, const uint8_t * p_source, int p_source_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Script_constructor();
-    void _wasgo_Script_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -9,10 +9,10 @@ class VisualShaderNodeVectorSmoothStep : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeVectorSmoothStep(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeVectorSmoothStep();
-~VisualShaderNodeVectorSmoothStep();
+explicit VisualShaderNodeVectorSmoothStep(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorSmoothStep(VisualShaderNode other);
+VisualShaderNodeVectorSmoothStep new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeVectorSmoothStep();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeVectorSmoothStep_constructor();
-    void _wasgo_VisualShaderNodeVectorSmoothStep_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

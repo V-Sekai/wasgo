@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "NodePath.h"
 #include "Node2D.h"
+#include "NodePath.h"
 class Joint2D : public Node2D{
 public:
 float get_bias();
@@ -30,9 +30,8 @@ void _wasgo_Joint2D_wrapper_set_exclude_nodes_from_collision(WasGoId wasgo_id, b
 void _wasgo_Joint2D_wrapper_set_node_a(WasGoId wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size);
 void _wasgo_Joint2D_wrapper_set_node_b(WasGoId wasgo_id, const uint8_t * p_node, int p_node_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Joint2D_constructor();
-    void _wasgo_Joint2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

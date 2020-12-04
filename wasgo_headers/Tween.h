@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "Node.h"
-#include "Variant.h"
+#include "ustring.h"
 #include "NodePath.h"
 #include "Object.h"
+#include "Variant.h"
 class Tween : public Node{
 public:
 enum EaseType{
@@ -64,10 +64,10 @@ bool targeting_property(Object p_object, NodePath p_property, Object p_initial, 
 float tell();
 
 protected:
-Tween(WasGoId p_wasgo_id);
 public:
-Tween();
-~Tween();
+explicit Tween(WasGoId p_wasgo_id);
+explicit Tween(Node other);
+Tween new_instance();
             
 };
 
@@ -103,9 +103,8 @@ int _wasgo_Tween_wrapper_targeting_method(WasGoId wasgo_id, WasGoId p_object, co
 int _wasgo_Tween_wrapper_targeting_property(WasGoId wasgo_id, WasGoId p_object, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoId p_initial, const uint8_t * p_initial_val, int p_initial_val_wasgo_buffer_size, WasGoId p_final_val, float p_duration, WasGoId p_trans_type, WasGoId p_ease_type, float p_delay);
 float _wasgo_Tween_wrapper_tell(WasGoId wasgo_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Tween_constructor();
-    void _wasgo_Tween_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

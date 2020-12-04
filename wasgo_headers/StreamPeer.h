@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "Reference.h"
 #include "ustring.h"
+#include "Reference.h"
+#include "error_list.h"
 #include "Variant.h"
 class StreamPeer : public Reference{
 public:
@@ -82,9 +82,8 @@ void _wasgo_StreamPeer_wrapper_put_utf8_string(WasGoId wasgo_id, const uint8_t *
 void _wasgo_StreamPeer_wrapper_put_var(WasGoId wasgo_id, WasGoId p_value, bool p_full_objects);
 void _wasgo_StreamPeer_wrapper_set_big_endian(WasGoId wasgo_id, bool p_enable);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_StreamPeer_constructor();
-    void _wasgo_StreamPeer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

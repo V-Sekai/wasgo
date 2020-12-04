@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "Resource.h"
-#include "ustring.h"
 #include "Variant.h"
+#include "ustring.h"
 class Translation : public Resource{
 public:
 void add_message(String p_src_message, String p_xlated_message);
@@ -18,10 +18,10 @@ PoolStringArray get_message_list();
 void set_locale(String p_locale);
 
 protected:
-Translation(WasGoId p_wasgo_id);
 public:
-Translation();
-~Translation();
+explicit Translation(WasGoId p_wasgo_id);
+explicit Translation(Resource other);
+Translation new_instance();
             
 };
 
@@ -36,9 +36,8 @@ int _wasgo_Translation_wrapper_get_message_count(WasGoId wasgo_id);
 WasGoId _wasgo_Translation_wrapper_get_message_list(WasGoId wasgo_id);
 void _wasgo_Translation_wrapper_set_locale(WasGoId wasgo_id, const uint8_t * p_locale, int p_locale_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Translation_constructor();
-    void _wasgo_Translation_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

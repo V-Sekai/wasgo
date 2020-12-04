@@ -11,10 +11,10 @@ bool is_sort_enabled();
 void set_sort_enabled(bool p_enabled);
 
 protected:
-YSort(WasGoId p_wasgo_id);
 public:
-YSort();
-~YSort();
+explicit YSort(WasGoId p_wasgo_id);
+explicit YSort(Node2D other);
+YSort new_instance();
             
 };
 
@@ -24,9 +24,8 @@ extern "C"{
 int _wasgo_YSort_wrapper_is_sort_enabled(WasGoId wasgo_id);
 void _wasgo_YSort_wrapper_set_sort_enabled(WasGoId wasgo_id, bool p_enabled);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_YSort_constructor();
-    void _wasgo_YSort_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

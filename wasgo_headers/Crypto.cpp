@@ -10,20 +10,20 @@ CryptoKey Crypto::generate_rsa(int p_size){
 X509Certificate Crypto::generate_self_signed_certificate(CryptoKey p_key, String p_issuer_name = String(cn=myserver,o=myorganisation,c=it), String p_not_before = (String) 20140101000000, String p_not_after = (String) 20340101000000){
 
     Variant wasgo_var_issuer_name = p_issuer_name;
-    uint8_t wasgo_buffer_issuer_name[256];
-    int wasgo_size_issuer_name = 256;
+    int wasgo_size_issuer_name = String(p_issuer_name).size();
+    uint8_t wasgo_buffer_issuer_name[wasgo_size_issuer_name];
     encode_variant(wasgo_var_issuer_name, wasgo_buffer_issuer_name, wasgo_size_issuer_name);
     
 
     Variant wasgo_var_not_before = p_not_before;
-    uint8_t wasgo_buffer_not_before[256];
-    int wasgo_size_not_before = 256;
+    int wasgo_size_not_before = String(p_not_before).size();
+    uint8_t wasgo_buffer_not_before[wasgo_size_not_before];
     encode_variant(wasgo_var_not_before, wasgo_buffer_not_before, wasgo_size_not_before);
     
 
     Variant wasgo_var_not_after = p_not_after;
-    uint8_t wasgo_buffer_not_after[256];
-    int wasgo_size_not_after = 256;
+    int wasgo_size_not_after = String(p_not_after).size();
+    uint8_t wasgo_buffer_not_after[wasgo_size_not_after];
     encode_variant(wasgo_var_not_after, wasgo_buffer_not_after, wasgo_size_not_after);
     
 	return X509Certificate(_wasgo_Crypto_wrapper_generate_self_signed_certificate(wasgo_id, p_key._get_wasgo_id(), wasgo_buffer_issuer_name, wasgo_size_issuer_name, wasgo_buffer_not_before, wasgo_size_not_before, wasgo_buffer_not_after, wasgo_size_not_after));
@@ -31,9 +31,9 @@ X509Certificate Crypto::generate_self_signed_certificate(CryptoKey p_key, String
 
 Crypto::Crypto(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-Crypto::Crypto(){
+Crypto::Crypto(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Crypto_constructor();
 }
-Crypto::~Crypto(){
-    _wasgo_Crypto_destructor(wasgo_id);
+Crypto::new_instance(){
+    return Crypto(_wasgo_Crypto_constructor());
 }

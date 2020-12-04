@@ -9,10 +9,10 @@ class VisualShaderNodeTextureUniformTriplanar : public VisualShaderNodeTextureUn
 public:
 
 protected:
-VisualShaderNodeTextureUniformTriplanar(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeTextureUniformTriplanar();
-~VisualShaderNodeTextureUniformTriplanar();
+explicit VisualShaderNodeTextureUniformTriplanar(WasGoId p_wasgo_id);
+explicit VisualShaderNodeTextureUniformTriplanar(VisualShaderNodeTextureUniform other);
+VisualShaderNodeTextureUniformTriplanar new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeTextureUniformTriplanar();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeTextureUniformTriplanar_constructor();
-    void _wasgo_VisualShaderNodeTextureUniformTriplanar_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

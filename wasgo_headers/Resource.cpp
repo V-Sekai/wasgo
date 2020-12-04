@@ -46,8 +46,8 @@ void Resource::set_local_to_scene(bool p_enable){
 void Resource::set_name(String p_name){
 
     Variant wasgo_var_name = p_name;
-    uint8_t wasgo_buffer_name[256];
-    int wasgo_size_name = 256;
+    int wasgo_size_name = String(p_name).size();
+    uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 	_wasgo_Resource_wrapper_set_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
@@ -55,8 +55,8 @@ void Resource::set_name(String p_name){
 void Resource::set_path(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_Resource_wrapper_set_path(wasgo_id, wasgo_buffer_path, wasgo_size_path);
@@ -67,8 +67,8 @@ void Resource::setup_local_to_scene(){
 void Resource::take_over_path(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	_wasgo_Resource_wrapper_take_over_path(wasgo_id, wasgo_buffer_path, wasgo_size_path);
@@ -76,9 +76,9 @@ void Resource::take_over_path(String p_path){
 
 Resource::Resource(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-Resource::Resource(){
+Resource::Resource(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Resource_constructor();
 }
-Resource::~Resource(){
-    _wasgo_Resource_destructor(wasgo_id);
+Resource::new_instance(){
+    return Resource(_wasgo_Resource_constructor());
 }

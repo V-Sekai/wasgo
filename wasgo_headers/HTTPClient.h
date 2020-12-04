@@ -6,9 +6,9 @@
 
 #include "error_list.h"
 #include "ustring.h"
-#include "Variant.h"
-#include "StreamPeer.h"
 #include "Reference.h"
+#include "StreamPeer.h"
+#include "Variant.h"
 class HTTPClient : public Reference{
 public:
 enum Method{
@@ -120,10 +120,10 @@ void set_connection(StreamPeer p_connection);
 void set_read_chunk_size(int p_bytes);
 
 protected:
-HTTPClient(WasGoId p_wasgo_id);
 public:
-HTTPClient();
-~HTTPClient();
+explicit HTTPClient(WasGoId p_wasgo_id);
+explicit HTTPClient(Reference other);
+HTTPClient new_instance();
             
 };
 
@@ -151,9 +151,8 @@ void _wasgo_HTTPClient_wrapper_set_blocking_mode(WasGoId wasgo_id, bool p_enable
 void _wasgo_HTTPClient_wrapper_set_connection(WasGoId wasgo_id, WasGoId p_connection);
 void _wasgo_HTTPClient_wrapper_set_read_chunk_size(WasGoId wasgo_id, int p_bytes);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_HTTPClient_constructor();
-    void _wasgo_HTTPClient_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

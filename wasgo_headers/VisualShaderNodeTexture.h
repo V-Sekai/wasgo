@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "VisualShaderNode.h"
 #include "Texture.h"
+#include "VisualShaderNode.h"
 class VisualShaderNodeTexture : public VisualShaderNode{
 public:
 enum Source{
@@ -29,10 +29,10 @@ void set_texture(Texture p_value);
 void set_texture_type(VisualShaderNodeTexture::TextureType p_value);
 
 protected:
-VisualShaderNodeTexture(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeTexture();
-~VisualShaderNodeTexture();
+explicit VisualShaderNodeTexture(WasGoId p_wasgo_id);
+explicit VisualShaderNodeTexture(VisualShaderNode other);
+VisualShaderNodeTexture new_instance();
             
 };
 
@@ -46,9 +46,8 @@ void _wasgo_VisualShaderNodeTexture_wrapper_set_source(WasGoId wasgo_id, WasGoId
 void _wasgo_VisualShaderNodeTexture_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_value);
 void _wasgo_VisualShaderNodeTexture_wrapper_set_texture_type(WasGoId wasgo_id, WasGoId p_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeTexture_constructor();
-    void _wasgo_VisualShaderNodeTexture_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

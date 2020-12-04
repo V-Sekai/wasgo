@@ -1,4 +1,4 @@
-../api/Custom/variant.cpp.o: ..\api\Custom\variant.cpp \
+../api/Custom/Variant.cpp.o: ..\api\Custom\Variant.cpp \
   ..\api\Custom\variant.h ..\api\Custom\Array.h ..\api\Custom\typedefs.h \
   ..\api\Custom\int_types.h ..\api\Custom\error_list.h \
   ..\api\Custom\Color.h ..\api\Custom\math_funcs.h \

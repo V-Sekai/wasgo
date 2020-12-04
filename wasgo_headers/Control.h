@@ -4,19 +4,19 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Shader.h"
+#include "Margin.h"
+#include "StyleBox.h"
+#include "Vector2.h"
+#include "ustring.h"
+#include "Texture.h"
+#include "NodePath.h"
+#include "Color.h"
+#include "Rect2.h"
+#include "Theme.h"
 #include "CanvasItem.h"
 #include "Font.h"
-#include "Theme.h"
-#include "ustring.h"
 #include "Variant.h"
-#include "Rect2.h"
-#include "Color.h"
-#include "StyleBox.h"
-#include "NodePath.h"
-#include "Shader.h"
-#include "Texture.h"
-#include "Margin.h"
-#include "Vector2.h"
 class Control : public CanvasItem{
 public:
 enum Anchor{
@@ -191,10 +191,10 @@ void show_modal(bool p_exclusive = (bool) false);
 void warp_mouse(Vector2 p_to_position);
 
 protected:
-Control(WasGoId p_wasgo_id);
 public:
-Control();
-~Control();
+explicit Control(WasGoId p_wasgo_id);
+explicit Control(CanvasItem other);
+Control new_instance();
             
 };
 
@@ -303,9 +303,8 @@ void _wasgo_Control_wrapper_set_v_size_flags(WasGoId wasgo_id, int p_flags);
 void _wasgo_Control_wrapper_show_modal(WasGoId wasgo_id, bool p_exclusive);
 void _wasgo_Control_wrapper_warp_mouse(WasGoId wasgo_id, const uint8_t * p_to_position, int p_to_position_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Control_constructor();
-    void _wasgo_Control_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

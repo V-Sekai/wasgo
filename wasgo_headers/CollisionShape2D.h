@@ -18,10 +18,10 @@ void set_one_way_collision_margin(float p_margin);
 void set_shape(Shape2D p_shape);
 
 protected:
-CollisionShape2D(WasGoId p_wasgo_id);
 public:
-CollisionShape2D();
-~CollisionShape2D();
+explicit CollisionShape2D(WasGoId p_wasgo_id);
+explicit CollisionShape2D(Node2D other);
+CollisionShape2D new_instance();
             
 };
 
@@ -37,9 +37,8 @@ void _wasgo_CollisionShape2D_wrapper_set_one_way_collision(WasGoId wasgo_id, boo
 void _wasgo_CollisionShape2D_wrapper_set_one_way_collision_margin(WasGoId wasgo_id, float p_margin);
 void _wasgo_CollisionShape2D_wrapper_set_shape(WasGoId wasgo_id, WasGoId p_shape);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CollisionShape2D_constructor();
-    void _wasgo_CollisionShape2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

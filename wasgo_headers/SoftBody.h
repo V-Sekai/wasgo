@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
+#include "Node.h"
 #include "NodePath.h"
 #include "MeshInstance.h"
-#include "Node.h"
+#include "Variant.h"
 class SoftBody : public MeshInstance{
 public:
 void add_collision_exception_with(Node p_body);
@@ -45,10 +45,10 @@ void set_total_mass(float p_mass);
 void set_volume_stiffness(float p_volume_stiffness);
 
 protected:
-SoftBody(WasGoId p_wasgo_id);
 public:
-SoftBody();
-~SoftBody();
+explicit SoftBody(WasGoId p_wasgo_id);
+explicit SoftBody(MeshInstance other);
+SoftBody new_instance();
             
 };
 
@@ -89,9 +89,8 @@ void _wasgo_SoftBody_wrapper_set_simulation_precision(WasGoId wasgo_id, int p_si
 void _wasgo_SoftBody_wrapper_set_total_mass(WasGoId wasgo_id, float p_mass);
 void _wasgo_SoftBody_wrapper_set_volume_stiffness(WasGoId wasgo_id, float p_volume_stiffness);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SoftBody_constructor();
-    void _wasgo_SoftBody_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

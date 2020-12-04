@@ -60,9 +60,9 @@ void StaticBody::set_physics_material_override(PhysicsMaterial p_physics_materia
 
 StaticBody::StaticBody(WasGoId p_wasgo_id) : PhysicsBody(p_wasgo_id){
 }
-StaticBody::StaticBody(){
+StaticBody::StaticBody(PhysicsBody other) : PhysicsBody(other._get_wasgo_id()){
     wasgo_id = _wasgo_StaticBody_constructor();
 }
-StaticBody::~StaticBody(){
-    _wasgo_StaticBody_destructor(wasgo_id);
+StaticBody::new_instance(){
+    return StaticBody(_wasgo_StaticBody_constructor());
 }

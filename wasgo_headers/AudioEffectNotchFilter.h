@@ -9,10 +9,10 @@ class AudioEffectNotchFilter : public AudioEffectFilter{
 public:
 
 protected:
-AudioEffectNotchFilter(WasGoId p_wasgo_id);
 public:
-AudioEffectNotchFilter();
-~AudioEffectNotchFilter();
+explicit AudioEffectNotchFilter(WasGoId p_wasgo_id);
+explicit AudioEffectNotchFilter(AudioEffectFilter other);
+AudioEffectNotchFilter new_instance();
             
 };
 
@@ -20,9 +20,8 @@ AudioEffectNotchFilter();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectNotchFilter_constructor();
-    void _wasgo_AudioEffectNotchFilter_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

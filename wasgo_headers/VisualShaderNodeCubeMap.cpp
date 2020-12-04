@@ -22,9 +22,9 @@ void VisualShaderNodeCubeMap::set_texture_type(VisualShaderNodeCubeMap::TextureT
 
 VisualShaderNodeCubeMap::VisualShaderNodeCubeMap(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeCubeMap::VisualShaderNodeCubeMap(){
+VisualShaderNodeCubeMap::VisualShaderNodeCubeMap(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeCubeMap_constructor();
 }
-VisualShaderNodeCubeMap::~VisualShaderNodeCubeMap(){
-    _wasgo_VisualShaderNodeCubeMap_destructor(wasgo_id);
+VisualShaderNodeCubeMap::new_instance(){
+    return VisualShaderNodeCubeMap(_wasgo_VisualShaderNodeCubeMap_constructor());
 }

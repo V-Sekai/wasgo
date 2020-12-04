@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "OccluderPolygon2D.h"
+#include "Node2D.h"
 class LightOccluder2D : public Node2D{
 public:
 int get_occluder_light_mask();
@@ -14,10 +14,10 @@ void set_occluder_light_mask(int p_mask);
 void set_occluder_polygon(OccluderPolygon2D p_polygon);
 
 protected:
-LightOccluder2D(WasGoId p_wasgo_id);
 public:
-LightOccluder2D();
-~LightOccluder2D();
+explicit LightOccluder2D(WasGoId p_wasgo_id);
+explicit LightOccluder2D(Node2D other);
+LightOccluder2D new_instance();
             
 };
 
@@ -29,9 +29,8 @@ WasGoId _wasgo_LightOccluder2D_wrapper_get_occluder_polygon(WasGoId wasgo_id);
 void _wasgo_LightOccluder2D_wrapper_set_occluder_light_mask(WasGoId wasgo_id, int p_mask);
 void _wasgo_LightOccluder2D_wrapper_set_occluder_polygon(WasGoId wasgo_id, WasGoId p_polygon);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_LightOccluder2D_constructor();
-    void _wasgo_LightOccluder2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

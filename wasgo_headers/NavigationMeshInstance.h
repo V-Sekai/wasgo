@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
 #include "NavigationMesh.h"
+#include "Spatial.h"
 class NavigationMeshInstance : public Spatial{
 public:
 NavigationMesh get_navigation_mesh();
@@ -14,10 +14,10 @@ void set_enabled(bool p_enabled);
 void set_navigation_mesh(NavigationMesh p_navmesh);
 
 protected:
-NavigationMeshInstance(WasGoId p_wasgo_id);
 public:
-NavigationMeshInstance();
-~NavigationMeshInstance();
+explicit NavigationMeshInstance(WasGoId p_wasgo_id);
+explicit NavigationMeshInstance(Spatial other);
+NavigationMeshInstance new_instance();
             
 };
 
@@ -29,9 +29,8 @@ int _wasgo_NavigationMeshInstance_wrapper_is_enabled(WasGoId wasgo_id);
 void _wasgo_NavigationMeshInstance_wrapper_set_enabled(WasGoId wasgo_id, bool p_enabled);
 void _wasgo_NavigationMeshInstance_wrapper_set_navigation_mesh(WasGoId wasgo_id, WasGoId p_navmesh);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_NavigationMeshInstance_constructor();
-    void _wasgo_NavigationMeshInstance_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

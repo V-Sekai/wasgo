@@ -28,9 +28,9 @@ void CollisionShape2D::set_shape(Shape2D p_shape){
 
 CollisionShape2D::CollisionShape2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-CollisionShape2D::CollisionShape2D(){
+CollisionShape2D::CollisionShape2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_CollisionShape2D_constructor();
 }
-CollisionShape2D::~CollisionShape2D(){
-    _wasgo_CollisionShape2D_destructor(wasgo_id);
+CollisionShape2D::new_instance(){
+    return CollisionShape2D(_wasgo_CollisionShape2D_constructor());
 }

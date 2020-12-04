@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Image.h"
+#include "Resource.h"
 class TextureLayered : public Resource{
 public:
 enum Flags{
@@ -40,9 +40,8 @@ void _wasgo_TextureLayered_wrapper_set_data_partial(WasGoId wasgo_id, WasGoId p_
 void _wasgo_TextureLayered_wrapper_set_flags(WasGoId wasgo_id, int p_flags);
 void _wasgo_TextureLayered_wrapper_set_layer_data(WasGoId wasgo_id, WasGoId p_image, int p_layer);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TextureLayered_constructor();
-    void _wasgo_TextureLayered_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

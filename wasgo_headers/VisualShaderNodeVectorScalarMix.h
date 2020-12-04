@@ -9,10 +9,10 @@ class VisualShaderNodeVectorScalarMix : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeVectorScalarMix(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeVectorScalarMix();
-~VisualShaderNodeVectorScalarMix();
+explicit VisualShaderNodeVectorScalarMix(WasGoId p_wasgo_id);
+explicit VisualShaderNodeVectorScalarMix(VisualShaderNode other);
+VisualShaderNodeVectorScalarMix new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeVectorScalarMix();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeVectorScalarMix_constructor();
-    void _wasgo_VisualShaderNodeVectorScalarMix_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -9,10 +9,10 @@ class CheckButton : public Button{
 public:
 
 protected:
-CheckButton(WasGoId p_wasgo_id);
 public:
-CheckButton();
-~CheckButton();
+explicit CheckButton(WasGoId p_wasgo_id);
+explicit CheckButton(Button other);
+CheckButton new_instance();
             
 };
 
@@ -20,9 +20,8 @@ CheckButton();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CheckButton_constructor();
-    void _wasgo_CheckButton_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

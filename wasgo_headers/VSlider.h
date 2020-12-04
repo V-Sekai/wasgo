@@ -9,10 +9,10 @@ class VSlider : public Slider{
 public:
 
 protected:
-VSlider(WasGoId p_wasgo_id);
 public:
-VSlider();
-~VSlider();
+explicit VSlider(WasGoId p_wasgo_id);
+explicit VSlider(Slider other);
+VSlider new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VSlider();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VSlider_constructor();
-    void _wasgo_VSlider_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -22,9 +22,9 @@ void PacketPeerStream::set_stream_peer(StreamPeer p_peer){
 
 PacketPeerStream::PacketPeerStream(WasGoId p_wasgo_id) : PacketPeer(p_wasgo_id){
 }
-PacketPeerStream::PacketPeerStream(){
+PacketPeerStream::PacketPeerStream(PacketPeer other) : PacketPeer(other._get_wasgo_id()){
     wasgo_id = _wasgo_PacketPeerStream_constructor();
 }
-PacketPeerStream::~PacketPeerStream(){
-    _wasgo_PacketPeerStream_destructor(wasgo_id);
+PacketPeerStream::new_instance(){
+    return PacketPeerStream(_wasgo_PacketPeerStream_constructor());
 }

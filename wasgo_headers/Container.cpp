@@ -16,9 +16,9 @@ void Container::queue_sort(){
 
 Container::Container(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-Container::Container(){
+Container::Container(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_Container_constructor();
 }
-Container::~Container(){
-    _wasgo_Container_destructor(wasgo_id);
+Container::new_instance(){
+    return Container(_wasgo_Container_constructor());
 }

@@ -46,9 +46,9 @@ void AnimatedTexture::set_pause(bool p_pause){
 
 AnimatedTexture::AnimatedTexture(WasGoId p_wasgo_id) : Texture(p_wasgo_id){
 }
-AnimatedTexture::AnimatedTexture(){
+AnimatedTexture::AnimatedTexture(Texture other) : Texture(other._get_wasgo_id()){
     wasgo_id = _wasgo_AnimatedTexture_constructor();
 }
-AnimatedTexture::~AnimatedTexture(){
-    _wasgo_AnimatedTexture_destructor(wasgo_id);
+AnimatedTexture::new_instance(){
+    return AnimatedTexture(_wasgo_AnimatedTexture_constructor());
 }

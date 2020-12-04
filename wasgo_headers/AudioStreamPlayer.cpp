@@ -50,8 +50,8 @@ void AudioStreamPlayer::set_autoplay(bool p_enable){
 void AudioStreamPlayer::set_bus(String p_bus){
 
     Variant wasgo_var_bus = p_bus;
-    uint8_t wasgo_buffer_bus[256];
-    int wasgo_size_bus = 256;
+    int wasgo_size_bus = String(p_bus).size();
+    uint8_t wasgo_buffer_bus[wasgo_size_bus];
     encode_variant(wasgo_var_bus, wasgo_buffer_bus, wasgo_size_bus);
     
 	_wasgo_AudioStreamPlayer_wrapper_set_bus(wasgo_id, wasgo_buffer_bus, wasgo_size_bus);
@@ -77,9 +77,9 @@ void AudioStreamPlayer::stop(){
 
 AudioStreamPlayer::AudioStreamPlayer(WasGoId p_wasgo_id) : Node(p_wasgo_id){
 }
-AudioStreamPlayer::AudioStreamPlayer(){
+AudioStreamPlayer::AudioStreamPlayer(Node other) : Node(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioStreamPlayer_constructor();
 }
-AudioStreamPlayer::~AudioStreamPlayer(){
-    _wasgo_AudioStreamPlayer_destructor(wasgo_id);
+AudioStreamPlayer::new_instance(){
+    return AudioStreamPlayer(_wasgo_AudioStreamPlayer_constructor());
 }

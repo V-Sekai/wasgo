@@ -4,15 +4,15 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "Vector3.h"
 #include "error_list.h"
-#include "Reference.h"
-#include "Variant.h"
-#include "Plane.h"
-#include "Color.h"
-#include "Material.h"
+#include "Vector2.h"
 #include "ArrayMesh.h"
+#include "Color.h"
+#include "Reference.h"
+#include "Plane.h"
+#include "Material.h"
+#include "Variant.h"
 class MeshDataTool : public Reference{
 public:
 void clear();
@@ -55,10 +55,10 @@ void set_vertex_uv2(int p_idx, Vector2 p_uv2);
 void set_vertex_weights(int p_idx, PoolRealArray p_weights);
 
 protected:
-MeshDataTool(WasGoId p_wasgo_id);
 public:
-MeshDataTool();
-~MeshDataTool();
+explicit MeshDataTool(WasGoId p_wasgo_id);
+explicit MeshDataTool(Reference other);
+MeshDataTool new_instance();
             
 };
 
@@ -104,9 +104,8 @@ void _wasgo_MeshDataTool_wrapper_set_vertex_uv(WasGoId wasgo_id, int p_idx, cons
 void _wasgo_MeshDataTool_wrapper_set_vertex_uv2(WasGoId wasgo_id, int p_idx, const uint8_t * p_uv2, int p_uv2_wasgo_buffer_size);
 void _wasgo_MeshDataTool_wrapper_set_vertex_weights(WasGoId wasgo_id, int p_idx, WasGoId p_weights);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_MeshDataTool_constructor();
-    void _wasgo_MeshDataTool_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

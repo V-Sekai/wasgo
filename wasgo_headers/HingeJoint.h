@@ -29,10 +29,10 @@ void set_flag(HingeJoint::Flag p_flag, bool p_enabled);
 void set_param(HingeJoint::Param p_param, float p_value);
 
 protected:
-HingeJoint(WasGoId p_wasgo_id);
 public:
-HingeJoint();
-~HingeJoint();
+explicit HingeJoint(WasGoId p_wasgo_id);
+explicit HingeJoint(Joint other);
+HingeJoint new_instance();
             
 };
 
@@ -44,9 +44,8 @@ float _wasgo_HingeJoint_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
 void _wasgo_HingeJoint_wrapper_set_flag(WasGoId wasgo_id, WasGoId p_flag, bool p_enabled);
 void _wasgo_HingeJoint_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_HingeJoint_constructor();
-    void _wasgo_HingeJoint_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

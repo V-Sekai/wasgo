@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Vector3.h"
+#include "Resource.h"
 #include "Variant.h"
 class Curve3D : public Resource{
 public:
@@ -38,10 +38,10 @@ void set_up_vector_enabled(bool p_enable);
 PoolVector3Array tessellate(int p_max_stages = (int) 5, float p_tolerance_degrees = (float) 4);
 
 protected:
-Curve3D(WasGoId p_wasgo_id);
 public:
-Curve3D();
-~Curve3D();
+explicit Curve3D(WasGoId p_wasgo_id);
+explicit Curve3D(Resource other);
+Curve3D new_instance();
             
 };
 
@@ -76,9 +76,8 @@ void _wasgo_Curve3D_wrapper_set_point_tilt(WasGoId wasgo_id, int p_idx, float p_
 void _wasgo_Curve3D_wrapper_set_up_vector_enabled(WasGoId wasgo_id, bool p_enable);
 WasGoId _wasgo_Curve3D_wrapper_tessellate(WasGoId wasgo_id, int p_max_stages, float p_tolerance_degrees);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Curve3D_constructor();
-    void _wasgo_Curve3D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,8 +4,8 @@
 Error StreamPeerTCP::connect_to_host(String p_host, int p_port){
 
     Variant wasgo_var_host = p_host;
-    uint8_t wasgo_buffer_host[256];
-    int wasgo_size_host = 256;
+    int wasgo_size_host = String(p_host).size();
+    uint8_t wasgo_buffer_host[wasgo_size_host];
     encode_variant(wasgo_var_host, wasgo_buffer_host, wasgo_size_host);
     
 	return Error(_wasgo_StreamPeerTCP_wrapper_connect_to_host(wasgo_id, wasgo_buffer_host, wasgo_size_host, p_port));
@@ -38,9 +38,9 @@ void StreamPeerTCP::set_no_delay(bool p_enabled){
 
 StreamPeerTCP::StreamPeerTCP(WasGoId p_wasgo_id) : StreamPeer(p_wasgo_id){
 }
-StreamPeerTCP::StreamPeerTCP(){
+StreamPeerTCP::StreamPeerTCP(StreamPeer other) : StreamPeer(other._get_wasgo_id()){
     wasgo_id = _wasgo_StreamPeerTCP_constructor();
 }
-StreamPeerTCP::~StreamPeerTCP(){
-    _wasgo_StreamPeerTCP_destructor(wasgo_id);
+StreamPeerTCP::new_instance(){
+    return StreamPeerTCP(_wasgo_StreamPeerTCP_constructor());
 }

@@ -4,9 +4,9 @@
 
 PointMesh::PointMesh(WasGoId p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
 }
-PointMesh::PointMesh(){
+PointMesh::PointMesh(PrimitiveMesh other) : PrimitiveMesh(other._get_wasgo_id()){
     wasgo_id = _wasgo_PointMesh_constructor();
 }
-PointMesh::~PointMesh(){
-    _wasgo_PointMesh_destructor(wasgo_id);
+PointMesh::new_instance(){
+    return PointMesh(_wasgo_PointMesh_constructor());
 }

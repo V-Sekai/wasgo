@@ -10,9 +10,9 @@ void VisualShaderNodeScalarConstant::set_constant(float p_value){
 
 VisualShaderNodeScalarConstant::VisualShaderNodeScalarConstant(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeScalarConstant::VisualShaderNodeScalarConstant(){
+VisualShaderNodeScalarConstant::VisualShaderNodeScalarConstant(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeScalarConstant_constructor();
 }
-VisualShaderNodeScalarConstant::~VisualShaderNodeScalarConstant(){
-    _wasgo_VisualShaderNodeScalarConstant_destructor(wasgo_id);
+VisualShaderNodeScalarConstant::new_instance(){
+    return VisualShaderNodeScalarConstant(_wasgo_VisualShaderNodeScalarConstant_constructor());
 }

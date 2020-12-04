@@ -36,10 +36,10 @@ float get_param(SliderJoint::Param p_param);
 void set_param(SliderJoint::Param p_param, float p_value);
 
 protected:
-SliderJoint(WasGoId p_wasgo_id);
 public:
-SliderJoint();
-~SliderJoint();
+explicit SliderJoint(WasGoId p_wasgo_id);
+explicit SliderJoint(Joint other);
+SliderJoint new_instance();
             
 };
 
@@ -49,9 +49,8 @@ extern "C"{
 float _wasgo_SliderJoint_wrapper_get_param(WasGoId wasgo_id, WasGoId p_param);
 void _wasgo_SliderJoint_wrapper_set_param(WasGoId wasgo_id, WasGoId p_param, float p_value);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SliderJoint_constructor();
-    void _wasgo_SliderJoint_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

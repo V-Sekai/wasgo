@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "RID.h"
-#include "Variant.h"
 #include "Shape.h"
+#include "Object.h"
 #include "Transform.h"
 #include "Spatial.h"
-#include "Object.h"
+#include "RID.h"
+#include "Variant.h"
 class CollisionObject : public Spatial{
 public:
 int create_shape_owner(Object p_owner);
@@ -58,9 +58,8 @@ void _wasgo_CollisionObject_wrapper_shape_owner_remove_shape(WasGoId wasgo_id, i
 void _wasgo_CollisionObject_wrapper_shape_owner_set_disabled(WasGoId wasgo_id, int p_owner_id, bool p_disabled);
 void _wasgo_CollisionObject_wrapper_shape_owner_set_transform(WasGoId wasgo_id, int p_owner_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CollisionObject_constructor();
-    void _wasgo_CollisionObject_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -10,9 +10,9 @@ void Path2D::set_curve(Curve2D p_curve){
 
 Path2D::Path2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-Path2D::Path2D(){
+Path2D::Path2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_Path2D_constructor();
 }
-Path2D::~Path2D(){
-    _wasgo_Path2D_destructor(wasgo_id);
+Path2D::new_instance(){
+    return Path2D(_wasgo_Path2D_constructor());
 }

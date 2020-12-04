@@ -9,10 +9,10 @@ class AnimationNodeOutput : public AnimationNode{
 public:
 
 protected:
-AnimationNodeOutput(WasGoId p_wasgo_id);
 public:
-AnimationNodeOutput();
-~AnimationNodeOutput();
+explicit AnimationNodeOutput(WasGoId p_wasgo_id);
+explicit AnimationNodeOutput(AnimationNode other);
+AnimationNodeOutput new_instance();
             
 };
 
@@ -20,9 +20,8 @@ AnimationNodeOutput();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeOutput_constructor();
-    void _wasgo_AnimationNodeOutput_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

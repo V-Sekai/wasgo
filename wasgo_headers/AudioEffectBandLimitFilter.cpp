@@ -4,9 +4,9 @@
 
 AudioEffectBandLimitFilter::AudioEffectBandLimitFilter(WasGoId p_wasgo_id) : AudioEffectFilter(p_wasgo_id){
 }
-AudioEffectBandLimitFilter::AudioEffectBandLimitFilter(){
+AudioEffectBandLimitFilter::AudioEffectBandLimitFilter(AudioEffectFilter other) : AudioEffectFilter(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectBandLimitFilter_constructor();
 }
-AudioEffectBandLimitFilter::~AudioEffectBandLimitFilter(){
-    _wasgo_AudioEffectBandLimitFilter_destructor(wasgo_id);
+AudioEffectBandLimitFilter::new_instance(){
+    return AudioEffectBandLimitFilter(_wasgo_AudioEffectBandLimitFilter_constructor());
 }

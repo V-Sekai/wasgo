@@ -7,9 +7,9 @@ PoolByteArray WasmResource::get_buf(){
 
 WasmResource::WasmResource(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-WasmResource::WasmResource(){
+WasmResource::WasmResource(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_WasmResource_constructor();
 }
-WasmResource::~WasmResource(){
-    _wasgo_WasmResource_destructor(wasgo_id);
+WasmResource::new_instance(){
+    return WasmResource(_wasgo_WasmResource_constructor());
 }

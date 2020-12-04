@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Transform2D.h"
-#include "Variant.h"
+#include "Vector2.h"
 #include "Object.h"
 #include "NavigationPolygon.h"
-#include "Vector2.h"
+#include "Node2D.h"
+#include "Variant.h"
 class Navigation2D : public Node2D{
 public:
 Vector2 get_closest_point(Vector2 p_to_point);
@@ -20,10 +20,10 @@ void navpoly_remove(int p_id);
 void navpoly_set_transform(int p_id, Transform2D p_xform);
 
 protected:
-Navigation2D(WasGoId p_wasgo_id);
 public:
-Navigation2D();
-~Navigation2D();
+explicit Navigation2D(WasGoId p_wasgo_id);
+explicit Navigation2D(Node2D other);
+Navigation2D new_instance();
             
 };
 
@@ -37,9 +37,8 @@ int _wasgo_Navigation2D_wrapper_navpoly_add(WasGoId wasgo_id, WasGoId p_mesh, co
 void _wasgo_Navigation2D_wrapper_navpoly_remove(WasGoId wasgo_id, int p_id);
 void _wasgo_Navigation2D_wrapper_navpoly_set_transform(WasGoId wasgo_id, int p_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Navigation2D_constructor();
-    void _wasgo_Navigation2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

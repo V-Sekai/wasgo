@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgo.h"
 
-#include "VScrollBar.h"
-#include "error_list.h"
-#include "Font.h"
-#include "ustring.h"
-#include "Variant.h"
-#include "Color.h"
-#include "Texture.h"
 #include "Control.h"
+#include "error_list.h"
+#include "ustring.h"
+#include "Texture.h"
+#include "Color.h"
+#include "Font.h"
+#include "VScrollBar.h"
+#include "Variant.h"
 class RichTextLabel : public Control{
 public:
 enum Align{
@@ -106,10 +106,10 @@ void set_use_bbcode(bool p_enable);
 void set_visible_characters(int p_amount);
 
 protected:
-RichTextLabel(WasGoId p_wasgo_id);
 public:
-RichTextLabel();
-~RichTextLabel();
+explicit RichTextLabel(WasGoId p_wasgo_id);
+explicit RichTextLabel(Control other);
+RichTextLabel new_instance();
             
 };
 
@@ -175,9 +175,8 @@ void _wasgo_RichTextLabel_wrapper_set_text(WasGoId wasgo_id, const uint8_t * p_t
 void _wasgo_RichTextLabel_wrapper_set_use_bbcode(WasGoId wasgo_id, bool p_enable);
 void _wasgo_RichTextLabel_wrapper_set_visible_characters(WasGoId wasgo_id, int p_amount);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_RichTextLabel_constructor();
-    void _wasgo_RichTextLabel_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

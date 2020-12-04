@@ -19,10 +19,10 @@ void set_rings(int p_rings);
 void set_top_radius(float p_radius);
 
 protected:
-CylinderMesh(WasGoId p_wasgo_id);
 public:
-CylinderMesh();
-~CylinderMesh();
+explicit CylinderMesh(WasGoId p_wasgo_id);
+explicit CylinderMesh(PrimitiveMesh other);
+CylinderMesh new_instance();
             
 };
 
@@ -40,9 +40,8 @@ void _wasgo_CylinderMesh_wrapper_set_radial_segments(WasGoId wasgo_id, int p_seg
 void _wasgo_CylinderMesh_wrapper_set_rings(WasGoId wasgo_id, int p_rings);
 void _wasgo_CylinderMesh_wrapper_set_top_radius(WasGoId wasgo_id, float p_radius);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CylinderMesh_constructor();
-    void _wasgo_CylinderMesh_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

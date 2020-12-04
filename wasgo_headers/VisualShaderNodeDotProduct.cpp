@@ -4,9 +4,9 @@
 
 VisualShaderNodeDotProduct::VisualShaderNodeDotProduct(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeDotProduct::VisualShaderNodeDotProduct(){
+VisualShaderNodeDotProduct::VisualShaderNodeDotProduct(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeDotProduct_constructor();
 }
-VisualShaderNodeDotProduct::~VisualShaderNodeDotProduct(){
-    _wasgo_VisualShaderNodeDotProduct_destructor(wasgo_id);
+VisualShaderNodeDotProduct::new_instance(){
+    return VisualShaderNodeDotProduct(_wasgo_VisualShaderNodeDotProduct_constructor());
 }

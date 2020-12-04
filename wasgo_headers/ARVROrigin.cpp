@@ -10,9 +10,9 @@ void ARVROrigin::set_world_scale(float p_world_scale){
 
 ARVROrigin::ARVROrigin(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-ARVROrigin::ARVROrigin(){
+ARVROrigin::ARVROrigin(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_ARVROrigin_constructor();
 }
-ARVROrigin::~ARVROrigin(){
-    _wasgo_ARVROrigin_destructor(wasgo_id);
+ARVROrigin::new_instance(){
+    return ARVROrigin(_wasgo_ARVROrigin_constructor());
 }

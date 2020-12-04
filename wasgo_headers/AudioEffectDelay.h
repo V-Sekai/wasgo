@@ -35,10 +35,10 @@ void set_tap2_level_db(float p_amount);
 void set_tap2_pan(float p_amount);
 
 protected:
-AudioEffectDelay(WasGoId p_wasgo_id);
 public:
-AudioEffectDelay();
-~AudioEffectDelay();
+explicit AudioEffectDelay(WasGoId p_wasgo_id);
+explicit AudioEffectDelay(AudioEffect other);
+AudioEffectDelay new_instance();
             
 };
 
@@ -72,9 +72,8 @@ void _wasgo_AudioEffectDelay_wrapper_set_tap2_delay_ms(WasGoId wasgo_id, float p
 void _wasgo_AudioEffectDelay_wrapper_set_tap2_level_db(WasGoId wasgo_id, float p_amount);
 void _wasgo_AudioEffectDelay_wrapper_set_tap2_pan(WasGoId wasgo_id, float p_amount);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectDelay_constructor();
-    void _wasgo_AudioEffectDelay_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -9,10 +9,10 @@ class VisualShaderNodeBooleanUniform : public VisualShaderNodeUniform{
 public:
 
 protected:
-VisualShaderNodeBooleanUniform(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeBooleanUniform();
-~VisualShaderNodeBooleanUniform();
+explicit VisualShaderNodeBooleanUniform(WasGoId p_wasgo_id);
+explicit VisualShaderNodeBooleanUniform(VisualShaderNodeUniform other);
+VisualShaderNodeBooleanUniform new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeBooleanUniform();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeBooleanUniform_constructor();
-    void _wasgo_VisualShaderNodeBooleanUniform_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

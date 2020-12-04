@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "AnimationNode.h"
-#include "ustring.h"
 #include "Node.h"
+#include "ustring.h"
 #include "NodePath.h"
+#include "AnimationNode.h"
 #include "Transform.h"
 class AnimationTree : public Node{
 public:
@@ -31,10 +31,10 @@ void set_root_motion_track(NodePath p_path);
 void set_tree_root(AnimationNode p_root);
 
 protected:
-AnimationTree(WasGoId p_wasgo_id);
 public:
-AnimationTree();
-~AnimationTree();
+explicit AnimationTree(WasGoId p_wasgo_id);
+explicit AnimationTree(Node other);
+AnimationTree new_instance();
             
 };
 
@@ -55,9 +55,8 @@ void _wasgo_AnimationTree_wrapper_set_process_mode(WasGoId wasgo_id, WasGoId p_m
 void _wasgo_AnimationTree_wrapper_set_root_motion_track(WasGoId wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
 void _wasgo_AnimationTree_wrapper_set_tree_root(WasGoId wasgo_id, WasGoId p_root);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationTree_constructor();
-    void _wasgo_AnimationTree_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -5,9 +5,9 @@
 #include "wasgo\wasgo.h"
 
 #include "AnimationNode.h"
-#include "ustring.h"
-#include "Vector2.h"
 #include "AnimationRootNode.h"
+#include "Vector2.h"
+#include "ustring.h"
 class AnimationNodeBlendTree : public AnimationRootNode{
 public:
 void add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2((0, 0)));
@@ -23,10 +23,10 @@ void set_graph_offset(Vector2 p_offset);
 void set_node_position(String p_name, Vector2 p_position);
 
 protected:
-AnimationNodeBlendTree(WasGoId p_wasgo_id);
 public:
-AnimationNodeBlendTree();
-~AnimationNodeBlendTree();
+explicit AnimationNodeBlendTree(WasGoId p_wasgo_id);
+explicit AnimationNodeBlendTree(AnimationRootNode other);
+AnimationNodeBlendTree new_instance();
             
 };
 
@@ -45,9 +45,8 @@ void _wasgo_AnimationNodeBlendTree_wrapper_rename_node(WasGoId wasgo_id, const u
 void _wasgo_AnimationNodeBlendTree_wrapper_set_graph_offset(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
 void _wasgo_AnimationNodeBlendTree_wrapper_set_node_position(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AnimationNodeBlendTree_constructor();
-    void _wasgo_AnimationNodeBlendTree_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

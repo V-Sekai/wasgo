@@ -18,9 +18,8 @@ extern "C"{
 void _wasgo_VisualShaderNodeUniform_wrapper_get_uniform_name(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_VisualShaderNodeUniform_wrapper_set_uniform_name(WasGoId wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeUniform_constructor();
-    void _wasgo_VisualShaderNodeUniform_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

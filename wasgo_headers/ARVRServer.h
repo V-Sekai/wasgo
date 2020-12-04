@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Object.h"
+#include "ARVRInterface.h"
 #include "ARVRPositionalTracker.h"
 #include "ustring.h"
-#include "Variant.h"
+#include "Object.h"
 #include "Transform.h"
-#include "ARVRInterface.h"
+#include "Variant.h"
 class ARVRServer : public Object{
 public:
 enum RotationMode{
@@ -43,10 +43,10 @@ void set_primary_interface(ARVRInterface p_interface);
 void set_world_scale(float p_arg0);
 
 protected:
-ARVRServer(WasGoId p_wasgo_id);
 public:
-ARVRServer();
-~ARVRServer();
+explicit ARVRServer(WasGoId p_wasgo_id);
+explicit ARVRServer(Object other);
+ARVRServer new_instance();
             
 };
 
@@ -70,9 +70,8 @@ float _wasgo_ARVRServer_wrapper_get_world_scale(WasGoId wasgo_id);
 void _wasgo_ARVRServer_wrapper_set_primary_interface(WasGoId wasgo_id, WasGoId p_interface);
 void _wasgo_ARVRServer_wrapper_set_world_scale(WasGoId wasgo_id, float p_arg0);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ARVRServer_constructor();
-    void _wasgo_ARVRServer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

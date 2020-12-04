@@ -41,9 +41,8 @@ void _wasgo_NetworkedMultiplayerPeer_wrapper_set_refuse_new_connections(WasGoId 
 void _wasgo_NetworkedMultiplayerPeer_wrapper_set_target_peer(WasGoId wasgo_id, int p_id);
 void _wasgo_NetworkedMultiplayerPeer_wrapper_set_transfer_mode(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_NetworkedMultiplayerPeer_constructor();
-    void _wasgo_NetworkedMultiplayerPeer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

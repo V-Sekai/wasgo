@@ -9,10 +9,10 @@ class VisualShaderNodeIf : public VisualShaderNode{
 public:
 
 protected:
-VisualShaderNodeIf(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeIf();
-~VisualShaderNodeIf();
+explicit VisualShaderNodeIf(WasGoId p_wasgo_id);
+explicit VisualShaderNodeIf(VisualShaderNode other);
+VisualShaderNodeIf new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VisualShaderNodeIf();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeIf_constructor();
-    void _wasgo_VisualShaderNodeIf_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

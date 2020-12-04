@@ -22,9 +22,9 @@ void MultiMeshInstance2D::set_texture(Texture p_texture){
 
 MultiMeshInstance2D::MultiMeshInstance2D(WasGoId p_wasgo_id) : Node2D(p_wasgo_id){
 }
-MultiMeshInstance2D::MultiMeshInstance2D(){
+MultiMeshInstance2D::MultiMeshInstance2D(Node2D other) : Node2D(other._get_wasgo_id()){
     wasgo_id = _wasgo_MultiMeshInstance2D_constructor();
 }
-MultiMeshInstance2D::~MultiMeshInstance2D(){
-    _wasgo_MultiMeshInstance2D_destructor(wasgo_id);
+MultiMeshInstance2D::new_instance(){
+    return MultiMeshInstance2D(_wasgo_MultiMeshInstance2D_constructor());
 }

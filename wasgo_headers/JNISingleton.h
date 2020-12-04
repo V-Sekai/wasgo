@@ -9,10 +9,10 @@ class JNISingleton : public Object{
 public:
 
 protected:
-JNISingleton(WasGoId p_wasgo_id);
 public:
-JNISingleton();
-~JNISingleton();
+explicit JNISingleton(WasGoId p_wasgo_id);
+explicit JNISingleton(Object other);
+JNISingleton new_instance();
             
 };
 
@@ -20,9 +20,8 @@ JNISingleton();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_JNISingleton_constructor();
-    void _wasgo_JNISingleton_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

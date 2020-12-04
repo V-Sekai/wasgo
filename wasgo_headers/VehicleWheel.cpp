@@ -97,9 +97,9 @@ void VehicleWheel::set_use_as_traction(bool p_enable){
 
 VehicleWheel::VehicleWheel(WasGoId p_wasgo_id) : Spatial(p_wasgo_id){
 }
-VehicleWheel::VehicleWheel(){
+VehicleWheel::VehicleWheel(Spatial other) : Spatial(other._get_wasgo_id()){
     wasgo_id = _wasgo_VehicleWheel_constructor();
 }
-VehicleWheel::~VehicleWheel(){
-    _wasgo_VehicleWheel_destructor(wasgo_id);
+VehicleWheel::new_instance(){
+    return VehicleWheel(_wasgo_VehicleWheel_constructor());
 }

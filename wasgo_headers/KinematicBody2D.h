@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
+#include "KinematicCollision2D.h"
+#include "PhysicsBody2D.h"
 #include "Transform2D.h"
 #include "Vector2.h"
-#include "PhysicsBody2D.h"
-#include "KinematicCollision2D.h"
 class KinematicBody2D : public PhysicsBody2D{
 public:
 Vector2 get_floor_normal();
@@ -27,10 +27,10 @@ void set_sync_to_physics(bool p_enable);
 bool test_move(Transform2D p_from, Vector2 p_rel_vec, bool p_infinite_inertia = (bool) true);
 
 protected:
-KinematicBody2D(WasGoId p_wasgo_id);
 public:
-KinematicBody2D();
-~KinematicBody2D();
+explicit KinematicBody2D(WasGoId p_wasgo_id);
+explicit KinematicBody2D(PhysicsBody2D other);
+KinematicBody2D new_instance();
             
 };
 
@@ -53,9 +53,8 @@ void _wasgo_KinematicBody2D_wrapper_set_safe_margin(WasGoId wasgo_id, float p_pi
 void _wasgo_KinematicBody2D_wrapper_set_sync_to_physics(WasGoId wasgo_id, bool p_enable);
 int _wasgo_KinematicBody2D_wrapper_test_move(WasGoId wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_rel_vec, int p_rel_vec_wasgo_buffer_size, bool p_infinite_inertia);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_KinematicBody2D_constructor();
-    void _wasgo_KinematicBody2D_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

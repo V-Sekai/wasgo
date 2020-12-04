@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "Mesh.h"
-#include "AABB.h"
 #include "Transform2D.h"
-#include "Variant.h"
+#include "Mesh.h"
 #include "Color.h"
+#include "AABB.h"
+#include "Resource.h"
 #include "Transform.h"
+#include "Variant.h"
 class MultiMesh : public Resource{
 public:
 enum ColorFormat{
@@ -51,10 +51,10 @@ void set_transform_format(MultiMesh::TransformFormat p_format);
 void set_visible_instance_count(int p_count);
 
 protected:
-MultiMesh(WasGoId p_wasgo_id);
 public:
-MultiMesh();
-~MultiMesh();
+explicit MultiMesh(WasGoId p_wasgo_id);
+explicit MultiMesh(Resource other);
+MultiMesh new_instance();
             
 };
 
@@ -84,9 +84,8 @@ void _wasgo_MultiMesh_wrapper_set_mesh(WasGoId wasgo_id, WasGoId p_mesh);
 void _wasgo_MultiMesh_wrapper_set_transform_format(WasGoId wasgo_id, WasGoId p_format);
 void _wasgo_MultiMesh_wrapper_set_visible_instance_count(WasGoId wasgo_id, int p_count);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_MultiMesh_constructor();
-    void _wasgo_MultiMesh_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

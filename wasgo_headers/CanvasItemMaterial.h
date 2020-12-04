@@ -33,10 +33,10 @@ void set_particles_anim_v_frames(int p_frames);
 void set_particles_animation(bool p_particles_anim);
 
 protected:
-CanvasItemMaterial(WasGoId p_wasgo_id);
 public:
-CanvasItemMaterial();
-~CanvasItemMaterial();
+explicit CanvasItemMaterial(WasGoId p_wasgo_id);
+explicit CanvasItemMaterial(Material other);
+CanvasItemMaterial new_instance();
             
 };
 
@@ -56,9 +56,8 @@ void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_loop(WasGoId wasgo_id,
 void _wasgo_CanvasItemMaterial_wrapper_set_particles_anim_v_frames(WasGoId wasgo_id, int p_frames);
 void _wasgo_CanvasItemMaterial_wrapper_set_particles_animation(WasGoId wasgo_id, bool p_particles_anim);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CanvasItemMaterial_constructor();
-    void _wasgo_CanvasItemMaterial_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "BitMap.h"
-#include "Node2D.h"
 #include "ustring.h"
-#include "Shape2D.h"
 #include "Texture.h"
+#include "BitMap.h"
+#include "Shape2D.h"
+#include "Node2D.h"
 class TouchScreenButton : public Node2D{
 public:
 enum VisibilityMode{
@@ -36,10 +36,10 @@ void set_texture_pressed(Texture p_texture_pressed);
 void set_visibility_mode(TouchScreenButton::VisibilityMode p_mode);
 
 protected:
-TouchScreenButton(WasGoId p_wasgo_id);
 public:
-TouchScreenButton();
-~TouchScreenButton();
+explicit TouchScreenButton(WasGoId p_wasgo_id);
+explicit TouchScreenButton(Node2D other);
+TouchScreenButton new_instance();
             
 };
 
@@ -66,9 +66,8 @@ void _wasgo_TouchScreenButton_wrapper_set_texture(WasGoId wasgo_id, WasGoId p_te
 void _wasgo_TouchScreenButton_wrapper_set_texture_pressed(WasGoId wasgo_id, WasGoId p_texture_pressed);
 void _wasgo_TouchScreenButton_wrapper_set_visibility_mode(WasGoId wasgo_id, WasGoId p_mode);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_TouchScreenButton_constructor();
-    void _wasgo_TouchScreenButton_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

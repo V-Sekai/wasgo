@@ -25,8 +25,8 @@ bool AudioStreamSample::is_stereo(){
 Error AudioStreamSample::save_to_wav(String p_path){
 
     Variant wasgo_var_path = p_path;
-    uint8_t wasgo_buffer_path[256];
-    int wasgo_size_path = 256;
+    int wasgo_size_path = String(p_path).size();
+    uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return Error(_wasgo_AudioStreamSample_wrapper_save_to_wav(wasgo_id, wasgo_buffer_path, wasgo_size_path));
@@ -55,9 +55,9 @@ void AudioStreamSample::set_stereo(bool p_stereo){
 
 AudioStreamSample::AudioStreamSample(WasGoId p_wasgo_id) : AudioStream(p_wasgo_id){
 }
-AudioStreamSample::AudioStreamSample(){
+AudioStreamSample::AudioStreamSample(AudioStream other) : AudioStream(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioStreamSample_constructor();
 }
-AudioStreamSample::~AudioStreamSample(){
-    _wasgo_AudioStreamSample_destructor(wasgo_id);
+AudioStreamSample::new_instance(){
+    return AudioStreamSample(_wasgo_AudioStreamSample_constructor());
 }

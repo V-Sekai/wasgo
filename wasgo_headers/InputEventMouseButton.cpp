@@ -25,9 +25,9 @@ void InputEventMouseButton::set_pressed(bool p_pressed){
 
 InputEventMouseButton::InputEventMouseButton(WasGoId p_wasgo_id) : InputEventMouse(p_wasgo_id){
 }
-InputEventMouseButton::InputEventMouseButton(){
+InputEventMouseButton::InputEventMouseButton(InputEventMouse other) : InputEventMouse(other._get_wasgo_id()){
     wasgo_id = _wasgo_InputEventMouseButton_constructor();
 }
-InputEventMouseButton::~InputEventMouseButton(){
-    _wasgo_InputEventMouseButton_destructor(wasgo_id);
+InputEventMouseButton::new_instance(){
+    return InputEventMouseButton(_wasgo_InputEventMouseButton_constructor());
 }

@@ -6,9 +6,9 @@
 
 #include "error_list.h"
 #include "ustring.h"
-#include "Variant.h"
 #include "NodePath.h"
 #include "Reference.h"
+#include "Variant.h"
 class Object : public Variant{
 public:
 enum ConnectFlags{
@@ -60,10 +60,10 @@ String to_string();
 String tr(String p_message);
 
 protected:
-Object(WasGoId p_wasgo_id);
 public:
-Object();
-~Object();
+explicit Object(WasGoId p_wasgo_id);
+explicit Object( other);
+Object new_instance();
             
 };
 
@@ -112,9 +112,8 @@ void _wasgo_Object_wrapper_set_script(WasGoId wasgo_id, WasGoId p_script);
 void _wasgo_Object_wrapper_to_string(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_Object_wrapper_tr(WasGoId wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_message, int p_message_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Object_constructor();
-    void _wasgo_Object_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

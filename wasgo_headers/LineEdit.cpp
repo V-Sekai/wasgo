@@ -4,8 +4,8 @@
 void LineEdit::append_at_cursor(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_LineEdit_wrapper_append_at_cursor(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -142,8 +142,8 @@ void LineEdit::set_max_length(int p_chars){
 void LineEdit::set_placeholder(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_LineEdit_wrapper_set_placeholder(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -160,8 +160,8 @@ void LineEdit::set_secret(bool p_enabled){
 void LineEdit::set_secret_character(String p_character){
 
     Variant wasgo_var_character = p_character;
-    uint8_t wasgo_buffer_character[256];
-    int wasgo_size_character = 256;
+    int wasgo_size_character = String(p_character).size();
+    uint8_t wasgo_buffer_character[wasgo_size_character];
     encode_variant(wasgo_var_character, wasgo_buffer_character, wasgo_size_character);
     
 	_wasgo_LineEdit_wrapper_set_secret_character(wasgo_id, wasgo_buffer_character, wasgo_size_character);
@@ -175,8 +175,8 @@ void LineEdit::set_shortcut_keys_enabled(bool p_enable){
 void LineEdit::set_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 	_wasgo_LineEdit_wrapper_set_text(wasgo_id, wasgo_buffer_text, wasgo_size_text);
@@ -187,9 +187,9 @@ void LineEdit::set_virtual_keyboard_enabled(bool p_enable){
 
 LineEdit::LineEdit(WasGoId p_wasgo_id) : Control(p_wasgo_id){
 }
-LineEdit::LineEdit(){
+LineEdit::LineEdit(Control other) : Control(other._get_wasgo_id()){
     wasgo_id = _wasgo_LineEdit_constructor();
 }
-LineEdit::~LineEdit(){
-    _wasgo_LineEdit_destructor(wasgo_id);
+LineEdit::new_instance(){
+    return LineEdit(_wasgo_LineEdit_constructor());
 }

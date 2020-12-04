@@ -16,10 +16,10 @@ void set_disabled(bool p_disabled);
 void set_polygon(PoolVector2Array p_polygon);
 
 protected:
-CollisionPolygon(WasGoId p_wasgo_id);
 public:
-CollisionPolygon();
-~CollisionPolygon();
+explicit CollisionPolygon(WasGoId p_wasgo_id);
+explicit CollisionPolygon(Spatial other);
+CollisionPolygon new_instance();
             
 };
 
@@ -33,9 +33,8 @@ void _wasgo_CollisionPolygon_wrapper_set_depth(WasGoId wasgo_id, float p_depth);
 void _wasgo_CollisionPolygon_wrapper_set_disabled(WasGoId wasgo_id, bool p_disabled);
 void _wasgo_CollisionPolygon_wrapper_set_polygon(WasGoId wasgo_id, WasGoId p_polygon);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_CollisionPolygon_constructor();
-    void _wasgo_CollisionPolygon_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

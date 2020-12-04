@@ -47,8 +47,8 @@ void AudioEffectCompressor::set_release_ms(float p_release_ms){
 void AudioEffectCompressor::set_sidechain(String p_sidechain){
 
     Variant wasgo_var_sidechain = p_sidechain;
-    uint8_t wasgo_buffer_sidechain[256];
-    int wasgo_size_sidechain = 256;
+    int wasgo_size_sidechain = String(p_sidechain).size();
+    uint8_t wasgo_buffer_sidechain[wasgo_size_sidechain];
     encode_variant(wasgo_var_sidechain, wasgo_buffer_sidechain, wasgo_size_sidechain);
     
 	_wasgo_AudioEffectCompressor_wrapper_set_sidechain(wasgo_id, wasgo_buffer_sidechain, wasgo_size_sidechain);
@@ -59,9 +59,9 @@ void AudioEffectCompressor::set_threshold(float p_threshold){
 
 AudioEffectCompressor::AudioEffectCompressor(WasGoId p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
-AudioEffectCompressor::AudioEffectCompressor(){
+AudioEffectCompressor::AudioEffectCompressor(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioEffectCompressor_constructor();
 }
-AudioEffectCompressor::~AudioEffectCompressor(){
-    _wasgo_AudioEffectCompressor_destructor(wasgo_id);
+AudioEffectCompressor::new_instance(){
+    return AudioEffectCompressor(_wasgo_AudioEffectCompressor_constructor());
 }

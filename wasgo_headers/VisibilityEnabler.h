@@ -16,10 +16,10 @@ bool is_enabler_enabled(VisibilityEnabler::Enabler p_enabler);
 void set_enabler(VisibilityEnabler::Enabler p_enabler, bool p_enabled);
 
 protected:
-VisibilityEnabler(WasGoId p_wasgo_id);
 public:
-VisibilityEnabler();
-~VisibilityEnabler();
+explicit VisibilityEnabler(WasGoId p_wasgo_id);
+explicit VisibilityEnabler(VisibilityNotifier other);
+VisibilityEnabler new_instance();
             
 };
 
@@ -29,9 +29,8 @@ extern "C"{
 int _wasgo_VisibilityEnabler_wrapper_is_enabler_enabled(WasGoId wasgo_id, WasGoId p_enabler);
 void _wasgo_VisibilityEnabler_wrapper_set_enabler(WasGoId wasgo_id, WasGoId p_enabler, bool p_enabled);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisibilityEnabler_constructor();
-    void _wasgo_VisibilityEnabler_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -6,8 +6,8 @@
 
 #include "error_list.h"
 #include "Reference.h"
-#include "ustring.h"
 #include "Variant.h"
+#include "ustring.h"
 class File : public Reference{
 public:
 enum CompressionMode{
@@ -70,10 +70,10 @@ void store_string(String p_string);
 void store_var(Variant p_value, bool p_full_objects = (bool) false);
 
 protected:
-File(WasGoId p_wasgo_id);
 public:
-File();
-~File();
+explicit File(WasGoId p_wasgo_id);
+explicit File(Reference other);
+File new_instance();
             
 };
 
@@ -127,9 +127,8 @@ void _wasgo_File_wrapper_store_real(WasGoId wasgo_id, float p_value);
 void _wasgo_File_wrapper_store_string(WasGoId wasgo_id, const uint8_t * p_string, int p_string_wasgo_buffer_size);
 void _wasgo_File_wrapper_store_var(WasGoId wasgo_id, WasGoId p_value, bool p_full_objects);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_File_constructor();
-    void _wasgo_File_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -27,9 +27,8 @@ int _wasgo_AudioStreamGeneratorPlayback_wrapper_get_skips(WasGoId wasgo_id);
 int _wasgo_AudioStreamGeneratorPlayback_wrapper_push_buffer(WasGoId wasgo_id, WasGoId p_frames);
 int _wasgo_AudioStreamGeneratorPlayback_wrapper_push_frame(WasGoId wasgo_id, const uint8_t * p_frame, int p_frame_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioStreamGeneratorPlayback_constructor();
-    void _wasgo_AudioStreamGeneratorPlayback_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

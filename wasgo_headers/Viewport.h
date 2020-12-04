@@ -4,18 +4,18 @@
 
 #include "wasgo\wasgo.h"
 
-#include "RID.h"
-#include "World2D.h"
-#include "Transform2D.h"
-#include "Variant.h"
-#include "Rect2.h"
 #include "Node.h"
-#include "InputEvent.h"
+#include "Transform2D.h"
+#include "Control.h"
+#include "World2D.h"
 #include "World.h"
+#include "Vector2.h"
 #include "ViewportTexture.h"
 #include "Camera.h"
-#include "Vector2.h"
-#include "Control.h"
+#include "Rect2.h"
+#include "InputEvent.h"
+#include "RID.h"
+#include "Variant.h"
 class Viewport : public Node{
 public:
 enum ClearMode{
@@ -152,10 +152,10 @@ bool use_arvr();
 void warp_mouse(Vector2 p_to_position);
 
 protected:
-Viewport(WasGoId p_wasgo_id);
 public:
-Viewport();
-~Viewport();
+explicit Viewport(WasGoId p_wasgo_id);
+explicit Viewport(Node other);
+Viewport new_instance();
             
 };
 
@@ -244,9 +244,8 @@ void _wasgo_Viewport_wrapper_update_worlds(WasGoId wasgo_id);
 int _wasgo_Viewport_wrapper_use_arvr(WasGoId wasgo_id);
 void _wasgo_Viewport_wrapper_warp_mouse(WasGoId wasgo_id, const uint8_t * p_to_position, int p_to_position_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Viewport_constructor();
-    void _wasgo_Viewport_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

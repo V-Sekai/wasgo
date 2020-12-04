@@ -4,9 +4,9 @@
 
 TriangleMesh::TriangleMesh(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-TriangleMesh::TriangleMesh(){
+TriangleMesh::TriangleMesh(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_TriangleMesh_constructor();
 }
-TriangleMesh::~TriangleMesh(){
-    _wasgo_TriangleMesh_destructor(wasgo_id);
+TriangleMesh::new_instance(){
+    return TriangleMesh(_wasgo_TriangleMesh_constructor());
 }

@@ -9,10 +9,10 @@ class HSplitContainer : public SplitContainer{
 public:
 
 protected:
-HSplitContainer(WasGoId p_wasgo_id);
 public:
-HSplitContainer();
-~HSplitContainer();
+explicit HSplitContainer(WasGoId p_wasgo_id);
+explicit HSplitContainer(SplitContainer other);
+HSplitContainer new_instance();
             
 };
 
@@ -20,9 +20,8 @@ HSplitContainer();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_HSplitContainer_constructor();
-    void _wasgo_HSplitContainer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -9,10 +9,10 @@ class VSeparator : public Separator{
 public:
 
 protected:
-VSeparator(WasGoId p_wasgo_id);
 public:
-VSeparator();
-~VSeparator();
+explicit VSeparator(WasGoId p_wasgo_id);
+explicit VSeparator(Separator other);
+VSeparator new_instance();
             
 };
 
@@ -20,9 +20,8 @@ VSeparator();
 //Wrapper Functions
 extern "C"{
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VSeparator_constructor();
-    void _wasgo_VSeparator_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

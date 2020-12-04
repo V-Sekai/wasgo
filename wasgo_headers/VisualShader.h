@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "error_list.h"
-#include "Variant.h"
 #include "Shader.h"
-#include "VisualShaderNode.h"
+#include "error_list.h"
 #include "Vector2.h"
+#include "VisualShaderNode.h"
+#include "Variant.h"
 class VisualShader : public Shader{
 public:
 enum Type{
@@ -35,10 +35,10 @@ void set_mode(Shader::Mode p_mode);
 void set_node_position(VisualShader::Type p_type, int p_id, Vector2 p_position);
 
 protected:
-VisualShader(WasGoId p_wasgo_id);
 public:
-VisualShader();
-~VisualShader();
+explicit VisualShader(WasGoId p_wasgo_id);
+explicit VisualShader(Shader other);
+VisualShader new_instance();
             
 };
 
@@ -62,9 +62,8 @@ void _wasgo_VisualShader_wrapper_set_graph_offset(WasGoId wasgo_id, const uint8_
 void _wasgo_VisualShader_wrapper_set_mode(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_VisualShader_wrapper_set_node_position(WasGoId wasgo_id, WasGoId p_type, int p_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShader_constructor();
-    void _wasgo_VisualShader_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

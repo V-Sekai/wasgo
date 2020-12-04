@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
 #include "Shape.h"
 #include "RID.h"
+#include "Spatial.h"
 class SpringArm : public Spatial{
 public:
 void add_excluded_object(RID p_RID);
@@ -23,10 +23,10 @@ void set_margin(float p_margin);
 void set_shape(Shape p_shape);
 
 protected:
-SpringArm(WasGoId p_wasgo_id);
 public:
-SpringArm();
-~SpringArm();
+explicit SpringArm(WasGoId p_wasgo_id);
+explicit SpringArm(Spatial other);
+SpringArm new_instance();
             
 };
 
@@ -46,9 +46,8 @@ void _wasgo_SpringArm_wrapper_set_length(WasGoId wasgo_id, float p_length);
 void _wasgo_SpringArm_wrapper_set_margin(WasGoId wasgo_id, float p_margin);
 void _wasgo_SpringArm_wrapper_set_shape(WasGoId wasgo_id, WasGoId p_shape);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SpringArm_constructor();
-    void _wasgo_SpringArm_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Vector3.h"
 #include "PhysicsBody.h"
 #include "PhysicsMaterial.h"
-#include "Vector3.h"
 class StaticBody : public PhysicsBody{
 public:
 float get_bounce();
@@ -21,10 +21,10 @@ void set_friction(float p_friction);
 void set_physics_material_override(PhysicsMaterial p_physics_material_override);
 
 protected:
-StaticBody(WasGoId p_wasgo_id);
 public:
-StaticBody();
-~StaticBody();
+explicit StaticBody(WasGoId p_wasgo_id);
+explicit StaticBody(PhysicsBody other);
+StaticBody new_instance();
             
 };
 
@@ -42,9 +42,8 @@ void _wasgo_StaticBody_wrapper_set_constant_linear_velocity(WasGoId wasgo_id, co
 void _wasgo_StaticBody_wrapper_set_friction(WasGoId wasgo_id, float p_friction);
 void _wasgo_StaticBody_wrapper_set_physics_material_override(WasGoId wasgo_id, WasGoId p_physics_material_override);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_StaticBody_constructor();
-    void _wasgo_StaticBody_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

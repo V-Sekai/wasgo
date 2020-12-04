@@ -10,9 +10,9 @@ void VisualShaderNodeVectorDerivativeFunc::set_function(VisualShaderNodeVectorDe
 
 VisualShaderNodeVectorDerivativeFunc::VisualShaderNodeVectorDerivativeFunc(WasGoId p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
-VisualShaderNodeVectorDerivativeFunc::VisualShaderNodeVectorDerivativeFunc(){
+VisualShaderNodeVectorDerivativeFunc::VisualShaderNodeVectorDerivativeFunc(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
     wasgo_id = _wasgo_VisualShaderNodeVectorDerivativeFunc_constructor();
 }
-VisualShaderNodeVectorDerivativeFunc::~VisualShaderNodeVectorDerivativeFunc(){
-    _wasgo_VisualShaderNodeVectorDerivativeFunc_destructor(wasgo_id);
+VisualShaderNodeVectorDerivativeFunc::new_instance(){
+    return VisualShaderNodeVectorDerivativeFunc(_wasgo_VisualShaderNodeVectorDerivativeFunc_constructor());
 }

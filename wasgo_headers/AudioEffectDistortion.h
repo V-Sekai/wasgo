@@ -26,10 +26,10 @@ void set_post_gain(float p_post_gain);
 void set_pre_gain(float p_pre_gain);
 
 protected:
-AudioEffectDistortion(WasGoId p_wasgo_id);
 public:
-AudioEffectDistortion();
-~AudioEffectDistortion();
+explicit AudioEffectDistortion(WasGoId p_wasgo_id);
+explicit AudioEffectDistortion(AudioEffect other);
+AudioEffectDistortion new_instance();
             
 };
 
@@ -47,9 +47,8 @@ void _wasgo_AudioEffectDistortion_wrapper_set_mode(WasGoId wasgo_id, WasGoId p_m
 void _wasgo_AudioEffectDistortion_wrapper_set_post_gain(WasGoId wasgo_id, float p_post_gain);
 void _wasgo_AudioEffectDistortion_wrapper_set_pre_gain(WasGoId wasgo_id, float p_pre_gain);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_AudioEffectDistortion_constructor();
-    void _wasgo_AudioEffectDistortion_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

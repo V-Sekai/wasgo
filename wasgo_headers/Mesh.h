@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "AABB.h"
-#include "Variant.h"
-#include "TriangleMesh.h"
 #include "Shape.h"
-#include "Material.h"
 #include "Vector2.h"
+#include "AABB.h"
+#include "Resource.h"
+#include "TriangleMesh.h"
+#include "Material.h"
+#include "Variant.h"
 class Mesh : public Resource{
 public:
 enum ArrayFormat{
@@ -94,9 +94,8 @@ WasGoId _wasgo_Mesh_wrapper_surface_get_blend_shape_arrays(WasGoId wasgo_id, int
 WasGoId _wasgo_Mesh_wrapper_surface_get_material(WasGoId wasgo_id, int p_surf_idx);
 void _wasgo_Mesh_wrapper_surface_set_material(WasGoId wasgo_id, int p_surf_idx, WasGoId p_material);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Mesh_constructor();
-    void _wasgo_Mesh_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

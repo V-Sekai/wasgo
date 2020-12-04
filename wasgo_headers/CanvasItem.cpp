@@ -25,14 +25,14 @@ float CanvasItem::draw_char(Font p_font, Vector2 p_position, String p_char, Stri
     
 
     Variant wasgo_var_char = p_char;
-    uint8_t wasgo_buffer_char[256];
-    int wasgo_size_char = 256;
+    int wasgo_size_char = String(p_char).size();
+    uint8_t wasgo_buffer_char[wasgo_size_char];
     encode_variant(wasgo_var_char, wasgo_buffer_char, wasgo_size_char);
     
 
     Variant wasgo_var_next = p_next;
-    uint8_t wasgo_buffer_next[256];
-    int wasgo_size_next = 256;
+    int wasgo_size_next = String(p_next).size();
+    uint8_t wasgo_buffer_next[wasgo_size_next];
     encode_variant(wasgo_var_next, wasgo_buffer_next, wasgo_size_next);
     
 
@@ -184,8 +184,8 @@ void CanvasItem::draw_string(Font p_font, Vector2 p_position, String p_text, Col
     
 
     Variant wasgo_var_text = p_text;
-    uint8_t wasgo_buffer_text[256];
-    int wasgo_size_text = 256;
+    int wasgo_size_text = String(p_text).size();
+    uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 

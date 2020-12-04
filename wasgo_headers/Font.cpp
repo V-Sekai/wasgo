@@ -16,8 +16,8 @@ void Font::draw(RID p_canvas_item, Vector2 p_position, String p_string, Color p_
     
 
     Variant wasgo_var_string = p_string;
-    uint8_t wasgo_buffer_string[256];
-    int wasgo_size_string = 256;
+    int wasgo_size_string = String(p_string).size();
+    uint8_t wasgo_buffer_string[wasgo_size_string];
     encode_variant(wasgo_var_string, wasgo_buffer_string, wasgo_size_string);
     
 
@@ -77,8 +77,8 @@ float Font::get_height(){
 Vector2 Font::get_string_size(String p_string){
 
     Variant wasgo_var_string = p_string;
-    uint8_t wasgo_buffer_string[256];
-    int wasgo_size_string = 256;
+    int wasgo_size_string = String(p_string).size();
+    uint8_t wasgo_buffer_string[wasgo_size_string];
     encode_variant(wasgo_var_string, wasgo_buffer_string, wasgo_size_string);
     
 
@@ -93,8 +93,8 @@ Vector2 Font::get_string_size(String p_string){
 Vector2 Font::get_wordwrap_string_size(String p_string, float p_width){
 
     Variant wasgo_var_string = p_string;
-    uint8_t wasgo_buffer_string[256];
-    int wasgo_size_string = 256;
+    int wasgo_size_string = String(p_string).size();
+    uint8_t wasgo_buffer_string[wasgo_size_string];
     encode_variant(wasgo_var_string, wasgo_buffer_string, wasgo_size_string);
     
 

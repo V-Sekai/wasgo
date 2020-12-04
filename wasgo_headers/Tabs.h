@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Control.h"
 #include "Texture.h"
-#include "ustring.h"
 #include "Rect2.h"
+#include "Control.h"
+#include "ustring.h"
 class Tabs : public Control{
 public:
 enum CloseButtonDisplayPolicy{
@@ -53,10 +53,10 @@ void set_tab_title(int p_tab_idx, String p_title);
 void set_tabs_rearrange_group(int p_group_id);
 
 protected:
-Tabs(WasGoId p_wasgo_id);
 public:
-Tabs();
-~Tabs();
+explicit Tabs(WasGoId p_wasgo_id);
+explicit Tabs(Control other);
+Tabs new_instance();
             
 };
 
@@ -93,9 +93,8 @@ void _wasgo_Tabs_wrapper_set_tab_icon(WasGoId wasgo_id, int p_tab_idx, WasGoId p
 void _wasgo_Tabs_wrapper_set_tab_title(WasGoId wasgo_id, int p_tab_idx, const uint8_t * p_title, int p_title_wasgo_buffer_size);
 void _wasgo_Tabs_wrapper_set_tabs_rearrange_group(WasGoId wasgo_id, int p_group_id);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_Tabs_constructor();
-    void _wasgo_Tabs_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -32,9 +32,8 @@ void _wasgo_SplitContainer_wrapper_set_collapsed(WasGoId wasgo_id, bool p_collap
 void _wasgo_SplitContainer_wrapper_set_dragger_visibility(WasGoId wasgo_id, WasGoId p_mode);
 void _wasgo_SplitContainer_wrapper_set_split_offset(WasGoId wasgo_id, int p_offset);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_SplitContainer_constructor();
-    void _wasgo_SplitContainer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

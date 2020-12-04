@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "Node2D.h"
+#include "Vector2.h"
 class ParallaxLayer : public Node2D{
 public:
 Vector2 get_mirroring();
@@ -16,10 +16,10 @@ void set_motion_offset(Vector2 p_offset);
 void set_motion_scale(Vector2 p_scale);
 
 protected:
-ParallaxLayer(WasGoId p_wasgo_id);
 public:
-ParallaxLayer();
-~ParallaxLayer();
+explicit ParallaxLayer(WasGoId p_wasgo_id);
+explicit ParallaxLayer(Node2D other);
+ParallaxLayer new_instance();
             
 };
 
@@ -33,9 +33,8 @@ void _wasgo_ParallaxLayer_wrapper_set_mirroring(WasGoId wasgo_id, const uint8_t 
 void _wasgo_ParallaxLayer_wrapper_set_motion_offset(WasGoId wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
 void _wasgo_ParallaxLayer_wrapper_set_motion_scale(WasGoId wasgo_id, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_ParallaxLayer_constructor();
-    void _wasgo_ParallaxLayer_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

@@ -4,9 +4,9 @@
 
 AudioBusLayout::AudioBusLayout(WasGoId p_wasgo_id) : Resource(p_wasgo_id){
 }
-AudioBusLayout::AudioBusLayout(){
+AudioBusLayout::AudioBusLayout(Resource other) : Resource(other._get_wasgo_id()){
     wasgo_id = _wasgo_AudioBusLayout_constructor();
 }
-AudioBusLayout::~AudioBusLayout(){
-    _wasgo_AudioBusLayout_destructor(wasgo_id);
+AudioBusLayout::new_instance(){
+    return AudioBusLayout(_wasgo_AudioBusLayout_constructor());
 }

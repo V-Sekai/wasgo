@@ -75,9 +75,9 @@ void PhysicsShapeQueryParameters::set_transform(Transform p_transform){
 
 PhysicsShapeQueryParameters::PhysicsShapeQueryParameters(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-PhysicsShapeQueryParameters::PhysicsShapeQueryParameters(){
+PhysicsShapeQueryParameters::PhysicsShapeQueryParameters(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_PhysicsShapeQueryParameters_constructor();
 }
-PhysicsShapeQueryParameters::~PhysicsShapeQueryParameters(){
-    _wasgo_PhysicsShapeQueryParameters_destructor(wasgo_id);
+PhysicsShapeQueryParameters::new_instance(){
+    return PhysicsShapeQueryParameters(_wasgo_PhysicsShapeQueryParameters_constructor());
 }

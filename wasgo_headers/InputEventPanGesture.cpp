@@ -23,9 +23,9 @@ void InputEventPanGesture::set_delta(Vector2 p_delta){
 
 InputEventPanGesture::InputEventPanGesture(WasGoId p_wasgo_id) : InputEventGesture(p_wasgo_id){
 }
-InputEventPanGesture::InputEventPanGesture(){
+InputEventPanGesture::InputEventPanGesture(InputEventGesture other) : InputEventGesture(other._get_wasgo_id()){
     wasgo_id = _wasgo_InputEventPanGesture_constructor();
 }
-InputEventPanGesture::~InputEventPanGesture(){
-    _wasgo_InputEventPanGesture_destructor(wasgo_id);
+InputEventPanGesture::new_instance(){
+    return InputEventPanGesture(_wasgo_InputEventPanGesture_constructor());
 }

@@ -22,9 +22,9 @@ void HeightMapShape::set_map_width(int p_width){
 
 HeightMapShape::HeightMapShape(WasGoId p_wasgo_id) : Shape(p_wasgo_id){
 }
-HeightMapShape::HeightMapShape(){
+HeightMapShape::HeightMapShape(Shape other) : Shape(other._get_wasgo_id()){
     wasgo_id = _wasgo_HeightMapShape_constructor();
 }
-HeightMapShape::~HeightMapShape(){
-    _wasgo_HeightMapShape_destructor(wasgo_id);
+HeightMapShape::new_instance(){
+    return HeightMapShape(_wasgo_HeightMapShape_constructor());
 }

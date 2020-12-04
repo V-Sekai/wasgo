@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "ustring.h"
 #include "Resource.h"
 #include "Mesh.h"
-#include "ustring.h"
 #include "Variant.h"
 class NavigationMesh : public Resource{
 public:
@@ -63,10 +63,10 @@ void set_vertices(PoolVector3Array p_vertices);
 void set_verts_per_poly(float p_verts_per_poly);
 
 protected:
-NavigationMesh(WasGoId p_wasgo_id);
 public:
-NavigationMesh();
-~NavigationMesh();
+explicit NavigationMesh(WasGoId p_wasgo_id);
+explicit NavigationMesh(Resource other);
+NavigationMesh new_instance();
             
 };
 
@@ -125,9 +125,8 @@ void _wasgo_NavigationMesh_wrapper_set_source_group_name(WasGoId wasgo_id, const
 void _wasgo_NavigationMesh_wrapper_set_vertices(WasGoId wasgo_id, WasGoId p_vertices);
 void _wasgo_NavigationMesh_wrapper_set_verts_per_poly(WasGoId wasgo_id, float p_verts_per_poly);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_NavigationMesh_constructor();
-    void _wasgo_NavigationMesh_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

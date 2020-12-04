@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "PrimitiveMesh.h"
 #include "Vector3.h"
+#include "PrimitiveMesh.h"
 class PrismMesh : public PrimitiveMesh{
 public:
 float get_left_to_right();
@@ -20,10 +20,10 @@ void set_subdivide_height(int p_segments);
 void set_subdivide_width(int p_segments);
 
 protected:
-PrismMesh(WasGoId p_wasgo_id);
 public:
-PrismMesh();
-~PrismMesh();
+explicit PrismMesh(WasGoId p_wasgo_id);
+explicit PrismMesh(PrimitiveMesh other);
+PrismMesh new_instance();
             
 };
 
@@ -41,9 +41,8 @@ void _wasgo_PrismMesh_wrapper_set_subdivide_depth(WasGoId wasgo_id, int p_segmen
 void _wasgo_PrismMesh_wrapper_set_subdivide_height(WasGoId wasgo_id, int p_segments);
 void _wasgo_PrismMesh_wrapper_set_subdivide_width(WasGoId wasgo_id, int p_segments);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_PrismMesh_constructor();
-    void _wasgo_PrismMesh_destructor(WasGoId p_wasgo_id);
             
 }
 #endif

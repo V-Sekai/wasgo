@@ -17,8 +17,8 @@ bool Thread::is_active(){
 Error Thread::start(Object p_instance, String p_method, Variant p_userdata = (Variant) "", Thread::Priority p_priority = (Thread::Priority) 1){
 
     Variant wasgo_var_method = p_method;
-    uint8_t wasgo_buffer_method[256];
-    int wasgo_size_method = 256;
+    int wasgo_size_method = String(p_method).size();
+    uint8_t wasgo_buffer_method[wasgo_size_method];
     encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
     
 	return Error(_wasgo_Thread_wrapper_start(wasgo_id, p_instance._get_wasgo_id(), wasgo_buffer_method, wasgo_size_method, p_userdata._get_wasgo_id(), p_priority._get_wasgo_id()));
@@ -29,9 +29,9 @@ Variant Thread::wait_to_finish(){
 
 Thread::Thread(WasGoId p_wasgo_id) : Reference(p_wasgo_id){
 }
-Thread::Thread(){
+Thread::Thread(Reference other) : Reference(other._get_wasgo_id()){
     wasgo_id = _wasgo_Thread_constructor();
 }
-Thread::~Thread(){
-    _wasgo_Thread_destructor(wasgo_id);
+Thread::new_instance(){
+    return Thread(_wasgo_Thread_constructor());
 }

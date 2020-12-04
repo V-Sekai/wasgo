@@ -15,10 +15,10 @@ VisualShaderNodeTransformFunc::Function get_function();
 void set_function(VisualShaderNodeTransformFunc::Function p_func);
 
 protected:
-VisualShaderNodeTransformFunc(WasGoId p_wasgo_id);
 public:
-VisualShaderNodeTransformFunc();
-~VisualShaderNodeTransformFunc();
+explicit VisualShaderNodeTransformFunc(WasGoId p_wasgo_id);
+explicit VisualShaderNodeTransformFunc(VisualShaderNode other);
+VisualShaderNodeTransformFunc new_instance();
             
 };
 
@@ -28,9 +28,8 @@ extern "C"{
 WasGoId _wasgo_VisualShaderNodeTransformFunc_wrapper_get_function(WasGoId wasgo_id);
 void _wasgo_VisualShaderNodeTransformFunc_wrapper_set_function(WasGoId wasgo_id, WasGoId p_func);
 
-    //constructor and destructor wrappers
+    //constructor wrappers
     WasGoId _wasgo_VisualShaderNodeTransformFunc_constructor();
-    void _wasgo_VisualShaderNodeTransformFunc_destructor(WasGoId p_wasgo_id);
             
 }
 #endif
