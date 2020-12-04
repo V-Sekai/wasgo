@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
 #include "Object.h"
-#include "Variant.h"
+#include "Vector3.h"
 #include "PhysicsShapeQueryParameters.h"
+#include "Variant.h"
 class PhysicsDirectSpaceState : public Object{
 public:
 Array cast_motion(PhysicsShapeQueryParameters p_shape, Vector3 p_motion);

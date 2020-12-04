@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "Rect2.h"
-#include "ustring.h"
-#include "Vector2.h"
-#include "Color.h"
 #include "error_list.h"
+#include "Resource.h"
+#include "ustring.h"
 #include "Variant.h"
+#include "Rect2.h"
+#include "Color.h"
+#include "Vector2.h"
 class Image : public Resource{
 public:
 enum AlphaMode{

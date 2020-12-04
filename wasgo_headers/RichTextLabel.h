@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Control.h"
-#include "Texture.h"
-#include "ustring.h"
-#include "Font.h"
 #include "VScrollBar.h"
-#include "Color.h"
 #include "error_list.h"
+#include "Font.h"
+#include "ustring.h"
 #include "Variant.h"
+#include "Color.h"
+#include "Texture.h"
+#include "Control.h"
 class RichTextLabel : public Control{
 public:
 enum Align{

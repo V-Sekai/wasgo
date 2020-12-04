@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "Resource.h"
 #include "Texture.h"
+#include "ustring.h"
 class Shader : public Resource{
 public:
 enum Mode{

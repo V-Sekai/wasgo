@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
-#include "Transform2D.h"
 #include "CanvasItem.h"
+#include "Transform2D.h"
+#include "Vector2.h"
 #include "Node.h"
 class Node2D : public CanvasItem{
 public:

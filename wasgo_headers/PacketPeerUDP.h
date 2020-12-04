@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "error_list.h"
 #include "PacketPeer.h"
+#include "ustring.h"
 class PacketPeerUDP : public PacketPeer{
 public:
 void close();

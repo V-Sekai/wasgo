@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "Transform2D.h"
-#include "KinematicCollision2D.h"
+#include "Vector2.h"
 #include "PhysicsBody2D.h"
+#include "KinematicCollision2D.h"
 class KinematicBody2D : public PhysicsBody2D{
 public:
 Vector2 get_floor_normal();

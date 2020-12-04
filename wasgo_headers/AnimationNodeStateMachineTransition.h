@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "Resource.h"
+#include "ustring.h"
 class AnimationNodeStateMachineTransition : public Resource{
 public:
 enum SwitchMode{

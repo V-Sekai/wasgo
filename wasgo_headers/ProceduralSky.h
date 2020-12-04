@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Sky.h"
 #include "Color.h"
+#include "Sky.h"
 class ProceduralSky : public Sky{
 public:
 enum TextureSize{

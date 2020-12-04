@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Curve.h"
+#include "Vector3.h"
 #include "GeometryInstance.h"
 #include "Mesh.h"
-#include "Gradient.h"
-#include "Color.h"
-#include "Vector3.h"
+#include "Curve.h"
 #include "Variant.h"
 #include "Node.h"
+#include "Color.h"
+#include "Gradient.h"
 class CPUParticles : public GeometryInstance{
 public:
 enum DrawOrder{

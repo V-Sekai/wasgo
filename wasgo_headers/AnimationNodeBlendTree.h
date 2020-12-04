@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
+#include "AnimationNode.h"
 #include "ustring.h"
 #include "Vector2.h"
 #include "AnimationRootNode.h"
-#include "AnimationNode.h"
 class AnimationNodeBlendTree : public AnimationRootNode{
 public:
 void add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2((0, 0)));

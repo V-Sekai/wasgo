@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Control.h"
 #include "Texture.h"
+#include "Control.h"
 class TextureRect : public Control{
 public:
 enum StretchMode{

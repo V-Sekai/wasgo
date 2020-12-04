@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Rect2.h"
-#include "Texture.h"
-#include "ustring.h"
 #include "Object.h"
-#include "Color.h"
+#include "ustring.h"
 #include "Variant.h"
+#include "Rect2.h"
+#include "Color.h"
+#include "Texture.h"
 class TreeItem : public Object{
 public:
 enum TextAlign{

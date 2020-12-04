@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Texture.h"
-#include "Vector2.h"
-#include "NodePath.h"
-#include "Color.h"
 #include "Node2D.h"
 #include "Variant.h"
+#include "NodePath.h"
+#include "Color.h"
+#include "Texture.h"
+#include "Vector2.h"
 class Polygon2D : public Node2D{
 public:
 void add_bone(NodePath p_path, PoolRealArray p_weights);

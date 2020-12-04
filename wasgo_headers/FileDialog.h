@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "VBoxContainer.h"
 #include "LineEdit.h"
+#include "VBoxContainer.h"
 #include "ConfirmationDialog.h"
 #include "ustring.h"
 #include "Variant.h"

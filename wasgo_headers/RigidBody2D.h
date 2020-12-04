@@ -6,9 +6,9 @@
 
 #include "PhysicsBody2D.h"
 #include "Physics2DTestMotionResult.h"
-#include "Vector2.h"
 #include "Variant.h"
 #include "PhysicsMaterial.h"
+#include "Vector2.h"
 class RigidBody2D : public PhysicsBody2D{
 public:
 enum CCDMode{

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Rect2.h"
-#include "Vector2.h"
 #include "SpriteBase3D.h"
 #include "Texture.h"
+#include "Vector2.h"
+#include "Rect2.h"
 class Sprite3D : public SpriteBase3D{
 public:
 int get_frame();

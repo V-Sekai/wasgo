@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "Range.h"
-#include "Margin.h"
-#include "Texture.h"
-#include "Vector2.h"
 #include "Color.h"
+#include "Texture.h"
+#include "Margin.h"
+#include "Vector2.h"
 class TextureProgress : public Range{
 public:
 enum FillMode{

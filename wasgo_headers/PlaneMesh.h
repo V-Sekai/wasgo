@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "PrimitiveMesh.h"
+#include "Vector2.h"
 class PlaneMesh : public PrimitiveMesh{
 public:
 Vector2 get_size();

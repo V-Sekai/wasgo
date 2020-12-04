@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Image.h"
-#include "Texture.h"
-#include "ustring.h"
-#include "Vector2.h"
 #include "error_list.h"
+#include "ustring.h"
+#include "Texture.h"
+#include "Image.h"
+#include "Vector2.h"
 class ImageTexture : public Texture{
 public:
 enum Storage{

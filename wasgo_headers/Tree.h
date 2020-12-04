@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Rect2.h"
-#include "Control.h"
 #include "ustring.h"
+#include "Rect2.h"
 #include "TreeItem.h"
-#include "Vector2.h"
 #include "Object.h"
+#include "Vector2.h"
+#include "Control.h"
 class Tree : public Control{
 public:
 enum DropModeFlags{

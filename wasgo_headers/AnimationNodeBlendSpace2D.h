@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "AnimationRootNode.h"
+#include "ustring.h"
 #include "Vector2.h"
 class AnimationNodeBlendSpace2D : public AnimationRootNode{
 public:

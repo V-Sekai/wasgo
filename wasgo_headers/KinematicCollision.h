@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
-#include "Object.h"
-#include "Variant.h"
 #include "Reference.h"
+#include "Object.h"
+#include "Vector3.h"
+#include "Variant.h"
 class KinematicCollision : public Reference{
 public:
 Object get_collider();

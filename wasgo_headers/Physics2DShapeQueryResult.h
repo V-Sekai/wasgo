@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "RID.h"
-#include "Object.h"
 #include "Reference.h"
+#include "Object.h"
+#include "RID.h"
 class Physics2DShapeQueryResult : public Reference{
 public:
 int get_result_count();

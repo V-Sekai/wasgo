@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "Rect2.h"
 #include "Control.h"
 #include "Texture.h"
+#include "ustring.h"
+#include "Rect2.h"
 class Tabs : public Control{
 public:
 enum CloseButtonDisplayPolicy{

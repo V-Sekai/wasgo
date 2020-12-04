@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Texture.h"
 #include "ustring.h"
 #include "BaseButton.h"
-#include "Texture.h"
 class Button : public BaseButton{
 public:
 enum TextAlign{

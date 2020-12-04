@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Spatial.h"
+#include "Vector3.h"
 #include "Mesh.h"
 #include "ustring.h"
 #include "Plane.h"
-#include "Vector3.h"
+#include "Spatial.h"
 class ARVRAnchor : public Spatial{
 public:
 int get_anchor_id();

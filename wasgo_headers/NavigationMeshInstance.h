@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "NavigationMesh.h"
 #include "Spatial.h"
+#include "NavigationMesh.h"
 class NavigationMeshInstance : public Spatial{
 public:
 NavigationMesh get_navigation_mesh();

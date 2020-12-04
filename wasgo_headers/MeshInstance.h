@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "GeometryInstance.h"
-#include "Skin.h"
 #include "Mesh.h"
-#include "Material.h"
+#include "Skin.h"
 #include "NodePath.h"
+#include "Material.h"
 class MeshInstance : public GeometryInstance{
 public:
 void create_convex_collision();

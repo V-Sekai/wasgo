@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "DynamicFontData.h"
 #include "Color.h"
+#include "ustring.h"
 #include "Font.h"
+#include "DynamicFontData.h"
 class DynamicFont : public Font{
 public:
 enum SpacingType{

@@ -5,12 +5,12 @@
 #include "wasgo\wasgo.h"
 
 #include "Resource.h"
-#include "Texture.h"
-#include "ustring.h"
 #include "Font.h"
-#include "Color.h"
+#include "ustring.h"
 #include "Variant.h"
+#include "Color.h"
 #include "StyleBox.h"
+#include "Texture.h"
 class Theme : public Resource{
 public:
 void clear();

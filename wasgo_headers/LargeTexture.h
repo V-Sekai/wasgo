@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "Texture.h"
+#include "Vector2.h"
 class LargeTexture : public Texture{
 public:
 int add_piece(Vector2 p_ofs, Texture p_texture);

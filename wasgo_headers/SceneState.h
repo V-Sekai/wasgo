@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "PackedScene.h"
 #include "ustring.h"
+#include "PackedScene.h"
+#include "Variant.h"
 #include "NodePath.h"
 #include "Reference.h"
-#include "Variant.h"
 class SceneState : public Reference{
 public:
 enum GenEditState{

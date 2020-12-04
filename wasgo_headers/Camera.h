@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Environment.h"
+#include "Vector3.h"
+#include "RID.h"
+#include "Variant.h"
 #include "Transform.h"
 #include "Spatial.h"
 #include "Vector2.h"
-#include "Environment.h"
-#include "RID.h"
-#include "Vector3.h"
-#include "Variant.h"
 class Camera : public Spatial{
 public:
 enum DopplerTracking{

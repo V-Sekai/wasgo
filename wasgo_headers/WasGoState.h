@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Variant.h"
 #include "Node.h"
+#include "Variant.h"
 #include "WasmResource.h"
 class WasGoState : public Node{
 public:

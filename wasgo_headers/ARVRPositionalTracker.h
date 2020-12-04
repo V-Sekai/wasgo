@@ -5,12 +5,12 @@
 #include "wasgo\wasgo.h"
 
 #include "Vector3.h"
-#include "Mesh.h"
-#include "ustring.h"
-#include "Object.h"
-#include "Transform.h"
 #include "Basis.h"
+#include "Mesh.h"
 #include "ARVRServer.h"
+#include "ustring.h"
+#include "Transform.h"
+#include "Object.h"
 class ARVRPositionalTracker : public Object{
 public:
 enum TrackerHand{

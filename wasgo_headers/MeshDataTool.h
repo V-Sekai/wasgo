@@ -4,15 +4,15 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ArrayMesh.h"
 #include "Vector2.h"
-#include "Material.h"
-#include "Color.h"
-#include "Reference.h"
-#include "Plane.h"
 #include "Vector3.h"
 #include "error_list.h"
+#include "Reference.h"
 #include "Variant.h"
+#include "Plane.h"
+#include "Color.h"
+#include "Material.h"
+#include "ArrayMesh.h"
 class MeshDataTool : public Reference{
 public:
 void clear();

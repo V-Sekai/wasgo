@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "AnimationRootNode.h"
+#include "ustring.h"
 class AnimationNodeBlendSpace1D : public AnimationRootNode{
 public:
 void add_blend_point(AnimationRootNode p_node, float p_pos, int p_at_index = (int) -1);

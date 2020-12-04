@@ -1,115 +1,93 @@
 ../api/Custom/ustring.cpp.o: ..\api\Custom\ustring.cpp \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\ustring.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Array.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\typedefs.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\int_types.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_list.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\cowdata.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_macros.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\memory.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\safe_refcount.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\mutex.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\color.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_funcs.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_defs.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Ustring.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\print_string.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\ucaps.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\variant.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Color.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Dictionary.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\list.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\AABB.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Plane.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector3.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Basis.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Quat.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Face3.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Transform.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\PoolVector.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Transform2D.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Rect2.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector2.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\NodePath.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\StringName.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\RefPtr.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\RID.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\set.h
+  ..\api\Custom\ustring.h ..\api\Custom\Array.h ..\api\Custom\typedefs.h \
+  ..\api\Custom\int_types.h ..\api\Custom\error_list.h \
+  ..\api\Custom\cowdata.h ..\api\Custom\error_macros.h \
+  ..\api\Custom\memory.h ..\api\Custom\safe_refcount.h \
+  ..\api\Custom\mutex.h ..\api\Custom\Vector.h ..\api\Custom\color.h \
+  ..\api\Custom\math_funcs.h ..\api\Custom\math_defs.h \
+  ..\api\Custom\math.h ..\api\Custom\Ustring.h \
+  ..\api\Custom\print_string.h ..\api\Custom\ucaps.h \
+  ..\api\Custom\variant.h ..\api\Custom\Color.h \
+  ..\api\Custom\Dictionary.h ..\api\Custom\list.h ..\api\Custom\AABB.h \
+  ..\api\Custom\Plane.h ..\api\Custom\Vector3.h ..\api\Custom\Basis.h \
+  ..\api\Custom\Quat.h ..\api\Custom\Face3.h ..\api\Custom\Transform.h \
+  ..\api\Custom\PoolVector.h ..\api\Custom\Transform2D.h \
+  ..\api\Custom\Rect2.h ..\api\Custom\Vector2.h ..\api\Custom\NodePath.h \
+  ..\api\Custom\StringName.h ..\api\Custom\RefPtr.h ..\api\Custom\RID.h \
+  ..\api\Custom\set.h
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\ustring.h:
+..\api\Custom\ustring.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Array.h:
+..\api\Custom\Array.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\typedefs.h:
+..\api\Custom\typedefs.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\int_types.h:
+..\api\Custom\int_types.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_list.h:
+..\api\Custom\error_list.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\cowdata.h:
+..\api\Custom\cowdata.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_macros.h:
+..\api\Custom\error_macros.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\memory.h:
+..\api\Custom\memory.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\safe_refcount.h:
+..\api\Custom\safe_refcount.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\mutex.h:
+..\api\Custom\mutex.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector.h:
+..\api\Custom\Vector.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\color.h:
+..\api\Custom\color.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_funcs.h:
+..\api\Custom\math_funcs.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_defs.h:
+..\api\Custom\math_defs.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math.h:
+..\api\Custom\math.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Ustring.h:
+..\api\Custom\Ustring.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\print_string.h:
+..\api\Custom\print_string.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\ucaps.h:
+..\api\Custom\ucaps.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\variant.h:
+..\api\Custom\variant.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Color.h:
+..\api\Custom\Color.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Dictionary.h:
+..\api\Custom\Dictionary.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\list.h:
+..\api\Custom\list.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\AABB.h:
+..\api\Custom\AABB.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Plane.h:
+..\api\Custom\Plane.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector3.h:
+..\api\Custom\Vector3.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Basis.h:
+..\api\Custom\Basis.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Quat.h:
+..\api\Custom\Quat.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Face3.h:
+..\api\Custom\Face3.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Transform.h:
+..\api\Custom\Transform.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\PoolVector.h:
+..\api\Custom\PoolVector.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Transform2D.h:
+..\api\Custom\Transform2D.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Rect2.h:
+..\api\Custom\Rect2.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector2.h:
+..\api\Custom\Vector2.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\NodePath.h:
+..\api\Custom\NodePath.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\StringName.h:
+..\api\Custom\StringName.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\RefPtr.h:
+..\api\Custom\RefPtr.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\RID.h:
+..\api\Custom\RID.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\set.h:
+..\api\Custom\set.h:

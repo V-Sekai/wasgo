@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "AudioEffectInstance.h"
+#include "Vector2.h"
 class AudioEffectSpectrumAnalyzerInstance : public AudioEffectInstance{
 public:
 enum MagnitudeMode{

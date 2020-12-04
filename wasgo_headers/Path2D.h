@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "Curve2D.h"
+#include "Node2D.h"
 class Path2D : public Node2D{
 public:
 Curve2D get_curve();

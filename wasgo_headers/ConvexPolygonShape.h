@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Variant.h"
 #include "Shape.h"
+#include "Variant.h"
 class ConvexPolygonShape : public Shape{
 public:
 PoolVector3Array get_points();

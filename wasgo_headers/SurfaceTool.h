@@ -4,17 +4,17 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ArrayMesh.h"
-#include "Mesh.h"
-#include "ustring.h"
-#include "Vector2.h"
-#include "Material.h"
-#include "Color.h"
-#include "Reference.h"
-#include "Plane.h"
-#include "Transform.h"
 #include "Vector3.h"
+#include "Mesh.h"
+#include "Reference.h"
+#include "ustring.h"
+#include "Plane.h"
 #include "Variant.h"
+#include "Color.h"
+#include "Transform.h"
+#include "ArrayMesh.h"
+#include "Material.h"
+#include "Vector2.h"
 class SurfaceTool : public Reference{
 public:
 void add_bones(PoolIntArray p_bones);

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "Shader.h"
 #include "Material.h"
+#include "ustring.h"
 #include "Variant.h"
+#include "Shader.h"
 class ShaderMaterial : public Material{
 public:
 Shader get_shader();

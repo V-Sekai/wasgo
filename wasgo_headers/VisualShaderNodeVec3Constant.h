@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
 #include "VisualShaderNode.h"
+#include "Vector3.h"
 class VisualShaderNodeVec3Constant : public VisualShaderNode{
 public:
 Vector3 get_constant();

@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Transform2D.h"
-#include "Object.h"
 #include "Node2D.h"
-#include "Shape2D.h"
-#include "Variant.h"
 #include "RID.h"
+#include "Transform2D.h"
+#include "Variant.h"
+#include "Shape2D.h"
+#include "Object.h"
 class CollisionObject2D : public Node2D{
 public:
 int create_shape_owner(Object p_owner);

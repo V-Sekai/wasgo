@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "Variant.h"
+#include "ustring.h"
 #include "PackedScene.h"
 #include "Node.h"
 class InstancePlaceholder : public Node{

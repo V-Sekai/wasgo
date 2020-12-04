@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "VisualInstance.h"
 #include "Color.h"
+#include "VisualInstance.h"
 class Light : public VisualInstance{
 public:
 enum BakeMode{

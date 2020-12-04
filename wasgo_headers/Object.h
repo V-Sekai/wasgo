@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
+#include "error_list.h"
 #include "ustring.h"
+#include "Variant.h"
 #include "NodePath.h"
 #include "Reference.h"
-#include "error_list.h"
-#include "Variant.h"
 class Object : public Variant{
 public:
 enum ConnectFlags{

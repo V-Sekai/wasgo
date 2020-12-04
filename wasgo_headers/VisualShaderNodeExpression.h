@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "VisualShaderNodeGroupBase.h"
+#include "ustring.h"
 class VisualShaderNodeExpression : public VisualShaderNodeGroupBase{
 public:
 String get_expression();

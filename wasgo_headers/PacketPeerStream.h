@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "StreamPeer.h"
 #include "PacketPeer.h"
+#include "StreamPeer.h"
 class PacketPeerStream : public PacketPeer{
 public:
 int get_input_buffer_max_size();

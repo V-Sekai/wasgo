@@ -5,12 +5,12 @@
 #include "wasgo\wasgo.h"
 
 #include "Resource.h"
-#include "Shape.h"
-#include "TriangleMesh.h"
-#include "Vector2.h"
-#include "Material.h"
-#include "Variant.h"
 #include "AABB.h"
+#include "Variant.h"
+#include "TriangleMesh.h"
+#include "Shape.h"
+#include "Material.h"
+#include "Vector2.h"
 class Mesh : public Resource{
 public:
 enum ArrayFormat{

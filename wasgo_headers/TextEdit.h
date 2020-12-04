@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Control.h"
-#include "PopupMenu.h"
 #include "ustring.h"
-#include "Color.h"
 #include "Variant.h"
+#include "Color.h"
+#include "PopupMenu.h"
+#include "Control.h"
 class TextEdit : public Control{
 public:
 enum MenuItems{

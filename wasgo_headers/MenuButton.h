@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Button.h"
 #include "PopupMenu.h"
+#include "Button.h"
 class MenuButton : public Button{
 public:
 PopupMenu get_popup();

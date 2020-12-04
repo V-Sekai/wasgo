@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "Shape2D.h"
+#include "Vector2.h"
 class LineShape2D : public Shape2D{
 public:
 float get_d();

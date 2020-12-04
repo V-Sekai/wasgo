@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "AudioStreamPlaybackResampled.h"
+#include "Vector2.h"
 #include "Variant.h"
 class AudioStreamGeneratorPlayback : public AudioStreamPlaybackResampled{
 public:

@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Reference.h"
 #include "Vector2.h"
 #include "Variant.h"
-#include "Reference.h"
 class AStar2D : public Reference{
 public:
 void add_point(int p_id, Vector2 p_position, float p_weight_scale = (float) 1);

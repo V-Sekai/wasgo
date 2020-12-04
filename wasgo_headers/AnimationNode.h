@@ -6,9 +6,9 @@
 
 #include "Resource.h"
 #include "ustring.h"
-#include "Object.h"
-#include "NodePath.h"
 #include "Variant.h"
+#include "NodePath.h"
+#include "Object.h"
 class AnimationNode : public Resource{
 public:
 enum FilterAction{

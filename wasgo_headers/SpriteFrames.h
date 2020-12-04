@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "Variant.h"
 #include "Resource.h"
 #include "Texture.h"
+#include "ustring.h"
+#include "Variant.h"
 class SpriteFrames : public Resource{
 public:
 void add_animation(String p_anim);

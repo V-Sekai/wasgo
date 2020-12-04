@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector2.h"
 #include "InputEventMouse.h"
+#include "Vector2.h"
 class InputEventMouseMotion : public InputEventMouse{
 public:
 float get_pressure();

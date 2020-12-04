@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "error_list.h"
 #include "ustring.h"
 #include "StreamPeer.h"
-#include "error_list.h"
 class StreamPeerTCP : public StreamPeer{
 public:
 enum Status{

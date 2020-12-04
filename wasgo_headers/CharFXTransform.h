@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Color.h"
 #include "Vector2.h"
 #include "Variant.h"
-#include "Color.h"
 #include "Reference.h"
 class CharFXTransform : public Reference{
 public:

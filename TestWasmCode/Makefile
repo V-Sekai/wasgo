@@ -3,9 +3,9 @@ TARGET_EXEC ?= test.wasm
 BUILD_DIR ?= .
 
 # COPY_DEST := "C\:\\Users\\Michael\\Documents\\_Active\\V-Sekai\\groups"
-COPY_DEST := C:/Users/Michael/Documents/_Active/V-Sekai/groups/
+# COPY_DEST := C:/Users/Michael/Documents/_Active/V-Sekai/groups/
 
-CXX := "C:/Program Files/LLVM/bin/clang.exe"
+CXX := "clang"
 # CXX := "C:/Users/Michael/Documents/_Active/godot-wasm/godot/modules/WasGo/thirdparty/wasm-micro-runtime/wamr-sdk/opt/wasi-sdk/bin/clang.exe"
 
 SRCS := $(wildcard *.cpp ../api/Custom/*.cpp ../api/Custom/wasgo/*.cpp ../api/Generated/*.cpp)
@@ -34,18 +34,18 @@ CPPFLAGS += -nostdlib
 CPPFLAGS += -Wl,--export=_notification
 CPPFLAGS += -Wl,--allow-undefined
 # CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\wasgo_headers
-CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\godot\modules\WasGo\thirdparty\wasm-micro-runtime\wamr-sdk\opt\wasi-sdk\lib\clang\10.0.0\include
-CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\api\\Custom
-CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\api\\Generated
-CPPFLAGS += --include-directory=C:\\wasi-sdk-11.0\\wasi-sysroot\\include
-CPPFLAGS += --include-directory=C:\\wasi-sdk-11.0\\wasi-sysroot\\include\\c++\\v1
+# CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\godot\modules\WasGo\thirdparty\wasm-micro-runtime\wamr-sdk\opt\wasi-sdk\lib\clang\10.0.0\include
+CPPFLAGS += --include-directory=..\\api\\Custom
+CPPFLAGS += --include-directory=..\\api\\Generated
+# CPPFLAGS += --include-directory=C:\\wasi-sdk-11.0\\wasi-sysroot\\include
+# CPPFLAGS += --include-directory=C:\\wasi-sdk-11.0\\wasi-sysroot\\include\\c++\\v1
 CPPFLAGS += -DNO_THREADS
 # CPPFLAGS += -oC:\\Users\\Michael\\Documents\\_Active\\V-Sekai\\groups\\test.wasm
 # CPPFLAGS += -v
 
-$(COPY_DEST)/%.wasm: test.wasm
-	$(info $@)
-	copy /Y $< $@
+# $(COPY_DEST)/%.wasm: test.wasm
+# 	$(info $@)
+# 	copy /Y $< $@
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(CXX) $(OBJS) -o $@ $(CPPFLAGS)

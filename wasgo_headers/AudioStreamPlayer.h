@@ -6,8 +6,8 @@
 
 #include "ustring.h"
 #include "AudioStreamPlayback.h"
-#include "AudioStream.h"
 #include "Node.h"
+#include "AudioStream.h"
 class AudioStreamPlayer : public Node{
 public:
 enum MixTarget{

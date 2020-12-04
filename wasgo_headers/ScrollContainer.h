@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
-#include "HScrollBar.h"
 #include "VScrollBar.h"
 #include "Container.h"
+#include "HScrollBar.h"
 class ScrollContainer : public Container{
 public:
 int get_deadzone();

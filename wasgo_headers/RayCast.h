@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "RID.h"
-#include "Vector3.h"
-#include "Object.h"
 #include "Spatial.h"
+#include "Object.h"
+#include "Vector3.h"
+#include "RID.h"
 class RayCast : public Spatial{
 public:
 void add_exception(Object p_node);

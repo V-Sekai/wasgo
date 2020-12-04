@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Node2D.h"
 #include "NodePath.h"
+#include "Node2D.h"
 class Joint2D : public Node2D{
 public:
 float get_bias();

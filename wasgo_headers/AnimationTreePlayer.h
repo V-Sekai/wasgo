@@ -5,12 +5,12 @@
 #include "wasgo\wasgo.h"
 
 #include "Animation.h"
-#include "ustring.h"
-#include "Vector2.h"
-#include "NodePath.h"
 #include "error_list.h"
+#include "ustring.h"
 #include "Variant.h"
 #include "Node.h"
+#include "NodePath.h"
+#include "Vector2.h"
 class AnimationTreePlayer : public Node{
 public:
 enum AnimationProcessMode{

@@ -4,6 +4,21 @@
 
 void WasGoState::_initialize() {
 	reference_object(this);
+	for (int i = 0; i < properties.size(); i++) {
+		Variant var = properties.values()[i];
+		switch(var.get_type()){
+			case (Variant::OBJECT): {
+				Object *obj = var;
+				reference_object(obj);
+			} break;
+			case (Variant::NODE_PATH): {
+				Node *node = get_node_or_null(var);
+				if (node) {
+					reference_object(node);
+				}
+			} break;
+		}
+	}
 	if (wasm_script.is_valid()) {
 		module = WasGoRuntime::get_singleton()->load_module(wasm_script);
 		if (module) {
@@ -33,6 +48,10 @@ void WasGoState::_stop() {
 	}
 	exec_env = nullptr;
 	module_inst = nullptr;
+	createdObjects.clear();
+	createdObjectsReverse.clear();
+	referencedObjects.clear();
+	referencedObjectsReverse.clear();
 }
 
 void WasGoState::_bind_methods() {
@@ -61,21 +80,26 @@ void WasGoState::_validate_property(PropertyInfo &property) const{
 }
 void WasGoState::_notification(int p_what){
 	switch (p_what) {
-		case NOTIFICATION_READY:
+		case NOTIFICATION_READY:{
 			// TODO: Uncomment this
 			// if (!Engine::get_singleton()->is_editor_hint()){ // only run in game
-				_initialize();
+			_stop();
+			_initialize();
+
+		} break;
+		default:{
+		} break;
 			// }
 	}
 
 	// TODO: Uncomment this
 	// if (!Engine::get_singleton()->is_editor_hint()){ // only run in game
-		if (notification_callback) {
-			uint32_t argv[2] = {0, p_what};//argv[0] is the return value
-			if (!wasm_runtime_call_wasm(exec_env, notification_callback, 1, argv)) {
-				printf("call wasm notification callback failed. %s\n", wasm_runtime_get_exception(module_inst));
-			}
+	if (notification_callback) {
+		uint32_t argv[2] = { 0, p_what }; //argv[0] is the return value
+		if (!wasm_runtime_call_wasm(exec_env, notification_callback, 1, argv)) {
+			printf("call wasm notification callback failed. %s\n", wasm_runtime_get_exception(module_inst));
 		}
+	}
 	// }
 
 	// pass 4 elements for function arguments
@@ -205,7 +229,7 @@ WasGoState::WasGoID WasGoState::generate_id(){
 WasGoState::WasGoID WasGoState::create_object(ObjectID obj_id) {
 	WasGoID wasgo_id = 0;
 	if (createdObjects.has(obj_id)) {
-		wasgo_id = createdObjects[wasgo_id];
+		wasgo_id = createdObjects[obj_id];
 	} else {
 		wasgo_id = generate_id();
 		createdObjects.set(obj_id, wasgo_id);
@@ -217,7 +241,7 @@ WasGoState::WasGoID WasGoState::create_object(ObjectID obj_id) {
 WasGoState::WasGoID WasGoState::reference_object(ObjectID obj_id) {
 	WasGoID wasgo_id = 0;
 	if (referencedObjects.has(obj_id)) {
-		wasgo_id = referencedObjects[wasgo_id];
+		wasgo_id = referencedObjects[obj_id];
 	} else {
 		wasgo_id = generate_id();
 		referencedObjects.set(obj_id, wasgo_id);
@@ -276,7 +300,6 @@ WasGoState::WasGoID WasGoState::create_object(Object *obj) {
 }
 
 WasGoState::WasGoID WasGoState::reference_object(Object *obj) {
-	//just dereference it for now
 	return reference_object(obj->get_instance_id());
 }
 
@@ -293,8 +316,10 @@ WasGoState::WasGoID WasGoState::handle_return_variant(Variant var){
 		}
 	} else {
 		if (var.get_type() == Variant::OBJECT) {
-			Object *obj = (Object *)&var;
-			id = create_object(obj->get_instance_id());
+			Object *obj = (Object *)var;
+			if (obj) {
+				id = create_object(obj->get_instance_id());
+			}
 		} else {
 			id = create_variant(var);
 		}

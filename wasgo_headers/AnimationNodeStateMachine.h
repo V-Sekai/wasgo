@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
-#include "AnimationRootNode.h"
-#include "AnimationNodeStateMachineTransition.h"
-#include "ustring.h"
-#include "Vector2.h"
 #include "AnimationNode.h"
+#include "AnimationRootNode.h"
+#include "ustring.h"
+#include "AnimationNodeStateMachineTransition.h"
+#include "Vector2.h"
 class AnimationNodeStateMachine : public AnimationRootNode{
 public:
 void add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2((0, 0)));

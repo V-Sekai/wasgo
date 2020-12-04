@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Vector3.h"
 #include "Material.h"
 #include "Color.h"
 #include "Texture.h"
+#include "Vector3.h"
 class SpatialMaterial : public Material{
 public:
 enum BillboardMode{

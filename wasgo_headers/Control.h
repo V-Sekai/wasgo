@@ -4,19 +4,19 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Shader.h"
-#include "Rect2.h"
-#include "Margin.h"
-#include "Texture.h"
-#include "ustring.h"
-#include "Font.h"
-#include "Vector2.h"
 #include "CanvasItem.h"
-#include "Color.h"
-#include "NodePath.h"
-#include "Variant.h"
+#include "Font.h"
 #include "Theme.h"
+#include "ustring.h"
+#include "Variant.h"
+#include "Rect2.h"
+#include "Color.h"
 #include "StyleBox.h"
+#include "NodePath.h"
+#include "Shader.h"
+#include "Texture.h"
+#include "Margin.h"
+#include "Vector2.h"
 class Control : public CanvasItem{
 public:
 enum Anchor{

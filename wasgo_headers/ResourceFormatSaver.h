@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
-#include "Variant.h"
 #include "Reference.h"
 #include "ustring.h"
+#include "Resource.h"
+#include "Variant.h"
 class ResourceFormatSaver : public Reference{
 public:
 PoolStringArray get_recognized_extensions(Resource p_resource);

@@ -1,55 +1,45 @@
 ../api/Custom/vector3.cpp.o: ..\api\Custom\vector3.cpp \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\vector3.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_funcs.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_defs.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\typedefs.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\int_types.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Ustring.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Array.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_list.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\cowdata.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_macros.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\memory.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\safe_refcount.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\mutex.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\basis.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Quat.h \
-  C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector3.h
+  ..\api\Custom\vector3.h ..\api\Custom\math_funcs.h \
+  ..\api\Custom\math_defs.h ..\api\Custom\typedefs.h \
+  ..\api\Custom\int_types.h ..\api\Custom\math.h ..\api\Custom\Ustring.h \
+  ..\api\Custom\Array.h ..\api\Custom\error_list.h \
+  ..\api\Custom\cowdata.h ..\api\Custom\error_macros.h \
+  ..\api\Custom\memory.h ..\api\Custom\safe_refcount.h \
+  ..\api\Custom\mutex.h ..\api\Custom\Vector.h ..\api\Custom\basis.h \
+  ..\api\Custom\Quat.h ..\api\Custom\Vector3.h
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\vector3.h:
+..\api\Custom\vector3.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_funcs.h:
+..\api\Custom\math_funcs.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math_defs.h:
+..\api\Custom\math_defs.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\typedefs.h:
+..\api\Custom\typedefs.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\int_types.h:
+..\api\Custom\int_types.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\math.h:
+..\api\Custom\math.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Ustring.h:
+..\api\Custom\Ustring.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Array.h:
+..\api\Custom\Array.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_list.h:
+..\api\Custom\error_list.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\cowdata.h:
+..\api\Custom\cowdata.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\error_macros.h:
+..\api\Custom\error_macros.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\memory.h:
+..\api\Custom\memory.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\safe_refcount.h:
+..\api\Custom\safe_refcount.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\mutex.h:
+..\api\Custom\mutex.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector.h:
+..\api\Custom\Vector.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\basis.h:
+..\api\Custom\basis.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Quat.h:
+..\api\Custom\Quat.h:
 
-C:\Users\Michael\Documents\_Active\godot-wasm\godot\modules\WasGo\api\Custom\Vector3.h:
+..\api\Custom\Vector3.h:

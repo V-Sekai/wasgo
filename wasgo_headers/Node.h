@@ -5,12 +5,12 @@
 #include "wasgo\wasgo.h"
 
 #include "MultiplayerAPI.h"
-#include "ustring.h"
 #include "Object.h"
-#include "Viewport.h"
-#include "NodePath.h"
+#include "ustring.h"
 #include "Variant.h"
+#include "NodePath.h"
 #include "SceneTree.h"
+#include "Viewport.h"
 class Node : public Object{
 public:
 enum DuplicateFlags{

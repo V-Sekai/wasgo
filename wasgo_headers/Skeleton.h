@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Skin.h"
-#include "Spatial.h"
-#include "ustring.h"
-#include "SkinReference.h"
-#include "Transform.h"
-#include "Variant.h"
 #include "RID.h"
+#include "Skin.h"
+#include "ustring.h"
+#include "Variant.h"
 #include "Node.h"
+#include "Transform.h"
+#include "SkinReference.h"
+#include "Spatial.h"
 class Skeleton : public Spatial{
 public:
 void add_bone(String p_name);

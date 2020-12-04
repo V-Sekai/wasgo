@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Vector3.h"
+#include "PhysicsServer.h"
 #include "PhysicsBody.h"
 #include "KinematicCollision.h"
 #include "Transform.h"
-#include "Vector3.h"
-#include "PhysicsServer.h"
 class KinematicBody : public PhysicsBody{
 public:
 bool get_axis_lock(PhysicsServer::BodyAxis p_axis);

@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ARVRPositionalTracker.h"
-#include "Transform.h"
-#include "ustring.h"
 #include "Object.h"
-#include "ARVRInterface.h"
+#include "ARVRPositionalTracker.h"
+#include "ustring.h"
 #include "Variant.h"
+#include "Transform.h"
+#include "ARVRInterface.h"
 class ARVRServer : public Object{
 public:
 enum RotationMode{

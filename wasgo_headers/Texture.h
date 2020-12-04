@@ -5,11 +5,11 @@
 #include "wasgo\wasgo.h"
 
 #include "Resource.h"
+#include "RID.h"
 #include "Rect2.h"
+#include "Color.h"
 #include "Image.h"
 #include "Vector2.h"
-#include "Color.h"
-#include "RID.h"
 class Texture : public Resource{
 public:
 enum Flags{

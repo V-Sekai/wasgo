@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Resource.h"
 #include "ustring.h"
 #include "InputEvent.h"
-#include "Resource.h"
 class ShortCut : public Resource{
 public:
 String get_as_text();

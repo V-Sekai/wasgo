@@ -6,9 +6,9 @@
 
 #include "AnimationNode.h"
 #include "ustring.h"
+#include "Node.h"
 #include "NodePath.h"
 #include "Transform.h"
-#include "Node.h"
 class AnimationTree : public Node{
 public:
 enum AnimationProcessMode{

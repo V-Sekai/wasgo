@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Vector3.h"
 #include "GeometryInstance.h"
 #include "Mesh.h"
+#include "Plane.h"
+#include "Color.h"
 #include "Texture.h"
 #include "Vector2.h"
-#include "Color.h"
-#include "Plane.h"
-#include "Vector3.h"
 class ImmediateGeometry : public GeometryInstance{
 public:
 void add_sphere(int p_lats, int p_lons, float p_radius, bool p_add_uv = (bool) true);

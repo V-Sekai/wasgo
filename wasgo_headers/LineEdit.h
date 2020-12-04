@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "Control.h"
 #include "PopupMenu.h"
 #include "Texture.h"
+#include "ustring.h"
+#include "Control.h"
 class LineEdit : public Control{
 public:
 enum Align{

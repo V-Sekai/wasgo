@@ -5,11 +5,11 @@
 #include "wasgo\wasgo.h"
 
 #include "Resource.h"
-#include "Texture.h"
+#include "AABB.h"
+#include "Variant.h"
 #include "NodePath.h"
 #include "Transform.h"
-#include "Variant.h"
-#include "AABB.h"
+#include "Texture.h"
 class BakedLightmapData : public Resource{
 public:
 void add_user(NodePath p_path, Texture p_lightmap, int p_instance);

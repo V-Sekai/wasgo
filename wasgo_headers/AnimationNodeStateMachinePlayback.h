@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Resource.h"
 #include "ustring.h"
 #include "Variant.h"
-#include "Resource.h"
 class AnimationNodeStateMachinePlayback : public Resource{
 public:
 String get_current_node();

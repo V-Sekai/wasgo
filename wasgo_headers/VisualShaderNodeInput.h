@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "VisualShaderNode.h"
+#include "ustring.h"
 class VisualShaderNodeInput : public VisualShaderNode{
 public:
 String get_input_name();

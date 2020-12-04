@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "error_list.h"
-#include "Variant.h"
 #include "Reference.h"
+#include "ustring.h"
+#include "Variant.h"
 class XMLParser : public Reference{
 public:
 enum NodeType{

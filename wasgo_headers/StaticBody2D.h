@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "PhysicsMaterial.h"
 #include "Vector2.h"
 #include "PhysicsBody2D.h"
-#include "PhysicsMaterial.h"
 class StaticBody2D : public PhysicsBody2D{
 public:
 float get_bounce();

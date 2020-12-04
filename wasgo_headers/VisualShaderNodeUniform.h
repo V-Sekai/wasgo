@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
 #include "VisualShaderNode.h"
+#include "ustring.h"
 class VisualShaderNodeUniform : public VisualShaderNode{
 public:
 String get_uniform_name();

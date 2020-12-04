@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgo.h"
 
-#include "ustring.h"
-#include "Variant.h"
 #include "Resource.h"
+#include "ustring.h"
 #include "Node.h"
+#include "Variant.h"
 class ResourcePreloader : public Node{
 public:
 void add_resource(String p_name, Resource p_resource);

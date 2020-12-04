@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Reference.h"
 #include "ustring.h"
 #include "Variant.h"
-#include "Reference.h"
 class ResourceFormatLoader : public Reference{
 public:
 void get_dependencies(String p_path, String p_add_types);

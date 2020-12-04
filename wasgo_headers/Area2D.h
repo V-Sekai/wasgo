@@ -5,10 +5,10 @@
 #include "wasgo\wasgo.h"
 
 #include "ustring.h"
-#include "Vector2.h"
+#include "Node.h"
 #include "Variant.h"
 #include "CollisionObject2D.h"
-#include "Node.h"
+#include "Vector2.h"
 class Area2D : public CollisionObject2D{
 public:
 enum SpaceOverride{

@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Resource.h"
 #include "ustring.h"
 #include "Transform.h"
-#include "Resource.h"
 class Skin : public Resource{
 public:
 void add_bind(int p_bone, Transform p_pose);

@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "Node2D.h"
 #include "ustring.h"
 #include "Vector2.h"
-#include "Node2D.h"
 #include "SpriteFrames.h"
 class AnimatedSprite : public Node2D{
 public:

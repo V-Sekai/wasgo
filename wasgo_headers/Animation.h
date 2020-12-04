@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Resource.h"
 #include "Quat.h"
-#include "ustring.h"
-#include "Vector2.h"
-#include "NodePath.h"
+#include "Resource.h"
 #include "Vector3.h"
+#include "ustring.h"
 #include "Variant.h"
+#include "NodePath.h"
+#include "Vector2.h"
 class Animation : public Resource{
 public:
 enum InterpolationType{

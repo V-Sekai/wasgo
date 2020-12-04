@@ -5,8 +5,8 @@
 #include "wasgo\wasgo.h"
 
 #include "PhysicsBody.h"
-#include "Vector3.h"
 #include "PhysicsMaterial.h"
+#include "Vector3.h"
 class StaticBody : public PhysicsBody{
 public:
 float get_bounce();

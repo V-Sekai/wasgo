@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgo.h"
 
+#include "VisualShaderNode.h"
 #include "ustring.h"
 #include "Vector2.h"
-#include "VisualShaderNode.h"
 class VisualShaderNodeGroupBase : public VisualShaderNode{
 public:
 void add_input_port(int p_id, int p_type, String p_name);

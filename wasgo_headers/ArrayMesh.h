@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgo.h"
 
-#include "Mesh.h"
-#include "ustring.h"
-#include "Transform.h"
 #include "error_list.h"
-#include "Variant.h"
+#include "Mesh.h"
 #include "AABB.h"
+#include "ustring.h"
+#include "Variant.h"
+#include "Transform.h"
 class ArrayMesh : public Mesh{
 public:
 enum ArrayFormat{
