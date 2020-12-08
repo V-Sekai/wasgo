@@ -2,10 +2,10 @@
 #ifndef VISUALSHADERNODEUNIFORMREF_H
 #define VISUALSHADERNODEUNIFORMREF_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
-#include "ustring.h"
+#include "Ustring.h"
 class VisualShaderNodeUniformRef : public VisualShaderNode{
 public:
 String get_uniform_name();
@@ -15,7 +15,10 @@ protected:
 public:
 explicit VisualShaderNodeUniformRef(WasGoID p_wasgo_id);
 explicit VisualShaderNodeUniformRef(VisualShaderNode other);
+VisualShaderNodeUniformRef();
 VisualShaderNodeUniformRef new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

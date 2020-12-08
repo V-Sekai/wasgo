@@ -438,8 +438,15 @@ void SpatialMaterial::set_uv2_triplanar_blend_sharpness(float p_sharpness){
 SpatialMaterial::SpatialMaterial(WasGoID p_wasgo_id) : Material(p_wasgo_id){
 }
 SpatialMaterial::SpatialMaterial(Material other) : Material(other._get_wasgo_id()){
-    wasgo_id = _wasgo_SpatialMaterial_constructor();
 }
-SpatialMaterial::new_instance(){
+SpatialMaterial::SpatialMaterial():Material(){
+}
+SpatialMaterial SpatialMaterial::new_instance(){
     return SpatialMaterial(_wasgo_SpatialMaterial_constructor());
+}
+WasGoID SpatialMaterial::_get_wasgo_id(){
+    return wasgo_id;
+}
+SpatialMaterial::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -24,8 +24,15 @@ void ColorRect::set_frame_color(Color p_color){
 ColorRect::ColorRect(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 ColorRect::ColorRect(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ColorRect_constructor();
 }
-ColorRect::new_instance(){
+ColorRect::ColorRect():Control(){
+}
+ColorRect ColorRect::new_instance(){
     return ColorRect(_wasgo_ColorRect_constructor());
+}
+WasGoID ColorRect::_get_wasgo_id(){
+    return wasgo_id;
+}
+ColorRect::operator bool(){
+    return (bool) wasgo_id;
 }

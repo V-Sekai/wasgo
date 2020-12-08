@@ -1,10 +1,10 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "ImageTexture.h"
-void ImageTexture::create(int p_width, int p_height, Image::Format p_format, int p_flags = (int) 7){
+void ImageTexture::create(int p_width, int p_height, Image::Format p_format, int p_flags){
 	_wasgo_ImageTexture_wrapper_create(wasgo_id, p_width, p_height, p_format._get_wasgo_id(), p_flags);
 }
-void ImageTexture::create_from_image(Image p_image, int p_flags = (int) 7){
+void ImageTexture::create_from_image(Image p_image, int p_flags){
 	_wasgo_ImageTexture_wrapper_create_from_image(wasgo_id, p_image._get_wasgo_id(), p_flags);
 }
 Image::Format ImageTexture::get_format(){
@@ -47,8 +47,15 @@ void ImageTexture::set_storage(ImageTexture::Storage p_mode){
 ImageTexture::ImageTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 ImageTexture::ImageTexture(Texture other) : Texture(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ImageTexture_constructor();
 }
-ImageTexture::new_instance(){
+ImageTexture::ImageTexture():Texture(){
+}
+ImageTexture ImageTexture::new_instance(){
     return ImageTexture(_wasgo_ImageTexture_constructor());
+}
+WasGoID ImageTexture::_get_wasgo_id(){
+    return wasgo_id;
+}
+ImageTexture::operator bool(){
+    return (bool) wasgo_id;
 }

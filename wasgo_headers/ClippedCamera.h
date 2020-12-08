@@ -2,11 +2,11 @@
 #ifndef CLIPPEDCAMERA_H
 #define CLIPPEDCAMERA_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "RID.h"
 #include "Object.h"
 #include "Camera.h"
-#include "RID.h"
 class ClippedCamera : public Camera{
 public:
 enum ProcessMode{
@@ -36,7 +36,10 @@ protected:
 public:
 explicit ClippedCamera(WasGoID p_wasgo_id);
 explicit ClippedCamera(Camera other);
+ClippedCamera();
 ClippedCamera new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

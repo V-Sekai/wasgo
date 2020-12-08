@@ -54,8 +54,15 @@ void Button::set_text_align(Button::TextAlign p_align){
 Button::Button(WasGoID p_wasgo_id) : BaseButton(p_wasgo_id){
 }
 Button::Button(BaseButton other) : BaseButton(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Button_constructor();
 }
-Button::new_instance(){
+Button::Button():BaseButton(){
+}
+Button Button::new_instance(){
     return Button(_wasgo_Button_constructor());
+}
+WasGoID Button::_get_wasgo_id(){
+    return wasgo_id;
+}
+Button::operator bool(){
+    return (bool) wasgo_id;
 }

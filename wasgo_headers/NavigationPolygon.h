@@ -2,10 +2,10 @@
 #ifndef NAVIGATIONPOLYGON_H
 #define NAVIGATIONPOLYGON_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Variant.h"
 #include "Resource.h"
+#include "Variant.h"
 class NavigationPolygon : public Resource{
 public:
 void add_outline(PoolVector2Array p_outline);
@@ -27,7 +27,10 @@ protected:
 public:
 explicit NavigationPolygon(WasGoID p_wasgo_id);
 explicit NavigationPolygon(Resource other);
+NavigationPolygon();
 NavigationPolygon new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

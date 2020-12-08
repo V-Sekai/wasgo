@@ -2,18 +2,18 @@
 #ifndef ANIMATEDSPRITE3D_H
 #define ANIMATEDSPRITE3D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "SpriteBase3D.h"
 #include "SpriteFrames.h"
-#include "ustring.h"
+#include "SpriteBase3D.h"
+#include "Ustring.h"
 class AnimatedSprite3D : public SpriteBase3D{
 public:
 String get_animation();
 int get_frame();
 SpriteFrames get_sprite_frames();
 bool is_playing();
-void play(String p_anim = (String) );
+void play(String p_anim = String());
 void set_animation(String p_animation);
 void set_frame(int p_frame);
 void set_sprite_frames(SpriteFrames p_sprite_frames);
@@ -23,7 +23,10 @@ protected:
 public:
 explicit AnimatedSprite3D(WasGoID p_wasgo_id);
 explicit AnimatedSprite3D(SpriteBase3D other);
+AnimatedSprite3D();
 AnimatedSprite3D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

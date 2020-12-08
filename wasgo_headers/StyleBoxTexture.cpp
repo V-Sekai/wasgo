@@ -91,8 +91,15 @@ void StyleBoxTexture::set_v_axis_stretch_mode(StyleBoxTexture::AxisStretchMode p
 StyleBoxTexture::StyleBoxTexture(WasGoID p_wasgo_id) : StyleBox(p_wasgo_id){
 }
 StyleBoxTexture::StyleBoxTexture(StyleBox other) : StyleBox(other._get_wasgo_id()){
-    wasgo_id = _wasgo_StyleBoxTexture_constructor();
 }
-StyleBoxTexture::new_instance(){
+StyleBoxTexture::StyleBoxTexture():StyleBox(){
+}
+StyleBoxTexture StyleBoxTexture::new_instance(){
     return StyleBoxTexture(_wasgo_StyleBoxTexture_constructor());
+}
+WasGoID StyleBoxTexture::_get_wasgo_id(){
+    return wasgo_id;
+}
+StyleBoxTexture::operator bool(){
+    return (bool) wasgo_id;
 }

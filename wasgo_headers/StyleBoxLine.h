@@ -2,7 +2,7 @@
 #ifndef STYLEBOXLINE_H
 #define STYLEBOXLINE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "StyleBox.h"
 #include "Color.h"
@@ -23,7 +23,10 @@ protected:
 public:
 explicit StyleBoxLine(WasGoID p_wasgo_id);
 explicit StyleBoxLine(StyleBox other);
+StyleBoxLine();
 StyleBoxLine new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,13 +2,13 @@
 #ifndef ANIMATIONTREE_H
 #define ANIMATIONTREE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "AnimationNode.h"
 #include "Node.h"
 #include "NodePath.h"
-#include "AnimationNode.h"
 #include "Transform.h"
-#include "ustring.h"
+#include "Ustring.h"
 class AnimationTree : public Node{
 public:
 enum AnimationProcessMode{
@@ -34,7 +34,10 @@ protected:
 public:
 explicit AnimationTree(WasGoID p_wasgo_id);
 explicit AnimationTree(Node other);
+AnimationTree();
 AnimationTree new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

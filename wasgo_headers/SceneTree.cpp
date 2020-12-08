@@ -43,7 +43,7 @@ Error SceneTree::change_scene(String p_path){
 Error SceneTree::change_scene_to(PackedScene p_packed_scene){
 	return Error(_wasgo_SceneTree_wrapper_change_scene_to(wasgo_id, p_packed_scene._get_wasgo_id()));
 }
-SceneTreeTimer SceneTree::create_timer(float p_time_sec, bool p_pause_mode_process = (bool) true){
+SceneTreeTimer SceneTree::create_timer(float p_time_sec, bool p_pause_mode_process){
 	return SceneTreeTimer(_wasgo_SceneTree_wrapper_create_timer(wasgo_id, p_time_sec, p_pause_mode_process));
 }
 Node SceneTree::get_current_scene(){
@@ -142,7 +142,7 @@ void SceneTree::notify_group_flags(int p_call_flags, String p_group, int p_notif
 void SceneTree::queue_delete(Object p_obj){
 	_wasgo_SceneTree_wrapper_queue_delete(wasgo_id, p_obj._get_wasgo_id());
 }
-void SceneTree::quit(int p_exit_code = (int) -1){
+void SceneTree::quit(int p_exit_code){
 	_wasgo_SceneTree_wrapper_quit(wasgo_id, p_exit_code);
 }
 Error SceneTree::reload_current_scene(){
@@ -214,7 +214,7 @@ void SceneTree::set_quit_on_go_back(bool p_enabled){
 void SceneTree::set_refuse_new_network_connections(bool p_refuse){
 	_wasgo_SceneTree_wrapper_set_refuse_new_network_connections(wasgo_id, p_refuse);
 }
-void SceneTree::set_screen_stretch(SceneTree::StretchMode p_mode, SceneTree::StretchAspect p_aspect, Vector2 p_minsize, float p_shrink = (float) 1){
+void SceneTree::set_screen_stretch(SceneTree::StretchMode p_mode, SceneTree::StretchAspect p_aspect, Vector2 p_minsize, float p_shrink){
 
     Variant wasgo_var_minsize = p_minsize;
     uint8_t wasgo_buffer_minsize[12];
@@ -230,8 +230,15 @@ void SceneTree::set_use_font_oversampling(bool p_enable){
 SceneTree::SceneTree(WasGoID p_wasgo_id) : MainLoop(p_wasgo_id){
 }
 SceneTree::SceneTree(MainLoop other) : MainLoop(other._get_wasgo_id()){
-    wasgo_id = _wasgo_SceneTree_constructor();
 }
-SceneTree::new_instance(){
+SceneTree::SceneTree():MainLoop(){
+}
+SceneTree SceneTree::new_instance(){
     return SceneTree(_wasgo_SceneTree_constructor());
+}
+WasGoID SceneTree::_get_wasgo_id(){
+    return wasgo_id;
+}
+SceneTree::operator bool(){
+    return (bool) wasgo_id;
 }

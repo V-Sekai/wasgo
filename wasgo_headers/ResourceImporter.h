@@ -2,11 +2,21 @@
 #ifndef RESOURCEIMPORTER_H
 #define RESOURCEIMPORTER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Reference.h"
 class ResourceImporter : public Reference{
 public:
+
+protected:
+public:
+explicit ResourceImporter(WasGoID p_wasgo_id);
+explicit ResourceImporter(Reference other);
+ResourceImporter();
+ResourceImporter new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

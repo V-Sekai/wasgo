@@ -23,8 +23,15 @@ void CameraTexture::set_which_feed(CameraServer::FeedImage p_which_feed){
 CameraTexture::CameraTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 CameraTexture::CameraTexture(Texture other) : Texture(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CameraTexture_constructor();
 }
-CameraTexture::new_instance(){
+CameraTexture::CameraTexture():Texture(){
+}
+CameraTexture CameraTexture::new_instance(){
     return CameraTexture(_wasgo_CameraTexture_constructor());
+}
+WasGoID CameraTexture::_get_wasgo_id(){
+    return wasgo_id;
+}
+CameraTexture::operator bool(){
+    return (bool) wasgo_id;
 }

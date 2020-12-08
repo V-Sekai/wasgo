@@ -11,8 +11,15 @@ void VisualShaderNodeVectorFunc::set_function(VisualShaderNodeVectorFunc::Functi
 VisualShaderNodeVectorFunc::VisualShaderNodeVectorFunc(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeVectorFunc::VisualShaderNodeVectorFunc(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisualShaderNodeVectorFunc_constructor();
 }
-VisualShaderNodeVectorFunc::new_instance(){
+VisualShaderNodeVectorFunc::VisualShaderNodeVectorFunc():VisualShaderNode(){
+}
+VisualShaderNodeVectorFunc VisualShaderNodeVectorFunc::new_instance(){
     return VisualShaderNodeVectorFunc(_wasgo_VisualShaderNodeVectorFunc_constructor());
+}
+WasGoID VisualShaderNodeVectorFunc::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeVectorFunc::operator bool(){
+    return (bool) wasgo_id;
 }

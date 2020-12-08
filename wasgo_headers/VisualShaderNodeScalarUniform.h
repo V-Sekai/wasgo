@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODESCALARUNIFORM_H
 #define VISUALSHADERNODESCALARUNIFORM_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNodeUniform.h"
 class VisualShaderNodeScalarUniform : public VisualShaderNodeUniform{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VisualShaderNodeScalarUniform(WasGoID p_wasgo_id);
 explicit VisualShaderNodeScalarUniform(VisualShaderNodeUniform other);
+VisualShaderNodeScalarUniform();
 VisualShaderNodeScalarUniform new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

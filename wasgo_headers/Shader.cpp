@@ -73,8 +73,15 @@ void Shader::set_default_texture_param(String p_param, Texture p_texture){
 Shader::Shader(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Shader::Shader(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Shader_constructor();
 }
-Shader::new_instance(){
+Shader::Shader():Resource(){
+}
+Shader Shader::new_instance(){
     return Shader(_wasgo_Shader_constructor());
+}
+WasGoID Shader::_get_wasgo_id(){
+    return wasgo_id;
+}
+Shader::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTNOTCHFILTER_H
 #define AUDIOEFFECTNOTCHFILTER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioEffectFilter.h"
 class AudioEffectNotchFilter : public AudioEffectFilter{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit AudioEffectNotchFilter(WasGoID p_wasgo_id);
 explicit AudioEffectNotchFilter(AudioEffectFilter other);
+AudioEffectNotchFilter();
 AudioEffectNotchFilter new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

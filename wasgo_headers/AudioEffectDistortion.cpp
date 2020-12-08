@@ -35,8 +35,15 @@ void AudioEffectDistortion::set_pre_gain(float p_pre_gain){
 AudioEffectDistortion::AudioEffectDistortion(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectDistortion::AudioEffectDistortion(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioEffectDistortion_constructor();
 }
-AudioEffectDistortion::new_instance(){
+AudioEffectDistortion::AudioEffectDistortion():AudioEffect(){
+}
+AudioEffectDistortion AudioEffectDistortion::new_instance(){
     return AudioEffectDistortion(_wasgo_AudioEffectDistortion_constructor());
+}
+WasGoID AudioEffectDistortion::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioEffectDistortion::operator bool(){
+    return (bool) wasgo_id;
 }

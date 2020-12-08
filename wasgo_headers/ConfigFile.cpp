@@ -37,7 +37,7 @@ PoolStringArray ConfigFile::get_section_keys(String p_section){
 PoolStringArray ConfigFile::get_sections(){
 	return PoolStringArray(_wasgo_ConfigFile_wrapper_get_sections(wasgo_id));
 }
-Variant ConfigFile::get_value(String p_section, String p_key, Variant p_default = (Variant) ""){
+Variant ConfigFile::get_value(String p_section, String p_key, Variant p_default){
 
     Variant wasgo_var_section = p_section;
     int wasgo_size_section = String(p_section).size();
@@ -170,8 +170,15 @@ void ConfigFile::set_value(String p_section, String p_key, Variant p_value){
 ConfigFile::ConfigFile(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 ConfigFile::ConfigFile(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ConfigFile_constructor();
 }
-ConfigFile::new_instance(){
+ConfigFile::ConfigFile():Reference(){
+}
+ConfigFile ConfigFile::new_instance(){
     return ConfigFile(_wasgo_ConfigFile_constructor());
+}
+WasGoID ConfigFile::_get_wasgo_id(){
+    return wasgo_id;
+}
+ConfigFile::operator bool(){
+    return (bool) wasgo_id;
 }

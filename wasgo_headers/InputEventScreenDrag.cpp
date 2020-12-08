@@ -68,8 +68,15 @@ void InputEventScreenDrag::set_speed(Vector2 p_speed){
 InputEventScreenDrag::InputEventScreenDrag(WasGoID p_wasgo_id) : InputEvent(p_wasgo_id){
 }
 InputEventScreenDrag::InputEventScreenDrag(InputEvent other) : InputEvent(other._get_wasgo_id()){
-    wasgo_id = _wasgo_InputEventScreenDrag_constructor();
 }
-InputEventScreenDrag::new_instance(){
+InputEventScreenDrag::InputEventScreenDrag():InputEvent(){
+}
+InputEventScreenDrag InputEventScreenDrag::new_instance(){
     return InputEventScreenDrag(_wasgo_InputEventScreenDrag_constructor());
+}
+WasGoID InputEventScreenDrag::_get_wasgo_id(){
+    return wasgo_id;
+}
+InputEventScreenDrag::operator bool(){
+    return (bool) wasgo_id;
 }

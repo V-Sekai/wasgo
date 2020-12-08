@@ -2,7 +2,7 @@
 #ifndef ENCODEDOBJECTASID_H
 #define ENCODEDOBJECTASID_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Reference.h"
 class EncodedObjectAsID : public Reference{
@@ -14,7 +14,10 @@ protected:
 public:
 explicit EncodedObjectAsID(WasGoID p_wasgo_id);
 explicit EncodedObjectAsID(Reference other);
+EncodedObjectAsID();
 EncodedObjectAsID new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,10 +2,10 @@
 #ifndef STREAMPEERBUFFER_H
 #define STREAMPEERBUFFER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "StreamPeer.h"
 #include "Variant.h"
+#include "StreamPeer.h"
 class StreamPeerBuffer : public StreamPeer{
 public:
 void clear();
@@ -21,7 +21,10 @@ protected:
 public:
 explicit StreamPeerBuffer(WasGoID p_wasgo_id);
 explicit StreamPeerBuffer(StreamPeer other);
+StreamPeerBuffer();
 StreamPeerBuffer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

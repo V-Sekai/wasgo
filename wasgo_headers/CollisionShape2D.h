@@ -2,10 +2,10 @@
 #ifndef COLLISIONSHAPE2D_H
 #define COLLISIONSHAPE2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node2D.h"
 #include "Shape2D.h"
+#include "Node2D.h"
 class CollisionShape2D : public Node2D{
 public:
 float get_one_way_collision_margin();
@@ -21,7 +21,10 @@ protected:
 public:
 explicit CollisionShape2D(WasGoID p_wasgo_id);
 explicit CollisionShape2D(Node2D other);
+CollisionShape2D();
 CollisionShape2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

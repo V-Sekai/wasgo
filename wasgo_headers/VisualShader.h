@@ -2,13 +2,13 @@
 #ifndef VISUALSHADER_H
 #define VISUALSHADER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
 #include "VisualShaderNode.h"
-#include "Variant.h"
-#include "error_list.h"
+#include "Vector2.h"
 #include "Shader.h"
+#include "error_list.h"
+#include "Variant.h"
 class VisualShader : public Shader{
 public:
 enum Type{
@@ -38,7 +38,10 @@ protected:
 public:
 explicit VisualShader(WasGoID p_wasgo_id);
 explicit VisualShader(Shader other);
+VisualShader();
 VisualShader new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

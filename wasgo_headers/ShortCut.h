@@ -2,11 +2,11 @@
 #ifndef SHORTCUT_H
 #define SHORTCUT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "InputEvent.h"
 #include "Resource.h"
-#include "ustring.h"
+#include "InputEvent.h"
+#include "Ustring.h"
 class ShortCut : public Resource{
 public:
 String get_as_text();
@@ -19,7 +19,10 @@ protected:
 public:
 explicit ShortCut(WasGoID p_wasgo_id);
 explicit ShortCut(Resource other);
+ShortCut();
 ShortCut new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

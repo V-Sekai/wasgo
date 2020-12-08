@@ -2,14 +2,14 @@
 #ifndef TILEMAP_H
 #define TILEMAP_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
-#include "Variant.h"
 #include "TileSet.h"
-#include "Transform2D.h"
-#include "Node2D.h"
+#include "Vector2.h"
 #include "Rect2.h"
+#include "Transform2D.h"
+#include "Variant.h"
+#include "Node2D.h"
 class TileMap : public Node2D{
 public:
 enum HalfOffset{
@@ -61,7 +61,7 @@ bool is_centered_textures_enabled();
 bool is_compatibility_mode_enabled();
 bool is_y_sort_mode_enabled();
 Vector2 map_to_world(Vector2 p_map_position, bool p_ignore_half_ofs = (bool) false);
-void set_cell(int p_x, int p_y, int p_tile, bool p_flip_x = (bool) false, bool p_flip_y = (bool) false, bool p_transpose = (bool) false, Vector2 p_autotile_coord = Vector2((0, 0)));
+void set_cell(int p_x, int p_y, int p_tile, bool p_flip_x = (bool) false, bool p_flip_y = (bool) false, bool p_transpose = (bool) false, Vector2 p_autotile_coord = Vector2(0, 0));
 void set_cell_size(Vector2 p_size);
 void set_cellv(Vector2 p_position, int p_tile, bool p_flip_x = (bool) false, bool p_flip_y = (bool) false, bool p_transpose = (bool) false);
 void set_centered_textures(bool p_enable);
@@ -84,7 +84,7 @@ void set_tile_origin(TileMap::TileOrigin p_origin);
 void set_tileset(TileSet p_tileset);
 void set_y_sort_mode(bool p_enable);
 void update_bitmask_area(Vector2 p_position);
-void update_bitmask_region(Vector2 p_start = Vector2((0, 0)), Vector2 p_end = Vector2((0, 0)));
+void update_bitmask_region(Vector2 p_start = Vector2(0, 0), Vector2 p_end = Vector2(0, 0));
 void update_dirty_quadrants();
 Vector2 world_to_map(Vector2 p_world_position);
 
@@ -92,7 +92,10 @@ protected:
 public:
 explicit TileMap(WasGoID p_wasgo_id);
 explicit TileMap(Node2D other);
+TileMap();
 TileMap new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

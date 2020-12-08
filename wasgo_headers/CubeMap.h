@@ -2,10 +2,10 @@
 #ifndef CUBEMAP_H
 #define CUBEMAP_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Image.h"
 #include "Resource.h"
+#include "Image.h"
 class CubeMap : public Resource{
 public:
 enum Flags{
@@ -42,7 +42,10 @@ protected:
 public:
 explicit CubeMap(WasGoID p_wasgo_id);
 explicit CubeMap(Resource other);
+CubeMap();
 CubeMap new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

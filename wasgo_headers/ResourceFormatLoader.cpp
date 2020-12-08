@@ -78,8 +78,15 @@ int ResourceFormatLoader::rename_dependencies(String p_path, String p_renames){
 ResourceFormatLoader::ResourceFormatLoader(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 ResourceFormatLoader::ResourceFormatLoader(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ResourceFormatLoader_constructor();
 }
-ResourceFormatLoader::new_instance(){
+ResourceFormatLoader::ResourceFormatLoader():Reference(){
+}
+ResourceFormatLoader ResourceFormatLoader::new_instance(){
     return ResourceFormatLoader(_wasgo_ResourceFormatLoader_constructor());
+}
+WasGoID ResourceFormatLoader::_get_wasgo_id(){
+    return wasgo_id;
+}
+ResourceFormatLoader::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -28,15 +28,23 @@ void _ready() {
 }
 
 void _process(float delta) {
-	printf("this code runs every frame\n");
-	Spatial spin_node = (Spatial)WasGo::this_node().get_node(WasGo::get_property("spin_node", Variant::NODE_PATH));
-	if (spin_node) {
-		printf("spin time %d\n", (int)(((float)WasGo::get_property("spin_speed")) * 100.0f));
-		spin_node.rotate_y(WasGo::get_property("spin_speed"));
-	} else {
-		printf("spin_node is null %d\n", spin_node._get_wasgo_id());
-		Node this_node = WasGo::this_node();
-		Variant path = WasGo::get_property("other_node", Variant::NODE_PATH);
-		spin_node = (Spatial)this_node.get_node(path);
-	}
+	// printf("this code runs every frame\n");
+	// Spatial spin_node = (Spatial)WasGo::this_node().get_node(WasGo::get_property("spin_node", Variant::NODE_PATH));
+	// if (spin_node) {
+	// 	printf("spin time %d\n", (int)(((float)WasGo::get_property("spin_speed")) * 100.0f));
+	// 	spin_node.rotate_y(WasGo::get_property("spin_speed"));
+	// } else {
+	// 	printf("spin_node is null %d\n", spin_node._get_wasgo_id());
+	// 	Node this_node = WasGo::this_node();
+	// 	Variant path = WasGo::get_property("other_node", Variant::NODE_PATH);
+	// 	spin_node = (Spatial)this_node.get_node(path);
+	// }
+}
+
+void _input(InputEvent event){
+	printf("We got input!!!: %ls\n", event.as_text().ascii().ptr());
+}
+
+void _unhandled_key_input(InputEventKey p_key_event){
+	printf("we got the key: %ls\n", p_key_event.as_text().ascii().ptr());
 }

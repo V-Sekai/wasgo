@@ -2,7 +2,7 @@
 #ifndef PANORAMASKY_H
 #define PANORAMASKY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Sky.h"
 #include "Texture.h"
@@ -15,7 +15,10 @@ protected:
 public:
 explicit PanoramaSky(WasGoID p_wasgo_id);
 explicit PanoramaSky(Sky other);
+PanoramaSky();
 PanoramaSky new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

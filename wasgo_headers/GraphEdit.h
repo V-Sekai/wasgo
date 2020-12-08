@@ -2,15 +2,15 @@
 #ifndef GRAPHEDIT_H
 #define GRAPHEDIT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
-#include "Node.h"
-#include "Variant.h"
-#include "error_list.h"
-#include "Control.h"
 #include "HBoxContainer.h"
-#include "ustring.h"
+#include "Vector2.h"
+class Node;
+#include "error_list.h"
+#include "Variant.h"
+#include "Ustring.h"
+#include "Control.h"
 class GraphEdit : public Control{
 public:
 void add_valid_connection_type(int p_from_type, int p_to_type);
@@ -43,7 +43,10 @@ protected:
 public:
 explicit GraphEdit(WasGoID p_wasgo_id);
 explicit GraphEdit(Control other);
+GraphEdit();
 GraphEdit new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

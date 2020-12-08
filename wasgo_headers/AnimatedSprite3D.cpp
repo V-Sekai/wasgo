@@ -20,7 +20,7 @@ SpriteFrames AnimatedSprite3D::get_sprite_frames(){
 bool AnimatedSprite3D::is_playing(){
 	return (bool) _wasgo_AnimatedSprite3D_wrapper_is_playing(wasgo_id);
 }
-void AnimatedSprite3D::play(String p_anim = (String) ){
+void AnimatedSprite3D::play(String p_anim){
 
     Variant wasgo_var_anim = p_anim;
     int wasgo_size_anim = String(p_anim).size();
@@ -51,8 +51,15 @@ void AnimatedSprite3D::stop(){
 AnimatedSprite3D::AnimatedSprite3D(WasGoID p_wasgo_id) : SpriteBase3D(p_wasgo_id){
 }
 AnimatedSprite3D::AnimatedSprite3D(SpriteBase3D other) : SpriteBase3D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimatedSprite3D_constructor();
 }
-AnimatedSprite3D::new_instance(){
+AnimatedSprite3D::AnimatedSprite3D():SpriteBase3D(){
+}
+AnimatedSprite3D AnimatedSprite3D::new_instance(){
     return AnimatedSprite3D(_wasgo_AnimatedSprite3D_constructor());
+}
+WasGoID AnimatedSprite3D::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimatedSprite3D::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,7 +2,7 @@
 #ifndef TEXTUREARRAY_H
 #define TEXTUREARRAY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "TextureLayered.h"
 class TextureArray : public TextureLayered{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit TextureArray(WasGoID p_wasgo_id);
 explicit TextureArray(TextureLayered other);
+TextureArray();
 TextureArray new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

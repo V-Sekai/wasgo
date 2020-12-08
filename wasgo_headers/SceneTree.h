@@ -2,20 +2,20 @@
 #ifndef SCENETREE_H
 #define SCENETREE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Vector2.h"
+class Node;
 #include "SceneTreeTimer.h"
 #include "Object.h"
-#include "Vector2.h"
 #include "MainLoop.h"
-#include "Node.h"
-#include "Variant.h"
-#include "NetworkedMultiplayerPeer.h"
-#include "MultiplayerAPI.h"
-#include "error_list.h"
-#include "PackedScene.h"
+class PackedScene;
 #include "Viewport.h"
-#include "ustring.h"
+#include "error_list.h"
+#include "MultiplayerAPI.h"
+#include "NetworkedMultiplayerPeer.h"
+#include "Variant.h"
+#include "Ustring.h"
 class SceneTree : public MainLoop{
 public:
 enum GroupCallFlags{
@@ -88,7 +88,10 @@ protected:
 public:
 explicit SceneTree(WasGoID p_wasgo_id);
 explicit SceneTree(MainLoop other);
+SceneTree();
 SceneTree new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

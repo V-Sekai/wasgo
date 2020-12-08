@@ -2,7 +2,7 @@
 #ifndef SPHEREMESH_H
 #define SPHEREMESH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "PrimitiveMesh.h"
 class SphereMesh : public PrimitiveMesh{
@@ -22,7 +22,10 @@ protected:
 public:
 explicit SphereMesh(WasGoID p_wasgo_id);
 explicit SphereMesh(PrimitiveMesh other);
+SphereMesh();
 SphereMesh new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

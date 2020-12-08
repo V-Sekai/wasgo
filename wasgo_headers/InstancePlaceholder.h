@@ -2,18 +2,28 @@
 #ifndef INSTANCEPLACEHOLDER_H
 #define INSTANCEPLACEHOLDER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "ustring.h"
 #include "Node.h"
+#include "Ustring.h"
 #include "Variant.h"
-#include "PackedScene.h"
+class PackedScene;
 class InstancePlaceholder : public Node{
 public:
-Node create_instance(bool p_replace = (bool) false, PackedScene p_custom_scene = (PackedScene) "");
+Node create_instance(bool p_replace = (bool) false, PackedScene p_custom_scene = PackedScene());
 String get_instance_path();
 Dictionary get_stored_values(bool p_with_order = (bool) false);
-void replace_by_instance(PackedScene p_custom_scene = (PackedScene) "");
+void replace_by_instance(PackedScene p_custom_scene = PackedScene());
+
+protected:
+public:
+explicit InstancePlaceholder(WasGoID p_wasgo_id);
+explicit InstancePlaceholder(Node other);
+InstancePlaceholder();
+InstancePlaceholder new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

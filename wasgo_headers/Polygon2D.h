@@ -2,12 +2,12 @@
 #ifndef POLYGON2D_H
 #define POLYGON2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
 #include "Vector2.h"
-#include "Variant.h"
 #include "NodePath.h"
+#include "Variant.h"
 #include "Node2D.h"
 #include "Texture.h"
 class Polygon2D : public Node2D{
@@ -57,7 +57,10 @@ protected:
 public:
 explicit Polygon2D(WasGoID p_wasgo_id);
 explicit Polygon2D(Node2D other);
+Polygon2D();
 Polygon2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

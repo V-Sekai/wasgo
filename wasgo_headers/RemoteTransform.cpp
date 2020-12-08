@@ -51,8 +51,15 @@ void RemoteTransform::set_use_global_coordinates(bool p_use_global_coordinates){
 RemoteTransform::RemoteTransform(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 RemoteTransform::RemoteTransform(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_RemoteTransform_constructor();
 }
-RemoteTransform::new_instance(){
+RemoteTransform::RemoteTransform():Spatial(){
+}
+RemoteTransform RemoteTransform::new_instance(){
     return RemoteTransform(_wasgo_RemoteTransform_constructor());
+}
+WasGoID RemoteTransform::_get_wasgo_id(){
+    return wasgo_id;
+}
+RemoteTransform::operator bool(){
+    return (bool) wasgo_id;
 }

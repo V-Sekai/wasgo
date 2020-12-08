@@ -2,13 +2,23 @@
 #ifndef SCROLLBAR_H
 #define SCROLLBAR_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Range.h"
 class ScrollBar : public Range{
 public:
 float get_custom_step();
 void set_custom_step(float p_step);
+
+protected:
+public:
+explicit ScrollBar(WasGoID p_wasgo_id);
+explicit ScrollBar(Range other);
+ScrollBar();
+ScrollBar new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

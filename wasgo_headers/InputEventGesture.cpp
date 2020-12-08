@@ -20,3 +20,19 @@ void InputEventGesture::set_position(Vector2 p_position){
     
 	_wasgo_InputEventGesture_wrapper_set_position(wasgo_id, wasgo_buffer_position, wasgo_size_position);
 }
+
+InputEventGesture::InputEventGesture(WasGoID p_wasgo_id) : InputEventWithModifiers(p_wasgo_id){
+}
+InputEventGesture::InputEventGesture(InputEventWithModifiers other) : InputEventWithModifiers(other._get_wasgo_id()){
+}
+InputEventGesture::InputEventGesture():InputEventWithModifiers(){
+}
+InputEventGesture InputEventGesture::new_instance(){
+    return InputEventGesture(_wasgo_InputEventGesture_constructor());
+}
+WasGoID InputEventGesture::_get_wasgo_id(){
+    return wasgo_id;
+}
+InputEventGesture::operator bool(){
+    return (bool) wasgo_id;
+}

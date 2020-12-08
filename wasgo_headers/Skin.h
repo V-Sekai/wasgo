@@ -2,11 +2,11 @@
 #ifndef SKIN_H
 #define SKIN_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Transform.h"
 #include "Resource.h"
-#include "ustring.h"
+#include "Ustring.h"
+#include "Transform.h"
 class Skin : public Resource{
 public:
 void add_bind(int p_bone, Transform p_pose);
@@ -24,7 +24,10 @@ protected:
 public:
 explicit Skin(WasGoID p_wasgo_id);
 explicit Skin(Resource other);
+Skin();
 Skin new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

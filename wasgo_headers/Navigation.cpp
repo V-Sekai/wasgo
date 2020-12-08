@@ -42,7 +42,7 @@ Object Navigation::get_closest_point_owner(Vector3 p_to_point){
     
 	return Object(_wasgo_Navigation_wrapper_get_closest_point_owner(wasgo_id, wasgo_buffer_to_point, wasgo_size_to_point));
 }
-Vector3 Navigation::get_closest_point_to_segment(Vector3 p_start, Vector3 p_end, bool p_use_collision = (bool) false){
+Vector3 Navigation::get_closest_point_to_segment(Vector3 p_start, Vector3 p_end, bool p_use_collision){
 
     Variant wasgo_var_start = p_start;
     uint8_t wasgo_buffer_start[16];
@@ -64,7 +64,7 @@ Vector3 Navigation::get_closest_point_to_segment(Vector3 p_start, Vector3 p_end,
     return (Vector3) wasgo_ret;
     
 }
-PoolVector3Array Navigation::get_simple_path(Vector3 p_start, Vector3 p_end, bool p_optimize = (bool) true){
+PoolVector3Array Navigation::get_simple_path(Vector3 p_start, Vector3 p_end, bool p_optimize){
 
     Variant wasgo_var_start = p_start;
     uint8_t wasgo_buffer_start[16];
@@ -89,7 +89,7 @@ Vector3 Navigation::get_up_vector(){
     return (Vector3) wasgo_ret;
     
 }
-int Navigation::navmesh_add(NavigationMesh p_mesh, Transform p_xform, Object p_owner = (Object) ""){
+int Navigation::navmesh_add(NavigationMesh p_mesh, Transform p_xform, Object p_owner){
 
     Variant wasgo_var_xform = p_xform;
     uint8_t wasgo_buffer_xform[52];
@@ -123,8 +123,15 @@ void Navigation::set_up_vector(Vector3 p_up){
 Navigation::Navigation(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 Navigation::Navigation(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Navigation_constructor();
 }
-Navigation::new_instance(){
+Navigation::Navigation():Spatial(){
+}
+Navigation Navigation::new_instance(){
     return Navigation(_wasgo_Navigation_constructor());
+}
+WasGoID Navigation::_get_wasgo_id(){
+    return wasgo_id;
+}
+Navigation::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,11 +2,11 @@
 #ifndef RESOURCEINTERACTIVELOADER_H
 #define RESOURCEINTERACTIVELOADER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Resource.h"
 #include "Reference.h"
 #include "error_list.h"
-#include "Resource.h"
 class ResourceInteractiveLoader : public Reference{
 public:
 Resource get_resource();
@@ -14,6 +14,16 @@ int get_stage();
 int get_stage_count();
 Error poll();
 Error wait();
+
+protected:
+public:
+explicit ResourceInteractiveLoader(WasGoID p_wasgo_id);
+explicit ResourceInteractiveLoader(Reference other);
+ResourceInteractiveLoader();
+ResourceInteractiveLoader new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

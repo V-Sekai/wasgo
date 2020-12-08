@@ -102,7 +102,8 @@ public:
 	WasGoID handle_return_variant(Variant var);
 
 	void _input(const Ref<InputEvent> &p_event);
-	void _unhandled_key_input(Ref<InputEvent> p_event);
+	void _unhandled_input(Ref<InputEvent> p_event);
+	void _unhandled_key_input(Ref<InputEventKey> p_event);
 
 private:
 	wasm_module_t module = NULL;

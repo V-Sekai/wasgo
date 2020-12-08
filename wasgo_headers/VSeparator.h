@@ -2,7 +2,7 @@
 #ifndef VSEPARATOR_H
 #define VSEPARATOR_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Separator.h"
 class VSeparator : public Separator{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VSeparator(WasGoID p_wasgo_id);
 explicit VSeparator(Separator other);
+VSeparator();
 VSeparator new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

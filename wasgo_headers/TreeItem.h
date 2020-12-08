@@ -2,14 +2,14 @@
 #ifndef TREEITEM_H
 #define TREEITEM_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
-#include "Texture.h"
+#include "Rect2.h"
 #include "Object.h"
 #include "Variant.h"
-#include "Rect2.h"
-#include "ustring.h"
+#include "Ustring.h"
+#include "Texture.h"
 class TreeItem : public Object{
 public:
 enum TextAlign{
@@ -24,7 +24,7 @@ CELL_MODE_RANGE,
 CELL_MODE_ICON,
 CELL_MODE_CUSTOM
 };
-void add_button(int p_column, Texture p_button, int p_button_idx = (int) -1, bool p_disabled = (bool) false, String p_tooltip = (String) );
+void add_button(int p_column, Texture p_button, int p_button_idx = (int) -1, bool p_disabled = (bool) false, String p_tooltip = String());
 Variant call_recursive(String p_method);
 void clear_custom_bg_color(int p_column);
 void clear_custom_color(int p_column);
@@ -92,6 +92,16 @@ void set_suffix(int p_column, String p_text);
 void set_text(int p_column, String p_text);
 void set_text_align(int p_column, TreeItem::TextAlign p_text_align);
 void set_tooltip(int p_column, String p_tooltip);
+
+protected:
+public:
+explicit TreeItem(WasGoID p_wasgo_id);
+explicit TreeItem(Object other);
+TreeItem();
+TreeItem new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

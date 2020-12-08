@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEVEC3UNIFORM_H
 #define VISUALSHADERNODEVEC3UNIFORM_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNodeUniform.h"
 class VisualShaderNodeVec3Uniform : public VisualShaderNodeUniform{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VisualShaderNodeVec3Uniform(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVec3Uniform(VisualShaderNodeUniform other);
+VisualShaderNodeVec3Uniform();
 VisualShaderNodeVec3Uniform new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

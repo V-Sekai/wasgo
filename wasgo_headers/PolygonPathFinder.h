@@ -2,11 +2,11 @@
 #ifndef POLYGONPATHFINDER_H
 #define POLYGONPATHFINDER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
-#include "Rect2.h"
 #include "Variant.h"
+#include "Rect2.h"
 #include "Vector2.h"
 class PolygonPathFinder : public Resource{
 public:
@@ -23,7 +23,10 @@ protected:
 public:
 explicit PolygonPathFinder(WasGoID p_wasgo_id);
 explicit PolygonPathFinder(Resource other);
+PolygonPathFinder();
 PolygonPathFinder new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

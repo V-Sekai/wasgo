@@ -2,14 +2,14 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Image.h"
 #include "Color.h"
 #include "Vector2.h"
-#include "Resource.h"
-#include "RID.h"
 #include "Rect2.h"
+#include "Resource.h"
+#include "Image.h"
+#include "RID.h"
 class Texture : public Resource{
 public:
 enum Flags{
@@ -22,9 +22,9 @@ FLAG_CONVERT_TO_LINEAR,
 FLAG_MIRRORED_REPEAT,
 FLAG_VIDEO_SURFACE
 };
-void draw(RID p_canvas_item, Vector2 p_position, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = (Texture) "");
-void draw_rect(RID p_canvas_item, Rect2 p_rect, bool p_tile, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = (Texture) "");
-void draw_rect_region(RID p_canvas_item, Rect2 p_rect, Rect2 p_src_rect, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = (Texture) "", bool p_clip_uv = (bool) true);
+void draw(RID p_canvas_item, Vector2 p_position, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = Texture());
+void draw_rect(RID p_canvas_item, Rect2 p_rect, bool p_tile, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = Texture());
+void draw_rect_region(RID p_canvas_item, Rect2 p_rect, Rect2 p_src_rect, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = Texture(), bool p_clip_uv = (bool) true);
 Image get_data();
 int get_flags();
 int get_height();
@@ -32,6 +32,16 @@ Vector2 get_size();
 int get_width();
 bool has_alpha();
 void set_flags(int p_flags);
+
+protected:
+public:
+explicit Texture(WasGoID p_wasgo_id);
+explicit Texture(Resource other);
+Texture();
+Texture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

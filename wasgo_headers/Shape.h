@@ -2,13 +2,23 @@
 #ifndef SHAPE_H
 #define SHAPE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
 class Shape : public Resource{
 public:
 float get_margin();
 void set_margin(float p_margin);
+
+protected:
+public:
+explicit Shape(WasGoID p_wasgo_id);
+explicit Shape(Resource other);
+Shape();
+Shape new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

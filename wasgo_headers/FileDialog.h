@@ -2,13 +2,13 @@
 #ifndef FILEDIALOG_H
 #define FILEDIALOG_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "ConfirmationDialog.h"
-#include "Variant.h"
-#include "LineEdit.h"
 #include "VBoxContainer.h"
-#include "ustring.h"
+#include "LineEdit.h"
+#include "Variant.h"
+#include "Ustring.h"
 class FileDialog : public ConfirmationDialog{
 public:
 enum Access{
@@ -50,7 +50,10 @@ protected:
 public:
 explicit FileDialog(WasGoID p_wasgo_id);
 explicit FileDialog(ConfirmationDialog other);
+FileDialog();
 FileDialog new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

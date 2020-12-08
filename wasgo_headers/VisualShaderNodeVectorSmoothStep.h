@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEVECTORSMOOTHSTEP_H
 #define VISUALSHADERNODEVECTORSMOOTHSTEP_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorSmoothStep : public VisualShaderNode{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VisualShaderNodeVectorSmoothStep(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorSmoothStep(VisualShaderNode other);
+VisualShaderNodeVectorSmoothStep();
 VisualShaderNodeVectorSmoothStep new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

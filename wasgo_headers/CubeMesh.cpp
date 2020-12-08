@@ -42,8 +42,15 @@ void CubeMesh::set_subdivide_width(int p_subdivide){
 CubeMesh::CubeMesh(WasGoID p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
 }
 CubeMesh::CubeMesh(PrimitiveMesh other) : PrimitiveMesh(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CubeMesh_constructor();
 }
-CubeMesh::new_instance(){
+CubeMesh::CubeMesh():PrimitiveMesh(){
+}
+CubeMesh CubeMesh::new_instance(){
     return CubeMesh(_wasgo_CubeMesh_constructor());
+}
+WasGoID CubeMesh::_get_wasgo_id(){
+    return wasgo_id;
+}
+CubeMesh::operator bool(){
+    return (bool) wasgo_id;
 }

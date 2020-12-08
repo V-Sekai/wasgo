@@ -2,7 +2,7 @@
 #ifndef RICHTEXTEFFECT_H
 #define RICHTEXTEFFECT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
 class RichTextEffect : public Resource{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit RichTextEffect(WasGoID p_wasgo_id);
 explicit RichTextEffect(Resource other);
+RichTextEffect();
 RichTextEffect new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

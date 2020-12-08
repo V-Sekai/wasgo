@@ -270,7 +270,7 @@ void Viewport::set_size(Vector2 p_size){
     
 	_wasgo_Viewport_wrapper_set_size(wasgo_id, wasgo_buffer_size, wasgo_size_size);
 }
-void Viewport::set_size_override(bool p_enable, Vector2 p_size = Vector2((-1, -1)), Vector2 p_margin = Vector2((0, 0))){
+void Viewport::set_size_override(bool p_enable, Vector2 p_size, Vector2 p_margin){
 
     Variant wasgo_var_size = p_size;
     uint8_t wasgo_buffer_size[12];
@@ -346,8 +346,15 @@ void Viewport::warp_mouse(Vector2 p_to_position){
 Viewport::Viewport(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 Viewport::Viewport(Node other) : Node(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Viewport_constructor();
 }
-Viewport::new_instance(){
+Viewport::Viewport():Node(){
+}
+Viewport Viewport::new_instance(){
     return Viewport(_wasgo_Viewport_constructor());
+}
+WasGoID Viewport::_get_wasgo_id(){
+    return wasgo_id;
+}
+Viewport::operator bool(){
+    return (bool) wasgo_id;
 }

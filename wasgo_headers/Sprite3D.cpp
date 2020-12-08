@@ -73,8 +73,15 @@ void Sprite3D::set_vframes(int p_vframes){
 Sprite3D::Sprite3D(WasGoID p_wasgo_id) : SpriteBase3D(p_wasgo_id){
 }
 Sprite3D::Sprite3D(SpriteBase3D other) : SpriteBase3D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Sprite3D_constructor();
 }
-Sprite3D::new_instance(){
+Sprite3D::Sprite3D():SpriteBase3D(){
+}
+Sprite3D Sprite3D::new_instance(){
     return Sprite3D(_wasgo_Sprite3D_constructor());
+}
+WasGoID Sprite3D::_get_wasgo_id(){
+    return wasgo_id;
+}
+Sprite3D::operator bool(){
+    return (bool) wasgo_id;
 }

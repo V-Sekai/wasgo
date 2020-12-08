@@ -2,7 +2,7 @@
 #ifndef PLANEMESH_H
 #define PLANEMESH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "PrimitiveMesh.h"
 #include "Vector2.h"
@@ -19,7 +19,10 @@ protected:
 public:
 explicit PlaneMesh(WasGoID p_wasgo_id);
 explicit PlaneMesh(PrimitiveMesh other);
+PlaneMesh();
 PlaneMesh new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

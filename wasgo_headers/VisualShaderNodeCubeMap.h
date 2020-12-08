@@ -2,10 +2,10 @@
 #ifndef VISUALSHADERNODECUBEMAP_H
 #define VISUALSHADERNODECUBEMAP_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "VisualShaderNode.h"
 #include "CubeMap.h"
+#include "VisualShaderNode.h"
 class VisualShaderNodeCubeMap : public VisualShaderNode{
 public:
 enum Source{
@@ -28,7 +28,10 @@ protected:
 public:
 explicit VisualShaderNodeCubeMap(WasGoID p_wasgo_id);
 explicit VisualShaderNodeCubeMap(VisualShaderNode other);
+VisualShaderNodeCubeMap();
 VisualShaderNodeCubeMap new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

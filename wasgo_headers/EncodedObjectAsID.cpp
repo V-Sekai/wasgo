@@ -11,8 +11,15 @@ void EncodedObjectAsID::set_object_id(int p_id){
 EncodedObjectAsID::EncodedObjectAsID(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 EncodedObjectAsID::EncodedObjectAsID(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_EncodedObjectAsID_constructor();
 }
-EncodedObjectAsID::new_instance(){
+EncodedObjectAsID::EncodedObjectAsID():Reference(){
+}
+EncodedObjectAsID EncodedObjectAsID::new_instance(){
     return EncodedObjectAsID(_wasgo_EncodedObjectAsID_constructor());
+}
+WasGoID EncodedObjectAsID::_get_wasgo_id(){
+    return wasgo_id;
+}
+EncodedObjectAsID::operator bool(){
+    return (bool) wasgo_id;
 }

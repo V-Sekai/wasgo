@@ -11,8 +11,15 @@ void ConcavePolygonShape::set_faces(PoolVector3Array p_faces){
 ConcavePolygonShape::ConcavePolygonShape(WasGoID p_wasgo_id) : Shape(p_wasgo_id){
 }
 ConcavePolygonShape::ConcavePolygonShape(Shape other) : Shape(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ConcavePolygonShape_constructor();
 }
-ConcavePolygonShape::new_instance(){
+ConcavePolygonShape::ConcavePolygonShape():Shape(){
+}
+ConcavePolygonShape ConcavePolygonShape::new_instance(){
     return ConcavePolygonShape(_wasgo_ConcavePolygonShape_constructor());
+}
+WasGoID ConcavePolygonShape::_get_wasgo_id(){
+    return wasgo_id;
+}
+ConcavePolygonShape::operator bool(){
+    return (bool) wasgo_id;
 }

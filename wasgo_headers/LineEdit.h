@@ -2,12 +2,12 @@
 #ifndef LINEEDIT_H
 #define LINEEDIT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Control.h"
-#include "Texture.h"
 #include "PopupMenu.h"
-#include "ustring.h"
+#include "Ustring.h"
+#include "Texture.h"
 class LineEdit : public Control{
 public:
 enum Align{
@@ -77,7 +77,10 @@ protected:
 public:
 explicit LineEdit(WasGoID p_wasgo_id);
 explicit LineEdit(Control other);
+LineEdit();
 LineEdit new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

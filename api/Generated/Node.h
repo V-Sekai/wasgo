@@ -2,14 +2,14 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 // #include "MultiplayerAPI.h"
 // #include "SceneTree.h"
 #include "Object.h"
 // #include "Viewport.h"
 #include "Variant.h"
-#include "ustring.h"
+#include "Ustring.h"
 #include "NodePath.h"
 class Node : public Object{
 public:

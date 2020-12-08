@@ -46,6 +46,7 @@
 #include "NodePath.h"
 // #include "object_id.h"
 // #include "pool_vector.h"
+#include "PoolVector.h"
 #include "RefPtr.h"
 #include "RID.h"
 #include "Ustring.h"
@@ -54,19 +55,19 @@
 
 class Object;
 class ObjectRC;
-class Node; // helper
+// class Node; // helper
 // class Control; // helper
 
 struct PropertyInfo;
 struct MethodInfo;
 
-// typedef PoolVector<uint8_t> PoolByteArray;
-// typedef PoolVector<int> PoolIntArray;
-// typedef PoolVector<real_t> PoolRealArray;
-// typedef PoolVector<String> PoolStringArray;
-// typedef PoolVector<Vector2> PoolVector2Array;
-// typedef PoolVector<Vector3> PoolVector3Array;
-// typedef PoolVector<Color> PoolColorArray;
+typedef PoolVector<uint8_t> PoolByteArray;
+typedef PoolVector<int> PoolIntArray;
+typedef PoolVector<real_t> PoolRealArray;
+typedef PoolVector<String> PoolStringArray;
+typedef PoolVector<Vector2> PoolVector2Array;
+typedef PoolVector<Vector3> PoolVector3Array;
+typedef PoolVector<Color> PoolColorArray;
 
 // Temporary workaround until c++11 alignas()
 #ifdef __GNUC__

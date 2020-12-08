@@ -2,7 +2,7 @@
 #ifndef CYLINDERMESH_H
 #define CYLINDERMESH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "PrimitiveMesh.h"
 class CylinderMesh : public PrimitiveMesh{
@@ -22,7 +22,10 @@ protected:
 public:
 explicit CylinderMesh(WasGoID p_wasgo_id);
 explicit CylinderMesh(PrimitiveMesh other);
+CylinderMesh();
 CylinderMesh new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

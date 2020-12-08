@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODECOLOROP_H
 #define VISUALSHADERNODECOLOROP_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeColorOp : public VisualShaderNode{
@@ -25,7 +25,10 @@ protected:
 public:
 explicit VisualShaderNodeColorOp(WasGoID p_wasgo_id);
 explicit VisualShaderNodeColorOp(VisualShaderNode other);
+VisualShaderNodeColorOp();
 VisualShaderNodeColorOp new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

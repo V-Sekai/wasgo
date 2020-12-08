@@ -2,7 +2,7 @@
 #ifndef DIRECTIONALLIGHT_H
 #define DIRECTIONALLIGHT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Light.h"
 class DirectionalLight : public Light{
@@ -27,7 +27,10 @@ protected:
 public:
 explicit DirectionalLight(WasGoID p_wasgo_id);
 explicit DirectionalLight(Light other);
+DirectionalLight();
 DirectionalLight new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

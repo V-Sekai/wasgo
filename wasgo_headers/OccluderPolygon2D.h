@@ -2,10 +2,10 @@
 #ifndef OCCLUDERPOLYGON2D_H
 #define OCCLUDERPOLYGON2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Variant.h"
 #include "Resource.h"
+#include "Variant.h"
 class OccluderPolygon2D : public Resource{
 public:
 enum CullMode{
@@ -24,7 +24,10 @@ protected:
 public:
 explicit OccluderPolygon2D(WasGoID p_wasgo_id);
 explicit OccluderPolygon2D(Resource other);
+OccluderPolygon2D();
 OccluderPolygon2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

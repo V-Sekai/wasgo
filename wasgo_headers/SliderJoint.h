@@ -2,7 +2,7 @@
 #ifndef SLIDERJOINT_H
 #define SLIDERJOINT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Joint.h"
 class SliderJoint : public Joint{
@@ -39,7 +39,10 @@ protected:
 public:
 explicit SliderJoint(WasGoID p_wasgo_id);
 explicit SliderJoint(Joint other);
+SliderJoint();
 SliderJoint new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

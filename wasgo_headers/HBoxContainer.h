@@ -2,7 +2,7 @@
 #ifndef HBOXCONTAINER_H
 #define HBOXCONTAINER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "BoxContainer.h"
 class HBoxContainer : public BoxContainer{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit HBoxContainer(WasGoID p_wasgo_id);
 explicit HBoxContainer(BoxContainer other);
+HBoxContainer();
 HBoxContainer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

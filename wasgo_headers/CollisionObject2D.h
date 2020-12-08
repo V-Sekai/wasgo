@@ -2,7 +2,7 @@
 #ifndef COLLISIONOBJECT2D_H
 #define COLLISIONOBJECT2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Shape2D.h"
 #include "Object.h"
@@ -34,6 +34,16 @@ void shape_owner_set_disabled(int p_owner_id, bool p_disabled);
 void shape_owner_set_one_way_collision(int p_owner_id, bool p_enable);
 void shape_owner_set_one_way_collision_margin(int p_owner_id, float p_margin);
 void shape_owner_set_transform(int p_owner_id, Transform2D p_transform);
+
+protected:
+public:
+explicit CollisionObject2D(WasGoID p_wasgo_id);
+explicit CollisionObject2D(Node2D other);
+CollisionObject2D();
+CollisionObject2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

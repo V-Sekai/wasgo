@@ -2,11 +2,11 @@
 #ifndef STREAMTEXTURE_H
 #define STREAMTEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Ustring.h"
 #include "error_list.h"
 #include "Texture.h"
-#include "ustring.h"
 class StreamTexture : public Texture{
 public:
 String get_load_path();
@@ -16,7 +16,10 @@ protected:
 public:
 explicit StreamTexture(WasGoID p_wasgo_id);
 explicit StreamTexture(Texture other);
+StreamTexture();
 StreamTexture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

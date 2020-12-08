@@ -2,7 +2,7 @@
 #ifndef CYLINDERSHAPE_H
 #define CYLINDERSHAPE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Shape.h"
 class CylinderShape : public Shape{
@@ -16,7 +16,10 @@ protected:
 public:
 explicit CylinderShape(WasGoID p_wasgo_id);
 explicit CylinderShape(Shape other);
+CylinderShape();
 CylinderShape new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

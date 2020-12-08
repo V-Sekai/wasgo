@@ -2,13 +2,23 @@
 #ifndef SCENETREETIMER_H
 #define SCENETREETIMER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Reference.h"
 class SceneTreeTimer : public Reference{
 public:
 float get_time_left();
 void set_time_left(float p_time);
+
+protected:
+public:
+explicit SceneTreeTimer(WasGoID p_wasgo_id);
+explicit SceneTreeTimer(Reference other);
+SceneTreeTimer();
+SceneTreeTimer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

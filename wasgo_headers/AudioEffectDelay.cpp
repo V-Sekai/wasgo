@@ -83,8 +83,15 @@ void AudioEffectDelay::set_tap2_pan(float p_amount){
 AudioEffectDelay::AudioEffectDelay(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectDelay::AudioEffectDelay(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioEffectDelay_constructor();
 }
-AudioEffectDelay::new_instance(){
+AudioEffectDelay::AudioEffectDelay():AudioEffect(){
+}
+AudioEffectDelay AudioEffectDelay::new_instance(){
     return AudioEffectDelay(_wasgo_AudioEffectDelay_constructor());
+}
+WasGoID AudioEffectDelay::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioEffectDelay::operator bool(){
+    return (bool) wasgo_id;
 }

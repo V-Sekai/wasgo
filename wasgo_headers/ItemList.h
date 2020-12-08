@@ -2,16 +2,16 @@
 #ifndef ITEMLIST_H
 #define ITEMLIST_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
 #include "Vector2.h"
-#include "Texture.h"
+#include "Rect2.h"
 #include "VScrollBar.h"
 #include "Variant.h"
+#include "Ustring.h"
 #include "Control.h"
-#include "Rect2.h"
-#include "ustring.h"
+#include "Texture.h"
 class ItemList : public Control{
 public:
 enum IconMode{
@@ -23,7 +23,7 @@ SELECT_SINGLE,
 SELECT_MULTI
 };
 void add_icon_item(Texture p_icon, bool p_selectable = (bool) true);
-void add_item(String p_text, Texture p_icon = (Texture) "", bool p_selectable = (bool) true);
+void add_item(String p_text, Texture p_icon = Texture(), bool p_selectable = (bool) true);
 void clear();
 void ensure_current_is_visible();
 bool get_allow_reselect();
@@ -89,7 +89,10 @@ protected:
 public:
 explicit ItemList(WasGoID p_wasgo_id);
 explicit ItemList(Control other);
+ItemList();
 ItemList new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

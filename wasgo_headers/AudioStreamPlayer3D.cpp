@@ -71,7 +71,7 @@ bool AudioStreamPlayer3D::is_emission_angle_enabled(){
 bool AudioStreamPlayer3D::is_playing(){
 	return (bool) _wasgo_AudioStreamPlayer3D_wrapper_is_playing(wasgo_id);
 }
-void AudioStreamPlayer3D::play(float p_from_position = (float) 0){
+void AudioStreamPlayer3D::play(float p_from_position){
 	_wasgo_AudioStreamPlayer3D_wrapper_play(wasgo_id, p_from_position);
 }
 void AudioStreamPlayer3D::seek(float p_to_position){
@@ -144,8 +144,15 @@ void AudioStreamPlayer3D::stop(){
 AudioStreamPlayer3D::AudioStreamPlayer3D(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 AudioStreamPlayer3D::AudioStreamPlayer3D(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioStreamPlayer3D_constructor();
 }
-AudioStreamPlayer3D::new_instance(){
+AudioStreamPlayer3D::AudioStreamPlayer3D():Spatial(){
+}
+AudioStreamPlayer3D AudioStreamPlayer3D::new_instance(){
     return AudioStreamPlayer3D(_wasgo_AudioStreamPlayer3D_constructor());
+}
+WasGoID AudioStreamPlayer3D::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioStreamPlayer3D::operator bool(){
+    return (bool) wasgo_id;
 }

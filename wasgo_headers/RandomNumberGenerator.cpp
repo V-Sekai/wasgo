@@ -10,7 +10,7 @@ float RandomNumberGenerator::randf(){
 float RandomNumberGenerator::randf_range(float p_from, float p_to){
 	return (float) _wasgo_RandomNumberGenerator_wrapper_randf_range(wasgo_id, p_from, p_to);
 }
-float RandomNumberGenerator::randfn(float p_mean = (float) 0, float p_deviation = (float) 1){
+float RandomNumberGenerator::randfn(float p_mean, float p_deviation){
 	return (float) _wasgo_RandomNumberGenerator_wrapper_randfn(wasgo_id, p_mean, p_deviation);
 }
 int RandomNumberGenerator::randi(){
@@ -29,8 +29,15 @@ void RandomNumberGenerator::set_seed(int p_seed){
 RandomNumberGenerator::RandomNumberGenerator(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 RandomNumberGenerator::RandomNumberGenerator(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_RandomNumberGenerator_constructor();
 }
-RandomNumberGenerator::new_instance(){
+RandomNumberGenerator::RandomNumberGenerator():Reference(){
+}
+RandomNumberGenerator RandomNumberGenerator::new_instance(){
     return RandomNumberGenerator(_wasgo_RandomNumberGenerator_constructor());
+}
+WasGoID RandomNumberGenerator::_get_wasgo_id(){
+    return wasgo_id;
+}
+RandomNumberGenerator::operator bool(){
+    return (bool) wasgo_id;
 }

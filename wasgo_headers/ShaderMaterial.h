@@ -2,12 +2,12 @@
 #ifndef SHADERMATERIAL_H
 #define SHADERMATERIAL_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Ustring.h"
 #include "Variant.h"
 #include "Shader.h"
 #include "Material.h"
-#include "ustring.h"
 class ShaderMaterial : public Material{
 public:
 Shader get_shader();
@@ -21,7 +21,10 @@ protected:
 public:
 explicit ShaderMaterial(WasGoID p_wasgo_id);
 explicit ShaderMaterial(Material other);
+ShaderMaterial();
 ShaderMaterial new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Curve.h"
-int Curve::add_point(Vector2 p_position, float p_left_tangent = (float) 0, float p_right_tangent = (float) 0, Curve::TangentMode p_left_mode = (Curve::TangentMode) 0, Curve::TangentMode p_right_mode = (Curve::TangentMode) 0){
+int Curve::add_point(Vector2 p_position, float p_left_tangent, float p_right_tangent, Curve::TangentMode p_left_mode, Curve::TangentMode p_right_mode){
 
     Variant wasgo_var_position = p_position;
     uint8_t wasgo_buffer_position[12];
@@ -93,8 +93,15 @@ void Curve::set_point_value(int p_index, float p_y){
 Curve::Curve(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Curve::Curve(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Curve_constructor();
 }
-Curve::new_instance(){
+Curve::Curve():Resource(){
+}
+Curve Curve::new_instance(){
     return Curve(_wasgo_Curve_constructor());
+}
+WasGoID Curve::_get_wasgo_id(){
+    return wasgo_id;
+}
+Curve::operator bool(){
+    return (bool) wasgo_id;
 }

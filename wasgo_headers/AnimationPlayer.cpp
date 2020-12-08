@@ -166,7 +166,7 @@ bool AnimationPlayer::is_active(){
 bool AnimationPlayer::is_playing(){
 	return (bool) _wasgo_AnimationPlayer_wrapper_is_playing(wasgo_id);
 }
-void AnimationPlayer::play(String p_name = (String) , float p_custom_blend = (float) -1, float p_custom_speed = (float) 1, bool p_from_end = (bool) false){
+void AnimationPlayer::play(String p_name, float p_custom_blend, float p_custom_speed, bool p_from_end){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -175,7 +175,7 @@ void AnimationPlayer::play(String p_name = (String) , float p_custom_blend = (fl
     
 	_wasgo_AnimationPlayer_wrapper_play(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_custom_blend, p_custom_speed, p_from_end);
 }
-void AnimationPlayer::play_backwards(String p_name = (String) , float p_custom_blend = (float) -1){
+void AnimationPlayer::play_backwards(String p_name, float p_custom_blend){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -217,7 +217,7 @@ void AnimationPlayer::rename_animation(String p_name, String p_newname){
     
 	_wasgo_AnimationPlayer_wrapper_rename_animation(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_newname, wasgo_size_newname);
 }
-void AnimationPlayer::seek(float p_seconds, bool p_update = (bool) false){
+void AnimationPlayer::seek(float p_seconds, bool p_update){
 	_wasgo_AnimationPlayer_wrapper_seek(wasgo_id, p_seconds, p_update);
 }
 void AnimationPlayer::set_active(bool p_active){
@@ -286,15 +286,22 @@ void AnimationPlayer::set_root(NodePath p_path){
 void AnimationPlayer::set_speed_scale(float p_speed){
 	_wasgo_AnimationPlayer_wrapper_set_speed_scale(wasgo_id, p_speed);
 }
-void AnimationPlayer::stop(bool p_reset = (bool) true){
+void AnimationPlayer::stop(bool p_reset){
 	_wasgo_AnimationPlayer_wrapper_stop(wasgo_id, p_reset);
 }
 
 AnimationPlayer::AnimationPlayer(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 AnimationPlayer::AnimationPlayer(Node other) : Node(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationPlayer_constructor();
 }
-AnimationPlayer::new_instance(){
+AnimationPlayer::AnimationPlayer():Node(){
+}
+AnimationPlayer AnimationPlayer::new_instance(){
     return AnimationPlayer(_wasgo_AnimationPlayer_constructor());
+}
+WasGoID AnimationPlayer::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationPlayer::operator bool(){
+    return (bool) wasgo_id;
 }

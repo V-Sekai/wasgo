@@ -59,8 +59,15 @@ void AudioEffectChorus::set_wet(float p_amount){
 AudioEffectChorus::AudioEffectChorus(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectChorus::AudioEffectChorus(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioEffectChorus_constructor();
 }
-AudioEffectChorus::new_instance(){
+AudioEffectChorus::AudioEffectChorus():AudioEffect(){
+}
+AudioEffectChorus AudioEffectChorus::new_instance(){
     return AudioEffectChorus(_wasgo_AudioEffectChorus_constructor());
+}
+WasGoID AudioEffectChorus::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioEffectChorus::operator bool(){
+    return (bool) wasgo_id;
 }

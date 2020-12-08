@@ -38,7 +38,7 @@ int HTTPRequest::get_timeout(){
 bool HTTPRequest::is_using_threads(){
 	return (bool) _wasgo_HTTPRequest_wrapper_is_using_threads(wasgo_id);
 }
-Error HTTPRequest::request(String p_url, PoolStringArray p_custom_headers = (PoolStringArray) [], bool p_ssl_validate_domain = (bool) true, HTTPClient::Method p_method = (HTTPClient::Method) 0, String p_request_data = (String) ){
+Error HTTPRequest::request(String p_url, PoolStringArray p_custom_headers, bool p_ssl_validate_domain, HTTPClient::Method p_method, String p_request_data){
 
     Variant wasgo_var_url = p_url;
     int wasgo_size_url = String(p_url).size();
@@ -81,8 +81,15 @@ void HTTPRequest::set_use_threads(bool p_enable){
 HTTPRequest::HTTPRequest(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 HTTPRequest::HTTPRequest(Node other) : Node(other._get_wasgo_id()){
-    wasgo_id = _wasgo_HTTPRequest_constructor();
 }
-HTTPRequest::new_instance(){
+HTTPRequest::HTTPRequest():Node(){
+}
+HTTPRequest HTTPRequest::new_instance(){
     return HTTPRequest(_wasgo_HTTPRequest_constructor());
+}
+WasGoID HTTPRequest::_get_wasgo_id(){
+    return wasgo_id;
+}
+HTTPRequest::operator bool(){
+    return (bool) wasgo_id;
 }

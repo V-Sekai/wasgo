@@ -132,7 +132,7 @@ void SkeletonIK::set_tip_bone(String p_tip_bone){
 void SkeletonIK::set_use_magnet(bool p_use){
 	_wasgo_SkeletonIK_wrapper_set_use_magnet(wasgo_id, p_use);
 }
-void SkeletonIK::start(bool p_one_time = (bool) false){
+void SkeletonIK::start(bool p_one_time){
 	_wasgo_SkeletonIK_wrapper_start(wasgo_id, p_one_time);
 }
 void SkeletonIK::stop(){
@@ -142,8 +142,15 @@ void SkeletonIK::stop(){
 SkeletonIK::SkeletonIK(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 SkeletonIK::SkeletonIK(Node other) : Node(other._get_wasgo_id()){
-    wasgo_id = _wasgo_SkeletonIK_constructor();
 }
-SkeletonIK::new_instance(){
+SkeletonIK::SkeletonIK():Node(){
+}
+SkeletonIK SkeletonIK::new_instance(){
     return SkeletonIK(_wasgo_SkeletonIK_constructor());
+}
+WasGoID SkeletonIK::_get_wasgo_id(){
+    return wasgo_id;
+}
+SkeletonIK::operator bool(){
+    return (bool) wasgo_id;
 }

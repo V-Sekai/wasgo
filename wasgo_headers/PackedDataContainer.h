@@ -2,11 +2,11 @@
 #ifndef PACKEDDATACONTAINER_H
 #define PACKEDDATACONTAINER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "error_list.h"
-#include "Variant.h"
 #include "Resource.h"
+#include "Variant.h"
+#include "error_list.h"
 class PackedDataContainer : public Resource{
 public:
 Error pack(Variant p_value);
@@ -16,7 +16,10 @@ protected:
 public:
 explicit PackedDataContainer(WasGoID p_wasgo_id);
 explicit PackedDataContainer(Resource other);
+PackedDataContainer();
 PackedDataContainer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

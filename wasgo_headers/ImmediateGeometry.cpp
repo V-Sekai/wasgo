@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "ImmediateGeometry.h"
-void ImmediateGeometry::add_sphere(int p_lats, int p_lons, float p_radius, bool p_add_uv = (bool) true){
+void ImmediateGeometry::add_sphere(int p_lats, int p_lons, float p_radius, bool p_add_uv){
 	_wasgo_ImmediateGeometry_wrapper_add_sphere(wasgo_id, p_lats, p_lons, p_radius, p_add_uv);
 }
 void ImmediateGeometry::add_vertex(Vector3 p_position){
@@ -13,7 +13,7 @@ void ImmediateGeometry::add_vertex(Vector3 p_position){
     
 	_wasgo_ImmediateGeometry_wrapper_add_vertex(wasgo_id, wasgo_buffer_position, wasgo_size_position);
 }
-void ImmediateGeometry::begin(Mesh::PrimitiveType p_primitive, Texture p_texture = (Texture) [object:null]){
+void ImmediateGeometry::begin(Mesh::PrimitiveType p_primitive, Texture p_texture){
 	_wasgo_ImmediateGeometry_wrapper_begin(wasgo_id, p_primitive._get_wasgo_id(), p_texture._get_wasgo_id());
 }
 void ImmediateGeometry::clear(){
@@ -71,8 +71,15 @@ void ImmediateGeometry::set_uv2(Vector2 p_uv){
 ImmediateGeometry::ImmediateGeometry(WasGoID p_wasgo_id) : GeometryInstance(p_wasgo_id){
 }
 ImmediateGeometry::ImmediateGeometry(GeometryInstance other) : GeometryInstance(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ImmediateGeometry_constructor();
 }
-ImmediateGeometry::new_instance(){
+ImmediateGeometry::ImmediateGeometry():GeometryInstance(){
+}
+ImmediateGeometry ImmediateGeometry::new_instance(){
     return ImmediateGeometry(_wasgo_ImmediateGeometry_constructor());
+}
+WasGoID ImmediateGeometry::_get_wasgo_id(){
+    return wasgo_id;
+}
+ImmediateGeometry::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,12 +2,12 @@
 #ifndef XMLPARSER_H
 #define XMLPARSER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Variant.h"
 #include "Reference.h"
+#include "Ustring.h"
 #include "error_list.h"
-#include "ustring.h"
 class XMLParser : public Reference{
 public:
 enum NodeType{
@@ -41,7 +41,10 @@ protected:
 public:
 explicit XMLParser(WasGoID p_wasgo_id);
 explicit XMLParser(Reference other);
+XMLParser();
 XMLParser new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

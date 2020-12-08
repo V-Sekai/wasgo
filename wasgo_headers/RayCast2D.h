@@ -2,12 +2,12 @@
 #ifndef RAYCAST2D_H
 #define RAYCAST2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
-#include "Node2D.h"
-#include "Object.h"
 #include "RID.h"
+#include "Object.h"
+#include "Node2D.h"
+#include "Vector2.h"
 class RayCast2D : public Node2D{
 public:
 void add_exception(Object p_node);
@@ -40,7 +40,10 @@ protected:
 public:
 explicit RayCast2D(WasGoID p_wasgo_id);
 explicit RayCast2D(Node2D other);
+RayCast2D();
 RayCast2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

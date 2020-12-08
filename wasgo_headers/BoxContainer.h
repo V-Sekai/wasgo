@@ -2,7 +2,7 @@
 #ifndef BOXCONTAINER_H
 #define BOXCONTAINER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Container.h"
 class BoxContainer : public Container{
@@ -15,6 +15,16 @@ ALIGN_END
 void add_spacer(bool p_begin);
 BoxContainer::AlignMode get_alignment();
 void set_alignment(BoxContainer::AlignMode p_alignment);
+
+protected:
+public:
+explicit BoxContainer(WasGoID p_wasgo_id);
+explicit BoxContainer(Container other);
+BoxContainer();
+BoxContainer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

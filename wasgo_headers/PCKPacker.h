@@ -2,11 +2,11 @@
 #ifndef PCKPACKER_H
 #define PCKPACKER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Reference.h"
+#include "Ustring.h"
 #include "error_list.h"
-#include "ustring.h"
 class PCKPacker : public Reference{
 public:
 Error add_file(String p_pck_path, String p_source_path);
@@ -17,7 +17,10 @@ protected:
 public:
 explicit PCKPacker(WasGoID p_wasgo_id);
 explicit PCKPacker(Reference other);
+PCKPacker();
 PCKPacker new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,12 +2,12 @@
 #ifndef GIPROBE_H
 #define GIPROBE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+class Node;
 #include "GIProbeData.h"
-#include "Vector3.h"
-#include "Node.h"
 #include "VisualInstance.h"
+#include "Vector3.h"
 class GIProbe : public VisualInstance{
 public:
 enum Subdiv{
@@ -17,7 +17,7 @@ SUBDIV_256,
 SUBDIV_512,
 SUBDIV_MAX
 };
-void bake(Node p_from_node = (Node) "", bool p_create_visual_debug = (bool) false);
+void bake(Node p_from_node = Node(), bool p_create_visual_debug = (bool) false);
 void debug_bake();
 float get_bias();
 int get_dynamic_range();
@@ -44,7 +44,10 @@ protected:
 public:
 explicit GIProbe(WasGoID p_wasgo_id);
 explicit GIProbe(VisualInstance other);
+GIProbe();
 GIProbe new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

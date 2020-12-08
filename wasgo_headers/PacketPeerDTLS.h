@@ -2,13 +2,13 @@
 #ifndef PACKETPEERDTLS_H
 #define PACKETPEERDTLS_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "X509Certificate.h"
-#include "PacketPeerUDP.h"
-#include "error_list.h"
 #include "PacketPeer.h"
-#include "ustring.h"
+#include "PacketPeerUDP.h"
+#include "X509Certificate.h"
+#include "error_list.h"
+#include "Ustring.h"
 class PacketPeerDTLS : public PacketPeer{
 public:
 enum Status{
@@ -18,7 +18,7 @@ STATUS_CONNECTED,
 STATUS_ERROR,
 STATUS_ERROR_HOSTNAME_MISMATCH
 };
-Error connect_to_peer(PacketPeerUDP p_packet_peer, bool p_validate_certs = (bool) true, String p_for_hostname = (String) , X509Certificate p_valid_certificate = (X509Certificate) [object:null]);
+Error connect_to_peer(PacketPeerUDP p_packet_peer, bool p_validate_certs = (bool) true, String p_for_hostname = String(), X509Certificate p_valid_certificate = X509Certificate());
 void disconnect_from_peer();
 PacketPeerDTLS::Status get_status();
 void poll();
@@ -27,7 +27,10 @@ protected:
 public:
 explicit PacketPeerDTLS(WasGoID p_wasgo_id);
 explicit PacketPeerDTLS(PacketPeer other);
+PacketPeerDTLS();
 PacketPeerDTLS new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -37,7 +37,7 @@ void Timer::set_timer_process_mode(Timer::TimerProcessMode p_mode){
 void Timer::set_wait_time(float p_time_sec){
 	_wasgo_Timer_wrapper_set_wait_time(wasgo_id, p_time_sec);
 }
-void Timer::start(float p_time_sec = (float) -1){
+void Timer::start(float p_time_sec){
 	_wasgo_Timer_wrapper_start(wasgo_id, p_time_sec);
 }
 void Timer::stop(){
@@ -47,8 +47,15 @@ void Timer::stop(){
 Timer::Timer(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 Timer::Timer(Node other) : Node(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Timer_constructor();
 }
-Timer::new_instance(){
+Timer::Timer():Node(){
+}
+Timer Timer::new_instance(){
     return Timer(_wasgo_Timer_constructor());
+}
+WasGoID Timer::_get_wasgo_id(){
+    return wasgo_id;
+}
+Timer::operator bool(){
+    return (bool) wasgo_id;
 }

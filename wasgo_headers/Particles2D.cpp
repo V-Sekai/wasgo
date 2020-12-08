@@ -127,8 +127,15 @@ void Particles2D::set_visibility_rect(Rect2 p_visibility_rect){
 Particles2D::Particles2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Particles2D::Particles2D(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Particles2D_constructor();
 }
-Particles2D::new_instance(){
+Particles2D::Particles2D():Node2D(){
+}
+Particles2D Particles2D::new_instance(){
     return Particles2D(_wasgo_Particles2D_constructor());
+}
+WasGoID Particles2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+Particles2D::operator bool(){
+    return (bool) wasgo_id;
 }

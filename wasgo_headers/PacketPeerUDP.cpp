@@ -62,7 +62,7 @@ Error PacketPeerUDP::leave_multicast_group(String p_multicast_address, String p_
     
 	return Error(_wasgo_PacketPeerUDP_wrapper_leave_multicast_group(wasgo_id, wasgo_buffer_multicast_address, wasgo_size_multicast_address, wasgo_buffer_interface_name, wasgo_size_interface_name));
 }
-Error PacketPeerUDP::listen(int p_port, String p_bind_address = (String) *, int p_recv_buf_size = (int) 65536){
+Error PacketPeerUDP::listen(int p_port, String p_bind_address, int p_recv_buf_size){
 
     Variant wasgo_var_bind_address = p_bind_address;
     int wasgo_size_bind_address = String(p_bind_address).size();
@@ -90,8 +90,15 @@ Error PacketPeerUDP::wait(){
 PacketPeerUDP::PacketPeerUDP(WasGoID p_wasgo_id) : PacketPeer(p_wasgo_id){
 }
 PacketPeerUDP::PacketPeerUDP(PacketPeer other) : PacketPeer(other._get_wasgo_id()){
-    wasgo_id = _wasgo_PacketPeerUDP_constructor();
 }
-PacketPeerUDP::new_instance(){
+PacketPeerUDP::PacketPeerUDP():PacketPeer(){
+}
+PacketPeerUDP PacketPeerUDP::new_instance(){
     return PacketPeerUDP(_wasgo_PacketPeerUDP_constructor());
+}
+WasGoID PacketPeerUDP::_get_wasgo_id(){
+    return wasgo_id;
+}
+PacketPeerUDP::operator bool(){
+    return (bool) wasgo_id;
 }

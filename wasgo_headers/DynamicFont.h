@@ -2,12 +2,12 @@
 #ifndef DYNAMICFONT_H
 #define DYNAMICFONT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Font.h"
-#include "Color.h"
 #include "DynamicFontData.h"
-#include "ustring.h"
+#include "Color.h"
+#include "Ustring.h"
+#include "Font.h"
 class DynamicFont : public Font{
 public:
 enum SpacingType{
@@ -41,7 +41,10 @@ protected:
 public:
 explicit DynamicFont(WasGoID p_wasgo_id);
 explicit DynamicFont(Font other);
+DynamicFont();
 DynamicFont new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

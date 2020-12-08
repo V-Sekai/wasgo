@@ -97,8 +97,15 @@ void GIProbeData::set_to_cell_xform(Transform p_to_cell_xform){
 GIProbeData::GIProbeData(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 GIProbeData::GIProbeData(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_GIProbeData_constructor();
 }
-GIProbeData::new_instance(){
+GIProbeData::GIProbeData():Resource(){
+}
+GIProbeData GIProbeData::new_instance(){
     return GIProbeData(_wasgo_GIProbeData_constructor());
+}
+WasGoID GIProbeData::_get_wasgo_id(){
+    return wasgo_id;
+}
+GIProbeData::operator bool(){
+    return (bool) wasgo_id;
 }

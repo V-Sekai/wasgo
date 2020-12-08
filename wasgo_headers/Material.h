@@ -2,7 +2,7 @@
 #ifndef MATERIAL_H
 #define MATERIAL_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
 class Material : public Resource{
@@ -11,6 +11,16 @@ Material get_next_pass();
 int get_render_priority();
 void set_next_pass(Material p_next_pass);
 void set_render_priority(int p_priority);
+
+protected:
+public:
+explicit Material(WasGoID p_wasgo_id);
+explicit Material(Resource other);
+Material();
+Material new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

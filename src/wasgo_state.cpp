@@ -85,6 +85,11 @@ void WasGoState::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("set_heap_size", "p_heap_size"), &WasGoState::set_heap_size);
 	ClassDB::bind_method(D_METHOD("get_heap_size"), &WasGoState::get_heap_size);
 
+	//callbacks
+	ClassDB::bind_method(D_METHOD("_input", "p_event"), &WasGoState::_input);
+	ClassDB::bind_method(D_METHOD("_unhandled_input", "p_event"), &WasGoState::_unhandled_input);
+	ClassDB::bind_method(D_METHOD("_unhandled_key_input", "p_event"), &WasGoState::_unhandled_key_input);
+
 	ADD_GROUP("script", "script_");
 	ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "script_binary", PROPERTY_HINT_RESOURCE_TYPE, "WasmResource"), "set_wasm_script", "get_wasm_script");
 	ADD_PROPERTY(PropertyInfo(Variant::DICTIONARY, "script_properties", PROPERTY_HINT_NONE, ""), "set_properties", "get_properties");
@@ -379,13 +384,15 @@ WasGoState::WasGoID WasGoState::handle_return_variant(Variant var){
 //         call_wasm_function("_get_configuration_warning");
 //     }
 // }
-// void WasGoState::_input(InputEvent event){
-//     //
-
-//     if(is_active()){
-//         call_wasm_function("_input");
-//     }
-// }
+void WasGoState::_input(const Ref<InputEvent> &p_event){
+	if (input_callback) {
+		uint32_t argv[1];
+		argv[0] = reference_object(p_event);
+		if (!wasm_runtime_call_wasm(exec_env, input_callback, 1, argv)) {
+			printf("wasm input callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+		}
+	}
+}
 // void WasGoState::_physics_process(float delta){
 //     if(is_active()){
 //         call_wasm_function("_physics_process");
@@ -401,16 +408,26 @@ WasGoState::WasGoID WasGoState::handle_return_variant(Variant var){
 //         call_wasm_function("_ready");
 //     }
 // }
-// void WasGoState::_unhandled_input(InputEvent event){
-//     if(is_active()){
-//         call_wasm_function("_unhandled_input");
-//     }
-// }
-// void WasGoState::_unhandled_key_input(InputEventKey event){
-//     if(is_active()){
-//         call_wasm_function("_unhandled_key_input");
-//     }
-// }
+void WasGoState::_unhandled_input(Ref<InputEvent> p_event) {
+	if (unhandled_input_callback) {
+		uint32_t argv[1];
+		argv[0] = reference_object(p_event);
+		if (!wasm_runtime_call_wasm(exec_env, unhandled_input_callback, 1, argv)) {
+			printf("wasm unhandled input callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+		}
+	}
+}
+void WasGoState::_unhandled_key_input(Ref<InputEventKey> p_event) {
+	if (unhandled_key_input_callback) {
+		uint32_t argv[1];
+		WasGoID wasgo_id = reference_object(p_event.ptr());
+		argv[0] = wasgo_id;
+		printf("WasGoID: %d\n", wasgo_id);
+		if (!wasm_runtime_call_wasm(exec_env, unhandled_key_input_callback, 1, argv)) {
+			printf("wasm unhandled key input callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+		}
+	}
+}
 
 WasGoState::WasGoID _wasgo_this_node(wasm_exec_env_t p_exec_env) {
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);

@@ -10,7 +10,7 @@ bool UDPServer::is_connection_available(){
 bool UDPServer::is_listening(){
 	return (bool) _wasgo_UDPServer_wrapper_is_listening(wasgo_id);
 }
-Error UDPServer::listen(int p_port, String p_bind_address = (String) *){
+Error UDPServer::listen(int p_port, String p_bind_address){
 
     Variant wasgo_var_bind_address = p_bind_address;
     int wasgo_size_bind_address = String(p_bind_address).size();
@@ -35,8 +35,15 @@ PacketPeerUDP UDPServer::take_connection(){
 UDPServer::UDPServer(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 UDPServer::UDPServer(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_UDPServer_constructor();
 }
-UDPServer::new_instance(){
+UDPServer::UDPServer():Reference(){
+}
+UDPServer UDPServer::new_instance(){
     return UDPServer(_wasgo_UDPServer_constructor());
+}
+WasGoID UDPServer::_get_wasgo_id(){
+    return wasgo_id;
+}
+UDPServer::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,10 +2,10 @@
 #ifndef JOINT2D_H
 #define JOINT2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node2D.h"
 #include "NodePath.h"
+#include "Node2D.h"
 class Joint2D : public Node2D{
 public:
 float get_bias();
@@ -16,6 +16,16 @@ void set_bias(float p_bias);
 void set_exclude_nodes_from_collision(bool p_enable);
 void set_node_a(NodePath p_node);
 void set_node_b(NodePath p_node);
+
+protected:
+public:
+explicit Joint2D(WasGoID p_wasgo_id);
+explicit Joint2D(Node2D other);
+Joint2D();
+Joint2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

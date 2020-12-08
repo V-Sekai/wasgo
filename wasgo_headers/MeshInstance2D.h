@@ -2,11 +2,11 @@
 #ifndef MESHINSTANCE2D_H
 #define MESHINSTANCE2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Mesh.h"
 #include "Node2D.h"
 #include "Texture.h"
-#include "Mesh.h"
 class MeshInstance2D : public Node2D{
 public:
 Mesh get_mesh();
@@ -20,7 +20,10 @@ protected:
 public:
 explicit MeshInstance2D(WasGoID p_wasgo_id);
 explicit MeshInstance2D(Node2D other);
+MeshInstance2D();
 MeshInstance2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

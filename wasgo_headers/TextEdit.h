@@ -2,13 +2,13 @@
 #ifndef TEXTEDIT_H
 #define TEXTEDIT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
 #include "PopupMenu.h"
 #include "Variant.h"
+#include "Ustring.h"
 #include "Control.h"
-#include "ustring.h"
 class TextEdit : public Control{
 public:
 enum MenuItems{
@@ -133,7 +133,10 @@ protected:
 public:
 explicit TextEdit(WasGoID p_wasgo_id);
 explicit TextEdit(Control other);
+TextEdit();
 TextEdit new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

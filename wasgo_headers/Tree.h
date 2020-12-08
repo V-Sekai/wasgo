@@ -2,14 +2,14 @@
 #ifndef TREE_H
 #define TREE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Vector2.h"
 #include "Object.h"
+#include "Rect2.h"
 #include "TreeItem.h"
 #include "Control.h"
-#include "Rect2.h"
-#include "ustring.h"
+#include "Ustring.h"
 class Tree : public Control{
 public:
 enum DropModeFlags{
@@ -24,7 +24,7 @@ SELECT_MULTI
 };
 bool are_column_titles_visible();
 void clear();
-TreeItem create_item(Object p_parent = (Object) "", int p_idx = (int) -1);
+TreeItem create_item(Object p_parent = Object(), int p_idx = (int) -1);
 void ensure_cursor_is_visible();
 bool get_allow_reselect();
 bool get_allow_rmb_select();
@@ -64,7 +64,10 @@ protected:
 public:
 explicit Tree(WasGoID p_wasgo_id);
 explicit Tree(Control other);
+Tree();
 Tree new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

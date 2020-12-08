@@ -2,12 +2,12 @@
 #ifndef RAYCAST_H
 #define RAYCAST_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Spatial.h"
-#include "Vector3.h"
-#include "Object.h"
 #include "RID.h"
+#include "Object.h"
+#include "Vector3.h"
 class RayCast : public Spatial{
 public:
 void add_exception(Object p_node);
@@ -40,7 +40,10 @@ protected:
 public:
 explicit RayCast(WasGoID p_wasgo_id);
 explicit RayCast(Spatial other);
+RayCast();
 RayCast new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

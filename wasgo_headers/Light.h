@@ -2,7 +2,7 @@
 #ifndef LIGHT_H
 #define LIGHT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
 #include "VisualInstance.h"
@@ -49,6 +49,16 @@ void set_param(Light::Param p_param, float p_value);
 void set_shadow(bool p_enabled);
 void set_shadow_color(Color p_shadow_color);
 void set_shadow_reverse_cull_face(bool p_enable);
+
+protected:
+public:
+explicit Light(WasGoID p_wasgo_id);
+explicit Light(VisualInstance other);
+Light();
+Light new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

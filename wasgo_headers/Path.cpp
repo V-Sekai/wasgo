@@ -11,8 +11,15 @@ void Path::set_curve(Curve3D p_curve){
 Path::Path(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 Path::Path(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Path_constructor();
 }
-Path::new_instance(){
+Path::Path():Spatial(){
+}
+Path Path::new_instance(){
     return Path(_wasgo_Path_constructor());
+}
+WasGoID Path::_get_wasgo_id(){
+    return wasgo_id;
+}
+Path::operator bool(){
+    return (bool) wasgo_id;
 }

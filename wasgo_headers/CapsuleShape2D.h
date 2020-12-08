@@ -2,7 +2,7 @@
 #ifndef CAPSULESHAPE2D_H
 #define CAPSULESHAPE2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Shape2D.h"
 class CapsuleShape2D : public Shape2D{
@@ -16,7 +16,10 @@ protected:
 public:
 explicit CapsuleShape2D(WasGoID p_wasgo_id);
 explicit CapsuleShape2D(Shape2D other);
+CapsuleShape2D();
 CapsuleShape2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

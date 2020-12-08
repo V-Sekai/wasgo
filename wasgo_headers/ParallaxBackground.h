@@ -2,7 +2,7 @@
 #ifndef PARALLAXBACKGROUND_H
 #define PARALLAXBACKGROUND_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "CanvasLayer.h"
 #include "Vector2.h"
@@ -25,7 +25,10 @@ protected:
 public:
 explicit ParallaxBackground(WasGoID p_wasgo_id);
 explicit ParallaxBackground(CanvasLayer other);
+ParallaxBackground();
 ParallaxBackground new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

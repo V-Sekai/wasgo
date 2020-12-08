@@ -20,8 +20,8 @@ CPPFLAGS ?= $(INC_FLAGS) -MMD -MP
 CPPFLAGS += --target=wasm32-wasi
 CPPFLAGS += -O3
 CPPFLAGS += -z
-CPPFLAGS += stack-size=4096
-CPPFLAGS += -Wl,--initial-memory=6553600
+CPPFLAGS += stack-size=409600
+CPPFLAGS += -Wl,--initial-memory=65536000
 CPPFLAGS += -std=c++11
 CPPFLAGS += --sysroot=C:\\wasi-sdk-11.0\\wasi-sysroot
 # CPPFLAGS += --sysroot=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\thirdparty\\wasm-micro-runtime\\wamr-sdk\\app\\libc-builtin-sysroot
@@ -46,6 +46,7 @@ CPPFLAGS += -Wl,--allow-undefined
 # CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\godot\modules\WasGo\thirdparty\wasm-micro-runtime\wamr-sdk\opt\wasi-sdk\lib\clang\10.0.0\include
 CPPFLAGS += --include-directory=..\\api\\Custom
 CPPFLAGS += --include-directory=..\\api\\Generated
+# CPPFLAGS += --include-directory=..\\wasgo_headers
 # CPPFLAGS += --include-directory=C:\\wasi-sdk-11.0\\wasi-sysroot\\include
 # CPPFLAGS += --include-directory=C:\\wasi-sdk-11.0\\wasi-sysroot\\include\\c++\\v1
 CPPFLAGS += -DNO_THREADS

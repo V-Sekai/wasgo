@@ -81,3 +81,19 @@ void Light::set_shadow_color(Color p_shadow_color){
 void Light::set_shadow_reverse_cull_face(bool p_enable){
 	_wasgo_Light_wrapper_set_shadow_reverse_cull_face(wasgo_id, p_enable);
 }
+
+Light::Light(WasGoID p_wasgo_id) : VisualInstance(p_wasgo_id){
+}
+Light::Light(VisualInstance other) : VisualInstance(other._get_wasgo_id()){
+}
+Light::Light():VisualInstance(){
+}
+Light Light::new_instance(){
+    return Light(_wasgo_Light_constructor());
+}
+WasGoID Light::_get_wasgo_id(){
+    return wasgo_id;
+}
+Light::operator bool(){
+    return (bool) wasgo_id;
+}

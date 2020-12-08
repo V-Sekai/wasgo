@@ -2,14 +2,14 @@
 #ifndef ARVRSERVER_H
 #define ARVRSERVER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Object.h"
-#include "ARVRInterface.h"
+#include "Ustring.h"
 #include "ARVRPositionalTracker.h"
-#include "Variant.h"
+#include "Object.h"
 #include "Transform.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "ARVRInterface.h"
 class ARVRServer : public Object{
 public:
 enum RotationMode{
@@ -46,7 +46,10 @@ protected:
 public:
 explicit ARVRServer(WasGoID p_wasgo_id);
 explicit ARVRServer(Object other);
+ARVRServer();
 ARVRServer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

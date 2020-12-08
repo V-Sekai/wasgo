@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEVEC3CONSTANT_H
 #define VISUALSHADERNODEVEC3CONSTANT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 #include "Vector3.h"
@@ -15,7 +15,10 @@ protected:
 public:
 explicit VisualShaderNodeVec3Constant(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVec3Constant(VisualShaderNode other);
+VisualShaderNodeVec3Constant();
 VisualShaderNodeVec3Constant new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

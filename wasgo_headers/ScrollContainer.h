@@ -2,11 +2,11 @@
 #ifndef SCROLLCONTAINER_H
 #define SCROLLCONTAINER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "VScrollBar.h"
 #include "HScrollBar.h"
 #include "Container.h"
+#include "VScrollBar.h"
 class ScrollContainer : public Container{
 public:
 int get_deadzone();
@@ -28,7 +28,10 @@ protected:
 public:
 explicit ScrollContainer(WasGoID p_wasgo_id);
 explicit ScrollContainer(Container other);
+ScrollContainer();
 ScrollContainer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

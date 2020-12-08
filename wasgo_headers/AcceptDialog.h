@@ -2,16 +2,16 @@
 #ifndef ACCEPTDIALOG_H
 #define ACCEPTDIALOG_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "WindowDialog.h"
-#include "Button.h"
-#include "Node.h"
 #include "Label.h"
-#include "ustring.h"
+#include "Button.h"
+class Node;
+#include "WindowDialog.h"
+#include "Ustring.h"
 class AcceptDialog : public WindowDialog{
 public:
-Button add_button(String p_text, bool p_right = (bool) false, String p_action = (String) );
+Button add_button(String p_text, bool p_right = (bool) false, String p_action = String());
 Button add_cancel(String p_name);
 bool get_hide_on_ok();
 Label get_label();
@@ -27,7 +27,10 @@ protected:
 public:
 explicit AcceptDialog(WasGoID p_wasgo_id);
 explicit AcceptDialog(WindowDialog other);
+AcceptDialog();
 AcceptDialog new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

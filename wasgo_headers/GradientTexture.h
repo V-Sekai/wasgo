@@ -2,10 +2,10 @@
 #ifndef GRADIENTTEXTURE_H
 #define GRADIENTTEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Texture.h"
 #include "Gradient.h"
+#include "Texture.h"
 class GradientTexture : public Texture{
 public:
 Gradient get_gradient();
@@ -16,7 +16,10 @@ protected:
 public:
 explicit GradientTexture(WasGoID p_wasgo_id);
 explicit GradientTexture(Texture other);
+GradientTexture();
 GradientTexture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

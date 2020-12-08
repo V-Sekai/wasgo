@@ -2,13 +2,13 @@
 #ifndef HTTPREQUEST_H
 #define HTTPREQUEST_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Node.h"
-#include "Variant.h"
-#include "error_list.h"
 #include "HTTPClient.h"
-#include "ustring.h"
+#include "error_list.h"
+#include "Variant.h"
+#include "Ustring.h"
 class HTTPRequest : public Node{
 public:
 enum Result{
@@ -36,7 +36,7 @@ HTTPClient::Status get_http_client_status();
 int get_max_redirects();
 int get_timeout();
 bool is_using_threads();
-Error request(String p_url, PoolStringArray p_custom_headers = (PoolStringArray) [], bool p_ssl_validate_domain = (bool) true, HTTPClient::Method p_method = (HTTPClient::Method) 0, String p_request_data = (String) );
+Error request(String p_url, PoolStringArray p_custom_headers = PoolStringArray(), bool p_ssl_validate_domain = (bool) true, HTTPClient::Method p_method = (HTTPClient::Method) 0, String p_request_data = String());
 void set_body_size_limit(int p_bytes);
 void set_download_chunk_size(int p_arg0);
 void set_download_file(String p_path);
@@ -48,7 +48,10 @@ protected:
 public:
 explicit HTTPRequest(WasGoID p_wasgo_id);
 explicit HTTPRequest(Node other);
+HTTPRequest();
 HTTPRequest new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

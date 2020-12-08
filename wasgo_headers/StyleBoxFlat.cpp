@@ -153,8 +153,15 @@ void StyleBoxFlat::set_shadow_size(int p_size){
 StyleBoxFlat::StyleBoxFlat(WasGoID p_wasgo_id) : StyleBox(p_wasgo_id){
 }
 StyleBoxFlat::StyleBoxFlat(StyleBox other) : StyleBox(other._get_wasgo_id()){
-    wasgo_id = _wasgo_StyleBoxFlat_constructor();
 }
-StyleBoxFlat::new_instance(){
+StyleBoxFlat::StyleBoxFlat():StyleBox(){
+}
+StyleBoxFlat StyleBoxFlat::new_instance(){
     return StyleBoxFlat(_wasgo_StyleBoxFlat_constructor());
+}
+WasGoID StyleBoxFlat::_get_wasgo_id(){
+    return wasgo_id;
+}
+StyleBoxFlat::operator bool(){
+    return (bool) wasgo_id;
 }

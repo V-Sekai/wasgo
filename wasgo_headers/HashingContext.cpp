@@ -14,8 +14,15 @@ Error HashingContext::update(PoolByteArray p_chunk){
 HashingContext::HashingContext(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 HashingContext::HashingContext(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_HashingContext_constructor();
 }
-HashingContext::new_instance(){
+HashingContext::HashingContext():Reference(){
+}
+HashingContext HashingContext::new_instance(){
     return HashingContext(_wasgo_HashingContext_constructor());
+}
+WasGoID HashingContext::_get_wasgo_id(){
+    return wasgo_id;
+}
+HashingContext::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,10 +2,10 @@
 #ifndef DYNAMICFONTDATA_H
 #define DYNAMICFONTDATA_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
-#include "ustring.h"
+#include "Ustring.h"
 class DynamicFontData : public Resource{
 public:
 enum Hinting{
@@ -24,7 +24,10 @@ protected:
 public:
 explicit DynamicFontData(WasGoID p_wasgo_id);
 explicit DynamicFontData(Resource other);
+DynamicFontData();
 DynamicFontData new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -14,3 +14,19 @@ RID SkinReference::get_skeleton(){
 Skin SkinReference::get_skin(){
 	return Skin(_wasgo_SkinReference_wrapper_get_skin(wasgo_id));
 }
+
+SkinReference::SkinReference(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
+}
+SkinReference::SkinReference(Reference other) : Reference(other._get_wasgo_id()){
+}
+SkinReference::SkinReference():Reference(){
+}
+SkinReference SkinReference::new_instance(){
+    return SkinReference(_wasgo_SkinReference_constructor());
+}
+WasGoID SkinReference::_get_wasgo_id(){
+    return wasgo_id;
+}
+SkinReference::operator bool(){
+    return (bool) wasgo_id;
+}

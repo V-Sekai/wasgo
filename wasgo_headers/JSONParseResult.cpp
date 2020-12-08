@@ -42,8 +42,15 @@ void JSONParseResult::set_result(Variant p_result){
 JSONParseResult::JSONParseResult(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 JSONParseResult::JSONParseResult(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_JSONParseResult_constructor();
 }
-JSONParseResult::new_instance(){
+JSONParseResult::JSONParseResult():Reference(){
+}
+JSONParseResult JSONParseResult::new_instance(){
     return JSONParseResult(_wasgo_JSONParseResult_constructor());
+}
+WasGoID JSONParseResult::_get_wasgo_id(){
+    return wasgo_id;
+}
+JSONParseResult::operator bool(){
+    return (bool) wasgo_id;
 }

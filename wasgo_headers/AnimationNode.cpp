@@ -19,10 +19,10 @@ void AnimationNode::blend_animation(String p_animation, float p_time, float p_de
     
 	_wasgo_AnimationNode_wrapper_blend_animation(wasgo_id, wasgo_buffer_animation, wasgo_size_animation, p_time, p_delta, p_seeked, p_blend);
 }
-float AnimationNode::blend_input(int p_input_index, float p_time, bool p_seek, float p_blend, AnimationNode::FilterAction p_filter = (AnimationNode::FilterAction) 0, bool p_optimize = (bool) true){
+float AnimationNode::blend_input(int p_input_index, float p_time, bool p_seek, float p_blend, AnimationNode::FilterAction p_filter, bool p_optimize){
 	return (float) _wasgo_AnimationNode_wrapper_blend_input(wasgo_id, p_input_index, p_time, p_seek, p_blend, p_filter._get_wasgo_id(), p_optimize);
 }
-float AnimationNode::blend_node(String p_name, AnimationNode p_node, float p_time, bool p_seek, float p_blend, AnimationNode::FilterAction p_filter = (AnimationNode::FilterAction) 0, bool p_optimize = (bool) true){
+float AnimationNode::blend_node(String p_name, AnimationNode p_node, float p_time, bool p_seek, float p_blend, AnimationNode::FilterAction p_filter, bool p_optimize){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -140,8 +140,15 @@ void AnimationNode::set_parameter(String p_name, Variant p_value){
 AnimationNode::AnimationNode(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 AnimationNode::AnimationNode(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationNode_constructor();
 }
-AnimationNode::new_instance(){
+AnimationNode::AnimationNode():Resource(){
+}
+AnimationNode AnimationNode::new_instance(){
     return AnimationNode(_wasgo_AnimationNode_constructor());
+}
+WasGoID AnimationNode::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationNode::operator bool(){
+    return (bool) wasgo_id;
 }

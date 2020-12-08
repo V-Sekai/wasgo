@@ -11,8 +11,15 @@ void VisualShaderNodeColorFunc::set_function(VisualShaderNodeColorFunc::Function
 VisualShaderNodeColorFunc::VisualShaderNodeColorFunc(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeColorFunc::VisualShaderNodeColorFunc(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisualShaderNodeColorFunc_constructor();
 }
-VisualShaderNodeColorFunc::new_instance(){
+VisualShaderNodeColorFunc::VisualShaderNodeColorFunc():VisualShaderNode(){
+}
+VisualShaderNodeColorFunc VisualShaderNodeColorFunc::new_instance(){
     return VisualShaderNodeColorFunc(_wasgo_VisualShaderNodeColorFunc_constructor());
+}
+WasGoID VisualShaderNodeColorFunc::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeColorFunc::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,10 +2,10 @@
 #ifndef INPUTEVENTPANGESTURE_H
 #define INPUTEVENTPANGESTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
 #include "InputEventGesture.h"
+#include "Vector2.h"
 class InputEventPanGesture : public InputEventGesture{
 public:
 Vector2 get_delta();
@@ -15,7 +15,10 @@ protected:
 public:
 explicit InputEventPanGesture(WasGoID p_wasgo_id);
 explicit InputEventPanGesture(InputEventGesture other);
+InputEventPanGesture();
 InputEventPanGesture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

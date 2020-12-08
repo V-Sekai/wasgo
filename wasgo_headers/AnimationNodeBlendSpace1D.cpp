@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "AnimationNodeBlendSpace1D.h"
-void AnimationNodeBlendSpace1D::add_blend_point(AnimationRootNode p_node, float p_pos, int p_at_index = (int) -1){
+void AnimationNodeBlendSpace1D::add_blend_point(AnimationRootNode p_node, float p_pos, int p_at_index){
 	_wasgo_AnimationNodeBlendSpace1D_wrapper_add_blend_point(wasgo_id, p_node._get_wasgo_id(), p_pos, p_at_index);
 }
 int AnimationNodeBlendSpace1D::get_blend_point_count(){
@@ -63,8 +63,15 @@ void AnimationNodeBlendSpace1D::set_value_label(String p_text){
 AnimationNodeBlendSpace1D::AnimationNodeBlendSpace1D(WasGoID p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
 AnimationNodeBlendSpace1D::AnimationNodeBlendSpace1D(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationNodeBlendSpace1D_constructor();
 }
-AnimationNodeBlendSpace1D::new_instance(){
+AnimationNodeBlendSpace1D::AnimationNodeBlendSpace1D():AnimationRootNode(){
+}
+AnimationNodeBlendSpace1D AnimationNodeBlendSpace1D::new_instance(){
     return AnimationNodeBlendSpace1D(_wasgo_AnimationNodeBlendSpace1D_constructor());
+}
+WasGoID AnimationNodeBlendSpace1D::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationNodeBlendSpace1D::operator bool(){
+    return (bool) wasgo_id;
 }

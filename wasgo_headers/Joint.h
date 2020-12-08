@@ -2,7 +2,7 @@
 #ifndef JOINT_H
 #define JOINT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Spatial.h"
 #include "NodePath.h"
@@ -16,6 +16,16 @@ void set_exclude_nodes_from_collision(bool p_enable);
 void set_node_a(NodePath p_node);
 void set_node_b(NodePath p_node);
 void set_solver_priority(int p_priority);
+
+protected:
+public:
+explicit Joint(WasGoID p_wasgo_id);
+explicit Joint(Spatial other);
+Joint();
+Joint new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

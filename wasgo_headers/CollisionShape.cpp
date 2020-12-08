@@ -23,8 +23,15 @@ void CollisionShape::set_shape(Shape p_shape){
 CollisionShape::CollisionShape(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 CollisionShape::CollisionShape(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CollisionShape_constructor();
 }
-CollisionShape::new_instance(){
+CollisionShape::CollisionShape():Spatial(){
+}
+CollisionShape CollisionShape::new_instance(){
     return CollisionShape(_wasgo_CollisionShape_constructor());
+}
+WasGoID CollisionShape::_get_wasgo_id(){
+    return wasgo_id;
+}
+CollisionShape::operator bool(){
+    return (bool) wasgo_id;
 }

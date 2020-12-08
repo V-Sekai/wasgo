@@ -2,12 +2,12 @@
 #ifndef PRIMITIVEMESH_H
 #define PRIMITIVEMESH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Mesh.h"
 #include "AABB.h"
 #include "Variant.h"
 #include "Material.h"
-#include "Mesh.h"
 class PrimitiveMesh : public Mesh{
 public:
 AABB get_custom_aabb();
@@ -17,6 +17,16 @@ Array get_mesh_arrays();
 void set_custom_aabb(AABB p_aabb);
 void set_flip_faces(bool p_flip_faces);
 void set_material(Material p_material);
+
+protected:
+public:
+explicit PrimitiveMesh(WasGoID p_wasgo_id);
+explicit PrimitiveMesh(Mesh other);
+PrimitiveMesh();
+PrimitiveMesh new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

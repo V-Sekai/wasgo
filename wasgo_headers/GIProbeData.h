@@ -2,12 +2,12 @@
 #ifndef GIPROBEDATA_H
 #define GIPROBEDATA_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Transform.h"
+#include "Resource.h"
 #include "AABB.h"
 #include "Variant.h"
-#include "Resource.h"
+#include "Transform.h"
 class GIProbeData : public Resource{
 public:
 float get_bias();
@@ -37,7 +37,10 @@ protected:
 public:
 explicit GIProbeData(WasGoID p_wasgo_id);
 explicit GIProbeData(Resource other);
+GIProbeData();
 GIProbeData new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

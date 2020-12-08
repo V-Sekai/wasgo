@@ -24,8 +24,15 @@ void RectangleShape2D::set_extents(Vector2 p_extents){
 RectangleShape2D::RectangleShape2D(WasGoID p_wasgo_id) : Shape2D(p_wasgo_id){
 }
 RectangleShape2D::RectangleShape2D(Shape2D other) : Shape2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_RectangleShape2D_constructor();
 }
-RectangleShape2D::new_instance(){
+RectangleShape2D::RectangleShape2D():Shape2D(){
+}
+RectangleShape2D RectangleShape2D::new_instance(){
     return RectangleShape2D(_wasgo_RectangleShape2D_constructor());
+}
+WasGoID RectangleShape2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+RectangleShape2D::operator bool(){
+    return (bool) wasgo_id;
 }

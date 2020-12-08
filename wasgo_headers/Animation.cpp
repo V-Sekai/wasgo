@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Animation.h"
-int Animation::add_track(Animation::TrackType p_type, int p_at_position = (int) -1){
+int Animation::add_track(Animation::TrackType p_type, int p_at_position){
 	return (int) _wasgo_Animation_wrapper_add_track(wasgo_id, p_type._get_wasgo_id(), p_at_position);
 }
 String Animation::animation_track_get_key_animation(int p_track_idx, int p_key_idx){
@@ -41,7 +41,7 @@ float Animation::audio_track_get_key_start_offset(int p_track_idx, int p_key_idx
 Resource Animation::audio_track_get_key_stream(int p_track_idx, int p_key_idx){
 	return Resource(_wasgo_Animation_wrapper_audio_track_get_key_stream(wasgo_id, p_track_idx, p_key_idx));
 }
-int Animation::audio_track_insert_key(int p_track_idx, float p_time, Resource p_stream, float p_start_offset = (float) 0, float p_end_offset = (float) 0){
+int Animation::audio_track_insert_key(int p_track_idx, float p_time, Resource p_stream, float p_start_offset, float p_end_offset){
 	return (int) _wasgo_Animation_wrapper_audio_track_insert_key(wasgo_id, p_track_idx, p_time, p_stream._get_wasgo_id(), p_start_offset, p_end_offset);
 }
 void Animation::audio_track_set_key_end_offset(int p_track_idx, int p_key_idx, float p_offset){
@@ -76,7 +76,7 @@ Vector2 Animation::bezier_track_get_key_out_handle(int p_track_idx, int p_key_id
 float Animation::bezier_track_get_key_value(int p_track_idx, int p_key_idx){
 	return (float) _wasgo_Animation_wrapper_bezier_track_get_key_value(wasgo_id, p_track_idx, p_key_idx);
 }
-int Animation::bezier_track_insert_key(int p_track_idx, float p_time, float p_value, Vector2 p_in_handle = Vector2((0, 0)), Vector2 p_out_handle = Vector2((0, 0))){
+int Animation::bezier_track_insert_key(int p_track_idx, float p_time, float p_value, Vector2 p_in_handle, Vector2 p_out_handle){
 
     Variant wasgo_var_in_handle = p_in_handle;
     uint8_t wasgo_buffer_in_handle[12];
@@ -170,7 +170,7 @@ void Animation::set_loop(bool p_enabled){
 void Animation::set_step(float p_size_sec){
 	_wasgo_Animation_wrapper_set_step(wasgo_id, p_size_sec);
 }
-int Animation::track_find_key(int p_track_idx, float p_time, bool p_exact = (bool) false){
+int Animation::track_find_key(int p_track_idx, float p_time, bool p_exact){
 	return (int) _wasgo_Animation_wrapper_track_find_key(wasgo_id, p_track_idx, p_time, p_exact);
 }
 bool Animation::track_get_interpolation_loop_wrap(int p_track_idx){
@@ -204,7 +204,7 @@ NodePath Animation::track_get_path(int p_track_idx){
 Animation::TrackType Animation::track_get_type(int p_track_idx){
 	return Animation::TrackType(_wasgo_Animation_wrapper_track_get_type(wasgo_id, p_track_idx));
 }
-void Animation::track_insert_key(int p_track_idx, float p_time, Variant p_key, float p_transition = (float) 1){
+void Animation::track_insert_key(int p_track_idx, float p_time, Variant p_key, float p_transition){
 	_wasgo_Animation_wrapper_track_insert_key(wasgo_id, p_track_idx, p_time, p_key._get_wasgo_id(), p_transition);
 }
 bool Animation::track_is_enabled(int p_track_idx){
@@ -301,8 +301,15 @@ void Animation::value_track_set_update_mode(int p_track_idx, Animation::UpdateMo
 Animation::Animation(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Animation::Animation(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Animation_constructor();
 }
-Animation::new_instance(){
+Animation::Animation():Resource(){
+}
+Animation Animation::new_instance(){
     return Animation(_wasgo_Animation_constructor());
+}
+WasGoID Animation::_get_wasgo_id(){
+    return wasgo_id;
+}
+Animation::operator bool(){
+    return (bool) wasgo_id;
 }

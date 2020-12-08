@@ -17,8 +17,15 @@ void CylinderShape::set_radius(float p_radius){
 CylinderShape::CylinderShape(WasGoID p_wasgo_id) : Shape(p_wasgo_id){
 }
 CylinderShape::CylinderShape(Shape other) : Shape(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CylinderShape_constructor();
 }
-CylinderShape::new_instance(){
+CylinderShape::CylinderShape():Shape(){
+}
+CylinderShape CylinderShape::new_instance(){
     return CylinderShape(_wasgo_CylinderShape_constructor());
+}
+WasGoID CylinderShape::_get_wasgo_id(){
+    return wasgo_id;
+}
+CylinderShape::operator bool(){
+    return (bool) wasgo_id;
 }

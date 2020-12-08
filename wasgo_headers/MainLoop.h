@@ -2,11 +2,11 @@
 #ifndef MAINLOOP_H
 #define MAINLOOP_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "ustring.h"
-#include "Object.h"
 #include "InputEvent.h"
+#include "Object.h"
+#include "Ustring.h"
 class MainLoop : public Object{
 public:
 void finish();
@@ -20,7 +20,10 @@ protected:
 public:
 explicit MainLoop(WasGoID p_wasgo_id);
 explicit MainLoop(Object other);
+MainLoop();
 MainLoop new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

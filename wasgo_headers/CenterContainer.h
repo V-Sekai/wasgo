@@ -2,7 +2,7 @@
 #ifndef CENTERCONTAINER_H
 #define CENTERCONTAINER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Container.h"
 class CenterContainer : public Container{
@@ -14,7 +14,10 @@ protected:
 public:
 explicit CenterContainer(WasGoID p_wasgo_id);
 explicit CenterContainer(Container other);
+CenterContainer();
 CenterContainer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

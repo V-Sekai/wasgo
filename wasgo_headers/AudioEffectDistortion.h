@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTDISTORTION_H
 #define AUDIOEFFECTDISTORTION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioEffect.h"
 class AudioEffectDistortion : public AudioEffect{
@@ -29,7 +29,10 @@ protected:
 public:
 explicit AudioEffectDistortion(WasGoID p_wasgo_id);
 explicit AudioEffectDistortion(AudioEffect other);
+AudioEffectDistortion();
 AudioEffectDistortion new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

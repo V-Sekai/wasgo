@@ -2,20 +2,20 @@
 #ifndef TILESET_H
 #define TILESET_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Rect2.h"
+#include "Shape2D.h"
+#include "ShaderMaterial.h"
 #include "Color.h"
 #include "Vector2.h"
-#include "Shape2D.h"
-#include "Resource.h"
-#include "Variant.h"
-#include "OccluderPolygon2D.h"
-#include "Transform2D.h"
-#include "ShaderMaterial.h"
+#include "Rect2.h"
 #include "NavigationPolygon.h"
+#include "Resource.h"
+#include "Transform2D.h"
+#include "OccluderPolygon2D.h"
+#include "Variant.h"
+#include "Ustring.h"
 #include "Texture.h"
-#include "ustring.h"
 class TileSet : public Resource{
 public:
 enum AutotileBindings{
@@ -64,7 +64,7 @@ int find_tile_by_name(String p_name);
 int get_last_unused_tile_id();
 Array get_tiles_ids();
 void remove_tile(int p_id);
-void tile_add_shape(int p_id, Shape2D p_shape, Transform2D p_shape_transform, bool p_one_way = (bool) false, Vector2 p_autotile_coord = Vector2((0, 0)));
+void tile_add_shape(int p_id, Shape2D p_shape, Transform2D p_shape_transform, bool p_one_way = (bool) false, Vector2 p_autotile_coord = Vector2(0, 0));
 OccluderPolygon2D tile_get_light_occluder(int p_id);
 ShaderMaterial tile_get_material(int p_id);
 Color tile_get_modulate(int p_id);
@@ -109,7 +109,10 @@ protected:
 public:
 explicit TileSet(WasGoID p_wasgo_id);
 explicit TileSet(Resource other);
+TileSet();
 TileSet new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

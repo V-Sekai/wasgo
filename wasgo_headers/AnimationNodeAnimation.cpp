@@ -24,8 +24,15 @@ void AnimationNodeAnimation::set_animation(String p_name){
 AnimationNodeAnimation::AnimationNodeAnimation(WasGoID p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
 AnimationNodeAnimation::AnimationNodeAnimation(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationNodeAnimation_constructor();
 }
-AnimationNodeAnimation::new_instance(){
+AnimationNodeAnimation::AnimationNodeAnimation():AnimationRootNode(){
+}
+AnimationNodeAnimation AnimationNodeAnimation::new_instance(){
     return AnimationNodeAnimation(_wasgo_AnimationNodeAnimation_constructor());
+}
+WasGoID AnimationNodeAnimation::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationNodeAnimation::operator bool(){
+    return (bool) wasgo_id;
 }

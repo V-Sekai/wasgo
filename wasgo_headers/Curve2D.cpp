@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Curve2D.h"
-void Curve2D::add_point(Vector2 p_position, Vector2 p_in = Vector2((0, 0)), Vector2 p_out = Vector2((0, 0)), int p_at_position = (int) -1){
+void Curve2D::add_point(Vector2 p_position, Vector2 p_in, Vector2 p_out, int p_at_position){
 
     Variant wasgo_var_position = p_position;
     uint8_t wasgo_buffer_position[12];
@@ -102,7 +102,7 @@ Vector2 Curve2D::interpolate(int p_idx, float p_t){
     return (Vector2) wasgo_ret;
     
 }
-Vector2 Curve2D::interpolate_baked(float p_offset, bool p_cubic = (bool) false){
+Vector2 Curve2D::interpolate_baked(float p_offset, bool p_cubic){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
@@ -155,15 +155,22 @@ void Curve2D::set_point_position(int p_idx, Vector2 p_position){
     
 	_wasgo_Curve2D_wrapper_set_point_position(wasgo_id, p_idx, wasgo_buffer_position, wasgo_size_position);
 }
-PoolVector2Array Curve2D::tessellate(int p_max_stages = (int) 5, float p_tolerance_degrees = (float) 4){
+PoolVector2Array Curve2D::tessellate(int p_max_stages, float p_tolerance_degrees){
 	return PoolVector2Array(_wasgo_Curve2D_wrapper_tessellate(wasgo_id, p_max_stages, p_tolerance_degrees));
 }
 
 Curve2D::Curve2D(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Curve2D::Curve2D(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Curve2D_constructor();
 }
-Curve2D::new_instance(){
+Curve2D::Curve2D():Resource(){
+}
+Curve2D Curve2D::new_instance(){
     return Curve2D(_wasgo_Curve2D_constructor());
+}
+WasGoID Curve2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+Curve2D::operator bool(){
+    return (bool) wasgo_id;
 }

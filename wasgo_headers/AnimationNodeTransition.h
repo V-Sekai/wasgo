@@ -2,10 +2,10 @@
 #ifndef ANIMATIONNODETRANSITION_H
 #define ANIMATIONNODETRANSITION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Ustring.h"
 #include "AnimationNode.h"
-#include "ustring.h"
 class AnimationNodeTransition : public AnimationNode{
 public:
 float get_cross_fade_time();
@@ -21,7 +21,10 @@ protected:
 public:
 explicit AnimationNodeTransition(WasGoID p_wasgo_id);
 explicit AnimationNodeTransition(AnimationNode other);
+AnimationNodeTransition();
 AnimationNodeTransition new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

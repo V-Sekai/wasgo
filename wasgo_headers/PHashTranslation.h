@@ -2,7 +2,7 @@
 #ifndef PHASHTRANSLATION_H
 #define PHASHTRANSLATION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Translation.h"
 class PHashTranslation : public Translation{
@@ -13,7 +13,10 @@ protected:
 public:
 explicit PHashTranslation(WasGoID p_wasgo_id);
 explicit PHashTranslation(Translation other);
+PHashTranslation();
 PHashTranslation new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

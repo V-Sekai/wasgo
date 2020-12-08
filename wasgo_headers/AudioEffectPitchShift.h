@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTPITCHSHIFT_H
 #define AUDIOEFFECTPITCHSHIFT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioEffect.h"
 class AudioEffectPitchShift : public AudioEffect{
@@ -26,7 +26,10 @@ protected:
 public:
 explicit AudioEffectPitchShift(WasGoID p_wasgo_id);
 explicit AudioEffectPitchShift(AudioEffect other);
+AudioEffectPitchShift();
 AudioEffectPitchShift new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

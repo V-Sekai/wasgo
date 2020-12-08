@@ -112,7 +112,7 @@ bool LineEdit::is_virtual_keyboard_enabled(){
 void LineEdit::menu_option(int p_option){
 	_wasgo_LineEdit_wrapper_menu_option(wasgo_id, p_option);
 }
-void LineEdit::select(int p_from = (int) 0, int p_to = (int) -1){
+void LineEdit::select(int p_from, int p_to){
 	_wasgo_LineEdit_wrapper_select(wasgo_id, p_from, p_to);
 }
 void LineEdit::select_all(){
@@ -188,8 +188,15 @@ void LineEdit::set_virtual_keyboard_enabled(bool p_enable){
 LineEdit::LineEdit(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 LineEdit::LineEdit(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_LineEdit_constructor();
 }
-LineEdit::new_instance(){
+LineEdit::LineEdit():Control(){
+}
+LineEdit LineEdit::new_instance(){
     return LineEdit(_wasgo_LineEdit_constructor());
+}
+WasGoID LineEdit::_get_wasgo_id(){
+    return wasgo_id;
+}
+LineEdit::operator bool(){
+    return (bool) wasgo_id;
 }

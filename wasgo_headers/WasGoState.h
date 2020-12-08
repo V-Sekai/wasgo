@@ -2,12 +2,12 @@
 #ifndef WASGOSTATE_H
 #define WASGOSTATE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "WasmResource.h"
-#include "Node.h"
 #include "Variant.h"
-#include "ustring.h"
+#include "Node.h"
+#include "Ustring.h"
 class WasGoState : public Node{
 public:
 int get_heap_size();
@@ -25,7 +25,10 @@ protected:
 public:
 explicit WasGoState(WasGoID p_wasgo_id);
 explicit WasGoState(Node other);
+WasGoState();
 WasGoState new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

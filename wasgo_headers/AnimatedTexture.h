@@ -2,7 +2,7 @@
 #ifndef ANIMATEDTEXTURE_H
 #define ANIMATEDTEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Texture.h"
 class AnimatedTexture : public Texture{
@@ -26,7 +26,10 @@ protected:
 public:
 explicit AnimatedTexture(WasGoID p_wasgo_id);
 explicit AnimatedTexture(Texture other);
+AnimatedTexture();
 AnimatedTexture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

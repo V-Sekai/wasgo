@@ -31,7 +31,7 @@ bool MultiplayerAPI::is_refusing_new_network_connections(){
 void MultiplayerAPI::poll(){
 	_wasgo_MultiplayerAPI_wrapper_poll(wasgo_id);
 }
-Error MultiplayerAPI::send_bytes(PoolByteArray p_bytes, int p_id = (int) 0, NetworkedMultiplayerPeer::TransferMode p_mode = (NetworkedMultiplayerPeer::TransferMode) 2){
+Error MultiplayerAPI::send_bytes(PoolByteArray p_bytes, int p_id, NetworkedMultiplayerPeer::TransferMode p_mode){
 	return Error(_wasgo_MultiplayerAPI_wrapper_send_bytes(wasgo_id, p_bytes._get_wasgo_id(), p_id, p_mode._get_wasgo_id()));
 }
 void MultiplayerAPI::set_allow_object_decoding(bool p_enable){
@@ -50,8 +50,15 @@ void MultiplayerAPI::set_root_node(Node p_node){
 MultiplayerAPI::MultiplayerAPI(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 MultiplayerAPI::MultiplayerAPI(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_MultiplayerAPI_constructor();
 }
-MultiplayerAPI::new_instance(){
+MultiplayerAPI::MultiplayerAPI():Reference(){
+}
+MultiplayerAPI MultiplayerAPI::new_instance(){
     return MultiplayerAPI(_wasgo_MultiplayerAPI_constructor());
+}
+WasGoID MultiplayerAPI::_get_wasgo_id(){
+    return wasgo_id;
+}
+MultiplayerAPI::operator bool(){
+    return (bool) wasgo_id;
 }

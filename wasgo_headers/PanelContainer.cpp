@@ -5,8 +5,15 @@
 PanelContainer::PanelContainer(WasGoID p_wasgo_id) : Container(p_wasgo_id){
 }
 PanelContainer::PanelContainer(Container other) : Container(other._get_wasgo_id()){
-    wasgo_id = _wasgo_PanelContainer_constructor();
 }
-PanelContainer::new_instance(){
+PanelContainer::PanelContainer():Container(){
+}
+PanelContainer PanelContainer::new_instance(){
     return PanelContainer(_wasgo_PanelContainer_constructor());
+}
+WasGoID PanelContainer::_get_wasgo_id(){
+    return wasgo_id;
+}
+PanelContainer::operator bool(){
+    return (bool) wasgo_id;
 }

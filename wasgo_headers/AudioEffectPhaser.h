@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTPHASER_H
 #define AUDIOEFFECTPHASER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioEffect.h"
 class AudioEffectPhaser : public AudioEffect{
@@ -22,7 +22,10 @@ protected:
 public:
 explicit AudioEffectPhaser(WasGoID p_wasgo_id);
 explicit AudioEffectPhaser(AudioEffect other);
+AudioEffectPhaser();
 AudioEffectPhaser new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

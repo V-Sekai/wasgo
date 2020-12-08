@@ -24,8 +24,15 @@ void BoneAttachment::set_bone_name(String p_bone_name){
 BoneAttachment::BoneAttachment(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 BoneAttachment::BoneAttachment(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_BoneAttachment_constructor();
 }
-BoneAttachment::new_instance(){
+BoneAttachment::BoneAttachment():Spatial(){
+}
+BoneAttachment BoneAttachment::new_instance(){
     return BoneAttachment(_wasgo_BoneAttachment_constructor());
+}
+WasGoID BoneAttachment::_get_wasgo_id(){
+    return wasgo_id;
+}
+BoneAttachment::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -42,8 +42,15 @@ void AnimationNodeTransition::set_input_caption(int p_input, String p_caption){
 AnimationNodeTransition::AnimationNodeTransition(WasGoID p_wasgo_id) : AnimationNode(p_wasgo_id){
 }
 AnimationNodeTransition::AnimationNodeTransition(AnimationNode other) : AnimationNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationNodeTransition_constructor();
 }
-AnimationNodeTransition::new_instance(){
+AnimationNodeTransition::AnimationNodeTransition():AnimationNode(){
+}
+AnimationNodeTransition AnimationNodeTransition::new_instance(){
     return AnimationNodeTransition(_wasgo_AnimationNodeTransition_constructor());
+}
+WasGoID AnimationNodeTransition::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationNodeTransition::operator bool(){
+    return (bool) wasgo_id;
 }

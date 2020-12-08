@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEVECTORREFRACT_H
 #define VISUALSHADERNODEVECTORREFRACT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorRefract : public VisualShaderNode{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VisualShaderNodeVectorRefract(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorRefract(VisualShaderNode other);
+VisualShaderNodeVectorRefract();
 VisualShaderNodeVectorRefract new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

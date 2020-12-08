@@ -87,3 +87,19 @@ void CollisionObject2D::shape_owner_set_transform(int p_owner_id, Transform2D p_
     
 	_wasgo_CollisionObject2D_wrapper_shape_owner_set_transform(wasgo_id, p_owner_id, wasgo_buffer_transform, wasgo_size_transform);
 }
+
+CollisionObject2D::CollisionObject2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
+}
+CollisionObject2D::CollisionObject2D(Node2D other) : Node2D(other._get_wasgo_id()){
+}
+CollisionObject2D::CollisionObject2D():Node2D(){
+}
+CollisionObject2D CollisionObject2D::new_instance(){
+    return CollisionObject2D(_wasgo_CollisionObject2D_constructor());
+}
+WasGoID CollisionObject2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+CollisionObject2D::operator bool(){
+    return (bool) wasgo_id;
+}

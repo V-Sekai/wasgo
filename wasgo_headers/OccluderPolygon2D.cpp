@@ -23,8 +23,15 @@ void OccluderPolygon2D::set_polygon(PoolVector2Array p_polygon){
 OccluderPolygon2D::OccluderPolygon2D(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 OccluderPolygon2D::OccluderPolygon2D(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_OccluderPolygon2D_constructor();
 }
-OccluderPolygon2D::new_instance(){
+OccluderPolygon2D::OccluderPolygon2D():Resource(){
+}
+OccluderPolygon2D OccluderPolygon2D::new_instance(){
     return OccluderPolygon2D(_wasgo_OccluderPolygon2D_constructor());
+}
+WasGoID OccluderPolygon2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+OccluderPolygon2D::operator bool(){
+    return (bool) wasgo_id;
 }

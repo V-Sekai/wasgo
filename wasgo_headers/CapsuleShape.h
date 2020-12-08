@@ -2,7 +2,7 @@
 #ifndef CAPSULESHAPE_H
 #define CAPSULESHAPE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Shape.h"
 class CapsuleShape : public Shape{
@@ -16,7 +16,10 @@ protected:
 public:
 explicit CapsuleShape(WasGoID p_wasgo_id);
 explicit CapsuleShape(Shape other);
+CapsuleShape();
 CapsuleShape new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -243,8 +243,15 @@ void CPUParticles2D::set_use_local_coordinates(bool p_enable){
 CPUParticles2D::CPUParticles2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 CPUParticles2D::CPUParticles2D(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CPUParticles2D_constructor();
 }
-CPUParticles2D::new_instance(){
+CPUParticles2D::CPUParticles2D():Node2D(){
+}
+CPUParticles2D CPUParticles2D::new_instance(){
     return CPUParticles2D(_wasgo_CPUParticles2D_constructor());
+}
+WasGoID CPUParticles2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+CPUParticles2D::operator bool(){
+    return (bool) wasgo_id;
 }

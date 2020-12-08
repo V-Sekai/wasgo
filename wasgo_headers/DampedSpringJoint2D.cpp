@@ -29,8 +29,15 @@ void DampedSpringJoint2D::set_stiffness(float p_stiffness){
 DampedSpringJoint2D::DampedSpringJoint2D(WasGoID p_wasgo_id) : Joint2D(p_wasgo_id){
 }
 DampedSpringJoint2D::DampedSpringJoint2D(Joint2D other) : Joint2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_DampedSpringJoint2D_constructor();
 }
-DampedSpringJoint2D::new_instance(){
+DampedSpringJoint2D::DampedSpringJoint2D():Joint2D(){
+}
+DampedSpringJoint2D DampedSpringJoint2D::new_instance(){
     return DampedSpringJoint2D(_wasgo_DampedSpringJoint2D_constructor());
+}
+WasGoID DampedSpringJoint2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+DampedSpringJoint2D::operator bool(){
+    return (bool) wasgo_id;
 }

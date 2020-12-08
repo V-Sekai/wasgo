@@ -57,3 +57,19 @@ void ARVRInterface::set_is_primary(bool p_enable){
 void ARVRInterface::uninitialize(){
 	_wasgo_ARVRInterface_wrapper_uninitialize(wasgo_id);
 }
+
+ARVRInterface::ARVRInterface(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
+}
+ARVRInterface::ARVRInterface(Reference other) : Reference(other._get_wasgo_id()){
+}
+ARVRInterface::ARVRInterface():Reference(){
+}
+ARVRInterface ARVRInterface::new_instance(){
+    return ARVRInterface(_wasgo_ARVRInterface_constructor());
+}
+WasGoID ARVRInterface::_get_wasgo_id(){
+    return wasgo_id;
+}
+ARVRInterface::operator bool(){
+    return (bool) wasgo_id;
+}

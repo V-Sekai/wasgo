@@ -2,7 +2,7 @@
 #ifndef CAMERASERVER_H
 #define CAMERASERVER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "CameraFeed.h"
 #include "Variant.h"
@@ -25,7 +25,10 @@ protected:
 public:
 explicit CameraServer(WasGoID p_wasgo_id);
 explicit CameraServer(Object other);
+CameraServer();
 CameraServer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

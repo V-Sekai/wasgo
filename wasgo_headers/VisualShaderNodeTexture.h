@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODETEXTURE_H
 #define VISUALSHADERNODETEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 #include "Texture.h"
@@ -32,7 +32,10 @@ protected:
 public:
 explicit VisualShaderNodeTexture(WasGoID p_wasgo_id);
 explicit VisualShaderNodeTexture(VisualShaderNode other);
+VisualShaderNodeTexture();
 VisualShaderNodeTexture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

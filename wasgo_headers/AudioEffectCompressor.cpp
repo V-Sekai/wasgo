@@ -60,8 +60,15 @@ void AudioEffectCompressor::set_threshold(float p_threshold){
 AudioEffectCompressor::AudioEffectCompressor(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectCompressor::AudioEffectCompressor(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioEffectCompressor_constructor();
 }
-AudioEffectCompressor::new_instance(){
+AudioEffectCompressor::AudioEffectCompressor():AudioEffect(){
+}
+AudioEffectCompressor AudioEffectCompressor::new_instance(){
     return AudioEffectCompressor(_wasgo_AudioEffectCompressor_constructor());
+}
+WasGoID AudioEffectCompressor::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioEffectCompressor::operator bool(){
+    return (bool) wasgo_id;
 }

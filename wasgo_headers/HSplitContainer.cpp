@@ -5,8 +5,15 @@
 HSplitContainer::HSplitContainer(WasGoID p_wasgo_id) : SplitContainer(p_wasgo_id){
 }
 HSplitContainer::HSplitContainer(SplitContainer other) : SplitContainer(other._get_wasgo_id()){
-    wasgo_id = _wasgo_HSplitContainer_constructor();
 }
-HSplitContainer::new_instance(){
+HSplitContainer::HSplitContainer():SplitContainer(){
+}
+HSplitContainer HSplitContainer::new_instance(){
     return HSplitContainer(_wasgo_HSplitContainer_constructor());
+}
+WasGoID HSplitContainer::_get_wasgo_id(){
+    return wasgo_id;
+}
+HSplitContainer::operator bool(){
+    return (bool) wasgo_id;
 }

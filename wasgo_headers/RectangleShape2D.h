@@ -2,7 +2,7 @@
 #ifndef RECTANGLESHAPE2D_H
 #define RECTANGLESHAPE2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Shape2D.h"
 #include "Vector2.h"
@@ -15,7 +15,10 @@ protected:
 public:
 explicit RectangleShape2D(WasGoID p_wasgo_id);
 explicit RectangleShape2D(Shape2D other);
+RectangleShape2D();
 RectangleShape2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

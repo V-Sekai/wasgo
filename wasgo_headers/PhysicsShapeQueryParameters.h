@@ -2,13 +2,13 @@
 #ifndef PHYSICSSHAPEQUERYPARAMETERS_H
 #define PHYSICSSHAPEQUERYPARAMETERS_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
-#include "Resource.h"
-#include "Variant.h"
 #include "RID.h"
+#include "Resource.h"
+#include "Reference.h"
 #include "Transform.h"
+#include "Variant.h"
 class PhysicsShapeQueryParameters : public Reference{
 public:
 int get_collision_mask();
@@ -31,7 +31,10 @@ protected:
 public:
 explicit PhysicsShapeQueryParameters(WasGoID p_wasgo_id);
 explicit PhysicsShapeQueryParameters(Reference other);
+PhysicsShapeQueryParameters();
 PhysicsShapeQueryParameters new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

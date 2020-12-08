@@ -2,7 +2,7 @@
 #ifndef TEXTURERECT_H
 #define TEXTURERECT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Control.h"
 #include "Texture.h"
@@ -33,7 +33,10 @@ protected:
 public:
 explicit TextureRect(WasGoID p_wasgo_id);
 explicit TextureRect(Control other);
+TextureRect();
 TextureRect new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

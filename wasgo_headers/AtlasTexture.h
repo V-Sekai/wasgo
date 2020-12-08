@@ -2,7 +2,7 @@
 #ifndef ATLASTEXTURE_H
 #define ATLASTEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Rect2.h"
 #include "Texture.h"
@@ -21,7 +21,10 @@ protected:
 public:
 explicit AtlasTexture(WasGoID p_wasgo_id);
 explicit AtlasTexture(Texture other);
+AtlasTexture();
 AtlasTexture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

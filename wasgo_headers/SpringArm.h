@@ -2,11 +2,11 @@
 #ifndef SPRINGARM_H
 #define SPRINGARM_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Spatial.h"
-#include "Shape.h"
 #include "RID.h"
+#include "Shape.h"
 class SpringArm : public Spatial{
 public:
 void add_excluded_object(RID p_RID);
@@ -26,7 +26,10 @@ protected:
 public:
 explicit SpringArm(WasGoID p_wasgo_id);
 explicit SpringArm(Spatial other);
+SpringArm();
 SpringArm new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

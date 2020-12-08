@@ -17,8 +17,15 @@ void Container::queue_sort(){
 Container::Container(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 Container::Container(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Container_constructor();
 }
-Container::new_instance(){
+Container::Container():Control(){
+}
+Container Container::new_instance(){
     return Container(_wasgo_Container_constructor());
+}
+WasGoID Container::_get_wasgo_id(){
+    return wasgo_id;
+}
+Container::operator bool(){
+    return (bool) wasgo_id;
 }

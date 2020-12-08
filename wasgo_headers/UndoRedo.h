@@ -2,11 +2,11 @@
 #ifndef UNDOREDO_H
 #define UNDOREDO_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Variant.h"
 #include "Object.h"
-#include "ustring.h"
+#include "Ustring.h"
 class UndoRedo : public Object{
 public:
 enum MergeMode{
@@ -35,7 +35,10 @@ protected:
 public:
 explicit UndoRedo(WasGoID p_wasgo_id);
 explicit UndoRedo(Object other);
+UndoRedo();
 UndoRedo new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

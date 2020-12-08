@@ -256,3 +256,19 @@ void PhysicsDirectBodyState::set_transform(Transform p_transform){
     
 	_wasgo_PhysicsDirectBodyState_wrapper_set_transform(wasgo_id, wasgo_buffer_transform, wasgo_size_transform);
 }
+
+PhysicsDirectBodyState::PhysicsDirectBodyState(WasGoID p_wasgo_id) : Object(p_wasgo_id){
+}
+PhysicsDirectBodyState::PhysicsDirectBodyState(Object other) : Object(other._get_wasgo_id()){
+}
+PhysicsDirectBodyState::PhysicsDirectBodyState():Object(){
+}
+PhysicsDirectBodyState PhysicsDirectBodyState::new_instance(){
+    return PhysicsDirectBodyState(_wasgo_PhysicsDirectBodyState_constructor());
+}
+WasGoID PhysicsDirectBodyState::_get_wasgo_id(){
+    return wasgo_id;
+}
+PhysicsDirectBodyState::operator bool(){
+    return (bool) wasgo_id;
+}

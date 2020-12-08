@@ -2,11 +2,11 @@
 #ifndef CRYPTOKEY_H
 #define CRYPTOKEY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "error_list.h"
 #include "Resource.h"
-#include "ustring.h"
+#include "Ustring.h"
+#include "error_list.h"
 class CryptoKey : public Resource{
 public:
 Error load(String p_path);
@@ -16,7 +16,10 @@ protected:
 public:
 explicit CryptoKey(WasGoID p_wasgo_id);
 explicit CryptoKey(Resource other);
+CryptoKey();
 CryptoKey new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

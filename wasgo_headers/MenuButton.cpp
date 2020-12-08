@@ -17,8 +17,15 @@ void MenuButton::set_switch_on_hover(bool p_enable){
 MenuButton::MenuButton(WasGoID p_wasgo_id) : Button(p_wasgo_id){
 }
 MenuButton::MenuButton(Button other) : Button(other._get_wasgo_id()){
-    wasgo_id = _wasgo_MenuButton_constructor();
 }
-MenuButton::new_instance(){
+MenuButton::MenuButton():Button(){
+}
+MenuButton MenuButton::new_instance(){
     return MenuButton(_wasgo_MenuButton_constructor());
+}
+WasGoID MenuButton::_get_wasgo_id(){
+    return wasgo_id;
+}
+MenuButton::operator bool(){
+    return (bool) wasgo_id;
 }

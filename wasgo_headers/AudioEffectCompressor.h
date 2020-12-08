@@ -2,10 +2,10 @@
 #ifndef AUDIOEFFECTCOMPRESSOR_H
 #define AUDIOEFFECTCOMPRESSOR_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Ustring.h"
 #include "AudioEffect.h"
-#include "ustring.h"
 class AudioEffectCompressor : public AudioEffect{
 public:
 float get_attack_us();
@@ -27,7 +27,10 @@ protected:
 public:
 explicit AudioEffectCompressor(WasGoID p_wasgo_id);
 explicit AudioEffectCompressor(AudioEffect other);
+AudioEffectCompressor();
 AudioEffectCompressor new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

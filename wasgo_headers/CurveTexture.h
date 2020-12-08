@@ -2,7 +2,7 @@
 #ifndef CURVETEXTURE_H
 #define CURVETEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Curve.h"
 #include "Texture.h"
@@ -16,7 +16,10 @@ protected:
 public:
 explicit CurveTexture(WasGoID p_wasgo_id);
 explicit CurveTexture(Texture other);
+CurveTexture();
 CurveTexture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

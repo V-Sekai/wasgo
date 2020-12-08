@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Object.h"
-void Object::add_user_signal(String p_signal, Array p_arguments = (Array) []){
+void Object::add_user_signal(String p_signal, Array p_arguments){
 
     Variant wasgo_var_signal = p_signal;
     int wasgo_size_signal = String(p_signal).size();
@@ -40,7 +40,7 @@ Variant Object::callv(String p_method, Array p_arg_array){
 bool Object::can_translate_messages(){
 	return (bool) _wasgo_Object_wrapper_can_translate_messages(wasgo_id);
 }
-Error Object::connect(String p_signal, Object p_target, String p_method, Array p_binds = (Array) [], int p_flags = (int) 0){
+Error Object::connect(String p_signal, Object p_target, String p_method, Array p_binds, int p_flags){
 
     Variant wasgo_var_signal = p_signal;
     int wasgo_size_signal = String(p_signal).size();
@@ -215,7 +215,7 @@ bool Object::is_connected(String p_signal, Object p_target, String p_method){
 bool Object::is_queued_for_deletion(){
 	return (bool) _wasgo_Object_wrapper_is_queued_for_deletion(wasgo_id);
 }
-void Object::notification(int p_what, bool p_reversed = (bool) false){
+void Object::notification(int p_what, bool p_reversed){
 	_wasgo_Object_wrapper_notification(wasgo_id, p_what, p_reversed);
 }
 void Object::property_list_changed_notify(){
@@ -305,8 +305,15 @@ String Object::tr(String p_message){
 Object::Object(WasGoID p_wasgo_id) : (p_wasgo_id){
 }
 Object::Object( other) : (other._get_wasgo_id()){
-    wasgo_id = _wasgo_Object_constructor();
 }
-Object::new_instance(){
+Object::Object():(){
+}
+Object Object::new_instance(){
     return Object(_wasgo_Object_constructor());
+}
+WasGoID Object::_get_wasgo_id(){
+    return wasgo_id;
+}
+Object::operator bool(){
+    return (bool) wasgo_id;
 }

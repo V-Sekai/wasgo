@@ -32,6 +32,9 @@
 #define REFERENCE_H
 #include "Object.h"
 class Reference : public Object {
+	public:
+	explicit Reference(WasGoID p_wasgo_id) : Object(p_wasgo_id) {}
+	explicit Reference(Object other) : Object(other._get_wasgo_id()) {};
 	Reference(){};
 	~Reference(){};
 };

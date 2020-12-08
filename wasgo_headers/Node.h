@@ -2,15 +2,15 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Object.h"
-#include "Variant.h"
 #include "SceneTree.h"
-#include "MultiplayerAPI.h"
-#include "NodePath.h"
+#include "Object.h"
 #include "Viewport.h"
-#include "ustring.h"
+#include "NodePath.h"
+#include "MultiplayerAPI.h"
+#include "Variant.h"
+#include "Ustring.h"
 class Node : public Object{
 public:
 enum DuplicateFlags{
@@ -75,7 +75,7 @@ void move_child(Node p_child_node, int p_to_position);
 void print_stray_nodes();
 void print_tree();
 void print_tree_pretty();
-void propagate_call(String p_method, Array p_args = (Array) [], bool p_parent_first = (bool) false);
+void propagate_call(String p_method, Array p_args = Array(), bool p_parent_first = (bool) false);
 void propagate_notification(int p_what);
 void queue_free();
 void raise();
@@ -116,7 +116,10 @@ protected:
 public:
 explicit Node(WasGoID p_wasgo_id);
 explicit Node(Object other);
+Node();
 Node new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

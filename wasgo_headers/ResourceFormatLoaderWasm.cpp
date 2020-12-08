@@ -5,8 +5,15 @@
 ResourceFormatLoaderWasm::ResourceFormatLoaderWasm(WasGoID p_wasgo_id) : ResourceFormatLoader(p_wasgo_id){
 }
 ResourceFormatLoaderWasm::ResourceFormatLoaderWasm(ResourceFormatLoader other) : ResourceFormatLoader(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ResourceFormatLoaderWasm_constructor();
 }
-ResourceFormatLoaderWasm::new_instance(){
+ResourceFormatLoaderWasm::ResourceFormatLoaderWasm():ResourceFormatLoader(){
+}
+ResourceFormatLoaderWasm ResourceFormatLoaderWasm::new_instance(){
     return ResourceFormatLoaderWasm(_wasgo_ResourceFormatLoaderWasm_constructor());
+}
+WasGoID ResourceFormatLoaderWasm::_get_wasgo_id(){
+    return wasgo_id;
+}
+ResourceFormatLoaderWasm::operator bool(){
+    return (bool) wasgo_id;
 }

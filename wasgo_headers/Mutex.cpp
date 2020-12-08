@@ -14,8 +14,15 @@ void Mutex::unlock(){
 Mutex::Mutex(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Mutex::Mutex(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Mutex_constructor();
 }
-Mutex::new_instance(){
+Mutex::Mutex():Reference(){
+}
+Mutex Mutex::new_instance(){
     return Mutex(_wasgo_Mutex_constructor());
+}
+WasGoID Mutex::_get_wasgo_id(){
+    return wasgo_id;
+}
+Mutex::operator bool(){
+    return (bool) wasgo_id;
 }

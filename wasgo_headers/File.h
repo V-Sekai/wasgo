@@ -2,12 +2,12 @@
 #ifndef FILE_H
 #define FILE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
-#include "error_list.h"
 #include "Variant.h"
-#include "ustring.h"
+#include "Reference.h"
+#include "Ustring.h"
+#include "error_list.h"
 class File : public Reference{
 public:
 enum CompressionMode{
@@ -73,7 +73,10 @@ protected:
 public:
 explicit File(WasGoID p_wasgo_id);
 explicit File(Reference other);
+File();
 File new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

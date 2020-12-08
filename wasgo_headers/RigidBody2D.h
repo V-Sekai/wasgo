@@ -2,13 +2,13 @@
 #ifndef RIGIDBODY2D_H
 #define RIGIDBODY2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Vector2.h"
 #include "Variant.h"
-#include "Physics2DTestMotionResult.h"
 #include "PhysicsBody2D.h"
 #include "PhysicsMaterial.h"
+#include "Physics2DTestMotionResult.h"
 class RigidBody2D : public PhysicsBody2D{
 public:
 enum CCDMode{
@@ -70,13 +70,16 @@ void set_physics_material_override(PhysicsMaterial p_physics_material_override);
 void set_sleeping(bool p_sleeping);
 void set_use_custom_integrator(bool p_enable);
 void set_weight(float p_weight);
-bool test_motion(Vector2 p_motion, bool p_infinite_inertia = (bool) true, float p_margin = (float) 0.08, Physics2DTestMotionResult p_result = (Physics2DTestMotionResult) "");
+bool test_motion(Vector2 p_motion, bool p_infinite_inertia = (bool) true, float p_margin = (float) 0.08, Physics2DTestMotionResult p_result = Physics2DTestMotionResult());
 
 protected:
 public:
 explicit RigidBody2D(WasGoID p_wasgo_id);
 explicit RigidBody2D(PhysicsBody2D other);
+RigidBody2D();
 RigidBody2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

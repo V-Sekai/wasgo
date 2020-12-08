@@ -2,14 +2,14 @@
 #ifndef AUDIOSERVER_H
 #define AUDIOSERVER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Ustring.h"
 #include "AudioBusLayout.h"
 #include "Object.h"
 #include "Variant.h"
 #include "AudioEffectInstance.h"
 #include "AudioEffect.h"
-#include "ustring.h"
 class AudioServer : public Object{
 public:
 enum SpeakerMode{
@@ -69,7 +69,10 @@ protected:
 public:
 explicit AudioServer(WasGoID p_wasgo_id);
 explicit AudioServer(Object other);
+AudioServer();
 AudioServer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

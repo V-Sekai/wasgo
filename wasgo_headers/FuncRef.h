@@ -2,12 +2,12 @@
 #ifndef FUNCREF_H
 #define FUNCREF_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
 #include "Variant.h"
 #include "Object.h"
-#include "ustring.h"
+#include "Ustring.h"
+#include "Reference.h"
 class FuncRef : public Reference{
 public:
 Variant call_func();
@@ -21,7 +21,10 @@ protected:
 public:
 explicit FuncRef(WasGoID p_wasgo_id);
 explicit FuncRef(Reference other);
+FuncRef();
 FuncRef new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

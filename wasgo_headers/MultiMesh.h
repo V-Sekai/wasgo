@@ -2,15 +2,15 @@
 #ifndef MULTIMESH_H
 #define MULTIMESH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
-#include "Resource.h"
 #include "Mesh.h"
 #include "Variant.h"
-#include "AABB.h"
+#include "Resource.h"
 #include "Transform2D.h"
 #include "Transform.h"
+#include "AABB.h"
 class MultiMesh : public Resource{
 public:
 enum ColorFormat{
@@ -54,7 +54,10 @@ protected:
 public:
 explicit MultiMesh(WasGoID p_wasgo_id);
 explicit MultiMesh(Resource other);
+MultiMesh();
 MultiMesh new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

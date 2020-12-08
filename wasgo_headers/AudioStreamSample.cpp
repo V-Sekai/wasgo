@@ -56,8 +56,15 @@ void AudioStreamSample::set_stereo(bool p_stereo){
 AudioStreamSample::AudioStreamSample(WasGoID p_wasgo_id) : AudioStream(p_wasgo_id){
 }
 AudioStreamSample::AudioStreamSample(AudioStream other) : AudioStream(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioStreamSample_constructor();
 }
-AudioStreamSample::new_instance(){
+AudioStreamSample::AudioStreamSample():AudioStream(){
+}
+AudioStreamSample AudioStreamSample::new_instance(){
     return AudioStreamSample(_wasgo_AudioStreamSample_constructor());
+}
+WasGoID AudioStreamSample::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioStreamSample::operator bool(){
+    return (bool) wasgo_id;
 }

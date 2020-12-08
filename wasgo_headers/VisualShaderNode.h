@@ -2,10 +2,10 @@
 #ifndef VISUALSHADERNODE_H
 #define VISUALSHADERNODE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Variant.h"
 #include "Resource.h"
+#include "Variant.h"
 class VisualShaderNode : public Resource{
 public:
 enum PortType{
@@ -22,6 +22,16 @@ int get_output_port_for_preview();
 void set_default_input_values(Array p_values);
 void set_input_port_default_value(int p_port, Variant p_value);
 void set_output_port_for_preview(int p_port);
+
+protected:
+public:
+explicit VisualShaderNode(WasGoID p_wasgo_id);
+explicit VisualShaderNode(Resource other);
+VisualShaderNode();
+VisualShaderNode new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

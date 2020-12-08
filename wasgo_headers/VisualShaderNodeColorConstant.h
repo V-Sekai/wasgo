@@ -2,10 +2,10 @@
 #ifndef VISUALSHADERNODECOLORCONSTANT_H
 #define VISUALSHADERNODECOLORCONSTANT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "VisualShaderNode.h"
 #include "Color.h"
+#include "VisualShaderNode.h"
 class VisualShaderNodeColorConstant : public VisualShaderNode{
 public:
 Color get_constant();
@@ -15,7 +15,10 @@ protected:
 public:
 explicit VisualShaderNodeColorConstant(WasGoID p_wasgo_id);
 explicit VisualShaderNodeColorConstant(VisualShaderNode other);
+VisualShaderNodeColorConstant();
 VisualShaderNodeColorConstant new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -24,8 +24,15 @@ void VisualShaderNodeVec3Constant::set_constant(Vector3 p_value){
 VisualShaderNodeVec3Constant::VisualShaderNodeVec3Constant(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeVec3Constant::VisualShaderNodeVec3Constant(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisualShaderNodeVec3Constant_constructor();
 }
-VisualShaderNodeVec3Constant::new_instance(){
+VisualShaderNodeVec3Constant::VisualShaderNodeVec3Constant():VisualShaderNode(){
+}
+VisualShaderNodeVec3Constant VisualShaderNodeVec3Constant::new_instance(){
     return VisualShaderNodeVec3Constant(_wasgo_VisualShaderNodeVec3Constant_constructor());
+}
+WasGoID VisualShaderNodeVec3Constant::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeVec3Constant::operator bool(){
+    return (bool) wasgo_id;
 }

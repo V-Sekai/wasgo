@@ -108,8 +108,15 @@ void CanvasLayer::set_transform(Transform2D p_transform){
 CanvasLayer::CanvasLayer(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 CanvasLayer::CanvasLayer(Node other) : Node(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CanvasLayer_constructor();
 }
-CanvasLayer::new_instance(){
+CanvasLayer::CanvasLayer():Node(){
+}
+CanvasLayer CanvasLayer::new_instance(){
     return CanvasLayer(_wasgo_CanvasLayer_constructor());
+}
+WasGoID CanvasLayer::_get_wasgo_id(){
+    return wasgo_id;
+}
+CanvasLayer::operator bool(){
+    return (bool) wasgo_id;
 }

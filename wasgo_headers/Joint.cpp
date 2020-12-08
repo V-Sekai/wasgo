@@ -51,3 +51,19 @@ void Joint::set_node_b(NodePath p_node){
 void Joint::set_solver_priority(int p_priority){
 	_wasgo_Joint_wrapper_set_solver_priority(wasgo_id, p_priority);
 }
+
+Joint::Joint(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
+}
+Joint::Joint(Spatial other) : Spatial(other._get_wasgo_id()){
+}
+Joint::Joint():Spatial(){
+}
+Joint Joint::new_instance(){
+    return Joint(_wasgo_Joint_constructor());
+}
+WasGoID Joint::_get_wasgo_id(){
+    return wasgo_id;
+}
+Joint::operator bool(){
+    return (bool) wasgo_id;
+}

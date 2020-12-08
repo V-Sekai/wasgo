@@ -2,13 +2,13 @@
 #ifndef STREAMPEERSSL_H
 #define STREAMPEERSSL_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "X509Certificate.h"
+#include "CryptoKey.h"
 #include "StreamPeer.h"
 #include "error_list.h"
-#include "CryptoKey.h"
-#include "ustring.h"
+#include "Ustring.h"
 class StreamPeerSSL : public StreamPeer{
 public:
 enum Status{
@@ -18,8 +18,8 @@ STATUS_CONNECTED,
 STATUS_ERROR,
 STATUS_ERROR_HOSTNAME_MISMATCH
 };
-Error accept_stream(StreamPeer p_stream, CryptoKey p_private_key, X509Certificate p_certificate, X509Certificate p_chain = (X509Certificate) [object:null]);
-Error connect_to_stream(StreamPeer p_stream, bool p_validate_certs = (bool) false, String p_for_hostname = (String) , X509Certificate p_valid_certificate = (X509Certificate) [object:null]);
+Error accept_stream(StreamPeer p_stream, CryptoKey p_private_key, X509Certificate p_certificate, X509Certificate p_chain = X509Certificate());
+Error connect_to_stream(StreamPeer p_stream, bool p_validate_certs = (bool) false, String p_for_hostname = String(), X509Certificate p_valid_certificate = X509Certificate());
 void disconnect_from_stream();
 StreamPeerSSL::Status get_status();
 bool is_blocking_handshake_enabled();
@@ -30,7 +30,10 @@ protected:
 public:
 explicit StreamPeerSSL(WasGoID p_wasgo_id);
 explicit StreamPeerSSL(StreamPeer other);
+StreamPeerSSL();
 StreamPeerSSL new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

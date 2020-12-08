@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Curve3D.h"
-void Curve3D::add_point(Vector3 p_position, Vector3 p_in = Vector3((0, 0, 0)), Vector3 p_out = Vector3((0, 0, 0)), int p_at_position = (int) -1){
+void Curve3D::add_point(Vector3 p_position, Vector3 p_in, Vector3 p_out, int p_at_position){
 
     Variant wasgo_var_position = p_position;
     uint8_t wasgo_buffer_position[16];
@@ -111,7 +111,7 @@ Vector3 Curve3D::interpolate(int p_idx, float p_t){
     return (Vector3) wasgo_ret;
     
 }
-Vector3 Curve3D::interpolate_baked(float p_offset, bool p_cubic = (bool) false){
+Vector3 Curve3D::interpolate_baked(float p_offset, bool p_cubic){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
@@ -121,7 +121,7 @@ Vector3 Curve3D::interpolate_baked(float p_offset, bool p_cubic = (bool) false){
     return (Vector3) wasgo_ret;
     
 }
-Vector3 Curve3D::interpolate_baked_up_vector(float p_offset, bool p_apply_tilt = (bool) false){
+Vector3 Curve3D::interpolate_baked_up_vector(float p_offset, bool p_apply_tilt){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
@@ -183,15 +183,22 @@ void Curve3D::set_point_tilt(int p_idx, float p_tilt){
 void Curve3D::set_up_vector_enabled(bool p_enable){
 	_wasgo_Curve3D_wrapper_set_up_vector_enabled(wasgo_id, p_enable);
 }
-PoolVector3Array Curve3D::tessellate(int p_max_stages = (int) 5, float p_tolerance_degrees = (float) 4){
+PoolVector3Array Curve3D::tessellate(int p_max_stages, float p_tolerance_degrees){
 	return PoolVector3Array(_wasgo_Curve3D_wrapper_tessellate(wasgo_id, p_max_stages, p_tolerance_degrees));
 }
 
 Curve3D::Curve3D(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Curve3D::Curve3D(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Curve3D_constructor();
 }
-Curve3D::new_instance(){
+Curve3D::Curve3D():Resource(){
+}
+Curve3D Curve3D::new_instance(){
     return Curve3D(_wasgo_Curve3D_constructor());
+}
+WasGoID Curve3D::_get_wasgo_id(){
+    return wasgo_id;
+}
+Curve3D::operator bool(){
+    return (bool) wasgo_id;
 }

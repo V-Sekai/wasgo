@@ -2,7 +2,7 @@
 #ifndef VSLIDER_H
 #define VSLIDER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Slider.h"
 class VSlider : public Slider{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VSlider(WasGoID p_wasgo_id);
 explicit VSlider(Slider other);
+VSlider();
 VSlider new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

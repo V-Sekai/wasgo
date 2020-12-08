@@ -67,8 +67,15 @@ void Gradient::set_offsets(PoolRealArray p_offsets){
 Gradient::Gradient(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Gradient::Gradient(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Gradient_constructor();
 }
-Gradient::new_instance(){
+Gradient::Gradient():Resource(){
+}
+Gradient Gradient::new_instance(){
     return Gradient(_wasgo_Gradient_constructor());
+}
+WasGoID Gradient::_get_wasgo_id(){
+    return wasgo_id;
+}
+Gradient::operator bool(){
+    return (bool) wasgo_id;
 }

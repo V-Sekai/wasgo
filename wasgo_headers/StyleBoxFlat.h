@@ -2,13 +2,13 @@
 #ifndef STYLEBOXFLAT_H
 #define STYLEBOXFLAT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
-#include "Vector2.h"
 #include "Corner.h"
+#include "Vector2.h"
 #include "StyleBox.h"
-#include "Margin.h"
+#include "math_defs.h"
 class StyleBoxFlat : public StyleBox{
 public:
 int get_aa_size();
@@ -48,7 +48,10 @@ protected:
 public:
 explicit StyleBoxFlat(WasGoID p_wasgo_id);
 explicit StyleBoxFlat(StyleBox other);
+StyleBoxFlat();
 StyleBoxFlat new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

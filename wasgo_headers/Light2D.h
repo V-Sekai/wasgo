@@ -2,7 +2,7 @@
 #ifndef LIGHT2D_H
 #define LIGHT2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Vector2.h"
 #include "Color.h"
@@ -71,7 +71,10 @@ protected:
 public:
 explicit Light2D(WasGoID p_wasgo_id);
 explicit Light2D(Node2D other);
+Light2D();
 Light2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

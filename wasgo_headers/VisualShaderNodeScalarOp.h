@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODESCALAROP_H
 #define VISUALSHADERNODESCALAROP_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeScalarOp : public VisualShaderNode{
@@ -26,7 +26,10 @@ protected:
 public:
 explicit VisualShaderNodeScalarOp(WasGoID p_wasgo_id);
 explicit VisualShaderNodeScalarOp(VisualShaderNode other);
+VisualShaderNodeScalarOp();
 VisualShaderNodeScalarOp new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

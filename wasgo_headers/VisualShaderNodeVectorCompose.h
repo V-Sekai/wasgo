@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEVECTORCOMPOSE_H
 #define VISUALSHADERNODEVECTORCOMPOSE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorCompose : public VisualShaderNode{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VisualShaderNodeVectorCompose(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorCompose(VisualShaderNode other);
+VisualShaderNodeVectorCompose();
 VisualShaderNodeVectorCompose new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

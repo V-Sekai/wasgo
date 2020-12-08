@@ -2,7 +2,7 @@
 #ifndef AUDIOSTREAMMICROPHONE_H
 #define AUDIOSTREAMMICROPHONE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioStream.h"
 class AudioStreamMicrophone : public AudioStream{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit AudioStreamMicrophone(WasGoID p_wasgo_id);
 explicit AudioStreamMicrophone(AudioStream other);
+AudioStreamMicrophone();
 AudioStreamMicrophone new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

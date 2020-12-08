@@ -176,8 +176,15 @@ void Area::set_use_reverb_bus(bool p_enable){
 Area::Area(WasGoID p_wasgo_id) : CollisionObject(p_wasgo_id){
 }
 Area::Area(CollisionObject other) : CollisionObject(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Area_constructor();
 }
-Area::new_instance(){
+Area::Area():CollisionObject(){
+}
+Area Area::new_instance(){
     return Area(_wasgo_Area_constructor());
+}
+WasGoID Area::_get_wasgo_id(){
+    return wasgo_id;
+}
+Area::operator bool(){
+    return (bool) wasgo_id;
 }

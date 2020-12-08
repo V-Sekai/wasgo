@@ -19,3 +19,19 @@ void VisualShaderNode::set_input_port_default_value(int p_port, Variant p_value)
 void VisualShaderNode::set_output_port_for_preview(int p_port){
 	_wasgo_VisualShaderNode_wrapper_set_output_port_for_preview(wasgo_id, p_port);
 }
+
+VisualShaderNode::VisualShaderNode(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
+}
+VisualShaderNode::VisualShaderNode(Resource other) : Resource(other._get_wasgo_id()){
+}
+VisualShaderNode::VisualShaderNode():Resource(){
+}
+VisualShaderNode VisualShaderNode::new_instance(){
+    return VisualShaderNode(_wasgo_VisualShaderNode_constructor());
+}
+WasGoID VisualShaderNode::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNode::operator bool(){
+    return (bool) wasgo_id;
+}

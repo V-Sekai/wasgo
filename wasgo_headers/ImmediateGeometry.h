@@ -2,20 +2,20 @@
 #ifndef IMMEDIATEGEOMETRY_H
 #define IMMEDIATEGEOMETRY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Plane.h"
 #include "Color.h"
+#include "Vector3.h"
 #include "Vector2.h"
 #include "Mesh.h"
-#include "Vector3.h"
 #include "GeometryInstance.h"
+#include "Plane.h"
 #include "Texture.h"
 class ImmediateGeometry : public GeometryInstance{
 public:
 void add_sphere(int p_lats, int p_lons, float p_radius, bool p_add_uv = (bool) true);
 void add_vertex(Vector3 p_position);
-void begin(Mesh::PrimitiveType p_primitive, Texture p_texture = (Texture) [object:null]);
+void begin(Mesh::PrimitiveType p_primitive, Texture p_texture = Texture());
 void clear();
 void end();
 void set_color(Color p_color);
@@ -28,7 +28,10 @@ protected:
 public:
 explicit ImmediateGeometry(WasGoID p_wasgo_id);
 explicit ImmediateGeometry(GeometryInstance other);
+ImmediateGeometry();
 ImmediateGeometry new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,11 +2,11 @@
 #ifndef ANIMATIONNODESTATEMACHINEPLAYBACK_H
 #define ANIMATIONNODESTATEMACHINEPLAYBACK_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Variant.h"
 #include "Resource.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Ustring.h"
 class AnimationNodeStateMachinePlayback : public Resource{
 public:
 String get_current_node();
@@ -20,7 +20,10 @@ protected:
 public:
 explicit AnimationNodeStateMachinePlayback(WasGoID p_wasgo_id);
 explicit AnimationNodeStateMachinePlayback(Resource other);
+AnimationNodeStateMachinePlayback();
 AnimationNodeStateMachinePlayback new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

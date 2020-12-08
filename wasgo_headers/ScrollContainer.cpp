@@ -47,8 +47,15 @@ void ScrollContainer::set_v_scroll(int p_value){
 ScrollContainer::ScrollContainer(WasGoID p_wasgo_id) : Container(p_wasgo_id){
 }
 ScrollContainer::ScrollContainer(Container other) : Container(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ScrollContainer_constructor();
 }
-ScrollContainer::new_instance(){
+ScrollContainer::ScrollContainer():Container(){
+}
+ScrollContainer ScrollContainer::new_instance(){
     return ScrollContainer(_wasgo_ScrollContainer_constructor());
+}
+WasGoID ScrollContainer::_get_wasgo_id(){
+    return wasgo_id;
+}
+ScrollContainer::operator bool(){
+    return (bool) wasgo_id;
 }

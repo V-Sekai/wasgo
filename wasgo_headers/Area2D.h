@@ -2,13 +2,13 @@
 #ifndef AREA2D_H
 #define AREA2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
-#include "Node.h"
-#include "Variant.h"
 #include "CollisionObject2D.h"
-#include "ustring.h"
+#include "Vector2.h"
+class Node;
+#include "Variant.h"
+#include "Ustring.h"
 class Area2D : public CollisionObject2D{
 public:
 enum SpaceOverride{
@@ -59,7 +59,10 @@ protected:
 public:
 explicit Area2D(WasGoID p_wasgo_id);
 explicit Area2D(CollisionObject2D other);
+Area2D();
 Area2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

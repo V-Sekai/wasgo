@@ -11,8 +11,15 @@ void AnimationNodeBlend2::set_use_sync(bool p_enable){
 AnimationNodeBlend2::AnimationNodeBlend2(WasGoID p_wasgo_id) : AnimationNode(p_wasgo_id){
 }
 AnimationNodeBlend2::AnimationNodeBlend2(AnimationNode other) : AnimationNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationNodeBlend2_constructor();
 }
-AnimationNodeBlend2::new_instance(){
+AnimationNodeBlend2::AnimationNodeBlend2():AnimationNode(){
+}
+AnimationNodeBlend2 AnimationNodeBlend2::new_instance(){
     return AnimationNodeBlend2(_wasgo_AnimationNodeBlend2_constructor());
+}
+WasGoID AnimationNodeBlend2::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationNodeBlend2::operator bool(){
+    return (bool) wasgo_id;
 }

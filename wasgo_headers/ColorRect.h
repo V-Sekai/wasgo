@@ -2,10 +2,10 @@
 #ifndef COLORRECT_H
 #define COLORRECT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Control.h"
 #include "Color.h"
+#include "Control.h"
 class ColorRect : public Control{
 public:
 Color get_frame_color();
@@ -15,7 +15,10 @@ protected:
 public:
 explicit ColorRect(WasGoID p_wasgo_id);
 explicit ColorRect(Control other);
+ColorRect();
 ColorRect new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

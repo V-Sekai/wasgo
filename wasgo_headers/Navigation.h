@@ -2,14 +2,14 @@
 #ifndef NAVIGATION_H
 #define NAVIGATION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "NavigationMesh.h"
+#include "Vector3.h"
 #include "Object.h"
 #include "Spatial.h"
-#include "Vector3.h"
-#include "Variant.h"
+#include "NavigationMesh.h"
 #include "Transform.h"
+#include "Variant.h"
 class Navigation : public Spatial{
 public:
 Vector3 get_closest_point(Vector3 p_to_point);
@@ -18,7 +18,7 @@ Object get_closest_point_owner(Vector3 p_to_point);
 Vector3 get_closest_point_to_segment(Vector3 p_start, Vector3 p_end, bool p_use_collision = (bool) false);
 PoolVector3Array get_simple_path(Vector3 p_start, Vector3 p_end, bool p_optimize = (bool) true);
 Vector3 get_up_vector();
-int navmesh_add(NavigationMesh p_mesh, Transform p_xform, Object p_owner = (Object) "");
+int navmesh_add(NavigationMesh p_mesh, Transform p_xform, Object p_owner = Object());
 void navmesh_remove(int p_id);
 void navmesh_set_transform(int p_id, Transform p_xform);
 void set_up_vector(Vector3 p_up);
@@ -27,7 +27,10 @@ protected:
 public:
 explicit Navigation(WasGoID p_wasgo_id);
 explicit Navigation(Spatial other);
+Navigation();
 Navigation new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,10 +2,10 @@
 #ifndef VISIBILITYNOTIFIER2D_H
 #define VISIBILITYNOTIFIER2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node2D.h"
 #include "Rect2.h"
+#include "Node2D.h"
 class VisibilityNotifier2D : public Node2D{
 public:
 Rect2 get_rect();
@@ -16,7 +16,10 @@ protected:
 public:
 explicit VisibilityNotifier2D(WasGoID p_wasgo_id);
 explicit VisibilityNotifier2D(Node2D other);
+VisibilityNotifier2D();
 VisibilityNotifier2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

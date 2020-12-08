@@ -2,7 +2,7 @@
 #ifndef DAMPEDSPRINGJOINT2D_H
 #define DAMPEDSPRINGJOINT2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Joint2D.h"
 class DampedSpringJoint2D : public Joint2D{
@@ -20,7 +20,10 @@ protected:
 public:
 explicit DampedSpringJoint2D(WasGoID p_wasgo_id);
 explicit DampedSpringJoint2D(Joint2D other);
+DampedSpringJoint2D();
 DampedSpringJoint2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

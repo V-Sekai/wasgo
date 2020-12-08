@@ -14,8 +14,15 @@ void GradientTexture::set_width(int p_width){
 GradientTexture::GradientTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 GradientTexture::GradientTexture(Texture other) : Texture(other._get_wasgo_id()){
-    wasgo_id = _wasgo_GradientTexture_constructor();
 }
-GradientTexture::new_instance(){
+GradientTexture::GradientTexture():Texture(){
+}
+GradientTexture GradientTexture::new_instance(){
     return GradientTexture(_wasgo_GradientTexture_constructor());
+}
+WasGoID GradientTexture::_get_wasgo_id(){
+    return wasgo_id;
+}
+GradientTexture::operator bool(){
+    return (bool) wasgo_id;
 }

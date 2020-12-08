@@ -2,11 +2,11 @@
 #ifndef MESHTEXTURE_H
 #define MESHTEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Vector2.h"
-#include "Texture.h"
 #include "Mesh.h"
+#include "Texture.h"
 class MeshTexture : public Texture{
 public:
 Texture get_base_texture();
@@ -20,7 +20,10 @@ protected:
 public:
 explicit MeshTexture(WasGoID p_wasgo_id);
 explicit MeshTexture(Texture other);
+MeshTexture();
 MeshTexture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

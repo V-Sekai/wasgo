@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "AStar2D.h"
-void AStar2D::add_point(int p_id, Vector2 p_position, float p_weight_scale = (float) 1){
+void AStar2D::add_point(int p_id, Vector2 p_position, float p_weight_scale){
 
     Variant wasgo_var_position = p_position;
     uint8_t wasgo_buffer_position[12];
@@ -16,7 +16,7 @@ bool AStar2D::are_points_connected(int p_id, int p_to_id){
 void AStar2D::clear(){
 	_wasgo_AStar2D_wrapper_clear(wasgo_id);
 }
-void AStar2D::connect_points(int p_id, int p_to_id, bool p_bidirectional = (bool) true){
+void AStar2D::connect_points(int p_id, int p_to_id, bool p_bidirectional){
 	_wasgo_AStar2D_wrapper_connect_points(wasgo_id, p_id, p_to_id, p_bidirectional);
 }
 void AStar2D::disconnect_points(int p_id, int p_to_id){
@@ -25,7 +25,7 @@ void AStar2D::disconnect_points(int p_id, int p_to_id){
 int AStar2D::get_available_point_id(){
 	return (int) _wasgo_AStar2D_wrapper_get_available_point_id(wasgo_id);
 }
-int AStar2D::get_closest_point(Vector2 p_to_position, bool p_include_disabled = (bool) false){
+int AStar2D::get_closest_point(Vector2 p_to_position, bool p_include_disabled){
 
     Variant wasgo_var_to_position = p_to_position;
     uint8_t wasgo_buffer_to_position[12];
@@ -93,7 +93,7 @@ void AStar2D::remove_point(int p_id){
 void AStar2D::reserve_space(int p_num_nodes){
 	_wasgo_AStar2D_wrapper_reserve_space(wasgo_id, p_num_nodes);
 }
-void AStar2D::set_point_disabled(int p_id, bool p_disabled = (bool) true){
+void AStar2D::set_point_disabled(int p_id, bool p_disabled){
 	_wasgo_AStar2D_wrapper_set_point_disabled(wasgo_id, p_id, p_disabled);
 }
 void AStar2D::set_point_position(int p_id, Vector2 p_position){
@@ -112,8 +112,15 @@ void AStar2D::set_point_weight_scale(int p_id, float p_weight_scale){
 AStar2D::AStar2D(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 AStar2D::AStar2D(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AStar2D_constructor();
 }
-AStar2D::new_instance(){
+AStar2D::AStar2D():Reference(){
+}
+AStar2D AStar2D::new_instance(){
     return AStar2D(_wasgo_AStar2D_constructor());
+}
+WasGoID AStar2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+AStar2D::operator bool(){
+    return (bool) wasgo_id;
 }

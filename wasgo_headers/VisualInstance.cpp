@@ -62,3 +62,19 @@ void VisualInstance::set_layer_mask(int p_mask){
 void VisualInstance::set_layer_mask_bit(int p_layer, bool p_enabled){
 	_wasgo_VisualInstance_wrapper_set_layer_mask_bit(wasgo_id, p_layer, p_enabled);
 }
+
+VisualInstance::VisualInstance(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
+}
+VisualInstance::VisualInstance(Spatial other) : Spatial(other._get_wasgo_id()){
+}
+VisualInstance::VisualInstance():Spatial(){
+}
+VisualInstance VisualInstance::new_instance(){
+    return VisualInstance(_wasgo_VisualInstance_constructor());
+}
+WasGoID VisualInstance::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualInstance::operator bool(){
+    return (bool) wasgo_id;
+}

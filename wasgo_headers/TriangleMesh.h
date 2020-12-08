@@ -2,7 +2,7 @@
 #ifndef TRIANGLEMESH_H
 #define TRIANGLEMESH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Reference.h"
 class TriangleMesh : public Reference{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit TriangleMesh(WasGoID p_wasgo_id);
 explicit TriangleMesh(Reference other);
+TriangleMesh();
 TriangleMesh new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

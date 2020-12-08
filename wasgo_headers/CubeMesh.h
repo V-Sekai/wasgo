@@ -2,7 +2,7 @@
 #ifndef CUBEMESH_H
 #define CUBEMESH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "PrimitiveMesh.h"
 #include "Vector3.h"
@@ -21,7 +21,10 @@ protected:
 public:
 explicit CubeMesh(WasGoID p_wasgo_id);
 explicit CubeMesh(PrimitiveMesh other);
+CubeMesh();
 CubeMesh new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

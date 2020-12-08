@@ -11,8 +11,15 @@ void YSort::set_sort_enabled(bool p_enabled){
 YSort::YSort(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 YSort::YSort(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_YSort_constructor();
 }
-YSort::new_instance(){
+YSort::YSort():Node2D(){
+}
+YSort YSort::new_instance(){
     return YSort(_wasgo_YSort_constructor());
+}
+WasGoID YSort::_get_wasgo_id(){
+    return wasgo_id;
+}
+YSort::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,16 +2,16 @@
 #ifndef PHYSICSSERVER_H
 #define PHYSICSSERVER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "PhysicsDirectBodyState.h"
-#include "Object.h"
 #include "Vector3.h"
+#include "Object.h"
 #include "Variant.h"
-#include "RID.h"
-#include "Transform.h"
 #include "PhysicsDirectSpaceState.h"
-#include "ustring.h"
+#include "Transform.h"
+#include "PhysicsDirectBodyState.h"
+#include "RID.h"
+#include "Ustring.h"
 class PhysicsServer : public Object{
 public:
 enum AreaBodyStatus{
@@ -237,7 +237,7 @@ void body_set_axis_velocity(RID p_body, Vector3 p_axis_velocity);
 void body_set_collision_layer(RID p_body, int p_layer);
 void body_set_collision_mask(RID p_body, int p_mask);
 void body_set_enable_continuous_collision_detection(RID p_body, bool p_enable);
-void body_set_force_integration_callback(RID p_body, Object p_receiver, String p_method, Variant p_userdata = (Variant) "");
+void body_set_force_integration_callback(RID p_body, Object p_receiver, String p_method, Variant p_userdata = Variant());
 void body_set_kinematic_safe_margin(RID p_body, float p_margin);
 void body_set_max_contacts_reported(RID p_body, int p_amount);
 void body_set_mode(RID p_body, PhysicsServer::BodyMode p_mode);
@@ -288,6 +288,16 @@ float space_get_param(RID p_space, PhysicsServer::SpaceParameter p_param);
 bool space_is_active(RID p_space);
 void space_set_active(RID p_space, bool p_active);
 void space_set_param(RID p_space, PhysicsServer::SpaceParameter p_param, float p_value);
+
+protected:
+public:
+explicit PhysicsServer(WasGoID p_wasgo_id);
+explicit PhysicsServer(Object other);
+PhysicsServer();
+PhysicsServer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

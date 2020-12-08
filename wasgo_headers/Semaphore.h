@@ -2,7 +2,7 @@
 #ifndef SEMAPHORE_H
 #define SEMAPHORE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Reference.h"
 #include "error_list.h"
@@ -15,7 +15,10 @@ protected:
 public:
 explicit Semaphore(WasGoID p_wasgo_id);
 explicit Semaphore(Reference other);
+Semaphore();
 Semaphore new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

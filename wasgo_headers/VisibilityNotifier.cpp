@@ -27,8 +27,15 @@ void VisibilityNotifier::set_aabb(::AABB p_rect){
 VisibilityNotifier::VisibilityNotifier(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 VisibilityNotifier::VisibilityNotifier(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisibilityNotifier_constructor();
 }
-VisibilityNotifier::new_instance(){
+VisibilityNotifier::VisibilityNotifier():Spatial(){
+}
+VisibilityNotifier VisibilityNotifier::new_instance(){
     return VisibilityNotifier(_wasgo_VisibilityNotifier_constructor());
+}
+WasGoID VisibilityNotifier::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisibilityNotifier::operator bool(){
+    return (bool) wasgo_id;
 }

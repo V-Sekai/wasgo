@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "PopupMenu.h"
-void PopupMenu::add_check_item(String p_label, int p_id = (int) -1, int p_accel = (int) 0){
+void PopupMenu::add_check_item(String p_label, int p_id, int p_accel){
 
     Variant wasgo_var_label = p_label;
     int wasgo_size_label = String(p_label).size();
@@ -10,10 +10,10 @@ void PopupMenu::add_check_item(String p_label, int p_id = (int) -1, int p_accel 
     
 	_wasgo_PopupMenu_wrapper_add_check_item(wasgo_id, wasgo_buffer_label, wasgo_size_label, p_id, p_accel);
 }
-void PopupMenu::add_check_shortcut(ShortCut p_shortcut, int p_id = (int) -1, bool p_global = (bool) false){
+void PopupMenu::add_check_shortcut(ShortCut p_shortcut, int p_id, bool p_global){
 	_wasgo_PopupMenu_wrapper_add_check_shortcut(wasgo_id, p_shortcut._get_wasgo_id(), p_id, p_global);
 }
-void PopupMenu::add_icon_check_item(Texture p_texture, String p_label, int p_id = (int) -1, int p_accel = (int) 0){
+void PopupMenu::add_icon_check_item(Texture p_texture, String p_label, int p_id, int p_accel){
 
     Variant wasgo_var_label = p_label;
     int wasgo_size_label = String(p_label).size();
@@ -22,10 +22,10 @@ void PopupMenu::add_icon_check_item(Texture p_texture, String p_label, int p_id 
     
 	_wasgo_PopupMenu_wrapper_add_icon_check_item(wasgo_id, p_texture._get_wasgo_id(), wasgo_buffer_label, wasgo_size_label, p_id, p_accel);
 }
-void PopupMenu::add_icon_check_shortcut(Texture p_texture, ShortCut p_shortcut, int p_id = (int) -1, bool p_global = (bool) false){
+void PopupMenu::add_icon_check_shortcut(Texture p_texture, ShortCut p_shortcut, int p_id, bool p_global){
 	_wasgo_PopupMenu_wrapper_add_icon_check_shortcut(wasgo_id, p_texture._get_wasgo_id(), p_shortcut._get_wasgo_id(), p_id, p_global);
 }
-void PopupMenu::add_icon_item(Texture p_texture, String p_label, int p_id = (int) -1, int p_accel = (int) 0){
+void PopupMenu::add_icon_item(Texture p_texture, String p_label, int p_id, int p_accel){
 
     Variant wasgo_var_label = p_label;
     int wasgo_size_label = String(p_label).size();
@@ -34,7 +34,7 @@ void PopupMenu::add_icon_item(Texture p_texture, String p_label, int p_id = (int
     
 	_wasgo_PopupMenu_wrapper_add_icon_item(wasgo_id, p_texture._get_wasgo_id(), wasgo_buffer_label, wasgo_size_label, p_id, p_accel);
 }
-void PopupMenu::add_icon_radio_check_item(Texture p_texture, String p_label, int p_id = (int) -1, int p_accel = (int) 0){
+void PopupMenu::add_icon_radio_check_item(Texture p_texture, String p_label, int p_id, int p_accel){
 
     Variant wasgo_var_label = p_label;
     int wasgo_size_label = String(p_label).size();
@@ -43,13 +43,13 @@ void PopupMenu::add_icon_radio_check_item(Texture p_texture, String p_label, int
     
 	_wasgo_PopupMenu_wrapper_add_icon_radio_check_item(wasgo_id, p_texture._get_wasgo_id(), wasgo_buffer_label, wasgo_size_label, p_id, p_accel);
 }
-void PopupMenu::add_icon_radio_check_shortcut(Texture p_texture, ShortCut p_shortcut, int p_id = (int) -1, bool p_global = (bool) false){
+void PopupMenu::add_icon_radio_check_shortcut(Texture p_texture, ShortCut p_shortcut, int p_id, bool p_global){
 	_wasgo_PopupMenu_wrapper_add_icon_radio_check_shortcut(wasgo_id, p_texture._get_wasgo_id(), p_shortcut._get_wasgo_id(), p_id, p_global);
 }
-void PopupMenu::add_icon_shortcut(Texture p_texture, ShortCut p_shortcut, int p_id = (int) -1, bool p_global = (bool) false){
+void PopupMenu::add_icon_shortcut(Texture p_texture, ShortCut p_shortcut, int p_id, bool p_global){
 	_wasgo_PopupMenu_wrapper_add_icon_shortcut(wasgo_id, p_texture._get_wasgo_id(), p_shortcut._get_wasgo_id(), p_id, p_global);
 }
-void PopupMenu::add_item(String p_label, int p_id = (int) -1, int p_accel = (int) 0){
+void PopupMenu::add_item(String p_label, int p_id, int p_accel){
 
     Variant wasgo_var_label = p_label;
     int wasgo_size_label = String(p_label).size();
@@ -58,7 +58,7 @@ void PopupMenu::add_item(String p_label, int p_id = (int) -1, int p_accel = (int
     
 	_wasgo_PopupMenu_wrapper_add_item(wasgo_id, wasgo_buffer_label, wasgo_size_label, p_id, p_accel);
 }
-void PopupMenu::add_multistate_item(String p_label, int p_max_states, int p_default_state = (int) 0, int p_id = (int) -1, int p_accel = (int) 0){
+void PopupMenu::add_multistate_item(String p_label, int p_max_states, int p_default_state, int p_id, int p_accel){
 
     Variant wasgo_var_label = p_label;
     int wasgo_size_label = String(p_label).size();
@@ -67,7 +67,7 @@ void PopupMenu::add_multistate_item(String p_label, int p_max_states, int p_defa
     
 	_wasgo_PopupMenu_wrapper_add_multistate_item(wasgo_id, wasgo_buffer_label, wasgo_size_label, p_max_states, p_default_state, p_id, p_accel);
 }
-void PopupMenu::add_radio_check_item(String p_label, int p_id = (int) -1, int p_accel = (int) 0){
+void PopupMenu::add_radio_check_item(String p_label, int p_id, int p_accel){
 
     Variant wasgo_var_label = p_label;
     int wasgo_size_label = String(p_label).size();
@@ -76,10 +76,10 @@ void PopupMenu::add_radio_check_item(String p_label, int p_id = (int) -1, int p_
     
 	_wasgo_PopupMenu_wrapper_add_radio_check_item(wasgo_id, wasgo_buffer_label, wasgo_size_label, p_id, p_accel);
 }
-void PopupMenu::add_radio_check_shortcut(ShortCut p_shortcut, int p_id = (int) -1, bool p_global = (bool) false){
+void PopupMenu::add_radio_check_shortcut(ShortCut p_shortcut, int p_id, bool p_global){
 	_wasgo_PopupMenu_wrapper_add_radio_check_shortcut(wasgo_id, p_shortcut._get_wasgo_id(), p_id, p_global);
 }
-void PopupMenu::add_separator(String p_label = (String) ){
+void PopupMenu::add_separator(String p_label){
 
     Variant wasgo_var_label = p_label;
     int wasgo_size_label = String(p_label).size();
@@ -88,10 +88,10 @@ void PopupMenu::add_separator(String p_label = (String) ){
     
 	_wasgo_PopupMenu_wrapper_add_separator(wasgo_id, wasgo_buffer_label, wasgo_size_label);
 }
-void PopupMenu::add_shortcut(ShortCut p_shortcut, int p_id = (int) -1, bool p_global = (bool) false){
+void PopupMenu::add_shortcut(ShortCut p_shortcut, int p_id, bool p_global){
 	_wasgo_PopupMenu_wrapper_add_shortcut(wasgo_id, p_shortcut._get_wasgo_id(), p_id, p_global);
 }
-void PopupMenu::add_submenu_item(String p_label, String p_submenu, int p_id = (int) -1){
+void PopupMenu::add_submenu_item(String p_label, String p_submenu, int p_id){
 
     Variant wasgo_var_label = p_label;
     int wasgo_size_label = String(p_label).size();
@@ -247,7 +247,7 @@ void PopupMenu::set_item_metadata(int p_idx, Variant p_metadata){
 void PopupMenu::set_item_multistate(int p_idx, int p_state){
 	_wasgo_PopupMenu_wrapper_set_item_multistate(wasgo_id, p_idx, p_state);
 }
-void PopupMenu::set_item_shortcut(int p_idx, ShortCut p_shortcut, bool p_global = (bool) false){
+void PopupMenu::set_item_shortcut(int p_idx, ShortCut p_shortcut, bool p_global){
 	_wasgo_PopupMenu_wrapper_set_item_shortcut(wasgo_id, p_idx, p_shortcut._get_wasgo_id(), p_global);
 }
 void PopupMenu::set_item_shortcut_disabled(int p_idx, bool p_disabled){
@@ -293,8 +293,15 @@ void PopupMenu::toggle_item_multistate(int p_idx){
 PopupMenu::PopupMenu(WasGoID p_wasgo_id) : Popup(p_wasgo_id){
 }
 PopupMenu::PopupMenu(Popup other) : Popup(other._get_wasgo_id()){
-    wasgo_id = _wasgo_PopupMenu_constructor();
 }
-PopupMenu::new_instance(){
+PopupMenu::PopupMenu():Popup(){
+}
+PopupMenu PopupMenu::new_instance(){
     return PopupMenu(_wasgo_PopupMenu_constructor());
+}
+WasGoID PopupMenu::_get_wasgo_id(){
+    return wasgo_id;
+}
+PopupMenu::operator bool(){
+    return (bool) wasgo_id;
 }

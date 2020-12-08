@@ -2,10 +2,10 @@
 #ifndef LIGHTOCCLUDER2D_H
 #define LIGHTOCCLUDER2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "OccluderPolygon2D.h"
 #include "Node2D.h"
+#include "OccluderPolygon2D.h"
 class LightOccluder2D : public Node2D{
 public:
 int get_occluder_light_mask();
@@ -17,7 +17,10 @@ protected:
 public:
 explicit LightOccluder2D(WasGoID p_wasgo_id);
 explicit LightOccluder2D(Node2D other);
+LightOccluder2D();
 LightOccluder2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

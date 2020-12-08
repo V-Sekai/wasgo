@@ -2,10 +2,10 @@
 #ifndef NAVIGATIONPOLYGONINSTANCE_H
 #define NAVIGATIONPOLYGONINSTANCE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node2D.h"
 #include "NavigationPolygon.h"
+#include "Node2D.h"
 class NavigationPolygonInstance : public Node2D{
 public:
 NavigationPolygon get_navigation_polygon();
@@ -17,7 +17,10 @@ protected:
 public:
 explicit NavigationPolygonInstance(WasGoID p_wasgo_id);
 explicit NavigationPolygonInstance(Node2D other);
+NavigationPolygonInstance();
 NavigationPolygonInstance new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

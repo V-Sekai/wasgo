@@ -2,19 +2,19 @@
 #ifndef SURFACETOOL_H
 #define SURFACETOOL_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Plane.h"
 #include "Color.h"
-#include "Reference.h"
-#include "Vector2.h"
-#include "Material.h"
-#include "Mesh.h"
-#include "Vector3.h"
-#include "Variant.h"
 #include "ArrayMesh.h"
+#include "Vector3.h"
+#include "Vector2.h"
+#include "Mesh.h"
+#include "Material.h"
+#include "Reference.h"
 #include "Transform.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Ustring.h"
+#include "Plane.h"
 class SurfaceTool : public Reference{
 public:
 void add_bones(PoolIntArray p_bones);
@@ -23,7 +23,7 @@ void add_index(int p_index);
 void add_normal(Vector3 p_normal);
 void add_smooth_group(bool p_smooth);
 void add_tangent(Plane p_tangent);
-void add_triangle_fan(PoolVector3Array p_vertices, PoolVector2Array p_uvs = (PoolVector2Array) [], PoolColorArray p_colors = (PoolColorArray) [poolcolorarray], PoolVector2Array p_uv2s = (PoolVector2Array) [], PoolVector3Array p_normals = (PoolVector3Array) [], Array p_tangents = (Array) []);
+void add_triangle_fan(PoolVector3Array p_vertices, PoolVector2Array p_uvs = PoolVector2Array(), PoolColorArray p_colors = (PoolColorArray) [poolcolorarray], PoolVector2Array p_uv2s = PoolVector2Array(), PoolVector3Array p_normals = PoolVector3Array(), Array p_tangents = Array());
 void add_uv(Vector2 p_uv);
 void add_uv2(Vector2 p_uv2);
 void add_vertex(Vector3 p_vertex);
@@ -31,7 +31,7 @@ void add_weights(PoolRealArray p_weights);
 void append_from(Mesh p_existing, int p_surface, Transform p_transform);
 void begin(Mesh::PrimitiveType p_primitive);
 void clear();
-ArrayMesh commit(ArrayMesh p_existing = (ArrayMesh) "", int p_flags = (int) 97280);
+ArrayMesh commit(ArrayMesh p_existing = ArrayMesh(), int p_flags = (int) 97280);
 Array commit_to_arrays();
 void create_from(Mesh p_existing, int p_surface);
 void create_from_blend_shape(Mesh p_existing, int p_surface, String p_blend_shape);
@@ -45,7 +45,10 @@ protected:
 public:
 explicit SurfaceTool(WasGoID p_wasgo_id);
 explicit SurfaceTool(Reference other);
+SurfaceTool();
 SurfaceTool new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

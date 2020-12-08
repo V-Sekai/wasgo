@@ -2,7 +2,7 @@
 #ifndef VSPLITCONTAINER_H
 #define VSPLITCONTAINER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "SplitContainer.h"
 class VSplitContainer : public SplitContainer{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VSplitContainer(WasGoID p_wasgo_id);
 explicit VSplitContainer(SplitContainer other);
+VSplitContainer();
 VSplitContainer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

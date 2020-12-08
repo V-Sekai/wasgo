@@ -2,15 +2,15 @@
 #ifndef ANIMATION_H
 #define ANIMATION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
-#include "Resource.h"
 #include "Vector3.h"
-#include "Variant.h"
-#include "NodePath.h"
+#include "Vector2.h"
 #include "Quat.h"
-#include "ustring.h"
+#include "Resource.h"
+#include "NodePath.h"
+#include "Variant.h"
+#include "Ustring.h"
 class Animation : public Resource{
 public:
 enum InterpolationType{
@@ -46,7 +46,7 @@ void audio_track_set_key_stream(int p_track_idx, int p_key_idx, Resource p_strea
 Vector2 bezier_track_get_key_in_handle(int p_track_idx, int p_key_idx);
 Vector2 bezier_track_get_key_out_handle(int p_track_idx, int p_key_idx);
 float bezier_track_get_key_value(int p_track_idx, int p_key_idx);
-int bezier_track_insert_key(int p_track_idx, float p_time, float p_value, Vector2 p_in_handle = Vector2((0, 0)), Vector2 p_out_handle = Vector2((0, 0)));
+int bezier_track_insert_key(int p_track_idx, float p_time, float p_value, Vector2 p_in_handle = Vector2(0, 0), Vector2 p_out_handle = Vector2(0, 0));
 float bezier_track_interpolate(int p_track_idx, float p_time);
 void bezier_track_set_key_in_handle(int p_track_idx, int p_key_idx, Vector2 p_in_handle);
 void bezier_track_set_key_out_handle(int p_track_idx, int p_key_idx, Vector2 p_out_handle);
@@ -102,7 +102,10 @@ protected:
 public:
 explicit Animation(WasGoID p_wasgo_id);
 explicit Animation(Resource other);
+Animation();
 Animation new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

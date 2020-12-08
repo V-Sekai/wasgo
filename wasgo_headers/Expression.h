@@ -2,25 +2,28 @@
 #ifndef EXPRESSION_H
 #define EXPRESSION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
 #include "Object.h"
-#include "Variant.h"
+#include "Reference.h"
 #include "error_list.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Ustring.h"
 class Expression : public Reference{
 public:
-Variant execute(Array p_inputs = (Array) [], Object p_base_instance = (Object) "", bool p_show_error = (bool) true);
+Variant execute(Array p_inputs = Array(), Object p_base_instance = Object(), bool p_show_error = (bool) true);
 String get_error_text();
 bool has_execute_failed();
-Error parse(String p_expression, PoolStringArray p_input_names = (PoolStringArray) []);
+Error parse(String p_expression, PoolStringArray p_input_names = PoolStringArray());
 
 protected:
 public:
 explicit Expression(WasGoID p_wasgo_id);
 explicit Expression(Reference other);
+Expression();
 Expression new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

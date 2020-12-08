@@ -2,12 +2,12 @@
 #ifndef PACKEDSCENE_H
 #define PACKEDSCENE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node.h"
-#include "error_list.h"
 #include "Resource.h"
 #include "SceneState.h"
+class Node;
+#include "error_list.h"
 class PackedScene : public Resource{
 public:
 enum GenEditState{
@@ -24,7 +24,10 @@ protected:
 public:
 explicit PackedScene(WasGoID p_wasgo_id);
 explicit PackedScene(Resource other);
+PackedScene();
 PackedScene new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

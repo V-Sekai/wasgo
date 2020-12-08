@@ -2,20 +2,20 @@
 #ifndef VIEWPORT_H
 #define VIEWPORT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "World2D.h"
+#include "InputEvent.h"
 #include "Camera.h"
 #include "Vector2.h"
-#include "Node.h"
-#include "Variant.h"
-#include "InputEvent.h"
-#include "Transform2D.h"
-#include "World.h"
 #include "ViewportTexture.h"
 #include "RID.h"
-#include "Control.h"
 #include "Rect2.h"
+#include "Node.h"
+#include "Variant.h"
+#include "Transform2D.h"
+#include "World.h"
+#include "World2D.h"
+#include "Control.h"
 class Viewport : public Node{
 public:
 enum ClearMode{
@@ -132,7 +132,7 @@ void set_physics_object_picking(bool p_enable);
 void set_shadow_atlas_quadrant_subdiv(int p_quadrant, Viewport::ShadowAtlasQuadrantSubdiv p_subdiv);
 void set_shadow_atlas_size(int p_size);
 void set_size(Vector2 p_size);
-void set_size_override(bool p_enable, Vector2 p_size = Vector2((-1, -1)), Vector2 p_margin = Vector2((0, 0)));
+void set_size_override(bool p_enable, Vector2 p_size = Vector2(-1, -1), Vector2 p_margin = Vector2(0, 0));
 void set_size_override_stretch(bool p_enabled);
 void set_snap_controls_to_pixels(bool p_enabled);
 void set_transparent_background(bool p_enable);
@@ -155,7 +155,10 @@ protected:
 public:
 explicit Viewport(WasGoID p_wasgo_id);
 explicit Viewport(Node other);
+Viewport();
 Viewport new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

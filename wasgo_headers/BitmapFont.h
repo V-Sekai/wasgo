@@ -2,17 +2,17 @@
 #ifndef BITMAPFONT_H
 #define BITMAPFONT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Rect2.h"
-#include "Font.h"
 #include "Vector2.h"
+#include "Font.h"
+#include "Rect2.h"
 #include "error_list.h"
+#include "Ustring.h"
 #include "Texture.h"
-#include "ustring.h"
 class BitmapFont : public Font{
 public:
-void add_char(int p_character, int p_texture, Rect2 p_rect, Vector2 p_align = Vector2((0, 0)), float p_advance = (float) -1);
+void add_char(int p_character, int p_texture, Rect2 p_rect, Vector2 p_align = Vector2(0, 0), float p_advance = (float) -1);
 void add_kerning_pair(int p_char_a, int p_char_b, int p_kerning);
 void add_texture(Texture p_texture);
 void clear();
@@ -30,7 +30,10 @@ protected:
 public:
 explicit BitmapFont(WasGoID p_wasgo_id);
 explicit BitmapFont(Font other);
+BitmapFont();
 BitmapFont new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

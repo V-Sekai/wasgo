@@ -90,8 +90,15 @@ void TabContainer::set_use_hidden_tabs_for_min_size(bool p_enabled){
 TabContainer::TabContainer(WasGoID p_wasgo_id) : Container(p_wasgo_id){
 }
 TabContainer::TabContainer(Container other) : Container(other._get_wasgo_id()){
-    wasgo_id = _wasgo_TabContainer_constructor();
 }
-TabContainer::new_instance(){
+TabContainer::TabContainer():Container(){
+}
+TabContainer TabContainer::new_instance(){
     return TabContainer(_wasgo_TabContainer_constructor());
+}
+WasGoID TabContainer::_get_wasgo_id(){
+    return wasgo_id;
+}
+TabContainer::operator bool(){
+    return (bool) wasgo_id;
 }

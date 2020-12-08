@@ -2,13 +2,13 @@
 #ifndef ARVRANCHOR_H
 #define ARVRANCHOR_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Plane.h"
+#include "Vector3.h"
 #include "Mesh.h"
 #include "Spatial.h"
-#include "Vector3.h"
-#include "ustring.h"
+#include "Ustring.h"
+#include "Plane.h"
 class ARVRAnchor : public Spatial{
 public:
 int get_anchor_id();
@@ -23,7 +23,10 @@ protected:
 public:
 explicit ARVRAnchor(WasGoID p_wasgo_id);
 explicit ARVRAnchor(Spatial other);
+ARVRAnchor();
 ARVRAnchor new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

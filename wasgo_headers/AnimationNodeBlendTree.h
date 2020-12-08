@@ -2,15 +2,15 @@
 #ifndef ANIMATIONNODEBLENDTREE_H
 #define ANIMATIONNODEBLENDTREE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AnimationRootNode.h"
-#include "Vector2.h"
+#include "Ustring.h"
 #include "AnimationNode.h"
-#include "ustring.h"
+#include "Vector2.h"
 class AnimationNodeBlendTree : public AnimationRootNode{
 public:
-void add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2((0, 0)));
+void add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2(0, 0));
 void connect_node(String p_input_node, int p_input_index, String p_output_node);
 void disconnect_node(String p_input_node, int p_input_index);
 Vector2 get_graph_offset();
@@ -26,7 +26,10 @@ protected:
 public:
 explicit AnimationNodeBlendTree(WasGoID p_wasgo_id);
 explicit AnimationNodeBlendTree(AnimationRootNode other);
+AnimationNodeBlendTree();
 AnimationNodeBlendTree new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

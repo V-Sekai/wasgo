@@ -2,11 +2,11 @@
 #ifndef ARVRINTERFACE_H
 #define ARVRINTERFACE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Reference.h"
+#include "Ustring.h"
 #include "Vector2.h"
-#include "ustring.h"
 class ARVRInterface : public Reference{
 public:
 enum Capabilities{
@@ -42,6 +42,16 @@ void set_anchor_detection_is_enabled(bool p_enable);
 void set_is_initialized(bool p_initialized);
 void set_is_primary(bool p_enable);
 void uninitialize();
+
+protected:
+public:
+explicit ARVRInterface(WasGoID p_wasgo_id);
+explicit ARVRInterface(Reference other);
+ARVRInterface();
+ARVRInterface new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

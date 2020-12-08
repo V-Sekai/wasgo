@@ -2,10 +2,10 @@
 #ifndef RANGE_H
 #define RANGE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+class Node;
 #include "Control.h"
-#include "Node.h"
 class Range : public Control{
 public:
 float get_as_ratio();
@@ -30,6 +30,16 @@ void set_use_rounded_values(bool p_enabled);
 void set_value(float p_value);
 void share(Node p_with);
 void unshare();
+
+protected:
+public:
+explicit Range(WasGoID p_wasgo_id);
+explicit Range(Control other);
+Range();
+Range new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

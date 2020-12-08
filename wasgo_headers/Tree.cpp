@@ -7,7 +7,7 @@ bool Tree::are_column_titles_visible(){
 void Tree::clear(){
 	_wasgo_Tree_wrapper_clear(wasgo_id);
 }
-TreeItem Tree::create_item(Object p_parent = (Object) "", int p_idx = (int) -1){
+TreeItem Tree::create_item(Object p_parent, int p_idx){
 	return TreeItem(_wasgo_Tree_wrapper_create_item(wasgo_id, p_parent._get_wasgo_id(), p_idx));
 }
 void Tree::ensure_cursor_is_visible(){
@@ -72,7 +72,7 @@ TreeItem Tree::get_edited(){
 int Tree::get_edited_column(){
 	return (int) _wasgo_Tree_wrapper_get_edited_column(wasgo_id);
 }
-Rect2 Tree::get_item_area_rect(Object p_item, int p_column = (int) -1){
+Rect2 Tree::get_item_area_rect(Object p_item, int p_column){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
@@ -168,8 +168,15 @@ void Tree::set_select_mode(Tree::SelectMode p_mode){
 Tree::Tree(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 Tree::Tree(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Tree_constructor();
 }
-Tree::new_instance(){
+Tree::Tree():Control(){
+}
+Tree Tree::new_instance(){
     return Tree(_wasgo_Tree_constructor());
+}
+WasGoID Tree::_get_wasgo_id(){
+    return wasgo_id;
+}
+Tree::operator bool(){
+    return (bool) wasgo_id;
 }

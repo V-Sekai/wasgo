@@ -98,7 +98,7 @@ Vector2 Control::get_begin(){
     return (Vector2) wasgo_ret;
     
 }
-Color Control::get_color(String p_name, String p_node_type = (String) ){
+Color Control::get_color(String p_name, String p_node_type){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -130,7 +130,7 @@ Vector2 Control::get_combined_minimum_size(){
     return (Vector2) wasgo_ret;
     
 }
-int Control::get_constant(String p_name, String p_node_type = (String) ){
+int Control::get_constant(String p_name, String p_node_type){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -145,7 +145,7 @@ int Control::get_constant(String p_name, String p_node_type = (String) ){
     
 	return (int) _wasgo_Control_wrapper_get_constant(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_node_type, wasgo_size_node_type);
 }
-Control::CursorShape Control::get_cursor_shape(Vector2 p_position = Vector2((0, 0))){
+Control::CursorShape Control::get_cursor_shape(Vector2 p_position){
 
     Variant wasgo_var_position = p_position;
     uint8_t wasgo_buffer_position[12];
@@ -222,7 +222,7 @@ NodePath Control::get_focus_previous(){
     return (NodePath) wasgo_ret;
     
 }
-Font Control::get_font(String p_name, String p_node_type = (String) ){
+Font Control::get_font(String p_name, String p_node_type){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -263,7 +263,7 @@ Control::GrowDirection Control::get_h_grow_direction(){
 int Control::get_h_size_flags(){
 	return (int) _wasgo_Control_wrapper_get_h_size_flags(wasgo_id);
 }
-Texture Control::get_icon(String p_name, String p_node_type = (String) ){
+Texture Control::get_icon(String p_name, String p_node_type){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -366,7 +366,7 @@ Vector2 Control::get_size(){
 float Control::get_stretch_ratio(){
 	return (float) _wasgo_Control_wrapper_get_stretch_ratio(wasgo_id);
 }
-StyleBox Control::get_stylebox(String p_name, String p_node_type = (String) ){
+StyleBox Control::get_stylebox(String p_name, String p_node_type){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -384,7 +384,7 @@ StyleBox Control::get_stylebox(String p_name, String p_node_type = (String) ){
 Theme Control::get_theme(){
 	return Theme(_wasgo_Control_wrapper_get_theme(wasgo_id));
 }
-String Control::get_tooltip(Vector2 p_at_position = Vector2((0, 0))){
+String Control::get_tooltip(Vector2 p_at_position){
 
     Variant wasgo_var_at_position = p_at_position;
     uint8_t wasgo_buffer_at_position[12];
@@ -412,7 +412,7 @@ void Control::grab_click_focus(){
 void Control::grab_focus(){
 	_wasgo_Control_wrapper_grab_focus(wasgo_id);
 }
-bool Control::has_color(String p_name, String p_node_type = (String) ){
+bool Control::has_color(String p_name, String p_node_type){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -436,7 +436,7 @@ bool Control::has_color_override(String p_name){
     
 	return (bool) _wasgo_Control_wrapper_has_color_override(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
-bool Control::has_constant(String p_name, String p_node_type = (String) ){
+bool Control::has_constant(String p_name, String p_node_type){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -463,7 +463,7 @@ bool Control::has_constant_override(String p_name){
 bool Control::has_focus(){
 	return (bool) _wasgo_Control_wrapper_has_focus(wasgo_id);
 }
-bool Control::has_font(String p_name, String p_node_type = (String) ){
+bool Control::has_font(String p_name, String p_node_type){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -487,7 +487,7 @@ bool Control::has_font_override(String p_name){
     
 	return (bool) _wasgo_Control_wrapper_has_font_override(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
-bool Control::has_icon(String p_name, String p_node_type = (String) ){
+bool Control::has_icon(String p_name, String p_node_type){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -529,7 +529,7 @@ bool Control::has_shader_override(String p_name){
     
 	return (bool) _wasgo_Control_wrapper_has_shader_override(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
-bool Control::has_stylebox(String p_name, String p_node_type = (String) ){
+bool Control::has_stylebox(String p_name, String p_node_type){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -562,16 +562,16 @@ void Control::minimum_size_changed(){
 void Control::release_focus(){
 	_wasgo_Control_wrapper_release_focus(wasgo_id);
 }
-void Control::set_anchor(Margin p_margin, float p_anchor, bool p_keep_margin = (bool) false, bool p_push_opposite_anchor = (bool) true){
+void Control::set_anchor(Margin p_margin, float p_anchor, bool p_keep_margin, bool p_push_opposite_anchor){
 	_wasgo_Control_wrapper_set_anchor(wasgo_id, p_margin._get_wasgo_id(), p_anchor, p_keep_margin, p_push_opposite_anchor);
 }
-void Control::set_anchor_and_margin(Margin p_margin, float p_anchor, float p_offset, bool p_push_opposite_anchor = (bool) false){
+void Control::set_anchor_and_margin(Margin p_margin, float p_anchor, float p_offset, bool p_push_opposite_anchor){
 	_wasgo_Control_wrapper_set_anchor_and_margin(wasgo_id, p_margin._get_wasgo_id(), p_anchor, p_offset, p_push_opposite_anchor);
 }
-void Control::set_anchors_and_margins_preset(Control::LayoutPreset p_preset, Control::LayoutPresetMode p_resize_mode = (Control::LayoutPresetMode) 0, int p_margin = (int) 0){
+void Control::set_anchors_and_margins_preset(Control::LayoutPreset p_preset, Control::LayoutPresetMode p_resize_mode, int p_margin){
 	_wasgo_Control_wrapper_set_anchors_and_margins_preset(wasgo_id, p_preset._get_wasgo_id(), p_resize_mode._get_wasgo_id(), p_margin);
 }
-void Control::set_anchors_preset(Control::LayoutPreset p_preset, bool p_keep_margins = (bool) false){
+void Control::set_anchors_preset(Control::LayoutPreset p_preset, bool p_keep_margins){
 	_wasgo_Control_wrapper_set_anchors_preset(wasgo_id, p_preset._get_wasgo_id(), p_keep_margins);
 }
 void Control::set_begin(Vector2 p_position){
@@ -643,7 +643,7 @@ void Control::set_focus_previous(NodePath p_previous){
     
 	_wasgo_Control_wrapper_set_focus_previous(wasgo_id, wasgo_buffer_previous, wasgo_size_previous);
 }
-void Control::set_global_position(Vector2 p_position, bool p_keep_margins = (bool) false){
+void Control::set_global_position(Vector2 p_position, bool p_keep_margins){
 
     Variant wasgo_var_position = p_position;
     uint8_t wasgo_buffer_position[12];
@@ -661,7 +661,7 @@ void Control::set_h_size_flags(int p_flags){
 void Control::set_margin(Margin p_margin, float p_offset){
 	_wasgo_Control_wrapper_set_margin(wasgo_id, p_margin._get_wasgo_id(), p_offset);
 }
-void Control::set_margins_preset(Control::LayoutPreset p_preset, Control::LayoutPresetMode p_resize_mode = (Control::LayoutPresetMode) 0, int p_margin = (int) 0){
+void Control::set_margins_preset(Control::LayoutPreset p_preset, Control::LayoutPresetMode p_resize_mode, int p_margin){
 	_wasgo_Control_wrapper_set_margins_preset(wasgo_id, p_preset._get_wasgo_id(), p_resize_mode._get_wasgo_id(), p_margin);
 }
 void Control::set_mouse_filter(Control::MouseFilter p_filter){
@@ -676,7 +676,7 @@ void Control::set_pivot_offset(Vector2 p_pivot_offset){
     
 	_wasgo_Control_wrapper_set_pivot_offset(wasgo_id, wasgo_buffer_pivot_offset, wasgo_size_pivot_offset);
 }
-void Control::set_position(Vector2 p_position, bool p_keep_margins = (bool) false){
+void Control::set_position(Vector2 p_position, bool p_keep_margins){
 
     Variant wasgo_var_position = p_position;
     uint8_t wasgo_buffer_position[12];
@@ -700,7 +700,7 @@ void Control::set_scale(Vector2 p_scale){
     
 	_wasgo_Control_wrapper_set_scale(wasgo_id, wasgo_buffer_scale, wasgo_size_scale);
 }
-void Control::set_size(Vector2 p_size, bool p_keep_margins = (bool) false){
+void Control::set_size(Vector2 p_size, bool p_keep_margins){
 
     Variant wasgo_var_size = p_size;
     uint8_t wasgo_buffer_size[12];
@@ -730,7 +730,7 @@ void Control::set_v_grow_direction(Control::GrowDirection p_direction){
 void Control::set_v_size_flags(int p_flags){
 	_wasgo_Control_wrapper_set_v_size_flags(wasgo_id, p_flags);
 }
-void Control::show_modal(bool p_exclusive = (bool) false){
+void Control::show_modal(bool p_exclusive){
 	_wasgo_Control_wrapper_show_modal(wasgo_id, p_exclusive);
 }
 void Control::warp_mouse(Vector2 p_to_position){
@@ -746,8 +746,15 @@ void Control::warp_mouse(Vector2 p_to_position){
 Control::Control(WasGoID p_wasgo_id) : CanvasItem(p_wasgo_id){
 }
 Control::Control(CanvasItem other) : CanvasItem(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Control_constructor();
 }
-Control::new_instance(){
+Control::Control():CanvasItem(){
+}
+Control Control::new_instance(){
     return Control(_wasgo_Control_constructor());
+}
+WasGoID Control::_get_wasgo_id(){
+    return wasgo_id;
+}
+Control::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -17,8 +17,15 @@ void RayShape2D::set_slips_on_slope(bool p_active){
 RayShape2D::RayShape2D(WasGoID p_wasgo_id) : Shape2D(p_wasgo_id){
 }
 RayShape2D::RayShape2D(Shape2D other) : Shape2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_RayShape2D_constructor();
 }
-RayShape2D::new_instance(){
+RayShape2D::RayShape2D():Shape2D(){
+}
+RayShape2D RayShape2D::new_instance(){
     return RayShape2D(_wasgo_RayShape2D_constructor());
+}
+WasGoID RayShape2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+RayShape2D::operator bool(){
+    return (bool) wasgo_id;
 }

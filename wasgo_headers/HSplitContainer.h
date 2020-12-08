@@ -2,7 +2,7 @@
 #ifndef HSPLITCONTAINER_H
 #define HSPLITCONTAINER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "SplitContainer.h"
 class HSplitContainer : public SplitContainer{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit HSplitContainer(WasGoID p_wasgo_id);
 explicit HSplitContainer(SplitContainer other);
+HSplitContainer();
 HSplitContainer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

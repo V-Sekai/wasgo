@@ -168,7 +168,7 @@ Array TileSet::get_tiles_ids(){
 void TileSet::remove_tile(int p_id){
 	_wasgo_TileSet_wrapper_remove_tile(wasgo_id, p_id);
 }
-void TileSet::tile_add_shape(int p_id, Shape2D p_shape, Transform2D p_shape_transform, bool p_one_way = (bool) false, Vector2 p_autotile_coord = Vector2((0, 0))){
+void TileSet::tile_add_shape(int p_id, Shape2D p_shape, Transform2D p_shape_transform, bool p_one_way, Vector2 p_autotile_coord){
 
     Variant wasgo_var_shape_transform = p_shape_transform;
     uint8_t wasgo_buffer_shape_transform[28];
@@ -408,8 +408,15 @@ void TileSet::tile_set_z_index(int p_id, int p_z_index){
 TileSet::TileSet(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 TileSet::TileSet(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_TileSet_constructor();
 }
-TileSet::new_instance(){
+TileSet::TileSet():Resource(){
+}
+TileSet TileSet::new_instance(){
     return TileSet(_wasgo_TileSet_constructor());
+}
+WasGoID TileSet::_get_wasgo_id(){
+    return wasgo_id;
+}
+TileSet::operator bool(){
+    return (bool) wasgo_id;
 }

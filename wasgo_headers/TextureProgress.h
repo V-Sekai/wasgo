@@ -2,13 +2,13 @@
 #ifndef TEXTUREPROGRESS_H
 #define TEXTUREPROGRESS_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
 #include "Vector2.h"
 #include "Range.h"
+#include "math_defs.h"
 #include "Texture.h"
-#include "Margin.h"
 class TextureProgress : public Range{
 public:
 enum FillMode{
@@ -51,7 +51,10 @@ protected:
 public:
 explicit TextureProgress(WasGoID p_wasgo_id);
 explicit TextureProgress(Range other);
+TextureProgress();
 TextureProgress new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

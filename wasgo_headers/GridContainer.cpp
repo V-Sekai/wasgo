@@ -11,8 +11,15 @@ void GridContainer::set_columns(int p_columns){
 GridContainer::GridContainer(WasGoID p_wasgo_id) : Container(p_wasgo_id){
 }
 GridContainer::GridContainer(Container other) : Container(other._get_wasgo_id()){
-    wasgo_id = _wasgo_GridContainer_constructor();
 }
-GridContainer::new_instance(){
+GridContainer::GridContainer():Container(){
+}
+GridContainer GridContainer::new_instance(){
     return GridContainer(_wasgo_GridContainer_constructor());
+}
+WasGoID GridContainer::_get_wasgo_id(){
+    return wasgo_id;
+}
+GridContainer::operator bool(){
+    return (bool) wasgo_id;
 }

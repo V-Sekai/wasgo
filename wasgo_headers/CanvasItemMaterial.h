@@ -2,7 +2,7 @@
 #ifndef CANVASITEMMATERIAL_H
 #define CANVASITEMMATERIAL_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Material.h"
 class CanvasItemMaterial : public Material{
@@ -36,7 +36,10 @@ protected:
 public:
 explicit CanvasItemMaterial(WasGoID p_wasgo_id);
 explicit CanvasItemMaterial(Material other);
+CanvasItemMaterial();
 CanvasItemMaterial new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

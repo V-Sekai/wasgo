@@ -2,12 +2,12 @@
 #ifndef PARTICLES_H
 #define PARTICLES_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Mesh.h"
 #include "AABB.h"
 #include "GeometryInstance.h"
 #include "Material.h"
-#include "Mesh.h"
 class Particles : public GeometryInstance{
 public:
 enum DrawOrder{
@@ -54,7 +54,10 @@ protected:
 public:
 explicit Particles(WasGoID p_wasgo_id);
 explicit Particles(GeometryInstance other);
+Particles();
 Particles new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

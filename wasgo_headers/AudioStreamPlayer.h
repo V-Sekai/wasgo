@@ -2,12 +2,12 @@
 #ifndef AUDIOSTREAMPLAYER_H
 #define AUDIOSTREAMPLAYER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "AudioStreamPlayback.h"
 #include "Node.h"
+#include "Ustring.h"
 #include "AudioStream.h"
-#include "ustring.h"
+#include "AudioStreamPlayback.h"
 class AudioStreamPlayer : public Node{
 public:
 enum MixTarget{
@@ -40,7 +40,10 @@ protected:
 public:
 explicit AudioStreamPlayer(WasGoID p_wasgo_id);
 explicit AudioStreamPlayer(Node other);
+AudioStreamPlayer();
 AudioStreamPlayer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

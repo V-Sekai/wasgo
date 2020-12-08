@@ -2,7 +2,7 @@
 #ifndef REFERENCE_H
 #define REFERENCE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Object.h"
 class Reference : public Object{
@@ -15,7 +15,10 @@ protected:
 public:
 explicit Reference(WasGoID p_wasgo_id);
 explicit Reference(Object other);
+Reference();
 Reference new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

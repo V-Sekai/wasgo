@@ -2,11 +2,11 @@
 #ifndef RESOURCEFORMATLOADER_H
 #define RESOURCEFORMATLOADER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
 #include "Variant.h"
-#include "ustring.h"
+#include "Reference.h"
+#include "Ustring.h"
 class ResourceFormatLoader : public Reference{
 public:
 void get_dependencies(String p_path, String p_add_types);
@@ -20,7 +20,10 @@ protected:
 public:
 explicit ResourceFormatLoader(WasGoID p_wasgo_id);
 explicit ResourceFormatLoader(Reference other);
+ResourceFormatLoader();
 ResourceFormatLoader new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

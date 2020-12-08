@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Font.h"
-void Font::draw(RID p_canvas_item, Vector2 p_position, String p_string, Color p_modulate = Color(1,1,1,1), int p_clip_w = (int) -1, Color p_outline_modulate = Color(1,1,1,1)){
+void Font::draw(RID p_canvas_item, Vector2 p_position, String p_string, Color p_modulate, int p_clip_w, Color p_outline_modulate){
 
     Variant wasgo_var_canvas_item = p_canvas_item;
     uint8_t wasgo_buffer_canvas_item[0];
@@ -34,7 +34,7 @@ void Font::draw(RID p_canvas_item, Vector2 p_position, String p_string, Color p_
     
 	_wasgo_Font_wrapper_draw(wasgo_id, wasgo_buffer_canvas_item, wasgo_size_canvas_item, wasgo_buffer_position, wasgo_size_position, wasgo_buffer_string, wasgo_size_string, wasgo_buffer_modulate, wasgo_size_modulate, p_clip_w, wasgo_buffer_outline_modulate, wasgo_size_outline_modulate);
 }
-float Font::draw_char(RID p_canvas_item, Vector2 p_position, int p_char, int p_next = (int) -1, Color p_modulate = Color(1,1,1,1), bool p_outline = (bool) false){
+float Font::draw_char(RID p_canvas_item, Vector2 p_position, int p_char, int p_next, Color p_modulate, bool p_outline){
 
     Variant wasgo_var_canvas_item = p_canvas_item;
     uint8_t wasgo_buffer_canvas_item[0];
@@ -58,7 +58,7 @@ float Font::draw_char(RID p_canvas_item, Vector2 p_position, int p_char, int p_n
 float Font::get_ascent(){
 	return (float) _wasgo_Font_wrapper_get_ascent(wasgo_id);
 }
-Vector2 Font::get_char_size(int p_char, int p_next = (int) 0){
+Vector2 Font::get_char_size(int p_char, int p_next){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
@@ -114,4 +114,20 @@ bool Font::is_distance_field_hint(){
 }
 void Font::update_changes(){
 	_wasgo_Font_wrapper_update_changes(wasgo_id);
+}
+
+Font::Font(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
+}
+Font::Font(Resource other) : Resource(other._get_wasgo_id()){
+}
+Font::Font():Resource(){
+}
+Font Font::new_instance(){
+    return Font(_wasgo_Font_constructor());
+}
+WasGoID Font::_get_wasgo_id(){
+    return wasgo_id;
+}
+Font::operator bool(){
+    return (bool) wasgo_id;
 }

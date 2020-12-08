@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODETRANSFORMVECMULT_H
 #define VISUALSHADERNODETRANSFORMVECMULT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeTransformVecMult : public VisualShaderNode{
@@ -20,7 +20,10 @@ protected:
 public:
 explicit VisualShaderNodeTransformVecMult(WasGoID p_wasgo_id);
 explicit VisualShaderNodeTransformVecMult(VisualShaderNode other);
+VisualShaderNodeTransformVecMult();
 VisualShaderNodeTransformVecMult new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

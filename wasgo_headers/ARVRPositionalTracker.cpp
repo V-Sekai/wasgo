@@ -72,8 +72,15 @@ void ARVRPositionalTracker::set_rumble(float p_rumble){
 ARVRPositionalTracker::ARVRPositionalTracker(WasGoID p_wasgo_id) : Object(p_wasgo_id){
 }
 ARVRPositionalTracker::ARVRPositionalTracker(Object other) : Object(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ARVRPositionalTracker_constructor();
 }
-ARVRPositionalTracker::new_instance(){
+ARVRPositionalTracker::ARVRPositionalTracker():Object(){
+}
+ARVRPositionalTracker ARVRPositionalTracker::new_instance(){
     return ARVRPositionalTracker(_wasgo_ARVRPositionalTracker_constructor());
+}
+WasGoID ARVRPositionalTracker::_get_wasgo_id(){
+    return wasgo_id;
+}
+ARVRPositionalTracker::operator bool(){
+    return (bool) wasgo_id;
 }

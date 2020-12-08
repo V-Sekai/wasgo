@@ -2,12 +2,12 @@
 #ifndef NAVIGATIONMESH_H
 #define NAVIGATIONMESH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "ustring.h"
-#include "Variant.h"
 #include "Resource.h"
 #include "Mesh.h"
+#include "Variant.h"
+#include "Ustring.h"
 class NavigationMesh : public Resource{
 public:
 void add_polygon(PoolIntArray p_polygon);
@@ -66,7 +66,10 @@ protected:
 public:
 explicit NavigationMesh(WasGoID p_wasgo_id);
 explicit NavigationMesh(Resource other);
+NavigationMesh();
 NavigationMesh new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

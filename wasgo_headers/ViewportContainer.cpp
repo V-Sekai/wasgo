@@ -17,8 +17,15 @@ void ViewportContainer::set_stretch_shrink(int p_amount){
 ViewportContainer::ViewportContainer(WasGoID p_wasgo_id) : Container(p_wasgo_id){
 }
 ViewportContainer::ViewportContainer(Container other) : Container(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ViewportContainer_constructor();
 }
-ViewportContainer::new_instance(){
+ViewportContainer::ViewportContainer():Container(){
+}
+ViewportContainer ViewportContainer::new_instance(){
     return ViewportContainer(_wasgo_ViewportContainer_constructor());
+}
+WasGoID ViewportContainer::_get_wasgo_id(){
+    return wasgo_id;
+}
+ViewportContainer::operator bool(){
+    return (bool) wasgo_id;
 }

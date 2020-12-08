@@ -67,3 +67,19 @@ void BaseButton::set_shortcut_in_tooltip(bool p_enabled){
 void BaseButton::set_toggle_mode(bool p_enabled){
 	_wasgo_BaseButton_wrapper_set_toggle_mode(wasgo_id, p_enabled);
 }
+
+BaseButton::BaseButton(WasGoID p_wasgo_id) : Control(p_wasgo_id){
+}
+BaseButton::BaseButton(Control other) : Control(other._get_wasgo_id()){
+}
+BaseButton::BaseButton():Control(){
+}
+BaseButton BaseButton::new_instance(){
+    return BaseButton(_wasgo_BaseButton_constructor());
+}
+WasGoID BaseButton::_get_wasgo_id(){
+    return wasgo_id;
+}
+BaseButton::operator bool(){
+    return (bool) wasgo_id;
+}

@@ -24,8 +24,15 @@ void CanvasModulate::set_color(Color p_color){
 CanvasModulate::CanvasModulate(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 CanvasModulate::CanvasModulate(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CanvasModulate_constructor();
 }
-CanvasModulate::new_instance(){
+CanvasModulate::CanvasModulate():Node2D(){
+}
+CanvasModulate CanvasModulate::new_instance(){
     return CanvasModulate(_wasgo_CanvasModulate_constructor());
+}
+WasGoID CanvasModulate::_get_wasgo_id(){
+    return wasgo_id;
+}
+CanvasModulate::operator bool(){
+    return (bool) wasgo_id;
 }

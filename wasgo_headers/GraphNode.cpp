@@ -150,7 +150,7 @@ void GraphNode::set_selected(bool p_selected){
 void GraphNode::set_show_close_button(bool p_show){
 	_wasgo_GraphNode_wrapper_set_show_close_button(wasgo_id, p_show);
 }
-void GraphNode::set_slot(int p_idx, bool p_enable_left, int p_type_left, Color p_color_left, bool p_enable_right, int p_type_right, Color p_color_right, Texture p_custom_left = (Texture) [object:null], Texture p_custom_right = (Texture) [object:null]){
+void GraphNode::set_slot(int p_idx, bool p_enable_left, int p_type_left, Color p_color_left, bool p_enable_right, int p_type_right, Color p_color_right, Texture p_custom_left, Texture p_custom_right){
 
     Variant wasgo_var_color_left = p_color_left;
     uint8_t wasgo_buffer_color_left[20];
@@ -178,8 +178,15 @@ void GraphNode::set_title(String p_title){
 GraphNode::GraphNode(WasGoID p_wasgo_id) : Container(p_wasgo_id){
 }
 GraphNode::GraphNode(Container other) : Container(other._get_wasgo_id()){
-    wasgo_id = _wasgo_GraphNode_constructor();
 }
-GraphNode::new_instance(){
+GraphNode::GraphNode():Container(){
+}
+GraphNode GraphNode::new_instance(){
     return GraphNode(_wasgo_GraphNode_constructor());
+}
+WasGoID GraphNode::_get_wasgo_id(){
+    return wasgo_id;
+}
+GraphNode::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,12 +2,12 @@
 #ifndef ANIMATEDSPRITE_H
 #define ANIMATEDSPRITE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "SpriteFrames.h"
+#include "Ustring.h"
 #include "Node2D.h"
 #include "Vector2.h"
-#include "SpriteFrames.h"
-#include "ustring.h"
 class AnimatedSprite : public Node2D{
 public:
 String get_animation();
@@ -19,7 +19,7 @@ bool is_centered();
 bool is_flipped_h();
 bool is_flipped_v();
 bool is_playing();
-void play(String p_anim = (String) , bool p_backwards = (bool) false);
+void play(String p_anim = String(), bool p_backwards = (bool) false);
 void set_animation(String p_animation);
 void set_centered(bool p_centered);
 void set_flip_h(bool p_flip_h);
@@ -34,7 +34,10 @@ protected:
 public:
 explicit AnimatedSprite(WasGoID p_wasgo_id);
 explicit AnimatedSprite(Node2D other);
+AnimatedSprite();
 AnimatedSprite new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

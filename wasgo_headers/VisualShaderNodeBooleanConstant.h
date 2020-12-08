@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEBOOLEANCONSTANT_H
 #define VISUALSHADERNODEBOOLEANCONSTANT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeBooleanConstant : public VisualShaderNode{
@@ -14,7 +14,10 @@ protected:
 public:
 explicit VisualShaderNodeBooleanConstant(WasGoID p_wasgo_id);
 explicit VisualShaderNodeBooleanConstant(VisualShaderNode other);
+VisualShaderNodeBooleanConstant();
 VisualShaderNodeBooleanConstant new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

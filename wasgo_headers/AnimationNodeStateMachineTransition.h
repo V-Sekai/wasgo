@@ -2,10 +2,10 @@
 #ifndef ANIMATIONNODESTATEMACHINETRANSITION_H
 #define ANIMATIONNODESTATEMACHINETRANSITION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
-#include "ustring.h"
+#include "Ustring.h"
 class AnimationNodeStateMachineTransition : public Resource{
 public:
 enum SwitchMode{
@@ -30,7 +30,10 @@ protected:
 public:
 explicit AnimationNodeStateMachineTransition(WasGoID p_wasgo_id);
 explicit AnimationNodeStateMachineTransition(Resource other);
+AnimationNodeStateMachineTransition();
 AnimationNodeStateMachineTransition new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

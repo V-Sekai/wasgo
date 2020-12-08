@@ -117,8 +117,15 @@ void SoftBody::set_volume_stiffness(float p_volume_stiffness){
 SoftBody::SoftBody(WasGoID p_wasgo_id) : MeshInstance(p_wasgo_id){
 }
 SoftBody::SoftBody(MeshInstance other) : MeshInstance(other._get_wasgo_id()){
-    wasgo_id = _wasgo_SoftBody_constructor();
 }
-SoftBody::new_instance(){
+SoftBody::SoftBody():MeshInstance(){
+}
+SoftBody SoftBody::new_instance(){
     return SoftBody(_wasgo_SoftBody_constructor());
+}
+WasGoID SoftBody::_get_wasgo_id(){
+    return wasgo_id;
+}
+SoftBody::operator bool(){
+    return (bool) wasgo_id;
 }

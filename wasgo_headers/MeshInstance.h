@@ -2,13 +2,13 @@
 #ifndef MESHINSTANCE_H
 #define MESHINSTANCE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Material.h"
 #include "Skin.h"
 #include "Mesh.h"
-#include "GeometryInstance.h"
 #include "NodePath.h"
+#include "Material.h"
+#include "GeometryInstance.h"
 class MeshInstance : public GeometryInstance{
 public:
 void create_convex_collision();
@@ -31,7 +31,10 @@ protected:
 public:
 explicit MeshInstance(WasGoID p_wasgo_id);
 explicit MeshInstance(GeometryInstance other);
+MeshInstance();
 MeshInstance new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

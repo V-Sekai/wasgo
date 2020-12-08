@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "TreeItem.h"
-void TreeItem::add_button(int p_column, Texture p_button, int p_button_idx = (int) -1, bool p_disabled = (bool) false, String p_tooltip = (String) ){
+void TreeItem::add_button(int p_column, Texture p_button, int p_button_idx, bool p_disabled, String p_tooltip){
 
     Variant wasgo_var_tooltip = p_tooltip;
     int wasgo_size_tooltip = String(p_tooltip).size();
@@ -111,7 +111,7 @@ Variant TreeItem::get_metadata(int p_column){
 TreeItem TreeItem::get_next(){
 	return TreeItem(_wasgo_TreeItem_wrapper_get_next(wasgo_id));
 }
-TreeItem TreeItem::get_next_visible(bool p_wrap = (bool) false){
+TreeItem TreeItem::get_next_visible(bool p_wrap){
 	return TreeItem(_wasgo_TreeItem_wrapper_get_next_visible(wasgo_id, p_wrap));
 }
 TreeItem TreeItem::get_parent(){
@@ -120,7 +120,7 @@ TreeItem TreeItem::get_parent(){
 TreeItem TreeItem::get_prev(){
 	return TreeItem(_wasgo_TreeItem_wrapper_get_prev(wasgo_id));
 }
-TreeItem TreeItem::get_prev_visible(bool p_wrap = (bool) false){
+TreeItem TreeItem::get_prev_visible(bool p_wrap){
 	return TreeItem(_wasgo_TreeItem_wrapper_get_prev_visible(wasgo_id, p_wrap));
 }
 float TreeItem::get_range(int p_column){
@@ -216,7 +216,7 @@ void TreeItem::set_collapsed(bool p_enable){
 void TreeItem::set_custom_as_button(int p_column, bool p_enable){
 	_wasgo_TreeItem_wrapper_set_custom_as_button(wasgo_id, p_column, p_enable);
 }
-void TreeItem::set_custom_bg_color(int p_column, Color p_color, bool p_just_outline = (bool) false){
+void TreeItem::set_custom_bg_color(int p_column, Color p_color, bool p_just_outline){
 
     Variant wasgo_var_color = p_color;
     uint8_t wasgo_buffer_color[20];
@@ -285,7 +285,7 @@ void TreeItem::set_metadata(int p_column, Variant p_meta){
 void TreeItem::set_range(int p_column, float p_value){
 	_wasgo_TreeItem_wrapper_set_range(wasgo_id, p_column, p_value);
 }
-void TreeItem::set_range_config(int p_column, float p_min, float p_max, float p_step, bool p_expr = (bool) false){
+void TreeItem::set_range_config(int p_column, float p_min, float p_max, float p_step, bool p_expr){
 	_wasgo_TreeItem_wrapper_set_range_config(wasgo_id, p_column, p_min, p_max, p_step, p_expr);
 }
 void TreeItem::set_selectable(int p_column, bool p_selectable){
@@ -320,4 +320,20 @@ void TreeItem::set_tooltip(int p_column, String p_tooltip){
     encode_variant(wasgo_var_tooltip, wasgo_buffer_tooltip, wasgo_size_tooltip);
     
 	_wasgo_TreeItem_wrapper_set_tooltip(wasgo_id, p_column, wasgo_buffer_tooltip, wasgo_size_tooltip);
+}
+
+TreeItem::TreeItem(WasGoID p_wasgo_id) : Object(p_wasgo_id){
+}
+TreeItem::TreeItem(Object other) : Object(other._get_wasgo_id()){
+}
+TreeItem::TreeItem():Object(){
+}
+TreeItem TreeItem::new_instance(){
+    return TreeItem(_wasgo_TreeItem_constructor());
+}
+WasGoID TreeItem::_get_wasgo_id(){
+    return wasgo_id;
+}
+TreeItem::operator bool(){
+    return (bool) wasgo_id;
 }

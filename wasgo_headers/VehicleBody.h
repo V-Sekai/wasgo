@@ -2,7 +2,7 @@
 #ifndef VEHICLEBODY_H
 #define VEHICLEBODY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "RigidBody.h"
 class VehicleBody : public RigidBody{
@@ -18,7 +18,10 @@ protected:
 public:
 explicit VehicleBody(WasGoID p_wasgo_id);
 explicit VehicleBody(RigidBody other);
+VehicleBody();
 VehicleBody new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

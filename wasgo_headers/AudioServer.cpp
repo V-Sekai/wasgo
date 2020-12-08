@@ -1,10 +1,10 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "AudioServer.h"
-void AudioServer::add_bus(int p_at_position = (int) -1){
+void AudioServer::add_bus(int p_at_position){
 	_wasgo_AudioServer_wrapper_add_bus(wasgo_id, p_at_position);
 }
-void AudioServer::add_bus_effect(int p_bus_idx, AudioEffect p_effect, int p_at_position = (int) -1){
+void AudioServer::add_bus_effect(int p_bus_idx, AudioEffect p_effect, int p_at_position){
 	_wasgo_AudioServer_wrapper_add_bus_effect(wasgo_id, p_bus_idx, p_effect._get_wasgo_id(), p_at_position);
 }
 String AudioServer::capture_get_device(){
@@ -44,7 +44,7 @@ AudioEffect AudioServer::get_bus_effect(int p_bus_idx, int p_effect_idx){
 int AudioServer::get_bus_effect_count(int p_bus_idx){
 	return (int) _wasgo_AudioServer_wrapper_get_bus_effect_count(wasgo_id, p_bus_idx);
 }
-AudioEffectInstance AudioServer::get_bus_effect_instance(int p_bus_idx, int p_effect_idx, int p_channel = (int) 0){
+AudioEffectInstance AudioServer::get_bus_effect_instance(int p_bus_idx, int p_effect_idx, int p_channel){
 	return AudioEffectInstance(_wasgo_AudioServer_wrapper_get_bus_effect_instance(wasgo_id, p_bus_idx, p_effect_idx, p_channel));
 }
 int AudioServer::get_bus_index(String p_bus_name){
@@ -201,8 +201,15 @@ void AudioServer::unlock(){
 AudioServer::AudioServer(WasGoID p_wasgo_id) : Object(p_wasgo_id){
 }
 AudioServer::AudioServer(Object other) : Object(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioServer_constructor();
 }
-AudioServer::new_instance(){
+AudioServer::AudioServer():Object(){
+}
+AudioServer AudioServer::new_instance(){
     return AudioServer(_wasgo_AudioServer_constructor());
+}
+WasGoID AudioServer::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioServer::operator bool(){
+    return (bool) wasgo_id;
 }

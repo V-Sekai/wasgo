@@ -2,14 +2,14 @@
 #ifndef RIGIDBODY_H
 #define RIGIDBODY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Basis.h"
 #include "Vector3.h"
-#include "Variant.h"
-#include "PhysicsServer.h"
-#include "PhysicsMaterial.h"
 #include "PhysicsBody.h"
+#include "PhysicsServer.h"
+#include "Variant.h"
+#include "PhysicsMaterial.h"
+#include "Basis.h"
 class RigidBody : public PhysicsBody{
 public:
 enum Mode{
@@ -68,7 +68,10 @@ protected:
 public:
 explicit RigidBody(WasGoID p_wasgo_id);
 explicit RigidBody(PhysicsBody other);
+RigidBody();
 RigidBody new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

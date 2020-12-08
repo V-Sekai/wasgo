@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTREVERB_H
 #define AUDIOEFFECTREVERB_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioEffect.h"
 class AudioEffectReverb : public AudioEffect{
@@ -28,7 +28,10 @@ protected:
 public:
 explicit AudioEffectReverb(WasGoID p_wasgo_id);
 explicit AudioEffectReverb(AudioEffect other);
+AudioEffectReverb();
 AudioEffectReverb new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

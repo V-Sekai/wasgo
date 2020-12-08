@@ -61,8 +61,15 @@ void SpinBox::set_suffix(String p_suffix){
 SpinBox::SpinBox(WasGoID p_wasgo_id) : Range(p_wasgo_id){
 }
 SpinBox::SpinBox(Range other) : Range(other._get_wasgo_id()){
-    wasgo_id = _wasgo_SpinBox_constructor();
 }
-SpinBox::new_instance(){
+SpinBox::SpinBox():Range(){
+}
+SpinBox SpinBox::new_instance(){
     return SpinBox(_wasgo_SpinBox_constructor());
+}
+WasGoID SpinBox::_get_wasgo_id(){
+    return wasgo_id;
+}
+SpinBox::operator bool(){
+    return (bool) wasgo_id;
 }

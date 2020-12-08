@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Tabs.h"
-void Tabs::add_tab(String p_title = (String) , Texture p_icon = (Texture) [object:null]){
+void Tabs::add_tab(String p_title, Texture p_icon){
 
     Variant wasgo_var_title = p_title;
     int wasgo_size_title = String(p_title).size();
@@ -118,8 +118,15 @@ void Tabs::set_tabs_rearrange_group(int p_group_id){
 Tabs::Tabs(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 Tabs::Tabs(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Tabs_constructor();
 }
-Tabs::new_instance(){
+Tabs::Tabs():Control(){
+}
+Tabs Tabs::new_instance(){
     return Tabs(_wasgo_Tabs_constructor());
+}
+WasGoID Tabs::_get_wasgo_id(){
+    return wasgo_id;
+}
+Tabs::operator bool(){
+    return (bool) wasgo_id;
 }

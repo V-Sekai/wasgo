@@ -2,11 +2,11 @@
 #ifndef GEOMETRYINSTANCE_H
 #define GEOMETRYINSTANCE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AABB.h"
-#include "Material.h"
 #include "VisualInstance.h"
+#include "Material.h"
 class GeometryInstance : public VisualInstance{
 public:
 enum Flags{
@@ -37,6 +37,16 @@ void set_lod_max_hysteresis(float p_mode);
 void set_lod_min_distance(float p_mode);
 void set_lod_min_hysteresis(float p_mode);
 void set_material_override(Material p_material);
+
+protected:
+public:
+explicit GeometryInstance(WasGoID p_wasgo_id);
+explicit GeometryInstance(VisualInstance other);
+GeometryInstance();
+GeometryInstance new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

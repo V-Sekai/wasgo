@@ -2,12 +2,12 @@
 #ifndef PHYSICS2DTESTMOTIONRESULT_H
 #define PHYSICS2DTESTMOTIONRESULT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
 #include "Reference.h"
-#include "Object.h"
 #include "RID.h"
+#include "Object.h"
+#include "Vector2.h"
 class Physics2DTestMotionResult : public Reference{
 public:
 Object get_collider();
@@ -24,7 +24,10 @@ protected:
 public:
 explicit Physics2DTestMotionResult(WasGoID p_wasgo_id);
 explicit Physics2DTestMotionResult(Reference other);
+Physics2DTestMotionResult();
 Physics2DTestMotionResult new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

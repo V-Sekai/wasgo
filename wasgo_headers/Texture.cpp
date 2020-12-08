@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Texture.h"
-void Texture::draw(RID p_canvas_item, Vector2 p_position, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = (Texture) ""){
+void Texture::draw(RID p_canvas_item, Vector2 p_position, Color p_modulate, bool p_transpose, Texture p_normal_map){
 
     Variant wasgo_var_canvas_item = p_canvas_item;
     uint8_t wasgo_buffer_canvas_item[0];
@@ -22,7 +22,7 @@ void Texture::draw(RID p_canvas_item, Vector2 p_position, Color p_modulate = Col
     
 	_wasgo_Texture_wrapper_draw(wasgo_id, wasgo_buffer_canvas_item, wasgo_size_canvas_item, wasgo_buffer_position, wasgo_size_position, wasgo_buffer_modulate, wasgo_size_modulate, p_transpose, p_normal_map._get_wasgo_id());
 }
-void Texture::draw_rect(RID p_canvas_item, Rect2 p_rect, bool p_tile, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = (Texture) ""){
+void Texture::draw_rect(RID p_canvas_item, Rect2 p_rect, bool p_tile, Color p_modulate, bool p_transpose, Texture p_normal_map){
 
     Variant wasgo_var_canvas_item = p_canvas_item;
     uint8_t wasgo_buffer_canvas_item[0];
@@ -43,7 +43,7 @@ void Texture::draw_rect(RID p_canvas_item, Rect2 p_rect, bool p_tile, Color p_mo
     
 	_wasgo_Texture_wrapper_draw_rect(wasgo_id, wasgo_buffer_canvas_item, wasgo_size_canvas_item, wasgo_buffer_rect, wasgo_size_rect, p_tile, wasgo_buffer_modulate, wasgo_size_modulate, p_transpose, p_normal_map._get_wasgo_id());
 }
-void Texture::draw_rect_region(RID p_canvas_item, Rect2 p_rect, Rect2 p_src_rect, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = (Texture) "", bool p_clip_uv = (bool) true){
+void Texture::draw_rect_region(RID p_canvas_item, Rect2 p_rect, Rect2 p_src_rect, Color p_modulate, bool p_transpose, Texture p_normal_map, bool p_clip_uv){
 
     Variant wasgo_var_canvas_item = p_canvas_item;
     uint8_t wasgo_buffer_canvas_item[0];
@@ -97,4 +97,20 @@ bool Texture::has_alpha(){
 }
 void Texture::set_flags(int p_flags){
 	_wasgo_Texture_wrapper_set_flags(wasgo_id, p_flags);
+}
+
+Texture::Texture(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
+}
+Texture::Texture(Resource other) : Resource(other._get_wasgo_id()){
+}
+Texture::Texture():Resource(){
+}
+Texture Texture::new_instance(){
+    return Texture(_wasgo_Texture_constructor());
+}
+WasGoID Texture::_get_wasgo_id(){
+    return wasgo_id;
+}
+Texture::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -28,3 +28,19 @@ void NetworkedMultiplayerPeer::set_target_peer(int p_id){
 void NetworkedMultiplayerPeer::set_transfer_mode(NetworkedMultiplayerPeer::TransferMode p_mode){
 	_wasgo_NetworkedMultiplayerPeer_wrapper_set_transfer_mode(wasgo_id, p_mode._get_wasgo_id());
 }
+
+NetworkedMultiplayerPeer::NetworkedMultiplayerPeer(WasGoID p_wasgo_id) : PacketPeer(p_wasgo_id){
+}
+NetworkedMultiplayerPeer::NetworkedMultiplayerPeer(PacketPeer other) : PacketPeer(other._get_wasgo_id()){
+}
+NetworkedMultiplayerPeer::NetworkedMultiplayerPeer():PacketPeer(){
+}
+NetworkedMultiplayerPeer NetworkedMultiplayerPeer::new_instance(){
+    return NetworkedMultiplayerPeer(_wasgo_NetworkedMultiplayerPeer_constructor());
+}
+WasGoID NetworkedMultiplayerPeer::_get_wasgo_id(){
+    return wasgo_id;
+}
+NetworkedMultiplayerPeer::operator bool(){
+    return (bool) wasgo_id;
+}

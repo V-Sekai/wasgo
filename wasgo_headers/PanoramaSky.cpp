@@ -11,8 +11,15 @@ void PanoramaSky::set_panorama(Texture p_texture){
 PanoramaSky::PanoramaSky(WasGoID p_wasgo_id) : Sky(p_wasgo_id){
 }
 PanoramaSky::PanoramaSky(Sky other) : Sky(other._get_wasgo_id()){
-    wasgo_id = _wasgo_PanoramaSky_constructor();
 }
-PanoramaSky::new_instance(){
+PanoramaSky::PanoramaSky():Sky(){
+}
+PanoramaSky PanoramaSky::new_instance(){
     return PanoramaSky(_wasgo_PanoramaSky_constructor());
+}
+WasGoID PanoramaSky::_get_wasgo_id(){
+    return wasgo_id;
+}
+PanoramaSky::operator bool(){
+    return (bool) wasgo_id;
 }

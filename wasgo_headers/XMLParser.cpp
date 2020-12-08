@@ -122,8 +122,15 @@ void XMLParser::skip_section(){
 XMLParser::XMLParser(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 XMLParser::XMLParser(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_XMLParser_constructor();
 }
-XMLParser::new_instance(){
+XMLParser::XMLParser():Reference(){
+}
+XMLParser XMLParser::new_instance(){
     return XMLParser(_wasgo_XMLParser_constructor());
+}
+WasGoID XMLParser::_get_wasgo_id(){
+    return wasgo_id;
+}
+XMLParser::operator bool(){
+    return (bool) wasgo_id;
 }

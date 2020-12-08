@@ -2,12 +2,12 @@
 #ifndef LINE2D_H
 #define LINE2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
 #include "Vector2.h"
-#include "Variant.h"
 #include "Gradient.h"
+#include "Variant.h"
 #include "Curve.h"
 #include "Node2D.h"
 #include "Texture.h"
@@ -65,7 +65,10 @@ protected:
 public:
 explicit Line2D(WasGoID p_wasgo_id);
 explicit Line2D(Node2D other);
+Line2D();
 Line2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

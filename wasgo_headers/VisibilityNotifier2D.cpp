@@ -27,8 +27,15 @@ void VisibilityNotifier2D::set_rect(Rect2 p_rect){
 VisibilityNotifier2D::VisibilityNotifier2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 VisibilityNotifier2D::VisibilityNotifier2D(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisibilityNotifier2D_constructor();
 }
-VisibilityNotifier2D::new_instance(){
+VisibilityNotifier2D::VisibilityNotifier2D():Node2D(){
+}
+VisibilityNotifier2D VisibilityNotifier2D::new_instance(){
     return VisibilityNotifier2D(_wasgo_VisibilityNotifier2D_constructor());
+}
+WasGoID VisibilityNotifier2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisibilityNotifier2D::operator bool(){
+    return (bool) wasgo_id;
 }

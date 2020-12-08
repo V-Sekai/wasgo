@@ -10,13 +10,13 @@ Array PhysicsDirectSpaceState::cast_motion(PhysicsShapeQueryParameters p_shape, 
     
 	return Array(_wasgo_PhysicsDirectSpaceState_wrapper_cast_motion(wasgo_id, p_shape._get_wasgo_id(), wasgo_buffer_motion, wasgo_size_motion));
 }
-Array PhysicsDirectSpaceState::collide_shape(PhysicsShapeQueryParameters p_shape, int p_max_results = (int) 32){
+Array PhysicsDirectSpaceState::collide_shape(PhysicsShapeQueryParameters p_shape, int p_max_results){
 	return Array(_wasgo_PhysicsDirectSpaceState_wrapper_collide_shape(wasgo_id, p_shape._get_wasgo_id(), p_max_results));
 }
 Dictionary PhysicsDirectSpaceState::get_rest_info(PhysicsShapeQueryParameters p_shape){
 	return Dictionary(_wasgo_PhysicsDirectSpaceState_wrapper_get_rest_info(wasgo_id, p_shape._get_wasgo_id()));
 }
-Dictionary PhysicsDirectSpaceState::intersect_ray(Vector3 p_from, Vector3 p_to, Array p_exclude = (Array) [], int p_collision_mask = (int) 2147483647, bool p_collide_with_bodies = (bool) true, bool p_collide_with_areas = (bool) false){
+Dictionary PhysicsDirectSpaceState::intersect_ray(Vector3 p_from, Vector3 p_to, Array p_exclude, int p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas){
 
     Variant wasgo_var_from = p_from;
     uint8_t wasgo_buffer_from[16];
@@ -31,6 +31,22 @@ Dictionary PhysicsDirectSpaceState::intersect_ray(Vector3 p_from, Vector3 p_to, 
     
 	return Dictionary(_wasgo_PhysicsDirectSpaceState_wrapper_intersect_ray(wasgo_id, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_to, wasgo_size_to, p_exclude._get_wasgo_id(), p_collision_mask, p_collide_with_bodies, p_collide_with_areas));
 }
-Array PhysicsDirectSpaceState::intersect_shape(PhysicsShapeQueryParameters p_shape, int p_max_results = (int) 32){
+Array PhysicsDirectSpaceState::intersect_shape(PhysicsShapeQueryParameters p_shape, int p_max_results){
 	return Array(_wasgo_PhysicsDirectSpaceState_wrapper_intersect_shape(wasgo_id, p_shape._get_wasgo_id(), p_max_results));
+}
+
+PhysicsDirectSpaceState::PhysicsDirectSpaceState(WasGoID p_wasgo_id) : Object(p_wasgo_id){
+}
+PhysicsDirectSpaceState::PhysicsDirectSpaceState(Object other) : Object(other._get_wasgo_id()){
+}
+PhysicsDirectSpaceState::PhysicsDirectSpaceState():Object(){
+}
+PhysicsDirectSpaceState PhysicsDirectSpaceState::new_instance(){
+    return PhysicsDirectSpaceState(_wasgo_PhysicsDirectSpaceState_constructor());
+}
+WasGoID PhysicsDirectSpaceState::_get_wasgo_id(){
+    return wasgo_id;
+}
+PhysicsDirectSpaceState::operator bool(){
+    return (bool) wasgo_id;
 }

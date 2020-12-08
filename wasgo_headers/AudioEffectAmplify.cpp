@@ -11,8 +11,15 @@ void AudioEffectAmplify::set_volume_db(float p_volume){
 AudioEffectAmplify::AudioEffectAmplify(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectAmplify::AudioEffectAmplify(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioEffectAmplify_constructor();
 }
-AudioEffectAmplify::new_instance(){
+AudioEffectAmplify::AudioEffectAmplify():AudioEffect(){
+}
+AudioEffectAmplify AudioEffectAmplify::new_instance(){
     return AudioEffectAmplify(_wasgo_AudioEffectAmplify_constructor());
+}
+WasGoID AudioEffectAmplify::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioEffectAmplify::operator bool(){
+    return (bool) wasgo_id;
 }

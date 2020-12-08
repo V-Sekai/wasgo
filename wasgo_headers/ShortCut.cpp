@@ -27,8 +27,15 @@ void ShortCut::set_shortcut(InputEvent p_event){
 ShortCut::ShortCut(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 ShortCut::ShortCut(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ShortCut_constructor();
 }
-ShortCut::new_instance(){
+ShortCut::ShortCut():Resource(){
+}
+ShortCut ShortCut::new_instance(){
     return ShortCut(_wasgo_ShortCut_constructor());
+}
+WasGoID ShortCut::_get_wasgo_id(){
+    return wasgo_id;
+}
+ShortCut::operator bool(){
+    return (bool) wasgo_id;
 }

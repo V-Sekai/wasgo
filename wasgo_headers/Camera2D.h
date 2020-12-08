@@ -2,12 +2,12 @@
 #ifndef CAMERA2D_H
 #define CAMERA2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node.h"
+class Node;
+#include "math_defs.h"
 #include "Node2D.h"
 #include "Vector2.h"
-#include "Margin.h"
 class Camera2D : public Node2D{
 public:
 enum AnchorMode{
@@ -67,7 +67,10 @@ protected:
 public:
 explicit Camera2D(WasGoID p_wasgo_id);
 explicit Camera2D(Node2D other);
+Camera2D();
 Camera2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

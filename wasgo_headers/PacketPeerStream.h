@@ -2,10 +2,10 @@
 #ifndef PACKETPEERSTREAM_H
 #define PACKETPEERSTREAM_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "StreamPeer.h"
 #include "PacketPeer.h"
+#include "StreamPeer.h"
 class PacketPeerStream : public PacketPeer{
 public:
 int get_input_buffer_max_size();
@@ -19,7 +19,10 @@ protected:
 public:
 explicit PacketPeerStream(WasGoID p_wasgo_id);
 explicit PacketPeerStream(PacketPeer other);
+PacketPeerStream();
 PacketPeerStream new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

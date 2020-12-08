@@ -5,8 +5,15 @@
 VisualShaderNodeScalarUniform::VisualShaderNodeScalarUniform(WasGoID p_wasgo_id) : VisualShaderNodeUniform(p_wasgo_id){
 }
 VisualShaderNodeScalarUniform::VisualShaderNodeScalarUniform(VisualShaderNodeUniform other) : VisualShaderNodeUniform(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisualShaderNodeScalarUniform_constructor();
 }
-VisualShaderNodeScalarUniform::new_instance(){
+VisualShaderNodeScalarUniform::VisualShaderNodeScalarUniform():VisualShaderNodeUniform(){
+}
+VisualShaderNodeScalarUniform VisualShaderNodeScalarUniform::new_instance(){
     return VisualShaderNodeScalarUniform(_wasgo_VisualShaderNodeScalarUniform_constructor());
+}
+WasGoID VisualShaderNodeScalarUniform::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeScalarUniform::operator bool(){
+    return (bool) wasgo_id;
 }

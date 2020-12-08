@@ -2,13 +2,13 @@
 #ifndef FONT_H
 #define FONT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
-#include "Resource.h"
 #include "Vector2.h"
+#include "Resource.h"
 #include "RID.h"
-#include "ustring.h"
+#include "Ustring.h"
 class Font : public Resource{
 public:
 void draw(RID p_canvas_item, Vector2 p_position, String p_string, Color p_modulate = Color(1,1,1,1), int p_clip_w = (int) -1, Color p_outline_modulate = Color(1,1,1,1));
@@ -22,6 +22,16 @@ Vector2 get_wordwrap_string_size(String p_string, float p_width);
 bool has_outline();
 bool is_distance_field_hint();
 void update_changes();
+
+protected:
+public:
+explicit Font(WasGoID p_wasgo_id);
+explicit Font(Resource other);
+Font();
+Font new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

@@ -390,8 +390,15 @@ void Theme::set_stylebox(String p_name, String p_node_type, StyleBox p_texture){
 Theme::Theme(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Theme::Theme(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Theme_constructor();
 }
-Theme::new_instance(){
+Theme::Theme():Resource(){
+}
+Theme Theme::new_instance(){
     return Theme(_wasgo_Theme_constructor());
+}
+WasGoID Theme::_get_wasgo_id(){
+    return wasgo_id;
+}
+Theme::operator bool(){
+    return (bool) wasgo_id;
 }

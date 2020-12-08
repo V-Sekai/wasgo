@@ -2,10 +2,10 @@
 #ifndef ANIMATIONNODEBLENDSPACE1D_H
 #define ANIMATIONNODEBLENDSPACE1D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AnimationRootNode.h"
-#include "ustring.h"
+#include "Ustring.h"
 class AnimationNodeBlendSpace1D : public AnimationRootNode{
 public:
 void add_blend_point(AnimationRootNode p_node, float p_pos, int p_at_index = (int) -1);
@@ -28,7 +28,10 @@ protected:
 public:
 explicit AnimationNodeBlendSpace1D(WasGoID p_wasgo_id);
 explicit AnimationNodeBlendSpace1D(AnimationRootNode other);
+AnimationNodeBlendSpace1D();
 AnimationNodeBlendSpace1D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

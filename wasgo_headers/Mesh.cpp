@@ -60,3 +60,19 @@ Material Mesh::surface_get_material(int p_surf_idx){
 void Mesh::surface_set_material(int p_surf_idx, Material p_material){
 	_wasgo_Mesh_wrapper_surface_set_material(wasgo_id, p_surf_idx, p_material._get_wasgo_id());
 }
+
+Mesh::Mesh(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
+}
+Mesh::Mesh(Resource other) : Resource(other._get_wasgo_id()){
+}
+Mesh::Mesh():Resource(){
+}
+Mesh Mesh::new_instance(){
+    return Mesh(_wasgo_Mesh_constructor());
+}
+WasGoID Mesh::_get_wasgo_id(){
+    return wasgo_id;
+}
+Mesh::operator bool(){
+    return (bool) wasgo_id;
+}

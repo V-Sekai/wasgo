@@ -2,7 +2,7 @@
 #ifndef CONFIRMATIONDIALOG_H
 #define CONFIRMATIONDIALOG_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Button.h"
 #include "AcceptDialog.h"
@@ -14,7 +14,10 @@ protected:
 public:
 explicit ConfirmationDialog(WasGoID p_wasgo_id);
 explicit ConfirmationDialog(AcceptDialog other);
+ConfirmationDialog();
 ConfirmationDialog new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

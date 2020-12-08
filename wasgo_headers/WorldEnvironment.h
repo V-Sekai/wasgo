@@ -2,10 +2,10 @@
 #ifndef WORLDENVIRONMENT_H
 #define WORLDENVIRONMENT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node.h"
 #include "Environment.h"
+#include "Node.h"
 class WorldEnvironment : public Node{
 public:
 Environment get_environment();
@@ -15,7 +15,10 @@ protected:
 public:
 explicit WorldEnvironment(WasGoID p_wasgo_id);
 explicit WorldEnvironment(Node other);
+WorldEnvironment();
 WorldEnvironment new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

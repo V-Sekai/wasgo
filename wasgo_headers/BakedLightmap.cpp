@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "BakedLightmap.h"
-BakedLightmap::BakeError BakedLightmap::bake(Node p_from_node = (Node) "", bool p_create_visual_debug = (bool) false){
+BakedLightmap::BakeError BakedLightmap::bake(Node p_from_node, bool p_create_visual_debug){
 	return BakedLightmap::BakeError(_wasgo_BakedLightmap_wrapper_bake(wasgo_id, p_from_node._get_wasgo_id(), p_create_visual_debug));
 }
 void BakedLightmap::debug_bake(){
@@ -103,8 +103,15 @@ void BakedLightmap::set_propagation(float p_propagation){
 BakedLightmap::BakedLightmap(WasGoID p_wasgo_id) : VisualInstance(p_wasgo_id){
 }
 BakedLightmap::BakedLightmap(VisualInstance other) : VisualInstance(other._get_wasgo_id()){
-    wasgo_id = _wasgo_BakedLightmap_constructor();
 }
-BakedLightmap::new_instance(){
+BakedLightmap::BakedLightmap():VisualInstance(){
+}
+BakedLightmap BakedLightmap::new_instance(){
     return BakedLightmap(_wasgo_BakedLightmap_constructor());
+}
+WasGoID BakedLightmap::_get_wasgo_id(){
+    return wasgo_id;
+}
+BakedLightmap::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,15 +2,15 @@
 #ifndef SPRITEBASE3D_H
 #define SPRITEBASE3D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
-#include "Vector2.h"
-#include "Vector3.h"
-#include "GeometryInstance.h"
 #include "SpatialMaterial.h"
-#include "Rect2.h"
+#include "Vector3.h"
+#include "Vector2.h"
 #include "TriangleMesh.h"
+#include "Rect2.h"
+#include "GeometryInstance.h"
 class SpriteBase3D : public GeometryInstance{
 public:
 enum AlphaCutMode{
@@ -48,6 +48,16 @@ void set_modulate(Color p_modulate);
 void set_offset(Vector2 p_offset);
 void set_opacity(float p_opacity);
 void set_pixel_size(float p_pixel_size);
+
+protected:
+public:
+explicit SpriteBase3D(WasGoID p_wasgo_id);
+explicit SpriteBase3D(GeometryInstance other);
+SpriteBase3D();
+SpriteBase3D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

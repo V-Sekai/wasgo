@@ -2,11 +2,11 @@
 #ifndef PHYSICALBONE_H
 #define PHYSICALBONE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Transform.h"
-#include "Vector3.h"
 #include "PhysicsBody.h"
+#include "Vector3.h"
+#include "Transform.h"
 class PhysicalBone : public PhysicsBody{
 public:
 enum JointType{
@@ -44,7 +44,10 @@ protected:
 public:
 explicit PhysicalBone(WasGoID p_wasgo_id);
 explicit PhysicalBone(PhysicsBody other);
+PhysicalBone();
 PhysicalBone new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

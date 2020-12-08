@@ -2,14 +2,14 @@
 #ifndef ARRAYMESH_H
 #define ARRAYMESH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Mesh.h"
-#include "Variant.h"
 #include "AABB.h"
 #include "error_list.h"
 #include "Transform.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Ustring.h"
 class ArrayMesh : public Mesh{
 public:
 enum ArrayFormat{
@@ -36,7 +36,7 @@ ARRAY_INDEX,
 ARRAY_MAX
 };
 void add_blend_shape(String p_name);
-void add_surface_from_arrays(Mesh::PrimitiveType p_primitive, Array p_arrays, Array p_blend_shapes = (Array) [], int p_compress_flags = (int) 97280);
+void add_surface_from_arrays(Mesh::PrimitiveType p_primitive, Array p_arrays, Array p_blend_shapes = Array(), int p_compress_flags = (int) 97280);
 void clear_blend_shapes();
 int get_blend_shape_count();
 Mesh::BlendShapeMode get_blend_shape_mode();
@@ -60,7 +60,10 @@ protected:
 public:
 explicit ArrayMesh(WasGoID p_wasgo_id);
 explicit ArrayMesh(Mesh other);
+ArrayMesh();
 ArrayMesh new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

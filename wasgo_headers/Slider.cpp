@@ -25,3 +25,19 @@ void Slider::set_ticks(int p_count){
 void Slider::set_ticks_on_borders(bool p_ticks_on_border){
 	_wasgo_Slider_wrapper_set_ticks_on_borders(wasgo_id, p_ticks_on_border);
 }
+
+Slider::Slider(WasGoID p_wasgo_id) : Range(p_wasgo_id){
+}
+Slider::Slider(Range other) : Range(other._get_wasgo_id()){
+}
+Slider::Slider():Range(){
+}
+Slider Slider::new_instance(){
+    return Slider(_wasgo_Slider_constructor());
+}
+WasGoID Slider::_get_wasgo_id(){
+    return wasgo_id;
+}
+Slider::operator bool(){
+    return (bool) wasgo_id;
+}

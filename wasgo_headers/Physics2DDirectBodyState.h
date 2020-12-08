@@ -2,14 +2,14 @@
 #ifndef PHYSICS2DDIRECTBODYSTATE_H
 #define PHYSICS2DDIRECTBODYSTATE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Vector2.h"
 #include "Object.h"
 #include "Variant.h"
+#include "Physics2DDirectSpaceState.h"
 #include "Transform2D.h"
 #include "RID.h"
-#include "Physics2DDirectSpaceState.h"
 class Physics2DDirectBodyState : public Object{
 public:
 void add_central_force(Vector2 p_force);
@@ -45,6 +45,16 @@ void set_angular_velocity(float p_velocity);
 void set_linear_velocity(Vector2 p_velocity);
 void set_sleep_state(bool p_enabled);
 void set_transform(Transform2D p_transform);
+
+protected:
+public:
+explicit Physics2DDirectBodyState(WasGoID p_wasgo_id);
+explicit Physics2DDirectBodyState(Object other);
+Physics2DDirectBodyState();
+Physics2DDirectBodyState new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

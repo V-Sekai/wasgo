@@ -11,8 +11,15 @@ void SphereShape::set_radius(float p_radius){
 SphereShape::SphereShape(WasGoID p_wasgo_id) : Shape(p_wasgo_id){
 }
 SphereShape::SphereShape(Shape other) : Shape(other._get_wasgo_id()){
-    wasgo_id = _wasgo_SphereShape_constructor();
 }
-SphereShape::new_instance(){
+SphereShape::SphereShape():Shape(){
+}
+SphereShape SphereShape::new_instance(){
     return SphereShape(_wasgo_SphereShape_constructor());
+}
+WasGoID SphereShape::_get_wasgo_id(){
+    return wasgo_id;
+}
+SphereShape::operator bool(){
+    return (bool) wasgo_id;
 }

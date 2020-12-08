@@ -2,11 +2,11 @@
 #ifndef ANIMATIONNODEBLENDSPACE2D_H
 #define ANIMATIONNODEBLENDSPACE2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AnimationRootNode.h"
+#include "Ustring.h"
 #include "Vector2.h"
-#include "ustring.h"
 class AnimationNodeBlendSpace2D : public AnimationRootNode{
 public:
 enum BlendMode{
@@ -44,7 +44,10 @@ protected:
 public:
 explicit AnimationNodeBlendSpace2D(WasGoID p_wasgo_id);
 explicit AnimationNodeBlendSpace2D(AnimationRootNode other);
+AnimationNodeBlendSpace2D();
 AnimationNodeBlendSpace2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

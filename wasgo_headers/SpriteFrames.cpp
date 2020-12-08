@@ -10,7 +10,7 @@ void SpriteFrames::add_animation(String p_anim){
     
 	_wasgo_SpriteFrames_wrapper_add_animation(wasgo_id, wasgo_buffer_anim, wasgo_size_anim);
 }
-void SpriteFrames::add_frame(String p_anim, Texture p_frame, int p_at_position = (int) -1){
+void SpriteFrames::add_frame(String p_anim, Texture p_frame, int p_at_position){
 
     Variant wasgo_var_anim = p_anim;
     int wasgo_size_anim = String(p_anim).size();
@@ -143,8 +143,15 @@ void SpriteFrames::set_frame(String p_anim, int p_idx, Texture p_txt){
 SpriteFrames::SpriteFrames(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 SpriteFrames::SpriteFrames(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_SpriteFrames_constructor();
 }
-SpriteFrames::new_instance(){
+SpriteFrames::SpriteFrames():Resource(){
+}
+SpriteFrames SpriteFrames::new_instance(){
     return SpriteFrames(_wasgo_SpriteFrames_constructor());
+}
+WasGoID SpriteFrames::_get_wasgo_id(){
+    return wasgo_id;
+}
+SpriteFrames::operator bool(){
+    return (bool) wasgo_id;
 }

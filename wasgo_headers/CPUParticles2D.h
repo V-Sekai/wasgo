@@ -2,13 +2,13 @@
 #ifndef CPUPARTICLES2D_H
 #define CPUPARTICLES2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
 #include "Vector2.h"
-#include "Node.h"
-#include "Variant.h"
+class Node;
 #include "Gradient.h"
+#include "Variant.h"
 #include "Curve.h"
 #include "Node2D.h"
 #include "Texture.h"
@@ -114,7 +114,10 @@ protected:
 public:
 explicit CPUParticles2D(WasGoID p_wasgo_id);
 explicit CPUParticles2D(Node2D other);
+CPUParticles2D();
 CPUParticles2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,12 +2,12 @@
 #ifndef TCP_SERVER_H
 #define TCP_SERVER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "StreamPeerTCP.h"
 #include "Reference.h"
+#include "Ustring.h"
 #include "error_list.h"
-#include "ustring.h"
 class TCP_Server : public Reference{
 public:
 bool is_connection_available();
@@ -20,7 +20,10 @@ protected:
 public:
 explicit TCP_Server(WasGoID p_wasgo_id);
 explicit TCP_Server(Reference other);
+TCP_Server();
 TCP_Server new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

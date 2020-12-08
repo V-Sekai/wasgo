@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "PhysicsServer.h"
-void PhysicsServer::area_add_shape(RID p_area, RID p_shape, Transform p_transform = Transform(1, 0, 0, 0, 1, 0, 0, 0, 1 - 0, 0, 0), bool p_disabled = (bool) false){
+void PhysicsServer::area_add_shape(RID p_area, RID p_shape, Transform p_transform, bool p_disabled){
 
     Variant wasgo_var_area = p_area;
     uint8_t wasgo_buffer_area[0];
@@ -372,7 +372,7 @@ void PhysicsServer::body_add_force(RID p_body, Vector3 p_force, Vector3 p_positi
     
 	_wasgo_PhysicsServer_wrapper_body_add_force(wasgo_id, wasgo_buffer_body, wasgo_size_body, wasgo_buffer_force, wasgo_size_force, wasgo_buffer_position, wasgo_size_position);
 }
-void PhysicsServer::body_add_shape(RID p_body, RID p_shape, Transform p_transform = Transform(1, 0, 0, 0, 1, 0, 0, 0, 1 - 0, 0, 0), bool p_disabled = (bool) false){
+void PhysicsServer::body_add_shape(RID p_body, RID p_shape, Transform p_transform, bool p_disabled){
 
     Variant wasgo_var_body = p_body;
     uint8_t wasgo_buffer_body[0];
@@ -477,7 +477,7 @@ void PhysicsServer::body_clear_shapes(RID p_body){
     
 	_wasgo_PhysicsServer_wrapper_body_clear_shapes(wasgo_id, wasgo_buffer_body, wasgo_size_body);
 }
-RID PhysicsServer::body_create(PhysicsServer::BodyMode p_mode = (PhysicsServer::BodyMode) 2, bool p_init_sleeping = (bool) false){
+RID PhysicsServer::body_create(PhysicsServer::BodyMode p_mode, bool p_init_sleeping){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 0;
@@ -736,7 +736,7 @@ void PhysicsServer::body_set_enable_continuous_collision_detection(RID p_body, b
     
 	_wasgo_PhysicsServer_wrapper_body_set_enable_continuous_collision_detection(wasgo_id, wasgo_buffer_body, wasgo_size_body, p_enable);
 }
-void PhysicsServer::body_set_force_integration_callback(RID p_body, Object p_receiver, String p_method, Variant p_userdata = (Variant) ""){
+void PhysicsServer::body_set_force_integration_callback(RID p_body, Object p_receiver, String p_method, Variant p_userdata){
 
     Variant wasgo_var_body = p_body;
     uint8_t wasgo_buffer_body[0];
@@ -1359,4 +1359,20 @@ void PhysicsServer::space_set_param(RID p_space, PhysicsServer::SpaceParameter p
     encode_variant(wasgo_var_space, wasgo_buffer_space, wasgo_size_space);
     
 	_wasgo_PhysicsServer_wrapper_space_set_param(wasgo_id, wasgo_buffer_space, wasgo_size_space, p_param._get_wasgo_id(), p_value);
+}
+
+PhysicsServer::PhysicsServer(WasGoID p_wasgo_id) : Object(p_wasgo_id){
+}
+PhysicsServer::PhysicsServer(Object other) : Object(other._get_wasgo_id()){
+}
+PhysicsServer::PhysicsServer():Object(){
+}
+PhysicsServer PhysicsServer::new_instance(){
+    return PhysicsServer(_wasgo_PhysicsServer_constructor());
+}
+WasGoID PhysicsServer::_get_wasgo_id(){
+    return wasgo_id;
+}
+PhysicsServer::operator bool(){
+    return (bool) wasgo_id;
 }

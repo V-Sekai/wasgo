@@ -2,10 +2,10 @@
 #ifndef VISUALSHADERNODEEXPRESSION_H
 #define VISUALSHADERNODEEXPRESSION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Ustring.h"
 #include "VisualShaderNodeGroupBase.h"
-#include "ustring.h"
 class VisualShaderNodeExpression : public VisualShaderNodeGroupBase{
 public:
 String get_expression();
@@ -15,7 +15,10 @@ protected:
 public:
 explicit VisualShaderNodeExpression(WasGoID p_wasgo_id);
 explicit VisualShaderNodeExpression(VisualShaderNodeGroupBase other);
+VisualShaderNodeExpression();
 VisualShaderNodeExpression new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

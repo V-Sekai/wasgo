@@ -2,10 +2,10 @@
 #ifndef REFERENCERECT_H
 #define REFERENCERECT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Control.h"
 #include "Color.h"
+#include "Control.h"
 class ReferenceRect : public Control{
 public:
 Color get_border_color();
@@ -19,7 +19,10 @@ protected:
 public:
 explicit ReferenceRect(WasGoID p_wasgo_id);
 explicit ReferenceRect(Control other);
+ReferenceRect();
 ReferenceRect new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

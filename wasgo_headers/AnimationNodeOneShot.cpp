@@ -47,8 +47,15 @@ void AnimationNodeOneShot::set_use_sync(bool p_enable){
 AnimationNodeOneShot::AnimationNodeOneShot(WasGoID p_wasgo_id) : AnimationNode(p_wasgo_id){
 }
 AnimationNodeOneShot::AnimationNodeOneShot(AnimationNode other) : AnimationNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationNodeOneShot_constructor();
 }
-AnimationNodeOneShot::new_instance(){
+AnimationNodeOneShot::AnimationNodeOneShot():AnimationNode(){
+}
+AnimationNodeOneShot AnimationNodeOneShot::new_instance(){
     return AnimationNodeOneShot(_wasgo_AnimationNodeOneShot_constructor());
+}
+WasGoID AnimationNodeOneShot::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationNodeOneShot::operator bool(){
+    return (bool) wasgo_id;
 }

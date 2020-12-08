@@ -2,13 +2,13 @@
 #ifndef SPATIAL_H
 #define SPATIAL_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Vector3.h"
 #include "Node.h"
-#include "SpatialGizmo.h"
 #include "World.h"
 #include "Transform.h"
+#include "SpatialGizmo.h"
 class Spatial : public Node{
 public:
 void force_update_transform();
@@ -65,7 +65,10 @@ protected:
 public:
 explicit Spatial(WasGoID p_wasgo_id);
 explicit Spatial(Node other);
+Spatial();
 Spatial new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

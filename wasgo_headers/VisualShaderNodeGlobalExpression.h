@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEGLOBALEXPRESSION_H
 #define VISUALSHADERNODEGLOBALEXPRESSION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNodeExpression.h"
 class VisualShaderNodeGlobalExpression : public VisualShaderNodeExpression{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VisualShaderNodeGlobalExpression(WasGoID p_wasgo_id);
 explicit VisualShaderNodeGlobalExpression(VisualShaderNodeExpression other);
+VisualShaderNodeGlobalExpression();
 VisualShaderNodeGlobalExpression new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

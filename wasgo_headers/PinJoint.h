@@ -2,7 +2,7 @@
 #ifndef PINJOINT_H
 #define PINJOINT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Joint.h"
 class PinJoint : public Joint{
@@ -19,7 +19,10 @@ protected:
 public:
 explicit PinJoint(WasGoID p_wasgo_id);
 explicit PinJoint(Joint other);
+PinJoint();
 PinJoint new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

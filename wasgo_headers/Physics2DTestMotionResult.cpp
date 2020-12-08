@@ -74,8 +74,15 @@ Vector2 Physics2DTestMotionResult::get_motion_remainder(){
 Physics2DTestMotionResult::Physics2DTestMotionResult(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Physics2DTestMotionResult::Physics2DTestMotionResult(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Physics2DTestMotionResult_constructor();
 }
-Physics2DTestMotionResult::new_instance(){
+Physics2DTestMotionResult::Physics2DTestMotionResult():Reference(){
+}
+Physics2DTestMotionResult Physics2DTestMotionResult::new_instance(){
     return Physics2DTestMotionResult(_wasgo_Physics2DTestMotionResult_constructor());
+}
+WasGoID Physics2DTestMotionResult::_get_wasgo_id(){
+    return wasgo_id;
+}
+Physics2DTestMotionResult::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -36,8 +36,15 @@ void PlaneMesh::set_subdivide_width(int p_subdivide){
 PlaneMesh::PlaneMesh(WasGoID p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
 }
 PlaneMesh::PlaneMesh(PrimitiveMesh other) : PrimitiveMesh(other._get_wasgo_id()){
-    wasgo_id = _wasgo_PlaneMesh_constructor();
 }
-PlaneMesh::new_instance(){
+PlaneMesh::PlaneMesh():PrimitiveMesh(){
+}
+PlaneMesh PlaneMesh::new_instance(){
     return PlaneMesh(_wasgo_PlaneMesh_constructor());
+}
+WasGoID PlaneMesh::_get_wasgo_id(){
+    return wasgo_id;
+}
+PlaneMesh::operator bool(){
+    return (bool) wasgo_id;
 }

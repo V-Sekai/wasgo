@@ -2,10 +2,10 @@
 #ifndef LINKBUTTON_H
 #define LINKBUTTON_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "BaseButton.h"
-#include "ustring.h"
+#include "Ustring.h"
 class LinkButton : public BaseButton{
 public:
 enum UnderlineMode{
@@ -22,7 +22,10 @@ protected:
 public:
 explicit LinkButton(WasGoID p_wasgo_id);
 explicit LinkButton(BaseButton other);
+LinkButton();
 LinkButton new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

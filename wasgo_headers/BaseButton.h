@@ -2,11 +2,11 @@
 #ifndef BASEBUTTON_H
 #define BASEBUTTON_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "ButtonGroup.h"
 #include "Control.h"
 #include "ShortCut.h"
-#include "ButtonGroup.h"
 class BaseButton : public Control{
 public:
 enum ActionMode{
@@ -42,6 +42,16 @@ void set_pressed(bool p_pressed);
 void set_shortcut(ShortCut p_shortcut);
 void set_shortcut_in_tooltip(bool p_enabled);
 void set_toggle_mode(bool p_enabled);
+
+protected:
+public:
+explicit BaseButton(WasGoID p_wasgo_id);
+explicit BaseButton(Control other);
+BaseButton();
+BaseButton new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

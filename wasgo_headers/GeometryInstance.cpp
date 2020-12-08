@@ -58,3 +58,19 @@ void GeometryInstance::set_lod_min_hysteresis(float p_mode){
 void GeometryInstance::set_material_override(Material p_material){
 	_wasgo_GeometryInstance_wrapper_set_material_override(wasgo_id, p_material._get_wasgo_id());
 }
+
+GeometryInstance::GeometryInstance(WasGoID p_wasgo_id) : VisualInstance(p_wasgo_id){
+}
+GeometryInstance::GeometryInstance(VisualInstance other) : VisualInstance(other._get_wasgo_id()){
+}
+GeometryInstance::GeometryInstance():VisualInstance(){
+}
+GeometryInstance GeometryInstance::new_instance(){
+    return GeometryInstance(_wasgo_GeometryInstance_constructor());
+}
+WasGoID GeometryInstance::_get_wasgo_id(){
+    return wasgo_id;
+}
+GeometryInstance::operator bool(){
+    return (bool) wasgo_id;
+}

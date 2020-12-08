@@ -1,13 +1,13 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Node.h"
-void Node::add_child(Node p_node, bool p_legible_unique_name = (bool) false){
+void Node::add_child(Node p_node, bool p_legible_unique_name){
 	_wasgo_Node_wrapper_add_child(wasgo_id, p_node._get_wasgo_id(), p_legible_unique_name);
 }
-void Node::add_child_below_node(Node p_node, Node p_child_node, bool p_legible_unique_name = (bool) false){
+void Node::add_child_below_node(Node p_node, Node p_child_node, bool p_legible_unique_name){
 	_wasgo_Node_wrapper_add_child_below_node(wasgo_id, p_node._get_wasgo_id(), p_child_node._get_wasgo_id(), p_legible_unique_name);
 }
-void Node::add_to_group(String p_group, bool p_persistent = (bool) false){
+void Node::add_to_group(String p_group, bool p_persistent){
 
     Variant wasgo_var_group = p_group;
     int wasgo_size_group = String(p_group).size();
@@ -19,10 +19,10 @@ void Node::add_to_group(String p_group, bool p_persistent = (bool) false){
 bool Node::can_process(){
 	return (bool) _wasgo_Node_wrapper_can_process(wasgo_id);
 }
-Node Node::duplicate(int p_flags = (int) 15){
+Node Node::duplicate(int p_flags){
 	return Node(_wasgo_Node_wrapper_duplicate(wasgo_id, p_flags));
 }
-Node Node::find_node(String p_mask, bool p_recursive = (bool) true, bool p_owned = (bool) true){
+Node Node::find_node(String p_mask, bool p_recursive, bool p_owned){
 
     Variant wasgo_var_mask = p_mask;
     int wasgo_size_mask = String(p_mask).size();
@@ -236,7 +236,7 @@ void Node::print_tree(){
 void Node::print_tree_pretty(){
 	_wasgo_Node_wrapper_print_tree_pretty(wasgo_id);
 }
-void Node::propagate_call(String p_method, Array p_args = (Array) [], bool p_parent_first = (bool) false){
+void Node::propagate_call(String p_method, Array p_args, bool p_parent_first){
 
     Variant wasgo_var_method = p_method;
     int wasgo_size_method = String(p_method).size();
@@ -269,7 +269,7 @@ void Node::remove_from_group(String p_group){
     
 	_wasgo_Node_wrapper_remove_from_group(wasgo_id, wasgo_buffer_group, wasgo_size_group);
 }
-void Node::replace_by(Node p_node, bool p_keep_data = (bool) false){
+void Node::replace_by(Node p_node, bool p_keep_data){
 	_wasgo_Node_wrapper_replace_by(wasgo_id, p_node._get_wasgo_id(), p_keep_data);
 }
 void Node::request_ready(){
@@ -389,7 +389,7 @@ void Node::set_name(String p_name){
     
 	_wasgo_Node_wrapper_set_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
-void Node::set_network_master(int p_id, bool p_recursive = (bool) true){
+void Node::set_network_master(int p_id, bool p_recursive){
 	_wasgo_Node_wrapper_set_network_master(wasgo_id, p_id, p_recursive);
 }
 void Node::set_owner(Node p_owner){
@@ -432,8 +432,15 @@ void Node::update_configuration_warning(){
 Node::Node(WasGoID p_wasgo_id) : Object(p_wasgo_id){
 }
 Node::Node(Object other) : Object(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Node_constructor();
 }
-Node::new_instance(){
+Node::Node():Object(){
+}
+Node Node::new_instance(){
     return Node(_wasgo_Node_constructor());
+}
+WasGoID Node::_get_wasgo_id(){
+    return wasgo_id;
+}
+Node::operator bool(){
+    return (bool) wasgo_id;
 }

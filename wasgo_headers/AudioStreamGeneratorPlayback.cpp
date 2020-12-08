@@ -25,3 +25,19 @@ bool AudioStreamGeneratorPlayback::push_frame(Vector2 p_frame){
     
 	return (bool) _wasgo_AudioStreamGeneratorPlayback_wrapper_push_frame(wasgo_id, wasgo_buffer_frame, wasgo_size_frame);
 }
+
+AudioStreamGeneratorPlayback::AudioStreamGeneratorPlayback(WasGoID p_wasgo_id) : AudioStreamPlaybackResampled(p_wasgo_id){
+}
+AudioStreamGeneratorPlayback::AudioStreamGeneratorPlayback(AudioStreamPlaybackResampled other) : AudioStreamPlaybackResampled(other._get_wasgo_id()){
+}
+AudioStreamGeneratorPlayback::AudioStreamGeneratorPlayback():AudioStreamPlaybackResampled(){
+}
+AudioStreamGeneratorPlayback AudioStreamGeneratorPlayback::new_instance(){
+    return AudioStreamGeneratorPlayback(_wasgo_AudioStreamGeneratorPlayback_constructor());
+}
+WasGoID AudioStreamGeneratorPlayback::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioStreamGeneratorPlayback::operator bool(){
+    return (bool) wasgo_id;
+}

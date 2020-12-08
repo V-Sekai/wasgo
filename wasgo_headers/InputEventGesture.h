@@ -2,14 +2,24 @@
 #ifndef INPUTEVENTGESTURE_H
 #define INPUTEVENTGESTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
 #include "InputEventWithModifiers.h"
+#include "Vector2.h"
 class InputEventGesture : public InputEventWithModifiers{
 public:
 Vector2 get_position();
 void set_position(Vector2 p_position);
+
+protected:
+public:
+explicit InputEventGesture(WasGoID p_wasgo_id);
+explicit InputEventGesture(InputEventWithModifiers other);
+InputEventGesture();
+InputEventGesture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

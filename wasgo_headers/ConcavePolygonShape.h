@@ -2,10 +2,10 @@
 #ifndef CONCAVEPOLYGONSHAPE_H
 #define CONCAVEPOLYGONSHAPE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Shape.h"
 #include "Variant.h"
+#include "Shape.h"
 class ConcavePolygonShape : public Shape{
 public:
 PoolVector3Array get_faces();
@@ -15,7 +15,10 @@ protected:
 public:
 explicit ConcavePolygonShape(WasGoID p_wasgo_id);
 explicit ConcavePolygonShape(Shape other);
+ConcavePolygonShape();
 ConcavePolygonShape new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

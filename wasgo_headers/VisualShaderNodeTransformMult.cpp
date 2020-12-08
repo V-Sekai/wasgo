@@ -11,8 +11,15 @@ void VisualShaderNodeTransformMult::set_operator(VisualShaderNodeTransformMult::
 VisualShaderNodeTransformMult::VisualShaderNodeTransformMult(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeTransformMult::VisualShaderNodeTransformMult(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisualShaderNodeTransformMult_constructor();
 }
-VisualShaderNodeTransformMult::new_instance(){
+VisualShaderNodeTransformMult::VisualShaderNodeTransformMult():VisualShaderNode(){
+}
+VisualShaderNodeTransformMult VisualShaderNodeTransformMult::new_instance(){
     return VisualShaderNodeTransformMult(_wasgo_VisualShaderNodeTransformMult_constructor());
+}
+WasGoID VisualShaderNodeTransformMult::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeTransformMult::operator bool(){
+    return (bool) wasgo_id;
 }

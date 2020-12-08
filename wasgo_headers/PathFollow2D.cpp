@@ -53,8 +53,15 @@ void PathFollow2D::set_v_offset(float p_v_offset){
 PathFollow2D::PathFollow2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 PathFollow2D::PathFollow2D(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_PathFollow2D_constructor();
 }
-PathFollow2D::new_instance(){
+PathFollow2D::PathFollow2D():Node2D(){
+}
+PathFollow2D PathFollow2D::new_instance(){
     return PathFollow2D(_wasgo_PathFollow2D_constructor());
+}
+WasGoID PathFollow2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+PathFollow2D::operator bool(){
+    return (bool) wasgo_id;
 }

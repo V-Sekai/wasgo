@@ -2,13 +2,13 @@
 #ifndef OPTIONBUTTON_H
 #define OPTIONBUTTON_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "PopupMenu.h"
 #include "Button.h"
+#include "PopupMenu.h"
 #include "Variant.h"
+#include "Ustring.h"
 #include "Texture.h"
-#include "ustring.h"
 class OptionButton : public Button{
 public:
 void add_icon_item(Texture p_texture, String p_label, int p_id = (int) -1);
@@ -38,7 +38,10 @@ protected:
 public:
 explicit OptionButton(WasGoID p_wasgo_id);
 explicit OptionButton(Button other);
+OptionButton();
 OptionButton new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

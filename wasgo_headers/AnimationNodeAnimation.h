@@ -2,10 +2,10 @@
 #ifndef ANIMATIONNODEANIMATION_H
 #define ANIMATIONNODEANIMATION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AnimationRootNode.h"
-#include "ustring.h"
+#include "Ustring.h"
 class AnimationNodeAnimation : public AnimationRootNode{
 public:
 String get_animation();
@@ -15,7 +15,10 @@ protected:
 public:
 explicit AnimationNodeAnimation(WasGoID p_wasgo_id);
 explicit AnimationNodeAnimation(AnimationRootNode other);
+AnimationNodeAnimation();
 AnimationNodeAnimation new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

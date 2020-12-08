@@ -2,13 +2,13 @@
 #ifndef SCRIPT_H
 #define SCRIPT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Resource.h"
 #include "Object.h"
-#include "Variant.h"
+#include "Resource.h"
 #include "error_list.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Ustring.h"
 class Script : public Resource{
 public:
 bool can_instance();
@@ -26,6 +26,16 @@ bool instance_has(Object p_base_object);
 bool is_tool();
 Error reload(bool p_keep_state = (bool) false);
 void set_source_code(String p_source);
+
+protected:
+public:
+explicit Script(WasGoID p_wasgo_id);
+explicit Script(Resource other);
+Script();
+Script new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

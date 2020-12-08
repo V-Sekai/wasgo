@@ -53,8 +53,15 @@ void InputEventMIDI::set_velocity(int p_velocity){
 InputEventMIDI::InputEventMIDI(WasGoID p_wasgo_id) : InputEvent(p_wasgo_id){
 }
 InputEventMIDI::InputEventMIDI(InputEvent other) : InputEvent(other._get_wasgo_id()){
-    wasgo_id = _wasgo_InputEventMIDI_constructor();
 }
-InputEventMIDI::new_instance(){
+InputEventMIDI::InputEventMIDI():InputEvent(){
+}
+InputEventMIDI InputEventMIDI::new_instance(){
     return InputEventMIDI(_wasgo_InputEventMIDI_constructor());
+}
+WasGoID InputEventMIDI::_get_wasgo_id(){
+    return wasgo_id;
+}
+InputEventMIDI::operator bool(){
+    return (bool) wasgo_id;
 }

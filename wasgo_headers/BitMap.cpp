@@ -10,7 +10,7 @@ void BitMap::create(Vector2 p_size){
     
 	_wasgo_BitMap_wrapper_create(wasgo_id, wasgo_buffer_size, wasgo_size_size);
 }
-void BitMap::create_from_image_alpha(Image p_image, float p_threshold = (float) 0.1){
+void BitMap::create_from_image_alpha(Image p_image, float p_threshold){
 	_wasgo_BitMap_wrapper_create_from_image_alpha(wasgo_id, p_image._get_wasgo_id(), p_threshold);
 }
 bool BitMap::get_bit(Vector2 p_position){
@@ -44,7 +44,7 @@ void BitMap::grow_mask(int p_pixels, Rect2 p_rect){
     
 	_wasgo_BitMap_wrapper_grow_mask(wasgo_id, p_pixels, wasgo_buffer_rect, wasgo_size_rect);
 }
-Array BitMap::opaque_to_polygons(Rect2 p_rect, float p_epsilon = (float) 2){
+Array BitMap::opaque_to_polygons(Rect2 p_rect, float p_epsilon){
 
     Variant wasgo_var_rect = p_rect;
     uint8_t wasgo_buffer_rect[20];
@@ -75,8 +75,15 @@ void BitMap::set_bit_rect(Rect2 p_rect, bool p_bit){
 BitMap::BitMap(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 BitMap::BitMap(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_BitMap_constructor();
 }
-BitMap::new_instance(){
+BitMap::BitMap():Resource(){
+}
+BitMap BitMap::new_instance(){
     return BitMap(_wasgo_BitMap_constructor());
+}
+WasGoID BitMap::_get_wasgo_id(){
+    return wasgo_id;
+}
+BitMap::operator bool(){
+    return (bool) wasgo_id;
 }

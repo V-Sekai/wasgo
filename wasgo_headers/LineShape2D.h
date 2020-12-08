@@ -2,7 +2,7 @@
 #ifndef LINESHAPE2D_H
 #define LINESHAPE2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Shape2D.h"
 #include "Vector2.h"
@@ -17,7 +17,10 @@ protected:
 public:
 explicit LineShape2D(WasGoID p_wasgo_id);
 explicit LineShape2D(Shape2D other);
+LineShape2D();
 LineShape2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

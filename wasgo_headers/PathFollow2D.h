@@ -2,7 +2,7 @@
 #ifndef PATHFOLLOW2D_H
 #define PATHFOLLOW2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Node2D.h"
 class PathFollow2D : public Node2D{
@@ -28,7 +28,10 @@ protected:
 public:
 explicit PathFollow2D(WasGoID p_wasgo_id);
 explicit PathFollow2D(Node2D other);
+PathFollow2D();
 PathFollow2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

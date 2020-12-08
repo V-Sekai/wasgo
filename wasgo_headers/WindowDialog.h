@@ -2,11 +2,11 @@
 #ifndef WINDOWDIALOG_H
 #define WINDOWDIALOG_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "ustring.h"
-#include "Popup.h"
 #include "TextureButton.h"
+#include "Popup.h"
+#include "Ustring.h"
 class WindowDialog : public Popup{
 public:
 TextureButton get_close_button();
@@ -19,7 +19,10 @@ protected:
 public:
 explicit WindowDialog(WasGoID p_wasgo_id);
 explicit WindowDialog(Popup other);
+WindowDialog();
 WindowDialog new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

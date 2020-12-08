@@ -73,3 +73,19 @@ bool StyleBox::test_mask(Vector2 p_point, Rect2 p_rect){
     
 	return (bool) _wasgo_StyleBox_wrapper_test_mask(wasgo_id, wasgo_buffer_point, wasgo_size_point, wasgo_buffer_rect, wasgo_size_rect);
 }
+
+StyleBox::StyleBox(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
+}
+StyleBox::StyleBox(Resource other) : Resource(other._get_wasgo_id()){
+}
+StyleBox::StyleBox():Resource(){
+}
+StyleBox StyleBox::new_instance(){
+    return StyleBox(_wasgo_StyleBox_constructor());
+}
+WasGoID StyleBox::_get_wasgo_id(){
+    return wasgo_id;
+}
+StyleBox::operator bool(){
+    return (bool) wasgo_id;
+}

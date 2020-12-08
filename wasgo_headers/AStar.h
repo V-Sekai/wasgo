@@ -2,11 +2,11 @@
 #ifndef ASTAR_H
 #define ASTAR_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector3.h"
-#include "Reference.h"
 #include "Variant.h"
+#include "Reference.h"
+#include "Vector3.h"
 class AStar : public Reference{
 public:
 void add_point(int p_id, Vector3 p_position, float p_weight_scale = (float) 1);
@@ -37,7 +37,10 @@ protected:
 public:
 explicit AStar(WasGoID p_wasgo_id);
 explicit AStar(Reference other);
+AStar();
 AStar new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

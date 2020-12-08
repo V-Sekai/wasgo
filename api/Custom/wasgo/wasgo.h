@@ -7,8 +7,12 @@
 #include <stdint.h>
 
 typedef uint32_t WasGoID;
-class InputEvent;
-class InputEventKey;
+// class InputEvent;
+// class InputEventKey;
+
+#include "InputEvent.h"
+#include "InputEventKey.h"
+
 extern "C" {
 void _notification(int p_what);//our entry point
 void _enter_tree();
@@ -18,12 +22,12 @@ void _process(float delta);
 void _ready();
 
 //_wasgo_versions are the wrappers
-// extern void _input(InputEvent event);
-// void _wasgo_input(WasGoID id);
-// extern void _unhandled_input(InputEvent event);
-// extern void _unhandled_key_input(InputEventKey event);
-// void _wasgo_unhandled_input(WasGoID id);
-// void _wasgo_unhandled_key_input(WasGoID id);
+extern void _input(InputEvent event);
+void _wasgo_input(WasGoID id);
+extern void _unhandled_input(InputEvent event);
+extern void _unhandled_key_input(InputEventKey event);
+void _wasgo_unhandled_input(WasGoID id);
+void _wasgo_unhandled_key_input(WasGoID id);
 
 WasGoID _wasgo_this_node();
 int _wasgo_get_property_bool(const uint8_t* name, int name_size);
@@ -73,7 +77,7 @@ bool _wasgo_is_processing_input();
 bool _wasgo_is_processing_unhandled_input();
 bool _wasgo_is_processing_unhandled_key_input();
 }
-class Node;//Why does this work?
+// class Node;//Why does this work?
 class WasGo {
 public:
 	static Variant get_property(String property, Variant::Type = Variant::REAL);

@@ -70,8 +70,15 @@ void Translation::set_locale(String p_locale){
 Translation::Translation(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Translation::Translation(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Translation_constructor();
 }
-Translation::new_instance(){
+Translation::Translation():Resource(){
+}
+Translation Translation::new_instance(){
     return Translation(_wasgo_Translation_constructor());
+}
+WasGoID Translation::_get_wasgo_id(){
+    return wasgo_id;
+}
+Translation::operator bool(){
+    return (bool) wasgo_id;
 }

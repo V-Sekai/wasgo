@@ -2,15 +2,15 @@
 #ifndef MESH_H
 #define MESH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Vector2.h"
-#include "Material.h"
-#include "Resource.h"
-#include "Variant.h"
-#include "AABB.h"
-#include "Shape.h"
 #include "TriangleMesh.h"
+#include "Variant.h"
+#include "Shape.h"
+#include "Resource.h"
+#include "Material.h"
+#include "AABB.h"
 class Mesh : public Resource{
 public:
 enum ArrayFormat{
@@ -75,6 +75,16 @@ Array surface_get_arrays(int p_surf_idx);
 Array surface_get_blend_shape_arrays(int p_surf_idx);
 Material surface_get_material(int p_surf_idx);
 void surface_set_material(int p_surf_idx, Material p_material);
+
+protected:
+public:
+explicit Mesh(WasGoID p_wasgo_id);
+explicit Mesh(Resource other);
+Mesh();
+Mesh new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

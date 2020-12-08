@@ -2,7 +2,7 @@
 #ifndef PATH_H
 #define PATH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Spatial.h"
 #include "Curve3D.h"
@@ -15,7 +15,10 @@ protected:
 public:
 explicit Path(WasGoID p_wasgo_id);
 explicit Path(Spatial other);
+Path();
 Path new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

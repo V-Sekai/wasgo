@@ -2,7 +2,7 @@
 #ifndef COLLISIONPOLYGON_H
 #define COLLISIONPOLYGON_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Spatial.h"
 #include "Variant.h"
@@ -19,7 +19,10 @@ protected:
 public:
 explicit CollisionPolygon(WasGoID p_wasgo_id);
 explicit CollisionPolygon(Spatial other);
+CollisionPolygon();
 CollisionPolygon new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

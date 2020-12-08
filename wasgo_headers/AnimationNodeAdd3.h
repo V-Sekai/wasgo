@@ -2,7 +2,7 @@
 #ifndef ANIMATIONNODEADD3_H
 #define ANIMATIONNODEADD3_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AnimationNode.h"
 class AnimationNodeAdd3 : public AnimationNode{
@@ -14,7 +14,10 @@ protected:
 public:
 explicit AnimationNodeAdd3(WasGoID p_wasgo_id);
 explicit AnimationNodeAdd3(AnimationNode other);
+AnimationNodeAdd3();
 AnimationNodeAdd3 new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

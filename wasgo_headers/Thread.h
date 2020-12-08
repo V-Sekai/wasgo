@@ -2,13 +2,13 @@
 #ifndef THREAD_H
 #define THREAD_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
 #include "Object.h"
-#include "Variant.h"
+#include "Reference.h"
 #include "error_list.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Ustring.h"
 class Thread : public Reference{
 public:
 enum Priority{
@@ -18,14 +18,17 @@ PRIORITY_HIGH
 };
 String get_id();
 bool is_active();
-Error start(Object p_instance, String p_method, Variant p_userdata = (Variant) "", Thread::Priority p_priority = (Thread::Priority) 1);
+Error start(Object p_instance, String p_method, Variant p_userdata = Variant(), Thread::Priority p_priority = (Thread::Priority) 1);
 Variant wait_to_finish();
 
 protected:
 public:
 explicit Thread(WasGoID p_wasgo_id);
 explicit Thread(Reference other);
+Thread();
 Thread new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -22,3 +22,19 @@ void SplitContainer::set_dragger_visibility(SplitContainer::DraggerVisibility p_
 void SplitContainer::set_split_offset(int p_offset){
 	_wasgo_SplitContainer_wrapper_set_split_offset(wasgo_id, p_offset);
 }
+
+SplitContainer::SplitContainer(WasGoID p_wasgo_id) : Container(p_wasgo_id){
+}
+SplitContainer::SplitContainer(Container other) : Container(other._get_wasgo_id()){
+}
+SplitContainer::SplitContainer():Container(){
+}
+SplitContainer SplitContainer::new_instance(){
+    return SplitContainer(_wasgo_SplitContainer_constructor());
+}
+WasGoID SplitContainer::_get_wasgo_id(){
+    return wasgo_id;
+}
+SplitContainer::operator bool(){
+    return (bool) wasgo_id;
+}

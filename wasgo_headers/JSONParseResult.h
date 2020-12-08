@@ -2,12 +2,12 @@
 #ifndef JSONPARSERESULT_H
 #define JSONPARSERESULT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Ustring.h"
 #include "Variant.h"
 #include "Reference.h"
 #include "error_list.h"
-#include "ustring.h"
 class JSONParseResult : public Reference{
 public:
 Error get_error();
@@ -23,7 +23,10 @@ protected:
 public:
 explicit JSONParseResult(WasGoID p_wasgo_id);
 explicit JSONParseResult(Reference other);
+JSONParseResult();
 JSONParseResult new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

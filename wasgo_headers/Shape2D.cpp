@@ -106,3 +106,19 @@ float Shape2D::get_custom_solver_bias(){
 void Shape2D::set_custom_solver_bias(float p_bias){
 	_wasgo_Shape2D_wrapper_set_custom_solver_bias(wasgo_id, p_bias);
 }
+
+Shape2D::Shape2D(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
+}
+Shape2D::Shape2D(Resource other) : Resource(other._get_wasgo_id()){
+}
+Shape2D::Shape2D():Resource(){
+}
+Shape2D Shape2D::new_instance(){
+    return Shape2D(_wasgo_Shape2D_constructor());
+}
+WasGoID Shape2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+Shape2D::operator bool(){
+    return (bool) wasgo_id;
+}

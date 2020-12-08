@@ -2,12 +2,12 @@
 #ifndef INPUTEVENT_H
 #define INPUTEVENT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
 #include "Transform2D.h"
+#include "Ustring.h"
 #include "Vector2.h"
-#include "ustring.h"
 class InputEvent : public Resource{
 public:
 bool accumulate(InputEvent p_with_event);
@@ -22,7 +22,17 @@ bool is_echo();
 bool is_pressed();
 void set_device(int p_device);
 bool shortcut_match(InputEvent p_event);
-InputEvent xformed_by(Transform2D p_xform, Vector2 p_local_ofs = Vector2((0, 0)));
+InputEvent xformed_by(Transform2D p_xform, Vector2 p_local_ofs = Vector2(0, 0));
+
+protected:
+public:
+explicit InputEvent(WasGoID p_wasgo_id);
+explicit InputEvent(Resource other);
+InputEvent();
+InputEvent new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

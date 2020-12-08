@@ -20,8 +20,15 @@ int ResourceFormatSaver::save(String p_path, Resource p_resource, int p_flags){
 ResourceFormatSaver::ResourceFormatSaver(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 ResourceFormatSaver::ResourceFormatSaver(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ResourceFormatSaver_constructor();
 }
-ResourceFormatSaver::new_instance(){
+ResourceFormatSaver::ResourceFormatSaver():Reference(){
+}
+ResourceFormatSaver ResourceFormatSaver::new_instance(){
     return ResourceFormatSaver(_wasgo_ResourceFormatSaver_constructor());
+}
+WasGoID ResourceFormatSaver::_get_wasgo_id(){
+    return wasgo_id;
+}
+ResourceFormatSaver::operator bool(){
+    return (bool) wasgo_id;
 }

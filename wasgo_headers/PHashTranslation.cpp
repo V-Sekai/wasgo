@@ -8,8 +8,15 @@ void PHashTranslation::generate(Translation p_from){
 PHashTranslation::PHashTranslation(WasGoID p_wasgo_id) : Translation(p_wasgo_id){
 }
 PHashTranslation::PHashTranslation(Translation other) : Translation(other._get_wasgo_id()){
-    wasgo_id = _wasgo_PHashTranslation_constructor();
 }
-PHashTranslation::new_instance(){
+PHashTranslation::PHashTranslation():Translation(){
+}
+PHashTranslation PHashTranslation::new_instance(){
     return PHashTranslation(_wasgo_PHashTranslation_constructor());
+}
+WasGoID PHashTranslation::_get_wasgo_id(){
+    return wasgo_id;
+}
+PHashTranslation::operator bool(){
+    return (bool) wasgo_id;
 }

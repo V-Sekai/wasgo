@@ -2,13 +2,13 @@
 #ifndef BITMAP_H
 #define BITMAP_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Image.h"
-#include "Resource.h"
 #include "Vector2.h"
-#include "Variant.h"
 #include "Rect2.h"
+#include "Resource.h"
+#include "Image.h"
+#include "Variant.h"
 class BitMap : public Resource{
 public:
 void create(Vector2 p_size);
@@ -25,7 +25,10 @@ protected:
 public:
 explicit BitMap(WasGoID p_wasgo_id);
 explicit BitMap(Resource other);
+BitMap();
 BitMap new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -8,8 +8,7 @@
   ..\api\Custom\error_macros.h ..\api\Custom\memory.h \
   ..\api\Custom\safe_refcount.h ..\api\Custom\mutex.h \
   ..\api\Custom\Vector.h ..\api\Custom\Basis.h ..\api\Custom\Quat.h \
-  ..\api\Custom\PoolVector.h ..\api\Custom\copymem.h \
-  ..\api\Custom\print_string.h
+  ..\api\Custom\copymem.h ..\api\Custom\print_string.h
 
 ..\api\Custom\transform.h:
 
@@ -50,8 +49,6 @@
 ..\api\Custom\Basis.h:
 
 ..\api\Custom\Quat.h:
-
-..\api\Custom\PoolVector.h:
 
 ..\api\Custom\copymem.h:
 

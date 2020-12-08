@@ -2,7 +2,7 @@
 #ifndef NETWORKEDMULTIPLAYERPEER_H
 #define NETWORKEDMULTIPLAYERPEER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "PacketPeer.h"
 class NetworkedMultiplayerPeer : public PacketPeer{
@@ -26,6 +26,16 @@ void poll();
 void set_refuse_new_connections(bool p_enable);
 void set_target_peer(int p_id);
 void set_transfer_mode(NetworkedMultiplayerPeer::TransferMode p_mode);
+
+protected:
+public:
+explicit NetworkedMultiplayerPeer(WasGoID p_wasgo_id);
+explicit NetworkedMultiplayerPeer(PacketPeer other);
+NetworkedMultiplayerPeer();
+NetworkedMultiplayerPeer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

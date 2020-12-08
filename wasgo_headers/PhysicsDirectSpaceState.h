@@ -2,19 +2,29 @@
 #ifndef PHYSICSDIRECTSPACESTATE_H
 #define PHYSICSDIRECTSPACESTATE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Variant.h"
+#include "Object.h"
 #include "Vector3.h"
 #include "PhysicsShapeQueryParameters.h"
-#include "Object.h"
-#include "Variant.h"
 class PhysicsDirectSpaceState : public Object{
 public:
 Array cast_motion(PhysicsShapeQueryParameters p_shape, Vector3 p_motion);
 Array collide_shape(PhysicsShapeQueryParameters p_shape, int p_max_results = (int) 32);
 Dictionary get_rest_info(PhysicsShapeQueryParameters p_shape);
-Dictionary intersect_ray(Vector3 p_from, Vector3 p_to, Array p_exclude = (Array) [], int p_collision_mask = (int) 2147483647, bool p_collide_with_bodies = (bool) true, bool p_collide_with_areas = (bool) false);
+Dictionary intersect_ray(Vector3 p_from, Vector3 p_to, Array p_exclude = Array(), int p_collision_mask = (int) 2147483647, bool p_collide_with_bodies = (bool) true, bool p_collide_with_areas = (bool) false);
 Array intersect_shape(PhysicsShapeQueryParameters p_shape, int p_max_results = (int) 32);
+
+protected:
+public:
+explicit PhysicsDirectSpaceState(WasGoID p_wasgo_id);
+explicit PhysicsDirectSpaceState(Object other);
+PhysicsDirectSpaceState();
+PhysicsDirectSpaceState new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

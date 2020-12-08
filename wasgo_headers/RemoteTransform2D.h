@@ -2,10 +2,10 @@
 #ifndef REMOTETRANSFORM2D_H
 #define REMOTETRANSFORM2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node2D.h"
 #include "NodePath.h"
+#include "Node2D.h"
 class RemoteTransform2D : public Node2D{
 public:
 void force_update_cache();
@@ -24,7 +24,10 @@ protected:
 public:
 explicit RemoteTransform2D(WasGoID p_wasgo_id);
 explicit RemoteTransform2D(Node2D other);
+RemoteTransform2D();
 RemoteTransform2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

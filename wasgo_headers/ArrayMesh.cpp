@@ -10,7 +10,7 @@ void ArrayMesh::add_blend_shape(String p_name){
     
 	_wasgo_ArrayMesh_wrapper_add_blend_shape(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
-void ArrayMesh::add_surface_from_arrays(Mesh::PrimitiveType p_primitive, Array p_arrays, Array p_blend_shapes = (Array) [], int p_compress_flags = (int) 97280){
+void ArrayMesh::add_surface_from_arrays(Mesh::PrimitiveType p_primitive, Array p_arrays, Array p_blend_shapes, int p_compress_flags){
 	_wasgo_ArrayMesh_wrapper_add_surface_from_arrays(wasgo_id, p_primitive._get_wasgo_id(), p_arrays._get_wasgo_id(), p_blend_shapes._get_wasgo_id(), p_compress_flags);
 }
 void ArrayMesh::clear_blend_shapes(){
@@ -116,8 +116,15 @@ void ArrayMesh::surface_update_region(int p_surf_idx, int p_offset, PoolByteArra
 ArrayMesh::ArrayMesh(WasGoID p_wasgo_id) : Mesh(p_wasgo_id){
 }
 ArrayMesh::ArrayMesh(Mesh other) : Mesh(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ArrayMesh_constructor();
 }
-ArrayMesh::new_instance(){
+ArrayMesh::ArrayMesh():Mesh(){
+}
+ArrayMesh ArrayMesh::new_instance(){
     return ArrayMesh(_wasgo_ArrayMesh_constructor());
+}
+WasGoID ArrayMesh::_get_wasgo_id(){
+    return wasgo_id;
+}
+ArrayMesh::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,10 +2,10 @@
 #ifndef SPATIALVELOCITYTRACKER_H
 #define SPATIALVELOCITYTRACKER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector3.h"
 #include "Reference.h"
+#include "Vector3.h"
 class SpatialVelocityTracker : public Reference{
 public:
 Vector3 get_tracked_linear_velocity();
@@ -18,7 +18,10 @@ protected:
 public:
 explicit SpatialVelocityTracker(WasGoID p_wasgo_id);
 explicit SpatialVelocityTracker(Reference other);
+SpatialVelocityTracker();
 SpatialVelocityTracker new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

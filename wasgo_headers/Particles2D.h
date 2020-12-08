@@ -2,12 +2,12 @@
 #ifndef PARTICLES2D_H
 #define PARTICLES2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Material.h"
+#include "Rect2.h"
 #include "Node2D.h"
 #include "Texture.h"
-#include "Rect2.h"
-#include "Material.h"
 class Particles2D : public Node2D{
 public:
 enum DrawOrder{
@@ -53,7 +53,10 @@ protected:
 public:
 explicit Particles2D(WasGoID p_wasgo_id);
 explicit Particles2D(Node2D other);
+Particles2D();
 Particles2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

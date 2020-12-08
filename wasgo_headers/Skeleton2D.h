@@ -2,11 +2,11 @@
 #ifndef SKELETON2D_H
 #define SKELETON2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node2D.h"
 #include "Bone2D.h"
 #include "RID.h"
+#include "Node2D.h"
 class Skeleton2D : public Node2D{
 public:
 Bone2D get_bone(int p_idx);
@@ -17,7 +17,10 @@ protected:
 public:
 explicit Skeleton2D(WasGoID p_wasgo_id);
 explicit Skeleton2D(Node2D other);
+Skeleton2D();
 Skeleton2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,11 +2,11 @@
 #ifndef PACKETPEER_H
 #define PACKETPEER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Variant.h"
 #include "Reference.h"
 #include "error_list.h"
-#include "Variant.h"
 class PacketPeer : public Reference{
 public:
 int get_available_packet_count();
@@ -19,6 +19,16 @@ Error put_packet(PoolByteArray p_buffer);
 Error put_var(Variant p_var, bool p_full_objects = (bool) false);
 void set_allow_object_decoding(bool p_enable);
 void set_encode_buffer_max_size(int p_max_size);
+
+protected:
+public:
+explicit PacketPeer(WasGoID p_wasgo_id);
+explicit PacketPeer(Reference other);
+PacketPeer();
+PacketPeer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

@@ -34,3 +34,19 @@ void PhysicsBody2D::set_collision_mask(int p_mask){
 void PhysicsBody2D::set_collision_mask_bit(int p_bit, bool p_value){
 	_wasgo_PhysicsBody2D_wrapper_set_collision_mask_bit(wasgo_id, p_bit, p_value);
 }
+
+PhysicsBody2D::PhysicsBody2D(WasGoID p_wasgo_id) : CollisionObject2D(p_wasgo_id){
+}
+PhysicsBody2D::PhysicsBody2D(CollisionObject2D other) : CollisionObject2D(other._get_wasgo_id()){
+}
+PhysicsBody2D::PhysicsBody2D():CollisionObject2D(){
+}
+PhysicsBody2D PhysicsBody2D::new_instance(){
+    return PhysicsBody2D(_wasgo_PhysicsBody2D_constructor());
+}
+WasGoID PhysicsBody2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+PhysicsBody2D::operator bool(){
+    return (bool) wasgo_id;
+}

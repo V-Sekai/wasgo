@@ -4,7 +4,7 @@
 void HTTPClient::close(){
 	_wasgo_HTTPClient_wrapper_close(wasgo_id);
 }
-Error HTTPClient::connect_to_host(String p_host, int p_port = (int) -1, bool p_use_ssl = (bool) false, bool p_verify_host = (bool) true){
+Error HTTPClient::connect_to_host(String p_host, int p_port, bool p_use_ssl, bool p_verify_host){
 
     Variant wasgo_var_host = p_host;
     int wasgo_size_host = String(p_host).size();
@@ -59,7 +59,7 @@ String HTTPClient::query_string_from_dict(Dictionary p_fields){
 PoolByteArray HTTPClient::read_response_body_chunk(){
 	return PoolByteArray(_wasgo_HTTPClient_wrapper_read_response_body_chunk(wasgo_id));
 }
-Error HTTPClient::request(HTTPClient::Method p_method, String p_url, PoolStringArray p_headers, String p_body = (String) ){
+Error HTTPClient::request(HTTPClient::Method p_method, String p_url, PoolStringArray p_headers, String p_body){
 
     Variant wasgo_var_url = p_url;
     int wasgo_size_url = String(p_url).size();
@@ -96,8 +96,15 @@ void HTTPClient::set_read_chunk_size(int p_bytes){
 HTTPClient::HTTPClient(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 HTTPClient::HTTPClient(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_HTTPClient_constructor();
 }
-HTTPClient::new_instance(){
+HTTPClient::HTTPClient():Reference(){
+}
+HTTPClient HTTPClient::new_instance(){
     return HTTPClient(_wasgo_HTTPClient_constructor());
+}
+WasGoID HTTPClient::_get_wasgo_id(){
+    return wasgo_id;
+}
+HTTPClient::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,7 +2,7 @@
 #ifndef CURVE_H
 #define CURVE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
 #include "Vector2.h"
@@ -43,7 +43,10 @@ protected:
 public:
 explicit Curve(WasGoID p_wasgo_id);
 explicit Curve(Resource other);
+Curve();
 Curve new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

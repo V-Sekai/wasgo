@@ -29,8 +29,15 @@ void StreamPeerBuffer::set_data_array(PoolByteArray p_data){
 StreamPeerBuffer::StreamPeerBuffer(WasGoID p_wasgo_id) : StreamPeer(p_wasgo_id){
 }
 StreamPeerBuffer::StreamPeerBuffer(StreamPeer other) : StreamPeer(other._get_wasgo_id()){
-    wasgo_id = _wasgo_StreamPeerBuffer_constructor();
 }
-StreamPeerBuffer::new_instance(){
+StreamPeerBuffer::StreamPeerBuffer():StreamPeer(){
+}
+StreamPeerBuffer StreamPeerBuffer::new_instance(){
     return StreamPeerBuffer(_wasgo_StreamPeerBuffer_constructor());
+}
+WasGoID StreamPeerBuffer::_get_wasgo_id(){
+    return wasgo_id;
+}
+StreamPeerBuffer::operator bool(){
+    return (bool) wasgo_id;
 }

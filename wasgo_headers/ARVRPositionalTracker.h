@@ -2,15 +2,15 @@
 #ifndef ARVRPOSITIONALTRACKER_H
 #define ARVRPOSITIONALTRACKER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "ARVRServer.h"
-#include "Object.h"
-#include "Mesh.h"
-#include "Basis.h"
 #include "Vector3.h"
+#include "Mesh.h"
+#include "Object.h"
 #include "Transform.h"
-#include "ustring.h"
+#include "ARVRServer.h"
+#include "Ustring.h"
+#include "Basis.h"
 class ARVRPositionalTracker : public Object{
 public:
 enum TrackerHand{
@@ -36,7 +36,10 @@ protected:
 public:
 explicit ARVRPositionalTracker(WasGoID p_wasgo_id);
 explicit ARVRPositionalTracker(Object other);
+ARVRPositionalTracker();
 ARVRPositionalTracker new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

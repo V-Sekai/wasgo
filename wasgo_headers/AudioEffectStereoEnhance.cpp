@@ -23,8 +23,15 @@ void AudioEffectStereoEnhance::set_time_pullout(float p_amount){
 AudioEffectStereoEnhance::AudioEffectStereoEnhance(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectStereoEnhance::AudioEffectStereoEnhance(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioEffectStereoEnhance_constructor();
 }
-AudioEffectStereoEnhance::new_instance(){
+AudioEffectStereoEnhance::AudioEffectStereoEnhance():AudioEffect(){
+}
+AudioEffectStereoEnhance AudioEffectStereoEnhance::new_instance(){
     return AudioEffectStereoEnhance(_wasgo_AudioEffectStereoEnhance_constructor());
+}
+WasGoID AudioEffectStereoEnhance::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioEffectStereoEnhance::operator bool(){
+    return (bool) wasgo_id;
 }

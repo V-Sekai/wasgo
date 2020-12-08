@@ -2,13 +2,13 @@
 #ifndef MULTIPLAYERAPI_H
 #define MULTIPLAYERAPI_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+class Node;
 #include "Reference.h"
-#include "Node.h"
-#include "Variant.h"
-#include "NetworkedMultiplayerPeer.h"
 #include "error_list.h"
+#include "NetworkedMultiplayerPeer.h"
+#include "Variant.h"
 class MultiplayerAPI : public Reference{
 public:
 enum RPCMode{
@@ -42,7 +42,10 @@ protected:
 public:
 explicit MultiplayerAPI(WasGoID p_wasgo_id);
 explicit MultiplayerAPI(Reference other);
+MultiplayerAPI();
 MultiplayerAPI new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

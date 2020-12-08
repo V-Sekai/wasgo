@@ -2,12 +2,12 @@
 #ifndef KINEMATICCOLLISION2D_H
 #define KINEMATICCOLLISION2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
 #include "Reference.h"
 #include "Variant.h"
 #include "Object.h"
+#include "Vector2.h"
 class KinematicCollision2D : public Reference{
 public:
 Object get_collider();
@@ -26,7 +26,10 @@ protected:
 public:
 explicit KinematicCollision2D(WasGoID p_wasgo_id);
 explicit KinematicCollision2D(Reference other);
+KinematicCollision2D();
 KinematicCollision2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

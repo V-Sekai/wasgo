@@ -2,11 +2,11 @@
 #ifndef COLORPICKER_H
 #define COLORPICKER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "BoxContainer.h"
 #include "Color.h"
 #include "Variant.h"
+#include "BoxContainer.h"
 class ColorPicker : public BoxContainer{
 public:
 void add_preset(Color p_color);
@@ -31,7 +31,10 @@ protected:
 public:
 explicit ColorPicker(WasGoID p_wasgo_id);
 explicit ColorPicker(BoxContainer other);
+ColorPicker();
 ColorPicker new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

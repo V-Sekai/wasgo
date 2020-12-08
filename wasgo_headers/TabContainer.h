@@ -2,14 +2,14 @@
 #ifndef TABCONTAINER_H
 #define TABCONTAINER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Popup.h"
-#include "Node.h"
+class Node;
 #include "Container.h"
 #include "Control.h"
+#include "Ustring.h"
 #include "Texture.h"
-#include "ustring.h"
 class TabContainer : public Container{
 public:
 enum TabAlign{
@@ -46,7 +46,10 @@ protected:
 public:
 explicit TabContainer(WasGoID p_wasgo_id);
 explicit TabContainer(Container other);
+TabContainer();
 TabContainer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

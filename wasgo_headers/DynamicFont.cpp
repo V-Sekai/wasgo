@@ -85,8 +85,15 @@ void DynamicFont::set_use_mipmaps(bool p_enable){
 DynamicFont::DynamicFont(WasGoID p_wasgo_id) : Font(p_wasgo_id){
 }
 DynamicFont::DynamicFont(Font other) : Font(other._get_wasgo_id()){
-    wasgo_id = _wasgo_DynamicFont_constructor();
 }
-DynamicFont::new_instance(){
+DynamicFont::DynamicFont():Font(){
+}
+DynamicFont DynamicFont::new_instance(){
     return DynamicFont(_wasgo_DynamicFont_constructor());
+}
+WasGoID DynamicFont::_get_wasgo_id(){
+    return wasgo_id;
+}
+DynamicFont::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -23,8 +23,15 @@ void VisualShaderNodeTexture::set_texture_type(VisualShaderNodeTexture::TextureT
 VisualShaderNodeTexture::VisualShaderNodeTexture(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeTexture::VisualShaderNodeTexture(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisualShaderNodeTexture_constructor();
 }
-VisualShaderNodeTexture::new_instance(){
+VisualShaderNodeTexture::VisualShaderNodeTexture():VisualShaderNode(){
+}
+VisualShaderNodeTexture VisualShaderNodeTexture::new_instance(){
     return VisualShaderNodeTexture(_wasgo_VisualShaderNodeTexture_constructor());
+}
+WasGoID VisualShaderNodeTexture::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeTexture::operator bool(){
+    return (bool) wasgo_id;
 }

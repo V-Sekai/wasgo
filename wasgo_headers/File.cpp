@@ -41,7 +41,7 @@ String File::get_as_text(){
 PoolByteArray File::get_buffer(int p_len){
 	return PoolByteArray(_wasgo_File_wrapper_get_buffer(wasgo_id, p_len));
 }
-PoolStringArray File::get_csv_line(String p_delim = String(,)){
+PoolStringArray File::get_csv_line(String p_delim){
 
     Variant wasgo_var_delim = p_delim;
     int wasgo_size_delim = String(p_delim).size();
@@ -152,7 +152,7 @@ String File::get_sha256(String p_path){
     return (String) wasgo_ret;
     
 }
-Variant File::get_var(bool p_allow_objects = (bool) false){
+Variant File::get_var(bool p_allow_objects){
 	return Variant(_wasgo_File_wrapper_get_var(wasgo_id, p_allow_objects));
 }
 bool File::is_open(){
@@ -167,7 +167,7 @@ Error File::open(String p_path, File::ModeFlags p_flags){
     
 	return Error(_wasgo_File_wrapper_open(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_flags._get_wasgo_id()));
 }
-Error File::open_compressed(String p_path, File::ModeFlags p_mode_flags, File::CompressionMode p_compression_mode = (File::CompressionMode) 0){
+Error File::open_compressed(String p_path, File::ModeFlags p_mode_flags, File::CompressionMode p_compression_mode){
 
     Variant wasgo_var_path = p_path;
     int wasgo_size_path = String(p_path).size();
@@ -203,7 +203,7 @@ Error File::open_encrypted_with_pass(String p_path, File::ModeFlags p_mode_flags
 void File::seek(int p_position){
 	_wasgo_File_wrapper_seek(wasgo_id, p_position);
 }
-void File::seek_end(int p_position = (int) 0){
+void File::seek_end(int p_position){
 	_wasgo_File_wrapper_seek_end(wasgo_id, p_position);
 }
 void File::set_endian_swap(bool p_enable){
@@ -224,7 +224,7 @@ void File::store_8(int p_value){
 void File::store_buffer(PoolByteArray p_buffer){
 	_wasgo_File_wrapper_store_buffer(wasgo_id, p_buffer._get_wasgo_id());
 }
-void File::store_csv_line(PoolStringArray p_values, String p_delim = String(,)){
+void File::store_csv_line(PoolStringArray p_values, String p_delim){
 
     Variant wasgo_var_delim = p_delim;
     int wasgo_size_delim = String(p_delim).size();
@@ -269,15 +269,22 @@ void File::store_string(String p_string){
     
 	_wasgo_File_wrapper_store_string(wasgo_id, wasgo_buffer_string, wasgo_size_string);
 }
-void File::store_var(Variant p_value, bool p_full_objects = (bool) false){
+void File::store_var(Variant p_value, bool p_full_objects){
 	_wasgo_File_wrapper_store_var(wasgo_id, p_value._get_wasgo_id(), p_full_objects);
 }
 
 File::File(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 File::File(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_File_constructor();
 }
-File::new_instance(){
+File::File():Reference(){
+}
+File File::new_instance(){
     return File(_wasgo_File_constructor());
+}
+WasGoID File::_get_wasgo_id(){
+    return wasgo_id;
+}
+File::operator bool(){
+    return (bool) wasgo_id;
 }

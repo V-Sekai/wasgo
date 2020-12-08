@@ -2,7 +2,7 @@
 #ifndef GENERIC6DOFJOINT_H
 #define GENERIC6DOFJOINT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Joint.h"
 class Generic6DOFJoint : public Joint{
@@ -60,7 +60,10 @@ protected:
 public:
 explicit Generic6DOFJoint(WasGoID p_wasgo_id);
 explicit Generic6DOFJoint(Joint other);
+Generic6DOFJoint();
 Generic6DOFJoint new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

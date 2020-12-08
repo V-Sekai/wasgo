@@ -2,7 +2,7 @@
 #ifndef INPUTEVENTMIDI_H
 #define INPUTEVENTMIDI_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "InputEvent.h"
 class InputEventMIDI : public InputEvent{
@@ -28,7 +28,10 @@ protected:
 public:
 explicit InputEventMIDI(WasGoID p_wasgo_id);
 explicit InputEventMIDI(InputEvent other);
+InputEventMIDI();
 InputEventMIDI new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

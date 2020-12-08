@@ -2,10 +2,10 @@
 #ifndef PROCEDURALSKY_H
 #define PROCEDURALSKY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Color.h"
 #include "Sky.h"
+#include "Color.h"
 class ProceduralSky : public Sky{
 public:
 enum TextureSize{
@@ -53,7 +53,10 @@ protected:
 public:
 explicit ProceduralSky(WasGoID p_wasgo_id);
 explicit ProceduralSky(Sky other);
+ProceduralSky();
 ProceduralSky new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

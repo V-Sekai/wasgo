@@ -2,13 +2,13 @@
 #ifndef IMAGETEXTURE_H
 #define IMAGETEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Image.h"
 #include "Vector2.h"
 #include "error_list.h"
+#include "Image.h"
+#include "Ustring.h"
 #include "Texture.h"
-#include "ustring.h"
 class ImageTexture : public Texture{
 public:
 enum Storage{
@@ -31,7 +31,10 @@ protected:
 public:
 explicit ImageTexture(WasGoID p_wasgo_id);
 explicit ImageTexture(Texture other);
+ImageTexture();
 ImageTexture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

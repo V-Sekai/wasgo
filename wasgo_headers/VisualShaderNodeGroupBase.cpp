@@ -143,8 +143,15 @@ void VisualShaderNodeGroupBase::set_size(Vector2 p_size){
 VisualShaderNodeGroupBase::VisualShaderNodeGroupBase(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeGroupBase::VisualShaderNodeGroupBase(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisualShaderNodeGroupBase_constructor();
 }
-VisualShaderNodeGroupBase::new_instance(){
+VisualShaderNodeGroupBase::VisualShaderNodeGroupBase():VisualShaderNode(){
+}
+VisualShaderNodeGroupBase VisualShaderNodeGroupBase::new_instance(){
     return VisualShaderNodeGroupBase(_wasgo_VisualShaderNodeGroupBase_constructor());
+}
+WasGoID VisualShaderNodeGroupBase::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeGroupBase::operator bool(){
+    return (bool) wasgo_id;
 }

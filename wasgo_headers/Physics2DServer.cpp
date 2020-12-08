@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Physics2DServer.h"
-void Physics2DServer::area_add_shape(RID p_area, RID p_shape, Transform2D p_transform = Transform2D(((1, 0), (0, 1), (0, 0))), bool p_disabled = (bool) false){
+void Physics2DServer::area_add_shape(RID p_area, RID p_shape, Transform2D p_transform, bool p_disabled){
 
     Variant wasgo_var_area = p_area;
     uint8_t wasgo_buffer_area[0];
@@ -372,7 +372,7 @@ void Physics2DServer::body_add_force(RID p_body, Vector2 p_offset, Vector2 p_for
     
 	_wasgo_Physics2DServer_wrapper_body_add_force(wasgo_id, wasgo_buffer_body, wasgo_size_body, wasgo_buffer_offset, wasgo_size_offset, wasgo_buffer_force, wasgo_size_force);
 }
-void Physics2DServer::body_add_shape(RID p_body, RID p_shape, Transform2D p_transform = Transform2D(((1, 0), (0, 1), (0, 0))), bool p_disabled = (bool) false){
+void Physics2DServer::body_add_shape(RID p_body, RID p_shape, Transform2D p_transform, bool p_disabled){
 
     Variant wasgo_var_body = p_body;
     uint8_t wasgo_buffer_body[0];
@@ -715,7 +715,7 @@ void Physics2DServer::body_set_continuous_collision_detection_mode(RID p_body, P
     
 	_wasgo_Physics2DServer_wrapper_body_set_continuous_collision_detection_mode(wasgo_id, wasgo_buffer_body, wasgo_size_body, p_mode._get_wasgo_id());
 }
-void Physics2DServer::body_set_force_integration_callback(RID p_body, Object p_receiver, String p_method, Variant p_userdata = (Variant) ""){
+void Physics2DServer::body_set_force_integration_callback(RID p_body, Object p_receiver, String p_method, Variant p_userdata){
 
     Variant wasgo_var_body = p_body;
     uint8_t wasgo_buffer_body[0];
@@ -847,7 +847,7 @@ void Physics2DServer::body_set_state(RID p_body, Physics2DServer::BodyState p_st
     
 	_wasgo_Physics2DServer_wrapper_body_set_state(wasgo_id, wasgo_buffer_body, wasgo_size_body, p_state._get_wasgo_id(), p_value._get_wasgo_id());
 }
-bool Physics2DServer::body_test_motion(RID p_body, Transform2D p_from, Vector2 p_motion, bool p_infinite_inertia, float p_margin = (float) 0.08, Physics2DTestMotionResult p_result = (Physics2DTestMotionResult) ""){
+bool Physics2DServer::body_test_motion(RID p_body, Transform2D p_from, Vector2 p_motion, bool p_infinite_inertia, float p_margin, Physics2DTestMotionResult p_result){
 
     Variant wasgo_var_body = p_body;
     uint8_t wasgo_buffer_body[0];
@@ -908,7 +908,7 @@ RID Physics2DServer::convex_polygon_shape_create(){
     return (RID) wasgo_ret;
     
 }
-RID Physics2DServer::damped_spring_joint_create(Vector2 p_anchor_a, Vector2 p_anchor_b, RID p_body_a, RID p_body_b = (RID) [rid]){
+RID Physics2DServer::damped_spring_joint_create(Vector2 p_anchor_a, Vector2 p_anchor_b, RID p_body_a, RID p_body_b){
 
     Variant wasgo_var_anchor_a = p_anchor_a;
     uint8_t wasgo_buffer_anchor_a[12];
@@ -972,7 +972,7 @@ void Physics2DServer::free_rid(RID p_rid){
 int Physics2DServer::get_process_info(Physics2DServer::ProcessInfo p_process_info){
 	return (int) _wasgo_Physics2DServer_wrapper_get_process_info(wasgo_id, p_process_info._get_wasgo_id());
 }
-RID Physics2DServer::groove_joint_create(Vector2 p_groove1_a, Vector2 p_groove2_a, Vector2 p_anchor_b, RID p_body_a = (RID) [rid], RID p_body_b = (RID) [rid]){
+RID Physics2DServer::groove_joint_create(Vector2 p_groove1_a, Vector2 p_groove2_a, Vector2 p_anchor_b, RID p_body_a, RID p_body_b){
 
     Variant wasgo_var_groove1_a = p_groove1_a;
     uint8_t wasgo_buffer_groove1_a[12];
@@ -1049,7 +1049,7 @@ RID Physics2DServer::line_shape_create(){
     return (RID) wasgo_ret;
     
 }
-RID Physics2DServer::pin_joint_create(Vector2 p_anchor, RID p_body_a, RID p_body_b = (RID) [rid]){
+RID Physics2DServer::pin_joint_create(Vector2 p_anchor, RID p_body_a, RID p_body_b){
 
     Variant wasgo_var_anchor = p_anchor;
     uint8_t wasgo_buffer_anchor[12];
@@ -1191,4 +1191,20 @@ void Physics2DServer::space_set_param(RID p_space, Physics2DServer::SpaceParamet
     encode_variant(wasgo_var_space, wasgo_buffer_space, wasgo_size_space);
     
 	_wasgo_Physics2DServer_wrapper_space_set_param(wasgo_id, wasgo_buffer_space, wasgo_size_space, p_param._get_wasgo_id(), p_value);
+}
+
+Physics2DServer::Physics2DServer(WasGoID p_wasgo_id) : Object(p_wasgo_id){
+}
+Physics2DServer::Physics2DServer(Object other) : Object(other._get_wasgo_id()){
+}
+Physics2DServer::Physics2DServer():Object(){
+}
+Physics2DServer Physics2DServer::new_instance(){
+    return Physics2DServer(_wasgo_Physics2DServer_constructor());
+}
+WasGoID Physics2DServer::_get_wasgo_id(){
+    return wasgo_id;
+}
+Physics2DServer::operator bool(){
+    return (bool) wasgo_id;
 }

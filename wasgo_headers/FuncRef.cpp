@@ -36,8 +36,15 @@ void FuncRef::set_instance(Object p_instance){
 FuncRef::FuncRef(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 FuncRef::FuncRef(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_FuncRef_constructor();
 }
-FuncRef::new_instance(){
+FuncRef::FuncRef():Reference(){
+}
+FuncRef FuncRef::new_instance(){
     return FuncRef(_wasgo_FuncRef_constructor());
+}
+WasGoID FuncRef::_get_wasgo_id(){
+    return wasgo_id;
+}
+FuncRef::operator bool(){
+    return (bool) wasgo_id;
 }

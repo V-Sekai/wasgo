@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Camera.h"
-void Camera::clear_current(bool p_enable_next = (bool) true){
+void Camera::clear_current(bool p_enable_next){
 	_wasgo_Camera_wrapper_clear_current(wasgo_id, p_enable_next);
 }
 RID Camera::get_camera_rid(){
@@ -235,8 +235,15 @@ Vector2 Camera::unproject_position(Vector3 p_world_point){
 Camera::Camera(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 Camera::Camera(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Camera_constructor();
 }
-Camera::new_instance(){
+Camera::Camera():Spatial(){
+}
+Camera Camera::new_instance(){
     return Camera(_wasgo_Camera_constructor());
+}
+WasGoID Camera::_get_wasgo_id(){
+    return wasgo_id;
+}
+Camera::operator bool(){
+    return (bool) wasgo_id;
 }

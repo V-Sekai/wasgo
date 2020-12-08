@@ -2,11 +2,11 @@
 #ifndef X509CERTIFICATE_H
 #define X509CERTIFICATE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "error_list.h"
 #include "Resource.h"
-#include "ustring.h"
+#include "Ustring.h"
+#include "error_list.h"
 class X509Certificate : public Resource{
 public:
 Error load(String p_path);
@@ -16,7 +16,10 @@ protected:
 public:
 explicit X509Certificate(WasGoID p_wasgo_id);
 explicit X509Certificate(Resource other);
+X509Certificate();
 X509Certificate new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

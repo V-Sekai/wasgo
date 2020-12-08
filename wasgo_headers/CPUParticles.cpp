@@ -243,8 +243,15 @@ void CPUParticles::set_use_local_coordinates(bool p_enable){
 CPUParticles::CPUParticles(WasGoID p_wasgo_id) : GeometryInstance(p_wasgo_id){
 }
 CPUParticles::CPUParticles(GeometryInstance other) : GeometryInstance(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CPUParticles_constructor();
 }
-CPUParticles::new_instance(){
+CPUParticles::CPUParticles():GeometryInstance(){
+}
+CPUParticles CPUParticles::new_instance(){
     return CPUParticles(_wasgo_CPUParticles_constructor());
+}
+WasGoID CPUParticles::_get_wasgo_id(){
+    return wasgo_id;
+}
+CPUParticles::operator bool(){
+    return (bool) wasgo_id;
 }

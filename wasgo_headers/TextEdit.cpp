@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "TextEdit.h"
-void TextEdit::add_color_region(String p_begin_key, String p_end_key, Color p_color, bool p_line_only = (bool) false){
+void TextEdit::add_color_region(String p_begin_key, String p_end_key, Color p_color, bool p_line_only){
 
     Variant wasgo_var_begin_key = p_begin_key;
     int wasgo_size_begin_key = String(p_begin_key).size();
@@ -76,10 +76,10 @@ void TextEdit::cursor_set_blink_speed(float p_blink_speed){
 void TextEdit::cursor_set_block_mode(bool p_enable){
 	_wasgo_TextEdit_wrapper_cursor_set_block_mode(wasgo_id, p_enable);
 }
-void TextEdit::cursor_set_column(int p_column, bool p_adjust_viewport = (bool) true){
+void TextEdit::cursor_set_column(int p_column, bool p_adjust_viewport){
 	_wasgo_TextEdit_wrapper_cursor_set_column(wasgo_id, p_column, p_adjust_viewport);
 }
-void TextEdit::cursor_set_line(int p_line, bool p_adjust_viewport = (bool) true, bool p_can_be_hidden = (bool) true, int p_wrap_index = (int) 0){
+void TextEdit::cursor_set_line(int p_line, bool p_adjust_viewport, bool p_can_be_hidden, int p_wrap_index){
 	_wasgo_TextEdit_wrapper_cursor_set_line(wasgo_id, p_line, p_adjust_viewport, p_can_be_hidden, p_wrap_index);
 }
 void TextEdit::cut(){
@@ -400,8 +400,15 @@ void TextEdit::unhide_all_lines(){
 TextEdit::TextEdit(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 TextEdit::TextEdit(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_TextEdit_constructor();
 }
-TextEdit::new_instance(){
+TextEdit::TextEdit():Control(){
+}
+TextEdit TextEdit::new_instance(){
     return TextEdit(_wasgo_TextEdit_constructor());
+}
+WasGoID TextEdit::_get_wasgo_id(){
+    return wasgo_id;
+}
+TextEdit::operator bool(){
+    return (bool) wasgo_id;
 }

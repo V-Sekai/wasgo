@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTBANDPASSFILTER_H
 #define AUDIOEFFECTBANDPASSFILTER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioEffectFilter.h"
 class AudioEffectBandPassFilter : public AudioEffectFilter{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit AudioEffectBandPassFilter(WasGoID p_wasgo_id);
 explicit AudioEffectBandPassFilter(AudioEffectFilter other);
+AudioEffectBandPassFilter();
 AudioEffectBandPassFilter new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

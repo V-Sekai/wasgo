@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTLIMITER_H
 #define AUDIOEFFECTLIMITER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioEffect.h"
 class AudioEffectLimiter : public AudioEffect{
@@ -20,7 +20,10 @@ protected:
 public:
 explicit AudioEffectLimiter(WasGoID p_wasgo_id);
 explicit AudioEffectLimiter(AudioEffect other);
+AudioEffectLimiter();
 AudioEffectLimiter new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,12 +2,12 @@
 #ifndef AUDIOSTREAMPLAYER2D_H
 #define AUDIOSTREAMPLAYER2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "AudioStreamPlayback.h"
 #include "Node2D.h"
+#include "Ustring.h"
 #include "AudioStream.h"
-#include "ustring.h"
+#include "AudioStreamPlayback.h"
 class AudioStreamPlayer2D : public Node2D{
 public:
 int get_area_mask();
@@ -39,7 +39,10 @@ protected:
 public:
 explicit AudioStreamPlayer2D(WasGoID p_wasgo_id);
 explicit AudioStreamPlayer2D(Node2D other);
+AudioStreamPlayer2D();
 AudioStreamPlayer2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

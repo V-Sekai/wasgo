@@ -14,8 +14,15 @@ void CurveTexture::set_width(int p_width){
 CurveTexture::CurveTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 CurveTexture::CurveTexture(Texture other) : Texture(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CurveTexture_constructor();
 }
-CurveTexture::new_instance(){
+CurveTexture::CurveTexture():Texture(){
+}
+CurveTexture CurveTexture::new_instance(){
     return CurveTexture(_wasgo_CurveTexture_constructor());
+}
+WasGoID CurveTexture::_get_wasgo_id(){
+    return wasgo_id;
+}
+CurveTexture::operator bool(){
+    return (bool) wasgo_id;
 }

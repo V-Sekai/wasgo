@@ -7,7 +7,7 @@ PoolByteArray Crypto::generate_random_bytes(int p_size){
 CryptoKey Crypto::generate_rsa(int p_size){
 	return CryptoKey(_wasgo_Crypto_wrapper_generate_rsa(wasgo_id, p_size));
 }
-X509Certificate Crypto::generate_self_signed_certificate(CryptoKey p_key, String p_issuer_name = String(cn=myserver,o=myorganisation,c=it), String p_not_before = (String) 20140101000000, String p_not_after = (String) 20340101000000){
+X509Certificate Crypto::generate_self_signed_certificate(CryptoKey p_key, String p_issuer_name, String p_not_before, String p_not_after){
 
     Variant wasgo_var_issuer_name = p_issuer_name;
     int wasgo_size_issuer_name = String(p_issuer_name).size();
@@ -32,8 +32,15 @@ X509Certificate Crypto::generate_self_signed_certificate(CryptoKey p_key, String
 Crypto::Crypto(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Crypto::Crypto(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Crypto_constructor();
 }
-Crypto::new_instance(){
+Crypto::Crypto():Reference(){
+}
+Crypto Crypto::new_instance(){
     return Crypto(_wasgo_Crypto_constructor());
+}
+WasGoID Crypto::_get_wasgo_id(){
+    return wasgo_id;
+}
+Crypto::operator bool(){
+    return (bool) wasgo_id;
 }

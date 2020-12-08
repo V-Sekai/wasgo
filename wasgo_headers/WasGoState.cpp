@@ -47,8 +47,15 @@ void WasGoState::set_wasm_script(WasmResource p_p_wasm_script){
 WasGoState::WasGoState(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 WasGoState::WasGoState(Node other) : Node(other._get_wasgo_id()){
-    wasgo_id = _wasgo_WasGoState_constructor();
 }
-WasGoState::new_instance(){
+WasGoState::WasGoState():Node(){
+}
+WasGoState WasGoState::new_instance(){
     return WasGoState(_wasgo_WasGoState_constructor());
+}
+WasGoID WasGoState::_get_wasgo_id(){
+    return wasgo_id;
+}
+WasGoState::operator bool(){
+    return (bool) wasgo_id;
 }

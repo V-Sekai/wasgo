@@ -162,7 +162,7 @@ void VisualServer::canvas_item_add_clip_ignore(RID p_item, bool p_ignore){
     
 	_wasgo_VisualServer_wrapper_canvas_item_add_clip_ignore(wasgo_id, wasgo_buffer_item, wasgo_size_item, p_ignore);
 }
-void VisualServer::canvas_item_add_line(RID p_item, Vector2 p_from, Vector2 p_to, Color p_color, float p_width = (float) 1, bool p_antialiased = (bool) false){
+void VisualServer::canvas_item_add_line(RID p_item, Vector2 p_from, Vector2 p_to, Color p_color, float p_width, bool p_antialiased){
 
     Variant wasgo_var_item = p_item;
     uint8_t wasgo_buffer_item[0];
@@ -189,7 +189,7 @@ void VisualServer::canvas_item_add_line(RID p_item, Vector2 p_from, Vector2 p_to
     
 	_wasgo_VisualServer_wrapper_canvas_item_add_line(wasgo_id, wasgo_buffer_item, wasgo_size_item, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_to, wasgo_size_to, wasgo_buffer_color, wasgo_size_color, p_width, p_antialiased);
 }
-void VisualServer::canvas_item_add_mesh(RID p_item, RID p_mesh, Transform2D p_transform = Transform2D(((1, 0), (0, 1), (0, 0))), Color p_modulate = Color(1,1,1,1), RID p_texture = (RID) [rid], RID p_normal_map = (RID) [rid]){
+void VisualServer::canvas_item_add_mesh(RID p_item, RID p_mesh, Transform2D p_transform, Color p_modulate, RID p_texture, RID p_normal_map){
 
     Variant wasgo_var_item = p_item;
     uint8_t wasgo_buffer_item[0];
@@ -228,7 +228,7 @@ void VisualServer::canvas_item_add_mesh(RID p_item, RID p_mesh, Transform2D p_tr
     
 	_wasgo_VisualServer_wrapper_canvas_item_add_mesh(wasgo_id, wasgo_buffer_item, wasgo_size_item, wasgo_buffer_mesh, wasgo_size_mesh, wasgo_buffer_transform, wasgo_size_transform, wasgo_buffer_modulate, wasgo_size_modulate, wasgo_buffer_texture, wasgo_size_texture, wasgo_buffer_normal_map, wasgo_size_normal_map);
 }
-void VisualServer::canvas_item_add_multimesh(RID p_item, RID p_mesh, RID p_texture, RID p_normal_map = (RID) [rid]){
+void VisualServer::canvas_item_add_multimesh(RID p_item, RID p_mesh, RID p_texture, RID p_normal_map){
 
     Variant wasgo_var_item = p_item;
     uint8_t wasgo_buffer_item[0];
@@ -255,7 +255,7 @@ void VisualServer::canvas_item_add_multimesh(RID p_item, RID p_mesh, RID p_textu
     
 	_wasgo_VisualServer_wrapper_canvas_item_add_multimesh(wasgo_id, wasgo_buffer_item, wasgo_size_item, wasgo_buffer_mesh, wasgo_size_mesh, wasgo_buffer_texture, wasgo_size_texture, wasgo_buffer_normal_map, wasgo_size_normal_map);
 }
-void VisualServer::canvas_item_add_nine_patch(RID p_item, Rect2 p_rect, Rect2 p_source, RID p_texture, Vector2 p_topleft, Vector2 p_bottomright, VisualServer::NinePatchAxisMode p_x_axis_mode = (VisualServer::NinePatchAxisMode) 0, VisualServer::NinePatchAxisMode p_y_axis_mode = (VisualServer::NinePatchAxisMode) 0, bool p_draw_center = (bool) true, Color p_modulate = Color(1,1,1,1), RID p_normal_map = (RID) [rid]){
+void VisualServer::canvas_item_add_nine_patch(RID p_item, Rect2 p_rect, Rect2 p_source, RID p_texture, Vector2 p_topleft, Vector2 p_bottomright, VisualServer::NinePatchAxisMode p_x_axis_mode, VisualServer::NinePatchAxisMode p_y_axis_mode, bool p_draw_center, Color p_modulate, RID p_normal_map){
 
     Variant wasgo_var_item = p_item;
     uint8_t wasgo_buffer_item[0];
@@ -333,7 +333,7 @@ void VisualServer::canvas_item_add_particles(RID p_item, RID p_particles, RID p_
     
 	_wasgo_VisualServer_wrapper_canvas_item_add_particles(wasgo_id, wasgo_buffer_item, wasgo_size_item, wasgo_buffer_particles, wasgo_size_particles, wasgo_buffer_texture, wasgo_size_texture, wasgo_buffer_normal_map, wasgo_size_normal_map);
 }
-void VisualServer::canvas_item_add_polygon(RID p_item, PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs = (PoolVector2Array) [], RID p_texture = (RID) [rid], RID p_normal_map = (RID) [rid], bool p_antialiased = (bool) false){
+void VisualServer::canvas_item_add_polygon(RID p_item, PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs, RID p_texture, RID p_normal_map, bool p_antialiased){
 
     Variant wasgo_var_item = p_item;
     uint8_t wasgo_buffer_item[0];
@@ -354,7 +354,7 @@ void VisualServer::canvas_item_add_polygon(RID p_item, PoolVector2Array p_points
     
 	_wasgo_VisualServer_wrapper_canvas_item_add_polygon(wasgo_id, wasgo_buffer_item, wasgo_size_item, p_points._get_wasgo_id(), p_colors._get_wasgo_id(), p_uvs._get_wasgo_id(), wasgo_buffer_texture, wasgo_size_texture, wasgo_buffer_normal_map, wasgo_size_normal_map, p_antialiased);
 }
-void VisualServer::canvas_item_add_polyline(RID p_item, PoolVector2Array p_points, PoolColorArray p_colors, float p_width = (float) 1, bool p_antialiased = (bool) false){
+void VisualServer::canvas_item_add_polyline(RID p_item, PoolVector2Array p_points, PoolColorArray p_colors, float p_width, bool p_antialiased){
 
     Variant wasgo_var_item = p_item;
     uint8_t wasgo_buffer_item[0];
@@ -363,7 +363,7 @@ void VisualServer::canvas_item_add_polyline(RID p_item, PoolVector2Array p_point
     
 	_wasgo_VisualServer_wrapper_canvas_item_add_polyline(wasgo_id, wasgo_buffer_item, wasgo_size_item, p_points._get_wasgo_id(), p_colors._get_wasgo_id(), p_width, p_antialiased);
 }
-void VisualServer::canvas_item_add_primitive(RID p_item, PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs, RID p_texture, float p_width = (float) 1, RID p_normal_map = (RID) [rid]){
+void VisualServer::canvas_item_add_primitive(RID p_item, PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs, RID p_texture, float p_width, RID p_normal_map){
 
     Variant wasgo_var_item = p_item;
     uint8_t wasgo_buffer_item[0];
@@ -420,7 +420,7 @@ void VisualServer::canvas_item_add_set_transform(RID p_item, Transform2D p_trans
     
 	_wasgo_VisualServer_wrapper_canvas_item_add_set_transform(wasgo_id, wasgo_buffer_item, wasgo_size_item, wasgo_buffer_transform, wasgo_size_transform);
 }
-void VisualServer::canvas_item_add_texture_rect(RID p_item, Rect2 p_rect, RID p_texture, bool p_tile = (bool) false, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, RID p_normal_map = (RID) [rid]){
+void VisualServer::canvas_item_add_texture_rect(RID p_item, Rect2 p_rect, RID p_texture, bool p_tile, Color p_modulate, bool p_transpose, RID p_normal_map){
 
     Variant wasgo_var_item = p_item;
     uint8_t wasgo_buffer_item[0];
@@ -453,7 +453,7 @@ void VisualServer::canvas_item_add_texture_rect(RID p_item, Rect2 p_rect, RID p_
     
 	_wasgo_VisualServer_wrapper_canvas_item_add_texture_rect(wasgo_id, wasgo_buffer_item, wasgo_size_item, wasgo_buffer_rect, wasgo_size_rect, wasgo_buffer_texture, wasgo_size_texture, p_tile, wasgo_buffer_modulate, wasgo_size_modulate, p_transpose, wasgo_buffer_normal_map, wasgo_size_normal_map);
 }
-void VisualServer::canvas_item_add_texture_rect_region(RID p_item, Rect2 p_rect, RID p_texture, Rect2 p_src_rect, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, RID p_normal_map = (RID) [rid], bool p_clip_uv = (bool) true){
+void VisualServer::canvas_item_add_texture_rect_region(RID p_item, Rect2 p_rect, RID p_texture, Rect2 p_src_rect, Color p_modulate, bool p_transpose, RID p_normal_map, bool p_clip_uv){
 
     Variant wasgo_var_item = p_item;
     uint8_t wasgo_buffer_item[0];
@@ -492,7 +492,7 @@ void VisualServer::canvas_item_add_texture_rect_region(RID p_item, Rect2 p_rect,
     
 	_wasgo_VisualServer_wrapper_canvas_item_add_texture_rect_region(wasgo_id, wasgo_buffer_item, wasgo_size_item, wasgo_buffer_rect, wasgo_size_rect, wasgo_buffer_texture, wasgo_size_texture, wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_buffer_modulate, wasgo_size_modulate, p_transpose, wasgo_buffer_normal_map, wasgo_size_normal_map, p_clip_uv);
 }
-void VisualServer::canvas_item_add_triangle_array(RID p_item, PoolIntArray p_indices, PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs = (PoolVector2Array) [], PoolIntArray p_bones = (PoolIntArray) [], PoolRealArray p_weights = (PoolRealArray) [], RID p_texture = (RID) [rid], int p_count = (int) -1, RID p_normal_map = (RID) [rid], bool p_antialiased = (bool) false, bool p_antialiasing_use_indices = (bool) false){
+void VisualServer::canvas_item_add_triangle_array(RID p_item, PoolIntArray p_indices, PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs, PoolIntArray p_bones, PoolRealArray p_weights, RID p_texture, int p_count, RID p_normal_map, bool p_antialiased, bool p_antialiasing_use_indices){
 
     Variant wasgo_var_item = p_item;
     uint8_t wasgo_buffer_item[0];
@@ -556,7 +556,7 @@ void VisualServer::canvas_item_set_copy_to_backbuffer(RID p_item, bool p_enabled
     
 	_wasgo_VisualServer_wrapper_canvas_item_set_copy_to_backbuffer(wasgo_id, wasgo_buffer_item, wasgo_size_item, p_enabled, wasgo_buffer_rect, wasgo_size_rect);
 }
-void VisualServer::canvas_item_set_custom_rect(RID p_item, bool p_use_custom_rect, Rect2 p_rect = Rect2((0, 0, 0, 0))){
+void VisualServer::canvas_item_set_custom_rect(RID p_item, bool p_use_custom_rect, Rect2 p_rect){
 
     Variant wasgo_var_item = p_item;
     uint8_t wasgo_buffer_item[0];
@@ -1109,7 +1109,7 @@ RID VisualServer::directional_light_create(){
     return (RID) wasgo_ret;
     
 }
-void VisualServer::draw(bool p_swap_buffers = (bool) true, float p_frame_step = (float) 0){
+void VisualServer::draw(bool p_swap_buffers, float p_frame_step){
 	_wasgo_VisualServer_wrapper_draw(wasgo_id, p_swap_buffers, p_frame_step);
 }
 RID VisualServer::environment_create(){
@@ -1137,7 +1137,7 @@ void VisualServer::environment_set_adjustment(RID p_env, bool p_enable, float p_
     
 	_wasgo_VisualServer_wrapper_environment_set_adjustment(wasgo_id, wasgo_buffer_env, wasgo_size_env, p_enable, p_brightness, p_contrast, p_saturation, wasgo_buffer_ramp, wasgo_size_ramp);
 }
-void VisualServer::environment_set_ambient_light(RID p_env, Color p_color, float p_energy = (float) 1, float p_sky_contibution = (float) 0){
+void VisualServer::environment_set_ambient_light(RID p_env, Color p_color, float p_energy, float p_sky_contibution){
 
     Variant wasgo_var_env = p_env;
     uint8_t wasgo_buffer_env[0];
@@ -1335,7 +1335,7 @@ void VisualServer::environment_set_tonemap(RID p_env, VisualServer::EnvironmentT
 void VisualServer::finish(){
 	_wasgo_VisualServer_wrapper_finish(wasgo_id);
 }
-void VisualServer::force_draw(bool p_swap_buffers = (bool) true, float p_frame_step = (float) 0){
+void VisualServer::force_draw(bool p_swap_buffers, float p_frame_step){
 	_wasgo_VisualServer_wrapper_force_draw(wasgo_id, p_swap_buffers, p_frame_step);
 }
 void VisualServer::force_sync(){
@@ -1652,7 +1652,7 @@ bool VisualServer::has_os_feature(String p_feature){
     
 	return (bool) _wasgo_VisualServer_wrapper_has_os_feature(wasgo_id, wasgo_buffer_feature, wasgo_size_feature);
 }
-void VisualServer::immediate_begin(RID p_immediate, VisualServer::PrimitiveType p_primitive, RID p_texture = (RID) [rid]){
+void VisualServer::immediate_begin(RID p_immediate, VisualServer::PrimitiveType p_primitive, RID p_texture){
 
     Variant wasgo_var_immediate = p_immediate;
     uint8_t wasgo_buffer_immediate[0];
@@ -2088,7 +2088,7 @@ void VisualServer::instance_set_visible(RID p_instance, bool p_visible){
     
 	_wasgo_VisualServer_wrapper_instance_set_visible(wasgo_id, wasgo_buffer_instance, wasgo_size_instance, p_visible);
 }
-Array VisualServer::instances_cull_aabb(::AABB p_aabb, RID p_scenario = (RID) [rid]){
+Array VisualServer::instances_cull_aabb(::AABB p_aabb, RID p_scenario){
 
     Variant wasgo_var_aabb = p_aabb;
     uint8_t wasgo_buffer_aabb[28];
@@ -2103,7 +2103,7 @@ Array VisualServer::instances_cull_aabb(::AABB p_aabb, RID p_scenario = (RID) [r
     
 	return Array(_wasgo_VisualServer_wrapper_instances_cull_aabb(wasgo_id, wasgo_buffer_aabb, wasgo_size_aabb, wasgo_buffer_scenario, wasgo_size_scenario));
 }
-Array VisualServer::instances_cull_convex(Array p_convex, RID p_scenario = (RID) [rid]){
+Array VisualServer::instances_cull_convex(Array p_convex, RID p_scenario){
 
     Variant wasgo_var_scenario = p_scenario;
     uint8_t wasgo_buffer_scenario[0];
@@ -2112,7 +2112,7 @@ Array VisualServer::instances_cull_convex(Array p_convex, RID p_scenario = (RID)
     
 	return Array(_wasgo_VisualServer_wrapper_instances_cull_convex(wasgo_id, p_convex._get_wasgo_id(), wasgo_buffer_scenario, wasgo_size_scenario));
 }
-Array VisualServer::instances_cull_ray(Vector3 p_from, Vector3 p_to, RID p_scenario = (RID) [rid]){
+Array VisualServer::instances_cull_ray(Vector3 p_from, Vector3 p_to, RID p_scenario){
 
     Variant wasgo_var_from = p_from;
     uint8_t wasgo_buffer_from[16];
@@ -2544,7 +2544,7 @@ void VisualServer::material_set_shader(RID p_shader_material, RID p_shader){
     
 	_wasgo_VisualServer_wrapper_material_set_shader(wasgo_id, wasgo_buffer_shader_material, wasgo_size_shader_material, wasgo_buffer_shader, wasgo_size_shader);
 }
-void VisualServer::mesh_add_surface_from_arrays(RID p_mesh, VisualServer::PrimitiveType p_primitive, Array p_arrays, Array p_blend_shapes = (Array) [], int p_compress_format = (int) 97280){
+void VisualServer::mesh_add_surface_from_arrays(RID p_mesh, VisualServer::PrimitiveType p_primitive, Array p_arrays, Array p_blend_shapes, int p_compress_format){
 
     Variant wasgo_var_mesh = p_mesh;
     uint8_t wasgo_buffer_mesh[0];
@@ -2800,7 +2800,7 @@ void VisualServer::mesh_surface_update_region(RID p_mesh, int p_surface, int p_o
     
 	_wasgo_VisualServer_wrapper_mesh_surface_update_region(wasgo_id, wasgo_buffer_mesh, wasgo_size_mesh, p_surface, p_offset, p_data._get_wasgo_id());
 }
-void VisualServer::multimesh_allocate(RID p_multimesh, int p_instances, VisualServer::MultimeshTransformFormat p_transform_format, VisualServer::MultimeshColorFormat p_color_format, VisualServer::MultimeshCustomDataFormat p_custom_data_format = (VisualServer::MultimeshCustomDataFormat) 0){
+void VisualServer::multimesh_allocate(RID p_multimesh, int p_instances, VisualServer::MultimeshTransformFormat p_transform_format, VisualServer::MultimeshColorFormat p_color_format, VisualServer::MultimeshCustomDataFormat p_custom_data_format){
 
     Variant wasgo_var_multimesh = p_multimesh;
     uint8_t wasgo_buffer_multimesh[0];
@@ -3478,7 +3478,7 @@ void VisualServer::scenario_set_reflection_atlas_size(RID p_scenario, int p_size
     
 	_wasgo_VisualServer_wrapper_scenario_set_reflection_atlas_size(wasgo_id, wasgo_buffer_scenario, wasgo_size_scenario, p_size, p_subdiv);
 }
-void VisualServer::set_boot_image(Image p_image, Color p_color, bool p_scale, bool p_use_filter = (bool) true){
+void VisualServer::set_boot_image(Image p_image, Color p_color, bool p_scale, bool p_use_filter){
 
     Variant wasgo_var_color = p_color;
     uint8_t wasgo_buffer_color[20];
@@ -3598,7 +3598,7 @@ void VisualServer::shader_set_default_texture_param(RID p_shader, String p_name,
     
 	_wasgo_VisualServer_wrapper_shader_set_default_texture_param(wasgo_id, wasgo_buffer_shader, wasgo_size_shader, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_texture, wasgo_size_texture);
 }
-void VisualServer::skeleton_allocate(RID p_skeleton, int p_bones, bool p_is_2d_skeleton = (bool) false){
+void VisualServer::skeleton_allocate(RID p_skeleton, int p_bones, bool p_is_2d_skeleton){
 
     Variant wasgo_var_skeleton = p_skeleton;
     uint8_t wasgo_buffer_skeleton[0];
@@ -3726,7 +3726,7 @@ RID VisualServer::spot_light_create(){
 void VisualServer::sync(){
 	_wasgo_VisualServer_wrapper_sync(wasgo_id);
 }
-void VisualServer::texture_allocate(RID p_texture, int p_width, int p_height, int p_depth_3d, Image::Format p_format, VisualServer::TextureType p_type, int p_flags = (int) 7){
+void VisualServer::texture_allocate(RID p_texture, int p_width, int p_height, int p_depth_3d, Image::Format p_format, VisualServer::TextureType p_type, int p_flags){
 
     Variant wasgo_var_texture = p_texture;
     uint8_t wasgo_buffer_texture[0];
@@ -3754,7 +3754,7 @@ RID VisualServer::texture_create(){
     return (RID) wasgo_ret;
     
 }
-RID VisualServer::texture_create_from_image(Image p_image, int p_flags = (int) 7){
+RID VisualServer::texture_create_from_image(Image p_image, int p_flags){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 0;
@@ -3767,7 +3767,7 @@ RID VisualServer::texture_create_from_image(Image p_image, int p_flags = (int) 7
 Array VisualServer::texture_debug_usage(){
 	return Array(_wasgo_VisualServer_wrapper_texture_debug_usage(wasgo_id));
 }
-Image VisualServer::texture_get_data(RID p_texture, int p_cube_side = (int) 0){
+Image VisualServer::texture_get_data(RID p_texture, int p_cube_side){
 
     Variant wasgo_var_texture = p_texture;
     uint8_t wasgo_buffer_texture[0];
@@ -3855,7 +3855,7 @@ int VisualServer::texture_get_width(RID p_texture){
     
 	return (int) _wasgo_VisualServer_wrapper_texture_get_width(wasgo_id, wasgo_buffer_texture, wasgo_size_texture);
 }
-void VisualServer::texture_set_data(RID p_texture, Image p_image, int p_layer = (int) 0){
+void VisualServer::texture_set_data(RID p_texture, Image p_image, int p_layer){
 
     Variant wasgo_var_texture = p_texture;
     uint8_t wasgo_buffer_texture[0];
@@ -3864,7 +3864,7 @@ void VisualServer::texture_set_data(RID p_texture, Image p_image, int p_layer = 
     
 	_wasgo_VisualServer_wrapper_texture_set_data(wasgo_id, wasgo_buffer_texture, wasgo_size_texture, p_image._get_wasgo_id(), p_layer);
 }
-void VisualServer::texture_set_data_partial(RID p_texture, Image p_image, int p_src_x, int p_src_y, int p_src_w, int p_src_h, int p_dst_x, int p_dst_y, int p_dst_mip, int p_layer = (int) 0){
+void VisualServer::texture_set_data_partial(RID p_texture, Image p_image, int p_src_x, int p_src_y, int p_src_w, int p_src_h, int p_dst_x, int p_dst_y, int p_dst_mip, int p_layer){
 
     Variant wasgo_var_texture = p_texture;
     uint8_t wasgo_buffer_texture[0];
@@ -3942,7 +3942,7 @@ void VisualServer::viewport_attach_canvas(RID p_viewport, RID p_canvas){
     
 	_wasgo_VisualServer_wrapper_viewport_attach_canvas(wasgo_id, wasgo_buffer_viewport, wasgo_size_viewport, wasgo_buffer_canvas, wasgo_size_canvas);
 }
-void VisualServer::viewport_attach_to_screen(RID p_viewport, Rect2 p_rect = Rect2((0, 0, 0, 0)), int p_screen = (int) 0){
+void VisualServer::viewport_attach_to_screen(RID p_viewport, Rect2 p_rect, int p_screen){
 
     Variant wasgo_var_viewport = p_viewport;
     uint8_t wasgo_buffer_viewport[0];
@@ -4276,4 +4276,20 @@ void VisualServer::viewport_set_vflip(RID p_viewport, bool p_enabled){
     encode_variant(wasgo_var_viewport, wasgo_buffer_viewport, wasgo_size_viewport);
     
 	_wasgo_VisualServer_wrapper_viewport_set_vflip(wasgo_id, wasgo_buffer_viewport, wasgo_size_viewport, p_enabled);
+}
+
+VisualServer::VisualServer(WasGoID p_wasgo_id) : Object(p_wasgo_id){
+}
+VisualServer::VisualServer(Object other) : Object(other._get_wasgo_id()){
+}
+VisualServer::VisualServer():Object(){
+}
+VisualServer VisualServer::new_instance(){
+    return VisualServer(_wasgo_VisualServer_constructor());
+}
+WasGoID VisualServer::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualServer::operator bool(){
+    return (bool) wasgo_id;
 }

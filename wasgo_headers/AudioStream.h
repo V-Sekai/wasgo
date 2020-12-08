@@ -2,12 +2,22 @@
 #ifndef AUDIOSTREAM_H
 #define AUDIOSTREAM_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
 class AudioStream : public Resource{
 public:
 float get_length();
+
+protected:
+public:
+explicit AudioStream(WasGoID p_wasgo_id);
+explicit AudioStream(Resource other);
+AudioStream();
+AudioStream new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

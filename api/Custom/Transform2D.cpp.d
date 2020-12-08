@@ -6,8 +6,7 @@
   ..\api\Custom\Array.h ..\api\Custom\error_list.h \
   ..\api\Custom\cowdata.h ..\api\Custom\error_macros.h \
   ..\api\Custom\memory.h ..\api\Custom\safe_refcount.h \
-  ..\api\Custom\mutex.h ..\api\Custom\Vector.h \
-  ..\api\Custom\PoolVector.h
+  ..\api\Custom\mutex.h ..\api\Custom\Vector.h
 
 ..\api\Custom\Transform2D.h:
 
@@ -42,5 +41,3 @@
 ..\api\Custom\mutex.h:
 
 ..\api\Custom\Vector.h:
-
-..\api\Custom\PoolVector.h:

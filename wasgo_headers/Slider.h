@@ -2,7 +2,7 @@
 #ifndef SLIDER_H
 #define SLIDER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Range.h"
 class Slider : public Range{
@@ -15,6 +15,16 @@ void set_editable(bool p_editable);
 void set_scrollable(bool p_scrollable);
 void set_ticks(int p_count);
 void set_ticks_on_borders(bool p_ticks_on_border);
+
+protected:
+public:
+explicit Slider(WasGoID p_wasgo_id);
+explicit Slider(Range other);
+Slider();
+Slider new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

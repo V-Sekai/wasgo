@@ -2,12 +2,12 @@
 #ifndef NINEPATCHRECT_H
 #define NINEPATCHRECT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Control.h"
 #include "Texture.h"
 #include "Rect2.h"
-#include "Margin.h"
+#include "Control.h"
+#include "math_defs.h"
 class NinePatchRect : public Control{
 public:
 enum AxisStretchMode{
@@ -32,7 +32,10 @@ protected:
 public:
 explicit NinePatchRect(WasGoID p_wasgo_id);
 explicit NinePatchRect(Control other);
+NinePatchRect();
 NinePatchRect new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

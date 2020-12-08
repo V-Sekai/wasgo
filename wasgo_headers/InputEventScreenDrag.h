@@ -2,10 +2,10 @@
 #ifndef INPUTEVENTSCREENDRAG_H
 #define INPUTEVENTSCREENDRAG_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
 #include "InputEvent.h"
+#include "Vector2.h"
 class InputEventScreenDrag : public InputEvent{
 public:
 int get_index();
@@ -21,7 +21,10 @@ protected:
 public:
 explicit InputEventScreenDrag(WasGoID p_wasgo_id);
 explicit InputEventScreenDrag(InputEvent other);
+InputEventScreenDrag();
 InputEventScreenDrag new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

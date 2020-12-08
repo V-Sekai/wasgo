@@ -43,13 +43,13 @@ void UndoRedo::add_undo_property(Object p_object, String p_property, Variant p_v
 void UndoRedo::add_undo_reference(Object p_object){
 	_wasgo_UndoRedo_wrapper_add_undo_reference(wasgo_id, p_object._get_wasgo_id());
 }
-void UndoRedo::clear_history(bool p_increase_version = (bool) true){
+void UndoRedo::clear_history(bool p_increase_version){
 	_wasgo_UndoRedo_wrapper_clear_history(wasgo_id, p_increase_version);
 }
 void UndoRedo::commit_action(){
 	_wasgo_UndoRedo_wrapper_commit_action(wasgo_id);
 }
-void UndoRedo::create_action(String p_name, UndoRedo::MergeMode p_merge_mode = (UndoRedo::MergeMode) 0){
+void UndoRedo::create_action(String p_name, UndoRedo::MergeMode p_merge_mode){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -90,8 +90,15 @@ bool UndoRedo::undo(){
 UndoRedo::UndoRedo(WasGoID p_wasgo_id) : Object(p_wasgo_id){
 }
 UndoRedo::UndoRedo(Object other) : Object(other._get_wasgo_id()){
-    wasgo_id = _wasgo_UndoRedo_constructor();
 }
-UndoRedo::new_instance(){
+UndoRedo::UndoRedo():Object(){
+}
+UndoRedo UndoRedo::new_instance(){
     return UndoRedo(_wasgo_UndoRedo_constructor());
+}
+WasGoID UndoRedo::_get_wasgo_id(){
+    return wasgo_id;
+}
+UndoRedo::operator bool(){
+    return (bool) wasgo_id;
 }

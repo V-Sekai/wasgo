@@ -46,8 +46,15 @@ void CameraFeed::set_transform(Transform2D p_transform){
 CameraFeed::CameraFeed(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 CameraFeed::CameraFeed(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CameraFeed_constructor();
 }
-CameraFeed::new_instance(){
+CameraFeed::CameraFeed():Reference(){
+}
+CameraFeed CameraFeed::new_instance(){
     return CameraFeed(_wasgo_CameraFeed_constructor());
+}
+WasGoID CameraFeed::_get_wasgo_id(){
+    return wasgo_id;
+}
+CameraFeed::operator bool(){
+    return (bool) wasgo_id;
 }

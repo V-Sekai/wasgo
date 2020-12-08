@@ -2,24 +2,27 @@
 #ifndef DTLSSERVER_H
 #define DTLSSERVER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
-#include "X509Certificate.h"
 #include "PacketPeerUDP.h"
+#include "X509Certificate.h"
 #include "CryptoKey.h"
 #include "error_list.h"
+#include "Reference.h"
 #include "PacketPeerDTLS.h"
 class DTLSServer : public Reference{
 public:
-Error setup(CryptoKey p_key, X509Certificate p_certificate, X509Certificate p_chain = (X509Certificate) [object:null]);
+Error setup(CryptoKey p_key, X509Certificate p_certificate, X509Certificate p_chain = X509Certificate());
 PacketPeerDTLS take_connection(PacketPeerUDP p_udp_peer);
 
 protected:
 public:
 explicit DTLSServer(WasGoID p_wasgo_id);
 explicit DTLSServer(Reference other);
+DTLSServer();
 DTLSServer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

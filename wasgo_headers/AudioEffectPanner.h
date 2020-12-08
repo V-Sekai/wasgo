@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTPANNER_H
 #define AUDIOEFFECTPANNER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioEffect.h"
 class AudioEffectPanner : public AudioEffect{
@@ -14,7 +14,10 @@ protected:
 public:
 explicit AudioEffectPanner(WasGoID p_wasgo_id);
 explicit AudioEffectPanner(AudioEffect other);
+AudioEffectPanner();
 AudioEffectPanner new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

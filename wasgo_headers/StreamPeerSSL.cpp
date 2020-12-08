@@ -1,10 +1,10 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "StreamPeerSSL.h"
-Error StreamPeerSSL::accept_stream(StreamPeer p_stream, CryptoKey p_private_key, X509Certificate p_certificate, X509Certificate p_chain = (X509Certificate) [object:null]){
+Error StreamPeerSSL::accept_stream(StreamPeer p_stream, CryptoKey p_private_key, X509Certificate p_certificate, X509Certificate p_chain){
 	return Error(_wasgo_StreamPeerSSL_wrapper_accept_stream(wasgo_id, p_stream._get_wasgo_id(), p_private_key._get_wasgo_id(), p_certificate._get_wasgo_id(), p_chain._get_wasgo_id()));
 }
-Error StreamPeerSSL::connect_to_stream(StreamPeer p_stream, bool p_validate_certs = (bool) false, String p_for_hostname = (String) , X509Certificate p_valid_certificate = (X509Certificate) [object:null]){
+Error StreamPeerSSL::connect_to_stream(StreamPeer p_stream, bool p_validate_certs, String p_for_hostname, X509Certificate p_valid_certificate){
 
     Variant wasgo_var_for_hostname = p_for_hostname;
     int wasgo_size_for_hostname = String(p_for_hostname).size();
@@ -32,8 +32,15 @@ void StreamPeerSSL::set_blocking_handshake_enabled(bool p_enabled){
 StreamPeerSSL::StreamPeerSSL(WasGoID p_wasgo_id) : StreamPeer(p_wasgo_id){
 }
 StreamPeerSSL::StreamPeerSSL(StreamPeer other) : StreamPeer(other._get_wasgo_id()){
-    wasgo_id = _wasgo_StreamPeerSSL_constructor();
 }
-StreamPeerSSL::new_instance(){
+StreamPeerSSL::StreamPeerSSL():StreamPeer(){
+}
+StreamPeerSSL StreamPeerSSL::new_instance(){
     return StreamPeerSSL(_wasgo_StreamPeerSSL_constructor());
+}
+WasGoID StreamPeerSSL::_get_wasgo_id(){
+    return wasgo_id;
+}
+StreamPeerSSL::operator bool(){
+    return (bool) wasgo_id;
 }

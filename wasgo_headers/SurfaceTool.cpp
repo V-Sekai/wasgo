@@ -37,7 +37,7 @@ void SurfaceTool::add_tangent(Plane p_tangent){
     
 	_wasgo_SurfaceTool_wrapper_add_tangent(wasgo_id, wasgo_buffer_tangent, wasgo_size_tangent);
 }
-void SurfaceTool::add_triangle_fan(PoolVector3Array p_vertices, PoolVector2Array p_uvs = (PoolVector2Array) [], PoolColorArray p_colors = (PoolColorArray) [poolcolorarray], PoolVector2Array p_uv2s = (PoolVector2Array) [], PoolVector3Array p_normals = (PoolVector3Array) [], Array p_tangents = (Array) []){
+void SurfaceTool::add_triangle_fan(PoolVector3Array p_vertices, PoolVector2Array p_uvs, PoolColorArray p_colors, PoolVector2Array p_uv2s, PoolVector3Array p_normals, Array p_tangents){
 	_wasgo_SurfaceTool_wrapper_add_triangle_fan(wasgo_id, p_vertices._get_wasgo_id(), p_uvs._get_wasgo_id(), p_colors._get_wasgo_id(), p_uv2s._get_wasgo_id(), p_normals._get_wasgo_id(), p_tangents._get_wasgo_id());
 }
 void SurfaceTool::add_uv(Vector2 p_uv){
@@ -85,7 +85,7 @@ void SurfaceTool::begin(Mesh::PrimitiveType p_primitive){
 void SurfaceTool::clear(){
 	_wasgo_SurfaceTool_wrapper_clear(wasgo_id);
 }
-ArrayMesh SurfaceTool::commit(ArrayMesh p_existing = (ArrayMesh) "", int p_flags = (int) 97280){
+ArrayMesh SurfaceTool::commit(ArrayMesh p_existing, int p_flags){
 	return ArrayMesh(_wasgo_SurfaceTool_wrapper_commit(wasgo_id, p_existing._get_wasgo_id(), p_flags));
 }
 Array SurfaceTool::commit_to_arrays(){
@@ -106,7 +106,7 @@ void SurfaceTool::create_from_blend_shape(Mesh p_existing, int p_surface, String
 void SurfaceTool::deindex(){
 	_wasgo_SurfaceTool_wrapper_deindex(wasgo_id);
 }
-void SurfaceTool::generate_normals(bool p_flip = (bool) false){
+void SurfaceTool::generate_normals(bool p_flip){
 	_wasgo_SurfaceTool_wrapper_generate_normals(wasgo_id, p_flip);
 }
 void SurfaceTool::generate_tangents(){
@@ -122,8 +122,15 @@ void SurfaceTool::set_material(Material p_material){
 SurfaceTool::SurfaceTool(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 SurfaceTool::SurfaceTool(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_SurfaceTool_constructor();
 }
-SurfaceTool::new_instance(){
+SurfaceTool::SurfaceTool():Reference(){
+}
+SurfaceTool SurfaceTool::new_instance(){
     return SurfaceTool(_wasgo_SurfaceTool_constructor());
+}
+WasGoID SurfaceTool::_get_wasgo_id(){
+    return wasgo_id;
+}
+SurfaceTool::operator bool(){
+    return (bool) wasgo_id;
 }

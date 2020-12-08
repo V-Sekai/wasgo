@@ -106,3 +106,19 @@ void SpriteBase3D::set_opacity(float p_opacity){
 void SpriteBase3D::set_pixel_size(float p_pixel_size){
 	_wasgo_SpriteBase3D_wrapper_set_pixel_size(wasgo_id, p_pixel_size);
 }
+
+SpriteBase3D::SpriteBase3D(WasGoID p_wasgo_id) : GeometryInstance(p_wasgo_id){
+}
+SpriteBase3D::SpriteBase3D(GeometryInstance other) : GeometryInstance(other._get_wasgo_id()){
+}
+SpriteBase3D::SpriteBase3D():GeometryInstance(){
+}
+SpriteBase3D SpriteBase3D::new_instance(){
+    return SpriteBase3D(_wasgo_SpriteBase3D_constructor());
+}
+WasGoID SpriteBase3D::_get_wasgo_id(){
+    return wasgo_id;
+}
+SpriteBase3D::operator bool(){
+    return (bool) wasgo_id;
+}

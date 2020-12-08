@@ -2,10 +2,10 @@
 #ifndef STATICBODY2D_H
 #define STATICBODY2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "PhysicsMaterial.h"
 #include "PhysicsBody2D.h"
+#include "PhysicsMaterial.h"
 #include "Vector2.h"
 class StaticBody2D : public PhysicsBody2D{
 public:
@@ -24,7 +24,10 @@ protected:
 public:
 explicit StaticBody2D(WasGoID p_wasgo_id);
 explicit StaticBody2D(PhysicsBody2D other);
+StaticBody2D();
 StaticBody2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

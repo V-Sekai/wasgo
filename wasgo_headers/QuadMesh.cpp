@@ -24,8 +24,15 @@ void QuadMesh::set_size(Vector2 p_size){
 QuadMesh::QuadMesh(WasGoID p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
 }
 QuadMesh::QuadMesh(PrimitiveMesh other) : PrimitiveMesh(other._get_wasgo_id()){
-    wasgo_id = _wasgo_QuadMesh_constructor();
 }
-QuadMesh::new_instance(){
+QuadMesh::QuadMesh():PrimitiveMesh(){
+}
+QuadMesh QuadMesh::new_instance(){
     return QuadMesh(_wasgo_QuadMesh_constructor());
+}
+WasGoID QuadMesh::_get_wasgo_id(){
+    return wasgo_id;
+}
+QuadMesh::operator bool(){
+    return (bool) wasgo_id;
 }

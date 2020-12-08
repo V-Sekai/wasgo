@@ -2,7 +2,7 @@
 #ifndef AUDIOSTREAMRANDOMPITCH_H
 #define AUDIOSTREAMRANDOMPITCH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioStream.h"
 class AudioStreamRandomPitch : public AudioStream{
@@ -16,7 +16,10 @@ protected:
 public:
 explicit AudioStreamRandomPitch(WasGoID p_wasgo_id);
 explicit AudioStreamRandomPitch(AudioStream other);
+AudioStreamRandomPitch();
 AudioStreamRandomPitch new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

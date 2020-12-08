@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODECOMPARE_H
 #define VISUALSHADERNODECOMPARE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeCompare : public VisualShaderNode{
@@ -36,7 +36,10 @@ protected:
 public:
 explicit VisualShaderNodeCompare(WasGoID p_wasgo_id);
 explicit VisualShaderNodeCompare(VisualShaderNode other);
+VisualShaderNodeCompare();
 VisualShaderNodeCompare new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

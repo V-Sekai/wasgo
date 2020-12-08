@@ -2,11 +2,21 @@
 #ifndef AUDIOSTREAMPLAYBACKRESAMPLED_H
 #define AUDIOSTREAMPLAYBACKRESAMPLED_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioStreamPlayback.h"
 class AudioStreamPlaybackResampled : public AudioStreamPlayback{
 public:
+
+protected:
+public:
+explicit AudioStreamPlaybackResampled(WasGoID p_wasgo_id);
+explicit AudioStreamPlaybackResampled(AudioStreamPlayback other);
+AudioStreamPlaybackResampled();
+AudioStreamPlaybackResampled new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

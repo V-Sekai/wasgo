@@ -2,12 +2,12 @@
 #ifndef COLORPICKERBUTTON_H
 #define COLORPICKERBUTTON_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Button.h"
-#include "PopupPanel.h"
 #include "Color.h"
+#include "Button.h"
 #include "ColorPicker.h"
+#include "PopupPanel.h"
 class ColorPickerButton : public Button{
 public:
 Color get_pick_color();
@@ -21,7 +21,10 @@ protected:
 public:
 explicit ColorPickerButton(WasGoID p_wasgo_id);
 explicit ColorPickerButton(Button other);
+ColorPickerButton();
 ColorPickerButton new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

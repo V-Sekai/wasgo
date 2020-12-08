@@ -17,8 +17,15 @@ void AudioStreamRandomPitch::set_random_pitch(float p_scale){
 AudioStreamRandomPitch::AudioStreamRandomPitch(WasGoID p_wasgo_id) : AudioStream(p_wasgo_id){
 }
 AudioStreamRandomPitch::AudioStreamRandomPitch(AudioStream other) : AudioStream(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioStreamRandomPitch_constructor();
 }
-AudioStreamRandomPitch::new_instance(){
+AudioStreamRandomPitch::AudioStreamRandomPitch():AudioStream(){
+}
+AudioStreamRandomPitch AudioStreamRandomPitch::new_instance(){
     return AudioStreamRandomPitch(_wasgo_AudioStreamRandomPitch_constructor());
+}
+WasGoID AudioStreamRandomPitch::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioStreamRandomPitch::operator bool(){
+    return (bool) wasgo_id;
 }

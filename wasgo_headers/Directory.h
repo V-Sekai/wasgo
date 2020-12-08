@@ -2,11 +2,11 @@
 #ifndef DIRECTORY_H
 #define DIRECTORY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Reference.h"
+#include "Ustring.h"
 #include "error_list.h"
-#include "ustring.h"
 class Directory : public Reference{
 public:
 Error change_dir(String p_todir);
@@ -32,7 +32,10 @@ protected:
 public:
 explicit Directory(WasGoID p_wasgo_id);
 explicit Directory(Reference other);
+Directory();
 Directory new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

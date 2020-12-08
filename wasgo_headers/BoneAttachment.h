@@ -2,10 +2,10 @@
 #ifndef BONEATTACHMENT_H
 #define BONEATTACHMENT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Spatial.h"
-#include "ustring.h"
+#include "Ustring.h"
 class BoneAttachment : public Spatial{
 public:
 String get_bone_name();
@@ -15,7 +15,10 @@ protected:
 public:
 explicit BoneAttachment(WasGoID p_wasgo_id);
 explicit BoneAttachment(Spatial other);
+BoneAttachment();
 BoneAttachment new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

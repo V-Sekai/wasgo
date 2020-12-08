@@ -73,8 +73,15 @@ Vector2 KinematicCollision2D::get_travel(){
 KinematicCollision2D::KinematicCollision2D(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 KinematicCollision2D::KinematicCollision2D(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_KinematicCollision2D_constructor();
 }
-KinematicCollision2D::new_instance(){
+KinematicCollision2D::KinematicCollision2D():Reference(){
+}
+KinematicCollision2D KinematicCollision2D::new_instance(){
     return KinematicCollision2D(_wasgo_KinematicCollision2D_constructor());
+}
+WasGoID KinematicCollision2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+KinematicCollision2D::operator bool(){
+    return (bool) wasgo_id;
 }

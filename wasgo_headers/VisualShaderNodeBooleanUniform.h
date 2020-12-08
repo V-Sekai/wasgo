@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEBOOLEANUNIFORM_H
 #define VISUALSHADERNODEBOOLEANUNIFORM_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNodeUniform.h"
 class VisualShaderNodeBooleanUniform : public VisualShaderNodeUniform{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VisualShaderNodeBooleanUniform(WasGoID p_wasgo_id);
 explicit VisualShaderNodeBooleanUniform(VisualShaderNodeUniform other);
+VisualShaderNodeBooleanUniform();
 VisualShaderNodeBooleanUniform new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

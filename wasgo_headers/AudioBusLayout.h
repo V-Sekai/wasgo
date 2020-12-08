@@ -2,7 +2,7 @@
 #ifndef AUDIOBUSLAYOUT_H
 #define AUDIOBUSLAYOUT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
 class AudioBusLayout : public Resource{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit AudioBusLayout(WasGoID p_wasgo_id);
 explicit AudioBusLayout(Resource other);
+AudioBusLayout();
 AudioBusLayout new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

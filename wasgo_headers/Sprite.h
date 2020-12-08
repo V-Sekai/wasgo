@@ -2,11 +2,11 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node2D.h"
-#include "Rect2.h"
 #include "Texture.h"
+#include "Rect2.h"
+#include "Node2D.h"
 #include "Vector2.h"
 class Sprite : public Node2D{
 public:
@@ -43,7 +43,10 @@ protected:
 public:
 explicit Sprite(WasGoID p_wasgo_id);
 explicit Sprite(Node2D other);
+Sprite();
 Sprite new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

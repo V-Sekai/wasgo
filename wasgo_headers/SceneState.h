@@ -2,13 +2,13 @@
 #ifndef SCENESTATE_H
 #define SCENESTATE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+class PackedScene;
+#include "NodePath.h"
 #include "Reference.h"
 #include "Variant.h"
-#include "NodePath.h"
-#include "PackedScene.h"
-#include "ustring.h"
+#include "Ustring.h"
 class SceneState : public Reference{
 public:
 enum GenEditState{
@@ -36,6 +36,16 @@ String get_node_property_name(int p_idx, int p_prop_idx);
 Variant get_node_property_value(int p_idx, int p_prop_idx);
 String get_node_type(int p_idx);
 bool is_node_instance_placeholder(int p_idx);
+
+protected:
+public:
+explicit SceneState(WasGoID p_wasgo_id);
+explicit SceneState(Reference other);
+SceneState();
+SceneState new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

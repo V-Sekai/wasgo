@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEVECTORCLAMP_H
 #define VISUALSHADERNODEVECTORCLAMP_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorClamp : public VisualShaderNode{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VisualShaderNodeVectorClamp(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorClamp(VisualShaderNode other);
+VisualShaderNodeVectorClamp();
 VisualShaderNodeVectorClamp new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

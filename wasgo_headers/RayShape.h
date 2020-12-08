@@ -2,7 +2,7 @@
 #ifndef RAYSHAPE_H
 #define RAYSHAPE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Shape.h"
 class RayShape : public Shape{
@@ -16,7 +16,10 @@ protected:
 public:
 explicit RayShape(WasGoID p_wasgo_id);
 explicit RayShape(Shape other);
+RayShape();
 RayShape new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

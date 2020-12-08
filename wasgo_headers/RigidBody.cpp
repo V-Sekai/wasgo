@@ -227,8 +227,15 @@ void RigidBody::set_weight(float p_weight){
 RigidBody::RigidBody(WasGoID p_wasgo_id) : PhysicsBody(p_wasgo_id){
 }
 RigidBody::RigidBody(PhysicsBody other) : PhysicsBody(other._get_wasgo_id()){
-    wasgo_id = _wasgo_RigidBody_constructor();
 }
-RigidBody::new_instance(){
+RigidBody::RigidBody():PhysicsBody(){
+}
+RigidBody RigidBody::new_instance(){
     return RigidBody(_wasgo_RigidBody_constructor());
+}
+WasGoID RigidBody::_get_wasgo_id(){
+    return wasgo_id;
+}
+RigidBody::operator bool(){
+    return (bool) wasgo_id;
 }

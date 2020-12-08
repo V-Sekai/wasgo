@@ -2,13 +2,13 @@
 #ifndef KINEMATICBODY_H
 #define KINEMATICBODY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Vector3.h"
-#include "PhysicsServer.h"
+#include "PhysicsBody.h"
 #include "Transform.h"
 #include "KinematicCollision.h"
-#include "PhysicsBody.h"
+#include "PhysicsServer.h"
 class KinematicBody : public PhysicsBody{
 public:
 bool get_axis_lock(PhysicsServer::BodyAxis p_axis);
@@ -21,8 +21,8 @@ bool is_on_ceiling();
 bool is_on_floor();
 bool is_on_wall();
 KinematicCollision move_and_collide(Vector3 p_rel_vec, bool p_infinite_inertia = (bool) true, bool p_exclude_raycast_shapes = (bool) true, bool p_test_only = (bool) false);
-Vector3 move_and_slide(Vector3 p_linear_velocity, Vector3 p_up_direction = Vector3((0, 0, 0)), bool p_stop_on_slope = (bool) false, int p_max_slides = (int) 4, float p_floor_max_angle = (float) 0.785398, bool p_infinite_inertia = (bool) true);
-Vector3 move_and_slide_with_snap(Vector3 p_linear_velocity, Vector3 p_snap, Vector3 p_up_direction = Vector3((0, 0, 0)), bool p_stop_on_slope = (bool) false, int p_max_slides = (int) 4, float p_floor_max_angle = (float) 0.785398, bool p_infinite_inertia = (bool) true);
+Vector3 move_and_slide(Vector3 p_linear_velocity, Vector3 p_up_direction = Vector3(0, 0, 0), bool p_stop_on_slope = (bool) false, int p_max_slides = (int) 4, float p_floor_max_angle = (float) 0.785398, bool p_infinite_inertia = (bool) true);
+Vector3 move_and_slide_with_snap(Vector3 p_linear_velocity, Vector3 p_snap, Vector3 p_up_direction = Vector3(0, 0, 0), bool p_stop_on_slope = (bool) false, int p_max_slides = (int) 4, float p_floor_max_angle = (float) 0.785398, bool p_infinite_inertia = (bool) true);
 void set_axis_lock(PhysicsServer::BodyAxis p_axis, bool p_lock);
 void set_safe_margin(float p_pixels);
 bool test_move(Transform p_from, Vector3 p_rel_vec, bool p_infinite_inertia = (bool) true);
@@ -31,7 +31,10 @@ protected:
 public:
 explicit KinematicBody(WasGoID p_wasgo_id);
 explicit KinematicBody(PhysicsBody other);
+KinematicBody();
 KinematicBody new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

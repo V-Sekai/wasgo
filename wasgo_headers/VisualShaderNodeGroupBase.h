@@ -2,11 +2,11 @@
 #ifndef VISUALSHADERNODEGROUPBASE_H
 #define VISUALSHADERNODEGROUPBASE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
+#include "Ustring.h"
 #include "Vector2.h"
-#include "ustring.h"
 class VisualShaderNodeGroupBase : public VisualShaderNode{
 public:
 void add_input_port(int p_id, int p_type, String p_name);
@@ -37,7 +37,10 @@ protected:
 public:
 explicit VisualShaderNodeGroupBase(WasGoID p_wasgo_id);
 explicit VisualShaderNodeGroupBase(VisualShaderNode other);
+VisualShaderNodeGroupBase();
 VisualShaderNodeGroupBase new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTEQ6_H
 #define AUDIOEFFECTEQ6_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioEffectEQ.h"
 class AudioEffectEQ6 : public AudioEffectEQ{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit AudioEffectEQ6(WasGoID p_wasgo_id);
 explicit AudioEffectEQ6(AudioEffectEQ other);
+AudioEffectEQ6();
 AudioEffectEQ6 new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

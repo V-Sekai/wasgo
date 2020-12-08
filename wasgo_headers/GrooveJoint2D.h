@@ -2,7 +2,7 @@
 #ifndef GROOVEJOINT2D_H
 #define GROOVEJOINT2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Joint2D.h"
 class GrooveJoint2D : public Joint2D{
@@ -16,7 +16,10 @@ protected:
 public:
 explicit GrooveJoint2D(WasGoID p_wasgo_id);
 explicit GrooveJoint2D(Joint2D other);
+GrooveJoint2D();
 GrooveJoint2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

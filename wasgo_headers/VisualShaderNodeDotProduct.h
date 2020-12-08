@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEDOTPRODUCT_H
 #define VISUALSHADERNODEDOTPRODUCT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeDotProduct : public VisualShaderNode{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VisualShaderNodeDotProduct(WasGoID p_wasgo_id);
 explicit VisualShaderNodeDotProduct(VisualShaderNode other);
+VisualShaderNodeDotProduct();
 VisualShaderNodeDotProduct new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

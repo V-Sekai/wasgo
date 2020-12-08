@@ -128,7 +128,7 @@ bool TileMap::is_compatibility_mode_enabled(){
 bool TileMap::is_y_sort_mode_enabled(){
 	return (bool) _wasgo_TileMap_wrapper_is_y_sort_mode_enabled(wasgo_id);
 }
-Vector2 TileMap::map_to_world(Vector2 p_map_position, bool p_ignore_half_ofs = (bool) false){
+Vector2 TileMap::map_to_world(Vector2 p_map_position, bool p_ignore_half_ofs){
 
     Variant wasgo_var_map_position = p_map_position;
     uint8_t wasgo_buffer_map_position[12];
@@ -144,7 +144,7 @@ Vector2 TileMap::map_to_world(Vector2 p_map_position, bool p_ignore_half_ofs = (
     return (Vector2) wasgo_ret;
     
 }
-void TileMap::set_cell(int p_x, int p_y, int p_tile, bool p_flip_x = (bool) false, bool p_flip_y = (bool) false, bool p_transpose = (bool) false, Vector2 p_autotile_coord = Vector2((0, 0))){
+void TileMap::set_cell(int p_x, int p_y, int p_tile, bool p_flip_x, bool p_flip_y, bool p_transpose, Vector2 p_autotile_coord){
 
     Variant wasgo_var_autotile_coord = p_autotile_coord;
     uint8_t wasgo_buffer_autotile_coord[12];
@@ -162,7 +162,7 @@ void TileMap::set_cell_size(Vector2 p_size){
     
 	_wasgo_TileMap_wrapper_set_cell_size(wasgo_id, wasgo_buffer_size, wasgo_size_size);
 }
-void TileMap::set_cellv(Vector2 p_position, int p_tile, bool p_flip_x = (bool) false, bool p_flip_y = (bool) false, bool p_transpose = (bool) false){
+void TileMap::set_cellv(Vector2 p_position, int p_tile, bool p_flip_x, bool p_flip_y, bool p_transpose){
 
     Variant wasgo_var_position = p_position;
     uint8_t wasgo_buffer_position[12];
@@ -243,7 +243,7 @@ void TileMap::update_bitmask_area(Vector2 p_position){
     
 	_wasgo_TileMap_wrapper_update_bitmask_area(wasgo_id, wasgo_buffer_position, wasgo_size_position);
 }
-void TileMap::update_bitmask_region(Vector2 p_start = Vector2((0, 0)), Vector2 p_end = Vector2((0, 0))){
+void TileMap::update_bitmask_region(Vector2 p_start, Vector2 p_end){
 
     Variant wasgo_var_start = p_start;
     uint8_t wasgo_buffer_start[12];
@@ -281,8 +281,15 @@ Vector2 TileMap::world_to_map(Vector2 p_world_position){
 TileMap::TileMap(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 TileMap::TileMap(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_TileMap_constructor();
 }
-TileMap::new_instance(){
+TileMap::TileMap():Node2D(){
+}
+TileMap TileMap::new_instance(){
     return TileMap(_wasgo_TileMap_constructor());
+}
+WasGoID TileMap::_get_wasgo_id(){
+    return wasgo_id;
+}
+TileMap::operator bool(){
+    return (bool) wasgo_id;
 }

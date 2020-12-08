@@ -141,8 +141,15 @@ void GraphEdit::set_zoom(float p_p_zoom){
 GraphEdit::GraphEdit(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 GraphEdit::GraphEdit(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_GraphEdit_constructor();
 }
-GraphEdit::new_instance(){
+GraphEdit::GraphEdit():Control(){
+}
+GraphEdit GraphEdit::new_instance(){
     return GraphEdit(_wasgo_GraphEdit_constructor());
+}
+WasGoID GraphEdit::_get_wasgo_id(){
+    return wasgo_id;
+}
+GraphEdit::operator bool(){
+    return (bool) wasgo_id;
 }

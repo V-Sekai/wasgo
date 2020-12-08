@@ -2,17 +2,17 @@
 #ifndef PHYSICS2DSERVER_H
 #define PHYSICS2DSERVER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Object.h"
 #include "Vector2.h"
+#include "Physics2DDirectBodyState.h"
+#include "Object.h"
 #include "Variant.h"
-#include "Physics2DTestMotionResult.h"
+#include "Physics2DDirectSpaceState.h"
 #include "Transform2D.h"
 #include "RID.h"
-#include "Physics2DDirectSpaceState.h"
-#include "Physics2DDirectBodyState.h"
-#include "ustring.h"
+#include "Ustring.h"
+#include "Physics2DTestMotionResult.h"
 class Physics2DServer : public Object{
 public:
 enum AreaBodyStatus{
@@ -105,7 +105,7 @@ SPACE_PARAM_BODY_TIME_TO_SLEEP,
 SPACE_PARAM_CONSTRAINT_DEFAULT_BIAS,
 SPACE_PARAM_TEST_MOTION_MIN_CONTACT_DEPTH
 };
-void area_add_shape(RID p_area, RID p_shape, Transform2D p_transform = Transform2D(((1, 0), (0, 1), (0, 0))), bool p_disabled = (bool) false);
+void area_add_shape(RID p_area, RID p_shape, Transform2D p_transform = Transform2D(1, 0, 0, 1, 0, 0), bool p_disabled = (bool) false);
 void area_attach_canvas_instance_id(RID p_area, int p_id);
 void area_attach_object_instance_id(RID p_area, int p_id);
 void area_clear_shapes(RID p_area);
@@ -135,7 +135,7 @@ void area_set_transform(RID p_area, Transform2D p_transform);
 void body_add_central_force(RID p_body, Vector2 p_force);
 void body_add_collision_exception(RID p_body, RID p_excepted_body);
 void body_add_force(RID p_body, Vector2 p_offset, Vector2 p_force);
-void body_add_shape(RID p_body, RID p_shape, Transform2D p_transform = Transform2D(((1, 0), (0, 1), (0, 0))), bool p_disabled = (bool) false);
+void body_add_shape(RID p_body, RID p_shape, Transform2D p_transform = Transform2D(1, 0, 0, 1, 0, 0), bool p_disabled = (bool) false);
 void body_add_torque(RID p_body, float p_torque);
 void body_apply_central_impulse(RID p_body, Vector2 p_impulse);
 void body_apply_impulse(RID p_body, Vector2 p_position, Vector2 p_impulse);
@@ -166,7 +166,7 @@ void body_set_axis_velocity(RID p_body, Vector2 p_axis_velocity);
 void body_set_collision_layer(RID p_body, int p_layer);
 void body_set_collision_mask(RID p_body, int p_mask);
 void body_set_continuous_collision_detection_mode(RID p_body, Physics2DServer::CCDMode p_mode);
-void body_set_force_integration_callback(RID p_body, Object p_receiver, String p_method, Variant p_userdata = (Variant) "");
+void body_set_force_integration_callback(RID p_body, Object p_receiver, String p_method, Variant p_userdata = Variant());
 void body_set_max_contacts_reported(RID p_body, int p_amount);
 void body_set_mode(RID p_body, Physics2DServer::BodyMode p_mode);
 void body_set_omit_force_integration(RID p_body, bool p_enable);
@@ -178,7 +178,7 @@ void body_set_shape_metadata(RID p_body, int p_shape_idx, Variant p_metadata);
 void body_set_shape_transform(RID p_body, int p_shape_idx, Transform2D p_transform);
 void body_set_space(RID p_body, RID p_space);
 void body_set_state(RID p_body, Physics2DServer::BodyState p_state, Variant p_value);
-bool body_test_motion(RID p_body, Transform2D p_from, Vector2 p_motion, bool p_infinite_inertia, float p_margin = (float) 0.08, Physics2DTestMotionResult p_result = (Physics2DTestMotionResult) "");
+bool body_test_motion(RID p_body, Transform2D p_from, Vector2 p_motion, bool p_infinite_inertia, float p_margin = (float) 0.08, Physics2DTestMotionResult p_result = Physics2DTestMotionResult());
 RID capsule_shape_create();
 RID circle_shape_create();
 RID concave_polygon_shape_create();
@@ -207,6 +207,16 @@ float space_get_param(RID p_space, Physics2DServer::SpaceParameter p_param);
 bool space_is_active(RID p_space);
 void space_set_active(RID p_space, bool p_active);
 void space_set_param(RID p_space, Physics2DServer::SpaceParameter p_param, float p_value);
+
+protected:
+public:
+explicit Physics2DServer(WasGoID p_wasgo_id);
+explicit Physics2DServer(Object other);
+Physics2DServer();
+Physics2DServer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

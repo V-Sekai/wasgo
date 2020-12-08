@@ -2,7 +2,7 @@
 #ifndef LISTENER_H
 #define LISTENER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Spatial.h"
 #include "Transform.h"
@@ -17,7 +17,10 @@ protected:
 public:
 explicit Listener(WasGoID p_wasgo_id);
 explicit Listener(Spatial other);
+Listener();
 Listener new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

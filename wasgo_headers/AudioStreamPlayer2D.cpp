@@ -44,7 +44,7 @@ bool AudioStreamPlayer2D::is_autoplay_enabled(){
 bool AudioStreamPlayer2D::is_playing(){
 	return (bool) _wasgo_AudioStreamPlayer2D_wrapper_is_playing(wasgo_id);
 }
-void AudioStreamPlayer2D::play(float p_from_position = (float) 0){
+void AudioStreamPlayer2D::play(float p_from_position){
 	_wasgo_AudioStreamPlayer2D_wrapper_play(wasgo_id, p_from_position);
 }
 void AudioStreamPlayer2D::seek(float p_to_position){
@@ -90,8 +90,15 @@ void AudioStreamPlayer2D::stop(){
 AudioStreamPlayer2D::AudioStreamPlayer2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 AudioStreamPlayer2D::AudioStreamPlayer2D(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioStreamPlayer2D_constructor();
 }
-AudioStreamPlayer2D::new_instance(){
+AudioStreamPlayer2D::AudioStreamPlayer2D():Node2D(){
+}
+AudioStreamPlayer2D AudioStreamPlayer2D::new_instance(){
     return AudioStreamPlayer2D(_wasgo_AudioStreamPlayer2D_constructor());
+}
+WasGoID AudioStreamPlayer2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioStreamPlayer2D::operator bool(){
+    return (bool) wasgo_id;
 }

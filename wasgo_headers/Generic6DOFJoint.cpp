@@ -47,8 +47,15 @@ void Generic6DOFJoint::set_precision(int p_precision){
 Generic6DOFJoint::Generic6DOFJoint(WasGoID p_wasgo_id) : Joint(p_wasgo_id){
 }
 Generic6DOFJoint::Generic6DOFJoint(Joint other) : Joint(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Generic6DOFJoint_constructor();
 }
-Generic6DOFJoint::new_instance(){
+Generic6DOFJoint::Generic6DOFJoint():Joint(){
+}
+Generic6DOFJoint Generic6DOFJoint::new_instance(){
     return Generic6DOFJoint(_wasgo_Generic6DOFJoint_constructor());
+}
+WasGoID Generic6DOFJoint::_get_wasgo_id(){
+    return wasgo_id;
+}
+Generic6DOFJoint::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,10 +2,10 @@
 #ifndef BACKBUFFERCOPY_H
 #define BACKBUFFERCOPY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node2D.h"
 #include "Rect2.h"
+#include "Node2D.h"
 class BackBufferCopy : public Node2D{
 public:
 enum CopyMode{
@@ -22,7 +22,10 @@ protected:
 public:
 explicit BackBufferCopy(WasGoID p_wasgo_id);
 explicit BackBufferCopy(Node2D other);
+BackBufferCopy();
 BackBufferCopy new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

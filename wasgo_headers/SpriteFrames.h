@@ -2,12 +2,12 @@
 #ifndef SPRITEFRAMES_H
 #define SPRITEFRAMES_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
 #include "Variant.h"
+#include "Ustring.h"
 #include "Texture.h"
-#include "ustring.h"
 class SpriteFrames : public Resource{
 public:
 void add_animation(String p_anim);
@@ -31,7 +31,10 @@ protected:
 public:
 explicit SpriteFrames(WasGoID p_wasgo_id);
 explicit SpriteFrames(Resource other);
+SpriteFrames();
 SpriteFrames new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,10 +2,10 @@
 #ifndef CONVEXPOLYGONSHAPE_H
 #define CONVEXPOLYGONSHAPE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Shape.h"
 #include "Variant.h"
+#include "Shape.h"
 class ConvexPolygonShape : public Shape{
 public:
 PoolVector3Array get_points();
@@ -15,7 +15,10 @@ protected:
 public:
 explicit ConvexPolygonShape(WasGoID p_wasgo_id);
 explicit ConvexPolygonShape(Shape other);
+ConvexPolygonShape();
 ConvexPolygonShape new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

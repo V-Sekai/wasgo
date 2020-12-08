@@ -2,7 +2,7 @@
 #ifndef NAVIGATIONMESHINSTANCE_H
 #define NAVIGATIONMESHINSTANCE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Spatial.h"
 #include "NavigationMesh.h"
@@ -17,7 +17,10 @@ protected:
 public:
 explicit NavigationMeshInstance(WasGoID p_wasgo_id);
 explicit NavigationMeshInstance(Spatial other);
+NavigationMeshInstance();
 NavigationMeshInstance new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -17,8 +17,15 @@ void CapsuleShape2D::set_radius(float p_radius){
 CapsuleShape2D::CapsuleShape2D(WasGoID p_wasgo_id) : Shape2D(p_wasgo_id){
 }
 CapsuleShape2D::CapsuleShape2D(Shape2D other) : Shape2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CapsuleShape2D_constructor();
 }
-CapsuleShape2D::new_instance(){
+CapsuleShape2D::CapsuleShape2D():Shape2D(){
+}
+CapsuleShape2D CapsuleShape2D::new_instance(){
     return CapsuleShape2D(_wasgo_CapsuleShape2D_constructor());
+}
+WasGoID CapsuleShape2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+CapsuleShape2D::operator bool(){
+    return (bool) wasgo_id;
 }

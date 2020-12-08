@@ -2,7 +2,7 @@
 #ifndef VISIBILITYENABLER_H
 #define VISIBILITYENABLER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisibilityNotifier.h"
 class VisibilityEnabler : public VisibilityNotifier{
@@ -19,7 +19,10 @@ protected:
 public:
 explicit VisibilityEnabler(WasGoID p_wasgo_id);
 explicit VisibilityEnabler(VisibilityNotifier other);
+VisibilityEnabler();
 VisibilityEnabler new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

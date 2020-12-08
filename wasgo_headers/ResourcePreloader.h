@@ -2,12 +2,12 @@
 #ifndef RESOURCEPRELOADER_H
 #define RESOURCEPRELOADER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node.h"
-#include "Variant.h"
 #include "Resource.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Node.h"
+#include "Ustring.h"
 class ResourcePreloader : public Node{
 public:
 void add_resource(String p_name, Resource p_resource);
@@ -21,7 +21,10 @@ protected:
 public:
 explicit ResourcePreloader(WasGoID p_wasgo_id);
 explicit ResourcePreloader(Node other);
+ResourcePreloader();
 ResourcePreloader new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

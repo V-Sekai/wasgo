@@ -2,10 +2,10 @@
 #ifndef CAMERATEXTURE_H
 #define CAMERATEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Texture.h"
 #include "CameraServer.h"
+#include "Texture.h"
 class CameraTexture : public Texture{
 public:
 bool get_camera_active();
@@ -19,7 +19,10 @@ protected:
 public:
 explicit CameraTexture(WasGoID p_wasgo_id);
 explicit CameraTexture(Texture other);
+CameraTexture();
 CameraTexture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -20,8 +20,15 @@ void CameraServer::remove_feed(CameraFeed p_feed){
 CameraServer::CameraServer(WasGoID p_wasgo_id) : Object(p_wasgo_id){
 }
 CameraServer::CameraServer(Object other) : Object(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CameraServer_constructor();
 }
-CameraServer::new_instance(){
+CameraServer::CameraServer():Object(){
+}
+CameraServer CameraServer::new_instance(){
     return CameraServer(_wasgo_CameraServer_constructor());
+}
+WasGoID CameraServer::_get_wasgo_id(){
+    return wasgo_id;
+}
+CameraServer::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -204,3 +204,19 @@ void Physics2DDirectBodyState::set_transform(Transform2D p_transform){
     
 	_wasgo_Physics2DDirectBodyState_wrapper_set_transform(wasgo_id, wasgo_buffer_transform, wasgo_size_transform);
 }
+
+Physics2DDirectBodyState::Physics2DDirectBodyState(WasGoID p_wasgo_id) : Object(p_wasgo_id){
+}
+Physics2DDirectBodyState::Physics2DDirectBodyState(Object other) : Object(other._get_wasgo_id()){
+}
+Physics2DDirectBodyState::Physics2DDirectBodyState():Object(){
+}
+Physics2DDirectBodyState Physics2DDirectBodyState::new_instance(){
+    return Physics2DDirectBodyState(_wasgo_Physics2DDirectBodyState_constructor());
+}
+WasGoID Physics2DDirectBodyState::_get_wasgo_id(){
+    return wasgo_id;
+}
+Physics2DDirectBodyState::operator bool(){
+    return (bool) wasgo_id;
+}

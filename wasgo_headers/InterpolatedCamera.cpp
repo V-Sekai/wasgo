@@ -39,8 +39,15 @@ void InterpolatedCamera::set_target_path(NodePath p_target_path){
 InterpolatedCamera::InterpolatedCamera(WasGoID p_wasgo_id) : Camera(p_wasgo_id){
 }
 InterpolatedCamera::InterpolatedCamera(Camera other) : Camera(other._get_wasgo_id()){
-    wasgo_id = _wasgo_InterpolatedCamera_constructor();
 }
-InterpolatedCamera::new_instance(){
+InterpolatedCamera::InterpolatedCamera():Camera(){
+}
+InterpolatedCamera InterpolatedCamera::new_instance(){
     return InterpolatedCamera(_wasgo_InterpolatedCamera_constructor());
+}
+WasGoID InterpolatedCamera::_get_wasgo_id(){
+    return wasgo_id;
+}
+InterpolatedCamera::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,7 +2,7 @@
 #ifndef HINGEJOINT_H
 #define HINGEJOINT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Joint.h"
 class HingeJoint : public Joint{
@@ -32,7 +32,10 @@ protected:
 public:
 explicit HingeJoint(WasGoID p_wasgo_id);
 explicit HingeJoint(Joint other);
+HingeJoint();
 HingeJoint new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

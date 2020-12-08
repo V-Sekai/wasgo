@@ -2,11 +2,11 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "BaseButton.h"
+#include "Ustring.h"
 #include "Texture.h"
-#include "ustring.h"
 class Button : public BaseButton{
 public:
 enum TextAlign{
@@ -31,7 +31,10 @@ protected:
 public:
 explicit Button(WasGoID p_wasgo_id);
 explicit Button(BaseButton other);
+Button();
 Button new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

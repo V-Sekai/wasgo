@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Resource.h"
-Resource Resource::duplicate(bool p_subresources = (bool) false){
+Resource Resource::duplicate(bool p_subresources){
 	return Resource(_wasgo_Resource_wrapper_duplicate(wasgo_id, p_subresources));
 }
 Node Resource::get_local_scene(){
@@ -77,8 +77,15 @@ void Resource::take_over_path(String p_path){
 Resource::Resource(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Resource::Resource(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Resource_constructor();
 }
-Resource::new_instance(){
+Resource::Resource():Reference(){
+}
+Resource Resource::new_instance(){
     return Resource(_wasgo_Resource_constructor());
+}
+WasGoID Resource::_get_wasgo_id(){
+    return wasgo_id;
+}
+Resource::operator bool(){
+    return (bool) wasgo_id;
 }

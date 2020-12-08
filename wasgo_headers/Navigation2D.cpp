@@ -26,7 +26,7 @@ Object Navigation2D::get_closest_point_owner(Vector2 p_to_point){
     
 	return Object(_wasgo_Navigation2D_wrapper_get_closest_point_owner(wasgo_id, wasgo_buffer_to_point, wasgo_size_to_point));
 }
-PoolVector2Array Navigation2D::get_simple_path(Vector2 p_start, Vector2 p_end, bool p_optimize = (bool) true){
+PoolVector2Array Navigation2D::get_simple_path(Vector2 p_start, Vector2 p_end, bool p_optimize){
 
     Variant wasgo_var_start = p_start;
     uint8_t wasgo_buffer_start[12];
@@ -41,7 +41,7 @@ PoolVector2Array Navigation2D::get_simple_path(Vector2 p_start, Vector2 p_end, b
     
 	return PoolVector2Array(_wasgo_Navigation2D_wrapper_get_simple_path(wasgo_id, wasgo_buffer_start, wasgo_size_start, wasgo_buffer_end, wasgo_size_end, p_optimize));
 }
-int Navigation2D::navpoly_add(NavigationPolygon p_mesh, Transform2D p_xform, Object p_owner = (Object) ""){
+int Navigation2D::navpoly_add(NavigationPolygon p_mesh, Transform2D p_xform, Object p_owner){
 
     Variant wasgo_var_xform = p_xform;
     uint8_t wasgo_buffer_xform[28];
@@ -66,8 +66,15 @@ void Navigation2D::navpoly_set_transform(int p_id, Transform2D p_xform){
 Navigation2D::Navigation2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Navigation2D::Navigation2D(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Navigation2D_constructor();
 }
-Navigation2D::new_instance(){
+Navigation2D::Navigation2D():Node2D(){
+}
+Navigation2D Navigation2D::new_instance(){
     return Navigation2D(_wasgo_Navigation2D_constructor());
+}
+WasGoID Navigation2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+Navigation2D::operator bool(){
+    return (bool) wasgo_id;
 }

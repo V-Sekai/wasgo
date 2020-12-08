@@ -41,8 +41,15 @@ void CanvasItemMaterial::set_particles_animation(bool p_particles_anim){
 CanvasItemMaterial::CanvasItemMaterial(WasGoID p_wasgo_id) : Material(p_wasgo_id){
 }
 CanvasItemMaterial::CanvasItemMaterial(Material other) : Material(other._get_wasgo_id()){
-    wasgo_id = _wasgo_CanvasItemMaterial_constructor();
 }
-CanvasItemMaterial::new_instance(){
+CanvasItemMaterial::CanvasItemMaterial():Material(){
+}
+CanvasItemMaterial CanvasItemMaterial::new_instance(){
     return CanvasItemMaterial(_wasgo_CanvasItemMaterial_constructor());
+}
+WasGoID CanvasItemMaterial::_get_wasgo_id(){
+    return wasgo_id;
+}
+CanvasItemMaterial::operator bool(){
+    return (bool) wasgo_id;
 }

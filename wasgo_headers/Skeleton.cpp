@@ -111,7 +111,7 @@ void Skeleton::physical_bones_remove_collision_exception(RID p_exception){
     
 	_wasgo_Skeleton_wrapper_physical_bones_remove_collision_exception(wasgo_id, wasgo_buffer_exception, wasgo_size_exception);
 }
-void Skeleton::physical_bones_start_simulation(Array p_bones = (Array) []){
+void Skeleton::physical_bones_start_simulation(Array p_bones){
 	_wasgo_Skeleton_wrapper_physical_bones_start_simulation(wasgo_id, p_bones._get_wasgo_id());
 }
 void Skeleton::physical_bones_stop_simulation(){
@@ -132,7 +132,7 @@ void Skeleton::set_bone_custom_pose(int p_bone_idx, Transform p_custom_pose){
 void Skeleton::set_bone_disable_rest(int p_bone_idx, bool p_disable){
 	_wasgo_Skeleton_wrapper_set_bone_disable_rest(wasgo_id, p_bone_idx, p_disable);
 }
-void Skeleton::set_bone_global_pose_override(int p_bone_idx, Transform p_pose, float p_amount, bool p_persistent = (bool) false){
+void Skeleton::set_bone_global_pose_override(int p_bone_idx, Transform p_pose, float p_amount, bool p_persistent){
 
     Variant wasgo_var_pose = p_pose;
     uint8_t wasgo_buffer_pose[52];
@@ -172,8 +172,15 @@ void Skeleton::unparent_bone_and_rest(int p_bone_idx){
 Skeleton::Skeleton(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 Skeleton::Skeleton(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Skeleton_constructor();
 }
-Skeleton::new_instance(){
+Skeleton::Skeleton():Spatial(){
+}
+Skeleton Skeleton::new_instance(){
     return Skeleton(_wasgo_Skeleton_constructor());
+}
+WasGoID Skeleton::_get_wasgo_id(){
+    return wasgo_id;
+}
+Skeleton::operator bool(){
+    return (bool) wasgo_id;
 }

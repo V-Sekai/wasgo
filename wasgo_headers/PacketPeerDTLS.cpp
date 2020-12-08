@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "PacketPeerDTLS.h"
-Error PacketPeerDTLS::connect_to_peer(PacketPeerUDP p_packet_peer, bool p_validate_certs = (bool) true, String p_for_hostname = (String) , X509Certificate p_valid_certificate = (X509Certificate) [object:null]){
+Error PacketPeerDTLS::connect_to_peer(PacketPeerUDP p_packet_peer, bool p_validate_certs, String p_for_hostname, X509Certificate p_valid_certificate){
 
     Variant wasgo_var_for_hostname = p_for_hostname;
     int wasgo_size_for_hostname = String(p_for_hostname).size();
@@ -23,8 +23,15 @@ void PacketPeerDTLS::poll(){
 PacketPeerDTLS::PacketPeerDTLS(WasGoID p_wasgo_id) : PacketPeer(p_wasgo_id){
 }
 PacketPeerDTLS::PacketPeerDTLS(PacketPeer other) : PacketPeer(other._get_wasgo_id()){
-    wasgo_id = _wasgo_PacketPeerDTLS_constructor();
 }
-PacketPeerDTLS::new_instance(){
+PacketPeerDTLS::PacketPeerDTLS():PacketPeer(){
+}
+PacketPeerDTLS PacketPeerDTLS::new_instance(){
     return PacketPeerDTLS(_wasgo_PacketPeerDTLS_constructor());
+}
+WasGoID PacketPeerDTLS::_get_wasgo_id(){
+    return wasgo_id;
+}
+PacketPeerDTLS::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,14 +2,14 @@
 #ifndef PHYSICS2DSHAPEQUERYPARAMETERS_H
 #define PHYSICS2DSHAPEQUERYPARAMETERS_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
-#include "Resource.h"
 #include "Vector2.h"
-#include "Variant.h"
-#include "Transform2D.h"
 #include "RID.h"
+#include "Resource.h"
+#include "Transform2D.h"
+#include "Reference.h"
+#include "Variant.h"
 class Physics2DShapeQueryParameters : public Reference{
 public:
 int get_collision_layer();
@@ -34,7 +34,10 @@ protected:
 public:
 explicit Physics2DShapeQueryParameters(WasGoID p_wasgo_id);
 explicit Physics2DShapeQueryParameters(Reference other);
+Physics2DShapeQueryParameters();
 Physics2DShapeQueryParameters new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,10 +2,10 @@
 #ifndef SOFTBODY_H
 #define SOFTBODY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+class Node;
 #include "NodePath.h"
-#include "Node.h"
 #include "Variant.h"
 #include "MeshInstance.h"
 class SoftBody : public MeshInstance{
@@ -48,7 +48,10 @@ protected:
 public:
 explicit SoftBody(WasGoID p_wasgo_id);
 explicit SoftBody(MeshInstance other);
+SoftBody();
 SoftBody new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

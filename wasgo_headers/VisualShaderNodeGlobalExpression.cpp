@@ -5,8 +5,15 @@
 VisualShaderNodeGlobalExpression::VisualShaderNodeGlobalExpression(WasGoID p_wasgo_id) : VisualShaderNodeExpression(p_wasgo_id){
 }
 VisualShaderNodeGlobalExpression::VisualShaderNodeGlobalExpression(VisualShaderNodeExpression other) : VisualShaderNodeExpression(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisualShaderNodeGlobalExpression_constructor();
 }
-VisualShaderNodeGlobalExpression::new_instance(){
+VisualShaderNodeGlobalExpression::VisualShaderNodeGlobalExpression():VisualShaderNodeExpression(){
+}
+VisualShaderNodeGlobalExpression VisualShaderNodeGlobalExpression::new_instance(){
     return VisualShaderNodeGlobalExpression(_wasgo_VisualShaderNodeGlobalExpression_constructor());
+}
+WasGoID VisualShaderNodeGlobalExpression::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeGlobalExpression::operator bool(){
+    return (bool) wasgo_id;
 }

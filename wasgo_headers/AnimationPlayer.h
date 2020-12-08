@@ -2,14 +2,14 @@
 #ifndef ANIMATIONPLAYER_H
 #define ANIMATIONPLAYER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Animation.h"
 #include "Node.h"
-#include "Variant.h"
 #include "NodePath.h"
 #include "error_list.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Ustring.h"
 class AnimationPlayer : public Node{
 public:
 enum AnimationMethodCallMode{
@@ -46,8 +46,8 @@ float get_speed_scale();
 bool has_animation(String p_name);
 bool is_active();
 bool is_playing();
-void play(String p_name = (String) , float p_custom_blend = (float) -1, float p_custom_speed = (float) 1, bool p_from_end = (bool) false);
-void play_backwards(String p_name = (String) , float p_custom_blend = (float) -1);
+void play(String p_name = String(), float p_custom_blend = (float) -1, float p_custom_speed = (float) 1, bool p_from_end = (bool) false);
+void play_backwards(String p_name = String(), float p_custom_blend = (float) -1);
 void queue(String p_name);
 void remove_animation(String p_name);
 void rename_animation(String p_name, String p_newname);
@@ -68,7 +68,10 @@ protected:
 public:
 explicit AnimationPlayer(WasGoID p_wasgo_id);
 explicit AnimationPlayer(Node other);
+AnimationPlayer();
 AnimationPlayer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

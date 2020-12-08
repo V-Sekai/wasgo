@@ -2,19 +2,19 @@
 #ifndef CONFIGFILE_H
 #define CONFIGFILE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
-#include "error_list.h"
 #include "Variant.h"
-#include "ustring.h"
+#include "Reference.h"
+#include "Ustring.h"
+#include "error_list.h"
 class ConfigFile : public Reference{
 public:
 void erase_section(String p_section);
 void erase_section_key(String p_section, String p_key);
 PoolStringArray get_section_keys(String p_section);
 PoolStringArray get_sections();
-Variant get_value(String p_section, String p_key, Variant p_default = (Variant) "");
+Variant get_value(String p_section, String p_key, Variant p_default = Variant());
 bool has_section(String p_section);
 bool has_section_key(String p_section, String p_key);
 Error load(String p_path);
@@ -30,7 +30,10 @@ protected:
 public:
 explicit ConfigFile(WasGoID p_wasgo_id);
 explicit ConfigFile(Reference other);
+ConfigFile();
 ConfigFile new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,13 +2,13 @@
 #ifndef ANIMATIONNODE_H
 #define ANIMATIONNODE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Resource.h"
 #include "Object.h"
-#include "Variant.h"
+#include "Resource.h"
 #include "NodePath.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Ustring.h"
 class AnimationNode : public Resource{
 public:
 enum FilterAction{
@@ -42,7 +42,10 @@ protected:
 public:
 explicit AnimationNode(WasGoID p_wasgo_id);
 explicit AnimationNode(Resource other);
+AnimationNode();
 AnimationNode new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

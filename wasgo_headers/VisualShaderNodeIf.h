@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEIF_H
 #define VISUALSHADERNODEIF_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeIf : public VisualShaderNode{
@@ -12,7 +12,10 @@ protected:
 public:
 explicit VisualShaderNodeIf(WasGoID p_wasgo_id);
 explicit VisualShaderNodeIf(VisualShaderNode other);
+VisualShaderNodeIf();
 VisualShaderNodeIf new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -35,8 +35,15 @@ void AudioEffectPhaser::set_rate_hz(float p_hz){
 AudioEffectPhaser::AudioEffectPhaser(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectPhaser::AudioEffectPhaser(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioEffectPhaser_constructor();
 }
-AudioEffectPhaser::new_instance(){
+AudioEffectPhaser::AudioEffectPhaser():AudioEffect(){
+}
+AudioEffectPhaser AudioEffectPhaser::new_instance(){
     return AudioEffectPhaser(_wasgo_AudioEffectPhaser_constructor());
+}
+WasGoID AudioEffectPhaser::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioEffectPhaser::operator bool(){
+    return (bool) wasgo_id;
 }

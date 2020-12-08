@@ -2,14 +2,14 @@
 #ifndef SKELETONIK_H
 #define SKELETONIK_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Skeleton.h"
 #include "Vector3.h"
 #include "Node.h"
 #include "NodePath.h"
 #include "Transform.h"
-#include "ustring.h"
+#include "Skeleton.h"
+#include "Ustring.h"
 class SkeletonIK : public Node{
 public:
 float get_interpolation();
@@ -41,7 +41,10 @@ protected:
 public:
 explicit SkeletonIK(WasGoID p_wasgo_id);
 explicit SkeletonIK(Node other);
+SkeletonIK();
 SkeletonIK new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

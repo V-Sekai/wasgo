@@ -2,10 +2,10 @@
 #ifndef VISUALSHADERNODEINPUT_H
 #define VISUALSHADERNODEINPUT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
-#include "ustring.h"
+#include "Ustring.h"
 class VisualShaderNodeInput : public VisualShaderNode{
 public:
 String get_input_name();
@@ -16,7 +16,10 @@ protected:
 public:
 explicit VisualShaderNodeInput(WasGoID p_wasgo_id);
 explicit VisualShaderNodeInput(VisualShaderNode other);
+VisualShaderNodeInput();
 VisualShaderNodeInput new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

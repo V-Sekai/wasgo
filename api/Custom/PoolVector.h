@@ -1,39 +1,133 @@
-// /*************************************************************************/
-// /*  pool_vector.h                                                        */
-// /*************************************************************************/
-// /*                       This file is part of:                           */
-// /*                           GODOT ENGINE                                */
-// /*                      https://godotengine.org                          */
-// /*************************************************************************/
-// /* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
-// /* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
-// /*                                                                       */
-// /* Permission is hereby granted, free of charge, to any person obtaining */
-// /* a copy of this software and associated documentation files (the       */
-// /* "Software"), to deal in the Software without restriction, including   */
-// /* without limitation the rights to use, copy, modify, merge, publish,   */
-// /* distribute, sublicense, and/or sell copies of the Software, and to    */
-// /* permit persons to whom the Software is furnished to do so, subject to */
-// /* the following conditions:                                             */
-// /*                                                                       */
-// /* The above copyright notice and this permission notice shall be        */
-// /* included in all copies or substantial portions of the Software.       */
-// /*                                                                       */
-// /* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
-// /* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
-// /* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
-// /* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
-// /* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
-// /* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
-// /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
-// /*************************************************************************/
+/*************************************************************************/
+/*  pool_vector.h                                                        */
+/*************************************************************************/
+/*                       This file is part of:                           */
+/*                           GODOT ENGINE                                */
+/*                      https://godotengine.org                          */
+/*************************************************************************/
+/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
+/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
+/*                                                                       */
+/* Permission is hereby granted, free of charge, to any person obtaining */
+/* a copy of this software and associated documentation files (the       */
+/* "Software"), to deal in the Software without restriction, including   */
+/* without limitation the rights to use, copy, modify, merge, publish,   */
+/* distribute, sublicense, and/or sell copies of the Software, and to    */
+/* permit persons to whom the Software is furnished to do so, subject to */
+/* the following conditions:                                             */
+/*                                                                       */
+/* The above copyright notice and this permission notice shall be        */
+/* included in all copies or substantial portions of the Software.       */
+/*                                                                       */
+/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
+/* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
+/* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
+/* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
+/* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
+/* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
+/* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
+/*************************************************************************/
 
-// #ifndef POOL_VECTOR_H
-// #define POOL_VECTOR_H
+#ifndef POOL_VECTOR_H
+#define POOL_VECTOR_H
 
-// #include "os/copymem.h"
-// #include "os/memory.h"
-// #include "os/rw_lock.h"
+// #include "error_list.h"
+#include "wasgo/wasgoid.h"
+#include <stdint.h>
+
+template <class T>
+class PoolVector {
+	WasGoID wasgo_id = 0;
+public:
+
+    explicit PoolVector(WasGoID p_wasgo_id){
+		wasgo_id = p_wasgo_id;
+	}
+
+    WasGoID _get_wasgo_id() const {
+		return wasgo_id;
+	}
+
+    PoolVector(){
+        
+    }
+
+	// template <class c>
+	// static PoolVector<c> new_instance();
+
+	// template <class MC>
+	// void fill_with(const MC &p_mc);
+
+	// T get(int p_index) const;
+	// void set(int p_index, const T &p_val);
+	// void push_back(const T &p_val);
+	// PoolVector<T> subarray(int p_from, int p_to);
+	// Error insert(int p_pos, const T &p_val);
+	// void append(const T &p_val);
+
+	// //lmao i don't know how to get the bracket operator to work
+	// // T operator[](int p_index) const{
+	// // 	return get(p_index);
+	// // }
+	// // T &operator[](int p_index){
+	// // 	return get(p_index);
+	// // }
+
+	// void remove(int p_index);
+	// int size() const;
+	// bool empty() const;
+	// String join(String delimiter);
+	// bool is_locked() const;
+	// Error resize(int p_size);
+	// void invert();
+	// void operator=(const PoolVector &p_pool_vector);
+	// void append_array(const PoolVector<T> &p_arr);
+
+	// PoolVector();
+	// PoolVector(const PoolVector &p_pool_vector);
+	// ~PoolVector() { _unreference(); }
+};
+
+//WRAPPERS
+// void _wasgo_PoolVector_wrapper_fill_with();
+// extern "C" {
+// void _wasgo_PoolVector_wrapper_remove(WasGoID p_wasgo_id, int p_index);
+// int _wasgo_PoolVector_wrapper_size(WasGoID p_wasgo_id);
+// int _wasgo_PoolVector_wrapper_empty(WasGoID p_wasgo_id);
+// void _wasgo_PoolVector_wrapper_join(WasGoID p_wasgo_id, uint8_t * wasgo_buffer, int wasgo_buffer_size, uint8_t *delimiter_buffer, int delimiter_buffer_size);
+// int _wasgo_PoolVector_wrapper_is_locked(WasGoID p_wasgo_id);
+// int _wasgo_PoolVector_wrapper_resize(WasGoID p_wasgo_id, int p_size);
+// void _wasgo_PoolVector_wrapper_invert(WasGoID p_wasgo_id);
+// void _wasgo_PoolVector_operator_equal(WasGoID p_wasgo_id);
+// void _wasgo_PoolVector_wrapper_append_array(WasGoID p_wasgo_id);
+
+// //many wrappers for all the template types
+// //all the wasm variants share the same wrappers
+// uint8_t _wasgo_PoolByteArray_wrapper_get(WasGoID p_wasgo_id, int p_index);
+// void _wasgo_PoolByteArray_wrapper_set(WasGoID p_wasgo_id, int p_index, uint8_t p_val);
+// void _wasgo_PoolByteArray_wrapper_push_back(WasGoID p_wasgo_id, uint8_t p_val);
+// void _wasgo_PoolByteArray_wrapper_append_array(WasGoID p_wasgo_id, WasGoID p_arr);
+// WasGoID _wasgo_PoolByteArray_wrapper_subarray(WasGoID p_wasgo_id, int p_from, int p_to);
+// int _wasgo_PoolByteArray_wrapper_insert(WasGoID p_wasgo_id, int p_pos, uint8_t p_val);
+
+// int _wasgo_PoolIntArray_wrapper_get(WasGoID p_wasgo_id, int p_index);
+// void _wasgo_PoolIntArray_wrapper_set(WasGoID p_wasgo_id, int p_index, int p_val);
+// void _wasgo_PoolIntArray_wrapper_push_back(WasGoID p_wasgo_id, int p_val);
+// void _wasgo_PoolIntArray_wrapper_append_array(WasGoID p_wasgo_id, WasGoID p_arr);
+// WasGoID _wasgo_PoolIntArray_wrapper_subarray(WasGoID p_wasgo_id, int p_from, int p_to);
+// int _wasgo_PoolIntArray_wrapper_insert(WasGoID p_wasgo_id, int p_pos, int p_val);
+
+// void _wasgo_PoolVariantArray_wrapper_get(WasGoID p_wasgo_id, int p_index, uint8_t *p_str_buffer, int str_buffer_size);
+// void _wasgo_PoolVariantArray_wrapper_set(WasGoID p_wasgo_id, int p_index, uint8_t *p_val_buffer, int val_buffer_size);
+// void _wasgo_PoolVariantArray_wrapper_push_back(WasGoID p_wasgo_id, uint8_t *p_str_buffer, int str_buffer_size);
+// void _wasgo_PoolVariantArray_wrapper_append_array(WasGoID p_wasgo_id, WasGoID p_arr);
+// WasGoID _wasgo_PoolVariantArray_wrapper_subarray(WasGoID p_wasgo_id, int p_from, int p_to);
+// int _wasgo_PoolVariantArray_wrapper_insert(WasGoID p_wasgo_id, int p_pos, uint8_t *p_val_buffer, int val_buffer_size);
+// }
+
+// #include "copymem.h"
+// #include "memory.h"
+// #include "rw_lock.h"
 // #include "pool_allocator.h"
 // #include "safe_refcount.h"
 // // #include "ustring.h"
@@ -645,4 +739,4 @@
 // 	}
 // }
 
-// #endif // POOL_VECTOR_H
+#endif // POOL_VECTOR_H

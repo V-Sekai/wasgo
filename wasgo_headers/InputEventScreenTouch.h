@@ -2,10 +2,10 @@
 #ifndef INPUTEVENTSCREENTOUCH_H
 #define INPUTEVENTSCREENTOUCH_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
 #include "InputEvent.h"
+#include "Vector2.h"
 class InputEventScreenTouch : public InputEvent{
 public:
 int get_index();
@@ -18,7 +18,10 @@ protected:
 public:
 explicit InputEventScreenTouch(WasGoID p_wasgo_id);
 explicit InputEventScreenTouch(InputEvent other);
+InputEventScreenTouch();
 InputEventScreenTouch new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

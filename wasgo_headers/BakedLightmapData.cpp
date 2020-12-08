@@ -89,8 +89,15 @@ void BakedLightmapData::set_octree(PoolByteArray p_octree){
 BakedLightmapData::BakedLightmapData(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 BakedLightmapData::BakedLightmapData(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_BakedLightmapData_constructor();
 }
-BakedLightmapData::new_instance(){
+BakedLightmapData::BakedLightmapData():Resource(){
+}
+BakedLightmapData BakedLightmapData::new_instance(){
     return BakedLightmapData(_wasgo_BakedLightmapData_constructor());
+}
+WasGoID BakedLightmapData::_get_wasgo_id(){
+    return wasgo_id;
+}
+BakedLightmapData::operator bool(){
+    return (bool) wasgo_id;
 }

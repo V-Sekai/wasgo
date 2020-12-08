@@ -51,3 +51,19 @@ void Joint2D::set_node_b(NodePath p_node){
     
 	_wasgo_Joint2D_wrapper_set_node_b(wasgo_id, wasgo_buffer_node, wasgo_size_node);
 }
+
+Joint2D::Joint2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
+}
+Joint2D::Joint2D(Node2D other) : Node2D(other._get_wasgo_id()){
+}
+Joint2D::Joint2D():Node2D(){
+}
+Joint2D Joint2D::new_instance(){
+    return Joint2D(_wasgo_Joint2D_constructor());
+}
+WasGoID Joint2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+Joint2D::operator bool(){
+    return (bool) wasgo_id;
+}

@@ -2,12 +2,12 @@
 #ifndef TABS_H
 #define TABS_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Rect2.h"
-#include "Texture.h"
 #include "Control.h"
-#include "ustring.h"
+#include "Rect2.h"
+#include "Ustring.h"
+#include "Texture.h"
 class Tabs : public Control{
 public:
 enum CloseButtonDisplayPolicy{
@@ -22,7 +22,7 @@ ALIGN_CENTER,
 ALIGN_RIGHT,
 ALIGN_MAX
 };
-void add_tab(String p_title = (String) , Texture p_icon = (Texture) [object:null]);
+void add_tab(String p_title = String(), Texture p_icon = Texture());
 void ensure_tab_visible(int p_idx);
 int get_current_tab();
 bool get_drag_to_rearrange_enabled();
@@ -56,7 +56,10 @@ protected:
 public:
 explicit Tabs(WasGoID p_wasgo_id);
 explicit Tabs(Control other);
+Tabs();
 Tabs new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

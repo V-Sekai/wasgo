@@ -2,13 +2,13 @@
 #ifndef CRYPTO_H
 #define CRYPTO_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
 #include "X509Certificate.h"
-#include "Variant.h"
 #include "CryptoKey.h"
-#include "ustring.h"
+#include "Reference.h"
+#include "Variant.h"
+#include "Ustring.h"
 class Crypto : public Reference{
 public:
 PoolByteArray generate_random_bytes(int p_size);
@@ -19,7 +19,10 @@ protected:
 public:
 explicit Crypto(WasGoID p_wasgo_id);
 explicit Crypto(Reference other);
+Crypto();
 Crypto new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

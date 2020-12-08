@@ -14,7 +14,7 @@ String Thread::get_id(){
 bool Thread::is_active(){
 	return (bool) _wasgo_Thread_wrapper_is_active(wasgo_id);
 }
-Error Thread::start(Object p_instance, String p_method, Variant p_userdata = (Variant) "", Thread::Priority p_priority = (Thread::Priority) 1){
+Error Thread::start(Object p_instance, String p_method, Variant p_userdata, Thread::Priority p_priority){
 
     Variant wasgo_var_method = p_method;
     int wasgo_size_method = String(p_method).size();
@@ -30,8 +30,15 @@ Variant Thread::wait_to_finish(){
 Thread::Thread(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Thread::Thread(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Thread_constructor();
 }
-Thread::new_instance(){
+Thread::Thread():Reference(){
+}
+Thread Thread::new_instance(){
     return Thread(_wasgo_Thread_constructor());
+}
+WasGoID Thread::_get_wasgo_id(){
+    return wasgo_id;
+}
+Thread::operator bool(){
+    return (bool) wasgo_id;
 }

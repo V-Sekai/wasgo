@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "AnimationNodeBlendTree.h"
-void AnimationNodeBlendTree::add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2((0, 0))){
+void AnimationNodeBlendTree::add_node(String p_name, AnimationNode p_node, Vector2 p_position){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -136,8 +136,15 @@ void AnimationNodeBlendTree::set_node_position(String p_name, Vector2 p_position
 AnimationNodeBlendTree::AnimationNodeBlendTree(WasGoID p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
 AnimationNodeBlendTree::AnimationNodeBlendTree(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationNodeBlendTree_constructor();
 }
-AnimationNodeBlendTree::new_instance(){
+AnimationNodeBlendTree::AnimationNodeBlendTree():AnimationRootNode(){
+}
+AnimationNodeBlendTree AnimationNodeBlendTree::new_instance(){
     return AnimationNodeBlendTree(_wasgo_AnimationNodeBlendTree_constructor());
+}
+WasGoID AnimationNodeBlendTree::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationNodeBlendTree::operator bool(){
+    return (bool) wasgo_id;
 }

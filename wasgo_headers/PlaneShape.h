@@ -2,7 +2,7 @@
 #ifndef PLANESHAPE_H
 #define PLANESHAPE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Plane.h"
 #include "Shape.h"
@@ -15,7 +15,10 @@ protected:
 public:
 explicit PlaneShape(WasGoID p_wasgo_id);
 explicit PlaneShape(Shape other);
+PlaneShape();
 PlaneShape new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

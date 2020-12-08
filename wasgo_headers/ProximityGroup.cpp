@@ -58,8 +58,15 @@ void ProximityGroup::set_group_name(String p_name){
 ProximityGroup::ProximityGroup(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 ProximityGroup::ProximityGroup(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ProximityGroup_constructor();
 }
-ProximityGroup::new_instance(){
+ProximityGroup::ProximityGroup():Spatial(){
+}
+ProximityGroup ProximityGroup::new_instance(){
     return ProximityGroup(_wasgo_ProximityGroup_constructor());
+}
+WasGoID ProximityGroup::_get_wasgo_id(){
+    return wasgo_id;
+}
+ProximityGroup::operator bool(){
+    return (bool) wasgo_id;
 }

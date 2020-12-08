@@ -11,8 +11,15 @@ void MultiMeshInstance::set_multimesh(MultiMesh p_multimesh){
 MultiMeshInstance::MultiMeshInstance(WasGoID p_wasgo_id) : GeometryInstance(p_wasgo_id){
 }
 MultiMeshInstance::MultiMeshInstance(GeometryInstance other) : GeometryInstance(other._get_wasgo_id()){
-    wasgo_id = _wasgo_MultiMeshInstance_constructor();
 }
-MultiMeshInstance::new_instance(){
+MultiMeshInstance::MultiMeshInstance():GeometryInstance(){
+}
+MultiMeshInstance MultiMeshInstance::new_instance(){
     return MultiMeshInstance(_wasgo_MultiMeshInstance_constructor());
+}
+WasGoID MultiMeshInstance::_get_wasgo_id(){
+    return wasgo_id;
+}
+MultiMeshInstance::operator bool(){
+    return (bool) wasgo_id;
 }

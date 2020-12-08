@@ -2,21 +2,21 @@
 #ifndef CONTROL_H
 #define CONTROL_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Rect2.h"
-#include "Font.h"
 #include "Color.h"
-#include "Texture.h"
 #include "Vector2.h"
+#include "Font.h"
+#include "Rect2.h"
+class StyleBox;
+#include "NodePath.h"
+#include "Shader.h"
+#include "math_defs.h"
 #include "CanvasItem.h"
 #include "Variant.h"
-#include "NodePath.h"
-#include "StyleBox.h"
 #include "Theme.h"
-#include "Shader.h"
-#include "Margin.h"
-#include "ustring.h"
+#include "Ustring.h"
+#include "Texture.h"
 class Control : public CanvasItem{
 public:
 enum Anchor{
@@ -100,10 +100,10 @@ void drop_data(Vector2 p_position, Variant p_data);
 void force_drag(Variant p_data, Control p_preview);
 float get_anchor(Margin p_margin);
 Vector2 get_begin();
-Color get_color(String p_name, String p_node_type = (String) );
+Color get_color(String p_name, String p_node_type = String());
 Vector2 get_combined_minimum_size();
-int get_constant(String p_name, String p_node_type = (String) );
-Control::CursorShape get_cursor_shape(Vector2 p_position = Vector2((0, 0)));
+int get_constant(String p_name, String p_node_type = String());
+Control::CursorShape get_cursor_shape(Vector2 p_position = Vector2(0, 0));
 Vector2 get_custom_minimum_size();
 Control::CursorShape get_default_cursor_shape();
 Variant get_drag_data(Vector2 p_position);
@@ -113,12 +113,12 @@ NodePath get_focus_neighbour(Margin p_margin);
 NodePath get_focus_next();
 Control get_focus_owner();
 NodePath get_focus_previous();
-Font get_font(String p_name, String p_node_type = (String) );
+Font get_font(String p_name, String p_node_type = String());
 Vector2 get_global_position();
 Rect2 get_global_rect();
 Control::GrowDirection get_h_grow_direction();
 int get_h_size_flags();
-Texture get_icon(String p_name, String p_node_type = (String) );
+Texture get_icon(String p_name, String p_node_type = String());
 float get_margin(Margin p_margin);
 Vector2 get_minimum_size();
 Control::MouseFilter get_mouse_filter();
@@ -132,25 +132,25 @@ float get_rotation_degrees();
 Vector2 get_scale();
 Vector2 get_size();
 float get_stretch_ratio();
-StyleBox get_stylebox(String p_name, String p_node_type = (String) );
+StyleBox get_stylebox(String p_name, String p_node_type = String());
 Theme get_theme();
-String get_tooltip(Vector2 p_at_position = Vector2((0, 0)));
+String get_tooltip(Vector2 p_at_position = Vector2(0, 0));
 Control::GrowDirection get_v_grow_direction();
 int get_v_size_flags();
 void grab_click_focus();
 void grab_focus();
-bool has_color(String p_name, String p_node_type = (String) );
+bool has_color(String p_name, String p_node_type = String());
 bool has_color_override(String p_name);
-bool has_constant(String p_name, String p_node_type = (String) );
+bool has_constant(String p_name, String p_node_type = String());
 bool has_constant_override(String p_name);
 bool has_focus();
-bool has_font(String p_name, String p_node_type = (String) );
+bool has_font(String p_name, String p_node_type = String());
 bool has_font_override(String p_name);
-bool has_icon(String p_name, String p_node_type = (String) );
+bool has_icon(String p_name, String p_node_type = String());
 bool has_icon_override(String p_name);
 bool has_point(Vector2 p_point);
 bool has_shader_override(String p_name);
-bool has_stylebox(String p_name, String p_node_type = (String) );
+bool has_stylebox(String p_name, String p_node_type = String());
 bool has_stylebox_override(String p_name);
 bool is_clipping_contents();
 void minimum_size_changed();
@@ -194,7 +194,10 @@ protected:
 public:
 explicit Control(WasGoID p_wasgo_id);
 explicit Control(CanvasItem other);
+Control();
 Control new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

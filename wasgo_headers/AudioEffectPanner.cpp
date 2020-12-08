@@ -11,8 +11,15 @@ void AudioEffectPanner::set_pan(float p_cpanume){
 AudioEffectPanner::AudioEffectPanner(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectPanner::AudioEffectPanner(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioEffectPanner_constructor();
 }
-AudioEffectPanner::new_instance(){
+AudioEffectPanner::AudioEffectPanner():AudioEffect(){
+}
+AudioEffectPanner AudioEffectPanner::new_instance(){
     return AudioEffectPanner(_wasgo_AudioEffectPanner_constructor());
+}
+WasGoID AudioEffectPanner::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioEffectPanner::operator bool(){
+    return (bool) wasgo_id;
 }

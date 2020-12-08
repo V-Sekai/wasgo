@@ -11,8 +11,15 @@ void SliderJoint::set_param(SliderJoint::Param p_param, float p_value){
 SliderJoint::SliderJoint(WasGoID p_wasgo_id) : Joint(p_wasgo_id){
 }
 SliderJoint::SliderJoint(Joint other) : Joint(other._get_wasgo_id()){
-    wasgo_id = _wasgo_SliderJoint_constructor();
 }
-SliderJoint::new_instance(){
+SliderJoint::SliderJoint():Joint(){
+}
+SliderJoint SliderJoint::new_instance(){
     return SliderJoint(_wasgo_SliderJoint_constructor());
+}
+WasGoID SliderJoint::_get_wasgo_id(){
+    return wasgo_id;
+}
+SliderJoint::operator bool(){
+    return (bool) wasgo_id;
 }

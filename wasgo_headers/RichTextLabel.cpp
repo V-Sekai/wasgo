@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "RichTextLabel.h"
-void RichTextLabel::add_image(Texture p_image, int p_width = (int) 0, int p_height = (int) 0){
+void RichTextLabel::add_image(Texture p_image, int p_width, int p_height){
 	_wasgo_RichTextLabel_wrapper_add_image(wasgo_id, p_image._get_wasgo_id(), p_width, p_height);
 }
 void RichTextLabel::add_text(String p_text){
@@ -229,8 +229,15 @@ void RichTextLabel::set_visible_characters(int p_amount){
 RichTextLabel::RichTextLabel(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 RichTextLabel::RichTextLabel(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_RichTextLabel_constructor();
 }
-RichTextLabel::new_instance(){
+RichTextLabel::RichTextLabel():Control(){
+}
+RichTextLabel RichTextLabel::new_instance(){
     return RichTextLabel(_wasgo_RichTextLabel_constructor());
+}
+WasGoID RichTextLabel::_get_wasgo_id(){
+    return wasgo_id;
+}
+RichTextLabel::operator bool(){
+    return (bool) wasgo_id;
 }

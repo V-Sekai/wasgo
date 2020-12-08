@@ -36,8 +36,15 @@ void ReferenceRect::set_editor_only(bool p_enabled){
 ReferenceRect::ReferenceRect(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 ReferenceRect::ReferenceRect(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ReferenceRect_constructor();
 }
-ReferenceRect::new_instance(){
+ReferenceRect::ReferenceRect():Control(){
+}
+ReferenceRect ReferenceRect::new_instance(){
     return ReferenceRect(_wasgo_ReferenceRect_constructor());
+}
+WasGoID ReferenceRect::_get_wasgo_id(){
+    return wasgo_id;
+}
+ReferenceRect::operator bool(){
+    return (bool) wasgo_id;
 }

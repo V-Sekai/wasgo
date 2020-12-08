@@ -171,8 +171,15 @@ void NavigationMesh::set_verts_per_poly(float p_verts_per_poly){
 NavigationMesh::NavigationMesh(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 NavigationMesh::NavigationMesh(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_NavigationMesh_constructor();
 }
-NavigationMesh::new_instance(){
+NavigationMesh::NavigationMesh():Resource(){
+}
+NavigationMesh NavigationMesh::new_instance(){
     return NavigationMesh(_wasgo_NavigationMesh_constructor());
+}
+WasGoID NavigationMesh::_get_wasgo_id(){
+    return wasgo_id;
+}
+NavigationMesh::operator bool(){
+    return (bool) wasgo_id;
 }

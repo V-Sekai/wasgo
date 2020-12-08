@@ -2,15 +2,15 @@
 #ifndef MESHLIBRARY_H
 #define MESHLIBRARY_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "NavigationMesh.h"
-#include "Resource.h"
 #include "Mesh.h"
-#include "Variant.h"
+#include "Resource.h"
+#include "NavigationMesh.h"
 #include "Transform.h"
+#include "Variant.h"
+#include "Ustring.h"
 #include "Texture.h"
-#include "ustring.h"
 class MeshLibrary : public Resource{
 public:
 void clear();
@@ -36,7 +36,10 @@ protected:
 public:
 explicit MeshLibrary(WasGoID p_wasgo_id);
 explicit MeshLibrary(Resource other);
+MeshLibrary();
 MeshLibrary new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

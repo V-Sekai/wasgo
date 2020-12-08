@@ -129,8 +129,15 @@ void TextureProgress::set_under_texture(Texture p_tex){
 TextureProgress::TextureProgress(WasGoID p_wasgo_id) : Range(p_wasgo_id){
 }
 TextureProgress::TextureProgress(Range other) : Range(other._get_wasgo_id()){
-    wasgo_id = _wasgo_TextureProgress_constructor();
 }
-TextureProgress::new_instance(){
+TextureProgress::TextureProgress():Range(){
+}
+TextureProgress TextureProgress::new_instance(){
     return TextureProgress(_wasgo_TextureProgress_constructor());
+}
+WasGoID TextureProgress::_get_wasgo_id(){
+    return wasgo_id;
+}
+TextureProgress::operator bool(){
+    return (bool) wasgo_id;
 }

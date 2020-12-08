@@ -141,8 +141,15 @@ void Sprite::set_vframes(int p_vframes){
 Sprite::Sprite(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Sprite::Sprite(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Sprite_constructor();
 }
-Sprite::new_instance(){
+Sprite::Sprite():Node2D(){
+}
+Sprite Sprite::new_instance(){
     return Sprite(_wasgo_Sprite_constructor());
+}
+WasGoID Sprite::_get_wasgo_id(){
+    return wasgo_id;
+}
+Sprite::operator bool(){
+    return (bool) wasgo_id;
 }

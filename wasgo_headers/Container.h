@@ -2,7 +2,7 @@
 #ifndef CONTAINER_H
 #define CONTAINER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Control.h"
 #include "Rect2.h"
@@ -15,7 +15,10 @@ protected:
 public:
 explicit Container(WasGoID p_wasgo_id);
 explicit Container(Control other);
+Container();
 Container new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

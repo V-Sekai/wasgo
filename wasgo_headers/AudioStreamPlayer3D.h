@@ -2,12 +2,12 @@
 #ifndef AUDIOSTREAMPLAYER3D_H
 #define AUDIOSTREAMPLAYER3D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "AudioStreamPlayback.h"
 #include "Spatial.h"
+#include "Ustring.h"
 #include "AudioStream.h"
-#include "ustring.h"
+#include "AudioStreamPlayback.h"
 class AudioStreamPlayer3D : public Spatial{
 public:
 enum AttenuationModel{
@@ -72,7 +72,10 @@ protected:
 public:
 explicit AudioStreamPlayer3D(WasGoID p_wasgo_id);
 explicit AudioStreamPlayer3D(Spatial other);
+AudioStreamPlayer3D();
 AudioStreamPlayer3D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

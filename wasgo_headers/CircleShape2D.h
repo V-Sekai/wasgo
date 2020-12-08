@@ -2,7 +2,7 @@
 #ifndef CIRCLESHAPE2D_H
 #define CIRCLESHAPE2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Shape2D.h"
 class CircleShape2D : public Shape2D{
@@ -14,7 +14,10 @@ protected:
 public:
 explicit CircleShape2D(WasGoID p_wasgo_id);
 explicit CircleShape2D(Shape2D other);
+CircleShape2D();
 CircleShape2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

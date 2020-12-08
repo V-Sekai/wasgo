@@ -2,13 +2,13 @@
 #ifndef HTTPCLIENT_H
 #define HTTPCLIENT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Reference.h"
-#include "Variant.h"
 #include "StreamPeer.h"
 #include "error_list.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Ustring.h"
 class HTTPClient : public Reference{
 public:
 enum Method{
@@ -113,7 +113,7 @@ bool is_response_chunked();
 Error poll();
 String query_string_from_dict(Dictionary p_fields);
 PoolByteArray read_response_body_chunk();
-Error request(HTTPClient::Method p_method, String p_url, PoolStringArray p_headers, String p_body = (String) );
+Error request(HTTPClient::Method p_method, String p_url, PoolStringArray p_headers, String p_body = String());
 Error request_raw(HTTPClient::Method p_method, String p_url, PoolStringArray p_headers, PoolByteArray p_body);
 void set_blocking_mode(bool p_enabled);
 void set_connection(StreamPeer p_connection);
@@ -123,7 +123,10 @@ protected:
 public:
 explicit HTTPClient(WasGoID p_wasgo_id);
 explicit HTTPClient(Reference other);
+HTTPClient();
 HTTPClient new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

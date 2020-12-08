@@ -2,10 +2,10 @@
 #ifndef HEIGHTMAPSHAPE_H
 #define HEIGHTMAPSHAPE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Shape.h"
 #include "Variant.h"
+#include "Shape.h"
 class HeightMapShape : public Shape{
 public:
 PoolRealArray get_map_data();
@@ -19,7 +19,10 @@ protected:
 public:
 explicit HeightMapShape(WasGoID p_wasgo_id);
 explicit HeightMapShape(Shape other);
+HeightMapShape();
 HeightMapShape new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

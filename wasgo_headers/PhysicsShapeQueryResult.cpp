@@ -23,3 +23,19 @@ RID PhysicsShapeQueryResult::get_result_rid(int p_idx){
     return (RID) wasgo_ret;
     
 }
+
+PhysicsShapeQueryResult::PhysicsShapeQueryResult(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
+}
+PhysicsShapeQueryResult::PhysicsShapeQueryResult(Reference other) : Reference(other._get_wasgo_id()){
+}
+PhysicsShapeQueryResult::PhysicsShapeQueryResult():Reference(){
+}
+PhysicsShapeQueryResult PhysicsShapeQueryResult::new_instance(){
+    return PhysicsShapeQueryResult(_wasgo_PhysicsShapeQueryResult_constructor());
+}
+WasGoID PhysicsShapeQueryResult::_get_wasgo_id(){
+    return wasgo_id;
+}
+PhysicsShapeQueryResult::operator bool(){
+    return (bool) wasgo_id;
+}

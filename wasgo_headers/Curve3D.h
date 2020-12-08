@@ -2,14 +2,14 @@
 #ifndef CURVE3D_H
 #define CURVE3D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector3.h"
-#include "Variant.h"
 #include "Resource.h"
+#include "Variant.h"
+#include "Vector3.h"
 class Curve3D : public Resource{
 public:
-void add_point(Vector3 p_position, Vector3 p_in = Vector3((0, 0, 0)), Vector3 p_out = Vector3((0, 0, 0)), int p_at_position = (int) -1);
+void add_point(Vector3 p_position, Vector3 p_in = Vector3(0, 0, 0), Vector3 p_out = Vector3(0, 0, 0), int p_at_position = (int) -1);
 void clear_points();
 float get_bake_interval();
 float get_baked_length();
@@ -41,7 +41,10 @@ protected:
 public:
 explicit Curve3D(WasGoID p_wasgo_id);
 explicit Curve3D(Resource other);
+Curve3D();
 Curve3D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

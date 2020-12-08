@@ -2,10 +2,10 @@
 #ifndef PHYSICSBODY2D_H
 #define PHYSICSBODY2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "CollisionObject2D.h"
-#include "Node.h"
+class Node;
 #include "Variant.h"
 class PhysicsBody2D : public CollisionObject2D{
 public:
@@ -20,6 +20,16 @@ void set_collision_layer(int p_layer);
 void set_collision_layer_bit(int p_bit, bool p_value);
 void set_collision_mask(int p_mask);
 void set_collision_mask_bit(int p_bit, bool p_value);
+
+protected:
+public:
+explicit PhysicsBody2D(WasGoID p_wasgo_id);
+explicit PhysicsBody2D(CollisionObject2D other);
+PhysicsBody2D();
+PhysicsBody2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

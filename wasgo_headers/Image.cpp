@@ -61,7 +61,7 @@ void Image::blit_rect_mask(Image p_src, Image p_mask, Rect2 p_src_rect, Vector2 
     
 	_wasgo_Image_wrapper_blit_rect_mask(wasgo_id, p_src._get_wasgo_id(), p_mask._get_wasgo_id(), wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_buffer_dst, wasgo_size_dst);
 }
-void Image::bumpmap_to_normalmap(float p_bump_scale = (float) 1){
+void Image::bumpmap_to_normalmap(float p_bump_scale){
 	_wasgo_Image_wrapper_bumpmap_to_normalmap(wasgo_id, p_bump_scale);
 }
 void Image::clear_mipmaps(){
@@ -112,7 +112,7 @@ void Image::flip_x(){
 void Image::flip_y(){
 	_wasgo_Image_wrapper_flip_y(wasgo_id);
 }
-Error Image::generate_mipmaps(bool p_renormalize = (bool) false){
+Error Image::generate_mipmaps(bool p_renormalize){
 	return Error(_wasgo_Image_wrapper_generate_mipmaps(wasgo_id, p_renormalize));
 }
 PoolByteArray Image::get_data(){
@@ -230,16 +230,16 @@ void Image::normalmap_to_xy(){
 void Image::premultiply_alpha(){
 	_wasgo_Image_wrapper_premultiply_alpha(wasgo_id);
 }
-void Image::resize(int p_width, int p_height, Image::Interpolation p_interpolation = (Image::Interpolation) 1){
+void Image::resize(int p_width, int p_height, Image::Interpolation p_interpolation){
 	_wasgo_Image_wrapper_resize(wasgo_id, p_width, p_height, p_interpolation._get_wasgo_id());
 }
-void Image::resize_to_po2(bool p_square = (bool) false){
+void Image::resize_to_po2(bool p_square){
 	_wasgo_Image_wrapper_resize_to_po2(wasgo_id, p_square);
 }
 Image Image::rgbe_to_srgb(){
 	return Image(_wasgo_Image_wrapper_rgbe_to_srgb(wasgo_id));
 }
-Error Image::save_exr(String p_path, bool p_grayscale = (bool) false){
+Error Image::save_exr(String p_path, bool p_grayscale){
 
     Variant wasgo_var_path = p_path;
     int wasgo_size_path = String(p_path).size();
@@ -297,8 +297,15 @@ void Image::unlock(){
 Image::Image(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Image::Image(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Image_constructor();
 }
-Image::new_instance(){
+Image::Image():Resource(){
+}
+Image Image::new_instance(){
     return Image(_wasgo_Image_constructor());
+}
+WasGoID Image::_get_wasgo_id(){
+    return wasgo_id;
+}
+Image::operator bool(){
+    return (bool) wasgo_id;
 }

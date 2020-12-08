@@ -23,8 +23,15 @@ void AudioEffectPitchShift::set_pitch_scale(float p_rate){
 AudioEffectPitchShift::AudioEffectPitchShift(WasGoID p_wasgo_id) : AudioEffect(p_wasgo_id){
 }
 AudioEffectPitchShift::AudioEffectPitchShift(AudioEffect other) : AudioEffect(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioEffectPitchShift_constructor();
 }
-AudioEffectPitchShift::new_instance(){
+AudioEffectPitchShift::AudioEffectPitchShift():AudioEffect(){
+}
+AudioEffectPitchShift AudioEffectPitchShift::new_instance(){
     return AudioEffectPitchShift(_wasgo_AudioEffectPitchShift_constructor());
+}
+WasGoID AudioEffectPitchShift::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioEffectPitchShift::operator bool(){
+    return (bool) wasgo_id;
 }

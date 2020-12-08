@@ -91,8 +91,15 @@ void MeshLibrary::set_item_shapes(int p_id, Array p_shapes){
 MeshLibrary::MeshLibrary(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 MeshLibrary::MeshLibrary(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_MeshLibrary_constructor();
 }
-MeshLibrary::new_instance(){
+MeshLibrary::MeshLibrary():Resource(){
+}
+MeshLibrary MeshLibrary::new_instance(){
     return MeshLibrary(_wasgo_MeshLibrary_constructor());
+}
+WasGoID MeshLibrary::_get_wasgo_id(){
+    return wasgo_id;
+}
+MeshLibrary::operator bool(){
+    return (bool) wasgo_id;
 }

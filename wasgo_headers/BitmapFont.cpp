@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "BitmapFont.h"
-void BitmapFont::add_char(int p_character, int p_texture, Rect2 p_rect, Vector2 p_align = Vector2((0, 0)), float p_advance = (float) -1){
+void BitmapFont::add_char(int p_character, int p_texture, Rect2 p_rect, Vector2 p_align, float p_advance){
 
     Variant wasgo_var_rect = p_rect;
     uint8_t wasgo_buffer_rect[20];
@@ -62,8 +62,15 @@ void BitmapFont::set_height(float p_px){
 BitmapFont::BitmapFont(WasGoID p_wasgo_id) : Font(p_wasgo_id){
 }
 BitmapFont::BitmapFont(Font other) : Font(other._get_wasgo_id()){
-    wasgo_id = _wasgo_BitmapFont_constructor();
 }
-BitmapFont::new_instance(){
+BitmapFont::BitmapFont():Font(){
+}
+BitmapFont BitmapFont::new_instance(){
     return BitmapFont(_wasgo_BitmapFont_constructor());
+}
+WasGoID BitmapFont::_get_wasgo_id(){
+    return wasgo_id;
+}
+BitmapFont::operator bool(){
+    return (bool) wasgo_id;
 }

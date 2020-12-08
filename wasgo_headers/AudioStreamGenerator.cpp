@@ -17,8 +17,15 @@ void AudioStreamGenerator::set_mix_rate(float p_hz){
 AudioStreamGenerator::AudioStreamGenerator(WasGoID p_wasgo_id) : AudioStream(p_wasgo_id){
 }
 AudioStreamGenerator::AudioStreamGenerator(AudioStream other) : AudioStream(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AudioStreamGenerator_constructor();
 }
-AudioStreamGenerator::new_instance(){
+AudioStreamGenerator::AudioStreamGenerator():AudioStream(){
+}
+AudioStreamGenerator AudioStreamGenerator::new_instance(){
     return AudioStreamGenerator(_wasgo_AudioStreamGenerator_constructor());
+}
+WasGoID AudioStreamGenerator::_get_wasgo_id(){
+    return wasgo_id;
+}
+AudioStreamGenerator::operator bool(){
+    return (bool) wasgo_id;
 }

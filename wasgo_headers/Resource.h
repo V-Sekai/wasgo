@@ -2,12 +2,12 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
+class Node;
 #include "RID.h"
-#include "Node.h"
-#include "ustring.h"
+#include "Ustring.h"
+#include "Reference.h"
 class Resource : public Reference{
 public:
 Resource duplicate(bool p_subresources = (bool) false);
@@ -26,7 +26,10 @@ protected:
 public:
 explicit Resource(WasGoID p_wasgo_id);
 explicit Resource(Reference other);
+Resource();
 Resource new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

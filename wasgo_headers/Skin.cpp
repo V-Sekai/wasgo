@@ -67,8 +67,15 @@ void Skin::set_bind_pose(int p_bind_index, Transform p_pose){
 Skin::Skin(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 Skin::Skin(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Skin_constructor();
 }
-Skin::new_instance(){
+Skin::Skin():Resource(){
+}
+Skin Skin::new_instance(){
     return Skin(_wasgo_Skin_constructor());
+}
+WasGoID Skin::_get_wasgo_id(){
+    return wasgo_id;
+}
+Skin::operator bool(){
+    return (bool) wasgo_id;
 }

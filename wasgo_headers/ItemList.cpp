@@ -1,10 +1,10 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "ItemList.h"
-void ItemList::add_icon_item(Texture p_icon, bool p_selectable = (bool) true){
+void ItemList::add_icon_item(Texture p_icon, bool p_selectable){
 	_wasgo_ItemList_wrapper_add_icon_item(wasgo_id, p_icon._get_wasgo_id(), p_selectable);
 }
-void ItemList::add_item(String p_text, Texture p_icon = (Texture) "", bool p_selectable = (bool) true){
+void ItemList::add_item(String p_text, Texture p_icon, bool p_selectable){
 
     Variant wasgo_var_text = p_text;
     int wasgo_size_text = String(p_text).size();
@@ -44,7 +44,7 @@ ItemList::IconMode ItemList::get_icon_mode(){
 float ItemList::get_icon_scale(){
 	return (float) _wasgo_ItemList_wrapper_get_icon_scale(wasgo_id);
 }
-int ItemList::get_item_at_position(Vector2 p_position, bool p_exact = (bool) false){
+int ItemList::get_item_at_position(Vector2 p_position, bool p_exact){
 
     Variant wasgo_var_position = p_position;
     uint8_t wasgo_buffer_position[12];
@@ -167,7 +167,7 @@ void ItemList::move_item(int p_from_idx, int p_to_idx){
 void ItemList::remove_item(int p_idx){
 	_wasgo_ItemList_wrapper_remove_item(wasgo_id, p_idx);
 }
-void ItemList::select(int p_idx, bool p_single = (bool) true){
+void ItemList::select(int p_idx, bool p_single){
 	_wasgo_ItemList_wrapper_select(wasgo_id, p_idx, p_single);
 }
 void ItemList::set_allow_reselect(bool p_allow){
@@ -294,8 +294,15 @@ void ItemList::unselect_all(){
 ItemList::ItemList(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 ItemList::ItemList(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ItemList_constructor();
 }
-ItemList::new_instance(){
+ItemList::ItemList():Control(){
+}
+ItemList ItemList::new_instance(){
     return ItemList(_wasgo_ItemList_constructor());
+}
+WasGoID ItemList::_get_wasgo_id(){
+    return wasgo_id;
+}
+ItemList::operator bool(){
+    return (bool) wasgo_id;
 }

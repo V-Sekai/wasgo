@@ -33,8 +33,15 @@ void InputEventScreenTouch::set_pressed(bool p_pressed){
 InputEventScreenTouch::InputEventScreenTouch(WasGoID p_wasgo_id) : InputEvent(p_wasgo_id){
 }
 InputEventScreenTouch::InputEventScreenTouch(InputEvent other) : InputEvent(other._get_wasgo_id()){
-    wasgo_id = _wasgo_InputEventScreenTouch_constructor();
 }
-InputEventScreenTouch::new_instance(){
+InputEventScreenTouch::InputEventScreenTouch():InputEvent(){
+}
+InputEventScreenTouch InputEventScreenTouch::new_instance(){
     return InputEventScreenTouch(_wasgo_InputEventScreenTouch_constructor());
+}
+WasGoID InputEventScreenTouch::_get_wasgo_id(){
+    return wasgo_id;
+}
+InputEventScreenTouch::operator bool(){
+    return (bool) wasgo_id;
 }

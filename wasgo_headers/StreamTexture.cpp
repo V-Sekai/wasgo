@@ -24,8 +24,15 @@ Error StreamTexture::load(String p_path){
 StreamTexture::StreamTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 StreamTexture::StreamTexture(Texture other) : Texture(other._get_wasgo_id()){
-    wasgo_id = _wasgo_StreamTexture_constructor();
 }
-StreamTexture::new_instance(){
+StreamTexture::StreamTexture():Texture(){
+}
+StreamTexture StreamTexture::new_instance(){
     return StreamTexture(_wasgo_StreamTexture_constructor());
+}
+WasGoID StreamTexture::_get_wasgo_id(){
+    return wasgo_id;
+}
+StreamTexture::operator bool(){
+    return (bool) wasgo_id;
 }

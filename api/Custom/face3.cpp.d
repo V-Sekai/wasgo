@@ -7,7 +7,7 @@
   ..\api\Custom\error_macros.h ..\api\Custom\memory.h \
   ..\api\Custom\safe_refcount.h ..\api\Custom\mutex.h \
   ..\api\Custom\Vector.h ..\api\Custom\Transform.h ..\api\Custom\Basis.h \
-  ..\api\Custom\Quat.h ..\api\Custom\PoolVector.h
+  ..\api\Custom\Quat.h
 
 ..\api\Custom\face3.h:
 
@@ -50,5 +50,3 @@
 ..\api\Custom\Basis.h:
 
 ..\api\Custom\Quat.h:
-
-..\api\Custom\PoolVector.h:

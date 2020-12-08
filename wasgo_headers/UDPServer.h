@@ -2,12 +2,12 @@
 #ifndef UDPSERVER_H
 #define UDPSERVER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Reference.h"
+#include "Ustring.h"
 #include "error_list.h"
 #include "PacketPeerUDP.h"
-#include "ustring.h"
 class UDPServer : public Reference{
 public:
 int get_max_pending_connections();
@@ -23,7 +23,10 @@ protected:
 public:
 explicit UDPServer(WasGoID p_wasgo_id);
 explicit UDPServer(Reference other);
+UDPServer();
 UDPServer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

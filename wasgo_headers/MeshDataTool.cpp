@@ -204,8 +204,15 @@ void MeshDataTool::set_vertex_weights(int p_idx, PoolRealArray p_weights){
 MeshDataTool::MeshDataTool(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 MeshDataTool::MeshDataTool(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_MeshDataTool_constructor();
 }
-MeshDataTool::new_instance(){
+MeshDataTool::MeshDataTool():Reference(){
+}
+MeshDataTool MeshDataTool::new_instance(){
     return MeshDataTool(_wasgo_MeshDataTool_constructor());
+}
+WasGoID MeshDataTool::_get_wasgo_id(){
+    return wasgo_id;
+}
+MeshDataTool::operator bool(){
+    return (bool) wasgo_id;
 }

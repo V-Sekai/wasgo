@@ -2,7 +2,7 @@
 #ifndef CONETWISTJOINT_H
 #define CONETWISTJOINT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Joint.h"
 class ConeTwistJoint : public Joint{
@@ -22,7 +22,10 @@ protected:
 public:
 explicit ConeTwistJoint(WasGoID p_wasgo_id);
 explicit ConeTwistJoint(Joint other);
+ConeTwistJoint();
 ConeTwistJoint new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

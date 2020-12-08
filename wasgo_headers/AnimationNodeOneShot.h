@@ -2,7 +2,7 @@
 #ifndef ANIMATIONNODEONESHOT_H
 #define ANIMATIONNODEONESHOT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AnimationNode.h"
 class AnimationNodeOneShot : public AnimationNode{
@@ -30,7 +30,10 @@ protected:
 public:
 explicit AnimationNodeOneShot(WasGoID p_wasgo_id);
 explicit AnimationNodeOneShot(AnimationNode other);
+AnimationNodeOneShot();
 AnimationNodeOneShot new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

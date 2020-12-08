@@ -119,8 +119,15 @@ void RayCast2D::set_exclude_parent_body(bool p_mask){
 RayCast2D::RayCast2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 RayCast2D::RayCast2D(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_RayCast2D_constructor();
 }
-RayCast2D::new_instance(){
+RayCast2D::RayCast2D():Node2D(){
+}
+RayCast2D RayCast2D::new_instance(){
     return RayCast2D(_wasgo_RayCast2D_constructor());
+}
+WasGoID RayCast2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+RayCast2D::operator bool(){
+    return (bool) wasgo_id;
 }

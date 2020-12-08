@@ -67,3 +67,19 @@ void Range::share(Node p_with){
 void Range::unshare(){
 	_wasgo_Range_wrapper_unshare(wasgo_id);
 }
+
+Range::Range(WasGoID p_wasgo_id) : Control(p_wasgo_id){
+}
+Range::Range(Control other) : Control(other._get_wasgo_id()){
+}
+Range::Range():Control(){
+}
+Range Range::new_instance(){
+    return Range(_wasgo_Range_constructor());
+}
+WasGoID Range::_get_wasgo_id(){
+    return wasgo_id;
+}
+Range::operator bool(){
+    return (bool) wasgo_id;
+}

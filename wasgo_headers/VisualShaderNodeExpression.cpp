@@ -24,8 +24,15 @@ void VisualShaderNodeExpression::set_expression(String p_expression){
 VisualShaderNodeExpression::VisualShaderNodeExpression(WasGoID p_wasgo_id) : VisualShaderNodeGroupBase(p_wasgo_id){
 }
 VisualShaderNodeExpression::VisualShaderNodeExpression(VisualShaderNodeGroupBase other) : VisualShaderNodeGroupBase(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisualShaderNodeExpression_constructor();
 }
-VisualShaderNodeExpression::new_instance(){
+VisualShaderNodeExpression::VisualShaderNodeExpression():VisualShaderNodeGroupBase(){
+}
+VisualShaderNodeExpression VisualShaderNodeExpression::new_instance(){
     return VisualShaderNodeExpression(_wasgo_VisualShaderNodeExpression_constructor());
+}
+WasGoID VisualShaderNodeExpression::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeExpression::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -17,8 +17,15 @@ void ExternalTexture::set_size(Vector2 p_size){
 ExternalTexture::ExternalTexture(WasGoID p_wasgo_id) : Texture(p_wasgo_id){
 }
 ExternalTexture::ExternalTexture(Texture other) : Texture(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ExternalTexture_constructor();
 }
-ExternalTexture::new_instance(){
+ExternalTexture::ExternalTexture():Texture(){
+}
+ExternalTexture ExternalTexture::new_instance(){
     return ExternalTexture(_wasgo_ExternalTexture_constructor());
+}
+WasGoID ExternalTexture::_get_wasgo_id(){
+    return wasgo_id;
+}
+ExternalTexture::operator bool(){
+    return (bool) wasgo_id;
 }

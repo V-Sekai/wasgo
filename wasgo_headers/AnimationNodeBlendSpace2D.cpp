@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "AnimationNodeBlendSpace2D.h"
-void AnimationNodeBlendSpace2D::add_blend_point(AnimationRootNode p_node, Vector2 p_pos, int p_at_index = (int) -1){
+void AnimationNodeBlendSpace2D::add_blend_point(AnimationRootNode p_node, Vector2 p_pos, int p_at_index){
 
     Variant wasgo_var_pos = p_pos;
     uint8_t wasgo_buffer_pos[12];
@@ -10,7 +10,7 @@ void AnimationNodeBlendSpace2D::add_blend_point(AnimationRootNode p_node, Vector
     
 	_wasgo_AnimationNodeBlendSpace2D_wrapper_add_blend_point(wasgo_id, p_node._get_wasgo_id(), wasgo_buffer_pos, wasgo_size_pos, p_at_index);
 }
-void AnimationNodeBlendSpace2D::add_triangle(int p_x, int p_y, int p_z, int p_at_index = (int) -1){
+void AnimationNodeBlendSpace2D::add_triangle(int p_x, int p_y, int p_z, int p_at_index){
 	_wasgo_AnimationNodeBlendSpace2D_wrapper_add_triangle(wasgo_id, p_x, p_y, p_z, p_at_index);
 }
 bool AnimationNodeBlendSpace2D::get_auto_triangles(){
@@ -164,8 +164,15 @@ void AnimationNodeBlendSpace2D::set_y_label(String p_text){
 AnimationNodeBlendSpace2D::AnimationNodeBlendSpace2D(WasGoID p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
 AnimationNodeBlendSpace2D::AnimationNodeBlendSpace2D(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationNodeBlendSpace2D_constructor();
 }
-AnimationNodeBlendSpace2D::new_instance(){
+AnimationNodeBlendSpace2D::AnimationNodeBlendSpace2D():AnimationRootNode(){
+}
+AnimationNodeBlendSpace2D AnimationNodeBlendSpace2D::new_instance(){
     return AnimationNodeBlendSpace2D(_wasgo_AnimationNodeBlendSpace2D_constructor());
+}
+WasGoID AnimationNodeBlendSpace2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationNodeBlendSpace2D::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -105,10 +105,10 @@ void Node2D::look_at(Vector2 p_point){
     
 	_wasgo_Node2D_wrapper_look_at(wasgo_id, wasgo_buffer_point, wasgo_size_point);
 }
-void Node2D::move_local_x(float p_delta, bool p_scaled = (bool) false){
+void Node2D::move_local_x(float p_delta, bool p_scaled){
 	_wasgo_Node2D_wrapper_move_local_x(wasgo_id, p_delta, p_scaled);
 }
-void Node2D::move_local_y(float p_delta, bool p_scaled = (bool) false){
+void Node2D::move_local_y(float p_delta, bool p_scaled){
 	_wasgo_Node2D_wrapper_move_local_y(wasgo_id, p_delta, p_scaled);
 }
 void Node2D::rotate(float p_radians){
@@ -231,8 +231,15 @@ void Node2D::translate(Vector2 p_offset){
 Node2D::Node2D(WasGoID p_wasgo_id) : CanvasItem(p_wasgo_id){
 }
 Node2D::Node2D(CanvasItem other) : CanvasItem(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Node2D_constructor();
 }
-Node2D::new_instance(){
+Node2D::Node2D():CanvasItem(){
+}
+Node2D Node2D::new_instance(){
     return Node2D(_wasgo_Node2D_constructor());
+}
+WasGoID Node2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+Node2D::operator bool(){
+    return (bool) wasgo_id;
 }

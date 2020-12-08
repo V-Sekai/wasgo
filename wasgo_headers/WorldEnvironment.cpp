@@ -11,8 +11,15 @@ void WorldEnvironment::set_environment(Environment p_env){
 WorldEnvironment::WorldEnvironment(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 WorldEnvironment::WorldEnvironment(Node other) : Node(other._get_wasgo_id()){
-    wasgo_id = _wasgo_WorldEnvironment_constructor();
 }
-WorldEnvironment::new_instance(){
+WorldEnvironment::WorldEnvironment():Node(){
+}
+WorldEnvironment WorldEnvironment::new_instance(){
     return WorldEnvironment(_wasgo_WorldEnvironment_constructor());
+}
+WasGoID WorldEnvironment::_get_wasgo_id(){
+    return wasgo_id;
+}
+WorldEnvironment::operator bool(){
+    return (bool) wasgo_id;
 }

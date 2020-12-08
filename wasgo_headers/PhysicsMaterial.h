@@ -2,7 +2,7 @@
 #ifndef PHYSICSMATERIAL_H
 #define PHYSICSMATERIAL_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
 class PhysicsMaterial : public Resource{
@@ -20,7 +20,10 @@ protected:
 public:
 explicit PhysicsMaterial(WasGoID p_wasgo_id);
 explicit PhysicsMaterial(Resource other);
+PhysicsMaterial();
 PhysicsMaterial new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

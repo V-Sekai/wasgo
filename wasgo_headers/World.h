@@ -2,10 +2,10 @@
 #ifndef WORLD_H
 #define WORLD_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "PhysicsDirectSpaceState.h"
 #include "Resource.h"
+#include "PhysicsDirectSpaceState.h"
 #include "Environment.h"
 #include "RID.h"
 class World : public Resource{
@@ -22,7 +22,10 @@ protected:
 public:
 explicit World(WasGoID p_wasgo_id);
 explicit World(Resource other);
+World();
 World new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

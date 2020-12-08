@@ -2,15 +2,25 @@
 #ifndef SKINREFERENCE_H
 #define SKINREFERENCE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Skin.h"
-#include "Reference.h"
 #include "RID.h"
+#include "Reference.h"
 class SkinReference : public Reference{
 public:
 RID get_skeleton();
 Skin get_skin();
+
+protected:
+public:
+explicit SkinReference(WasGoID p_wasgo_id);
+explicit SkinReference(Reference other);
+SkinReference();
+SkinReference new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

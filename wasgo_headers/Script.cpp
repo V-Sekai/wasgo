@@ -66,7 +66,7 @@ bool Script::instance_has(Object p_base_object){
 bool Script::is_tool(){
 	return (bool) _wasgo_Script_wrapper_is_tool(wasgo_id);
 }
-Error Script::reload(bool p_keep_state = (bool) false){
+Error Script::reload(bool p_keep_state){
 	return Error(_wasgo_Script_wrapper_reload(wasgo_id, p_keep_state));
 }
 void Script::set_source_code(String p_source){
@@ -77,4 +77,20 @@ void Script::set_source_code(String p_source){
     encode_variant(wasgo_var_source, wasgo_buffer_source, wasgo_size_source);
     
 	_wasgo_Script_wrapper_set_source_code(wasgo_id, wasgo_buffer_source, wasgo_size_source);
+}
+
+Script::Script(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
+}
+Script::Script(Resource other) : Resource(other._get_wasgo_id()){
+}
+Script::Script():Resource(){
+}
+Script Script::new_instance(){
+    return Script(_wasgo_Script_constructor());
+}
+WasGoID Script::_get_wasgo_id(){
+    return wasgo_id;
+}
+Script::operator bool(){
+    return (bool) wasgo_id;
 }

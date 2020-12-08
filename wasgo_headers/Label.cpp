@@ -90,8 +90,15 @@ void Label::set_visible_characters(int p_amount){
 Label::Label(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 Label::Label(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Label_constructor();
 }
-Label::new_instance(){
+Label::Label():Control(){
+}
+Label Label::new_instance(){
     return Label(_wasgo_Label_constructor());
+}
+WasGoID Label::_get_wasgo_id(){
+    return wasgo_id;
+}
+Label::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,12 +2,12 @@
 #ifndef RESOURCEFORMATSAVER_H
 #define RESOURCEFORMATSAVER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
-#include "Variant.h"
 #include "Resource.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Reference.h"
+#include "Ustring.h"
 class ResourceFormatSaver : public Reference{
 public:
 PoolStringArray get_recognized_extensions(Resource p_resource);
@@ -18,7 +18,10 @@ protected:
 public:
 explicit ResourceFormatSaver(WasGoID p_wasgo_id);
 explicit ResourceFormatSaver(Reference other);
+ResourceFormatSaver();
 ResourceFormatSaver new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

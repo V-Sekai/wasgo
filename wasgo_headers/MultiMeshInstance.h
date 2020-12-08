@@ -2,10 +2,10 @@
 #ifndef MULTIMESHINSTANCE_H
 #define MULTIMESHINSTANCE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "GeometryInstance.h"
 #include "MultiMesh.h"
+#include "GeometryInstance.h"
 class MultiMeshInstance : public GeometryInstance{
 public:
 MultiMesh get_multimesh();
@@ -15,7 +15,10 @@ protected:
 public:
 explicit MultiMeshInstance(WasGoID p_wasgo_id);
 explicit MultiMeshInstance(GeometryInstance other);
+MultiMeshInstance();
 MultiMeshInstance new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -7,7 +7,7 @@ bool TCP_Server::is_connection_available(){
 bool TCP_Server::is_listening(){
 	return (bool) _wasgo_TCP_Server_wrapper_is_listening(wasgo_id);
 }
-Error TCP_Server::listen(int p_port, String p_bind_address = (String) *){
+Error TCP_Server::listen(int p_port, String p_bind_address){
 
     Variant wasgo_var_bind_address = p_bind_address;
     int wasgo_size_bind_address = String(p_bind_address).size();
@@ -26,8 +26,15 @@ StreamPeerTCP TCP_Server::take_connection(){
 TCP_Server::TCP_Server(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 TCP_Server::TCP_Server(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_TCP_Server_constructor();
 }
-TCP_Server::new_instance(){
+TCP_Server::TCP_Server():Reference(){
+}
+TCP_Server TCP_Server::new_instance(){
     return TCP_Server(_wasgo_TCP_Server_constructor());
+}
+WasGoID TCP_Server::_get_wasgo_id(){
+    return wasgo_id;
+}
+TCP_Server::operator bool(){
+    return (bool) wasgo_id;
 }

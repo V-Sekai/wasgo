@@ -421,8 +421,9 @@ def void_if_null(name):
 
 def diff_header_names(name):
     unique_headers = {
-        "String" : "ustring",
-        "Error" : "error_list"
+        "String" : "Ustring",
+        "Error" : "error_list",
+        "Margin" : "math_defs"
     }
     if name in unique_headers:
         return unique_headers[name]
@@ -779,8 +780,19 @@ def write_wasm_class_headers(file_path, api_dict):
                     default_val = str(argument['default_value']).lower() if argument['default_value'] != None else '""'
                     if has_default_val:
                         if ("," in default_val):
-                            args.append('{0} p_{1} = {0}({2})'.format(
-                                drop_underscore(void_if_null(argument_type)), argument_name, default_val))
+                            if ("(" in default_val):
+                                args.append('{0} p_{1} = {0}({2})'.format(
+                                    drop_underscore(void_if_null(argument_type)), argument_name, default_val.replace("(","").replace(")", "")))
+                            else:
+                                args.append('{0} p_{1} = {0}({2})'.format(
+                                    drop_underscore(void_if_null(argument_type)), argument_name, default_val))
+                        elif (default_val == "\"\"" or default_val == "[Object:null]" or default_val == "[object:null]" or default_val == "[]" or default_val == "" or default_val == None):
+                            # if(argument_type in api_dict and api_dict[argument_type]["instanciable"]):
+                                args.append('{0} p_{1} = {0}()'.format(
+                                    drop_underscore(void_if_null(argument_type)), argument_name))
+                            # else:
+                            #     args.append('{0} p_{1} = Ref<{0}>()'.format(
+                            #         drop_underscore(void_if_null(argument_type)), argument_name))
                         else:
                             args.append('{0} p_{1} = ({0}) {2}'.format(
                                 drop_underscore(void_if_null(argument_type)), argument_name, default_val))
@@ -811,6 +823,8 @@ explicit {0}(WasGoID p_wasgo_id);
 explicit {0}({1} other);
 {0}();
 {0} new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             """.format(class_name, base_class)
         ]
         return out
@@ -823,7 +837,7 @@ explicit {0}({1} other);
             "#define %s_H" % drop_underscore(class_dict["name"]).upper(),
             "",
             # "#include \"stdint.h\"",
-            "#include \"wasgo\wasgo.h\"",
+            "#include \"wasgo\wasgoid.h\"",
             "",
         ]
         includes = set()
@@ -832,6 +846,7 @@ explicit {0}({1} other);
         #TODO review this weird exception
         if (n == "Object"):
             includes.add("Variant")
+            return;
 
         for method in class_dict['methods'].values():
             for args in method["arguments"].values():
@@ -843,6 +858,8 @@ explicit {0}({1} other);
                             includes.add(args["type"][0:args["type"].find("::")])
                     elif (args["type"] != class_dict["name"]) and args["type"][0].isupper():
                         includes.add(args["type"])
+                    # if args["type"] in api_dict and not api_dict[args["type"]]["instanciable"]:
+                    #     includes.add("Reference")
             if method["return_type"]:
                 if method["return_type"] in variants:
                     includes.add("Variant")
@@ -854,7 +871,10 @@ explicit {0}({1} other);
         if class_dict["base_class"]:
             includes.add(class_dict["base_class"])
         for include in includes:
-            header_file_data += ["#include \"%s.h\"" % diff_header_names(include)]
+            if include in ["Node", "PackedScene", "StyleBox"] and class_dict["base_class"] != include:
+                header_file_data += ["class %s;" % diff_header_names(include)]
+            else:
+                header_file_data += ["#include \"%s.h\"" % diff_header_names(include)]
         if class_dict['base_class']:
             header_file_data += ["class %s : public %s{" % (n, drop_underscore(class_dict["base_class"]))]
         elif (n == "Object"):
@@ -877,8 +897,8 @@ explicit {0}({1} other);
         header_file_data += generate_header_function_interface(
             n, class_dict['methods'])
 
-        if (class_dict["instanciable"] and not class_dict["singleton"]):
-            header_file_data += constructor(n, diff_type_names(class_dict["base_class"]))
+        # if (class_dict["instanciable"] and not class_dict["singleton"]):
+        header_file_data += constructor(n, diff_type_names(class_dict["base_class"]))
 
         header_file_data += ["};"]
         
@@ -911,14 +931,15 @@ def write_wasm_classes(file_path, api_dict):
             argument_name = argument['name']
             has_default_val = argument['has_default_value']
             default_val = str(argument['default_value']).lower() if argument['default_value'] != None else '""'
-            if has_default_val:
-                if ("," in default_val):
-                    args.append('{0} p_{1} = {0}({2})'.format(diff_type_names(
-                        void_if_null(argument_type)), argument_name, str(default_val).lower()))
-                else:
-                    args.append('{0} p_{1} = ({0}) {2}'.format(diff_type_names(void_if_null(argument_type)), argument_name, str(default_val).lower()))
-            else:
-                args.append('%s p_%s' % (diff_type_names(void_if_null(argument_type)), argument_name))
+            # if has_default_val:
+            #     if ("," in default_val):
+            #         args.append('{0} p_{1} = {0}({2})'.format(diff_type_names(
+            #             void_if_null(argument_type)), argument_name, str(default_val).lower()))
+            #     else:
+            #         args.append('{0} p_{1} = ({0}) {2}'.format(diff_type_names(void_if_null(argument_type)), argument_name, str(default_val).lower()))
+            # else:
+            #     args.append('%s p_%s' % (diff_type_names(void_if_null(argument_type)), argument_name))
+            args.append('%s p_%s' % (diff_type_names(void_if_null(argument_type)), argument_name))
         return ", ".join(args)
 
     def converted_arg_string(arg_type, arg_name):
@@ -987,13 +1008,19 @@ def write_wasm_classes(file_path, api_dict):
 {0}::{0}(WasGoID p_wasgo_id) : {1}(p_wasgo_id){{
 }}
 {0}::{0}({1} other) : {1}(other._get_wasgo_id()){{
-    wasgo_id = _wasgo_{0}_constructor();
 }}
 {0}::{0}():{1}(){{
 }}
-{0}::new_instance(){{
+{0} {0}::new_instance(){{
     return {0}(_wasgo_{0}_constructor());
-}}""".format(class_name, base_class)
+}}
+WasGoID {0}::_get_wasgo_id(){{
+    return wasgo_id;
+}}
+{0}::operator bool(){{
+    return (bool) wasgo_id;
+}}
+""".format(class_name, base_class)
         ]
         return out
 
@@ -1009,7 +1036,8 @@ def write_wasm_classes(file_path, api_dict):
                 
                 out += wrapper_body(n, methods['name'], void_if_null(methods['return_type']), methods['arguments'].values())
             
-            if (class_dict["instanciable"] and not class_dict["singleton"]):
+            # if (class_dict["instanciable"] and not class_dict["singleton"]):
+            if (not class_dict["singleton"]):
                 out += constructor_and_destructor(n, diff_type_names(class_dict["base_class"]))
             with open(file_path, 'w') as fd:  # to be included on the native side
                 fd.write('\n'.join(out))
@@ -1090,7 +1118,15 @@ class_whitelist = [
     "Spatial",
     "Node",
     "SceneTree",
-    "SpatialVelocityTracker"
+    "SpatialVelocityTracker",
+    "InputEvent",
+    "InputEventAction",
+    "InputEventKey",
+    "InputEventMouse",
+    "InputEventMouseButton",
+    "InputEventMouseMotion",
+    "InputEventWithModifiers",
+    "Resource"
 ]
 
 

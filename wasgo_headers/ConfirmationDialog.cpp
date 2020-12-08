@@ -8,8 +8,15 @@ Button ConfirmationDialog::get_cancel(){
 ConfirmationDialog::ConfirmationDialog(WasGoID p_wasgo_id) : AcceptDialog(p_wasgo_id){
 }
 ConfirmationDialog::ConfirmationDialog(AcceptDialog other) : AcceptDialog(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ConfirmationDialog_constructor();
 }
-ConfirmationDialog::new_instance(){
+ConfirmationDialog::ConfirmationDialog():AcceptDialog(){
+}
+ConfirmationDialog ConfirmationDialog::new_instance(){
     return ConfirmationDialog(_wasgo_ConfirmationDialog_constructor());
+}
+WasGoID ConfirmationDialog::_get_wasgo_id(){
+    return wasgo_id;
+}
+ConfirmationDialog::operator bool(){
+    return (bool) wasgo_id;
 }

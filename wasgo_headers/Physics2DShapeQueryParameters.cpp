@@ -95,8 +95,15 @@ void Physics2DShapeQueryParameters::set_transform(Transform2D p_transform){
 Physics2DShapeQueryParameters::Physics2DShapeQueryParameters(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Physics2DShapeQueryParameters::Physics2DShapeQueryParameters(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Physics2DShapeQueryParameters_constructor();
 }
-Physics2DShapeQueryParameters::new_instance(){
+Physics2DShapeQueryParameters::Physics2DShapeQueryParameters():Reference(){
+}
+Physics2DShapeQueryParameters Physics2DShapeQueryParameters::new_instance(){
     return Physics2DShapeQueryParameters(_wasgo_Physics2DShapeQueryParameters_constructor());
+}
+WasGoID Physics2DShapeQueryParameters::_get_wasgo_id(){
+    return wasgo_id;
+}
+Physics2DShapeQueryParameters::operator bool(){
+    return (bool) wasgo_id;
 }

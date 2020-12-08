@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "GIProbe.h"
-void GIProbe::bake(Node p_from_node = (Node) "", bool p_create_visual_debug = (bool) false){
+void GIProbe::bake(Node p_from_node, bool p_create_visual_debug){
 	_wasgo_GIProbe_wrapper_bake(wasgo_id, p_from_node._get_wasgo_id(), p_create_visual_debug);
 }
 void GIProbe::debug_bake(){
@@ -84,8 +84,15 @@ void GIProbe::set_subdiv(GIProbe::Subdiv p_subdiv){
 GIProbe::GIProbe(WasGoID p_wasgo_id) : VisualInstance(p_wasgo_id){
 }
 GIProbe::GIProbe(VisualInstance other) : VisualInstance(other._get_wasgo_id()){
-    wasgo_id = _wasgo_GIProbe_constructor();
 }
-GIProbe::new_instance(){
+GIProbe::GIProbe():VisualInstance(){
+}
+GIProbe GIProbe::new_instance(){
     return GIProbe(_wasgo_GIProbe_constructor());
+}
+WasGoID GIProbe::_get_wasgo_id(){
+    return wasgo_id;
+}
+GIProbe::operator bool(){
+    return (bool) wasgo_id;
 }

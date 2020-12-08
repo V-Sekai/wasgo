@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "AnimationNodeStateMachine.h"
-void AnimationNodeStateMachine::add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2((0, 0))){
+void AnimationNodeStateMachine::add_node(String p_name, AnimationNode p_node, Vector2 p_position){
 
     Variant wasgo_var_name = p_name;
     int wasgo_size_name = String(p_name).size();
@@ -243,8 +243,15 @@ void AnimationNodeStateMachine::set_start_node(String p_name){
 AnimationNodeStateMachine::AnimationNodeStateMachine(WasGoID p_wasgo_id) : AnimationRootNode(p_wasgo_id){
 }
 AnimationNodeStateMachine::AnimationNodeStateMachine(AnimationRootNode other) : AnimationRootNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationNodeStateMachine_constructor();
 }
-AnimationNodeStateMachine::new_instance(){
+AnimationNodeStateMachine::AnimationNodeStateMachine():AnimationRootNode(){
+}
+AnimationNodeStateMachine AnimationNodeStateMachine::new_instance(){
     return AnimationNodeStateMachine(_wasgo_AnimationNodeStateMachine_constructor());
+}
+WasGoID AnimationNodeStateMachine::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationNodeStateMachine::operator bool(){
+    return (bool) wasgo_id;
 }

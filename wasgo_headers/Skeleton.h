@@ -2,16 +2,16 @@
 #ifndef SKELETON_H
 #define SKELETON_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Skin.h"
-#include "Spatial.h"
-#include "Node.h"
+class Node;
 #include "Variant.h"
+#include "Spatial.h"
+#include "Transform.h"
 #include "SkinReference.h"
 #include "RID.h"
-#include "Transform.h"
-#include "ustring.h"
+#include "Ustring.h"
 class Skeleton : public Spatial{
 public:
 void add_bone(String p_name);
@@ -31,7 +31,7 @@ bool is_bone_rest_disabled(int p_bone_idx);
 void localize_rests();
 void physical_bones_add_collision_exception(RID p_exception);
 void physical_bones_remove_collision_exception(RID p_exception);
-void physical_bones_start_simulation(Array p_bones = (Array) []);
+void physical_bones_start_simulation(Array p_bones = Array());
 void physical_bones_stop_simulation();
 SkinReference register_skin(Skin p_skin);
 void set_bone_custom_pose(int p_bone_idx, Transform p_custom_pose);
@@ -47,7 +47,10 @@ protected:
 public:
 explicit Skeleton(WasGoID p_wasgo_id);
 explicit Skeleton(Spatial other);
+Skeleton();
 Skeleton new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "Line2D.h"
-void Line2D::add_point(Vector2 p_position, int p_at_position = (int) -1){
+void Line2D::add_point(Vector2 p_position, int p_at_position){
 
     Variant wasgo_var_position = p_position;
     uint8_t wasgo_buffer_position[12];
@@ -133,8 +133,15 @@ void Line2D::set_width(float p_width){
 Line2D::Line2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 Line2D::Line2D(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Line2D_constructor();
 }
-Line2D::new_instance(){
+Line2D::Line2D():Node2D(){
+}
+Line2D Line2D::new_instance(){
     return Line2D(_wasgo_Line2D_constructor());
+}
+WasGoID Line2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+Line2D::operator bool(){
+    return (bool) wasgo_id;
 }

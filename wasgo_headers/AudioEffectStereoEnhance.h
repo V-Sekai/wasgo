@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTSTEREOENHANCE_H
 #define AUDIOEFFECTSTEREOENHANCE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioEffect.h"
 class AudioEffectStereoEnhance : public AudioEffect{
@@ -18,7 +18,10 @@ protected:
 public:
 explicit AudioEffectStereoEnhance(WasGoID p_wasgo_id);
 explicit AudioEffectStereoEnhance(AudioEffect other);
+AudioEffectStereoEnhance();
 AudioEffectStereoEnhance new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -213,7 +213,7 @@ void RigidBody2D::set_use_custom_integrator(bool p_enable){
 void RigidBody2D::set_weight(float p_weight){
 	_wasgo_RigidBody2D_wrapper_set_weight(wasgo_id, p_weight);
 }
-bool RigidBody2D::test_motion(Vector2 p_motion, bool p_infinite_inertia = (bool) true, float p_margin = (float) 0.08, Physics2DTestMotionResult p_result = (Physics2DTestMotionResult) ""){
+bool RigidBody2D::test_motion(Vector2 p_motion, bool p_infinite_inertia, float p_margin, Physics2DTestMotionResult p_result){
 
     Variant wasgo_var_motion = p_motion;
     uint8_t wasgo_buffer_motion[12];
@@ -226,8 +226,15 @@ bool RigidBody2D::test_motion(Vector2 p_motion, bool p_infinite_inertia = (bool)
 RigidBody2D::RigidBody2D(WasGoID p_wasgo_id) : PhysicsBody2D(p_wasgo_id){
 }
 RigidBody2D::RigidBody2D(PhysicsBody2D other) : PhysicsBody2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_RigidBody2D_constructor();
 }
-RigidBody2D::new_instance(){
+RigidBody2D::RigidBody2D():PhysicsBody2D(){
+}
+RigidBody2D RigidBody2D::new_instance(){
     return RigidBody2D(_wasgo_RigidBody2D_constructor());
+}
+WasGoID RigidBody2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+RigidBody2D::operator bool(){
+    return (bool) wasgo_id;
 }

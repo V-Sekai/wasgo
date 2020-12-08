@@ -2,11 +2,11 @@
 #ifndef HASHINGCONTEXT_H
 #define HASHINGCONTEXT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Variant.h"
 #include "Reference.h"
 #include "error_list.h"
-#include "Variant.h"
 class HashingContext : public Reference{
 public:
 enum HashType{
@@ -22,7 +22,10 @@ protected:
 public:
 explicit HashingContext(WasGoID p_wasgo_id);
 explicit HashingContext(Reference other);
+HashingContext();
 HashingContext new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

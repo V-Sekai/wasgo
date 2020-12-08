@@ -2,11 +2,11 @@
 #ifndef COLLISIONSHAPE_H
 #define COLLISIONSHAPE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Resource.h"
 #include "Spatial.h"
 #include "Shape.h"
-#include "Resource.h"
 class CollisionShape : public Spatial{
 public:
 Shape get_shape();
@@ -20,7 +20,10 @@ protected:
 public:
 explicit CollisionShape(WasGoID p_wasgo_id);
 explicit CollisionShape(Spatial other);
+CollisionShape();
 CollisionShape new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

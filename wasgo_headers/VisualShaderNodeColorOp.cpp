@@ -11,8 +11,15 @@ void VisualShaderNodeColorOp::set_operator(VisualShaderNodeColorOp::Operator p_o
 VisualShaderNodeColorOp::VisualShaderNodeColorOp(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeColorOp::VisualShaderNodeColorOp(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisualShaderNodeColorOp_constructor();
 }
-VisualShaderNodeColorOp::new_instance(){
+VisualShaderNodeColorOp::VisualShaderNodeColorOp():VisualShaderNode(){
+}
+VisualShaderNodeColorOp VisualShaderNodeColorOp::new_instance(){
     return VisualShaderNodeColorOp(_wasgo_VisualShaderNodeColorOp_constructor());
+}
+WasGoID VisualShaderNodeColorOp::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeColorOp::operator bool(){
+    return (bool) wasgo_id;
 }

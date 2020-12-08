@@ -2,10 +2,10 @@
 #ifndef TEXTURELAYERED_H
 #define TEXTURELAYERED_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Image.h"
 #include "Resource.h"
+#include "Image.h"
 class TextureLayered : public Resource{
 public:
 enum Flags{
@@ -24,6 +24,16 @@ int get_width();
 void set_data_partial(Image p_image, int p_x_offset, int p_y_offset, int p_layer, int p_mipmap = (int) 0);
 void set_flags(int p_flags);
 void set_layer_data(Image p_image, int p_layer);
+
+protected:
+public:
+explicit TextureLayered(WasGoID p_wasgo_id);
+explicit TextureLayered(Resource other);
+TextureLayered();
+TextureLayered new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

@@ -98,8 +98,15 @@ void VehicleWheel::set_use_as_traction(bool p_enable){
 VehicleWheel::VehicleWheel(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 VehicleWheel::VehicleWheel(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VehicleWheel_constructor();
 }
-VehicleWheel::new_instance(){
+VehicleWheel::VehicleWheel():Spatial(){
+}
+VehicleWheel VehicleWheel::new_instance(){
     return VehicleWheel(_wasgo_VehicleWheel_constructor());
+}
+WasGoID VehicleWheel::_get_wasgo_id(){
+    return wasgo_id;
+}
+VehicleWheel::operator bool(){
+    return (bool) wasgo_id;
 }

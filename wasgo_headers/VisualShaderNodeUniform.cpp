@@ -20,3 +20,19 @@ void VisualShaderNodeUniform::set_uniform_name(String p_name){
     
 	_wasgo_VisualShaderNodeUniform_wrapper_set_uniform_name(wasgo_id, wasgo_buffer_name, wasgo_size_name);
 }
+
+VisualShaderNodeUniform::VisualShaderNodeUniform(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
+}
+VisualShaderNodeUniform::VisualShaderNodeUniform(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
+}
+VisualShaderNodeUniform::VisualShaderNodeUniform():VisualShaderNode(){
+}
+VisualShaderNodeUniform VisualShaderNodeUniform::new_instance(){
+    return VisualShaderNodeUniform(_wasgo_VisualShaderNodeUniform_constructor());
+}
+WasGoID VisualShaderNodeUniform::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeUniform::operator bool(){
+    return (bool) wasgo_id;
+}

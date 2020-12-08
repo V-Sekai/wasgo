@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "AcceptDialog.h"
-Button AcceptDialog::add_button(String p_text, bool p_right = (bool) false, String p_action = (String) ){
+Button AcceptDialog::add_button(String p_text, bool p_right, String p_action){
 
     Variant wasgo_var_text = p_text;
     int wasgo_size_text = String(p_text).size();
@@ -69,8 +69,15 @@ void AcceptDialog::set_text(String p_text){
 AcceptDialog::AcceptDialog(WasGoID p_wasgo_id) : WindowDialog(p_wasgo_id){
 }
 AcceptDialog::AcceptDialog(WindowDialog other) : WindowDialog(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AcceptDialog_constructor();
 }
-AcceptDialog::new_instance(){
+AcceptDialog::AcceptDialog():WindowDialog(){
+}
+AcceptDialog AcceptDialog::new_instance(){
     return AcceptDialog(_wasgo_AcceptDialog_constructor());
+}
+WasGoID AcceptDialog::_get_wasgo_id(){
+    return wasgo_id;
+}
+AcceptDialog::operator bool(){
+    return (bool) wasgo_id;
 }

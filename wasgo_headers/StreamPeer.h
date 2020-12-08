@@ -2,12 +2,12 @@
 #ifndef STREAMPEER_H
 #define STREAMPEER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
-#include "error_list.h"
 #include "Variant.h"
-#include "ustring.h"
+#include "Reference.h"
+#include "Ustring.h"
+#include "error_list.h"
 class StreamPeer : public Reference{
 public:
 int get_16();
@@ -43,6 +43,16 @@ void put_u8(int p_value);
 void put_utf8_string(String p_value);
 void put_var(Variant p_value, bool p_full_objects = (bool) false);
 void set_big_endian(bool p_enable);
+
+protected:
+public:
+explicit StreamPeer(WasGoID p_wasgo_id);
+explicit StreamPeer(Reference other);
+StreamPeer();
+StreamPeer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

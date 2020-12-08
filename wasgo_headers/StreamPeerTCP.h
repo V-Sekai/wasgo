@@ -2,11 +2,11 @@
 #ifndef STREAMPEERTCP_H
 #define STREAMPEERTCP_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "StreamPeer.h"
+#include "Ustring.h"
 #include "error_list.h"
-#include "ustring.h"
 class StreamPeerTCP : public StreamPeer{
 public:
 enum Status{
@@ -27,7 +27,10 @@ protected:
 public:
 explicit StreamPeerTCP(WasGoID p_wasgo_id);
 explicit StreamPeerTCP(StreamPeer other);
+StreamPeerTCP();
 StreamPeerTCP new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

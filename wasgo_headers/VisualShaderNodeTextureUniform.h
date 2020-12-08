@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODETEXTUREUNIFORM_H
 #define VISUALSHADERNODETEXTUREUNIFORM_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNodeUniform.h"
 class VisualShaderNodeTextureUniform : public VisualShaderNodeUniform{
@@ -26,7 +26,10 @@ protected:
 public:
 explicit VisualShaderNodeTextureUniform(WasGoID p_wasgo_id);
 explicit VisualShaderNodeTextureUniform(VisualShaderNodeUniform other);
+VisualShaderNodeTextureUniform();
 VisualShaderNodeTextureUniform new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

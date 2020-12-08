@@ -2,11 +2,11 @@
 #ifndef PHYSICSSHAPEQUERYRESULT_H
 #define PHYSICSSHAPEQUERYRESULT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Reference.h"
-#include "Object.h"
 #include "RID.h"
+#include "Object.h"
+#include "Reference.h"
 class PhysicsShapeQueryResult : public Reference{
 public:
 int get_result_count();
@@ -14,6 +14,16 @@ Object get_result_object(int p_idx);
 int get_result_object_id(int p_idx);
 int get_result_object_shape(int p_idx);
 RID get_result_rid(int p_idx);
+
+protected:
+public:
+explicit PhysicsShapeQueryResult(WasGoID p_wasgo_id);
+explicit PhysicsShapeQueryResult(Reference other);
+PhysicsShapeQueryResult();
+PhysicsShapeQueryResult new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

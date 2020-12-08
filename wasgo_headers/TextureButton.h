@@ -2,11 +2,11 @@
 #ifndef TEXTUREBUTTON_H
 #define TEXTUREBUTTON_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "BaseButton.h"
 #include "BitMap.h"
 #include "Texture.h"
-#include "BaseButton.h"
 class TextureButton : public BaseButton{
 public:
 enum StretchMode{
@@ -39,7 +39,10 @@ protected:
 public:
 explicit TextureButton(WasGoID p_wasgo_id);
 explicit TextureButton(BaseButton other);
+TextureButton();
 TextureButton new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

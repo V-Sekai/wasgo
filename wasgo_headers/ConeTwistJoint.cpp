@@ -11,8 +11,15 @@ void ConeTwistJoint::set_param(ConeTwistJoint::Param p_param, float p_value){
 ConeTwistJoint::ConeTwistJoint(WasGoID p_wasgo_id) : Joint(p_wasgo_id){
 }
 ConeTwistJoint::ConeTwistJoint(Joint other) : Joint(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ConeTwistJoint_constructor();
 }
-ConeTwistJoint::new_instance(){
+ConeTwistJoint::ConeTwistJoint():Joint(){
+}
+ConeTwistJoint ConeTwistJoint::new_instance(){
     return ConeTwistJoint(_wasgo_ConeTwistJoint_constructor());
+}
+WasGoID ConeTwistJoint::_get_wasgo_id(){
+    return wasgo_id;
+}
+ConeTwistJoint::operator bool(){
+    return (bool) wasgo_id;
 }

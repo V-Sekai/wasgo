@@ -33,7 +33,7 @@
 
 #include "reference.h"
 #include "typedefs.h"
-#include "variant.h"
+#include "Variant.h"
 
 /**
   * Miscellaneous helpers for marshalling data types, and encoding

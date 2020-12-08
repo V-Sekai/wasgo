@@ -2,22 +2,22 @@
 #ifndef VISUALSERVER_H
 #define VISUALSERVER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Plane.h"
-#include "Image.h"
 #include "Color.h"
-#include "Vector2.h"
-#include "Object.h"
-#include "Basis.h"
 #include "Vector3.h"
-#include "Variant.h"
-#include "Transform2D.h"
-#include "AABB.h"
-#include "RID.h"
-#include "Transform.h"
+#include "Vector2.h"
 #include "Rect2.h"
-#include "ustring.h"
+#include "AABB.h"
+#include "Variant.h"
+#include "Object.h"
+#include "Transform2D.h"
+#include "Transform.h"
+#include "Image.h"
+#include "RID.h"
+#include "Ustring.h"
+#include "Plane.h"
+#include "Basis.h"
 class VisualServer : public Object{
 public:
 enum ArrayFormat{
@@ -332,23 +332,23 @@ RID canvas_create();
 void canvas_item_add_circle(RID p_item, Vector2 p_pos, float p_radius, Color p_color);
 void canvas_item_add_clip_ignore(RID p_item, bool p_ignore);
 void canvas_item_add_line(RID p_item, Vector2 p_from, Vector2 p_to, Color p_color, float p_width = (float) 1, bool p_antialiased = (bool) false);
-void canvas_item_add_mesh(RID p_item, RID p_mesh, Transform2D p_transform = Transform2D(((1, 0), (0, 1), (0, 0))), Color p_modulate = Color(1,1,1,1), RID p_texture = (RID) [rid], RID p_normal_map = (RID) [rid]);
+void canvas_item_add_mesh(RID p_item, RID p_mesh, Transform2D p_transform = Transform2D(1, 0, 0, 1, 0, 0), Color p_modulate = Color(1,1,1,1), RID p_texture = (RID) [rid], RID p_normal_map = (RID) [rid]);
 void canvas_item_add_multimesh(RID p_item, RID p_mesh, RID p_texture, RID p_normal_map = (RID) [rid]);
 void canvas_item_add_nine_patch(RID p_item, Rect2 p_rect, Rect2 p_source, RID p_texture, Vector2 p_topleft, Vector2 p_bottomright, VisualServer::NinePatchAxisMode p_x_axis_mode = (VisualServer::NinePatchAxisMode) 0, VisualServer::NinePatchAxisMode p_y_axis_mode = (VisualServer::NinePatchAxisMode) 0, bool p_draw_center = (bool) true, Color p_modulate = Color(1,1,1,1), RID p_normal_map = (RID) [rid]);
 void canvas_item_add_particles(RID p_item, RID p_particles, RID p_texture, RID p_normal_map);
-void canvas_item_add_polygon(RID p_item, PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs = (PoolVector2Array) [], RID p_texture = (RID) [rid], RID p_normal_map = (RID) [rid], bool p_antialiased = (bool) false);
+void canvas_item_add_polygon(RID p_item, PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs = PoolVector2Array(), RID p_texture = (RID) [rid], RID p_normal_map = (RID) [rid], bool p_antialiased = (bool) false);
 void canvas_item_add_polyline(RID p_item, PoolVector2Array p_points, PoolColorArray p_colors, float p_width = (float) 1, bool p_antialiased = (bool) false);
 void canvas_item_add_primitive(RID p_item, PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs, RID p_texture, float p_width = (float) 1, RID p_normal_map = (RID) [rid]);
 void canvas_item_add_rect(RID p_item, Rect2 p_rect, Color p_color);
 void canvas_item_add_set_transform(RID p_item, Transform2D p_transform);
 void canvas_item_add_texture_rect(RID p_item, Rect2 p_rect, RID p_texture, bool p_tile = (bool) false, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, RID p_normal_map = (RID) [rid]);
 void canvas_item_add_texture_rect_region(RID p_item, Rect2 p_rect, RID p_texture, Rect2 p_src_rect, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, RID p_normal_map = (RID) [rid], bool p_clip_uv = (bool) true);
-void canvas_item_add_triangle_array(RID p_item, PoolIntArray p_indices, PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs = (PoolVector2Array) [], PoolIntArray p_bones = (PoolIntArray) [], PoolRealArray p_weights = (PoolRealArray) [], RID p_texture = (RID) [rid], int p_count = (int) -1, RID p_normal_map = (RID) [rid], bool p_antialiased = (bool) false, bool p_antialiasing_use_indices = (bool) false);
+void canvas_item_add_triangle_array(RID p_item, PoolIntArray p_indices, PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs = PoolVector2Array(), PoolIntArray p_bones = PoolIntArray(), PoolRealArray p_weights = PoolRealArray(), RID p_texture = (RID) [rid], int p_count = (int) -1, RID p_normal_map = (RID) [rid], bool p_antialiased = (bool) false, bool p_antialiasing_use_indices = (bool) false);
 void canvas_item_clear(RID p_item);
 RID canvas_item_create();
 void canvas_item_set_clip(RID p_item, bool p_clip);
 void canvas_item_set_copy_to_backbuffer(RID p_item, bool p_enabled, Rect2 p_rect);
-void canvas_item_set_custom_rect(RID p_item, bool p_use_custom_rect, Rect2 p_rect = Rect2((0, 0, 0, 0)));
+void canvas_item_set_custom_rect(RID p_item, bool p_use_custom_rect, Rect2 p_rect = Rect2(0, 0, 0, 0));
 void canvas_item_set_distance_field_mode(RID p_item, bool p_enabled);
 void canvas_item_set_draw_behind_parent(RID p_item, bool p_enabled);
 void canvas_item_set_draw_index(RID p_item, int p_index);
@@ -527,7 +527,7 @@ void material_set_next_pass(RID p_material, RID p_next_material);
 void material_set_param(RID p_material, String p_parameter, Variant p_value);
 void material_set_render_priority(RID p_material, int p_priority);
 void material_set_shader(RID p_shader_material, RID p_shader);
-void mesh_add_surface_from_arrays(RID p_mesh, VisualServer::PrimitiveType p_primitive, Array p_arrays, Array p_blend_shapes = (Array) [], int p_compress_format = (int) 97280);
+void mesh_add_surface_from_arrays(RID p_mesh, VisualServer::PrimitiveType p_primitive, Array p_arrays, Array p_blend_shapes = Array(), int p_compress_format = (int) 97280);
 void mesh_clear(RID p_mesh);
 RID mesh_create();
 int mesh_get_blend_shape_count(RID p_mesh);
@@ -658,7 +658,7 @@ void texture_set_size_override(RID p_texture, int p_width, int p_height, int p_d
 void textures_keep_original(bool p_enable);
 void viewport_attach_camera(RID p_viewport, RID p_camera);
 void viewport_attach_canvas(RID p_viewport, RID p_canvas);
-void viewport_attach_to_screen(RID p_viewport, Rect2 p_rect = Rect2((0, 0, 0, 0)), int p_screen = (int) 0);
+void viewport_attach_to_screen(RID p_viewport, Rect2 p_rect = Rect2(0, 0, 0, 0), int p_screen = (int) 0);
 RID viewport_create();
 void viewport_detach(RID p_viewport);
 int viewport_get_render_info(RID p_viewport, VisualServer::ViewportRenderInfo p_info);
@@ -689,6 +689,16 @@ void viewport_set_use_arvr(RID p_viewport, bool p_use_arvr);
 void viewport_set_use_debanding(RID p_viewport, bool p_debanding);
 void viewport_set_use_fxaa(RID p_viewport, bool p_fxaa);
 void viewport_set_vflip(RID p_viewport, bool p_enabled);
+
+protected:
+public:
+explicit VisualServer(WasGoID p_wasgo_id);
+explicit VisualServer(Object other);
+VisualServer();
+VisualServer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

@@ -2,16 +2,16 @@
 #ifndef ANIMATIONNODESTATEMACHINE_H
 #define ANIMATIONNODESTATEMACHINE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "AnimationNodeStateMachineTransition.h"
+#include "AnimationNode.h"
 #include "Vector2.h"
 #include "AnimationRootNode.h"
-#include "AnimationNode.h"
-#include "ustring.h"
+#include "Ustring.h"
+#include "AnimationNodeStateMachineTransition.h"
 class AnimationNodeStateMachine : public AnimationRootNode{
 public:
-void add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2((0, 0)));
+void add_node(String p_name, AnimationNode p_node, Vector2 p_position = Vector2(0, 0));
 void add_transition(String p_from, String p_to, AnimationNodeStateMachineTransition p_transition);
 String get_end_node();
 Vector2 get_graph_offset();
@@ -39,7 +39,10 @@ protected:
 public:
 explicit AnimationNodeStateMachine(WasGoID p_wasgo_id);
 explicit AnimationNodeStateMachine(AnimationRootNode other);
+AnimationNodeStateMachine();
 AnimationNodeStateMachine new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

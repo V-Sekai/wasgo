@@ -2,7 +2,7 @@
 #ifndef VISUALINSTANCE_H
 #define VISUALINSTANCE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Spatial.h"
 #include "AABB.h"
@@ -18,6 +18,16 @@ AABB get_transformed_aabb();
 void set_base(RID p_base);
 void set_layer_mask(int p_mask);
 void set_layer_mask_bit(int p_layer, bool p_enabled);
+
+protected:
+public:
+explicit VisualInstance(WasGoID p_wasgo_id);
+explicit VisualInstance(Spatial other);
+VisualInstance();
+VisualInstance new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

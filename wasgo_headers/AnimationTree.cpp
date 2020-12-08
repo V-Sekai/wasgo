@@ -89,8 +89,15 @@ void AnimationTree::set_tree_root(AnimationNode p_root){
 AnimationTree::AnimationTree(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 AnimationTree::AnimationTree(Node other) : Node(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationTree_constructor();
 }
-AnimationTree::new_instance(){
+AnimationTree::AnimationTree():Node(){
+}
+AnimationTree AnimationTree::new_instance(){
     return AnimationTree(_wasgo_AnimationTree_constructor());
+}
+WasGoID AnimationTree::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationTree::operator bool(){
+    return (bool) wasgo_id;
 }

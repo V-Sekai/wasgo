@@ -2,11 +2,11 @@
 #ifndef BUTTONGROUP_H
 #define BUTTONGROUP_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
+#include "Resource.h"
 #include "BaseButton.h"
 #include "Variant.h"
-#include "Resource.h"
 class ButtonGroup : public Resource{
 public:
 Array get_buttons();
@@ -16,7 +16,10 @@ protected:
 public:
 explicit ButtonGroup(WasGoID p_wasgo_id);
 explicit ButtonGroup(Resource other);
+ButtonGroup();
 ButtonGroup new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

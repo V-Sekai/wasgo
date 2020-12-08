@@ -2,14 +2,14 @@
 #ifndef STYLEBOX_H
 #define STYLEBOX_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Vector2.h"
+#include "Rect2.h"
 #include "Resource.h"
+#include "math_defs.h"
 #include "CanvasItem.h"
 #include "RID.h"
-#include "Rect2.h"
-#include "Margin.h"
 class StyleBox : public Resource{
 public:
 void draw(RID p_canvas_item, Rect2 p_rect);
@@ -21,6 +21,16 @@ Vector2 get_minimum_size();
 Vector2 get_offset();
 void set_default_margin(Margin p_margin, float p_offset);
 bool test_mask(Vector2 p_point, Rect2 p_rect);
+
+protected:
+public:
+explicit StyleBox(WasGoID p_wasgo_id);
+explicit StyleBox(Resource other);
+StyleBox();
+StyleBox new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

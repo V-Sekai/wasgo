@@ -2,7 +2,7 @@
 #ifndef PATH2D_H
 #define PATH2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Curve2D.h"
 #include "Node2D.h"
@@ -15,7 +15,10 @@ protected:
 public:
 explicit Path2D(WasGoID p_wasgo_id);
 explicit Path2D(Node2D other);
+Path2D();
 Path2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

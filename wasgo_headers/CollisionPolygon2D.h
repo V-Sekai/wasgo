@@ -2,10 +2,10 @@
 #ifndef COLLISIONPOLYGON2D_H
 #define COLLISIONPOLYGON2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node2D.h"
 #include "Variant.h"
+#include "Node2D.h"
 class CollisionPolygon2D : public Node2D{
 public:
 enum BuildMode{
@@ -27,7 +27,10 @@ protected:
 public:
 explicit CollisionPolygon2D(WasGoID p_wasgo_id);
 explicit CollisionPolygon2D(Node2D other);
+CollisionPolygon2D();
 CollisionPolygon2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,7 +2,7 @@
 #ifndef YSORT_H
 #define YSORT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Node2D.h"
 class YSort : public Node2D{
@@ -14,7 +14,10 @@ protected:
 public:
 explicit YSort(WasGoID p_wasgo_id);
 explicit YSort(Node2D other);
+YSort();
 YSort new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

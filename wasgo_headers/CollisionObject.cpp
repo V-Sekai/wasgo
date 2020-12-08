@@ -81,3 +81,19 @@ void CollisionObject::shape_owner_set_transform(int p_owner_id, Transform p_tran
     
 	_wasgo_CollisionObject_wrapper_shape_owner_set_transform(wasgo_id, p_owner_id, wasgo_buffer_transform, wasgo_size_transform);
 }
+
+CollisionObject::CollisionObject(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
+}
+CollisionObject::CollisionObject(Spatial other) : Spatial(other._get_wasgo_id()){
+}
+CollisionObject::CollisionObject():Spatial(){
+}
+CollisionObject CollisionObject::new_instance(){
+    return CollisionObject(_wasgo_CollisionObject_constructor());
+}
+WasGoID CollisionObject::_get_wasgo_id(){
+    return wasgo_id;
+}
+CollisionObject::operator bool(){
+    return (bool) wasgo_id;
+}

@@ -2,7 +2,7 @@
 #ifndef RANDOMNUMBERGENERATOR_H
 #define RANDOMNUMBERGENERATOR_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Reference.h"
 class RandomNumberGenerator : public Reference{
@@ -20,7 +20,10 @@ protected:
 public:
 explicit RandomNumberGenerator(WasGoID p_wasgo_id);
 explicit RandomNumberGenerator(Reference other);
+RandomNumberGenerator();
 RandomNumberGenerator new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

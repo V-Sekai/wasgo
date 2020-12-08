@@ -5,8 +5,15 @@
 WasGoRuntime::WasGoRuntime(WasGoID p_wasgo_id) : Object(p_wasgo_id){
 }
 WasGoRuntime::WasGoRuntime(Object other) : Object(other._get_wasgo_id()){
-    wasgo_id = _wasgo_WasGoRuntime_constructor();
 }
-WasGoRuntime::new_instance(){
+WasGoRuntime::WasGoRuntime():Object(){
+}
+WasGoRuntime WasGoRuntime::new_instance(){
     return WasGoRuntime(_wasgo_WasGoRuntime_constructor());
+}
+WasGoID WasGoRuntime::_get_wasgo_id(){
+    return wasgo_id;
+}
+WasGoRuntime::operator bool(){
+    return (bool) wasgo_id;
 }

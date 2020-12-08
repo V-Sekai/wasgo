@@ -85,7 +85,7 @@ String Directory::get_next(){
 int Directory::get_space_left(){
 	return (int) _wasgo_Directory_wrapper_get_space_left(wasgo_id);
 }
-Error Directory::list_dir_begin(bool p_skip_navigational = (bool) false, bool p_skip_hidden = (bool) false){
+Error Directory::list_dir_begin(bool p_skip_navigational, bool p_skip_hidden){
 	return Error(_wasgo_Directory_wrapper_list_dir_begin(wasgo_id, p_skip_navigational, p_skip_hidden));
 }
 void Directory::list_dir_end(){
@@ -146,8 +146,15 @@ Error Directory::rename(String p_from, String p_to){
 Directory::Directory(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Directory::Directory(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Directory_constructor();
 }
-Directory::new_instance(){
+Directory::Directory():Reference(){
+}
+Directory Directory::new_instance(){
     return Directory(_wasgo_Directory_constructor());
+}
+WasGoID Directory::_get_wasgo_id(){
+    return wasgo_id;
+}
+Directory::operator bool(){
+    return (bool) wasgo_id;
 }

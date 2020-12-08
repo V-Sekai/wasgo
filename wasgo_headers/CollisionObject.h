@@ -2,14 +2,14 @@
 #ifndef COLLISIONOBJECT_H
 #define COLLISIONOBJECT_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Object.h"
-#include "Spatial.h"
 #include "Variant.h"
-#include "RID.h"
-#include "Transform.h"
 #include "Shape.h"
+#include "Spatial.h"
+#include "Transform.h"
+#include "RID.h"
 class CollisionObject : public Spatial{
 public:
 int create_shape_owner(Object p_owner);
@@ -32,6 +32,16 @@ Transform shape_owner_get_transform(int p_owner_id);
 void shape_owner_remove_shape(int p_owner_id, int p_shape_id);
 void shape_owner_set_disabled(int p_owner_id, bool p_disabled);
 void shape_owner_set_transform(int p_owner_id, Transform p_transform);
+
+protected:
+public:
+explicit CollisionObject(WasGoID p_wasgo_id);
+explicit CollisionObject(Spatial other);
+CollisionObject();
+CollisionObject new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

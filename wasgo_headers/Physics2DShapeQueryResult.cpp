@@ -23,3 +23,19 @@ RID Physics2DShapeQueryResult::get_result_rid(int p_idx){
     return (RID) wasgo_ret;
     
 }
+
+Physics2DShapeQueryResult::Physics2DShapeQueryResult(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
+}
+Physics2DShapeQueryResult::Physics2DShapeQueryResult(Reference other) : Reference(other._get_wasgo_id()){
+}
+Physics2DShapeQueryResult::Physics2DShapeQueryResult():Reference(){
+}
+Physics2DShapeQueryResult Physics2DShapeQueryResult::new_instance(){
+    return Physics2DShapeQueryResult(_wasgo_Physics2DShapeQueryResult_constructor());
+}
+WasGoID Physics2DShapeQueryResult::_get_wasgo_id(){
+    return wasgo_id;
+}
+Physics2DShapeQueryResult::operator bool(){
+    return (bool) wasgo_id;
+}

@@ -36,8 +36,15 @@ void DynamicFontData::set_hinting(DynamicFontData::Hinting p_mode){
 DynamicFontData::DynamicFontData(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 DynamicFontData::DynamicFontData(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_DynamicFontData_constructor();
 }
-DynamicFontData::new_instance(){
+DynamicFontData::DynamicFontData():Resource(){
+}
+DynamicFontData DynamicFontData::new_instance(){
     return DynamicFontData(_wasgo_DynamicFontData_constructor());
+}
+WasGoID DynamicFontData::_get_wasgo_id(){
+    return wasgo_id;
+}
+DynamicFontData::operator bool(){
+    return (bool) wasgo_id;
 }

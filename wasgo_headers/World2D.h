@@ -2,11 +2,11 @@
 #ifndef WORLD2D_H
 #define WORLD2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Physics2DDirectSpaceState.h"
 #include "Resource.h"
 #include "RID.h"
+#include "Physics2DDirectSpaceState.h"
 class World2D : public Resource{
 public:
 RID get_canvas();
@@ -17,7 +17,10 @@ protected:
 public:
 explicit World2D(WasGoID p_wasgo_id);
 explicit World2D(Resource other);
+World2D();
 World2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

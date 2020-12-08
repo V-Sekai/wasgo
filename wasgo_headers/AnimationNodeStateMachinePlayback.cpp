@@ -42,8 +42,15 @@ void AnimationNodeStateMachinePlayback::travel(String p_to_node){
 AnimationNodeStateMachinePlayback::AnimationNodeStateMachinePlayback(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 AnimationNodeStateMachinePlayback::AnimationNodeStateMachinePlayback(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationNodeStateMachinePlayback_constructor();
 }
-AnimationNodeStateMachinePlayback::new_instance(){
+AnimationNodeStateMachinePlayback::AnimationNodeStateMachinePlayback():Resource(){
+}
+AnimationNodeStateMachinePlayback AnimationNodeStateMachinePlayback::new_instance(){
     return AnimationNodeStateMachinePlayback(_wasgo_AnimationNodeStateMachinePlayback_constructor());
+}
+WasGoID AnimationNodeStateMachinePlayback::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationNodeStateMachinePlayback::operator bool(){
+    return (bool) wasgo_id;
 }

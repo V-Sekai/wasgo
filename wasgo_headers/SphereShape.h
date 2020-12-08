@@ -2,7 +2,7 @@
 #ifndef SPHERESHAPE_H
 #define SPHERESHAPE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Shape.h"
 class SphereShape : public Shape{
@@ -14,7 +14,10 @@ protected:
 public:
 explicit SphereShape(WasGoID p_wasgo_id);
 explicit SphereShape(Shape other);
+SphereShape();
 SphereShape new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

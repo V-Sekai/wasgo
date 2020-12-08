@@ -47,8 +47,15 @@ void ARVRAnchor::set_anchor_id(int p_anchor_id){
 ARVRAnchor::ARVRAnchor(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){
 }
 ARVRAnchor::ARVRAnchor(Spatial other) : Spatial(other._get_wasgo_id()){
-    wasgo_id = _wasgo_ARVRAnchor_constructor();
 }
-ARVRAnchor::new_instance(){
+ARVRAnchor::ARVRAnchor():Spatial(){
+}
+ARVRAnchor ARVRAnchor::new_instance(){
     return ARVRAnchor(_wasgo_ARVRAnchor_constructor());
+}
+WasGoID ARVRAnchor::_get_wasgo_id(){
+    return wasgo_id;
+}
+ARVRAnchor::operator bool(){
+    return (bool) wasgo_id;
 }

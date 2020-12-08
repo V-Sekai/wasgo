@@ -2,7 +2,7 @@
 #ifndef VIEWPORTTEXTURE_H
 #define VIEWPORTTEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "NodePath.h"
 #include "Texture.h"
@@ -15,7 +15,10 @@ protected:
 public:
 explicit ViewportTexture(WasGoID p_wasgo_id);
 explicit ViewportTexture(Texture other);
+ViewportTexture();
 ViewportTexture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

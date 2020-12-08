@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTRECORD_H
 #define AUDIOEFFECTRECORD_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioStreamSample.h"
 #include "AudioEffect.h"
@@ -18,7 +18,10 @@ protected:
 public:
 explicit AudioEffectRecord(WasGoID p_wasgo_id);
 explicit AudioEffectRecord(AudioEffect other);
+AudioEffectRecord();
 AudioEffectRecord new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

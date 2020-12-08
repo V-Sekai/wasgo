@@ -2,10 +2,10 @@
 #ifndef MULTIMESHINSTANCE2D_H
 #define MULTIMESHINSTANCE2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Node2D.h"
 #include "MultiMesh.h"
+#include "Node2D.h"
 #include "Texture.h"
 class MultiMeshInstance2D : public Node2D{
 public:
@@ -20,7 +20,10 @@ protected:
 public:
 explicit MultiMeshInstance2D(WasGoID p_wasgo_id);
 explicit MultiMeshInstance2D(Node2D other);
+MultiMeshInstance2D();
 MultiMeshInstance2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

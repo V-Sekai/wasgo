@@ -2,11 +2,11 @@
 #ifndef SPRITE3D_H
 #define SPRITE3D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Rect2.h"
 #include "SpriteBase3D.h"
 #include "Texture.h"
+#include "Rect2.h"
 #include "Vector2.h"
 class Sprite3D : public SpriteBase3D{
 public:
@@ -29,7 +29,10 @@ protected:
 public:
 explicit Sprite3D(WasGoID p_wasgo_id);
 explicit Sprite3D(SpriteBase3D other);
+Sprite3D();
 Sprite3D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

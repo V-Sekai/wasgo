@@ -35,8 +35,15 @@ void SphereMesh::set_rings(int p_rings){
 SphereMesh::SphereMesh(WasGoID p_wasgo_id) : PrimitiveMesh(p_wasgo_id){
 }
 SphereMesh::SphereMesh(PrimitiveMesh other) : PrimitiveMesh(other._get_wasgo_id()){
-    wasgo_id = _wasgo_SphereMesh_constructor();
 }
-SphereMesh::new_instance(){
+SphereMesh::SphereMesh():PrimitiveMesh(){
+}
+SphereMesh SphereMesh::new_instance(){
     return SphereMesh(_wasgo_SphereMesh_constructor());
+}
+WasGoID SphereMesh::_get_wasgo_id(){
+    return wasgo_id;
+}
+SphereMesh::operator bool(){
+    return (bool) wasgo_id;
 }

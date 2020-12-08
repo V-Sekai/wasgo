@@ -2,13 +2,13 @@
 #ifndef BAKEDLIGHTMAPDATA_H
 #define BAKEDLIGHTMAPDATA_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Resource.h"
 #include "Variant.h"
-#include "AABB.h"
+#include "Resource.h"
 #include "NodePath.h"
 #include "Transform.h"
+#include "AABB.h"
 #include "Texture.h"
 class BakedLightmapData : public Resource{
 public:
@@ -32,7 +32,10 @@ protected:
 public:
 explicit BakedLightmapData(WasGoID p_wasgo_id);
 explicit BakedLightmapData(Resource other);
+BakedLightmapData();
 BakedLightmapData new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

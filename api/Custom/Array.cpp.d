@@ -12,9 +12,9 @@
   ..\api\Custom\Dictionary.h ..\api\Custom\list.h ..\api\Custom\AABB.h \
   ..\api\Custom\Plane.h ..\api\Custom\Vector3.h ..\api\Custom\Basis.h \
   ..\api\Custom\Quat.h ..\api\Custom\Face3.h ..\api\Custom\Transform.h \
-  ..\api\Custom\PoolVector.h ..\api\Custom\Transform2D.h \
-  ..\api\Custom\Rect2.h ..\api\Custom\Vector2.h ..\api\Custom\RefPtr.h \
-  ..\api\Custom\RID.h ..\api\Custom\set.h
+  ..\api\Custom\Transform2D.h ..\api\Custom\Rect2.h \
+  ..\api\Custom\Vector2.h ..\api\Custom\PoolVector.h \
+  ..\api\Custom\RefPtr.h ..\api\Custom\RID.h ..\api\Custom\set.h
 
 ..\api\Custom\Array.h:
 
@@ -78,13 +78,13 @@
 
 ..\api\Custom\Transform.h:
 
-..\api\Custom\PoolVector.h:
-
 ..\api\Custom\Transform2D.h:
 
 ..\api\Custom\Rect2.h:
 
 ..\api\Custom\Vector2.h:
+
+..\api\Custom\PoolVector.h:
 
 ..\api\Custom\RefPtr.h:
 

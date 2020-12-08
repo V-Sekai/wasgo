@@ -33,8 +33,15 @@ void WindowDialog::set_title(String p_title){
 WindowDialog::WindowDialog(WasGoID p_wasgo_id) : Popup(p_wasgo_id){
 }
 WindowDialog::WindowDialog(Popup other) : Popup(other._get_wasgo_id()){
-    wasgo_id = _wasgo_WindowDialog_constructor();
 }
-WindowDialog::new_instance(){
+WindowDialog::WindowDialog():Popup(){
+}
+WindowDialog WindowDialog::new_instance(){
     return WindowDialog(_wasgo_WindowDialog_constructor());
+}
+WasGoID WindowDialog::_get_wasgo_id(){
+    return wasgo_id;
+}
+WindowDialog::operator bool(){
+    return (bool) wasgo_id;
 }

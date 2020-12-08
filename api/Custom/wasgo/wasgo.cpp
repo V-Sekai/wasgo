@@ -359,3 +359,17 @@ bool WasGo::is_processing_unhandled_input(){
 bool WasGo::is_processing_unhandled_key_input(){
 	return _wasgo_is_processing_unhandled_key_input();
 }
+
+void _wasgo_input(WasGoID p_wasgo_id){
+	InputEvent event(p_wasgo_id);
+	_input(event);
+}
+void _wasgo_unhandled_input(WasGoID p_wasgo_id) {
+	InputEvent event(p_wasgo_id);
+	_unhandled_input(event);
+}
+void _wasgo_unhandled_key_input(WasGoID p_wasgo_id) {
+	printf("WasGo side id: %d\n", p_wasgo_id);
+	InputEventKey event(p_wasgo_id);
+	_unhandled_key_input(event);
+}

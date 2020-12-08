@@ -2,7 +2,7 @@
 #ifndef SPLITCONTAINER_H
 #define SPLITCONTAINER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Container.h"
 class SplitContainer : public Container{
@@ -19,6 +19,16 @@ bool is_collapsed();
 void set_collapsed(bool p_collapsed);
 void set_dragger_visibility(SplitContainer::DraggerVisibility p_mode);
 void set_split_offset(int p_offset);
+
+protected:
+public:
+explicit SplitContainer(WasGoID p_wasgo_id);
+explicit SplitContainer(Container other);
+SplitContainer();
+SplitContainer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

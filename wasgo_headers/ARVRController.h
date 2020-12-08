@@ -2,12 +2,12 @@
 #ifndef ARVRCONTROLLER_H
 #define ARVRCONTROLLER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Mesh.h"
-#include "ARVRPositionalTracker.h"
 #include "Spatial.h"
-#include "ustring.h"
+#include "Mesh.h"
+#include "Ustring.h"
+#include "ARVRPositionalTracker.h"
 class ARVRController : public Spatial{
 public:
 int get_controller_id();
@@ -26,7 +26,10 @@ protected:
 public:
 explicit ARVRController(WasGoID p_wasgo_id);
 explicit ARVRController(Spatial other);
+ARVRController();
 ARVRController new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

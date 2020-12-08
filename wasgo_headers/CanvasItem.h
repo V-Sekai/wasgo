@@ -2,24 +2,24 @@
 #ifndef CANVASITEM_H
 #define CANVASITEM_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Rect2.h"
-#include "World2D.h"
-#include "Font.h"
 #include "Color.h"
-#include "Vector2.h"
-#include "Material.h"
-#include "Mesh.h"
-#include "Node.h"
-#include "Variant.h"
 #include "InputEvent.h"
-#include "Transform2D.h"
-#include "RID.h"
-#include "StyleBox.h"
+#include "Vector2.h"
+#include "Font.h"
+#include "Mesh.h"
 #include "MultiMesh.h"
+#include "Rect2.h"
+#include "RID.h"
+#include "Node.h"
+class StyleBox;
+#include "Transform2D.h"
+#include "Material.h"
+#include "World2D.h"
+#include "Variant.h"
+#include "Ustring.h"
 #include "Texture.h"
-#include "ustring.h"
 class CanvasItem : public Node{
 public:
 enum BlendMode{
@@ -33,24 +33,24 @@ BLEND_MODE_DISABLED
 void draw_arc(Vector2 p_center, float p_radius, float p_start_angle, float p_end_angle, int p_point_count, Color p_color, float p_width = (float) 1, bool p_antialiased = (bool) false);
 float draw_char(Font p_font, Vector2 p_position, String p_char, String p_next, Color p_modulate = Color(1,1,1,1));
 void draw_circle(Vector2 p_position, float p_radius, Color p_color);
-void draw_colored_polygon(PoolVector2Array p_points, Color p_color, PoolVector2Array p_uvs = (PoolVector2Array) [], Texture p_texture = (Texture) "", Texture p_normal_map = (Texture) "", bool p_antialiased = (bool) false);
+void draw_colored_polygon(PoolVector2Array p_points, Color p_color, PoolVector2Array p_uvs = PoolVector2Array(), Texture p_texture = Texture(), Texture p_normal_map = Texture(), bool p_antialiased = (bool) false);
 void draw_line(Vector2 p_from, Vector2 p_to, Color p_color, float p_width = (float) 1, bool p_antialiased = (bool) false);
-void draw_mesh(Mesh p_mesh, Texture p_texture, Texture p_normal_map = (Texture) [object:null], Transform2D p_transform = Transform2D(((1, 0), (0, 1), (0, 0))), Color p_modulate = Color(1,1,1,1));
+void draw_mesh(Mesh p_mesh, Texture p_texture, Texture p_normal_map = Texture(), Transform2D p_transform = Transform2D(1, 0, 0, 1, 0, 0), Color p_modulate = Color(1,1,1,1));
 void draw_multiline(PoolVector2Array p_points, Color p_color, float p_width = (float) 1, bool p_antialiased = (bool) false);
 void draw_multiline_colors(PoolVector2Array p_points, PoolColorArray p_colors, float p_width = (float) 1, bool p_antialiased = (bool) false);
-void draw_multimesh(MultiMesh p_multimesh, Texture p_texture, Texture p_normal_map = (Texture) [object:null]);
-void draw_polygon(PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs = (PoolVector2Array) [], Texture p_texture = (Texture) "", Texture p_normal_map = (Texture) "", bool p_antialiased = (bool) false);
+void draw_multimesh(MultiMesh p_multimesh, Texture p_texture, Texture p_normal_map = Texture());
+void draw_polygon(PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs = PoolVector2Array(), Texture p_texture = Texture(), Texture p_normal_map = Texture(), bool p_antialiased = (bool) false);
 void draw_polyline(PoolVector2Array p_points, Color p_color, float p_width = (float) 1, bool p_antialiased = (bool) false);
 void draw_polyline_colors(PoolVector2Array p_points, PoolColorArray p_colors, float p_width = (float) 1, bool p_antialiased = (bool) false);
-void draw_primitive(PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs, Texture p_texture = (Texture) "", float p_width = (float) 1, Texture p_normal_map = (Texture) "");
+void draw_primitive(PoolVector2Array p_points, PoolColorArray p_colors, PoolVector2Array p_uvs, Texture p_texture = Texture(), float p_width = (float) 1, Texture p_normal_map = Texture());
 void draw_rect(Rect2 p_rect, Color p_color, bool p_filled = (bool) true, float p_width = (float) 1, bool p_antialiased = (bool) false);
 void draw_set_transform(Vector2 p_position, float p_rotation, Vector2 p_scale);
 void draw_set_transform_matrix(Transform2D p_xform);
 void draw_string(Font p_font, Vector2 p_position, String p_text, Color p_modulate = Color(1,1,1,1), int p_clip_w = (int) -1);
 void draw_style_box(StyleBox p_style_box, Rect2 p_rect);
-void draw_texture(Texture p_texture, Vector2 p_position, Color p_modulate = Color(1,1,1,1), Texture p_normal_map = (Texture) "");
-void draw_texture_rect(Texture p_texture, Rect2 p_rect, bool p_tile, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = (Texture) "");
-void draw_texture_rect_region(Texture p_texture, Rect2 p_rect, Rect2 p_src_rect, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = (Texture) "", bool p_clip_uv = (bool) true);
+void draw_texture(Texture p_texture, Vector2 p_position, Color p_modulate = Color(1,1,1,1), Texture p_normal_map = Texture());
+void draw_texture_rect(Texture p_texture, Rect2 p_rect, bool p_tile, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = Texture());
+void draw_texture_rect_region(Texture p_texture, Rect2 p_rect, Rect2 p_src_rect, Color p_modulate = Color(1,1,1,1), bool p_transpose = (bool) false, Texture p_normal_map = Texture(), bool p_clip_uv = (bool) true);
 void force_update_transform();
 RID get_canvas();
 RID get_canvas_item();
@@ -89,6 +89,16 @@ void set_use_parent_material(bool p_enable);
 void set_visible(bool p_visible);
 void show();
 void update();
+
+protected:
+public:
+explicit CanvasItem(WasGoID p_wasgo_id);
+explicit CanvasItem(Node other);
+CanvasItem();
+CanvasItem new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

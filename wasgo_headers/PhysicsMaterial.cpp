@@ -29,8 +29,15 @@ void PhysicsMaterial::set_rough(bool p_rough){
 PhysicsMaterial::PhysicsMaterial(WasGoID p_wasgo_id) : Resource(p_wasgo_id){
 }
 PhysicsMaterial::PhysicsMaterial(Resource other) : Resource(other._get_wasgo_id()){
-    wasgo_id = _wasgo_PhysicsMaterial_constructor();
 }
-PhysicsMaterial::new_instance(){
+PhysicsMaterial::PhysicsMaterial():Resource(){
+}
+PhysicsMaterial PhysicsMaterial::new_instance(){
     return PhysicsMaterial(_wasgo_PhysicsMaterial_constructor());
+}
+WasGoID PhysicsMaterial::_get_wasgo_id(){
+    return wasgo_id;
+}
+PhysicsMaterial::operator bool(){
+    return (bool) wasgo_id;
 }

@@ -2,14 +2,14 @@
 #ifndef CURVE2D_H
 #define CURVE2D_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Resource.h"
 #include "Variant.h"
 #include "Vector2.h"
 class Curve2D : public Resource{
 public:
-void add_point(Vector2 p_position, Vector2 p_in = Vector2((0, 0)), Vector2 p_out = Vector2((0, 0)), int p_at_position = (int) -1);
+void add_point(Vector2 p_position, Vector2 p_in = Vector2(0, 0), Vector2 p_out = Vector2(0, 0), int p_at_position = (int) -1);
 void clear_points();
 float get_bake_interval();
 float get_baked_length();
@@ -34,7 +34,10 @@ protected:
 public:
 explicit Curve2D(WasGoID p_wasgo_id);
 explicit Curve2D(Resource other);
+Curve2D();
 Curve2D new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

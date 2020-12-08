@@ -30,8 +30,15 @@ void LinkButton::set_underline_mode(LinkButton::UnderlineMode p_underline_mode){
 LinkButton::LinkButton(WasGoID p_wasgo_id) : BaseButton(p_wasgo_id){
 }
 LinkButton::LinkButton(BaseButton other) : BaseButton(other._get_wasgo_id()){
-    wasgo_id = _wasgo_LinkButton_constructor();
 }
-LinkButton::new_instance(){
+LinkButton::LinkButton():BaseButton(){
+}
+LinkButton LinkButton::new_instance(){
     return LinkButton(_wasgo_LinkButton_constructor());
+}
+WasGoID LinkButton::_get_wasgo_id(){
+    return wasgo_id;
+}
+LinkButton::operator bool(){
+    return (bool) wasgo_id;
 }

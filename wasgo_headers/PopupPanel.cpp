@@ -5,8 +5,15 @@
 PopupPanel::PopupPanel(WasGoID p_wasgo_id) : Popup(p_wasgo_id){
 }
 PopupPanel::PopupPanel(Popup other) : Popup(other._get_wasgo_id()){
-    wasgo_id = _wasgo_PopupPanel_constructor();
 }
-PopupPanel::new_instance(){
+PopupPanel::PopupPanel():Popup(){
+}
+PopupPanel PopupPanel::new_instance(){
     return PopupPanel(_wasgo_PopupPanel_constructor());
+}
+WasGoID PopupPanel::_get_wasgo_id(){
+    return wasgo_id;
+}
+PopupPanel::operator bool(){
+    return (bool) wasgo_id;
 }

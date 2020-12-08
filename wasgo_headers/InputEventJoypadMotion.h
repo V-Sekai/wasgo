@@ -2,7 +2,7 @@
 #ifndef INPUTEVENTJOYPADMOTION_H
 #define INPUTEVENTJOYPADMOTION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "InputEvent.h"
 class InputEventJoypadMotion : public InputEvent{
@@ -16,7 +16,10 @@ protected:
 public:
 explicit InputEventJoypadMotion(WasGoID p_wasgo_id);
 explicit InputEventJoypadMotion(InputEvent other);
+InputEventJoypadMotion();
 InputEventJoypadMotion new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -100,8 +100,15 @@ void VideoPlayer::stop(){
 VideoPlayer::VideoPlayer(WasGoID p_wasgo_id) : Control(p_wasgo_id){
 }
 VideoPlayer::VideoPlayer(Control other) : Control(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VideoPlayer_constructor();
 }
-VideoPlayer::new_instance(){
+VideoPlayer::VideoPlayer():Control(){
+}
+VideoPlayer VideoPlayer::new_instance(){
     return VideoPlayer(_wasgo_VideoPlayer_constructor());
+}
+WasGoID VideoPlayer::_get_wasgo_id(){
+    return wasgo_id;
+}
+VideoPlayer::operator bool(){
+    return (bool) wasgo_id;
 }

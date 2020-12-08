@@ -11,8 +11,15 @@ Error Semaphore::wait(){
 Semaphore::Semaphore(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
 }
 Semaphore::Semaphore(Reference other) : Reference(other._get_wasgo_id()){
-    wasgo_id = _wasgo_Semaphore_constructor();
 }
-Semaphore::new_instance(){
+Semaphore::Semaphore():Reference(){
+}
+Semaphore Semaphore::new_instance(){
     return Semaphore(_wasgo_Semaphore_constructor());
+}
+WasGoID Semaphore::_get_wasgo_id(){
+    return wasgo_id;
+}
+Semaphore::operator bool(){
+    return (bool) wasgo_id;
 }

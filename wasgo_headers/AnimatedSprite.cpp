@@ -42,7 +42,7 @@ bool AnimatedSprite::is_flipped_v(){
 bool AnimatedSprite::is_playing(){
 	return (bool) _wasgo_AnimatedSprite_wrapper_is_playing(wasgo_id);
 }
-void AnimatedSprite::play(String p_anim = (String) , bool p_backwards = (bool) false){
+void AnimatedSprite::play(String p_anim, bool p_backwards){
 
     Variant wasgo_var_anim = p_anim;
     int wasgo_size_anim = String(p_anim).size();
@@ -94,8 +94,15 @@ void AnimatedSprite::stop(){
 AnimatedSprite::AnimatedSprite(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 AnimatedSprite::AnimatedSprite(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimatedSprite_constructor();
 }
-AnimatedSprite::new_instance(){
+AnimatedSprite::AnimatedSprite():Node2D(){
+}
+AnimatedSprite AnimatedSprite::new_instance(){
     return AnimatedSprite(_wasgo_AnimatedSprite_constructor());
+}
+WasGoID AnimatedSprite::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimatedSprite::operator bool(){
+    return (bool) wasgo_id;
 }

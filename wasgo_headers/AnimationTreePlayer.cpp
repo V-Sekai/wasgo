@@ -626,8 +626,15 @@ void AnimationTreePlayer::transition_node_set_xfade_time(String p_id, float p_ti
 AnimationTreePlayer::AnimationTreePlayer(WasGoID p_wasgo_id) : Node(p_wasgo_id){
 }
 AnimationTreePlayer::AnimationTreePlayer(Node other) : Node(other._get_wasgo_id()){
-    wasgo_id = _wasgo_AnimationTreePlayer_constructor();
 }
-AnimationTreePlayer::new_instance(){
+AnimationTreePlayer::AnimationTreePlayer():Node(){
+}
+AnimationTreePlayer AnimationTreePlayer::new_instance(){
     return AnimationTreePlayer(_wasgo_AnimationTreePlayer_constructor());
+}
+WasGoID AnimationTreePlayer::_get_wasgo_id(){
+    return wasgo_id;
+}
+AnimationTreePlayer::operator bool(){
+    return (bool) wasgo_id;
 }

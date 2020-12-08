@@ -23,8 +23,15 @@ void VisualShaderNodeCompare::set_function(VisualShaderNodeCompare::Function p_f
 VisualShaderNodeCompare::VisualShaderNodeCompare(WasGoID p_wasgo_id) : VisualShaderNode(p_wasgo_id){
 }
 VisualShaderNodeCompare::VisualShaderNodeCompare(VisualShaderNode other) : VisualShaderNode(other._get_wasgo_id()){
-    wasgo_id = _wasgo_VisualShaderNodeCompare_constructor();
 }
-VisualShaderNodeCompare::new_instance(){
+VisualShaderNodeCompare::VisualShaderNodeCompare():VisualShaderNode(){
+}
+VisualShaderNodeCompare VisualShaderNodeCompare::new_instance(){
     return VisualShaderNodeCompare(_wasgo_VisualShaderNodeCompare_constructor());
+}
+WasGoID VisualShaderNodeCompare::_get_wasgo_id(){
+    return wasgo_id;
+}
+VisualShaderNodeCompare::operator bool(){
+    return (bool) wasgo_id;
 }

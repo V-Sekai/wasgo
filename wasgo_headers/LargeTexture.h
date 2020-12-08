@@ -2,7 +2,7 @@
 #ifndef LARGETEXTURE_H
 #define LARGETEXTURE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Texture.h"
 #include "Vector2.h"
@@ -21,7 +21,10 @@ protected:
 public:
 explicit LargeTexture(WasGoID p_wasgo_id);
 explicit LargeTexture(Texture other);
+LargeTexture();
 LargeTexture new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

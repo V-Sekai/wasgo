@@ -2,13 +2,13 @@
 #ifndef GRAPHNODE_H
 #define GRAPHNODE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Color.h"
 #include "Vector2.h"
 #include "Container.h"
+#include "Ustring.h"
 #include "Texture.h"
-#include "ustring.h"
 class GraphNode : public Container{
 public:
 enum Overlay{
@@ -45,14 +45,17 @@ void set_overlay(GraphNode::Overlay p_overlay);
 void set_resizable(bool p_resizable);
 void set_selected(bool p_selected);
 void set_show_close_button(bool p_show);
-void set_slot(int p_idx, bool p_enable_left, int p_type_left, Color p_color_left, bool p_enable_right, int p_type_right, Color p_color_right, Texture p_custom_left = (Texture) [object:null], Texture p_custom_right = (Texture) [object:null]);
+void set_slot(int p_idx, bool p_enable_left, int p_type_left, Color p_color_left, bool p_enable_right, int p_type_right, Color p_color_right, Texture p_custom_left = Texture(), Texture p_custom_right = Texture());
 void set_title(String p_title);
 
 protected:
 public:
 explicit GraphNode(WasGoID p_wasgo_id);
 explicit GraphNode(Container other);
+GraphNode();
 GraphNode new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

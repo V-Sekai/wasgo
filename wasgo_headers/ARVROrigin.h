@@ -2,7 +2,7 @@
 #ifndef ARVRORIGIN_H
 #define ARVRORIGIN_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Spatial.h"
 class ARVROrigin : public Spatial{
@@ -14,7 +14,10 @@ protected:
 public:
 explicit ARVROrigin(WasGoID p_wasgo_id);
 explicit ARVROrigin(Spatial other);
+ARVROrigin();
 ARVROrigin new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -51,8 +51,15 @@ void RemoteTransform2D::set_use_global_coordinates(bool p_use_global_coordinates
 RemoteTransform2D::RemoteTransform2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){
 }
 RemoteTransform2D::RemoteTransform2D(Node2D other) : Node2D(other._get_wasgo_id()){
-    wasgo_id = _wasgo_RemoteTransform2D_constructor();
 }
-RemoteTransform2D::new_instance(){
+RemoteTransform2D::RemoteTransform2D():Node2D(){
+}
+RemoteTransform2D RemoteTransform2D::new_instance(){
     return RemoteTransform2D(_wasgo_RemoteTransform2D_constructor());
+}
+WasGoID RemoteTransform2D::_get_wasgo_id(){
+    return wasgo_id;
+}
+RemoteTransform2D::operator bool(){
+    return (bool) wasgo_id;
 }

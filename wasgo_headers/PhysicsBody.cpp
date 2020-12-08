@@ -34,3 +34,19 @@ void PhysicsBody::set_collision_mask(int p_mask){
 void PhysicsBody::set_collision_mask_bit(int p_bit, bool p_value){
 	_wasgo_PhysicsBody_wrapper_set_collision_mask_bit(wasgo_id, p_bit, p_value);
 }
+
+PhysicsBody::PhysicsBody(WasGoID p_wasgo_id) : CollisionObject(p_wasgo_id){
+}
+PhysicsBody::PhysicsBody(CollisionObject other) : CollisionObject(other._get_wasgo_id()){
+}
+PhysicsBody::PhysicsBody():CollisionObject(){
+}
+PhysicsBody PhysicsBody::new_instance(){
+    return PhysicsBody(_wasgo_PhysicsBody_constructor());
+}
+WasGoID PhysicsBody::_get_wasgo_id(){
+    return wasgo_id;
+}
+PhysicsBody::operator bool(){
+    return (bool) wasgo_id;
+}

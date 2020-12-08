@@ -2,7 +2,7 @@
 #ifndef AUDIOEFFECTCHORUS_H
 #define AUDIOEFFECTCHORUS_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioEffect.h"
 class AudioEffectChorus : public AudioEffect{
@@ -30,7 +30,10 @@ protected:
 public:
 explicit AudioEffectChorus(WasGoID p_wasgo_id);
 explicit AudioEffectChorus(AudioEffect other);
+AudioEffectChorus();
 AudioEffectChorus new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

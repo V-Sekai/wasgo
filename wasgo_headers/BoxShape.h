@@ -2,7 +2,7 @@
 #ifndef BOXSHAPE_H
 #define BOXSHAPE_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Vector3.h"
 #include "Shape.h"
@@ -15,7 +15,10 @@ protected:
 public:
 explicit BoxShape(WasGoID p_wasgo_id);
 explicit BoxShape(Shape other);
+BoxShape();
 BoxShape new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

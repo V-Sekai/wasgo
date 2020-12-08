@@ -92,7 +92,7 @@ NodePath SceneState::get_node_owner_path(int p_idx){
     return (NodePath) wasgo_ret;
     
 }
-NodePath SceneState::get_node_path(int p_idx, bool p_for_parent = (bool) false){
+NodePath SceneState::get_node_path(int p_idx, bool p_for_parent){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
@@ -130,4 +130,20 @@ String SceneState::get_node_type(int p_idx){
 }
 bool SceneState::is_node_instance_placeholder(int p_idx){
 	return (bool) _wasgo_SceneState_wrapper_is_node_instance_placeholder(wasgo_id, p_idx);
+}
+
+SceneState::SceneState(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
+}
+SceneState::SceneState(Reference other) : Reference(other._get_wasgo_id()){
+}
+SceneState::SceneState():Reference(){
+}
+SceneState SceneState::new_instance(){
+    return SceneState(_wasgo_SceneState_constructor());
+}
+WasGoID SceneState::_get_wasgo_id(){
+    return wasgo_id;
+}
+SceneState::operator bool(){
+    return (bool) wasgo_id;
 }

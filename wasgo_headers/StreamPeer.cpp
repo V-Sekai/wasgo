@@ -28,7 +28,7 @@ float StreamPeer::get_float(){
 Array StreamPeer::get_partial_data(int p_bytes){
 	return Array(_wasgo_StreamPeer_wrapper_get_partial_data(wasgo_id, p_bytes));
 }
-String StreamPeer::get_string(int p_bytes = (int) -1){
+String StreamPeer::get_string(int p_bytes){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
@@ -50,7 +50,7 @@ int StreamPeer::get_u64(){
 int StreamPeer::get_u8(){
 	return (int) _wasgo_StreamPeer_wrapper_get_u8(wasgo_id);
 }
-String StreamPeer::get_utf8_string(int p_bytes = (int) -1){
+String StreamPeer::get_utf8_string(int p_bytes){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
@@ -60,7 +60,7 @@ String StreamPeer::get_utf8_string(int p_bytes = (int) -1){
     return (String) wasgo_ret;
     
 }
-Variant StreamPeer::get_var(bool p_allow_objects = (bool) false){
+Variant StreamPeer::get_var(bool p_allow_objects){
 	return Variant(_wasgo_StreamPeer_wrapper_get_var(wasgo_id, p_allow_objects));
 }
 bool StreamPeer::is_big_endian_enabled(){
@@ -120,9 +120,25 @@ void StreamPeer::put_utf8_string(String p_value){
     
 	_wasgo_StreamPeer_wrapper_put_utf8_string(wasgo_id, wasgo_buffer_value, wasgo_size_value);
 }
-void StreamPeer::put_var(Variant p_value, bool p_full_objects = (bool) false){
+void StreamPeer::put_var(Variant p_value, bool p_full_objects){
 	_wasgo_StreamPeer_wrapper_put_var(wasgo_id, p_value._get_wasgo_id(), p_full_objects);
 }
 void StreamPeer::set_big_endian(bool p_enable){
 	_wasgo_StreamPeer_wrapper_set_big_endian(wasgo_id, p_enable);
+}
+
+StreamPeer::StreamPeer(WasGoID p_wasgo_id) : Reference(p_wasgo_id){
+}
+StreamPeer::StreamPeer(Reference other) : Reference(other._get_wasgo_id()){
+}
+StreamPeer::StreamPeer():Reference(){
+}
+StreamPeer StreamPeer::new_instance(){
+    return StreamPeer(_wasgo_StreamPeer_constructor());
+}
+WasGoID StreamPeer::_get_wasgo_id(){
+    return wasgo_id;
+}
+StreamPeer::operator bool(){
+    return (bool) wasgo_id;
 }

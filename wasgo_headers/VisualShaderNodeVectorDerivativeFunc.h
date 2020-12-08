@@ -2,7 +2,7 @@
 #ifndef VISUALSHADERNODEVECTORDERIVATIVEFUNC_H
 #define VISUALSHADERNODEVECTORDERIVATIVEFUNC_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "VisualShaderNode.h"
 class VisualShaderNodeVectorDerivativeFunc : public VisualShaderNode{
@@ -19,7 +19,10 @@ protected:
 public:
 explicit VisualShaderNodeVectorDerivativeFunc(WasGoID p_wasgo_id);
 explicit VisualShaderNodeVectorDerivativeFunc(VisualShaderNode other);
+VisualShaderNodeVectorDerivativeFunc();
 VisualShaderNodeVectorDerivativeFunc new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

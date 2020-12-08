@@ -2,7 +2,7 @@
 #ifndef PATHFOLLOW_H
 #define PATHFOLLOW_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Spatial.h"
 class PathFollow : public Spatial{
@@ -33,7 +33,10 @@ protected:
 public:
 explicit PathFollow(WasGoID p_wasgo_id);
 explicit PathFollow(Spatial other);
+PathFollow();
 PathFollow new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

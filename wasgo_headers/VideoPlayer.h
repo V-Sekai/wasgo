@@ -2,12 +2,12 @@
 #ifndef VIDEOPLAYER_H
 #define VIDEOPLAYER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Control.h"
-#include "Texture.h"
 #include "VideoStream.h"
-#include "ustring.h"
+#include "Control.h"
+#include "Ustring.h"
+#include "Texture.h"
 class VideoPlayer : public Control{
 public:
 int get_audio_track();
@@ -40,7 +40,10 @@ protected:
 public:
 explicit VideoPlayer(WasGoID p_wasgo_id);
 explicit VideoPlayer(Control other);
+VideoPlayer();
 VideoPlayer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

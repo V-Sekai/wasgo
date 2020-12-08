@@ -116,8 +116,15 @@ void FileDialog::set_show_hidden_files(bool p_show){
 FileDialog::FileDialog(WasGoID p_wasgo_id) : ConfirmationDialog(p_wasgo_id){
 }
 FileDialog::FileDialog(ConfirmationDialog other) : ConfirmationDialog(other._get_wasgo_id()){
-    wasgo_id = _wasgo_FileDialog_constructor();
 }
-FileDialog::new_instance(){
+FileDialog::FileDialog():ConfirmationDialog(){
+}
+FileDialog FileDialog::new_instance(){
     return FileDialog(_wasgo_FileDialog_constructor());
+}
+WasGoID FileDialog::_get_wasgo_id(){
+    return wasgo_id;
+}
+FileDialog::operator bool(){
+    return (bool) wasgo_id;
 }

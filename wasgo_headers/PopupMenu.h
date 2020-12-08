@@ -2,13 +2,13 @@
 #ifndef POPUPMENU_H
 #define POPUPMENU_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "Popup.h"
 #include "ShortCut.h"
 #include "Variant.h"
+#include "Ustring.h"
 #include "Texture.h"
-#include "ustring.h"
 class PopupMenu : public Popup{
 public:
 void add_check_item(String p_label, int p_id = (int) -1, int p_accel = (int) 0);
@@ -23,7 +23,7 @@ void add_item(String p_label, int p_id = (int) -1, int p_accel = (int) 0);
 void add_multistate_item(String p_label, int p_max_states, int p_default_state = (int) 0, int p_id = (int) -1, int p_accel = (int) 0);
 void add_radio_check_item(String p_label, int p_id = (int) -1, int p_accel = (int) 0);
 void add_radio_check_shortcut(ShortCut p_shortcut, int p_id = (int) -1, bool p_global = (bool) false);
-void add_separator(String p_label = (String) );
+void add_separator(String p_label = String());
 void add_shortcut(ShortCut p_shortcut, int p_id = (int) -1, bool p_global = (bool) false);
 void add_submenu_item(String p_label, String p_submenu, int p_id = (int) -1);
 void clear();
@@ -79,7 +79,10 @@ protected:
 public:
 explicit PopupMenu(WasGoID p_wasgo_id);
 explicit PopupMenu(Popup other);
+PopupMenu();
 PopupMenu new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -2,7 +2,7 @@
 #ifndef AUDIOSTREAMGENERATOR_H
 #define AUDIOSTREAMGENERATOR_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioStream.h"
 class AudioStreamGenerator : public AudioStream{
@@ -16,7 +16,10 @@ protected:
 public:
 explicit AudioStreamGenerator(WasGoID p_wasgo_id);
 explicit AudioStreamGenerator(AudioStream other);
+AudioStreamGenerator();
 AudioStreamGenerator new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

@@ -1,7 +1,7 @@
 /* THIS FILE IS GENERATED */
 #include "marshalls.h"
 #include "OptionButton.h"
-void OptionButton::add_icon_item(Texture p_texture, String p_label, int p_id = (int) -1){
+void OptionButton::add_icon_item(Texture p_texture, String p_label, int p_id){
 
     Variant wasgo_var_label = p_label;
     int wasgo_size_label = String(p_label).size();
@@ -10,7 +10,7 @@ void OptionButton::add_icon_item(Texture p_texture, String p_label, int p_id = (
     
 	_wasgo_OptionButton_wrapper_add_icon_item(wasgo_id, p_texture._get_wasgo_id(), wasgo_buffer_label, wasgo_size_label, p_id);
 }
-void OptionButton::add_item(String p_label, int p_id = (int) -1){
+void OptionButton::add_item(String p_label, int p_id){
 
     Variant wasgo_var_label = p_label;
     int wasgo_size_label = String(p_label).size();
@@ -96,8 +96,15 @@ void OptionButton::set_item_text(int p_idx, String p_text){
 OptionButton::OptionButton(WasGoID p_wasgo_id) : Button(p_wasgo_id){
 }
 OptionButton::OptionButton(Button other) : Button(other._get_wasgo_id()){
-    wasgo_id = _wasgo_OptionButton_constructor();
 }
-OptionButton::new_instance(){
+OptionButton::OptionButton():Button(){
+}
+OptionButton OptionButton::new_instance(){
     return OptionButton(_wasgo_OptionButton_constructor());
+}
+WasGoID OptionButton::_get_wasgo_id(){
+    return wasgo_id;
+}
+OptionButton::operator bool(){
+    return (bool) wasgo_id;
 }

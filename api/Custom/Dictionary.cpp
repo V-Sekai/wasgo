@@ -28,11 +28,11 @@
 /* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
 /*************************************************************************/
 
-#include "dictionary.h"
+#include "Dictionary.h"
 
 #include "ordered_hash_map.h"
 #include "safe_refcount.h"
-#include "variant.h"
+#include "Variant.h"
 
 struct DictionaryPrivate {
 

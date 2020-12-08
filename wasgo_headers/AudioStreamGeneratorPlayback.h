@@ -2,7 +2,7 @@
 #ifndef AUDIOSTREAMGENERATORPLAYBACK_H
 #define AUDIOSTREAMGENERATORPLAYBACK_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
 #include "AudioStreamPlaybackResampled.h"
 #include "Variant.h"
@@ -15,6 +15,16 @@ int get_frames_available();
 int get_skips();
 bool push_buffer(PoolVector2Array p_frames);
 bool push_frame(Vector2 p_frame);
+
+protected:
+public:
+explicit AudioStreamGeneratorPlayback(WasGoID p_wasgo_id);
+explicit AudioStreamGeneratorPlayback(AudioStreamPlaybackResampled other);
+AudioStreamGeneratorPlayback();
+AudioStreamGeneratorPlayback new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
+            
 };
 
 

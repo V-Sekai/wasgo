@@ -2,11 +2,11 @@
 #ifndef TRANSLATION_H
 #define TRANSLATION_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Variant.h"
 #include "Resource.h"
-#include "ustring.h"
+#include "Variant.h"
+#include "Ustring.h"
 class Translation : public Resource{
 public:
 void add_message(String p_src_message, String p_xlated_message);
@@ -21,7 +21,10 @@ protected:
 public:
 explicit Translation(WasGoID p_wasgo_id);
 explicit Translation(Resource other);
+Translation();
 Translation new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 

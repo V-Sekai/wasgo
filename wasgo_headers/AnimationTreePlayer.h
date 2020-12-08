@@ -2,15 +2,15 @@
 #ifndef ANIMATIONTREEPLAYER_H
 #define ANIMATIONTREEPLAYER_H
 
-#include "wasgo\wasgo.h"
+#include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
 #include "Animation.h"
+#include "Vector2.h"
 #include "Node.h"
-#include "Variant.h"
-#include "error_list.h"
 #include "NodePath.h"
-#include "ustring.h"
+#include "error_list.h"
+#include "Variant.h"
+#include "Ustring.h"
 class AnimationTreePlayer : public Node{
 public:
 enum AnimationProcessMode{
@@ -99,7 +99,10 @@ protected:
 public:
 explicit AnimationTreePlayer(WasGoID p_wasgo_id);
 explicit AnimationTreePlayer(Node other);
+AnimationTreePlayer();
 AnimationTreePlayer new_instance();
+WasGoID _get_wasgo_id();
+operator bool();
             
 };
 
