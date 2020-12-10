@@ -138,7 +138,7 @@ void WasGoState::_validate_property(PropertyInfo &property) const{
 }
 void WasGoState::_notification(int p_what) {
 	// TODO: Uncomment this
-	// if (!Engine::get_singleton()->is_editor_hint()){ // only run in game
+	if (!Engine::get_singleton()->is_editor_hint()){ // only run in game
 	switch (p_what) {
 		case NOTIFICATION_READY:{
 			_initialize();
@@ -182,7 +182,7 @@ void WasGoState::_notification(int p_what) {
 		}
 	}
 
-	// }
+	}
 }
 
 WasGoState::WasGoState() {
@@ -456,7 +456,6 @@ void WasGoState::_unhandled_key_input(Ref<InputEventKey> p_event) {
 		uint32_t argv[1];
 		WasGoID wasgo_id = reference_object(p_event.ptr());
 		argv[0] = wasgo_id;
-		printf("WasGoID: %d\n", wasgo_id);
 		if (!wasm_runtime_call_wasm(exec_env, unhandled_key_input_callback, 1, argv)) {
 			printf("wasm unhandled key input callback failed. %s\n", wasm_runtime_get_exception(module_inst));
 		}
