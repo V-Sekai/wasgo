@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Shape2D.h"
 #include "Vector2.h"
+#include "Shape2D.h"
 class RectangleShape2D : public Shape2D{
 public:
 Vector2 get_extents();

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "VisualShaderNode.h"
-#include "Vector2.h"
 #include "Shader.h"
 #include "error_list.h"
+#include "VisualShaderNode.h"
 #include "Variant.h"
+#include "Vector2.h"
 class VisualShader : public Shader{
 public:
 enum Type{
@@ -48,22 +48,22 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_VisualShader_wrapper_add_node(WasGoID wasgo_id, WasGoID p_type, WasGoID p_node, const uint8_t * p_position, int p_position_wasgo_buffer_size, int p_id);
-int _wasgo_VisualShader_wrapper_can_connect_nodes(WasGoID wasgo_id, WasGoID p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
-WasGoID _wasgo_VisualShader_wrapper_connect_nodes(WasGoID wasgo_id, WasGoID p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
-void _wasgo_VisualShader_wrapper_connect_nodes_forced(WasGoID wasgo_id, WasGoID p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
-void _wasgo_VisualShader_wrapper_disconnect_nodes(WasGoID wasgo_id, WasGoID p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
+void _wasgo_VisualShader_wrapper_add_node(WasGoID wasgo_id, WasGoID p_type, WasGoID p_node, int wasgo_throwaway, const uint8_t * p_position, int p_position_wasgo_buffer_size, int p_id);
+int _wasgo_VisualShader_wrapper_can_connect_nodes(WasGoID wasgo_id, WasGoID p_type, int p_from_node, int wasgo_throwaway, int p_from_port, int p_to_node, int p_to_port);
+WasGoID _wasgo_VisualShader_wrapper_connect_nodes(WasGoID wasgo_id, WasGoID p_type, int p_from_node, int wasgo_throwaway, int p_from_port, int p_to_node, int p_to_port);
+void _wasgo_VisualShader_wrapper_connect_nodes_forced(WasGoID wasgo_id, WasGoID p_type, int p_from_node, int wasgo_throwaway, int p_from_port, int p_to_node, int p_to_port);
+void _wasgo_VisualShader_wrapper_disconnect_nodes(WasGoID wasgo_id, WasGoID p_type, int p_from_node, int wasgo_throwaway, int p_from_port, int p_to_node, int p_to_port);
 void _wasgo_VisualShader_wrapper_get_graph_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoID _wasgo_VisualShader_wrapper_get_node(WasGoID wasgo_id, WasGoID p_type, int p_id);
 WasGoID _wasgo_VisualShader_wrapper_get_node_connections(WasGoID wasgo_id, WasGoID p_type);
 WasGoID _wasgo_VisualShader_wrapper_get_node_list(WasGoID wasgo_id, WasGoID p_type);
-void _wasgo_VisualShader_wrapper_get_node_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoID p_type, int p_id);
+void _wasgo_VisualShader_wrapper_get_node_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, WasGoID p_type, int p_id);
 int _wasgo_VisualShader_wrapper_get_valid_node_id(WasGoID wasgo_id, WasGoID p_type);
-int _wasgo_VisualShader_wrapper_is_node_connection(WasGoID wasgo_id, WasGoID p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port);
+int _wasgo_VisualShader_wrapper_is_node_connection(WasGoID wasgo_id, WasGoID p_type, int p_from_node, int wasgo_throwaway, int p_from_port, int p_to_node, int p_to_port);
 void _wasgo_VisualShader_wrapper_remove_node(WasGoID wasgo_id, WasGoID p_type, int p_id);
 void _wasgo_VisualShader_wrapper_set_graph_offset(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
 void _wasgo_VisualShader_wrapper_set_mode(WasGoID wasgo_id, WasGoID p_mode);
-void _wasgo_VisualShader_wrapper_set_node_position(WasGoID wasgo_id, WasGoID p_type, int p_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_VisualShader_wrapper_set_node_position(WasGoID wasgo_id, WasGoID p_type, int p_id, int wasgo_throwaway, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 
     //constructor wrappers
     WasGoID _wasgo_VisualShader_constructor();

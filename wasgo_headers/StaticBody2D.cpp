@@ -14,7 +14,7 @@ Vector2 StaticBody2D::get_constant_linear_velocity(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_StaticBody2D_wrapper_get_constant_linear_velocity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float StaticBody2D::get_friction(){

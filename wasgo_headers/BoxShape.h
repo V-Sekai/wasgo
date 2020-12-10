@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Vector3.h"
 #include "Shape.h"
+#include "Vector3.h"
 class BoxShape : public Shape{
 public:
 Vector3 get_extents();

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "NodePath.h"
 #include "Texture.h"
+#include "NodePath.h"
 class ViewportTexture : public Texture{
 public:
 NodePath get_viewport_path_in_scene();

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Vector3.h"
-#include "PhysicsBody.h"
-#include "Transform.h"
 #include "KinematicCollision.h"
 #include "PhysicsServer.h"
+#include "Transform.h"
+#include "PhysicsBody.h"
+#include "Vector3.h"
 class KinematicBody : public PhysicsBody{
 public:
 bool get_axis_lock(PhysicsServer::BodyAxis p_axis);
@@ -50,12 +50,12 @@ int _wasgo_KinematicBody_wrapper_get_slide_count(WasGoID wasgo_id);
 int _wasgo_KinematicBody_wrapper_is_on_ceiling(WasGoID wasgo_id);
 int _wasgo_KinematicBody_wrapper_is_on_floor(WasGoID wasgo_id);
 int _wasgo_KinematicBody_wrapper_is_on_wall(WasGoID wasgo_id);
-WasGoID _wasgo_KinematicBody_wrapper_move_and_collide(WasGoID wasgo_id, const uint8_t * p_rel_vec, int p_rel_vec_wasgo_buffer_size, bool p_infinite_inertia, bool p_exclude_raycast_shapes, bool p_test_only);
-void _wasgo_KinematicBody_wrapper_move_and_slide(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_linear_velocity, int p_linear_velocity_wasgo_buffer_size, const uint8_t * p_up_direction, int p_up_direction_wasgo_buffer_size, bool p_stop_on_slope, int p_max_slides, float p_floor_max_angle, bool p_infinite_inertia);
-void _wasgo_KinematicBody_wrapper_move_and_slide_with_snap(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_linear_velocity, int p_linear_velocity_wasgo_buffer_size, const uint8_t * p_snap, int p_snap_wasgo_buffer_size, const uint8_t * p_up_direction, int p_up_direction_wasgo_buffer_size, bool p_stop_on_slope, int p_max_slides, float p_floor_max_angle, bool p_infinite_inertia);
+WasGoID _wasgo_KinematicBody_wrapper_move_and_collide(WasGoID wasgo_id, const uint8_t * p_rel_vec, int p_rel_vec_wasgo_buffer_size, int wasgo_throwaway, bool p_infinite_inertia, bool p_exclude_raycast_shapes, bool p_test_only);
+void _wasgo_KinematicBody_wrapper_move_and_slide(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_linear_velocity, int p_linear_velocity_wasgo_buffer_size, const uint8_t * p_up_direction, int p_up_direction_wasgo_buffer_size, bool p_stop_on_slope, int p_max_slides, float p_floor_max_angle, bool p_infinite_inertia);
+void _wasgo_KinematicBody_wrapper_move_and_slide_with_snap(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_linear_velocity, int p_linear_velocity_wasgo_buffer_size, const uint8_t * p_snap, int p_snap_wasgo_buffer_size, const uint8_t * p_up_direction, int p_up_direction_wasgo_buffer_size, bool p_stop_on_slope, int p_max_slides, float p_floor_max_angle, bool p_infinite_inertia);
 void _wasgo_KinematicBody_wrapper_set_axis_lock(WasGoID wasgo_id, WasGoID p_axis, bool p_lock);
 void _wasgo_KinematicBody_wrapper_set_safe_margin(WasGoID wasgo_id, float p_pixels);
-int _wasgo_KinematicBody_wrapper_test_move(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_rel_vec, int p_rel_vec_wasgo_buffer_size, bool p_infinite_inertia);
+int _wasgo_KinematicBody_wrapper_test_move(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_rel_vec, int p_rel_vec_wasgo_buffer_size, bool p_infinite_inertia);
 
     //constructor wrappers
     WasGoID _wasgo_KinematicBody_constructor();

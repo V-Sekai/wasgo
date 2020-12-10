@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Variant.h"
-#include "Reference.h"
 #include "Ustring.h"
+#include "Reference.h"
 #include "error_list.h"
+#include "Variant.h"
 class XMLParser : public Reference{
 public:
 enum NodeType{
@@ -52,11 +52,11 @@ operator bool();
 //Wrapper Functions
 extern "C"{
 int _wasgo_XMLParser_wrapper_get_attribute_count(WasGoID wasgo_id);
-void _wasgo_XMLParser_wrapper_get_attribute_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-void _wasgo_XMLParser_wrapper_get_attribute_value(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+void _wasgo_XMLParser_wrapper_get_attribute_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
+void _wasgo_XMLParser_wrapper_get_attribute_value(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
 int _wasgo_XMLParser_wrapper_get_current_line(WasGoID wasgo_id);
-void _wasgo_XMLParser_wrapper_get_named_attribute_value(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_name, int p_name_wasgo_buffer_size);
-void _wasgo_XMLParser_wrapper_get_named_attribute_value_safe(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_XMLParser_wrapper_get_named_attribute_value(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_XMLParser_wrapper_get_named_attribute_value_safe(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 void _wasgo_XMLParser_wrapper_get_node_data(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_XMLParser_wrapper_get_node_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_XMLParser_wrapper_get_node_offset(WasGoID wasgo_id);

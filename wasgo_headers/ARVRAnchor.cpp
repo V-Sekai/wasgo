@@ -11,7 +11,7 @@ String ARVRAnchor::get_anchor_name(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_ARVRAnchor_wrapper_get_anchor_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool ARVRAnchor::get_is_active(){
@@ -27,7 +27,7 @@ Plane ARVRAnchor::get_plane(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_ARVRAnchor_wrapper_get_plane(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Plane) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 ARVRAnchor::get_size(){
@@ -37,7 +37,7 @@ Vector3 ARVRAnchor::get_size(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_ARVRAnchor_wrapper_get_size(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 void ARVRAnchor::set_anchor_id(int p_anchor_id){

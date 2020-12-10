@@ -8,7 +8,7 @@ Color ColorRect::get_frame_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_ColorRect_wrapper_get_frame_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 void ColorRect::set_frame_color(Color p_color){

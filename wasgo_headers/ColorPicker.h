@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
-#include "Variant.h"
 #include "BoxContainer.h"
+#include "Variant.h"
+#include "Color.h"
 class ColorPicker : public BoxContainer{
 public:
 void add_preset(Color p_color);

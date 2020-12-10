@@ -5,9 +5,9 @@
 #include "wasgo\wasgoid.h"
 
 #include "Vector2.h"
+#include "Texture.h"
 #include "Color.h"
 #include "Node2D.h"
-#include "Texture.h"
 class Light2D : public Node2D{
 public:
 enum Mode{

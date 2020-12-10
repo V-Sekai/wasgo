@@ -11,7 +11,7 @@ Vector2 InputEventMouse::get_global_position(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_InputEventMouse_wrapper_get_global_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 InputEventMouse::get_position(){
@@ -21,7 +21,7 @@ Vector2 InputEventMouse::get_position(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_InputEventMouse_wrapper_get_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 void InputEventMouse::set_button_mask(int p_button_mask){

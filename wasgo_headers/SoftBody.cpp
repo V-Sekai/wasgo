@@ -38,7 +38,7 @@ NodePath SoftBody::get_parent_collision_ignore(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_SoftBody_wrapper_get_parent_collision_ignore(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 float SoftBody::get_pose_matching_coefficient(){
@@ -89,7 +89,7 @@ void SoftBody::set_linear_stiffness(float p_linear_stiffness){
 void SoftBody::set_parent_collision_ignore(NodePath p_parent_collision_ignore){
 
     Variant wasgo_var_parent_collision_ignore = p_parent_collision_ignore;
-    int wasgo_size_parent_collision_ignore = String(p_parent_collision_ignore).size();
+    int wasgo_size_parent_collision_ignore = 10 + String(p_parent_collision_ignore).size();
     uint8_t wasgo_buffer_parent_collision_ignore[wasgo_size_parent_collision_ignore];
     encode_variant(wasgo_var_parent_collision_ignore, wasgo_buffer_parent_collision_ignore, wasgo_size_parent_collision_ignore);
     

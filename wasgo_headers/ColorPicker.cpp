@@ -32,7 +32,7 @@ Color ColorPicker::get_pick_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_ColorPicker_wrapper_get_pick_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolColorArray ColorPicker::get_presets(){

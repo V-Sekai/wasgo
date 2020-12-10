@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Control.h"
 #include "Ustring.h"
+#include "Control.h"
 class Label : public Control{
 public:
 enum Align{

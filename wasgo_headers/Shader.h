@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Resource.h"
 #include "Ustring.h"
 #include "Texture.h"
+#include "Resource.h"
 class Shader : public Resource{
 public:
 enum Mode{
@@ -44,7 +44,7 @@ WasGoID _wasgo_Shader_wrapper_get_mode(WasGoID wasgo_id);
 int _wasgo_Shader_wrapper_has_param(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 void _wasgo_Shader_wrapper_set_code(WasGoID wasgo_id, const uint8_t * p_code, int p_code_wasgo_buffer_size);
 void _wasgo_Shader_wrapper_set_custom_defines(WasGoID wasgo_id, const uint8_t * p_custom_defines, int p_custom_defines_wasgo_buffer_size);
-void _wasgo_Shader_wrapper_set_default_texture_param(WasGoID wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size, WasGoID p_texture);
+void _wasgo_Shader_wrapper_set_default_texture_param(WasGoID wasgo_id, const uint8_t * p_param, int p_param_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_texture);
 
     //constructor wrappers
     WasGoID _wasgo_Shader_constructor();

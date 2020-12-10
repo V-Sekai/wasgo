@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Variant.h"
 #include "Reference.h"
+#include "Variant.h"
 class WeakRef : public Reference{
 public:
 Variant get_ref();
@@ -24,7 +24,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-WasGoID _wasgo_WeakRef_wrapper_get_ref(WasGoID wasgo_id);
+void _wasgo_WeakRef_wrapper_get_ref(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 
     //constructor wrappers
     WasGoID _wasgo_WeakRef_constructor();

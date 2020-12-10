@@ -5,10 +5,10 @@
 #include "wasgo\wasgoid.h"
 
 #include "Mesh.h"
-#include "Resource.h"
 #include "NavigationMesh.h"
-#include "Transform.h"
+#include "Resource.h"
 #include "Variant.h"
+#include "Transform.h"
 #include "Ustring.h"
 #include "Texture.h"
 class MeshLibrary : public Resource{
@@ -51,17 +51,17 @@ void _wasgo_MeshLibrary_wrapper_create_item(WasGoID wasgo_id, int p_id);
 int _wasgo_MeshLibrary_wrapper_find_item_by_name(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 WasGoID _wasgo_MeshLibrary_wrapper_get_item_list(WasGoID wasgo_id);
 WasGoID _wasgo_MeshLibrary_wrapper_get_item_mesh(WasGoID wasgo_id, int p_id);
-void _wasgo_MeshLibrary_wrapper_get_item_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
+void _wasgo_MeshLibrary_wrapper_get_item_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_id);
 WasGoID _wasgo_MeshLibrary_wrapper_get_item_navmesh(WasGoID wasgo_id, int p_id);
-void _wasgo_MeshLibrary_wrapper_get_item_navmesh_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_id);
+void _wasgo_MeshLibrary_wrapper_get_item_navmesh_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_id);
 WasGoID _wasgo_MeshLibrary_wrapper_get_item_preview(WasGoID wasgo_id, int p_id);
 WasGoID _wasgo_MeshLibrary_wrapper_get_item_shapes(WasGoID wasgo_id, int p_id);
 int _wasgo_MeshLibrary_wrapper_get_last_unused_item_id(WasGoID wasgo_id);
 void _wasgo_MeshLibrary_wrapper_remove_item(WasGoID wasgo_id, int p_id);
 void _wasgo_MeshLibrary_wrapper_set_item_mesh(WasGoID wasgo_id, int p_id, WasGoID p_mesh);
-void _wasgo_MeshLibrary_wrapper_set_item_name(WasGoID wasgo_id, int p_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
+void _wasgo_MeshLibrary_wrapper_set_item_name(WasGoID wasgo_id, int p_id, const uint8_t * p_name, int wasgo_throwaway, int p_name_wasgo_buffer_size);
 void _wasgo_MeshLibrary_wrapper_set_item_navmesh(WasGoID wasgo_id, int p_id, WasGoID p_navmesh);
-void _wasgo_MeshLibrary_wrapper_set_item_navmesh_transform(WasGoID wasgo_id, int p_id, const uint8_t * p_navmesh, int p_navmesh_wasgo_buffer_size);
+void _wasgo_MeshLibrary_wrapper_set_item_navmesh_transform(WasGoID wasgo_id, int p_id, const uint8_t * p_navmesh, int wasgo_throwaway, int p_navmesh_wasgo_buffer_size);
 void _wasgo_MeshLibrary_wrapper_set_item_preview(WasGoID wasgo_id, int p_id, WasGoID p_texture);
 void _wasgo_MeshLibrary_wrapper_set_item_shapes(WasGoID wasgo_id, int p_id, WasGoID p_shapes);
 

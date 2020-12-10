@@ -33,9 +33,9 @@ String StreamPeer::get_string(int p_bytes){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_StreamPeer_wrapper_get_string(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_bytes);
+    _wasgo_StreamPeer_wrapper_get_string(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_bytes);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int StreamPeer::get_u16(){
@@ -55,13 +55,20 @@ String StreamPeer::get_utf8_string(int p_bytes){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_StreamPeer_wrapper_get_utf8_string(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_bytes);
+    _wasgo_StreamPeer_wrapper_get_utf8_string(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_bytes);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 Variant StreamPeer::get_var(bool p_allow_objects){
-	return Variant(_wasgo_StreamPeer_wrapper_get_var(wasgo_id, p_allow_objects));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_StreamPeer_wrapper_get_var(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_allow_objects);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 bool StreamPeer::is_big_endian_enabled(){
 	return (bool) _wasgo_StreamPeer_wrapper_is_big_endian_enabled(wasgo_id);
@@ -93,7 +100,7 @@ Array StreamPeer::put_partial_data(PoolByteArray p_data){
 void StreamPeer::put_string(String p_value){
 
     Variant wasgo_var_value = p_value;
-    int wasgo_size_value = String(p_value).size();
+    int wasgo_size_value = 10 + String(p_value).size();
     uint8_t wasgo_buffer_value[wasgo_size_value];
     encode_variant(wasgo_var_value, wasgo_buffer_value, wasgo_size_value);
     
@@ -114,14 +121,20 @@ void StreamPeer::put_u8(int p_value){
 void StreamPeer::put_utf8_string(String p_value){
 
     Variant wasgo_var_value = p_value;
-    int wasgo_size_value = String(p_value).size();
+    int wasgo_size_value = 10 + String(p_value).size();
     uint8_t wasgo_buffer_value[wasgo_size_value];
     encode_variant(wasgo_var_value, wasgo_buffer_value, wasgo_size_value);
     
 	_wasgo_StreamPeer_wrapper_put_utf8_string(wasgo_id, wasgo_buffer_value, wasgo_size_value);
 }
 void StreamPeer::put_var(Variant p_value, bool p_full_objects){
-	_wasgo_StreamPeer_wrapper_put_var(wasgo_id, p_value._get_wasgo_id(), p_full_objects);
+
+    Variant wasgo_var_value = p_value;
+    uint8_t wasgo_buffer_value[256];
+    int wasgo_size_value = 256;
+    encode_variant(wasgo_var_value, wasgo_buffer_value, wasgo_size_value);
+    
+	_wasgo_StreamPeer_wrapper_put_var(wasgo_id, wasgo_buffer_value, wasgo_size_value, -69, p_full_objects);
 }
 void StreamPeer::set_big_endian(bool p_enable){
 	_wasgo_StreamPeer_wrapper_set_big_endian(wasgo_id, p_enable);

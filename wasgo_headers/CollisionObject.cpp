@@ -10,11 +10,11 @@ bool CollisionObject::get_capture_input_on_drag(){
 RID CollisionObject::get_rid(){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
     _wasgo_CollisionObject_wrapper_get_rid(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 Array CollisionObject::get_shape_owners(){
@@ -61,9 +61,9 @@ Transform CollisionObject::shape_owner_get_transform(int p_owner_id){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 52;
     uint8_t wasgo_ret_buffer[52];
-    _wasgo_CollisionObject_wrapper_shape_owner_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_owner_id);
+    _wasgo_CollisionObject_wrapper_shape_owner_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_owner_id);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 void CollisionObject::shape_owner_remove_shape(int p_owner_id, int p_shape_id){
@@ -79,7 +79,7 @@ void CollisionObject::shape_owner_set_transform(int p_owner_id, Transform p_tran
     int wasgo_size_transform = 52;
     encode_variant(wasgo_var_transform, wasgo_buffer_transform, wasgo_size_transform);
     
-	_wasgo_CollisionObject_wrapper_shape_owner_set_transform(wasgo_id, p_owner_id, wasgo_buffer_transform, wasgo_size_transform);
+	_wasgo_CollisionObject_wrapper_shape_owner_set_transform(wasgo_id, p_owner_id, wasgo_buffer_transform, wasgo_size_transform, wasgo_size_transform);
 }
 
 CollisionObject::CollisionObject(WasGoID p_wasgo_id) : Spatial(p_wasgo_id){

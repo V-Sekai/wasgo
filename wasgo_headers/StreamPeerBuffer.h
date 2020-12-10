@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Variant.h"
 #include "StreamPeer.h"
+#include "Variant.h"
 class StreamPeerBuffer : public StreamPeer{
 public:
 void clear();

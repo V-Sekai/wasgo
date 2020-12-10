@@ -12,9 +12,9 @@ Color GraphNode::get_connection_input_color(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_GraphNode_wrapper_get_connection_input_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_GraphNode_wrapper_get_connection_input_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 int GraphNode::get_connection_input_count(){
@@ -25,9 +25,9 @@ Vector2 GraphNode::get_connection_input_position(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_GraphNode_wrapper_get_connection_input_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_GraphNode_wrapper_get_connection_input_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int GraphNode::get_connection_input_type(int p_idx){
@@ -38,9 +38,9 @@ Color GraphNode::get_connection_output_color(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_GraphNode_wrapper_get_connection_output_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_GraphNode_wrapper_get_connection_output_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 int GraphNode::get_connection_output_count(){
@@ -51,9 +51,9 @@ Vector2 GraphNode::get_connection_output_position(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_GraphNode_wrapper_get_connection_output_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_GraphNode_wrapper_get_connection_output_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int GraphNode::get_connection_output_type(int p_idx){
@@ -66,7 +66,7 @@ Vector2 GraphNode::get_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_GraphNode_wrapper_get_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 GraphNode::Overlay GraphNode::get_overlay(){
@@ -77,9 +77,9 @@ Color GraphNode::get_slot_color_left(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_GraphNode_wrapper_get_slot_color_left(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_GraphNode_wrapper_get_slot_color_left(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Color GraphNode::get_slot_color_right(int p_idx){
@@ -87,9 +87,9 @@ Color GraphNode::get_slot_color_right(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_GraphNode_wrapper_get_slot_color_right(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_GraphNode_wrapper_get_slot_color_right(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 int GraphNode::get_slot_type_left(int p_idx){
@@ -105,7 +105,7 @@ String GraphNode::get_title(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_GraphNode_wrapper_get_title(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool GraphNode::is_close_button_visible(){
@@ -163,12 +163,12 @@ void GraphNode::set_slot(int p_idx, bool p_enable_left, int p_type_left, Color p
     int wasgo_size_color_right = 20;
     encode_variant(wasgo_var_color_right, wasgo_buffer_color_right, wasgo_size_color_right);
     
-	_wasgo_GraphNode_wrapper_set_slot(wasgo_id, p_idx, p_enable_left, p_type_left, wasgo_buffer_color_left, wasgo_size_color_left, p_enable_right, p_type_right, wasgo_buffer_color_right, wasgo_size_color_right, p_custom_left._get_wasgo_id(), p_custom_right._get_wasgo_id());
+	_wasgo_GraphNode_wrapper_set_slot(wasgo_id, p_idx, p_enable_left, -69, p_type_left, wasgo_buffer_color_left, wasgo_size_color_left, p_enable_right, p_type_right, wasgo_buffer_color_right, wasgo_size_color_right, p_custom_left._get_wasgo_id(), p_custom_right._get_wasgo_id());
 }
 void GraphNode::set_title(String p_title){
 
     Variant wasgo_var_title = p_title;
-    int wasgo_size_title = String(p_title).size();
+    int wasgo_size_title = 10 + String(p_title).size();
     uint8_t wasgo_buffer_title[wasgo_size_title];
     encode_variant(wasgo_var_title, wasgo_buffer_title, wasgo_size_title);
     

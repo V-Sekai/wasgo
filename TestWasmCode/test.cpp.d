@@ -23,7 +23,10 @@ test.cpp.o: test.cpp ..\api\Custom\wasgo\wasgo.h ..\api\Custom\Variant.h \
   ..\api\Generated\InputEventWithModifiers.h \
   ..\api\Generated\InputEvent.h ..\api\Generated\Spatial.h \
   ..\api\Custom\Vector3.h ..\api\Custom\Transform.h \
-  ..\api\Generated\Node.h
+  ..\api\Generated\Node.h ..\api\Generated\WasGoState.h \
+  ..\api\Custom\Basis.h ..\api\Custom\AABB.h \
+  ..\api\Generated\WasmResource.h ..\api\Custom\Color.h \
+  ..\api\Custom\Plane.h ..\api\Custom\Quat.h ..\api\Custom\Rect2.h
 
 ..\api\Custom\wasgo\wasgo.h:
 
@@ -134,3 +137,19 @@ test.cpp.o: test.cpp ..\api\Custom\wasgo\wasgo.h ..\api\Custom\Variant.h \
 ..\api\Custom\Transform.h:
 
 ..\api\Generated\Node.h:
+
+..\api\Generated\WasGoState.h:
+
+..\api\Custom\Basis.h:
+
+..\api\Custom\AABB.h:
+
+..\api\Generated\WasmResource.h:
+
+..\api\Custom\Color.h:
+
+..\api\Custom\Plane.h:
+
+..\api\Custom\Quat.h:
+
+..\api\Custom\Rect2.h:

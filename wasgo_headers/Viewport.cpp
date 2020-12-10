@@ -17,7 +17,7 @@ Transform2D Viewport::get_canvas_transform(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_Viewport_wrapper_get_canvas_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 Viewport::ClearMode Viewport::get_clear_mode(){
@@ -33,7 +33,7 @@ Transform2D Viewport::get_final_transform(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_Viewport_wrapper_get_final_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform2D Viewport::get_global_canvas_transform(){
@@ -43,7 +43,7 @@ Transform2D Viewport::get_global_canvas_transform(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_Viewport_wrapper_get_global_canvas_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool Viewport::get_hdr(){
@@ -62,7 +62,7 @@ Vector2 Viewport::get_mouse_position(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Viewport_wrapper_get_mouse_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Viewport::MSAA Viewport::get_msaa(){
@@ -87,7 +87,7 @@ Vector2 Viewport::get_size(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Viewport_wrapper_get_size(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 Viewport::get_size_override(){
@@ -97,7 +97,7 @@ Vector2 Viewport::get_size_override(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Viewport_wrapper_get_size_override(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 ViewportTexture Viewport::get_texture(){
@@ -109,23 +109,17 @@ Viewport::UpdateMode Viewport::get_update_mode(){
 Viewport::Usage Viewport::get_usage(){
 	return Viewport::Usage(_wasgo_Viewport_wrapper_get_usage(wasgo_id));
 }
-bool Viewport::get_use_debanding(){
-	return (bool) _wasgo_Viewport_wrapper_get_use_debanding(wasgo_id);
-}
-bool Viewport::get_use_fxaa(){
-	return (bool) _wasgo_Viewport_wrapper_get_use_fxaa(wasgo_id);
-}
 bool Viewport::get_vflip(){
 	return (bool) _wasgo_Viewport_wrapper_get_vflip(wasgo_id);
 }
 RID Viewport::get_viewport_rid(){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
     _wasgo_Viewport_wrapper_get_viewport_rid(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 Rect2 Viewport::get_visible_rect(){
@@ -135,7 +129,7 @@ Rect2 Viewport::get_visible_rect(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Viewport_wrapper_get_visible_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 World Viewport::get_world(){
@@ -145,7 +139,14 @@ World2D Viewport::get_world_2d(){
 	return World2D(_wasgo_Viewport_wrapper_get_world_2d(wasgo_id));
 }
 Variant Viewport::gui_get_drag_data(){
-	return Variant(_wasgo_Viewport_wrapper_gui_get_drag_data(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_Viewport_wrapper_gui_get_drag_data(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 bool Viewport::gui_has_modal_stack(){
 	return (bool) _wasgo_Viewport_wrapper_gui_has_modal_stack(wasgo_id);
@@ -283,7 +284,7 @@ void Viewport::set_size_override(bool p_enable, Vector2 p_size, Vector2 p_margin
     int wasgo_size_margin = 12;
     encode_variant(wasgo_var_margin, wasgo_buffer_margin, wasgo_size_margin);
     
-	_wasgo_Viewport_wrapper_set_size_override(wasgo_id, p_enable, wasgo_buffer_size, wasgo_size_size, wasgo_buffer_margin, wasgo_size_margin);
+	_wasgo_Viewport_wrapper_set_size_override(wasgo_id, p_enable, wasgo_buffer_size, wasgo_size_size, wasgo_size_size, wasgo_buffer_margin, wasgo_size_margin);
 }
 void Viewport::set_size_override_stretch(bool p_enabled){
 	_wasgo_Viewport_wrapper_set_size_override_stretch(wasgo_id, p_enabled);
@@ -302,12 +303,6 @@ void Viewport::set_usage(Viewport::Usage p_usage){
 }
 void Viewport::set_use_arvr(bool p_use){
 	_wasgo_Viewport_wrapper_set_use_arvr(wasgo_id, p_use);
-}
-void Viewport::set_use_debanding(bool p_enable){
-	_wasgo_Viewport_wrapper_set_use_debanding(wasgo_id, p_enable);
-}
-void Viewport::set_use_fxaa(bool p_enable){
-	_wasgo_Viewport_wrapper_set_use_fxaa(wasgo_id, p_enable);
 }
 void Viewport::set_use_own_world(bool p_enable){
 	_wasgo_Viewport_wrapper_set_use_own_world(wasgo_id, p_enable);

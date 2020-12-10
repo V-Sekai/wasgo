@@ -42,7 +42,7 @@ bool InputEvent::is_action_pressed(String p_action, bool p_allow_echo){
     uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
-	return (bool) _wasgo_InputEvent_wrapper_is_action_pressed(wasgo_id, wasgo_buffer_action, wasgo_size_action, p_allow_echo);
+	return (bool) _wasgo_InputEvent_wrapper_is_action_pressed(wasgo_id, wasgo_buffer_action, wasgo_size_action, -69, p_allow_echo);
 }
 bool InputEvent::is_action_released(String p_action){
 
@@ -80,8 +80,8 @@ InputEvent InputEvent::xformed_by(Transform2D p_xform, Vector2 p_local_ofs){
     uint8_t wasgo_buffer_local_ofs[12];
     int wasgo_size_local_ofs = 12;
     encode_variant(wasgo_var_local_ofs, wasgo_buffer_local_ofs, wasgo_size_local_ofs);
-    
-	return InputEvent(_wasgo_InputEvent_wrapper_xformed_by(wasgo_id, wasgo_buffer_xform, wasgo_size_xform, wasgo_buffer_local_ofs, wasgo_size_local_ofs));
+
+	return InputEvent(_wasgo_InputEvent_wrapper_xformed_by(wasgo_id, wasgo_buffer_xform, wasgo_size_xform, -69, wasgo_buffer_local_ofs, wasgo_size_local_ofs));
 }
 
 InputEvent::InputEvent(WasGoID p_wasgo_id) : Resource(p_wasgo_id){

@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include "wasgo/wasgo.h"
 #include "Spatial.h"
+#include "WasGoState.h"
 
 Spatial spin_node;
+
+WasGoState other_state;
 
 // void _ready() {
 // 	Node this_node = WasGo::this_node();
@@ -24,7 +27,14 @@ Spatial spin_node;
 // }
 
 void _ready() {
-	printf("ready callback\n");
+	// printf("ready callback\n");
+	// Node this_node = WasGo::this_node();
+	// NodePath other_path = WasGo::get_property_nodepath("other_state");
+	// other_state = (WasGoState)this_node.get_node(WasGo::get_property_nodepath("other_state"));
+	// if (other_state) {
+	// 	printf("got node: %ls\n", other_state.get_name().ascii().ptr());
+	// }
+	// WasGo::set_property_int("pls just work2", 456);
 }
 
 void _process(float delta) {
@@ -39,12 +49,32 @@ void _process(float delta) {
 	// 	Variant path = WasGo::get_property("other_node", Variant::NODE_PATH);
 	// 	spin_node = (Spatial)this_node.get_node(path);
 	// }
+
+	other_state = (WasGoState)WasGo::this_node().get_node(WasGo::get_property_nodepath("other_state"));
+	if (other_state) {
+		// other_state.set_int_property(69, "asdfasdfasdfasdf");
+		other_state.set_property_int("asdfasdfasdfasdf", 69);
+		// other_state.set_property_string("foo", "bar");
+		// other_state.set_property_vector3("asdff", Vector3(1,2,3));
+		// printf("got node: %ls\n", other_state.get_name().ascii().ptr());
+	} else {
+		printf("other state doesn't exist\n");
+		other_state = (WasGoState)WasGo::this_node().get_node(WasGo::get_property_nodepath("other_state"));
+	}
 }
 
-void _input(InputEvent event){
-	printf("We got input!!!: %ls\n", event.as_text().ascii().ptr());
-}
+	// void _input(InputEvent event){
+	// 	// printf("We got input!!!: %ls\n", event.as_text().ascii().ptr());
+	// }
 
-void _unhandled_key_input(InputEventKey p_key_event){
-	printf("we got the key: %ls\n", p_key_event.as_text().ascii().ptr());
-}
+	// void _unhandled_key_input(InputEventKey p_key_event){
+	// 	// printf("we got the key: %ls\n", p_key_event.as_text().ascii().ptr());
+	// 	if (other_state) {
+	// 		printf("other state's property being set\n");
+	// 		other_state.set_property_int("some_property", 123);
+	// 		printf("other state property set to %d\n", (int)other_state.get_property_int("some_property"));
+	// 	} else {
+	// 		printf("other state doesn't exist\n");
+	// 		other_state = (WasGoState)WasGo::this_node().get_node(WasGo::get_property_nodepath("other_state"));
+	// 	}
+	// }

@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "HBoxContainer.h"
-#include "Vector2.h"
-class Node;
 #include "error_list.h"
+#include "HBoxContainer.h"
+#include "Control.h"
+#include "Vector2.h"
 #include "Variant.h"
 #include "Ustring.h"
-#include "Control.h"
+class Node;
 class GraphEdit : public Control{
 public:
 void add_valid_connection_type(int p_from_type, int p_to_type);
@@ -57,21 +57,21 @@ void _wasgo_GraphEdit_wrapper_add_valid_connection_type(WasGoID wasgo_id, int p_
 void _wasgo_GraphEdit_wrapper_add_valid_left_disconnect_type(WasGoID wasgo_id, int p_type);
 void _wasgo_GraphEdit_wrapper_add_valid_right_disconnect_type(WasGoID wasgo_id, int p_type);
 void _wasgo_GraphEdit_wrapper_clear_connections(WasGoID wasgo_id);
-WasGoID _wasgo_GraphEdit_wrapper_connect_node(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int p_from_port, const uint8_t * p_to, int p_to_wasgo_buffer_size, int p_to_port);
-void _wasgo_GraphEdit_wrapper_disconnect_node(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int p_from_port, const uint8_t * p_to, int p_to_wasgo_buffer_size, int p_to_port);
+WasGoID _wasgo_GraphEdit_wrapper_connect_node(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, int p_from_port, const uint8_t * p_to, int p_to_wasgo_buffer_size, int p_to_port);
+void _wasgo_GraphEdit_wrapper_disconnect_node(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, int p_from_port, const uint8_t * p_to, int p_to_wasgo_buffer_size, int p_to_port);
 WasGoID _wasgo_GraphEdit_wrapper_get_connection_list(WasGoID wasgo_id);
 void _wasgo_GraphEdit_wrapper_get_scroll_ofs(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_GraphEdit_wrapper_get_snap(WasGoID wasgo_id);
 float _wasgo_GraphEdit_wrapper_get_zoom(WasGoID wasgo_id);
 WasGoID _wasgo_GraphEdit_wrapper_get_zoom_hbox(WasGoID wasgo_id);
-int _wasgo_GraphEdit_wrapper_is_node_connected(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int p_from_port, const uint8_t * p_to, int p_to_wasgo_buffer_size, int p_to_port);
+int _wasgo_GraphEdit_wrapper_is_node_connected(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, int p_from_port, const uint8_t * p_to, int p_to_wasgo_buffer_size, int p_to_port);
 int _wasgo_GraphEdit_wrapper_is_right_disconnects_enabled(WasGoID wasgo_id);
 int _wasgo_GraphEdit_wrapper_is_using_snap(WasGoID wasgo_id);
 int _wasgo_GraphEdit_wrapper_is_valid_connection_type(WasGoID wasgo_id, int p_from_type, int p_to_type);
 void _wasgo_GraphEdit_wrapper_remove_valid_connection_type(WasGoID wasgo_id, int p_from_type, int p_to_type);
 void _wasgo_GraphEdit_wrapper_remove_valid_left_disconnect_type(WasGoID wasgo_id, int p_type);
 void _wasgo_GraphEdit_wrapper_remove_valid_right_disconnect_type(WasGoID wasgo_id, int p_type);
-void _wasgo_GraphEdit_wrapper_set_connection_activity(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int p_from_port, const uint8_t * p_to, int p_to_wasgo_buffer_size, int p_to_port, float p_amount);
+void _wasgo_GraphEdit_wrapper_set_connection_activity(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, int p_from_port, const uint8_t * p_to, int p_to_wasgo_buffer_size, int p_to_port, float p_amount);
 void _wasgo_GraphEdit_wrapper_set_right_disconnects(WasGoID wasgo_id, bool p_enable);
 void _wasgo_GraphEdit_wrapper_set_scroll_ofs(WasGoID wasgo_id, const uint8_t * p_ofs, int p_ofs_wasgo_buffer_size);
 void _wasgo_GraphEdit_wrapper_set_selected(WasGoID wasgo_id, WasGoID p_node);

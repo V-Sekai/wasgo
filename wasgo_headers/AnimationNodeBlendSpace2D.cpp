@@ -8,10 +8,10 @@ void AnimationNodeBlendSpace2D::add_blend_point(AnimationRootNode p_node, Vector
     int wasgo_size_pos = 12;
     encode_variant(wasgo_var_pos, wasgo_buffer_pos, wasgo_size_pos);
     
-	_wasgo_AnimationNodeBlendSpace2D_wrapper_add_blend_point(wasgo_id, p_node._get_wasgo_id(), wasgo_buffer_pos, wasgo_size_pos, p_at_index);
+	_wasgo_AnimationNodeBlendSpace2D_wrapper_add_blend_point(wasgo_id, p_node._get_wasgo_id(), wasgo_buffer_pos, wasgo_size_pos, wasgo_size_pos, p_at_index);
 }
 void AnimationNodeBlendSpace2D::add_triangle(int p_x, int p_y, int p_z, int p_at_index){
-	_wasgo_AnimationNodeBlendSpace2D_wrapper_add_triangle(wasgo_id, p_x, p_y, p_z, p_at_index);
+	_wasgo_AnimationNodeBlendSpace2D_wrapper_add_triangle(wasgo_id, p_x, p_y, -69, p_z, p_at_index);
 }
 bool AnimationNodeBlendSpace2D::get_auto_triangles(){
 	return (bool) _wasgo_AnimationNodeBlendSpace2D_wrapper_get_auto_triangles(wasgo_id);
@@ -30,9 +30,9 @@ Vector2 AnimationNodeBlendSpace2D::get_blend_point_position(int p_point){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_point_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_point);
+    _wasgo_AnimationNodeBlendSpace2D_wrapper_get_blend_point_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_point);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 AnimationNodeBlendSpace2D::get_max_space(){
@@ -42,7 +42,7 @@ Vector2 AnimationNodeBlendSpace2D::get_max_space(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_AnimationNodeBlendSpace2D_wrapper_get_max_space(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 AnimationNodeBlendSpace2D::get_min_space(){
@@ -52,7 +52,7 @@ Vector2 AnimationNodeBlendSpace2D::get_min_space(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_AnimationNodeBlendSpace2D_wrapper_get_min_space(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 AnimationNodeBlendSpace2D::get_snap(){
@@ -62,7 +62,7 @@ Vector2 AnimationNodeBlendSpace2D::get_snap(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_AnimationNodeBlendSpace2D_wrapper_get_snap(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int AnimationNodeBlendSpace2D::get_triangle_count(){
@@ -78,7 +78,7 @@ String AnimationNodeBlendSpace2D::get_x_label(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AnimationNodeBlendSpace2D_wrapper_get_x_label(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String AnimationNodeBlendSpace2D::get_y_label(){
@@ -88,7 +88,7 @@ String AnimationNodeBlendSpace2D::get_y_label(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AnimationNodeBlendSpace2D_wrapper_get_y_label(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 void AnimationNodeBlendSpace2D::remove_blend_point(int p_point){
@@ -113,7 +113,7 @@ void AnimationNodeBlendSpace2D::set_blend_point_position(int p_point, Vector2 p_
     int wasgo_size_pos = 12;
     encode_variant(wasgo_var_pos, wasgo_buffer_pos, wasgo_size_pos);
     
-	_wasgo_AnimationNodeBlendSpace2D_wrapper_set_blend_point_position(wasgo_id, p_point, wasgo_buffer_pos, wasgo_size_pos);
+	_wasgo_AnimationNodeBlendSpace2D_wrapper_set_blend_point_position(wasgo_id, p_point, wasgo_buffer_pos, wasgo_size_pos, wasgo_size_pos);
 }
 void AnimationNodeBlendSpace2D::set_max_space(Vector2 p_max_space){
 
@@ -145,7 +145,7 @@ void AnimationNodeBlendSpace2D::set_snap(Vector2 p_snap){
 void AnimationNodeBlendSpace2D::set_x_label(String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
@@ -154,7 +154,7 @@ void AnimationNodeBlendSpace2D::set_x_label(String p_text){
 void AnimationNodeBlendSpace2D::set_y_label(String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     

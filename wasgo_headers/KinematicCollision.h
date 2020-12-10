@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Variant.h"
-#include "Object.h"
 #include "Vector3.h"
 #include "Reference.h"
+#include "Object.h"
+#include "Variant.h"
 class KinematicCollision : public Reference{
 public:
 Object get_collider();
@@ -38,7 +38,7 @@ operator bool();
 extern "C"{
 WasGoID _wasgo_KinematicCollision_wrapper_get_collider(WasGoID wasgo_id);
 int _wasgo_KinematicCollision_wrapper_get_collider_id(WasGoID wasgo_id);
-WasGoID _wasgo_KinematicCollision_wrapper_get_collider_metadata(WasGoID wasgo_id);
+void _wasgo_KinematicCollision_wrapper_get_collider_metadata(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoID _wasgo_KinematicCollision_wrapper_get_collider_shape(WasGoID wasgo_id);
 int _wasgo_KinematicCollision_wrapper_get_collider_shape_index(WasGoID wasgo_id);
 void _wasgo_KinematicCollision_wrapper_get_collider_velocity(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);

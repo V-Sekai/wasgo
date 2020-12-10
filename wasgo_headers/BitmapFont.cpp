@@ -14,10 +14,10 @@ void BitmapFont::add_char(int p_character, int p_texture, Rect2 p_rect, Vector2 
     int wasgo_size_align = 12;
     encode_variant(wasgo_var_align, wasgo_buffer_align, wasgo_size_align);
     
-	_wasgo_BitmapFont_wrapper_add_char(wasgo_id, p_character, p_texture, wasgo_buffer_rect, wasgo_size_rect, wasgo_buffer_align, wasgo_size_align, p_advance);
+	_wasgo_BitmapFont_wrapper_add_char(wasgo_id, p_character, p_texture, -69, wasgo_buffer_rect, wasgo_size_rect, wasgo_buffer_align, wasgo_size_align, p_advance);
 }
 void BitmapFont::add_kerning_pair(int p_char_a, int p_char_b, int p_kerning){
-	_wasgo_BitmapFont_wrapper_add_kerning_pair(wasgo_id, p_char_a, p_char_b, p_kerning);
+	_wasgo_BitmapFont_wrapper_add_kerning_pair(wasgo_id, p_char_a, p_char_b, -69, p_kerning);
 }
 void BitmapFont::add_texture(Texture p_texture){
 	_wasgo_BitmapFont_wrapper_add_texture(wasgo_id, p_texture._get_wasgo_id());
@@ -28,7 +28,7 @@ void BitmapFont::clear(){
 Error BitmapFont::create_from_fnt(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     

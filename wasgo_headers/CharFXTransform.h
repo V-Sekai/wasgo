@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
-#include "Variant.h"
-#include "Reference.h"
 #include "Vector2.h"
+#include "Reference.h"
+#include "Variant.h"
+#include "Color.h"
 class CharFXTransform : public Reference{
 public:
 int get_absolute_index();

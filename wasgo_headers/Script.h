@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Object.h"
-#include "Resource.h"
 #include "error_list.h"
+#include "Resource.h"
+#include "Object.h"
 #include "Variant.h"
 #include "Ustring.h"
 class Script : public Resource{
@@ -44,7 +44,7 @@ extern "C"{
 int _wasgo_Script_wrapper_can_instance(WasGoID wasgo_id);
 WasGoID _wasgo_Script_wrapper_get_base_script(WasGoID wasgo_id);
 void _wasgo_Script_wrapper_get_instance_base_type(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-WasGoID _wasgo_Script_wrapper_get_property_default_value(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size);
+void _wasgo_Script_wrapper_get_property_default_value(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_property, int p_property_wasgo_buffer_size);
 WasGoID _wasgo_Script_wrapper_get_script_constant_map(WasGoID wasgo_id);
 WasGoID _wasgo_Script_wrapper_get_script_method_list(WasGoID wasgo_id);
 WasGoID _wasgo_Script_wrapper_get_script_property_list(WasGoID wasgo_id);

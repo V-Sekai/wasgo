@@ -4,11 +4,11 @@
 RID SkinReference::get_skeleton(){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
     _wasgo_SkinReference_wrapper_get_skeleton(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 Skin SkinReference::get_skin(){

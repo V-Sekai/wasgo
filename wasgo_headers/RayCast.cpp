@@ -7,8 +7,8 @@ void RayCast::add_exception(Object p_node){
 void RayCast::add_exception_rid(RID p_rid){
 
     Variant wasgo_var_rid = p_rid;
-    uint8_t wasgo_buffer_rid[0];
-    int wasgo_size_rid = 0;
+    uint8_t wasgo_buffer_rid[256];
+    int wasgo_size_rid = 256;
     encode_variant(wasgo_var_rid, wasgo_buffer_rid, wasgo_size_rid);
     
 	_wasgo_RayCast_wrapper_add_exception_rid(wasgo_id, wasgo_buffer_rid, wasgo_size_rid);
@@ -26,7 +26,7 @@ Vector3 RayCast::get_cast_to(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_RayCast_wrapper_get_cast_to(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Object RayCast::get_collider(){
@@ -48,7 +48,7 @@ Vector3 RayCast::get_collision_normal(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_RayCast_wrapper_get_collision_normal(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 RayCast::get_collision_point(){
@@ -58,7 +58,7 @@ Vector3 RayCast::get_collision_point(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_RayCast_wrapper_get_collision_point(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool RayCast::get_exclude_parent_body(){
@@ -82,8 +82,8 @@ void RayCast::remove_exception(Object p_node){
 void RayCast::remove_exception_rid(RID p_rid){
 
     Variant wasgo_var_rid = p_rid;
-    uint8_t wasgo_buffer_rid[0];
-    int wasgo_size_rid = 0;
+    uint8_t wasgo_buffer_rid[256];
+    int wasgo_size_rid = 256;
     encode_variant(wasgo_var_rid, wasgo_buffer_rid, wasgo_size_rid);
     
 	_wasgo_RayCast_wrapper_remove_exception_rid(wasgo_id, wasgo_buffer_rid, wasgo_size_rid);

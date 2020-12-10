@@ -38,7 +38,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_AnimationNodeBlendSpace1D_wrapper_add_blend_point(WasGoID wasgo_id, WasGoID p_node, float p_pos, int p_at_index);
+void _wasgo_AnimationNodeBlendSpace1D_wrapper_add_blend_point(WasGoID wasgo_id, WasGoID p_node, float p_pos, int wasgo_throwaway, int p_at_index);
 int _wasgo_AnimationNodeBlendSpace1D_wrapper_get_blend_point_count(WasGoID wasgo_id);
 WasGoID _wasgo_AnimationNodeBlendSpace1D_wrapper_get_blend_point_node(WasGoID wasgo_id, int p_point);
 float _wasgo_AnimationNodeBlendSpace1D_wrapper_get_blend_point_position(WasGoID wasgo_id, int p_point);

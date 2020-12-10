@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Node.h"
 #include "HTTPClient.h"
 #include "error_list.h"
 #include "Variant.h"
 #include "Ustring.h"
+#include "Node.h"
 class HTTPRequest : public Node{
 public:
 enum Result{
@@ -68,7 +68,7 @@ WasGoID _wasgo_HTTPRequest_wrapper_get_http_client_status(WasGoID wasgo_id);
 int _wasgo_HTTPRequest_wrapper_get_max_redirects(WasGoID wasgo_id);
 int _wasgo_HTTPRequest_wrapper_get_timeout(WasGoID wasgo_id);
 int _wasgo_HTTPRequest_wrapper_is_using_threads(WasGoID wasgo_id);
-WasGoID _wasgo_HTTPRequest_wrapper_request(WasGoID wasgo_id, const uint8_t * p_url, int p_url_wasgo_buffer_size, WasGoID p_custom_headers, bool p_ssl_validate_domain, WasGoID p_method, const uint8_t * p_request_data, int p_request_data_wasgo_buffer_size);
+WasGoID _wasgo_HTTPRequest_wrapper_request(WasGoID wasgo_id, const uint8_t * p_url, int p_url_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_custom_headers, bool p_ssl_validate_domain, WasGoID p_method, const uint8_t * p_request_data, int p_request_data_wasgo_buffer_size);
 void _wasgo_HTTPRequest_wrapper_set_body_size_limit(WasGoID wasgo_id, int p_bytes);
 void _wasgo_HTTPRequest_wrapper_set_download_chunk_size(WasGoID wasgo_id, int p_arg0);
 void _wasgo_HTTPRequest_wrapper_set_download_file(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);

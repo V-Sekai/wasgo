@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Mesh.h"
 #include "AABB.h"
-#include "Variant.h"
 #include "Material.h"
+#include "Variant.h"
+#include "Mesh.h"
 class PrimitiveMesh : public Mesh{
 public:
 AABB get_custom_aabb();

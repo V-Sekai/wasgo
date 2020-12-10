@@ -10,11 +10,11 @@ bool TCP_Server::is_listening(){
 Error TCP_Server::listen(int p_port, String p_bind_address){
 
     Variant wasgo_var_bind_address = p_bind_address;
-    int wasgo_size_bind_address = String(p_bind_address).size();
+    int wasgo_size_bind_address = 10 + String(p_bind_address).size();
     uint8_t wasgo_buffer_bind_address[wasgo_size_bind_address];
     encode_variant(wasgo_var_bind_address, wasgo_buffer_bind_address, wasgo_size_bind_address);
     
-	return Error(_wasgo_TCP_Server_wrapper_listen(wasgo_id, p_port, wasgo_buffer_bind_address, wasgo_size_bind_address));
+	return Error(_wasgo_TCP_Server_wrapper_listen(wasgo_id, p_port, wasgo_buffer_bind_address, wasgo_size_bind_address, wasgo_size_bind_address));
 }
 void TCP_Server::stop(){
 	_wasgo_TCP_Server_wrapper_stop(wasgo_id);

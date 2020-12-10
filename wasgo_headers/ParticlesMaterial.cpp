@@ -8,7 +8,7 @@ Color ParticlesMaterial::get_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_ParticlesMaterial_wrapper_get_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Texture ParticlesMaterial::get_color_ramp(){
@@ -21,7 +21,7 @@ Vector3 ParticlesMaterial::get_direction(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_ParticlesMaterial_wrapper_get_direction(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 ParticlesMaterial::get_emission_box_extents(){
@@ -31,7 +31,7 @@ Vector3 ParticlesMaterial::get_emission_box_extents(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_ParticlesMaterial_wrapper_get_emission_box_extents(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Texture ParticlesMaterial::get_emission_color_texture(){
@@ -65,7 +65,7 @@ Vector3 ParticlesMaterial::get_gravity(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_ParticlesMaterial_wrapper_get_gravity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 float ParticlesMaterial::get_lifetime_randomness(){

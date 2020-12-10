@@ -4,7 +4,7 @@
 Error Directory::change_dir(String p_todir){
 
     Variant wasgo_var_todir = p_todir;
-    int wasgo_size_todir = String(p_todir).size();
+    int wasgo_size_todir = 10 + String(p_todir).size();
     uint8_t wasgo_buffer_todir[wasgo_size_todir];
     encode_variant(wasgo_var_todir, wasgo_buffer_todir, wasgo_size_todir);
     
@@ -13,17 +13,17 @@ Error Directory::change_dir(String p_todir){
 Error Directory::copy(String p_from, String p_to){
 
     Variant wasgo_var_from = p_from;
-    int wasgo_size_from = String(p_from).size();
+    int wasgo_size_from = 10 + String(p_from).size();
     uint8_t wasgo_buffer_from[wasgo_size_from];
     encode_variant(wasgo_var_from, wasgo_buffer_from, wasgo_size_from);
     
 
     Variant wasgo_var_to = p_to;
-    int wasgo_size_to = String(p_to).size();
+    int wasgo_size_to = 10 + String(p_to).size();
     uint8_t wasgo_buffer_to[wasgo_size_to];
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
-	return Error(_wasgo_Directory_wrapper_copy(wasgo_id, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_to, wasgo_size_to));
+	return Error(_wasgo_Directory_wrapper_copy(wasgo_id, wasgo_buffer_from, wasgo_size_from, -69, wasgo_buffer_to, wasgo_size_to));
 }
 bool Directory::current_is_dir(){
 	return (bool) _wasgo_Directory_wrapper_current_is_dir(wasgo_id);
@@ -31,7 +31,7 @@ bool Directory::current_is_dir(){
 bool Directory::dir_exists(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
@@ -40,7 +40,7 @@ bool Directory::dir_exists(String p_path){
 bool Directory::file_exists(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
@@ -53,7 +53,7 @@ String Directory::get_current_dir(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_Directory_wrapper_get_current_dir(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Directory::get_current_drive(){
@@ -64,9 +64,9 @@ String Directory::get_drive(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_Directory_wrapper_get_drive(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_Directory_wrapper_get_drive(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Directory::get_drive_count(){
@@ -79,7 +79,7 @@ String Directory::get_next(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_Directory_wrapper_get_next(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Directory::get_space_left(){
@@ -94,7 +94,7 @@ void Directory::list_dir_end(){
 Error Directory::make_dir(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
@@ -103,7 +103,7 @@ Error Directory::make_dir(String p_path){
 Error Directory::make_dir_recursive(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
@@ -112,7 +112,7 @@ Error Directory::make_dir_recursive(String p_path){
 Error Directory::open(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
@@ -121,7 +121,7 @@ Error Directory::open(String p_path){
 Error Directory::remove(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
@@ -130,17 +130,17 @@ Error Directory::remove(String p_path){
 Error Directory::rename(String p_from, String p_to){
 
     Variant wasgo_var_from = p_from;
-    int wasgo_size_from = String(p_from).size();
+    int wasgo_size_from = 10 + String(p_from).size();
     uint8_t wasgo_buffer_from[wasgo_size_from];
     encode_variant(wasgo_var_from, wasgo_buffer_from, wasgo_size_from);
     
 
     Variant wasgo_var_to = p_to;
-    int wasgo_size_to = String(p_to).size();
+    int wasgo_size_to = 10 + String(p_to).size();
     uint8_t wasgo_buffer_to[wasgo_size_to];
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
-	return Error(_wasgo_Directory_wrapper_rename(wasgo_id, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_to, wasgo_size_to));
+	return Error(_wasgo_Directory_wrapper_rename(wasgo_id, wasgo_buffer_from, wasgo_size_from, -69, wasgo_buffer_to, wasgo_size_to));
 }
 
 Directory::Directory(WasGoID p_wasgo_id) : Reference(p_wasgo_id){

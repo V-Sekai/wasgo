@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Reference.h"
 #include "Ustring.h"
+#include "Reference.h"
 #include "error_list.h"
 class Directory : public Reference{
 public:
@@ -43,13 +43,13 @@ operator bool();
 //Wrapper Functions
 extern "C"{
 WasGoID _wasgo_Directory_wrapper_change_dir(WasGoID wasgo_id, const uint8_t * p_todir, int p_todir_wasgo_buffer_size);
-WasGoID _wasgo_Directory_wrapper_copy(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
+WasGoID _wasgo_Directory_wrapper_copy(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_to, int p_to_wasgo_buffer_size);
 int _wasgo_Directory_wrapper_current_is_dir(WasGoID wasgo_id);
 int _wasgo_Directory_wrapper_dir_exists(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
 int _wasgo_Directory_wrapper_file_exists(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
 void _wasgo_Directory_wrapper_get_current_dir(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Directory_wrapper_get_current_drive(WasGoID wasgo_id);
-void _wasgo_Directory_wrapper_get_drive(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+void _wasgo_Directory_wrapper_get_drive(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
 int _wasgo_Directory_wrapper_get_drive_count(WasGoID wasgo_id);
 void _wasgo_Directory_wrapper_get_next(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Directory_wrapper_get_space_left(WasGoID wasgo_id);
@@ -59,7 +59,7 @@ WasGoID _wasgo_Directory_wrapper_make_dir(WasGoID wasgo_id, const uint8_t * p_pa
 WasGoID _wasgo_Directory_wrapper_make_dir_recursive(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
 WasGoID _wasgo_Directory_wrapper_open(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
 WasGoID _wasgo_Directory_wrapper_remove(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoID _wasgo_Directory_wrapper_rename(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
+WasGoID _wasgo_Directory_wrapper_rename(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_to, int p_to_wasgo_buffer_size);
 
     //constructor wrappers
     WasGoID _wasgo_Directory_constructor();

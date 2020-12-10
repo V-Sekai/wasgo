@@ -11,7 +11,7 @@ Rect2 AtlasTexture::get_margin(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_AtlasTexture_wrapper_get_margin(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Rect2 AtlasTexture::get_region(){
@@ -21,7 +21,7 @@ Rect2 AtlasTexture::get_region(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_AtlasTexture_wrapper_get_region(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool AtlasTexture::has_filter_clip(){

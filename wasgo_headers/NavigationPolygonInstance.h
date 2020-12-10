@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "NavigationPolygon.h"
 #include "Node2D.h"
+#include "NavigationPolygon.h"
 class NavigationPolygonInstance : public Node2D{
 public:
 NavigationPolygon get_navigation_polygon();

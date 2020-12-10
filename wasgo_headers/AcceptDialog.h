@@ -5,10 +5,10 @@
 #include "wasgo\wasgoid.h"
 
 #include "Label.h"
-#include "Button.h"
-class Node;
 #include "WindowDialog.h"
 #include "Ustring.h"
+#include "Button.h"
+class Node;
 class AcceptDialog : public WindowDialog{
 public:
 Button add_button(String p_text, bool p_right = (bool) false, String p_action = String());
@@ -37,7 +37,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-WasGoID _wasgo_AcceptDialog_wrapper_add_button(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size, bool p_right, const uint8_t * p_action, int p_action_wasgo_buffer_size);
+WasGoID _wasgo_AcceptDialog_wrapper_add_button(WasGoID wasgo_id, const uint8_t * p_text, int p_text_wasgo_buffer_size, int wasgo_throwaway, bool p_right, const uint8_t * p_action, int p_action_wasgo_buffer_size);
 WasGoID _wasgo_AcceptDialog_wrapper_add_cancel(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 int _wasgo_AcceptDialog_wrapper_get_hide_on_ok(WasGoID wasgo_id);
 WasGoID _wasgo_AcceptDialog_wrapper_get_label(WasGoID wasgo_id);

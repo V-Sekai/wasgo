@@ -8,7 +8,7 @@
     uint8_t wasgo_ret_buffer[28];
     _wasgo_PrimitiveMesh_wrapper_get_custom_aabb(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (AABB) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool PrimitiveMesh::get_flip_faces(){

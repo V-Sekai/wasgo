@@ -8,7 +8,7 @@
     uint8_t wasgo_ret_buffer[28];
     _wasgo_MultiMesh_wrapper_get_aabb(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (AABB) wasgo_ret;
+    return wasgo_ret;
     
 }
 MultiMesh::ColorFormat MultiMesh::get_color_format(){
@@ -22,9 +22,9 @@ Color MultiMesh::get_instance_color(int p_instance){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_MultiMesh_wrapper_get_instance_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_instance);
+    _wasgo_MultiMesh_wrapper_get_instance_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_instance);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 int MultiMesh::get_instance_count(){
@@ -35,9 +35,9 @@ Color MultiMesh::get_instance_custom_data(int p_instance){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_MultiMesh_wrapper_get_instance_custom_data(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_instance);
+    _wasgo_MultiMesh_wrapper_get_instance_custom_data(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_instance);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform MultiMesh::get_instance_transform(int p_instance){
@@ -45,9 +45,9 @@ Transform MultiMesh::get_instance_transform(int p_instance){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 52;
     uint8_t wasgo_ret_buffer[52];
-    _wasgo_MultiMesh_wrapper_get_instance_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_instance);
+    _wasgo_MultiMesh_wrapper_get_instance_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_instance);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform2D MultiMesh::get_instance_transform_2d(int p_instance){
@@ -55,9 +55,9 @@ Transform2D MultiMesh::get_instance_transform_2d(int p_instance){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 28;
     uint8_t wasgo_ret_buffer[28];
-    _wasgo_MultiMesh_wrapper_get_instance_transform_2d(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_instance);
+    _wasgo_MultiMesh_wrapper_get_instance_transform_2d(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_instance);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 Mesh MultiMesh::get_mesh(){
@@ -85,7 +85,7 @@ void MultiMesh::set_instance_color(int p_instance, Color p_color){
     int wasgo_size_color = 20;
     encode_variant(wasgo_var_color, wasgo_buffer_color, wasgo_size_color);
     
-	_wasgo_MultiMesh_wrapper_set_instance_color(wasgo_id, p_instance, wasgo_buffer_color, wasgo_size_color);
+	_wasgo_MultiMesh_wrapper_set_instance_color(wasgo_id, p_instance, wasgo_buffer_color, wasgo_size_color, wasgo_size_color);
 }
 void MultiMesh::set_instance_count(int p_count){
 	_wasgo_MultiMesh_wrapper_set_instance_count(wasgo_id, p_count);
@@ -97,7 +97,7 @@ void MultiMesh::set_instance_custom_data(int p_instance, Color p_custom_data){
     int wasgo_size_custom_data = 20;
     encode_variant(wasgo_var_custom_data, wasgo_buffer_custom_data, wasgo_size_custom_data);
     
-	_wasgo_MultiMesh_wrapper_set_instance_custom_data(wasgo_id, p_instance, wasgo_buffer_custom_data, wasgo_size_custom_data);
+	_wasgo_MultiMesh_wrapper_set_instance_custom_data(wasgo_id, p_instance, wasgo_buffer_custom_data, wasgo_size_custom_data, wasgo_size_custom_data);
 }
 void MultiMesh::set_instance_transform(int p_instance, Transform p_transform){
 
@@ -106,7 +106,7 @@ void MultiMesh::set_instance_transform(int p_instance, Transform p_transform){
     int wasgo_size_transform = 52;
     encode_variant(wasgo_var_transform, wasgo_buffer_transform, wasgo_size_transform);
     
-	_wasgo_MultiMesh_wrapper_set_instance_transform(wasgo_id, p_instance, wasgo_buffer_transform, wasgo_size_transform);
+	_wasgo_MultiMesh_wrapper_set_instance_transform(wasgo_id, p_instance, wasgo_buffer_transform, wasgo_size_transform, wasgo_size_transform);
 }
 void MultiMesh::set_instance_transform_2d(int p_instance, Transform2D p_transform){
 
@@ -115,7 +115,7 @@ void MultiMesh::set_instance_transform_2d(int p_instance, Transform2D p_transfor
     int wasgo_size_transform = 28;
     encode_variant(wasgo_var_transform, wasgo_buffer_transform, wasgo_size_transform);
     
-	_wasgo_MultiMesh_wrapper_set_instance_transform_2d(wasgo_id, p_instance, wasgo_buffer_transform, wasgo_size_transform);
+	_wasgo_MultiMesh_wrapper_set_instance_transform_2d(wasgo_id, p_instance, wasgo_buffer_transform, wasgo_size_transform, wasgo_size_transform);
 }
 void MultiMesh::set_mesh(Mesh p_mesh){
 	_wasgo_MultiMesh_wrapper_set_mesh(wasgo_id, p_mesh._get_wasgo_id());

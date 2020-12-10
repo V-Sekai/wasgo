@@ -29,7 +29,7 @@ Vector2 BitMap::get_size(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_BitMap_wrapper_get_size(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int BitMap::get_true_bit_count(){
@@ -42,7 +42,7 @@ void BitMap::grow_mask(int p_pixels, Rect2 p_rect){
     int wasgo_size_rect = 20;
     encode_variant(wasgo_var_rect, wasgo_buffer_rect, wasgo_size_rect);
     
-	_wasgo_BitMap_wrapper_grow_mask(wasgo_id, p_pixels, wasgo_buffer_rect, wasgo_size_rect);
+	_wasgo_BitMap_wrapper_grow_mask(wasgo_id, p_pixels, wasgo_buffer_rect, wasgo_size_rect, wasgo_size_rect);
 }
 Array BitMap::opaque_to_polygons(Rect2 p_rect, float p_epsilon){
 
@@ -51,7 +51,7 @@ Array BitMap::opaque_to_polygons(Rect2 p_rect, float p_epsilon){
     int wasgo_size_rect = 20;
     encode_variant(wasgo_var_rect, wasgo_buffer_rect, wasgo_size_rect);
     
-	return Array(_wasgo_BitMap_wrapper_opaque_to_polygons(wasgo_id, wasgo_buffer_rect, wasgo_size_rect, p_epsilon));
+	return Array(_wasgo_BitMap_wrapper_opaque_to_polygons(wasgo_id, wasgo_buffer_rect, wasgo_size_rect, -69, p_epsilon));
 }
 void BitMap::set_bit(Vector2 p_position, bool p_bit){
 
@@ -60,7 +60,7 @@ void BitMap::set_bit(Vector2 p_position, bool p_bit){
     int wasgo_size_position = 12;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_BitMap_wrapper_set_bit(wasgo_id, wasgo_buffer_position, wasgo_size_position, p_bit);
+	_wasgo_BitMap_wrapper_set_bit(wasgo_id, wasgo_buffer_position, wasgo_size_position, -69, p_bit);
 }
 void BitMap::set_bit_rect(Rect2 p_rect, bool p_bit){
 
@@ -69,7 +69,7 @@ void BitMap::set_bit_rect(Rect2 p_rect, bool p_bit){
     int wasgo_size_rect = 20;
     encode_variant(wasgo_var_rect, wasgo_buffer_rect, wasgo_size_rect);
     
-	_wasgo_BitMap_wrapper_set_bit_rect(wasgo_id, wasgo_buffer_rect, wasgo_size_rect, p_bit);
+	_wasgo_BitMap_wrapper_set_bit_rect(wasgo_id, wasgo_buffer_rect, wasgo_size_rect, -69, p_bit);
 }
 
 BitMap::BitMap(WasGoID p_wasgo_id) : Resource(p_wasgo_id){

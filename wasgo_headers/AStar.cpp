@@ -8,19 +8,19 @@ void AStar::add_point(int p_id, Vector3 p_position, float p_weight_scale){
     int wasgo_size_position = 16;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_AStar_wrapper_add_point(wasgo_id, p_id, wasgo_buffer_position, wasgo_size_position, p_weight_scale);
+	_wasgo_AStar_wrapper_add_point(wasgo_id, p_id, wasgo_buffer_position, wasgo_size_position, wasgo_size_position, p_weight_scale);
 }
 bool AStar::are_points_connected(int p_id, int p_to_id, bool p_bidirectional){
-	return (bool) _wasgo_AStar_wrapper_are_points_connected(wasgo_id, p_id, p_to_id, p_bidirectional);
+	return (bool) _wasgo_AStar_wrapper_are_points_connected(wasgo_id, p_id, p_to_id, -69, p_bidirectional);
 }
 void AStar::clear(){
 	_wasgo_AStar_wrapper_clear(wasgo_id);
 }
 void AStar::connect_points(int p_id, int p_to_id, bool p_bidirectional){
-	_wasgo_AStar_wrapper_connect_points(wasgo_id, p_id, p_to_id, p_bidirectional);
+	_wasgo_AStar_wrapper_connect_points(wasgo_id, p_id, p_to_id, -69, p_bidirectional);
 }
 void AStar::disconnect_points(int p_id, int p_to_id, bool p_bidirectional){
-	_wasgo_AStar_wrapper_disconnect_points(wasgo_id, p_id, p_to_id, p_bidirectional);
+	_wasgo_AStar_wrapper_disconnect_points(wasgo_id, p_id, p_to_id, -69, p_bidirectional);
 }
 int AStar::get_available_point_id(){
 	return (int) _wasgo_AStar_wrapper_get_available_point_id(wasgo_id);
@@ -32,7 +32,7 @@ int AStar::get_closest_point(Vector3 p_to_position, bool p_include_disabled){
     int wasgo_size_to_position = 16;
     encode_variant(wasgo_var_to_position, wasgo_buffer_to_position, wasgo_size_to_position);
     
-	return (int) _wasgo_AStar_wrapper_get_closest_point(wasgo_id, wasgo_buffer_to_position, wasgo_size_to_position, p_include_disabled);
+	return (int) _wasgo_AStar_wrapper_get_closest_point(wasgo_id, wasgo_buffer_to_position, wasgo_size_to_position, -69, p_include_disabled);
 }
 Vector3 AStar::get_closest_position_in_segment(Vector3 p_to_position){
 
@@ -45,9 +45,9 @@ Vector3 AStar::get_closest_position_in_segment(Vector3 p_to_position){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_AStar_wrapper_get_closest_position_in_segment(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_to_position, wasgo_size_to_position);
+    _wasgo_AStar_wrapper_get_closest_position_in_segment(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_to_position, wasgo_size_to_position);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolIntArray AStar::get_id_path(int p_from_id, int p_to_id){
@@ -70,9 +70,9 @@ Vector3 AStar::get_point_position(int p_id){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_AStar_wrapper_get_point_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_id);
+    _wasgo_AStar_wrapper_get_point_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_id);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 float AStar::get_point_weight_scale(int p_id){
@@ -103,7 +103,7 @@ void AStar::set_point_position(int p_id, Vector3 p_position){
     int wasgo_size_position = 16;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_AStar_wrapper_set_point_position(wasgo_id, p_id, wasgo_buffer_position, wasgo_size_position);
+	_wasgo_AStar_wrapper_set_point_position(wasgo_id, p_id, wasgo_buffer_position, wasgo_size_position, wasgo_size_position);
 }
 void AStar::set_point_weight_scale(int p_id, float p_weight_scale){
 	_wasgo_AStar_wrapper_set_point_weight_scale(wasgo_id, p_id, p_weight_scale);

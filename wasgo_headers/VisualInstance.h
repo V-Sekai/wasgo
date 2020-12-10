@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Spatial.h"
 #include "AABB.h"
 #include "RID.h"
+#include "Spatial.h"
 class VisualInstance : public Spatial{
 public:
 AABB get_aabb();

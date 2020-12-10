@@ -8,13 +8,13 @@ String VisualShaderNodeExpression::get_expression(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_VisualShaderNodeExpression_wrapper_get_expression(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 void VisualShaderNodeExpression::set_expression(String p_expression){
 
     Variant wasgo_var_expression = p_expression;
-    int wasgo_size_expression = String(p_expression).size();
+    int wasgo_size_expression = 10 + String(p_expression).size();
     uint8_t wasgo_buffer_expression[wasgo_size_expression];
     encode_variant(wasgo_var_expression, wasgo_buffer_expression, wasgo_size_expression);
     

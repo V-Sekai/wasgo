@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Variant.h"
-#include "Resource.h"
 #include "NodePath.h"
-#include "Transform.h"
+#include "Resource.h"
 #include "AABB.h"
+#include "Variant.h"
+#include "Transform.h"
 #include "Texture.h"
 class BakedLightmapData : public Resource{
 public:
@@ -42,7 +42,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_BakedLightmapData_wrapper_add_user(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_lightmap, int p_instance);
+void _wasgo_BakedLightmapData_wrapper_add_user(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_lightmap, int p_instance);
 void _wasgo_BakedLightmapData_wrapper_clear_users(WasGoID wasgo_id);
 void _wasgo_BakedLightmapData_wrapper_get_bounds(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_BakedLightmapData_wrapper_get_cell_space_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
@@ -51,7 +51,7 @@ float _wasgo_BakedLightmapData_wrapper_get_energy(WasGoID wasgo_id);
 WasGoID _wasgo_BakedLightmapData_wrapper_get_octree(WasGoID wasgo_id);
 int _wasgo_BakedLightmapData_wrapper_get_user_count(WasGoID wasgo_id);
 WasGoID _wasgo_BakedLightmapData_wrapper_get_user_lightmap(WasGoID wasgo_id, int p_user_idx);
-void _wasgo_BakedLightmapData_wrapper_get_user_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_user_idx);
+void _wasgo_BakedLightmapData_wrapper_get_user_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_user_idx);
 void _wasgo_BakedLightmapData_wrapper_set_bounds(WasGoID wasgo_id, const uint8_t * p_bounds, int p_bounds_wasgo_buffer_size);
 void _wasgo_BakedLightmapData_wrapper_set_cell_space_transform(WasGoID wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
 void _wasgo_BakedLightmapData_wrapper_set_cell_subdiv(WasGoID wasgo_id, int p_cell_subdiv);

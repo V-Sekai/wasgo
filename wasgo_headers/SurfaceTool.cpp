@@ -38,7 +38,7 @@ void SurfaceTool::add_tangent(Plane p_tangent){
 	_wasgo_SurfaceTool_wrapper_add_tangent(wasgo_id, wasgo_buffer_tangent, wasgo_size_tangent);
 }
 void SurfaceTool::add_triangle_fan(PoolVector3Array p_vertices, PoolVector2Array p_uvs, PoolColorArray p_colors, PoolVector2Array p_uv2s, PoolVector3Array p_normals, Array p_tangents){
-	_wasgo_SurfaceTool_wrapper_add_triangle_fan(wasgo_id, p_vertices._get_wasgo_id(), p_uvs._get_wasgo_id(), p_colors._get_wasgo_id(), p_uv2s._get_wasgo_id(), p_normals._get_wasgo_id(), p_tangents._get_wasgo_id());
+	_wasgo_SurfaceTool_wrapper_add_triangle_fan(wasgo_id, p_vertices._get_wasgo_id(), p_uvs._get_wasgo_id(), -69, p_colors._get_wasgo_id(), p_uv2s._get_wasgo_id(), p_normals._get_wasgo_id(), p_tangents._get_wasgo_id());
 }
 void SurfaceTool::add_uv(Vector2 p_uv){
 
@@ -77,7 +77,7 @@ void SurfaceTool::append_from(Mesh p_existing, int p_surface, Transform p_transf
     int wasgo_size_transform = 52;
     encode_variant(wasgo_var_transform, wasgo_buffer_transform, wasgo_size_transform);
     
-	_wasgo_SurfaceTool_wrapper_append_from(wasgo_id, p_existing._get_wasgo_id(), p_surface, wasgo_buffer_transform, wasgo_size_transform);
+	_wasgo_SurfaceTool_wrapper_append_from(wasgo_id, p_existing._get_wasgo_id(), p_surface, -69, wasgo_buffer_transform, wasgo_size_transform);
 }
 void SurfaceTool::begin(Mesh::PrimitiveType p_primitive){
 	_wasgo_SurfaceTool_wrapper_begin(wasgo_id, p_primitive._get_wasgo_id());
@@ -97,11 +97,11 @@ void SurfaceTool::create_from(Mesh p_existing, int p_surface){
 void SurfaceTool::create_from_blend_shape(Mesh p_existing, int p_surface, String p_blend_shape){
 
     Variant wasgo_var_blend_shape = p_blend_shape;
-    int wasgo_size_blend_shape = String(p_blend_shape).size();
+    int wasgo_size_blend_shape = 10 + String(p_blend_shape).size();
     uint8_t wasgo_buffer_blend_shape[wasgo_size_blend_shape];
     encode_variant(wasgo_var_blend_shape, wasgo_buffer_blend_shape, wasgo_size_blend_shape);
     
-	_wasgo_SurfaceTool_wrapper_create_from_blend_shape(wasgo_id, p_existing._get_wasgo_id(), p_surface, wasgo_buffer_blend_shape, wasgo_size_blend_shape);
+	_wasgo_SurfaceTool_wrapper_create_from_blend_shape(wasgo_id, p_existing._get_wasgo_id(), p_surface, -69, wasgo_buffer_blend_shape, wasgo_size_blend_shape);
 }
 void SurfaceTool::deindex(){
 	_wasgo_SurfaceTool_wrapper_deindex(wasgo_id);

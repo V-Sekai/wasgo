@@ -4,8 +4,8 @@
 void Texture::draw(RID p_canvas_item, Vector2 p_position, Color p_modulate, bool p_transpose, Texture p_normal_map){
 
     Variant wasgo_var_canvas_item = p_canvas_item;
-    uint8_t wasgo_buffer_canvas_item[0];
-    int wasgo_size_canvas_item = 0;
+    uint8_t wasgo_buffer_canvas_item[256];
+    int wasgo_size_canvas_item = 256;
     encode_variant(wasgo_var_canvas_item, wasgo_buffer_canvas_item, wasgo_size_canvas_item);
     
 
@@ -20,13 +20,13 @@ void Texture::draw(RID p_canvas_item, Vector2 p_position, Color p_modulate, bool
     int wasgo_size_modulate = 20;
     encode_variant(wasgo_var_modulate, wasgo_buffer_modulate, wasgo_size_modulate);
     
-	_wasgo_Texture_wrapper_draw(wasgo_id, wasgo_buffer_canvas_item, wasgo_size_canvas_item, wasgo_buffer_position, wasgo_size_position, wasgo_buffer_modulate, wasgo_size_modulate, p_transpose, p_normal_map._get_wasgo_id());
+	_wasgo_Texture_wrapper_draw(wasgo_id, wasgo_buffer_canvas_item, wasgo_size_canvas_item, -69, wasgo_buffer_position, wasgo_size_position, wasgo_buffer_modulate, wasgo_size_modulate, p_transpose, p_normal_map._get_wasgo_id());
 }
 void Texture::draw_rect(RID p_canvas_item, Rect2 p_rect, bool p_tile, Color p_modulate, bool p_transpose, Texture p_normal_map){
 
     Variant wasgo_var_canvas_item = p_canvas_item;
-    uint8_t wasgo_buffer_canvas_item[0];
-    int wasgo_size_canvas_item = 0;
+    uint8_t wasgo_buffer_canvas_item[256];
+    int wasgo_size_canvas_item = 256;
     encode_variant(wasgo_var_canvas_item, wasgo_buffer_canvas_item, wasgo_size_canvas_item);
     
 
@@ -41,13 +41,13 @@ void Texture::draw_rect(RID p_canvas_item, Rect2 p_rect, bool p_tile, Color p_mo
     int wasgo_size_modulate = 20;
     encode_variant(wasgo_var_modulate, wasgo_buffer_modulate, wasgo_size_modulate);
     
-	_wasgo_Texture_wrapper_draw_rect(wasgo_id, wasgo_buffer_canvas_item, wasgo_size_canvas_item, wasgo_buffer_rect, wasgo_size_rect, p_tile, wasgo_buffer_modulate, wasgo_size_modulate, p_transpose, p_normal_map._get_wasgo_id());
+	_wasgo_Texture_wrapper_draw_rect(wasgo_id, wasgo_buffer_canvas_item, wasgo_size_canvas_item, -69, wasgo_buffer_rect, wasgo_size_rect, p_tile, wasgo_buffer_modulate, wasgo_size_modulate, p_transpose, p_normal_map._get_wasgo_id());
 }
 void Texture::draw_rect_region(RID p_canvas_item, Rect2 p_rect, Rect2 p_src_rect, Color p_modulate, bool p_transpose, Texture p_normal_map, bool p_clip_uv){
 
     Variant wasgo_var_canvas_item = p_canvas_item;
-    uint8_t wasgo_buffer_canvas_item[0];
-    int wasgo_size_canvas_item = 0;
+    uint8_t wasgo_buffer_canvas_item[256];
+    int wasgo_size_canvas_item = 256;
     encode_variant(wasgo_var_canvas_item, wasgo_buffer_canvas_item, wasgo_size_canvas_item);
     
 
@@ -68,7 +68,7 @@ void Texture::draw_rect_region(RID p_canvas_item, Rect2 p_rect, Rect2 p_src_rect
     int wasgo_size_modulate = 20;
     encode_variant(wasgo_var_modulate, wasgo_buffer_modulate, wasgo_size_modulate);
     
-	_wasgo_Texture_wrapper_draw_rect_region(wasgo_id, wasgo_buffer_canvas_item, wasgo_size_canvas_item, wasgo_buffer_rect, wasgo_size_rect, wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_buffer_modulate, wasgo_size_modulate, p_transpose, p_normal_map._get_wasgo_id(), p_clip_uv);
+	_wasgo_Texture_wrapper_draw_rect_region(wasgo_id, wasgo_buffer_canvas_item, wasgo_size_canvas_item, -69, wasgo_buffer_rect, wasgo_size_rect, wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_buffer_modulate, wasgo_size_modulate, p_transpose, p_normal_map._get_wasgo_id(), p_clip_uv);
 }
 Image Texture::get_data(){
 	return Image(_wasgo_Texture_wrapper_get_data(wasgo_id));
@@ -86,7 +86,7 @@ Vector2 Texture::get_size(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Texture_wrapper_get_size(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Texture::get_width(){

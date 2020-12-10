@@ -11,13 +11,13 @@ String InputEvent::as_text(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_InputEvent_wrapper_as_text(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 float InputEvent::get_action_strength(String p_action){
 
     Variant wasgo_var_action = p_action;
-    int wasgo_size_action = String(p_action).size();
+    int wasgo_size_action = 10 + String(p_action).size();
     uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
@@ -29,7 +29,7 @@ int InputEvent::get_device(){
 bool InputEvent::is_action(String p_action){
 
     Variant wasgo_var_action = p_action;
-    int wasgo_size_action = String(p_action).size();
+    int wasgo_size_action = 10 + String(p_action).size();
     uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
@@ -38,16 +38,16 @@ bool InputEvent::is_action(String p_action){
 bool InputEvent::is_action_pressed(String p_action, bool p_allow_echo){
 
     Variant wasgo_var_action = p_action;
-    int wasgo_size_action = String(p_action).size();
+    int wasgo_size_action = 10 + String(p_action).size();
     uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
-	return (bool) _wasgo_InputEvent_wrapper_is_action_pressed(wasgo_id, wasgo_buffer_action, wasgo_size_action, p_allow_echo);
+	return (bool) _wasgo_InputEvent_wrapper_is_action_pressed(wasgo_id, wasgo_buffer_action, wasgo_size_action, -69, p_allow_echo);
 }
 bool InputEvent::is_action_released(String p_action){
 
     Variant wasgo_var_action = p_action;
-    int wasgo_size_action = String(p_action).size();
+    int wasgo_size_action = 10 + String(p_action).size();
     uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
@@ -81,7 +81,7 @@ InputEvent InputEvent::xformed_by(Transform2D p_xform, Vector2 p_local_ofs){
     int wasgo_size_local_ofs = 12;
     encode_variant(wasgo_var_local_ofs, wasgo_buffer_local_ofs, wasgo_size_local_ofs);
     
-	return InputEvent(_wasgo_InputEvent_wrapper_xformed_by(wasgo_id, wasgo_buffer_xform, wasgo_size_xform, wasgo_buffer_local_ofs, wasgo_size_local_ofs));
+	return InputEvent(_wasgo_InputEvent_wrapper_xformed_by(wasgo_id, wasgo_buffer_xform, wasgo_size_xform, -69, wasgo_buffer_local_ofs, wasgo_size_local_ofs));
 }
 
 InputEvent::InputEvent(WasGoID p_wasgo_id) : Resource(p_wasgo_id){

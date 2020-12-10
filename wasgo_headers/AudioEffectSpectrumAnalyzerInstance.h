@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "AudioEffectInstance.h"
 #include "Vector2.h"
+#include "AudioEffectInstance.h"
 class AudioEffectSpectrumAnalyzerInstance : public AudioEffectInstance{
 public:
 enum MagnitudeMode{
@@ -28,7 +28,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_AudioEffectSpectrumAnalyzerInstance_wrapper_get_magnitude_for_frequency_range(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, float p_from_hz, float p_to_hz, WasGoID p_mode);
+void _wasgo_AudioEffectSpectrumAnalyzerInstance_wrapper_get_magnitude_for_frequency_range(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, float p_from_hz, float p_to_hz, WasGoID p_mode);
 
     //constructor wrappers
     WasGoID _wasgo_AudioEffectSpectrumAnalyzerInstance_constructor();

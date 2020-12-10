@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Resource.h"
 #include "Ustring.h"
 #include "error_list.h"
+#include "Resource.h"
 class CryptoKey : public Resource{
 public:
 Error load(String p_path);

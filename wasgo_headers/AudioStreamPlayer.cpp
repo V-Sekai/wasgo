@@ -8,7 +8,7 @@ String AudioStreamPlayer::get_bus(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AudioStreamPlayer_wrapper_get_bus(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 AudioStreamPlayer::MixTarget AudioStreamPlayer::get_mix_target(){
@@ -50,7 +50,7 @@ void AudioStreamPlayer::set_autoplay(bool p_enable){
 void AudioStreamPlayer::set_bus(String p_bus){
 
     Variant wasgo_var_bus = p_bus;
-    int wasgo_size_bus = String(p_bus).size();
+    int wasgo_size_bus = 10 + String(p_bus).size();
     uint8_t wasgo_buffer_bus[wasgo_size_bus];
     encode_variant(wasgo_var_bus, wasgo_buffer_bus, wasgo_size_bus);
     

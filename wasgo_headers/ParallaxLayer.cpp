@@ -8,7 +8,7 @@ Vector2 ParallaxLayer::get_mirroring(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_ParallaxLayer_wrapper_get_mirroring(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 ParallaxLayer::get_motion_offset(){
@@ -18,7 +18,7 @@ Vector2 ParallaxLayer::get_motion_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_ParallaxLayer_wrapper_get_motion_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 ParallaxLayer::get_motion_scale(){
@@ -28,7 +28,7 @@ Vector2 ParallaxLayer::get_motion_scale(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_ParallaxLayer_wrapper_get_motion_scale(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 void ParallaxLayer::set_mirroring(Vector2 p_mirror){

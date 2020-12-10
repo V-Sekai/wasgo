@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "LineEdit.h"
 #include "Ustring.h"
 #include "Range.h"
+#include "LineEdit.h"
 class SpinBox : public Range{
 public:
 void apply();

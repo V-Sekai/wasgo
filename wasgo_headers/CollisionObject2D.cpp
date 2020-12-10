@@ -7,11 +7,11 @@ int CollisionObject2D::create_shape_owner(Object p_owner){
 RID CollisionObject2D::get_rid(){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
     _wasgo_CollisionObject2D_wrapper_get_rid(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 float CollisionObject2D::get_shape_owner_one_way_collision_margin(int p_owner_id){
@@ -61,9 +61,9 @@ Transform2D CollisionObject2D::shape_owner_get_transform(int p_owner_id){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 28;
     uint8_t wasgo_ret_buffer[28];
-    _wasgo_CollisionObject2D_wrapper_shape_owner_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_owner_id);
+    _wasgo_CollisionObject2D_wrapper_shape_owner_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_owner_id);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 void CollisionObject2D::shape_owner_remove_shape(int p_owner_id, int p_shape_id){
@@ -85,7 +85,7 @@ void CollisionObject2D::shape_owner_set_transform(int p_owner_id, Transform2D p_
     int wasgo_size_transform = 28;
     encode_variant(wasgo_var_transform, wasgo_buffer_transform, wasgo_size_transform);
     
-	_wasgo_CollisionObject2D_wrapper_shape_owner_set_transform(wasgo_id, p_owner_id, wasgo_buffer_transform, wasgo_size_transform);
+	_wasgo_CollisionObject2D_wrapper_shape_owner_set_transform(wasgo_id, p_owner_id, wasgo_buffer_transform, wasgo_size_transform, wasgo_size_transform);
 }
 
 CollisionObject2D::CollisionObject2D(WasGoID p_wasgo_id) : Node2D(p_wasgo_id){

@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
-#include "Vector2.h"
+#include "Transform2D.h"
 #include "RID.h"
 #include "Resource.h"
-#include "Transform2D.h"
 #include "Variant.h"
+#include "Vector2.h"
+#include "Color.h"
 class Shape2D : public Resource{
 public:
 bool collide(Transform2D p_local_xform, Shape2D p_with_shape, Transform2D p_shape_xform);
@@ -34,11 +34,11 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_Shape2D_wrapper_collide(WasGoID wasgo_id, const uint8_t * p_local_xform, int p_local_xform_wasgo_buffer_size, WasGoID p_with_shape, const uint8_t * p_shape_xform, int p_shape_xform_wasgo_buffer_size);
-WasGoID _wasgo_Shape2D_wrapper_collide_and_get_contacts(WasGoID wasgo_id, const uint8_t * p_local_xform, int p_local_xform_wasgo_buffer_size, WasGoID p_with_shape, const uint8_t * p_shape_xform, int p_shape_xform_wasgo_buffer_size);
-int _wasgo_Shape2D_wrapper_collide_with_motion(WasGoID wasgo_id, const uint8_t * p_local_xform, int p_local_xform_wasgo_buffer_size, const uint8_t * p_local_motion, int p_local_motion_wasgo_buffer_size, WasGoID p_with_shape, const uint8_t * p_shape_xform, int p_shape_xform_wasgo_buffer_size, const uint8_t * p_shape_motion, int p_shape_motion_wasgo_buffer_size);
-WasGoID _wasgo_Shape2D_wrapper_collide_with_motion_and_get_contacts(WasGoID wasgo_id, const uint8_t * p_local_xform, int p_local_xform_wasgo_buffer_size, const uint8_t * p_local_motion, int p_local_motion_wasgo_buffer_size, WasGoID p_with_shape, const uint8_t * p_shape_xform, int p_shape_xform_wasgo_buffer_size, const uint8_t * p_shape_motion, int p_shape_motion_wasgo_buffer_size);
-void _wasgo_Shape2D_wrapper_draw(WasGoID wasgo_id, const uint8_t * p_canvas_item, int p_canvas_item_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+int _wasgo_Shape2D_wrapper_collide(WasGoID wasgo_id, const uint8_t * p_local_xform, int p_local_xform_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_with_shape, const uint8_t * p_shape_xform, int p_shape_xform_wasgo_buffer_size);
+WasGoID _wasgo_Shape2D_wrapper_collide_and_get_contacts(WasGoID wasgo_id, const uint8_t * p_local_xform, int p_local_xform_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_with_shape, const uint8_t * p_shape_xform, int p_shape_xform_wasgo_buffer_size);
+int _wasgo_Shape2D_wrapper_collide_with_motion(WasGoID wasgo_id, const uint8_t * p_local_xform, int p_local_xform_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_local_motion, int p_local_motion_wasgo_buffer_size, WasGoID p_with_shape, const uint8_t * p_shape_xform, int p_shape_xform_wasgo_buffer_size, const uint8_t * p_shape_motion, int p_shape_motion_wasgo_buffer_size);
+WasGoID _wasgo_Shape2D_wrapper_collide_with_motion_and_get_contacts(WasGoID wasgo_id, const uint8_t * p_local_xform, int p_local_xform_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_local_motion, int p_local_motion_wasgo_buffer_size, WasGoID p_with_shape, const uint8_t * p_shape_xform, int p_shape_xform_wasgo_buffer_size, const uint8_t * p_shape_motion, int p_shape_motion_wasgo_buffer_size);
+void _wasgo_Shape2D_wrapper_draw(WasGoID wasgo_id, const uint8_t * p_canvas_item, int p_canvas_item_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 float _wasgo_Shape2D_wrapper_get_custom_solver_bias(WasGoID wasgo_id);
 void _wasgo_Shape2D_wrapper_set_custom_solver_bias(WasGoID wasgo_id, float p_bias);
 

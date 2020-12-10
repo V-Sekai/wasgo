@@ -14,7 +14,7 @@ Color CPUParticles2D::get_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_CPUParticles2D_wrapper_get_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Gradient CPUParticles2D::get_color_ramp(){
@@ -27,7 +27,7 @@ Vector2 CPUParticles2D::get_direction(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_CPUParticles2D_wrapper_get_direction(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 CPUParticles2D::DrawOrder CPUParticles2D::get_draw_order(){
@@ -49,7 +49,7 @@ Vector2 CPUParticles2D::get_emission_rect_extents(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_CPUParticles2D_wrapper_get_emission_rect_extents(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 CPUParticles2D::EmissionShape CPUParticles2D::get_emission_shape(){
@@ -74,7 +74,7 @@ Vector2 CPUParticles2D::get_gravity(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_CPUParticles2D_wrapper_get_gravity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float CPUParticles2D::get_lifetime(){

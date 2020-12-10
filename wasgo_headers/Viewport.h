@@ -4,17 +4,17 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "InputEvent.h"
-#include "Camera.h"
-#include "Vector2.h"
-#include "ViewportTexture.h"
-#include "RID.h"
 #include "Rect2.h"
+#include "InputEvent.h"
 #include "Node.h"
-#include "Variant.h"
 #include "Transform2D.h"
-#include "World.h"
 #include "World2D.h"
+#include "World.h"
+#include "RID.h"
+#include "Camera.h"
+#include "ViewportTexture.h"
+#include "Variant.h"
+#include "Vector2.h"
 #include "Control.h"
 class Viewport : public Node{
 public:
@@ -91,8 +91,6 @@ Vector2 get_size_override();
 ViewportTexture get_texture();
 Viewport::UpdateMode get_update_mode();
 Viewport::Usage get_usage();
-bool get_use_debanding();
-bool get_use_fxaa();
 bool get_vflip();
 RID get_viewport_rid();
 Rect2 get_visible_rect();
@@ -139,8 +137,6 @@ void set_transparent_background(bool p_enable);
 void set_update_mode(Viewport::UpdateMode p_mode);
 void set_usage(Viewport::Usage p_usage);
 void set_use_arvr(bool p_use);
-void set_use_debanding(bool p_enable);
-void set_use_fxaa(bool p_enable);
 void set_use_own_world(bool p_enable);
 void set_use_render_direct_to_screen(bool p_enable);
 void set_vflip(bool p_enable);
@@ -187,14 +183,12 @@ void _wasgo_Viewport_wrapper_get_size_override(WasGoID wasgo_id, uint8_t * wasgo
 WasGoID _wasgo_Viewport_wrapper_get_texture(WasGoID wasgo_id);
 WasGoID _wasgo_Viewport_wrapper_get_update_mode(WasGoID wasgo_id);
 WasGoID _wasgo_Viewport_wrapper_get_usage(WasGoID wasgo_id);
-int _wasgo_Viewport_wrapper_get_use_debanding(WasGoID wasgo_id);
-int _wasgo_Viewport_wrapper_get_use_fxaa(WasGoID wasgo_id);
 int _wasgo_Viewport_wrapper_get_vflip(WasGoID wasgo_id);
 void _wasgo_Viewport_wrapper_get_viewport_rid(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_Viewport_wrapper_get_visible_rect(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoID _wasgo_Viewport_wrapper_get_world(WasGoID wasgo_id);
 WasGoID _wasgo_Viewport_wrapper_get_world_2d(WasGoID wasgo_id);
-WasGoID _wasgo_Viewport_wrapper_gui_get_drag_data(WasGoID wasgo_id);
+void _wasgo_Viewport_wrapper_gui_get_drag_data(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Viewport_wrapper_gui_has_modal_stack(WasGoID wasgo_id);
 int _wasgo_Viewport_wrapper_gui_is_dragging(WasGoID wasgo_id);
 int _wasgo_Viewport_wrapper_has_transparent_background(WasGoID wasgo_id);
@@ -228,15 +222,13 @@ void _wasgo_Viewport_wrapper_set_physics_object_picking(WasGoID wasgo_id, bool p
 void _wasgo_Viewport_wrapper_set_shadow_atlas_quadrant_subdiv(WasGoID wasgo_id, int p_quadrant, WasGoID p_subdiv);
 void _wasgo_Viewport_wrapper_set_shadow_atlas_size(WasGoID wasgo_id, int p_size);
 void _wasgo_Viewport_wrapper_set_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
-void _wasgo_Viewport_wrapper_set_size_override(WasGoID wasgo_id, bool p_enable, const uint8_t * p_size, int p_size_wasgo_buffer_size, const uint8_t * p_margin, int p_margin_wasgo_buffer_size);
+void _wasgo_Viewport_wrapper_set_size_override(WasGoID wasgo_id, bool p_enable, const uint8_t * p_size, int wasgo_throwaway, int p_size_wasgo_buffer_size, const uint8_t * p_margin, int p_margin_wasgo_buffer_size);
 void _wasgo_Viewport_wrapper_set_size_override_stretch(WasGoID wasgo_id, bool p_enabled);
 void _wasgo_Viewport_wrapper_set_snap_controls_to_pixels(WasGoID wasgo_id, bool p_enabled);
 void _wasgo_Viewport_wrapper_set_transparent_background(WasGoID wasgo_id, bool p_enable);
 void _wasgo_Viewport_wrapper_set_update_mode(WasGoID wasgo_id, WasGoID p_mode);
 void _wasgo_Viewport_wrapper_set_usage(WasGoID wasgo_id, WasGoID p_usage);
 void _wasgo_Viewport_wrapper_set_use_arvr(WasGoID wasgo_id, bool p_use);
-void _wasgo_Viewport_wrapper_set_use_debanding(WasGoID wasgo_id, bool p_enable);
-void _wasgo_Viewport_wrapper_set_use_fxaa(WasGoID wasgo_id, bool p_enable);
 void _wasgo_Viewport_wrapper_set_use_own_world(WasGoID wasgo_id, bool p_enable);
 void _wasgo_Viewport_wrapper_set_use_render_direct_to_screen(WasGoID wasgo_id, bool p_enable);
 void _wasgo_Viewport_wrapper_set_vflip(WasGoID wasgo_id, bool p_enable);

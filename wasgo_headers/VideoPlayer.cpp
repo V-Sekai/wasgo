@@ -14,7 +14,7 @@ String VideoPlayer::get_bus(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_VideoPlayer_wrapper_get_bus(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 VideoStream VideoPlayer::get_stream(){
@@ -27,7 +27,7 @@ String VideoPlayer::get_stream_name(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_VideoPlayer_wrapper_get_stream_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 float VideoPlayer::get_stream_position(){
@@ -69,7 +69,7 @@ void VideoPlayer::set_buffering_msec(int p_msec){
 void VideoPlayer::set_bus(String p_bus){
 
     Variant wasgo_var_bus = p_bus;
-    int wasgo_size_bus = String(p_bus).size();
+    int wasgo_size_bus = 10 + String(p_bus).size();
     uint8_t wasgo_buffer_bus[wasgo_size_bus];
     encode_variant(wasgo_var_bus, wasgo_buffer_bus, wasgo_size_bus);
     

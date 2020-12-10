@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "InputEvent.h"
 #include "Ustring.h"
+#include "InputEvent.h"
 class InputEventAction : public InputEvent{
 public:
 String get_action();

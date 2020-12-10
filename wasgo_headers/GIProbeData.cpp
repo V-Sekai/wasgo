@@ -11,7 +11,7 @@ float GIProbeData::get_bias(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_GIProbeData_wrapper_get_bounds(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (AABB) wasgo_ret;
+    return wasgo_ret;
     
 }
 float GIProbeData::get_cell_size(){
@@ -39,7 +39,7 @@ Transform GIProbeData::get_to_cell_xform(){
     uint8_t wasgo_ret_buffer[52];
     _wasgo_GIProbeData_wrapper_get_to_cell_xform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool GIProbeData::is_compressed(){

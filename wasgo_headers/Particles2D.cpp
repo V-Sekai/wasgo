@@ -8,7 +8,7 @@ Rect2 Particles2D::capture_rect(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Particles2D_wrapper_capture_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Particles2D::get_amount(){
@@ -60,7 +60,7 @@ Rect2 Particles2D::get_visibility_rect(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Particles2D_wrapper_get_visibility_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool Particles2D::is_emitting(){

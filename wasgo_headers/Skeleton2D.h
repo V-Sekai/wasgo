@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Bone2D.h"
 #include "RID.h"
+#include "Bone2D.h"
 #include "Node2D.h"
 class Skeleton2D : public Node2D{
 public:

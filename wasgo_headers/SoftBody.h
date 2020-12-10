@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-class Node;
 #include "NodePath.h"
+class Node;
 #include "Variant.h"
 #include "MeshInstance.h"
 class SoftBody : public MeshInstance{

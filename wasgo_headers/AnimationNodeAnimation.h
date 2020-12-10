@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "AnimationRootNode.h"
 #include "Ustring.h"
+#include "AnimationRootNode.h"
 class AnimationNodeAnimation : public AnimationRootNode{
 public:
 String get_animation();

@@ -8,7 +8,7 @@ Vector3 BoxShape::get_extents(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_BoxShape_wrapper_get_extents(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 void BoxShape::set_extents(Vector3 p_extents){

@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "ImmediateGeometry.h"
 void ImmediateGeometry::add_sphere(int p_lats, int p_lons, float p_radius, bool p_add_uv){
-	_wasgo_ImmediateGeometry_wrapper_add_sphere(wasgo_id, p_lats, p_lons, p_radius, p_add_uv);
+	_wasgo_ImmediateGeometry_wrapper_add_sphere(wasgo_id, p_lats, p_lons, -69, p_radius, p_add_uv);
 }
 void ImmediateGeometry::add_vertex(Vector3 p_position){
 

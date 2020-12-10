@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "TileSet.h"
-#include "Vector2.h"
 #include "Rect2.h"
 #include "Transform2D.h"
-#include "Variant.h"
 #include "Node2D.h"
+#include "TileSet.h"
+#include "Variant.h"
+#include "Vector2.h"
 class TileMap : public Node2D{
 public:
 enum HalfOffset{
@@ -105,7 +105,7 @@ extern "C"{
 void _wasgo_TileMap_wrapper_clear(WasGoID wasgo_id);
 void _wasgo_TileMap_wrapper_fix_invalid_tiles(WasGoID wasgo_id);
 int _wasgo_TileMap_wrapper_get_cell(WasGoID wasgo_id, int p_x, int p_y);
-void _wasgo_TileMap_wrapper_get_cell_autotile_coord(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_x, int p_y);
+void _wasgo_TileMap_wrapper_get_cell_autotile_coord(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_x, int p_y);
 void _wasgo_TileMap_wrapper_get_cell_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_TileMap_wrapper_get_cellv(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 int _wasgo_TileMap_wrapper_get_clip_uv(WasGoID wasgo_id);
@@ -133,10 +133,10 @@ int _wasgo_TileMap_wrapper_is_cell_y_flipped(WasGoID wasgo_id, int p_x, int p_y)
 int _wasgo_TileMap_wrapper_is_centered_textures_enabled(WasGoID wasgo_id);
 int _wasgo_TileMap_wrapper_is_compatibility_mode_enabled(WasGoID wasgo_id);
 int _wasgo_TileMap_wrapper_is_y_sort_mode_enabled(WasGoID wasgo_id);
-void _wasgo_TileMap_wrapper_map_to_world(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_map_position, int p_map_position_wasgo_buffer_size, bool p_ignore_half_ofs);
-void _wasgo_TileMap_wrapper_set_cell(WasGoID wasgo_id, int p_x, int p_y, int p_tile, bool p_flip_x, bool p_flip_y, bool p_transpose, const uint8_t * p_autotile_coord, int p_autotile_coord_wasgo_buffer_size);
+void _wasgo_TileMap_wrapper_map_to_world(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_map_position, int p_map_position_wasgo_buffer_size, bool p_ignore_half_ofs);
+void _wasgo_TileMap_wrapper_set_cell(WasGoID wasgo_id, int p_x, int p_y, int wasgo_throwaway, int p_tile, bool p_flip_x, bool p_flip_y, bool p_transpose, const uint8_t * p_autotile_coord, int p_autotile_coord_wasgo_buffer_size);
 void _wasgo_TileMap_wrapper_set_cell_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
-void _wasgo_TileMap_wrapper_set_cellv(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, int p_tile, bool p_flip_x, bool p_flip_y, bool p_transpose);
+void _wasgo_TileMap_wrapper_set_cellv(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, int wasgo_throwaway, int p_tile, bool p_flip_x, bool p_flip_y, bool p_transpose);
 void _wasgo_TileMap_wrapper_set_centered_textures(WasGoID wasgo_id, bool p_enable);
 void _wasgo_TileMap_wrapper_set_clip_uv(WasGoID wasgo_id, bool p_enable);
 void _wasgo_TileMap_wrapper_set_collision_bounce(WasGoID wasgo_id, float p_value);
@@ -157,9 +157,9 @@ void _wasgo_TileMap_wrapper_set_tile_origin(WasGoID wasgo_id, WasGoID p_origin);
 void _wasgo_TileMap_wrapper_set_tileset(WasGoID wasgo_id, WasGoID p_tileset);
 void _wasgo_TileMap_wrapper_set_y_sort_mode(WasGoID wasgo_id, bool p_enable);
 void _wasgo_TileMap_wrapper_update_bitmask_area(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_TileMap_wrapper_update_bitmask_region(WasGoID wasgo_id, const uint8_t * p_start, int p_start_wasgo_buffer_size, const uint8_t * p_end, int p_end_wasgo_buffer_size);
+void _wasgo_TileMap_wrapper_update_bitmask_region(WasGoID wasgo_id, const uint8_t * p_start, int p_start_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_end, int p_end_wasgo_buffer_size);
 void _wasgo_TileMap_wrapper_update_dirty_quadrants(WasGoID wasgo_id);
-void _wasgo_TileMap_wrapper_world_to_map(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_world_position, int p_world_position_wasgo_buffer_size);
+void _wasgo_TileMap_wrapper_world_to_map(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_world_position, int p_world_position_wasgo_buffer_size);
 
     //constructor wrappers
     WasGoID _wasgo_TileMap_constructor();

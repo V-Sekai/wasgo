@@ -26,7 +26,7 @@ String Label::get_text(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_Label_wrapper_get_text(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Label::get_total_character_count(){
@@ -71,7 +71,7 @@ void Label::set_percent_visible(float p_percent_visible){
 void Label::set_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     

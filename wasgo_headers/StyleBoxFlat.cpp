@@ -11,7 +11,7 @@ Color StyleBoxFlat::get_bg_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_StyleBoxFlat_wrapper_get_bg_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool StyleBoxFlat::get_border_blend(){
@@ -24,7 +24,7 @@ Color StyleBoxFlat::get_border_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_StyleBoxFlat_wrapper_get_border_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 int StyleBoxFlat::get_border_width(Margin p_margin){
@@ -49,7 +49,7 @@ Color StyleBoxFlat::get_shadow_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_StyleBoxFlat_wrapper_get_shadow_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 StyleBoxFlat::get_shadow_offset(){
@@ -59,7 +59,7 @@ Vector2 StyleBoxFlat::get_shadow_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_StyleBoxFlat_wrapper_get_shadow_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int StyleBoxFlat::get_shadow_size(){
@@ -114,7 +114,7 @@ void StyleBoxFlat::set_corner_radius_all(int p_radius){
 	_wasgo_StyleBoxFlat_wrapper_set_corner_radius_all(wasgo_id, p_radius);
 }
 void StyleBoxFlat::set_corner_radius_individual(int p_radius_top_left, int p_radius_top_right, int p_radius_bottom_right, int p_radius_bottom_left){
-	_wasgo_StyleBoxFlat_wrapper_set_corner_radius_individual(wasgo_id, p_radius_top_left, p_radius_top_right, p_radius_bottom_right, p_radius_bottom_left);
+	_wasgo_StyleBoxFlat_wrapper_set_corner_radius_individual(wasgo_id, p_radius_top_left, p_radius_top_right, -69, p_radius_bottom_right, p_radius_bottom_left);
 }
 void StyleBoxFlat::set_draw_center(bool p_draw_center){
 	_wasgo_StyleBoxFlat_wrapper_set_draw_center(wasgo_id, p_draw_center);
@@ -126,7 +126,7 @@ void StyleBoxFlat::set_expand_margin_all(float p_size){
 	_wasgo_StyleBoxFlat_wrapper_set_expand_margin_all(wasgo_id, p_size);
 }
 void StyleBoxFlat::set_expand_margin_individual(float p_size_left, float p_size_top, float p_size_right, float p_size_bottom){
-	_wasgo_StyleBoxFlat_wrapper_set_expand_margin_individual(wasgo_id, p_size_left, p_size_top, p_size_right, p_size_bottom);
+	_wasgo_StyleBoxFlat_wrapper_set_expand_margin_individual(wasgo_id, p_size_left, p_size_top, -69, p_size_right, p_size_bottom);
 }
 void StyleBoxFlat::set_shadow_color(Color p_color){
 

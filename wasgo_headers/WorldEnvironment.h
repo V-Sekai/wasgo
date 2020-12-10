@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Environment.h"
 #include "Node.h"
+#include "Environment.h"
 class WorldEnvironment : public Node{
 public:
 Environment get_environment();

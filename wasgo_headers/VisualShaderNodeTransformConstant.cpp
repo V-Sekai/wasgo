@@ -8,7 +8,7 @@ Transform VisualShaderNodeTransformConstant::get_constant(){
     uint8_t wasgo_ret_buffer[52];
     _wasgo_VisualShaderNodeTransformConstant_wrapper_get_constant(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 void VisualShaderNodeTransformConstant::set_constant(Transform p_value){

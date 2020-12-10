@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
-#include "Vector2.h"
 #include "NodePath.h"
-#include "Variant.h"
 #include "Node2D.h"
+#include "Variant.h"
+#include "Vector2.h"
 #include "Texture.h"
+#include "Color.h"
 class Polygon2D : public Node2D{
 public:
 void add_bone(NodePath p_path, PoolRealArray p_weights);
@@ -67,12 +67,12 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Polygon2D_wrapper_add_bone(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_weights);
+void _wasgo_Polygon2D_wrapper_add_bone(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_weights);
 void _wasgo_Polygon2D_wrapper_clear_bones(WasGoID wasgo_id);
 void _wasgo_Polygon2D_wrapper_erase_bone(WasGoID wasgo_id, int p_index);
 int _wasgo_Polygon2D_wrapper_get_antialiased(WasGoID wasgo_id);
 int _wasgo_Polygon2D_wrapper_get_bone_count(WasGoID wasgo_id);
-void _wasgo_Polygon2D_wrapper_get_bone_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_index);
+void _wasgo_Polygon2D_wrapper_get_bone_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_index);
 WasGoID _wasgo_Polygon2D_wrapper_get_bone_weights(WasGoID wasgo_id, int p_index);
 void _wasgo_Polygon2D_wrapper_get_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Polygon2D_wrapper_get_internal_vertex_count(WasGoID wasgo_id);
@@ -90,7 +90,7 @@ void _wasgo_Polygon2D_wrapper_get_texture_scale(WasGoID wasgo_id, uint8_t * wasg
 WasGoID _wasgo_Polygon2D_wrapper_get_uv(WasGoID wasgo_id);
 WasGoID _wasgo_Polygon2D_wrapper_get_vertex_colors(WasGoID wasgo_id);
 void _wasgo_Polygon2D_wrapper_set_antialiased(WasGoID wasgo_id, bool p_antialiased);
-void _wasgo_Polygon2D_wrapper_set_bone_path(WasGoID wasgo_id, int p_index, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_Polygon2D_wrapper_set_bone_path(WasGoID wasgo_id, int p_index, const uint8_t * p_path, int wasgo_throwaway, int p_path_wasgo_buffer_size);
 void _wasgo_Polygon2D_wrapper_set_bone_weights(WasGoID wasgo_id, int p_index, WasGoID p_weights);
 void _wasgo_Polygon2D_wrapper_set_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 void _wasgo_Polygon2D_wrapper_set_internal_vertex_count(WasGoID wasgo_id, int p_internal_vertex_count);

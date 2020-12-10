@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
 #include "Rect2.h"
 #include "Resource.h"
-#include "Image.h"
 #include "Variant.h"
+#include "Image.h"
+#include "Vector2.h"
 class BitMap : public Resource{
 public:
 void create(Vector2 p_size);
@@ -40,10 +40,10 @@ void _wasgo_BitMap_wrapper_create_from_image_alpha(WasGoID wasgo_id, WasGoID p_i
 int _wasgo_BitMap_wrapper_get_bit(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 void _wasgo_BitMap_wrapper_get_size(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_BitMap_wrapper_get_true_bit_count(WasGoID wasgo_id);
-void _wasgo_BitMap_wrapper_grow_mask(WasGoID wasgo_id, int p_pixels, const uint8_t * p_rect, int p_rect_wasgo_buffer_size);
-WasGoID _wasgo_BitMap_wrapper_opaque_to_polygons(WasGoID wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, float p_epsilon);
-void _wasgo_BitMap_wrapper_set_bit(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, bool p_bit);
-void _wasgo_BitMap_wrapper_set_bit_rect(WasGoID wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, bool p_bit);
+void _wasgo_BitMap_wrapper_grow_mask(WasGoID wasgo_id, int p_pixels, const uint8_t * p_rect, int wasgo_throwaway, int p_rect_wasgo_buffer_size);
+WasGoID _wasgo_BitMap_wrapper_opaque_to_polygons(WasGoID wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, int wasgo_throwaway, float p_epsilon);
+void _wasgo_BitMap_wrapper_set_bit(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, int wasgo_throwaway, bool p_bit);
+void _wasgo_BitMap_wrapper_set_bit_rect(WasGoID wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, int wasgo_throwaway, bool p_bit);
 
     //constructor wrappers
     WasGoID _wasgo_BitMap_constructor();

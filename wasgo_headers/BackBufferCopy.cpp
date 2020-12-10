@@ -11,7 +11,7 @@ Rect2 BackBufferCopy::get_rect(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_BackBufferCopy_wrapper_get_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 void BackBufferCopy::set_copy_mode(BackBufferCopy::CopyMode p_copy_mode){

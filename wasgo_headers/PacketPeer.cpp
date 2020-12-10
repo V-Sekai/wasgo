@@ -14,7 +14,14 @@ Error PacketPeer::get_packet_error(){
 	return Error(_wasgo_PacketPeer_wrapper_get_packet_error(wasgo_id));
 }
 Variant PacketPeer::get_var(bool p_allow_objects){
-	return Variant(_wasgo_PacketPeer_wrapper_get_var(wasgo_id, p_allow_objects));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_PacketPeer_wrapper_get_var(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_allow_objects);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 bool PacketPeer::is_object_decoding_allowed(){
 	return (bool) _wasgo_PacketPeer_wrapper_is_object_decoding_allowed(wasgo_id);
@@ -23,7 +30,13 @@ Error PacketPeer::put_packet(PoolByteArray p_buffer){
 	return Error(_wasgo_PacketPeer_wrapper_put_packet(wasgo_id, p_buffer._get_wasgo_id()));
 }
 Error PacketPeer::put_var(Variant p_var, bool p_full_objects){
-	return Error(_wasgo_PacketPeer_wrapper_put_var(wasgo_id, p_var._get_wasgo_id(), p_full_objects));
+
+    Variant wasgo_var_var = p_var;
+    uint8_t wasgo_buffer_var[256];
+    int wasgo_size_var = 256;
+    encode_variant(wasgo_var_var, wasgo_buffer_var, wasgo_size_var);
+    
+	return Error(_wasgo_PacketPeer_wrapper_put_var(wasgo_id, wasgo_buffer_var, wasgo_size_var, -69, p_full_objects));
 }
 void PacketPeer::set_allow_object_decoding(bool p_enable){
 	_wasgo_PacketPeer_wrapper_set_allow_object_decoding(wasgo_id, p_enable);

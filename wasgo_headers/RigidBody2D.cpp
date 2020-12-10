@@ -23,7 +23,7 @@ void RigidBody2D::add_force(Vector2 p_offset, Vector2 p_force){
     int wasgo_size_force = 12;
     encode_variant(wasgo_var_force, wasgo_buffer_force, wasgo_size_force);
     
-	_wasgo_RigidBody2D_wrapper_add_force(wasgo_id, wasgo_buffer_offset, wasgo_size_offset, wasgo_buffer_force, wasgo_size_force);
+	_wasgo_RigidBody2D_wrapper_add_force(wasgo_id, wasgo_buffer_offset, wasgo_size_offset, -69, wasgo_buffer_force, wasgo_size_force);
 }
 void RigidBody2D::add_torque(float p_torque){
 	_wasgo_RigidBody2D_wrapper_add_torque(wasgo_id, p_torque);
@@ -50,7 +50,7 @@ void RigidBody2D::apply_impulse(Vector2 p_offset, Vector2 p_impulse){
     int wasgo_size_impulse = 12;
     encode_variant(wasgo_var_impulse, wasgo_buffer_impulse, wasgo_size_impulse);
     
-	_wasgo_RigidBody2D_wrapper_apply_impulse(wasgo_id, wasgo_buffer_offset, wasgo_size_offset, wasgo_buffer_impulse, wasgo_size_impulse);
+	_wasgo_RigidBody2D_wrapper_apply_impulse(wasgo_id, wasgo_buffer_offset, wasgo_size_offset, -69, wasgo_buffer_impulse, wasgo_size_impulse);
 }
 void RigidBody2D::apply_torque_impulse(float p_torque){
 	_wasgo_RigidBody2D_wrapper_apply_torque_impulse(wasgo_id, p_torque);
@@ -68,7 +68,7 @@ Vector2 RigidBody2D::get_applied_force(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_RigidBody2D_wrapper_get_applied_force(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float RigidBody2D::get_applied_torque(){
@@ -102,7 +102,7 @@ Vector2 RigidBody2D::get_linear_velocity(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_RigidBody2D_wrapper_get_linear_velocity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float RigidBody2D::get_mass(){
@@ -220,7 +220,7 @@ bool RigidBody2D::test_motion(Vector2 p_motion, bool p_infinite_inertia, float p
     int wasgo_size_motion = 12;
     encode_variant(wasgo_var_motion, wasgo_buffer_motion, wasgo_size_motion);
     
-	return (bool) _wasgo_RigidBody2D_wrapper_test_motion(wasgo_id, wasgo_buffer_motion, wasgo_size_motion, p_infinite_inertia, p_margin, p_result._get_wasgo_id());
+	return (bool) _wasgo_RigidBody2D_wrapper_test_motion(wasgo_id, wasgo_buffer_motion, wasgo_size_motion, -69, p_infinite_inertia, p_margin, p_result._get_wasgo_id());
 }
 
 RigidBody2D::RigidBody2D(WasGoID p_wasgo_id) : PhysicsBody2D(p_wasgo_id){

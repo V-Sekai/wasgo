@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Control.h"
-#include "PopupMenu.h"
 #include "Ustring.h"
+#include "PopupMenu.h"
 #include "Texture.h"
+#include "Control.h"
 class LineEdit : public Control{
 public:
 enum Align{
@@ -43,7 +43,6 @@ PopupMenu get_menu();
 String get_placeholder();
 float get_placeholder_alpha();
 Texture get_right_icon();
-int get_scroll_offset();
 String get_secret_character();
 String get_text();
 bool is_clear_button_enabled();
@@ -104,7 +103,6 @@ WasGoID _wasgo_LineEdit_wrapper_get_menu(WasGoID wasgo_id);
 void _wasgo_LineEdit_wrapper_get_placeholder(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 float _wasgo_LineEdit_wrapper_get_placeholder_alpha(WasGoID wasgo_id);
 WasGoID _wasgo_LineEdit_wrapper_get_right_icon(WasGoID wasgo_id);
-int _wasgo_LineEdit_wrapper_get_scroll_offset(WasGoID wasgo_id);
 void _wasgo_LineEdit_wrapper_get_secret_character(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_LineEdit_wrapper_get_text(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_LineEdit_wrapper_is_clear_button_enabled(WasGoID wasgo_id);

@@ -8,7 +8,7 @@ Array PhysicsDirectSpaceState::cast_motion(PhysicsShapeQueryParameters p_shape, 
     int wasgo_size_motion = 16;
     encode_variant(wasgo_var_motion, wasgo_buffer_motion, wasgo_size_motion);
     
-	return Array(_wasgo_PhysicsDirectSpaceState_wrapper_cast_motion(wasgo_id, p_shape._get_wasgo_id(), wasgo_buffer_motion, wasgo_size_motion));
+	return Array(_wasgo_PhysicsDirectSpaceState_wrapper_cast_motion(wasgo_id, p_shape._get_wasgo_id(), wasgo_buffer_motion, wasgo_size_motion, wasgo_size_motion));
 }
 Array PhysicsDirectSpaceState::collide_shape(PhysicsShapeQueryParameters p_shape, int p_max_results){
 	return Array(_wasgo_PhysicsDirectSpaceState_wrapper_collide_shape(wasgo_id, p_shape._get_wasgo_id(), p_max_results));
@@ -29,7 +29,7 @@ Dictionary PhysicsDirectSpaceState::intersect_ray(Vector3 p_from, Vector3 p_to, 
     int wasgo_size_to = 16;
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
-	return Dictionary(_wasgo_PhysicsDirectSpaceState_wrapper_intersect_ray(wasgo_id, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_to, wasgo_size_to, p_exclude._get_wasgo_id(), p_collision_mask, p_collide_with_bodies, p_collide_with_areas));
+	return Dictionary(_wasgo_PhysicsDirectSpaceState_wrapper_intersect_ray(wasgo_id, wasgo_buffer_from, wasgo_size_from, -69, wasgo_buffer_to, wasgo_size_to, p_exclude._get_wasgo_id(), p_collision_mask, p_collide_with_bodies, p_collide_with_areas));
 }
 Array PhysicsDirectSpaceState::intersect_shape(PhysicsShapeQueryParameters p_shape, int p_max_results){
 	return Array(_wasgo_PhysicsDirectSpaceState_wrapper_intersect_shape(wasgo_id, p_shape._get_wasgo_id(), p_max_results));

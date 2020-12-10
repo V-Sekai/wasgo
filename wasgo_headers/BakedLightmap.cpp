@@ -32,7 +32,7 @@ Vector3 BakedLightmap::get_extents(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_BakedLightmap_wrapper_get_extents(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 String BakedLightmap::get_image_path(){
@@ -42,7 +42,7 @@ String BakedLightmap::get_image_path(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_BakedLightmap_wrapper_get_image_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 BakedLightmapData BakedLightmap::get_light_data(){
@@ -87,7 +87,7 @@ void BakedLightmap::set_hdr(bool p_hdr){
 void BakedLightmap::set_image_path(String p_image_path){
 
     Variant wasgo_var_image_path = p_image_path;
-    int wasgo_size_image_path = String(p_image_path).size();
+    int wasgo_size_image_path = 10 + String(p_image_path).size();
     uint8_t wasgo_buffer_image_path[wasgo_size_image_path];
     encode_variant(wasgo_var_image_path, wasgo_buffer_image_path, wasgo_size_image_path);
     

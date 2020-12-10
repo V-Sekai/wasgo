@@ -8,7 +8,7 @@ Color Light2D::get_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Light2D_wrapper_get_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Light2D::get_energy(){
@@ -42,7 +42,7 @@ Color Light2D::get_shadow_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Light2D_wrapper_get_shadow_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Light2D::ShadowFilter Light2D::get_shadow_filter(){
@@ -64,7 +64,7 @@ Vector2 Light2D::get_texture_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Light2D_wrapper_get_texture_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Light2D::get_texture_scale(){

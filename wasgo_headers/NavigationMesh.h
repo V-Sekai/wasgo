@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Resource.h"
 #include "Mesh.h"
-#include "Variant.h"
 #include "Ustring.h"
+#include "Resource.h"
+#include "Variant.h"
 class NavigationMesh : public Resource{
 public:
 void add_polygon(PoolIntArray p_polygon);

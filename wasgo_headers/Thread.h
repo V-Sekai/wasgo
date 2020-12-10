@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Object.h"
-#include "Reference.h"
 #include "error_list.h"
+#include "Reference.h"
+#include "Object.h"
 #include "Variant.h"
 #include "Ustring.h"
 class Thread : public Reference{
@@ -37,8 +37,8 @@ operator bool();
 extern "C"{
 void _wasgo_Thread_wrapper_get_id(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_Thread_wrapper_is_active(WasGoID wasgo_id);
-WasGoID _wasgo_Thread_wrapper_start(WasGoID wasgo_id, WasGoID p_instance, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoID p_userdata, WasGoID p_priority);
-WasGoID _wasgo_Thread_wrapper_wait_to_finish(WasGoID wasgo_id);
+WasGoID _wasgo_Thread_wrapper_start(WasGoID wasgo_id, WasGoID p_instance, const uint8_t * p_method, int wasgo_throwaway, int p_method_wasgo_buffer_size, const uint8_t * p_userdata, int p_userdata_wasgo_buffer_size, WasGoID p_priority);
+void _wasgo_Thread_wrapper_wait_to_finish(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 
     //constructor wrappers
     WasGoID _wasgo_Thread_constructor();

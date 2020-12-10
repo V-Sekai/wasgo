@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "AnimationNodeBlendSpace1D.h"
 void AnimationNodeBlendSpace1D::add_blend_point(AnimationRootNode p_node, float p_pos, int p_at_index){
-	_wasgo_AnimationNodeBlendSpace1D_wrapper_add_blend_point(wasgo_id, p_node._get_wasgo_id(), p_pos, p_at_index);
+	_wasgo_AnimationNodeBlendSpace1D_wrapper_add_blend_point(wasgo_id, p_node._get_wasgo_id(), p_pos, -69, p_at_index);
 }
 int AnimationNodeBlendSpace1D::get_blend_point_count(){
 	return (int) _wasgo_AnimationNodeBlendSpace1D_wrapper_get_blend_point_count(wasgo_id);
@@ -29,7 +29,7 @@ String AnimationNodeBlendSpace1D::get_value_label(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AnimationNodeBlendSpace1D_wrapper_get_value_label(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 void AnimationNodeBlendSpace1D::remove_blend_point(int p_point){
@@ -53,7 +53,7 @@ void AnimationNodeBlendSpace1D::set_snap(float p_snap){
 void AnimationNodeBlendSpace1D::set_value_label(String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     

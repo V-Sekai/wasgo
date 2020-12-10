@@ -11,7 +11,7 @@ String InstancePlaceholder::get_instance_path(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_InstancePlaceholder_wrapper_get_instance_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 Dictionary InstancePlaceholder::get_stored_values(bool p_with_order){

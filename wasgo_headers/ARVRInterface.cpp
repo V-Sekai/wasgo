@@ -17,7 +17,7 @@ String ARVRInterface::get_name(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_ARVRInterface_wrapper_get_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 ARVRInterface::get_render_targetsize(){
@@ -27,7 +27,7 @@ Vector2 ARVRInterface::get_render_targetsize(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_ARVRInterface_wrapper_get_render_targetsize(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 ARVRInterface::Tracking_status ARVRInterface::get_tracking_status(){

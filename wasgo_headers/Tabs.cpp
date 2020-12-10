@@ -4,11 +4,11 @@
 void Tabs::add_tab(String p_title, Texture p_icon){
 
     Variant wasgo_var_title = p_title;
-    int wasgo_size_title = String(p_title).size();
+    int wasgo_size_title = 10 + String(p_title).size();
     uint8_t wasgo_buffer_title[wasgo_size_title];
     encode_variant(wasgo_var_title, wasgo_buffer_title, wasgo_size_title);
     
-	_wasgo_Tabs_wrapper_add_tab(wasgo_id, wasgo_buffer_title, wasgo_size_title, p_icon._get_wasgo_id());
+	_wasgo_Tabs_wrapper_add_tab(wasgo_id, wasgo_buffer_title, wasgo_size_title, -69, p_icon._get_wasgo_id());
 }
 void Tabs::ensure_tab_visible(int p_idx){
 	_wasgo_Tabs_wrapper_ensure_tab_visible(wasgo_id, p_idx);
@@ -21,9 +21,6 @@ bool Tabs::get_drag_to_rearrange_enabled(){
 }
 bool Tabs::get_offset_buttons_visible(){
 	return (bool) _wasgo_Tabs_wrapper_get_offset_buttons_visible(wasgo_id);
-}
-int Tabs::get_previous_tab(){
-	return (int) _wasgo_Tabs_wrapper_get_previous_tab(wasgo_id);
 }
 bool Tabs::get_scrolling_enabled(){
 	return (bool) _wasgo_Tabs_wrapper_get_scrolling_enabled(wasgo_id);
@@ -54,9 +51,9 @@ Rect2 Tabs::get_tab_rect(int p_tab_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_Tabs_wrapper_get_tab_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_tab_idx);
+    _wasgo_Tabs_wrapper_get_tab_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_tab_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 String Tabs::get_tab_title(int p_tab_idx){
@@ -64,9 +61,9 @@ String Tabs::get_tab_title(int p_tab_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_Tabs_wrapper_get_tab_title(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_tab_idx);
+    _wasgo_Tabs_wrapper_get_tab_title(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_tab_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Tabs::get_tabs_rearrange_group(){
@@ -105,11 +102,11 @@ void Tabs::set_tab_icon(int p_tab_idx, Texture p_icon){
 void Tabs::set_tab_title(int p_tab_idx, String p_title){
 
     Variant wasgo_var_title = p_title;
-    int wasgo_size_title = String(p_title).size();
+    int wasgo_size_title = 10 + String(p_title).size();
     uint8_t wasgo_buffer_title[wasgo_size_title];
     encode_variant(wasgo_var_title, wasgo_buffer_title, wasgo_size_title);
     
-	_wasgo_Tabs_wrapper_set_tab_title(wasgo_id, p_tab_idx, wasgo_buffer_title, wasgo_size_title);
+	_wasgo_Tabs_wrapper_set_tab_title(wasgo_id, p_tab_idx, wasgo_buffer_title, wasgo_size_title, wasgo_size_title);
 }
 void Tabs::set_tabs_rearrange_group(int p_group_id){
 	_wasgo_Tabs_wrapper_set_tabs_rearrange_group(wasgo_id, p_group_id);

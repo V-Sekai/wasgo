@@ -14,7 +14,7 @@ NodePath Joint2D::get_node_a(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_Joint2D_wrapper_get_node_a(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 NodePath Joint2D::get_node_b(){
@@ -24,7 +24,7 @@ NodePath Joint2D::get_node_b(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_Joint2D_wrapper_get_node_b(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 void Joint2D::set_bias(float p_bias){
@@ -36,7 +36,7 @@ void Joint2D::set_exclude_nodes_from_collision(bool p_enable){
 void Joint2D::set_node_a(NodePath p_node){
 
     Variant wasgo_var_node = p_node;
-    int wasgo_size_node = String(p_node).size();
+    int wasgo_size_node = 10 + String(p_node).size();
     uint8_t wasgo_buffer_node[wasgo_size_node];
     encode_variant(wasgo_var_node, wasgo_buffer_node, wasgo_size_node);
     
@@ -45,7 +45,7 @@ void Joint2D::set_node_a(NodePath p_node){
 void Joint2D::set_node_b(NodePath p_node){
 
     Variant wasgo_var_node = p_node;
-    int wasgo_size_node = String(p_node).size();
+    int wasgo_size_node = 10 + String(p_node).size();
     uint8_t wasgo_buffer_node[wasgo_size_node];
     encode_variant(wasgo_var_node, wasgo_buffer_node, wasgo_size_node);
     

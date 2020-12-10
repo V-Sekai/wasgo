@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgoid.h"
 
+#include "RID.h"
+#include "Spatial.h"
 #include "Object.h"
 #include "Variant.h"
-#include "Shape.h"
-#include "Spatial.h"
 #include "Transform.h"
-#include "RID.h"
+#include "Shape.h"
 class CollisionObject : public Spatial{
 public:
 int create_shape_owner(Object p_owner);
@@ -63,10 +63,10 @@ WasGoID _wasgo_CollisionObject_wrapper_shape_owner_get_owner(WasGoID wasgo_id, i
 WasGoID _wasgo_CollisionObject_wrapper_shape_owner_get_shape(WasGoID wasgo_id, int p_owner_id, int p_shape_id);
 int _wasgo_CollisionObject_wrapper_shape_owner_get_shape_count(WasGoID wasgo_id, int p_owner_id);
 int _wasgo_CollisionObject_wrapper_shape_owner_get_shape_index(WasGoID wasgo_id, int p_owner_id, int p_shape_id);
-void _wasgo_CollisionObject_wrapper_shape_owner_get_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_owner_id);
+void _wasgo_CollisionObject_wrapper_shape_owner_get_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_owner_id);
 void _wasgo_CollisionObject_wrapper_shape_owner_remove_shape(WasGoID wasgo_id, int p_owner_id, int p_shape_id);
 void _wasgo_CollisionObject_wrapper_shape_owner_set_disabled(WasGoID wasgo_id, int p_owner_id, bool p_disabled);
-void _wasgo_CollisionObject_wrapper_shape_owner_set_transform(WasGoID wasgo_id, int p_owner_id, const uint8_t * p_transform, int p_transform_wasgo_buffer_size);
+void _wasgo_CollisionObject_wrapper_shape_owner_set_transform(WasGoID wasgo_id, int p_owner_id, const uint8_t * p_transform, int wasgo_throwaway, int p_transform_wasgo_buffer_size);
 
     //constructor wrappers
     WasGoID _wasgo_CollisionObject_constructor();

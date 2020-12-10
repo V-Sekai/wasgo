@@ -8,7 +8,7 @@ Vector2 SegmentShape2D::get_a(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_SegmentShape2D_wrapper_get_a(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 SegmentShape2D::get_b(){
@@ -18,7 +18,7 @@ Vector2 SegmentShape2D::get_b(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_SegmentShape2D_wrapper_get_b(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 void SegmentShape2D::set_a(Vector2 p_a){

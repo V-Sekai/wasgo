@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Transform2D.h"
 #include "Node2D.h"
+#include "Transform2D.h"
 class Bone2D : public Node2D{
 public:
 void apply_rest();

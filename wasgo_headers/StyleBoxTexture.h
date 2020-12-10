@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
 #include "Rect2.h"
+#include "Texture.h"
 #include "StyleBox.h"
 #include "math_defs.h"
-#include "Texture.h"
+#include "Color.h"
 class StyleBoxTexture : public StyleBox{
 public:
 enum AxisStretchMode{
@@ -62,7 +62,7 @@ WasGoID _wasgo_StyleBoxTexture_wrapper_get_v_axis_stretch_mode(WasGoID wasgo_id)
 int _wasgo_StyleBoxTexture_wrapper_is_draw_center_enabled(WasGoID wasgo_id);
 void _wasgo_StyleBoxTexture_wrapper_set_draw_center(WasGoID wasgo_id, bool p_enable);
 void _wasgo_StyleBoxTexture_wrapper_set_expand_margin_all(WasGoID wasgo_id, float p_size);
-void _wasgo_StyleBoxTexture_wrapper_set_expand_margin_individual(WasGoID wasgo_id, float p_size_left, float p_size_top, float p_size_right, float p_size_bottom);
+void _wasgo_StyleBoxTexture_wrapper_set_expand_margin_individual(WasGoID wasgo_id, float p_size_left, float p_size_top, int wasgo_throwaway, float p_size_right, float p_size_bottom);
 void _wasgo_StyleBoxTexture_wrapper_set_expand_margin_size(WasGoID wasgo_id, WasGoID p_margin, float p_size);
 void _wasgo_StyleBoxTexture_wrapper_set_h_axis_stretch_mode(WasGoID wasgo_id, WasGoID p_mode);
 void _wasgo_StyleBoxTexture_wrapper_set_margin_size(WasGoID wasgo_id, WasGoID p_margin, float p_size);

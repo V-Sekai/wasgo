@@ -8,7 +8,7 @@ Plane PlaneShape::get_plane(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_PlaneShape_wrapper_get_plane(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Plane) wasgo_ret;
+    return wasgo_ret;
     
 }
 void PlaneShape::set_plane(Plane p_plane){

@@ -4,20 +4,20 @@
 void OptionButton::add_icon_item(Texture p_texture, String p_label, int p_id){
 
     Variant wasgo_var_label = p_label;
-    int wasgo_size_label = String(p_label).size();
+    int wasgo_size_label = 10 + String(p_label).size();
     uint8_t wasgo_buffer_label[wasgo_size_label];
     encode_variant(wasgo_var_label, wasgo_buffer_label, wasgo_size_label);
     
-	_wasgo_OptionButton_wrapper_add_icon_item(wasgo_id, p_texture._get_wasgo_id(), wasgo_buffer_label, wasgo_size_label, p_id);
+	_wasgo_OptionButton_wrapper_add_icon_item(wasgo_id, p_texture._get_wasgo_id(), wasgo_buffer_label, wasgo_size_label, wasgo_size_label, p_id);
 }
 void OptionButton::add_item(String p_label, int p_id){
 
     Variant wasgo_var_label = p_label;
-    int wasgo_size_label = String(p_label).size();
+    int wasgo_size_label = 10 + String(p_label).size();
     uint8_t wasgo_buffer_label[wasgo_size_label];
     encode_variant(wasgo_var_label, wasgo_buffer_label, wasgo_size_label);
     
-	_wasgo_OptionButton_wrapper_add_item(wasgo_id, wasgo_buffer_label, wasgo_size_label, p_id);
+	_wasgo_OptionButton_wrapper_add_item(wasgo_id, wasgo_buffer_label, wasgo_size_label, -69, p_id);
 }
 void OptionButton::add_separator(){
 	_wasgo_OptionButton_wrapper_add_separator(wasgo_id);
@@ -38,16 +38,23 @@ int OptionButton::get_item_index(int p_id){
 	return (int) _wasgo_OptionButton_wrapper_get_item_index(wasgo_id, p_id);
 }
 Variant OptionButton::get_item_metadata(int p_idx){
-	return Variant(_wasgo_OptionButton_wrapper_get_item_metadata(wasgo_id, p_idx));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_OptionButton_wrapper_get_item_metadata(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 String OptionButton::get_item_text(int p_idx){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_OptionButton_wrapper_get_item_text(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_OptionButton_wrapper_get_item_text(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 PopupMenu OptionButton::get_popup(){
@@ -60,7 +67,14 @@ int OptionButton::get_selected_id(){
 	return (int) _wasgo_OptionButton_wrapper_get_selected_id(wasgo_id);
 }
 Variant OptionButton::get_selected_metadata(){
-	return Variant(_wasgo_OptionButton_wrapper_get_selected_metadata(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_OptionButton_wrapper_get_selected_metadata(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 bool OptionButton::is_item_disabled(int p_idx){
 	return (bool) _wasgo_OptionButton_wrapper_is_item_disabled(wasgo_id, p_idx);
@@ -81,16 +95,22 @@ void OptionButton::set_item_id(int p_idx, int p_id){
 	_wasgo_OptionButton_wrapper_set_item_id(wasgo_id, p_idx, p_id);
 }
 void OptionButton::set_item_metadata(int p_idx, Variant p_metadata){
-	_wasgo_OptionButton_wrapper_set_item_metadata(wasgo_id, p_idx, p_metadata._get_wasgo_id());
+
+    Variant wasgo_var_metadata = p_metadata;
+    uint8_t wasgo_buffer_metadata[256];
+    int wasgo_size_metadata = 256;
+    encode_variant(wasgo_var_metadata, wasgo_buffer_metadata, wasgo_size_metadata);
+    
+	_wasgo_OptionButton_wrapper_set_item_metadata(wasgo_id, p_idx, wasgo_buffer_metadata, wasgo_size_metadata, wasgo_size_metadata);
 }
 void OptionButton::set_item_text(int p_idx, String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
-	_wasgo_OptionButton_wrapper_set_item_text(wasgo_id, p_idx, wasgo_buffer_text, wasgo_size_text);
+	_wasgo_OptionButton_wrapper_set_item_text(wasgo_id, p_idx, wasgo_buffer_text, wasgo_size_text, wasgo_size_text);
 }
 
 OptionButton::OptionButton(WasGoID p_wasgo_id) : Button(p_wasgo_id){

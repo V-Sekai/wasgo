@@ -5,8 +5,8 @@
 #include "wasgo\wasgoid.h"
 
 #include "StreamPeerTCP.h"
-#include "Reference.h"
 #include "Ustring.h"
+#include "Reference.h"
 #include "error_list.h"
 class TCP_Server : public Reference{
 public:
@@ -32,7 +32,7 @@ operator bool();
 extern "C"{
 int _wasgo_TCP_Server_wrapper_is_connection_available(WasGoID wasgo_id);
 int _wasgo_TCP_Server_wrapper_is_listening(WasGoID wasgo_id);
-WasGoID _wasgo_TCP_Server_wrapper_listen(WasGoID wasgo_id, int p_port, const uint8_t * p_bind_address, int p_bind_address_wasgo_buffer_size);
+WasGoID _wasgo_TCP_Server_wrapper_listen(WasGoID wasgo_id, int p_port, const uint8_t * p_bind_address, int wasgo_throwaway, int p_bind_address_wasgo_buffer_size);
 void _wasgo_TCP_Server_wrapper_stop(WasGoID wasgo_id);
 WasGoID _wasgo_TCP_Server_wrapper_take_connection(WasGoID wasgo_id);
 

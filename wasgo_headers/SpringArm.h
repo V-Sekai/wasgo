@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Spatial.h"
 #include "RID.h"
+#include "Spatial.h"
 #include "Shape.h"
 class SpringArm : public Spatial{
 public:

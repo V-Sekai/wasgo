@@ -14,7 +14,7 @@ Vector3 ReflectionProbe::get_extents(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_ReflectionProbe_wrapper_get_extents(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 float ReflectionProbe::get_intensity(){
@@ -27,7 +27,7 @@ Color ReflectionProbe::get_interior_ambient(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_ReflectionProbe_wrapper_get_interior_ambient(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float ReflectionProbe::get_interior_ambient_energy(){
@@ -46,7 +46,7 @@ Vector3 ReflectionProbe::get_origin_offset(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_ReflectionProbe_wrapper_get_origin_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 ReflectionProbe::UpdateMode ReflectionProbe::get_update_mode(){

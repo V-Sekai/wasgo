@@ -15,9 +15,9 @@ String SceneState::get_connection_method(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_SceneState_wrapper_get_connection_method(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_SceneState_wrapper_get_connection_method(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String SceneState::get_connection_signal(int p_idx){
@@ -25,9 +25,9 @@ String SceneState::get_connection_signal(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_SceneState_wrapper_get_connection_signal(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_SceneState_wrapper_get_connection_signal(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 NodePath SceneState::get_connection_source(int p_idx){
@@ -35,9 +35,9 @@ NodePath SceneState::get_connection_source(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_SceneState_wrapper_get_connection_source(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_SceneState_wrapper_get_connection_source(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 NodePath SceneState::get_connection_target(int p_idx){
@@ -45,9 +45,9 @@ NodePath SceneState::get_connection_target(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_SceneState_wrapper_get_connection_target(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_SceneState_wrapper_get_connection_target(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 int SceneState::get_node_count(){
@@ -67,9 +67,9 @@ String SceneState::get_node_instance_placeholder(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_SceneState_wrapper_get_node_instance_placeholder(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_SceneState_wrapper_get_node_instance_placeholder(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String SceneState::get_node_name(int p_idx){
@@ -77,9 +77,9 @@ String SceneState::get_node_name(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_SceneState_wrapper_get_node_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_SceneState_wrapper_get_node_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 NodePath SceneState::get_node_owner_path(int p_idx){
@@ -87,9 +87,9 @@ NodePath SceneState::get_node_owner_path(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_SceneState_wrapper_get_node_owner_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_SceneState_wrapper_get_node_owner_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 NodePath SceneState::get_node_path(int p_idx, bool p_for_parent){
@@ -97,9 +97,9 @@ NodePath SceneState::get_node_path(int p_idx, bool p_for_parent){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_SceneState_wrapper_get_node_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx, p_for_parent);
+    _wasgo_SceneState_wrapper_get_node_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx, p_for_parent);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 int SceneState::get_node_property_count(int p_idx){
@@ -110,22 +110,29 @@ String SceneState::get_node_property_name(int p_idx, int p_prop_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_SceneState_wrapper_get_node_property_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx, p_prop_idx);
+    _wasgo_SceneState_wrapper_get_node_property_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx, p_prop_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 Variant SceneState::get_node_property_value(int p_idx, int p_prop_idx){
-	return Variant(_wasgo_SceneState_wrapper_get_node_property_value(wasgo_id, p_idx, p_prop_idx));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_SceneState_wrapper_get_node_property_value(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx, p_prop_idx);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 String SceneState::get_node_type(int p_idx){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_SceneState_wrapper_get_node_type(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_SceneState_wrapper_get_node_type(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool SceneState::is_node_instance_placeholder(int p_idx){

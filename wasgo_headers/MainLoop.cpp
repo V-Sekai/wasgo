@@ -16,7 +16,7 @@ void MainLoop::input_event(InputEvent p_event){
 void MainLoop::input_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     

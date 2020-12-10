@@ -14,17 +14,24 @@ String Script::get_instance_base_type(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_Script_wrapper_get_instance_base_type(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 Variant Script::get_property_default_value(String p_property){
 
     Variant wasgo_var_property = p_property;
-    int wasgo_size_property = String(p_property).size();
+    int wasgo_size_property = 10 + String(p_property).size();
     uint8_t wasgo_buffer_property[wasgo_size_property];
     encode_variant(wasgo_var_property, wasgo_buffer_property, wasgo_size_property);
     
-	return Variant(_wasgo_Script_wrapper_get_property_default_value(wasgo_id, wasgo_buffer_property, wasgo_size_property));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_Script_wrapper_get_property_default_value(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_property, wasgo_size_property);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 Dictionary Script::get_script_constant_map(){
 	return Dictionary(_wasgo_Script_wrapper_get_script_constant_map(wasgo_id));
@@ -45,13 +52,13 @@ String Script::get_source_code(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_Script_wrapper_get_source_code(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool Script::has_script_signal(String p_signal_name){
 
     Variant wasgo_var_signal_name = p_signal_name;
-    int wasgo_size_signal_name = String(p_signal_name).size();
+    int wasgo_size_signal_name = 10 + String(p_signal_name).size();
     uint8_t wasgo_buffer_signal_name[wasgo_size_signal_name];
     encode_variant(wasgo_var_signal_name, wasgo_buffer_signal_name, wasgo_size_signal_name);
     
@@ -72,7 +79,7 @@ Error Script::reload(bool p_keep_state){
 void Script::set_source_code(String p_source){
 
     Variant wasgo_var_source = p_source;
-    int wasgo_size_source = String(p_source).size();
+    int wasgo_size_source = 10 + String(p_source).size();
     uint8_t wasgo_buffer_source[wasgo_size_source];
     encode_variant(wasgo_var_source, wasgo_buffer_source, wasgo_size_source);
     

@@ -8,7 +8,7 @@ void Container::fit_child_in_rect(Control p_child, Rect2 p_rect){
     int wasgo_size_rect = 20;
     encode_variant(wasgo_var_rect, wasgo_buffer_rect, wasgo_size_rect);
     
-	_wasgo_Container_wrapper_fit_child_in_rect(wasgo_id, p_child._get_wasgo_id(), wasgo_buffer_rect, wasgo_size_rect);
+	_wasgo_Container_wrapper_fit_child_in_rect(wasgo_id, p_child._get_wasgo_id(), wasgo_buffer_rect, wasgo_size_rect, wasgo_size_rect);
 }
 void Container::queue_sort(){
 	_wasgo_Container_wrapper_queue_sort(wasgo_id);

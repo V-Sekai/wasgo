@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "InputEventGesture.h"
 #include "Vector2.h"
+#include "InputEventGesture.h"
 class InputEventPanGesture : public InputEventGesture{
 public:
 Vector2 get_delta();

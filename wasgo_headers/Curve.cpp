@@ -8,7 +8,7 @@ int Curve::add_point(Vector2 p_position, float p_left_tangent, float p_right_tan
     int wasgo_size_position = 12;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	return (int) _wasgo_Curve_wrapper_add_point(wasgo_id, wasgo_buffer_position, wasgo_size_position, p_left_tangent, p_right_tangent, p_left_mode._get_wasgo_id(), p_right_mode._get_wasgo_id());
+	return (int) _wasgo_Curve_wrapper_add_point(wasgo_id, wasgo_buffer_position, wasgo_size_position, -69, p_left_tangent, p_right_tangent, p_left_mode._get_wasgo_id(), p_right_mode._get_wasgo_id());
 }
 void Curve::bake(){
 	_wasgo_Curve_wrapper_bake(wasgo_id);
@@ -42,9 +42,9 @@ Vector2 Curve::get_point_position(int p_index){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_Curve_wrapper_get_point_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_index);
+    _wasgo_Curve_wrapper_get_point_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_index);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Curve::TangentMode Curve::get_point_right_mode(int p_index){

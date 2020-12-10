@@ -14,7 +14,7 @@ PoolVector2Array PolygonPathFinder::find_path(Vector2 p_from, Vector2 p_to){
     int wasgo_size_to = 12;
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
-	return PoolVector2Array(_wasgo_PolygonPathFinder_wrapper_find_path(wasgo_id, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_to, wasgo_size_to));
+	return PoolVector2Array(_wasgo_PolygonPathFinder_wrapper_find_path(wasgo_id, wasgo_buffer_from, wasgo_size_from, -69, wasgo_buffer_to, wasgo_size_to));
 }
 Rect2 PolygonPathFinder::get_bounds(){
 
@@ -23,7 +23,7 @@ Rect2 PolygonPathFinder::get_bounds(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_PolygonPathFinder_wrapper_get_bounds(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 PolygonPathFinder::get_closest_point(Vector2 p_point){
@@ -37,9 +37,9 @@ Vector2 PolygonPathFinder::get_closest_point(Vector2 p_point){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_PolygonPathFinder_wrapper_get_closest_point(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_point, wasgo_size_point);
+    _wasgo_PolygonPathFinder_wrapper_get_closest_point(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_point, wasgo_size_point);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolVector2Array PolygonPathFinder::get_intersections(Vector2 p_from, Vector2 p_to){
@@ -55,7 +55,7 @@ PoolVector2Array PolygonPathFinder::get_intersections(Vector2 p_from, Vector2 p_
     int wasgo_size_to = 12;
     encode_variant(wasgo_var_to, wasgo_buffer_to, wasgo_size_to);
     
-	return PoolVector2Array(_wasgo_PolygonPathFinder_wrapper_get_intersections(wasgo_id, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_to, wasgo_size_to));
+	return PoolVector2Array(_wasgo_PolygonPathFinder_wrapper_get_intersections(wasgo_id, wasgo_buffer_from, wasgo_size_from, -69, wasgo_buffer_to, wasgo_size_to));
 }
 float PolygonPathFinder::get_point_penalty(int p_idx){
 	return (float) _wasgo_PolygonPathFinder_wrapper_get_point_penalty(wasgo_id, p_idx);

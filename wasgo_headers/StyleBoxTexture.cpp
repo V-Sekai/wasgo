@@ -17,7 +17,7 @@ Color StyleBoxTexture::get_modulate(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_StyleBoxTexture_wrapper_get_modulate(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Texture StyleBoxTexture::get_normal_map(){
@@ -30,7 +30,7 @@ Rect2 StyleBoxTexture::get_region_rect(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_StyleBoxTexture_wrapper_get_region_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Texture StyleBoxTexture::get_texture(){
@@ -49,7 +49,7 @@ void StyleBoxTexture::set_expand_margin_all(float p_size){
 	_wasgo_StyleBoxTexture_wrapper_set_expand_margin_all(wasgo_id, p_size);
 }
 void StyleBoxTexture::set_expand_margin_individual(float p_size_left, float p_size_top, float p_size_right, float p_size_bottom){
-	_wasgo_StyleBoxTexture_wrapper_set_expand_margin_individual(wasgo_id, p_size_left, p_size_top, p_size_right, p_size_bottom);
+	_wasgo_StyleBoxTexture_wrapper_set_expand_margin_individual(wasgo_id, p_size_left, p_size_top, -69, p_size_right, p_size_bottom);
 }
 void StyleBoxTexture::set_expand_margin_size(Margin p_margin, float p_size){
 	_wasgo_StyleBoxTexture_wrapper_set_expand_margin_size(wasgo_id, p_margin._get_wasgo_id(), p_size);

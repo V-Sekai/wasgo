@@ -2,7 +2,13 @@
 #include "marshalls.h"
 #include "PackedDataContainer.h"
 Error PackedDataContainer::pack(Variant p_value){
-	return Error(_wasgo_PackedDataContainer_wrapper_pack(wasgo_id, p_value._get_wasgo_id()));
+
+    Variant wasgo_var_value = p_value;
+    uint8_t wasgo_buffer_value[256];
+    int wasgo_size_value = 256;
+    encode_variant(wasgo_var_value, wasgo_buffer_value, wasgo_size_value);
+    
+	return Error(_wasgo_PackedDataContainer_wrapper_pack(wasgo_id, wasgo_buffer_value, wasgo_size_value));
 }
 int PackedDataContainer::size(){
 	return (int) _wasgo_PackedDataContainer_wrapper_size(wasgo_id);

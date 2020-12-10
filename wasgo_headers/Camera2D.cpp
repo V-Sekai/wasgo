@@ -20,7 +20,7 @@ Vector2 Camera2D::get_camera_position(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Camera2D_wrapper_get_camera_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 Camera2D::get_camera_screen_center(){
@@ -30,7 +30,7 @@ Vector2 Camera2D::get_camera_screen_center(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Camera2D_wrapper_get_camera_screen_center(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Node Camera2D::get_custom_viewport(){
@@ -55,7 +55,7 @@ Vector2 Camera2D::get_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Camera2D_wrapper_get_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Camera2D::Camera2DProcessMode Camera2D::get_process_mode(){
@@ -71,7 +71,7 @@ Vector2 Camera2D::get_zoom(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Camera2D_wrapper_get_zoom(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool Camera2D::is_current(){

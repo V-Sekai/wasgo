@@ -21,6 +21,7 @@ wasm_variants = [
     "Color",
     "NodePath",
     "RID",
+    "Variant"
 ]
 wasm_variants_string = [
     "String",
@@ -468,7 +469,7 @@ def wrapper_method_names(class_type, method_name):
     return "_wasgo_{0}_wrapper_{1}".format(class_type, method_name)
 
 def size_from_type(type_name):
-    size = 0
+    size = 256
     if type_name.lower() == "bool":
         size = 8
     elif type_name.lower() == "int":
@@ -651,39 +652,40 @@ def write_function_table(file_path, api_dict):
            "#include \"wasm_export.h\"",
            "#include \"wasgo_state.h\"",
            "#include \"wasgo_native_wrappers.h\"",
+           "#include <math.h>",
            "static NativeSymbol native_symbols[] = ",
             "{",
             "EXPORT_WASM_API_WITH_SIG(_wasgo_this_node,\"()i\"),",
             "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_bool,\"(*~)i\"),",
             "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_bool,\"(*~i)\"),",
             "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_int,\"(*~)i\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_int,\"(*~I)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_int,\"(*~i)\"),",
             "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_float,\"(*~)f\"),",
             "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_float,\"(*~f)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_string,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_string,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_vector2,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_vector2,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_rect2,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_rect2,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_vector3,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_vector3,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_transform2d,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_transform2d,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_plane,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_plane,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_quat,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_quat,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_basis,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_basis,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_aabb,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_aabb,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_transform,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_transform,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_color,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_color,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_nodepath,\"(*~*~)\"),",
-            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_nodepath,\"(*~*~)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_string,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_string,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_vector2,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_vector2,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_rect2,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_rect2,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_vector3,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_vector3,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_transform2d,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_transform2d,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_plane,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_plane,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_quat,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_quat,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_basis,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_basis,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_aabb,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_aabb,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_transform,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_transform,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_color,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_color,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_nodepath,\"(*~*~i)\"),",
+            "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_nodepath,\"(*~*~i)\"),",
             "EXPORT_WASM_API_WITH_SIG(_wasgo_get_property_object,\"(*~)i\"),",
             "EXPORT_WASM_API_WITH_SIG(_wasgo_set_property_object,\"(*~i)\"),",
             "EXPORT_WASM_API_WITH_SIG(_wasgo_set_process,\"(i)\"),",
@@ -700,6 +702,21 @@ def write_function_table(file_path, api_dict):
             "//EXPORT_WASM_API_WITH_SIG(_wasgo_is_processing_input,\"()\"),",
             "//EXPORT_WASM_API_WITH_SIG(_wasgo_is_processing_unhandled_input,\"()\"),",
             "//EXPORT_WASM_API_WITH_SIG(_wasgo_is_processing_unhandled_key_input,\"()\"),",
+
+            "//MATH",
+            "EXPORT_WASM_API(cos),",
+            "EXPORT_WASM_API(sin),",
+            "EXPORT_WASM_API(tan),",
+            "EXPORT_WASM_API(acos),",
+            "EXPORT_WASM_API(asin),",
+            "EXPORT_WASM_API(atan),",
+            "EXPORT_WASM_API(cosf),",
+            "EXPORT_WASM_API(sinf),",
+            "EXPORT_WASM_API(tanf),",
+            "EXPORT_WASM_API(acosf),",
+            "EXPORT_WASM_API(asinf),",
+            "EXPORT_WASM_API(atanf),",
+            "EXPORT_WASM_API(atan2f),",
             ]
     def constructor_destructor_wrappers(class_name):
         return ["""
@@ -712,18 +729,27 @@ def write_function_table(file_path, api_dict):
             arguments = "i"
             if(content['return_type'] != "void" and content["return_type"] and wrapper_return_types(content['return_type']) == "void"):
                 arguments += "*~"
+
             for i in content['arguments'].values():
-                    if i['type'] == 'bool':
-                        arguments += 'i'
-                    if wrapper_argument_types(i['type']) == 'int':
-                        arguments += 'I'
-                    elif i['type'] == 'float':
-                        arguments += 'f'
-                    elif i["type"] in wasm_variants:
-                        arguments += '*~'
+                if (len(arguments) == 3):
+                    arguments += "i"
+
+                if i['type'] == 'bool':
+                    arguments += 'i'
+                elif wrapper_argument_types(i['type']) == 'int' or i['type'][0:5] == "enum.":
+                    arguments += 'i'
+                elif i['type'] == 'float':
+                    arguments += 'f'
+                elif i["type"] in wasm_variants:
+                    arguments += '*~'
+                    if (len(arguments) == 4):
+                        arguments += "i"
+                else:
+                    arguments += "i"
+
             returns = ""
             if wrapper_return_types(content['return_type']) == 'int':
-                returns += 'I'
+                returns += 'i'
             elif wrapper_return_types(content['return_type']) == 'float':
                 returns += 'f'
             elif wrapper_return_types(content['return_type'], "wasgoid") == "wasgoid":
@@ -804,15 +830,20 @@ def write_wasm_class_headers(file_path, api_dict):
         return ret
 
     def single_wrapper(name, return_type, arguments):
-        arg_list = []
+        arg_list = ["WasGoID wasgo_id"]
+        if return_type in wasm_variants:
+            arg_list += ["uint8_t * wasgo_ret", "int wasgo_ret_size"]
+
         for arg in arguments:
+            if (len(arg_list) == 3):
+                arg_list += ["int wasgo_throwaway"]
             arg_type = wrapper_argument_types(arg["type"], "WasGoID")
             arg_list += ["{0} p_{1}".format(arg_type, arg["name"])]
             if "uint8_t" in arg_type:
+                if (len(arg_list) == 3):
+                    arg_list += ["int wasgo_throwaway"]
                 arg_list += ["int p_{0}_wasgo_buffer_size".format(arg["name"])]
-        if return_type in wasm_variants:
-            arg_list = ["uint8_t * wasgo_ret", "int wasgo_ret_size"] + arg_list
-        return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGoID"), name, ", ".join(["WasGoID wasgo_id"] + arg_list))
+        return "{0} {1}({2});".format(wrapper_return_types(return_type, "WasGoID"), name, ", ".join(arg_list))
     
     def constructor(class_name, base_class):
         out = [
@@ -944,19 +975,28 @@ def write_wasm_classes(file_path, api_dict):
 
     def converted_arg_string(arg_type, arg_name):
         if (arg_type == "bool" or arg_type == "int" or arg_type == "float"):
-            return "p_" + arg_name
-        elif arg_type in wasm_variants:
-            return "wasgo_buffer_{0}, wasgo_size_{0}".format(arg_name)
+            return ["p_" + arg_name]
+        elif arg_type in wasm_variants or arg_type in wasm_variants_string:
+            return ["wasgo_buffer_{0}".format(arg_name), "wasgo_size_{0}".format(arg_name)]
         else:
-            return "p_{0}._get_wasgo_id()".format(arg_name)
+            return ["p_{0}._get_wasgo_id()".format(arg_name)]
     def wrapper_body(class_name, method_name, return_type, arguments):
         out = ["{0} {1}::{2}({3}){{".format(diff_type_names(return_type), class_name, method_name, arg_string(arguments))]
+        formatted_args = ["wasgo_id"]
+        if (return_type in wasm_variants):
+            formatted_args += ["wasgo_ret_buffer", "wasgo_ret_buffer_size"]
         for arg in arguments:
+            if (len(formatted_args) == 3):
+                formatted_args.append("-69")
+            formatted_args += converted_arg_string(arg["type"], arg["name"])
+            if (len(formatted_args) == 4):
+                formatted_args.insert(-1, formatted_args[-1])
+
             if arg["type"] in wasm_variants_string:
                 out += [
                     """
     Variant wasgo_var_{0} = p_{0};
-    int wasgo_size_{0} = String(p_{0}).size();
+    int wasgo_size_{0} = 10 + String(p_{0}).size();
     uint8_t wasgo_buffer_{0}[wasgo_size_{0}];
     encode_variant(wasgo_var_{0}, wasgo_buffer_{0}, wasgo_size_{0});
     """.format(arg["name"])
@@ -971,9 +1011,9 @@ def write_wasm_classes(file_path, api_dict):
     """.format(arg["name"], size_from_type(arg["type"]))
                 ]
         if (return_type == "void"):
-            out += ["\t{0}({1});".format(wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))]
+            out += ["\t{0}({1});".format(wrapper_method_names(class_name, method_name), ", ".join(formatted_args))]
         elif (return_type == "bool" or return_type == "int" or return_type == "float"):
-            out += ["\treturn ({0}) {1}({2});".format(diff_type_names(return_type), wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))]
+            out += ["\treturn ({0}) {1}({2});".format(diff_type_names(return_type), wrapper_method_names(class_name, method_name), ", ".join(formatted_args))]
     #     elif (return_type in wasm_variants_string):
     #         out += [
     #             """
@@ -991,12 +1031,12 @@ def write_wasm_classes(file_path, api_dict):
     uint8_t wasgo_ret_buffer[{0}];
     {2}({3});
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return ({1}) wasgo_ret;
-    """.format(size_from_type(return_type), return_type, wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id", "wasgo_ret_buffer", "wasgo_ret_buffer_size"] + [converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))
+    return wasgo_ret;
+    """.format(size_from_type(return_type), return_type, wrapper_method_names(class_name, method_name), ", ".join(formatted_args))
             ]
         else:
             out += [
-                "\treturn {0}({1}({2}));".format(diff_type_names(return_type), wrapper_method_names(class_name, method_name), ", ".join(["wasgo_id"] + [converted_arg_string(arg["type"], arg["name"]) for arg in arguments]))
+                "\treturn {0}({1}({2}));".format(diff_type_names(return_type), wrapper_method_names(class_name, method_name), ", ".join(formatted_args))
                 ]
 
         out += ["}"]
@@ -1126,7 +1166,8 @@ class_whitelist = [
     "InputEventMouseButton",
     "InputEventMouseMotion",
     "InputEventWithModifiers",
-    "Resource"
+    "Resource",
+    "WasGoState"
 ]
 
 

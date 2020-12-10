@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
+#include "BakedLightmapData.h"
+#include "VisualInstance.h"
+#include "Ustring.h"
 #include "Vector3.h"
 class Node;
-#include "VisualInstance.h"
-#include "BakedLightmapData.h"
-#include "Ustring.h"
 class BakedLightmap : public VisualInstance{
 public:
 enum BakeError{

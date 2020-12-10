@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
 #include "VisualShaderNode.h"
+#include "Color.h"
 class VisualShaderNodeColorConstant : public VisualShaderNode{
 public:
 Color get_constant();

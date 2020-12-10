@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
-#include "Vector2.h"
-#include "Range.h"
 #include "math_defs.h"
+#include "Range.h"
+#include "Vector2.h"
 #include "Texture.h"
+#include "Color.h"
 class TextureProgress : public Range{
 public:
 enum FillMode{

@@ -14,7 +14,7 @@ void Image::blend_rect(Image p_src, Rect2 p_src_rect, Vector2 p_dst){
     int wasgo_size_dst = 12;
     encode_variant(wasgo_var_dst, wasgo_buffer_dst, wasgo_size_dst);
     
-	_wasgo_Image_wrapper_blend_rect(wasgo_id, p_src._get_wasgo_id(), wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_buffer_dst, wasgo_size_dst);
+	_wasgo_Image_wrapper_blend_rect(wasgo_id, p_src._get_wasgo_id(), wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_size_src_rect, wasgo_buffer_dst, wasgo_size_dst);
 }
 void Image::blend_rect_mask(Image p_src, Image p_mask, Rect2 p_src_rect, Vector2 p_dst){
 
@@ -29,7 +29,7 @@ void Image::blend_rect_mask(Image p_src, Image p_mask, Rect2 p_src_rect, Vector2
     int wasgo_size_dst = 12;
     encode_variant(wasgo_var_dst, wasgo_buffer_dst, wasgo_size_dst);
     
-	_wasgo_Image_wrapper_blend_rect_mask(wasgo_id, p_src._get_wasgo_id(), p_mask._get_wasgo_id(), wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_buffer_dst, wasgo_size_dst);
+	_wasgo_Image_wrapper_blend_rect_mask(wasgo_id, p_src._get_wasgo_id(), p_mask._get_wasgo_id(), -69, wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_buffer_dst, wasgo_size_dst);
 }
 void Image::blit_rect(Image p_src, Rect2 p_src_rect, Vector2 p_dst){
 
@@ -44,7 +44,7 @@ void Image::blit_rect(Image p_src, Rect2 p_src_rect, Vector2 p_dst){
     int wasgo_size_dst = 12;
     encode_variant(wasgo_var_dst, wasgo_buffer_dst, wasgo_size_dst);
     
-	_wasgo_Image_wrapper_blit_rect(wasgo_id, p_src._get_wasgo_id(), wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_buffer_dst, wasgo_size_dst);
+	_wasgo_Image_wrapper_blit_rect(wasgo_id, p_src._get_wasgo_id(), wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_size_src_rect, wasgo_buffer_dst, wasgo_size_dst);
 }
 void Image::blit_rect_mask(Image p_src, Image p_mask, Rect2 p_src_rect, Vector2 p_dst){
 
@@ -59,7 +59,7 @@ void Image::blit_rect_mask(Image p_src, Image p_mask, Rect2 p_src_rect, Vector2 
     int wasgo_size_dst = 12;
     encode_variant(wasgo_var_dst, wasgo_buffer_dst, wasgo_size_dst);
     
-	_wasgo_Image_wrapper_blit_rect_mask(wasgo_id, p_src._get_wasgo_id(), p_mask._get_wasgo_id(), wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_buffer_dst, wasgo_size_dst);
+	_wasgo_Image_wrapper_blit_rect_mask(wasgo_id, p_src._get_wasgo_id(), p_mask._get_wasgo_id(), -69, wasgo_buffer_src_rect, wasgo_size_src_rect, wasgo_buffer_dst, wasgo_size_dst);
 }
 void Image::bumpmap_to_normalmap(float p_bump_scale){
 	_wasgo_Image_wrapper_bumpmap_to_normalmap(wasgo_id, p_bump_scale);
@@ -68,7 +68,7 @@ void Image::clear_mipmaps(){
 	_wasgo_Image_wrapper_clear_mipmaps(wasgo_id);
 }
 Error Image::compress(Image::CompressMode p_mode, Image::CompressSource p_source, float p_lossy_quality){
-	return Error(_wasgo_Image_wrapper_compress(wasgo_id, p_mode._get_wasgo_id(), p_source._get_wasgo_id(), p_lossy_quality));
+	return Error(_wasgo_Image_wrapper_compress(wasgo_id, p_mode._get_wasgo_id(), p_source._get_wasgo_id(), -69, p_lossy_quality));
 }
 void Image::convert(Image::Format p_format){
 	_wasgo_Image_wrapper_convert(wasgo_id, p_format._get_wasgo_id());
@@ -77,10 +77,10 @@ void Image::copy_from(Image p_src){
 	_wasgo_Image_wrapper_copy_from(wasgo_id, p_src._get_wasgo_id());
 }
 void Image::create(int p_width, int p_height, bool p_use_mipmaps, Image::Format p_format){
-	_wasgo_Image_wrapper_create(wasgo_id, p_width, p_height, p_use_mipmaps, p_format._get_wasgo_id());
+	_wasgo_Image_wrapper_create(wasgo_id, p_width, p_height, -69, p_use_mipmaps, p_format._get_wasgo_id());
 }
 void Image::create_from_data(int p_width, int p_height, bool p_use_mipmaps, Image::Format p_format, PoolByteArray p_data){
-	_wasgo_Image_wrapper_create_from_data(wasgo_id, p_width, p_height, p_use_mipmaps, p_format._get_wasgo_id(), p_data._get_wasgo_id());
+	_wasgo_Image_wrapper_create_from_data(wasgo_id, p_width, p_height, -69, p_use_mipmaps, p_format._get_wasgo_id(), p_data._get_wasgo_id());
 }
 void Image::crop(int p_width, int p_height){
 	_wasgo_Image_wrapper_crop(wasgo_id, p_width, p_height);
@@ -132,9 +132,9 @@ Color Image::get_pixel(int p_x, int p_y){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_Image_wrapper_get_pixel(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_x, p_y);
+    _wasgo_Image_wrapper_get_pixel(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_x, p_y);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Color Image::get_pixelv(Vector2 p_src){
@@ -148,9 +148,9 @@ Color Image::get_pixelv(Vector2 p_src){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_Image_wrapper_get_pixelv(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_src, wasgo_size_src);
+    _wasgo_Image_wrapper_get_pixelv(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_src, wasgo_size_src);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Image Image::get_rect(Rect2 p_rect){
@@ -169,7 +169,7 @@ Vector2 Image::get_size(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Image_wrapper_get_size(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Rect2 Image::get_used_rect(){
@@ -179,7 +179,7 @@ Rect2 Image::get_used_rect(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Image_wrapper_get_used_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Image::get_width(){
@@ -200,14 +200,11 @@ bool Image::is_invisible(){
 Error Image::load(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
 	return Error(_wasgo_Image_wrapper_load(wasgo_id, wasgo_buffer_path, wasgo_size_path));
-}
-Error Image::load_bmp_from_buffer(PoolByteArray p_buffer){
-	return Error(_wasgo_Image_wrapper_load_bmp_from_buffer(wasgo_id, p_buffer._get_wasgo_id()));
 }
 Error Image::load_jpg_from_buffer(PoolByteArray p_buffer){
 	return Error(_wasgo_Image_wrapper_load_jpg_from_buffer(wasgo_id, p_buffer._get_wasgo_id()));
@@ -231,7 +228,7 @@ void Image::premultiply_alpha(){
 	_wasgo_Image_wrapper_premultiply_alpha(wasgo_id);
 }
 void Image::resize(int p_width, int p_height, Image::Interpolation p_interpolation){
-	_wasgo_Image_wrapper_resize(wasgo_id, p_width, p_height, p_interpolation._get_wasgo_id());
+	_wasgo_Image_wrapper_resize(wasgo_id, p_width, p_height, -69, p_interpolation._get_wasgo_id());
 }
 void Image::resize_to_po2(bool p_square){
 	_wasgo_Image_wrapper_resize_to_po2(wasgo_id, p_square);
@@ -242,16 +239,16 @@ Image Image::rgbe_to_srgb(){
 Error Image::save_exr(String p_path, bool p_grayscale){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
-	return Error(_wasgo_Image_wrapper_save_exr(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_grayscale));
+	return Error(_wasgo_Image_wrapper_save_exr(wasgo_id, wasgo_buffer_path, wasgo_size_path, -69, p_grayscale));
 }
 Error Image::save_png(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
@@ -267,7 +264,7 @@ void Image::set_pixel(int p_x, int p_y, Color p_color){
     int wasgo_size_color = 20;
     encode_variant(wasgo_var_color, wasgo_buffer_color, wasgo_size_color);
     
-	_wasgo_Image_wrapper_set_pixel(wasgo_id, p_x, p_y, wasgo_buffer_color, wasgo_size_color);
+	_wasgo_Image_wrapper_set_pixel(wasgo_id, p_x, p_y, -69, wasgo_buffer_color, wasgo_size_color);
 }
 void Image::set_pixelv(Vector2 p_dst, Color p_color){
 
@@ -282,7 +279,7 @@ void Image::set_pixelv(Vector2 p_dst, Color p_color){
     int wasgo_size_color = 20;
     encode_variant(wasgo_var_color, wasgo_buffer_color, wasgo_size_color);
     
-	_wasgo_Image_wrapper_set_pixelv(wasgo_id, wasgo_buffer_dst, wasgo_size_dst, wasgo_buffer_color, wasgo_size_color);
+	_wasgo_Image_wrapper_set_pixelv(wasgo_id, wasgo_buffer_dst, wasgo_size_dst, -69, wasgo_buffer_color, wasgo_size_color);
 }
 void Image::shrink_x2(){
 	_wasgo_Image_wrapper_shrink_x2(wasgo_id);

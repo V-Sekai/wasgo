@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Texture.h"
 #include "Vector2.h"
+#include "Texture.h"
 class LargeTexture : public Texture{
 public:
 int add_piece(Vector2 p_ofs, Texture p_texture);
@@ -31,12 +31,12 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_LargeTexture_wrapper_add_piece(WasGoID wasgo_id, const uint8_t * p_ofs, int p_ofs_wasgo_buffer_size, WasGoID p_texture);
+int _wasgo_LargeTexture_wrapper_add_piece(WasGoID wasgo_id, const uint8_t * p_ofs, int p_ofs_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_texture);
 void _wasgo_LargeTexture_wrapper_clear(WasGoID wasgo_id);
 int _wasgo_LargeTexture_wrapper_get_piece_count(WasGoID wasgo_id);
-void _wasgo_LargeTexture_wrapper_get_piece_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+void _wasgo_LargeTexture_wrapper_get_piece_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
 WasGoID _wasgo_LargeTexture_wrapper_get_piece_texture(WasGoID wasgo_id, int p_idx);
-void _wasgo_LargeTexture_wrapper_set_piece_offset(WasGoID wasgo_id, int p_idx, const uint8_t * p_ofs, int p_ofs_wasgo_buffer_size);
+void _wasgo_LargeTexture_wrapper_set_piece_offset(WasGoID wasgo_id, int p_idx, const uint8_t * p_ofs, int wasgo_throwaway, int p_ofs_wasgo_buffer_size);
 void _wasgo_LargeTexture_wrapper_set_piece_texture(WasGoID wasgo_id, int p_idx, WasGoID p_texture);
 void _wasgo_LargeTexture_wrapper_set_size(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
 

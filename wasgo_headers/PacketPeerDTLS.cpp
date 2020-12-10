@@ -4,11 +4,11 @@
 Error PacketPeerDTLS::connect_to_peer(PacketPeerUDP p_packet_peer, bool p_validate_certs, String p_for_hostname, X509Certificate p_valid_certificate){
 
     Variant wasgo_var_for_hostname = p_for_hostname;
-    int wasgo_size_for_hostname = String(p_for_hostname).size();
+    int wasgo_size_for_hostname = 10 + String(p_for_hostname).size();
     uint8_t wasgo_buffer_for_hostname[wasgo_size_for_hostname];
     encode_variant(wasgo_var_for_hostname, wasgo_buffer_for_hostname, wasgo_size_for_hostname);
     
-	return Error(_wasgo_PacketPeerDTLS_wrapper_connect_to_peer(wasgo_id, p_packet_peer._get_wasgo_id(), p_validate_certs, wasgo_buffer_for_hostname, wasgo_size_for_hostname, p_valid_certificate._get_wasgo_id()));
+	return Error(_wasgo_PacketPeerDTLS_wrapper_connect_to_peer(wasgo_id, p_packet_peer._get_wasgo_id(), p_validate_certs, -69, wasgo_buffer_for_hostname, wasgo_size_for_hostname, p_valid_certificate._get_wasgo_id()));
 }
 void PacketPeerDTLS::disconnect_from_peer(){
 	_wasgo_PacketPeerDTLS_wrapper_disconnect_from_peer(wasgo_id);

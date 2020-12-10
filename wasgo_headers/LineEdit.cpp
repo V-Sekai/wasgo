@@ -4,7 +4,7 @@
 void LineEdit::append_at_cursor(String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
@@ -56,7 +56,7 @@ String LineEdit::get_placeholder(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_LineEdit_wrapper_get_placeholder(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 float LineEdit::get_placeholder_alpha(){
@@ -65,9 +65,6 @@ float LineEdit::get_placeholder_alpha(){
 Texture LineEdit::get_right_icon(){
 	return Texture(_wasgo_LineEdit_wrapper_get_right_icon(wasgo_id));
 }
-int LineEdit::get_scroll_offset(){
-	return (int) _wasgo_LineEdit_wrapper_get_scroll_offset(wasgo_id);
-}
 String LineEdit::get_secret_character(){
 
     Variant wasgo_ret;
@@ -75,7 +72,7 @@ String LineEdit::get_secret_character(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_LineEdit_wrapper_get_secret_character(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String LineEdit::get_text(){
@@ -85,7 +82,7 @@ String LineEdit::get_text(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_LineEdit_wrapper_get_text(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool LineEdit::is_clear_button_enabled(){
@@ -142,7 +139,7 @@ void LineEdit::set_max_length(int p_chars){
 void LineEdit::set_placeholder(String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
@@ -160,7 +157,7 @@ void LineEdit::set_secret(bool p_enabled){
 void LineEdit::set_secret_character(String p_character){
 
     Variant wasgo_var_character = p_character;
-    int wasgo_size_character = String(p_character).size();
+    int wasgo_size_character = 10 + String(p_character).size();
     uint8_t wasgo_buffer_character[wasgo_size_character];
     encode_variant(wasgo_var_character, wasgo_buffer_character, wasgo_size_character);
     
@@ -175,7 +172,7 @@ void LineEdit::set_shortcut_keys_enabled(bool p_enable){
 void LineEdit::set_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     

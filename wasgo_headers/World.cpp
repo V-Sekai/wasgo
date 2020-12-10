@@ -13,21 +13,21 @@ Environment World::get_fallback_environment(){
 RID World::get_scenario(){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
     _wasgo_World_wrapper_get_scenario(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 RID World::get_space(){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
     _wasgo_World_wrapper_get_space(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 void World::set_environment(Environment p_env){

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Resource.h"
 #include "Ustring.h"
+#include "Resource.h"
 class DynamicFontData : public Resource{
 public:
 enum Hinting{

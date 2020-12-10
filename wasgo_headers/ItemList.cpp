@@ -7,11 +7,11 @@ void ItemList::add_icon_item(Texture p_icon, bool p_selectable){
 void ItemList::add_item(String p_text, Texture p_icon, bool p_selectable){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
-	_wasgo_ItemList_wrapper_add_item(wasgo_id, wasgo_buffer_text, wasgo_size_text, p_icon._get_wasgo_id(), p_selectable);
+	_wasgo_ItemList_wrapper_add_item(wasgo_id, wasgo_buffer_text, wasgo_size_text, -69, p_icon._get_wasgo_id(), p_selectable);
 }
 void ItemList::clear(){
 	_wasgo_ItemList_wrapper_clear(wasgo_id);
@@ -35,7 +35,7 @@ Vector2 ItemList::get_fixed_icon_size(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_ItemList_wrapper_get_fixed_icon_size(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 ItemList::IconMode ItemList::get_icon_mode(){
@@ -51,7 +51,7 @@ int ItemList::get_item_at_position(Vector2 p_position, bool p_exact){
     int wasgo_size_position = 12;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	return (int) _wasgo_ItemList_wrapper_get_item_at_position(wasgo_id, wasgo_buffer_position, wasgo_size_position, p_exact);
+	return (int) _wasgo_ItemList_wrapper_get_item_at_position(wasgo_id, wasgo_buffer_position, wasgo_size_position, -69, p_exact);
 }
 int ItemList::get_item_count(){
 	return (int) _wasgo_ItemList_wrapper_get_item_count(wasgo_id);
@@ -61,9 +61,9 @@ Color ItemList::get_item_custom_bg_color(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_ItemList_wrapper_get_item_custom_bg_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_ItemList_wrapper_get_item_custom_bg_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Color ItemList::get_item_custom_fg_color(int p_idx){
@@ -71,9 +71,9 @@ Color ItemList::get_item_custom_fg_color(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_ItemList_wrapper_get_item_custom_fg_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_ItemList_wrapper_get_item_custom_fg_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Texture ItemList::get_item_icon(int p_idx){
@@ -84,9 +84,9 @@ Color ItemList::get_item_icon_modulate(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_ItemList_wrapper_get_item_icon_modulate(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_ItemList_wrapper_get_item_icon_modulate(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Rect2 ItemList::get_item_icon_region(int p_idx){
@@ -94,22 +94,29 @@ Rect2 ItemList::get_item_icon_region(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_ItemList_wrapper_get_item_icon_region(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_ItemList_wrapper_get_item_icon_region(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Variant ItemList::get_item_metadata(int p_idx){
-	return Variant(_wasgo_ItemList_wrapper_get_item_metadata(wasgo_id, p_idx));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_ItemList_wrapper_get_item_metadata(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 String ItemList::get_item_text(int p_idx){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_ItemList_wrapper_get_item_text(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_ItemList_wrapper_get_item_text(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String ItemList::get_item_tooltip(int p_idx){
@@ -117,9 +124,9 @@ String ItemList::get_item_tooltip(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_ItemList_wrapper_get_item_tooltip(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_ItemList_wrapper_get_item_tooltip(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int ItemList::get_max_columns(){
@@ -204,7 +211,7 @@ void ItemList::set_item_custom_bg_color(int p_idx, Color p_custom_bg_color){
     int wasgo_size_custom_bg_color = 20;
     encode_variant(wasgo_var_custom_bg_color, wasgo_buffer_custom_bg_color, wasgo_size_custom_bg_color);
     
-	_wasgo_ItemList_wrapper_set_item_custom_bg_color(wasgo_id, p_idx, wasgo_buffer_custom_bg_color, wasgo_size_custom_bg_color);
+	_wasgo_ItemList_wrapper_set_item_custom_bg_color(wasgo_id, p_idx, wasgo_buffer_custom_bg_color, wasgo_size_custom_bg_color, wasgo_size_custom_bg_color);
 }
 void ItemList::set_item_custom_fg_color(int p_idx, Color p_custom_fg_color){
 
@@ -213,7 +220,7 @@ void ItemList::set_item_custom_fg_color(int p_idx, Color p_custom_fg_color){
     int wasgo_size_custom_fg_color = 20;
     encode_variant(wasgo_var_custom_fg_color, wasgo_buffer_custom_fg_color, wasgo_size_custom_fg_color);
     
-	_wasgo_ItemList_wrapper_set_item_custom_fg_color(wasgo_id, p_idx, wasgo_buffer_custom_fg_color, wasgo_size_custom_fg_color);
+	_wasgo_ItemList_wrapper_set_item_custom_fg_color(wasgo_id, p_idx, wasgo_buffer_custom_fg_color, wasgo_size_custom_fg_color, wasgo_size_custom_fg_color);
 }
 void ItemList::set_item_disabled(int p_idx, bool p_disabled){
 	_wasgo_ItemList_wrapper_set_item_disabled(wasgo_id, p_idx, p_disabled);
@@ -228,7 +235,7 @@ void ItemList::set_item_icon_modulate(int p_idx, Color p_modulate){
     int wasgo_size_modulate = 20;
     encode_variant(wasgo_var_modulate, wasgo_buffer_modulate, wasgo_size_modulate);
     
-	_wasgo_ItemList_wrapper_set_item_icon_modulate(wasgo_id, p_idx, wasgo_buffer_modulate, wasgo_size_modulate);
+	_wasgo_ItemList_wrapper_set_item_icon_modulate(wasgo_id, p_idx, wasgo_buffer_modulate, wasgo_size_modulate, wasgo_size_modulate);
 }
 void ItemList::set_item_icon_region(int p_idx, Rect2 p_rect){
 
@@ -237,13 +244,19 @@ void ItemList::set_item_icon_region(int p_idx, Rect2 p_rect){
     int wasgo_size_rect = 20;
     encode_variant(wasgo_var_rect, wasgo_buffer_rect, wasgo_size_rect);
     
-	_wasgo_ItemList_wrapper_set_item_icon_region(wasgo_id, p_idx, wasgo_buffer_rect, wasgo_size_rect);
+	_wasgo_ItemList_wrapper_set_item_icon_region(wasgo_id, p_idx, wasgo_buffer_rect, wasgo_size_rect, wasgo_size_rect);
 }
 void ItemList::set_item_icon_transposed(int p_idx, bool p_transposed){
 	_wasgo_ItemList_wrapper_set_item_icon_transposed(wasgo_id, p_idx, p_transposed);
 }
 void ItemList::set_item_metadata(int p_idx, Variant p_metadata){
-	_wasgo_ItemList_wrapper_set_item_metadata(wasgo_id, p_idx, p_metadata._get_wasgo_id());
+
+    Variant wasgo_var_metadata = p_metadata;
+    uint8_t wasgo_buffer_metadata[256];
+    int wasgo_size_metadata = 256;
+    encode_variant(wasgo_var_metadata, wasgo_buffer_metadata, wasgo_size_metadata);
+    
+	_wasgo_ItemList_wrapper_set_item_metadata(wasgo_id, p_idx, wasgo_buffer_metadata, wasgo_size_metadata, wasgo_size_metadata);
 }
 void ItemList::set_item_selectable(int p_idx, bool p_selectable){
 	_wasgo_ItemList_wrapper_set_item_selectable(wasgo_id, p_idx, p_selectable);
@@ -251,20 +264,20 @@ void ItemList::set_item_selectable(int p_idx, bool p_selectable){
 void ItemList::set_item_text(int p_idx, String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
-	_wasgo_ItemList_wrapper_set_item_text(wasgo_id, p_idx, wasgo_buffer_text, wasgo_size_text);
+	_wasgo_ItemList_wrapper_set_item_text(wasgo_id, p_idx, wasgo_buffer_text, wasgo_size_text, wasgo_size_text);
 }
 void ItemList::set_item_tooltip(int p_idx, String p_tooltip){
 
     Variant wasgo_var_tooltip = p_tooltip;
-    int wasgo_size_tooltip = String(p_tooltip).size();
+    int wasgo_size_tooltip = 10 + String(p_tooltip).size();
     uint8_t wasgo_buffer_tooltip[wasgo_size_tooltip];
     encode_variant(wasgo_var_tooltip, wasgo_buffer_tooltip, wasgo_size_tooltip);
     
-	_wasgo_ItemList_wrapper_set_item_tooltip(wasgo_id, p_idx, wasgo_buffer_tooltip, wasgo_size_tooltip);
+	_wasgo_ItemList_wrapper_set_item_tooltip(wasgo_id, p_idx, wasgo_buffer_tooltip, wasgo_size_tooltip, wasgo_size_tooltip);
 }
 void ItemList::set_item_tooltip_enabled(int p_idx, bool p_enable){
 	_wasgo_ItemList_wrapper_set_item_tooltip_enabled(wasgo_id, p_idx, p_enable);

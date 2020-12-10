@@ -20,7 +20,7 @@ Color Environment::get_ambient_light_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Environment_wrapper_get_ambient_light_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Environment::get_ambient_light_energy(){
@@ -39,7 +39,7 @@ Color Environment::get_bg_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Environment_wrapper_get_bg_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Environment::get_bg_energy(){
@@ -82,7 +82,7 @@ Color Environment::get_fog_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Environment_wrapper_get_fog_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Environment::get_fog_depth_begin(){
@@ -113,7 +113,7 @@ Color Environment::get_fog_sun_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Environment_wrapper_get_fog_sun_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Environment::get_fog_transmit_curve(){
@@ -153,7 +153,7 @@ Basis Environment::get_sky_orientation(){
     uint8_t wasgo_ret_buffer[40];
     _wasgo_Environment_wrapper_get_sky_orientation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Basis) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 Environment::get_sky_rotation(){
@@ -163,7 +163,7 @@ Vector3 Environment::get_sky_rotation(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_Environment_wrapper_get_sky_rotation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 Environment::get_sky_rotation_degrees(){
@@ -173,7 +173,7 @@ Vector3 Environment::get_sky_rotation_degrees(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_Environment_wrapper_get_sky_rotation_degrees(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Environment::get_ssao_ao_channel_affect(){
@@ -192,7 +192,7 @@ Color Environment::get_ssao_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Environment_wrapper_get_ssao_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Environment::get_ssao_direct_light_affect(){

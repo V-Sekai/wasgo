@@ -11,7 +11,7 @@ Color Light::get_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Light_wrapper_get_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Light::get_cull_mask(){
@@ -27,7 +27,7 @@ Color Light::get_shadow_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Light_wrapper_get_shadow_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool Light::get_shadow_reverse_cull_face(){

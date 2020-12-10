@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Resource.h"
-#include "Variant.h"
 #include "Rect2.h"
 #include "Vector2.h"
+#include "Resource.h"
+#include "Variant.h"
 class PolygonPathFinder : public Resource{
 public:
 PoolVector2Array find_path(Vector2 p_from, Vector2 p_to);
@@ -33,10 +33,10 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-WasGoID _wasgo_PolygonPathFinder_wrapper_find_path(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
+WasGoID _wasgo_PolygonPathFinder_wrapper_find_path(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_to, int p_to_wasgo_buffer_size);
 void _wasgo_PolygonPathFinder_wrapper_get_bounds(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_PolygonPathFinder_wrapper_get_closest_point(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_point, int p_point_wasgo_buffer_size);
-WasGoID _wasgo_PolygonPathFinder_wrapper_get_intersections(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size);
+void _wasgo_PolygonPathFinder_wrapper_get_closest_point(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_point, int p_point_wasgo_buffer_size);
+WasGoID _wasgo_PolygonPathFinder_wrapper_get_intersections(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_to, int p_to_wasgo_buffer_size);
 float _wasgo_PolygonPathFinder_wrapper_get_point_penalty(WasGoID wasgo_id, int p_idx);
 int _wasgo_PolygonPathFinder_wrapper_is_point_inside(WasGoID wasgo_id, const uint8_t * p_point, int p_point_wasgo_buffer_size);
 void _wasgo_PolygonPathFinder_wrapper_set_point_penalty(WasGoID wasgo_id, int p_idx, float p_penalty);

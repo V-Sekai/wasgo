@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
-#include "Object.h"
 #include "Rect2.h"
-#include "TreeItem.h"
-#include "Control.h"
 #include "Ustring.h"
+#include "TreeItem.h"
+#include "Object.h"
+#include "Vector2.h"
+#include "Control.h"
 class Tree : public Control{
 public:
 enum DropModeFlags{
@@ -81,7 +81,7 @@ void _wasgo_Tree_wrapper_ensure_cursor_is_visible(WasGoID wasgo_id);
 int _wasgo_Tree_wrapper_get_allow_reselect(WasGoID wasgo_id);
 int _wasgo_Tree_wrapper_get_allow_rmb_select(WasGoID wasgo_id);
 int _wasgo_Tree_wrapper_get_column_at_position(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
-void _wasgo_Tree_wrapper_get_column_title(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_column);
+void _wasgo_Tree_wrapper_get_column_title(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_column);
 int _wasgo_Tree_wrapper_get_column_width(WasGoID wasgo_id, int p_column);
 int _wasgo_Tree_wrapper_get_columns(WasGoID wasgo_id);
 void _wasgo_Tree_wrapper_get_custom_popup_rect(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
@@ -89,7 +89,7 @@ int _wasgo_Tree_wrapper_get_drop_mode_flags(WasGoID wasgo_id);
 int _wasgo_Tree_wrapper_get_drop_section_at_position(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 WasGoID _wasgo_Tree_wrapper_get_edited(WasGoID wasgo_id);
 int _wasgo_Tree_wrapper_get_edited_column(WasGoID wasgo_id);
-void _wasgo_Tree_wrapper_get_item_area_rect(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoID p_item, int p_column);
+void _wasgo_Tree_wrapper_get_item_area_rect(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, WasGoID p_item, int p_column);
 WasGoID _wasgo_Tree_wrapper_get_item_at_position(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 WasGoID _wasgo_Tree_wrapper_get_next_selected(WasGoID wasgo_id, WasGoID p_from);
 int _wasgo_Tree_wrapper_get_pressed_button(WasGoID wasgo_id);
@@ -104,7 +104,7 @@ void _wasgo_Tree_wrapper_set_allow_reselect(WasGoID wasgo_id, bool p_allow);
 void _wasgo_Tree_wrapper_set_allow_rmb_select(WasGoID wasgo_id, bool p_allow);
 void _wasgo_Tree_wrapper_set_column_expand(WasGoID wasgo_id, int p_column, bool p_expand);
 void _wasgo_Tree_wrapper_set_column_min_width(WasGoID wasgo_id, int p_column, int p_min_width);
-void _wasgo_Tree_wrapper_set_column_title(WasGoID wasgo_id, int p_column, const uint8_t * p_title, int p_title_wasgo_buffer_size);
+void _wasgo_Tree_wrapper_set_column_title(WasGoID wasgo_id, int p_column, const uint8_t * p_title, int wasgo_throwaway, int p_title_wasgo_buffer_size);
 void _wasgo_Tree_wrapper_set_column_titles_visible(WasGoID wasgo_id, bool p_visible);
 void _wasgo_Tree_wrapper_set_columns(WasGoID wasgo_id, int p_amount);
 void _wasgo_Tree_wrapper_set_drop_mode_flags(WasGoID wasgo_id, int p_flags);

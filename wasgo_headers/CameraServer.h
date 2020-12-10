@@ -5,8 +5,8 @@
 #include "wasgo\wasgoid.h"
 
 #include "CameraFeed.h"
-#include "Variant.h"
 #include "Object.h"
+#include "Variant.h"
 class CameraServer : public Object{
 public:
 enum FeedImage{

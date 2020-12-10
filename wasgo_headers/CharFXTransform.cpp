@@ -14,7 +14,7 @@ Color CharFXTransform::get_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_CharFXTransform_wrapper_get_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float CharFXTransform::get_elapsed_time(){
@@ -30,7 +30,7 @@ Vector2 CharFXTransform::get_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_CharFXTransform_wrapper_get_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int CharFXTransform::get_relative_index(){

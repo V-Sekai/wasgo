@@ -8,7 +8,7 @@ Vector2 RectangleShape2D::get_extents(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_RectangleShape2D_wrapper_get_extents(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 void RectangleShape2D::set_extents(Vector2 p_extents){

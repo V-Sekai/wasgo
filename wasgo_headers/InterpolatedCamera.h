@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "NodePath.h"
-#include "Object.h"
 #include "Camera.h"
+#include "Object.h"
+#include "NodePath.h"
 class InterpolatedCamera : public Camera{
 public:
 float get_speed();

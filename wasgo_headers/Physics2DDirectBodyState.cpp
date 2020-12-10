@@ -23,7 +23,7 @@ void Physics2DDirectBodyState::add_force(Vector2 p_offset, Vector2 p_force){
     int wasgo_size_force = 12;
     encode_variant(wasgo_var_force, wasgo_buffer_force, wasgo_size_force);
     
-	_wasgo_Physics2DDirectBodyState_wrapper_add_force(wasgo_id, wasgo_buffer_offset, wasgo_size_offset, wasgo_buffer_force, wasgo_size_force);
+	_wasgo_Physics2DDirectBodyState_wrapper_add_force(wasgo_id, wasgo_buffer_offset, wasgo_size_offset, -69, wasgo_buffer_force, wasgo_size_force);
 }
 void Physics2DDirectBodyState::add_torque(float p_torque){
 	_wasgo_Physics2DDirectBodyState_wrapper_add_torque(wasgo_id, p_torque);
@@ -50,7 +50,7 @@ void Physics2DDirectBodyState::apply_impulse(Vector2 p_offset, Vector2 p_impulse
     int wasgo_size_impulse = 12;
     encode_variant(wasgo_var_impulse, wasgo_buffer_impulse, wasgo_size_impulse);
     
-	_wasgo_Physics2DDirectBodyState_wrapper_apply_impulse(wasgo_id, wasgo_buffer_offset, wasgo_size_offset, wasgo_buffer_impulse, wasgo_size_impulse);
+	_wasgo_Physics2DDirectBodyState_wrapper_apply_impulse(wasgo_id, wasgo_buffer_offset, wasgo_size_offset, -69, wasgo_buffer_impulse, wasgo_size_impulse);
 }
 void Physics2DDirectBodyState::apply_torque_impulse(float p_impulse){
 	_wasgo_Physics2DDirectBodyState_wrapper_apply_torque_impulse(wasgo_id, p_impulse);
@@ -61,11 +61,11 @@ float Physics2DDirectBodyState::get_angular_velocity(){
 RID Physics2DDirectBodyState::get_contact_collider(int p_contact_idx){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
-    _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_contact_idx);
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_contact_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Physics2DDirectBodyState::get_contact_collider_id(int p_contact_idx){
@@ -79,25 +79,32 @@ Vector2 Physics2DDirectBodyState::get_contact_collider_position(int p_contact_id
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_contact_idx);
+    _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_contact_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Physics2DDirectBodyState::get_contact_collider_shape(int p_contact_idx){
 	return (int) _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_shape(wasgo_id, p_contact_idx);
 }
 Variant Physics2DDirectBodyState::get_contact_collider_shape_metadata(int p_contact_idx){
-	return Variant(_wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_shape_metadata(wasgo_id, p_contact_idx));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_shape_metadata(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_contact_idx);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 Vector2 Physics2DDirectBodyState::get_contact_collider_velocity_at_position(int p_contact_idx){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_velocity_at_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_contact_idx);
+    _wasgo_Physics2DDirectBodyState_wrapper_get_contact_collider_velocity_at_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_contact_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Physics2DDirectBodyState::get_contact_count(){
@@ -108,9 +115,9 @@ Vector2 Physics2DDirectBodyState::get_contact_local_normal(int p_contact_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_Physics2DDirectBodyState_wrapper_get_contact_local_normal(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_contact_idx);
+    _wasgo_Physics2DDirectBodyState_wrapper_get_contact_local_normal(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_contact_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 Physics2DDirectBodyState::get_contact_local_position(int p_contact_idx){
@@ -118,9 +125,9 @@ Vector2 Physics2DDirectBodyState::get_contact_local_position(int p_contact_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_Physics2DDirectBodyState_wrapper_get_contact_local_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_contact_idx);
+    _wasgo_Physics2DDirectBodyState_wrapper_get_contact_local_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_contact_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Physics2DDirectBodyState::get_contact_local_shape(int p_contact_idx){
@@ -139,7 +146,7 @@ Vector2 Physics2DDirectBodyState::get_linear_velocity(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Physics2DDirectBodyState_wrapper_get_linear_velocity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Physics2DDirectSpaceState Physics2DDirectBodyState::get_space_state(){
@@ -158,7 +165,7 @@ Vector2 Physics2DDirectBodyState::get_total_gravity(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Physics2DDirectBodyState_wrapper_get_total_gravity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Physics2DDirectBodyState::get_total_linear_damp(){
@@ -171,7 +178,7 @@ Transform2D Physics2DDirectBodyState::get_transform(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_Physics2DDirectBodyState_wrapper_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 void Physics2DDirectBodyState::integrate_forces(){

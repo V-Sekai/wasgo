@@ -11,7 +11,7 @@ String DynamicFont::get_available_chars(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_DynamicFont_wrapper_get_available_chars(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 DynamicFontData DynamicFont::get_fallback(int p_idx){
@@ -30,7 +30,7 @@ Color DynamicFont::get_outline_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_DynamicFont_wrapper_get_outline_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 int DynamicFont::get_outline_size(){

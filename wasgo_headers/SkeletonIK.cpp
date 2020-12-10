@@ -11,7 +11,7 @@ Vector3 SkeletonIK::get_magnet_position(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_SkeletonIK_wrapper_get_magnet_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 int SkeletonIK::get_max_iterations(){
@@ -30,7 +30,7 @@ String SkeletonIK::get_root_bone(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_SkeletonIK_wrapper_get_root_bone(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 NodePath SkeletonIK::get_target_node(){
@@ -40,7 +40,7 @@ NodePath SkeletonIK::get_target_node(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_SkeletonIK_wrapper_get_target_node(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform SkeletonIK::get_target_transform(){
@@ -50,7 +50,7 @@ Transform SkeletonIK::get_target_transform(){
     uint8_t wasgo_ret_buffer[52];
     _wasgo_SkeletonIK_wrapper_get_target_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 String SkeletonIK::get_tip_bone(){
@@ -60,7 +60,7 @@ String SkeletonIK::get_tip_bone(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_SkeletonIK_wrapper_get_tip_bone(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool SkeletonIK::is_override_tip_basis(){
@@ -96,7 +96,7 @@ void SkeletonIK::set_override_tip_basis(bool p_override){
 void SkeletonIK::set_root_bone(String p_root_bone){
 
     Variant wasgo_var_root_bone = p_root_bone;
-    int wasgo_size_root_bone = String(p_root_bone).size();
+    int wasgo_size_root_bone = 10 + String(p_root_bone).size();
     uint8_t wasgo_buffer_root_bone[wasgo_size_root_bone];
     encode_variant(wasgo_var_root_bone, wasgo_buffer_root_bone, wasgo_size_root_bone);
     
@@ -105,7 +105,7 @@ void SkeletonIK::set_root_bone(String p_root_bone){
 void SkeletonIK::set_target_node(NodePath p_node){
 
     Variant wasgo_var_node = p_node;
-    int wasgo_size_node = String(p_node).size();
+    int wasgo_size_node = 10 + String(p_node).size();
     uint8_t wasgo_buffer_node[wasgo_size_node];
     encode_variant(wasgo_var_node, wasgo_buffer_node, wasgo_size_node);
     
@@ -123,7 +123,7 @@ void SkeletonIK::set_target_transform(Transform p_target){
 void SkeletonIK::set_tip_bone(String p_tip_bone){
 
     Variant wasgo_var_tip_bone = p_tip_bone;
-    int wasgo_size_tip_bone = String(p_tip_bone).size();
+    int wasgo_size_tip_bone = 10 + String(p_tip_bone).size();
     uint8_t wasgo_buffer_tip_bone[wasgo_size_tip_bone];
     encode_variant(wasgo_var_tip_bone, wasgo_buffer_tip_bone, wasgo_size_tip_bone);
     

@@ -4,11 +4,17 @@
 void ProximityGroup::broadcast(String p_name, Variant p_parameters){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
-	_wasgo_ProximityGroup_wrapper_broadcast(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_parameters._get_wasgo_id());
+
+    Variant wasgo_var_parameters = p_parameters;
+    uint8_t wasgo_buffer_parameters[256];
+    int wasgo_size_parameters = 256;
+    encode_variant(wasgo_var_parameters, wasgo_buffer_parameters, wasgo_size_parameters);
+    
+	_wasgo_ProximityGroup_wrapper_broadcast(wasgo_id, wasgo_buffer_name, wasgo_size_name, -69, wasgo_buffer_parameters, wasgo_size_parameters);
 }
 ProximityGroup::DispatchMode ProximityGroup::get_dispatch_mode(){
 	return ProximityGroup::DispatchMode(_wasgo_ProximityGroup_wrapper_get_dispatch_mode(wasgo_id));
@@ -20,7 +26,7 @@ Vector3 ProximityGroup::get_grid_radius(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_ProximityGroup_wrapper_get_grid_radius(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 String ProximityGroup::get_group_name(){
@@ -30,7 +36,7 @@ String ProximityGroup::get_group_name(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_ProximityGroup_wrapper_get_group_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 void ProximityGroup::set_dispatch_mode(ProximityGroup::DispatchMode p_mode){
@@ -48,7 +54,7 @@ void ProximityGroup::set_grid_radius(Vector3 p_radius){
 void ProximityGroup::set_group_name(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     

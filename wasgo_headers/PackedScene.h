@@ -5,8 +5,8 @@
 #include "wasgo\wasgoid.h"
 
 #include "Resource.h"
-#include "SceneState.h"
 class Node;
+#include "SceneState.h"
 #include "error_list.h"
 class PackedScene : public Resource{
 public:

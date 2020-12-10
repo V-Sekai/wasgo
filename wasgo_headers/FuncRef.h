@@ -4,15 +4,14 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Variant.h"
-#include "Object.h"
 #include "Ustring.h"
 #include "Reference.h"
+#include "Object.h"
+#include "Variant.h"
 class FuncRef : public Reference{
 public:
 Variant call_func();
 Variant call_funcv(Array p_arg_array);
-String get_function();
 bool is_valid();
 void set_function(String p_name);
 void set_instance(Object p_instance);
@@ -31,9 +30,8 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-WasGoID _wasgo_FuncRef_wrapper_call_func(WasGoID wasgo_id);
-WasGoID _wasgo_FuncRef_wrapper_call_funcv(WasGoID wasgo_id, WasGoID p_arg_array);
-void _wasgo_FuncRef_wrapper_get_function(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_FuncRef_wrapper_call_func(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_FuncRef_wrapper_call_funcv(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, WasGoID p_arg_array);
 int _wasgo_FuncRef_wrapper_is_valid(WasGoID wasgo_id);
 void _wasgo_FuncRef_wrapper_set_function(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 void _wasgo_FuncRef_wrapper_set_instance(WasGoID wasgo_id, WasGoID p_instance);

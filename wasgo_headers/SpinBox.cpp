@@ -17,7 +17,7 @@ String SpinBox::get_prefix(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_SpinBox_wrapper_get_prefix(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String SpinBox::get_suffix(){
@@ -27,7 +27,7 @@ String SpinBox::get_suffix(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_SpinBox_wrapper_get_suffix(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool SpinBox::is_editable(){
@@ -42,7 +42,7 @@ void SpinBox::set_editable(bool p_editable){
 void SpinBox::set_prefix(String p_prefix){
 
     Variant wasgo_var_prefix = p_prefix;
-    int wasgo_size_prefix = String(p_prefix).size();
+    int wasgo_size_prefix = 10 + String(p_prefix).size();
     uint8_t wasgo_buffer_prefix[wasgo_size_prefix];
     encode_variant(wasgo_var_prefix, wasgo_buffer_prefix, wasgo_size_prefix);
     
@@ -51,7 +51,7 @@ void SpinBox::set_prefix(String p_prefix){
 void SpinBox::set_suffix(String p_suffix){
 
     Variant wasgo_var_suffix = p_suffix;
-    int wasgo_size_suffix = String(p_suffix).size();
+    int wasgo_size_suffix = 10 + String(p_suffix).size();
     uint8_t wasgo_buffer_suffix[wasgo_size_suffix];
     encode_variant(wasgo_var_suffix, wasgo_buffer_suffix, wasgo_size_suffix);
     

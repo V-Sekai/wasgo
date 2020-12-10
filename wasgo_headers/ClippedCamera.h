@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
+#include "Camera.h"
 #include "RID.h"
 #include "Object.h"
-#include "Camera.h"
 class ClippedCamera : public Camera{
 public:
 enum ProcessMode{

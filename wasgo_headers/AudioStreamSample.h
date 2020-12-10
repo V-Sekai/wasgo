@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Variant.h"
+#include "AudioStream.h"
 #include "Ustring.h"
 #include "error_list.h"
-#include "AudioStream.h"
+#include "Variant.h"
 class AudioStreamSample : public AudioStream{
 public:
 enum Format{

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "CubeMap.h"
 #include "VisualShaderNode.h"
+#include "CubeMap.h"
 class VisualShaderNodeCubeMap : public VisualShaderNode{
 public:
 enum Source{

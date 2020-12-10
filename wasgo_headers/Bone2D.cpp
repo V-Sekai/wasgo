@@ -17,7 +17,7 @@ Transform2D Bone2D::get_rest(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_Bone2D_wrapper_get_rest(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform2D Bone2D::get_skeleton_rest(){
@@ -27,7 +27,7 @@ Transform2D Bone2D::get_skeleton_rest(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_Bone2D_wrapper_get_skeleton_rest(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 void Bone2D::set_default_length(float p_default_length){

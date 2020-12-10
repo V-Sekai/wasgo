@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Resource.h"
 #include "Vector2.h"
+#include "Resource.h"
 class Curve : public Resource{
 public:
 enum TangentMode{
@@ -53,7 +53,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-int _wasgo_Curve_wrapper_add_point(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, float p_left_tangent, float p_right_tangent, WasGoID p_left_mode, WasGoID p_right_mode);
+int _wasgo_Curve_wrapper_add_point(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, int wasgo_throwaway, float p_left_tangent, float p_right_tangent, WasGoID p_left_mode, WasGoID p_right_mode);
 void _wasgo_Curve_wrapper_bake(WasGoID wasgo_id);
 void _wasgo_Curve_wrapper_clean_dupes(WasGoID wasgo_id);
 void _wasgo_Curve_wrapper_clear_points(WasGoID wasgo_id);
@@ -63,7 +63,7 @@ float _wasgo_Curve_wrapper_get_min_value(WasGoID wasgo_id);
 int _wasgo_Curve_wrapper_get_point_count(WasGoID wasgo_id);
 WasGoID _wasgo_Curve_wrapper_get_point_left_mode(WasGoID wasgo_id, int p_index);
 float _wasgo_Curve_wrapper_get_point_left_tangent(WasGoID wasgo_id, int p_index);
-void _wasgo_Curve_wrapper_get_point_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_index);
+void _wasgo_Curve_wrapper_get_point_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_index);
 WasGoID _wasgo_Curve_wrapper_get_point_right_mode(WasGoID wasgo_id, int p_index);
 float _wasgo_Curve_wrapper_get_point_right_tangent(WasGoID wasgo_id, int p_index);
 float _wasgo_Curve_wrapper_interpolate(WasGoID wasgo_id, float p_offset);

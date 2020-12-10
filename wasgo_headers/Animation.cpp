@@ -9,28 +9,28 @@ String Animation::animation_track_get_key_animation(int p_track_idx, int p_key_i
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_Animation_wrapper_animation_track_get_key_animation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_track_idx, p_key_idx);
+    _wasgo_Animation_wrapper_animation_track_get_key_animation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_track_idx, p_key_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Animation::animation_track_insert_key(int p_track_idx, float p_time, String p_animation){
 
     Variant wasgo_var_animation = p_animation;
-    int wasgo_size_animation = String(p_animation).size();
+    int wasgo_size_animation = 10 + String(p_animation).size();
     uint8_t wasgo_buffer_animation[wasgo_size_animation];
     encode_variant(wasgo_var_animation, wasgo_buffer_animation, wasgo_size_animation);
     
-	return (int) _wasgo_Animation_wrapper_animation_track_insert_key(wasgo_id, p_track_idx, p_time, wasgo_buffer_animation, wasgo_size_animation);
+	return (int) _wasgo_Animation_wrapper_animation_track_insert_key(wasgo_id, p_track_idx, p_time, -69, wasgo_buffer_animation, wasgo_size_animation);
 }
 void Animation::animation_track_set_key_animation(int p_track_idx, int p_key_idx, String p_animation){
 
     Variant wasgo_var_animation = p_animation;
-    int wasgo_size_animation = String(p_animation).size();
+    int wasgo_size_animation = 10 + String(p_animation).size();
     uint8_t wasgo_buffer_animation[wasgo_size_animation];
     encode_variant(wasgo_var_animation, wasgo_buffer_animation, wasgo_size_animation);
     
-	_wasgo_Animation_wrapper_animation_track_set_key_animation(wasgo_id, p_track_idx, p_key_idx, wasgo_buffer_animation, wasgo_size_animation);
+	_wasgo_Animation_wrapper_animation_track_set_key_animation(wasgo_id, p_track_idx, p_key_idx, -69, wasgo_buffer_animation, wasgo_size_animation);
 }
 float Animation::audio_track_get_key_end_offset(int p_track_idx, int p_key_idx){
 	return (float) _wasgo_Animation_wrapper_audio_track_get_key_end_offset(wasgo_id, p_track_idx, p_key_idx);
@@ -42,25 +42,25 @@ Resource Animation::audio_track_get_key_stream(int p_track_idx, int p_key_idx){
 	return Resource(_wasgo_Animation_wrapper_audio_track_get_key_stream(wasgo_id, p_track_idx, p_key_idx));
 }
 int Animation::audio_track_insert_key(int p_track_idx, float p_time, Resource p_stream, float p_start_offset, float p_end_offset){
-	return (int) _wasgo_Animation_wrapper_audio_track_insert_key(wasgo_id, p_track_idx, p_time, p_stream._get_wasgo_id(), p_start_offset, p_end_offset);
+	return (int) _wasgo_Animation_wrapper_audio_track_insert_key(wasgo_id, p_track_idx, p_time, -69, p_stream._get_wasgo_id(), p_start_offset, p_end_offset);
 }
 void Animation::audio_track_set_key_end_offset(int p_track_idx, int p_key_idx, float p_offset){
-	_wasgo_Animation_wrapper_audio_track_set_key_end_offset(wasgo_id, p_track_idx, p_key_idx, p_offset);
+	_wasgo_Animation_wrapper_audio_track_set_key_end_offset(wasgo_id, p_track_idx, p_key_idx, -69, p_offset);
 }
 void Animation::audio_track_set_key_start_offset(int p_track_idx, int p_key_idx, float p_offset){
-	_wasgo_Animation_wrapper_audio_track_set_key_start_offset(wasgo_id, p_track_idx, p_key_idx, p_offset);
+	_wasgo_Animation_wrapper_audio_track_set_key_start_offset(wasgo_id, p_track_idx, p_key_idx, -69, p_offset);
 }
 void Animation::audio_track_set_key_stream(int p_track_idx, int p_key_idx, Resource p_stream){
-	_wasgo_Animation_wrapper_audio_track_set_key_stream(wasgo_id, p_track_idx, p_key_idx, p_stream._get_wasgo_id());
+	_wasgo_Animation_wrapper_audio_track_set_key_stream(wasgo_id, p_track_idx, p_key_idx, -69, p_stream._get_wasgo_id());
 }
 Vector2 Animation::bezier_track_get_key_in_handle(int p_track_idx, int p_key_idx){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_Animation_wrapper_bezier_track_get_key_in_handle(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_track_idx, p_key_idx);
+    _wasgo_Animation_wrapper_bezier_track_get_key_in_handle(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_track_idx, p_key_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 Animation::bezier_track_get_key_out_handle(int p_track_idx, int p_key_idx){
@@ -68,9 +68,9 @@ Vector2 Animation::bezier_track_get_key_out_handle(int p_track_idx, int p_key_id
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_Animation_wrapper_bezier_track_get_key_out_handle(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_track_idx, p_key_idx);
+    _wasgo_Animation_wrapper_bezier_track_get_key_out_handle(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_track_idx, p_key_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Animation::bezier_track_get_key_value(int p_track_idx, int p_key_idx){
@@ -89,7 +89,7 @@ int Animation::bezier_track_insert_key(int p_track_idx, float p_time, float p_va
     int wasgo_size_out_handle = 12;
     encode_variant(wasgo_var_out_handle, wasgo_buffer_out_handle, wasgo_size_out_handle);
     
-	return (int) _wasgo_Animation_wrapper_bezier_track_insert_key(wasgo_id, p_track_idx, p_time, p_value, wasgo_buffer_in_handle, wasgo_size_in_handle, wasgo_buffer_out_handle, wasgo_size_out_handle);
+	return (int) _wasgo_Animation_wrapper_bezier_track_insert_key(wasgo_id, p_track_idx, p_time, -69, p_value, wasgo_buffer_in_handle, wasgo_size_in_handle, wasgo_buffer_out_handle, wasgo_size_out_handle);
 }
 float Animation::bezier_track_interpolate(int p_track_idx, float p_time){
 	return (float) _wasgo_Animation_wrapper_bezier_track_interpolate(wasgo_id, p_track_idx, p_time);
@@ -101,7 +101,7 @@ void Animation::bezier_track_set_key_in_handle(int p_track_idx, int p_key_idx, V
     int wasgo_size_in_handle = 12;
     encode_variant(wasgo_var_in_handle, wasgo_buffer_in_handle, wasgo_size_in_handle);
     
-	_wasgo_Animation_wrapper_bezier_track_set_key_in_handle(wasgo_id, p_track_idx, p_key_idx, wasgo_buffer_in_handle, wasgo_size_in_handle);
+	_wasgo_Animation_wrapper_bezier_track_set_key_in_handle(wasgo_id, p_track_idx, p_key_idx, -69, wasgo_buffer_in_handle, wasgo_size_in_handle);
 }
 void Animation::bezier_track_set_key_out_handle(int p_track_idx, int p_key_idx, Vector2 p_out_handle){
 
@@ -110,10 +110,10 @@ void Animation::bezier_track_set_key_out_handle(int p_track_idx, int p_key_idx, 
     int wasgo_size_out_handle = 12;
     encode_variant(wasgo_var_out_handle, wasgo_buffer_out_handle, wasgo_size_out_handle);
     
-	_wasgo_Animation_wrapper_bezier_track_set_key_out_handle(wasgo_id, p_track_idx, p_key_idx, wasgo_buffer_out_handle, wasgo_size_out_handle);
+	_wasgo_Animation_wrapper_bezier_track_set_key_out_handle(wasgo_id, p_track_idx, p_key_idx, -69, wasgo_buffer_out_handle, wasgo_size_out_handle);
 }
 void Animation::bezier_track_set_key_value(int p_track_idx, int p_key_idx, float p_value){
-	_wasgo_Animation_wrapper_bezier_track_set_key_value(wasgo_id, p_track_idx, p_key_idx, p_value);
+	_wasgo_Animation_wrapper_bezier_track_set_key_value(wasgo_id, p_track_idx, p_key_idx, -69, p_value);
 }
 void Animation::clear(){
 	_wasgo_Animation_wrapper_clear(wasgo_id);
@@ -124,7 +124,7 @@ void Animation::copy_track(int p_track_idx, Animation p_to_animation){
 int Animation::find_track(NodePath p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
@@ -143,16 +143,16 @@ bool Animation::has_loop(){
 	return (bool) _wasgo_Animation_wrapper_has_loop(wasgo_id);
 }
 PoolIntArray Animation::method_track_get_key_indices(int p_track_idx, float p_time_sec, float p_delta){
-	return PoolIntArray(_wasgo_Animation_wrapper_method_track_get_key_indices(wasgo_id, p_track_idx, p_time_sec, p_delta));
+	return PoolIntArray(_wasgo_Animation_wrapper_method_track_get_key_indices(wasgo_id, p_track_idx, p_time_sec, -69, p_delta));
 }
 String Animation::method_track_get_name(int p_track_idx, int p_key_idx){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_Animation_wrapper_method_track_get_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_track_idx, p_key_idx);
+    _wasgo_Animation_wrapper_method_track_get_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_track_idx, p_key_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 Array Animation::method_track_get_params(int p_track_idx, int p_key_idx){
@@ -171,7 +171,7 @@ void Animation::set_step(float p_size_sec){
 	_wasgo_Animation_wrapper_set_step(wasgo_id, p_size_sec);
 }
 int Animation::track_find_key(int p_track_idx, float p_time, bool p_exact){
-	return (int) _wasgo_Animation_wrapper_track_find_key(wasgo_id, p_track_idx, p_time, p_exact);
+	return (int) _wasgo_Animation_wrapper_track_find_key(wasgo_id, p_track_idx, p_time, -69, p_exact);
 }
 bool Animation::track_get_interpolation_loop_wrap(int p_track_idx){
 	return (bool) _wasgo_Animation_wrapper_track_get_interpolation_loop_wrap(wasgo_id, p_track_idx);
@@ -189,23 +189,36 @@ float Animation::track_get_key_transition(int p_track_idx, int p_key_idx){
 	return (float) _wasgo_Animation_wrapper_track_get_key_transition(wasgo_id, p_track_idx, p_key_idx);
 }
 Variant Animation::track_get_key_value(int p_track_idx, int p_key_idx){
-	return Variant(_wasgo_Animation_wrapper_track_get_key_value(wasgo_id, p_track_idx, p_key_idx));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_Animation_wrapper_track_get_key_value(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_track_idx, p_key_idx);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 NodePath Animation::track_get_path(int p_track_idx){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_Animation_wrapper_track_get_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_track_idx);
+    _wasgo_Animation_wrapper_track_get_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_track_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 Animation::TrackType Animation::track_get_type(int p_track_idx){
 	return Animation::TrackType(_wasgo_Animation_wrapper_track_get_type(wasgo_id, p_track_idx));
 }
 void Animation::track_insert_key(int p_track_idx, float p_time, Variant p_key, float p_transition){
-	_wasgo_Animation_wrapper_track_insert_key(wasgo_id, p_track_idx, p_time, p_key._get_wasgo_id(), p_transition);
+
+    Variant wasgo_var_key = p_key;
+    uint8_t wasgo_buffer_key[256];
+    int wasgo_size_key = 256;
+    encode_variant(wasgo_var_key, wasgo_buffer_key, wasgo_size_key);
+    
+	_wasgo_Animation_wrapper_track_insert_key(wasgo_id, p_track_idx, p_time, -69, wasgo_buffer_key, wasgo_size_key, p_transition);
 }
 bool Animation::track_is_enabled(int p_track_idx){
 	return (bool) _wasgo_Animation_wrapper_track_is_enabled(wasgo_id, p_track_idx);
@@ -241,22 +254,28 @@ void Animation::track_set_interpolation_type(int p_track_idx, Animation::Interpo
 	_wasgo_Animation_wrapper_track_set_interpolation_type(wasgo_id, p_track_idx, p_interpolation._get_wasgo_id());
 }
 void Animation::track_set_key_time(int p_track_idx, int p_key_idx, float p_time){
-	_wasgo_Animation_wrapper_track_set_key_time(wasgo_id, p_track_idx, p_key_idx, p_time);
+	_wasgo_Animation_wrapper_track_set_key_time(wasgo_id, p_track_idx, p_key_idx, -69, p_time);
 }
 void Animation::track_set_key_transition(int p_track_idx, int p_key_idx, float p_transition){
-	_wasgo_Animation_wrapper_track_set_key_transition(wasgo_id, p_track_idx, p_key_idx, p_transition);
+	_wasgo_Animation_wrapper_track_set_key_transition(wasgo_id, p_track_idx, p_key_idx, -69, p_transition);
 }
 void Animation::track_set_key_value(int p_track_idx, int p_key, Variant p_value){
-	_wasgo_Animation_wrapper_track_set_key_value(wasgo_id, p_track_idx, p_key, p_value._get_wasgo_id());
+
+    Variant wasgo_var_value = p_value;
+    uint8_t wasgo_buffer_value[256];
+    int wasgo_size_value = 256;
+    encode_variant(wasgo_var_value, wasgo_buffer_value, wasgo_size_value);
+    
+	_wasgo_Animation_wrapper_track_set_key_value(wasgo_id, p_track_idx, p_key, -69, wasgo_buffer_value, wasgo_size_value);
 }
 void Animation::track_set_path(int p_track_idx, NodePath p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
-	_wasgo_Animation_wrapper_track_set_path(wasgo_id, p_track_idx, wasgo_buffer_path, wasgo_size_path);
+	_wasgo_Animation_wrapper_track_set_path(wasgo_id, p_track_idx, wasgo_buffer_path, wasgo_size_path, wasgo_size_path);
 }
 void Animation::track_swap(int p_track_idx, int p_with_idx){
 	_wasgo_Animation_wrapper_track_swap(wasgo_id, p_track_idx, p_with_idx);
@@ -280,19 +299,16 @@ int Animation::transform_track_insert_key(int p_track_idx, float p_time, Vector3
     int wasgo_size_scale = 16;
     encode_variant(wasgo_var_scale, wasgo_buffer_scale, wasgo_size_scale);
     
-	return (int) _wasgo_Animation_wrapper_transform_track_insert_key(wasgo_id, p_track_idx, p_time, wasgo_buffer_location, wasgo_size_location, wasgo_buffer_rotation, wasgo_size_rotation, wasgo_buffer_scale, wasgo_size_scale);
+	return (int) _wasgo_Animation_wrapper_transform_track_insert_key(wasgo_id, p_track_idx, p_time, -69, wasgo_buffer_location, wasgo_size_location, wasgo_buffer_rotation, wasgo_size_rotation, wasgo_buffer_scale, wasgo_size_scale);
 }
 Array Animation::transform_track_interpolate(int p_track_idx, float p_time_sec){
 	return Array(_wasgo_Animation_wrapper_transform_track_interpolate(wasgo_id, p_track_idx, p_time_sec));
 }
 PoolIntArray Animation::value_track_get_key_indices(int p_track_idx, float p_time_sec, float p_delta){
-	return PoolIntArray(_wasgo_Animation_wrapper_value_track_get_key_indices(wasgo_id, p_track_idx, p_time_sec, p_delta));
+	return PoolIntArray(_wasgo_Animation_wrapper_value_track_get_key_indices(wasgo_id, p_track_idx, p_time_sec, -69, p_delta));
 }
 Animation::UpdateMode Animation::value_track_get_update_mode(int p_track_idx){
 	return Animation::UpdateMode(_wasgo_Animation_wrapper_value_track_get_update_mode(wasgo_id, p_track_idx));
-}
-Variant Animation::value_track_interpolate(int p_track_idx, float p_time_sec){
-	return Variant(_wasgo_Animation_wrapper_value_track_interpolate(wasgo_id, p_track_idx, p_time_sec));
 }
 void Animation::value_track_set_update_mode(int p_track_idx, Animation::UpdateMode p_mode){
 	_wasgo_Animation_wrapper_value_track_set_update_mode(wasgo_id, p_track_idx, p_mode._get_wasgo_id());

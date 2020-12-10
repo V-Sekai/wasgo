@@ -20,7 +20,7 @@ void Curve3D::add_point(Vector3 p_position, Vector3 p_in, Vector3 p_out, int p_a
     int wasgo_size_out = 16;
     encode_variant(wasgo_var_out, wasgo_buffer_out, wasgo_size_out);
     
-	_wasgo_Curve3D_wrapper_add_point(wasgo_id, wasgo_buffer_position, wasgo_size_position, wasgo_buffer_in, wasgo_size_in, wasgo_buffer_out, wasgo_size_out, p_at_position);
+	_wasgo_Curve3D_wrapper_add_point(wasgo_id, wasgo_buffer_position, wasgo_size_position, -69, wasgo_buffer_in, wasgo_size_in, wasgo_buffer_out, wasgo_size_out, p_at_position);
 }
 void Curve3D::clear_points(){
 	_wasgo_Curve3D_wrapper_clear_points(wasgo_id);
@@ -60,9 +60,9 @@ Vector3 Curve3D::get_closest_point(Vector3 p_to_point){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_Curve3D_wrapper_get_closest_point(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_to_point, wasgo_size_to_point);
+    _wasgo_Curve3D_wrapper_get_closest_point(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_to_point, wasgo_size_to_point);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Curve3D::get_point_count(){
@@ -73,9 +73,9 @@ Vector3 Curve3D::get_point_in(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_Curve3D_wrapper_get_point_in(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_Curve3D_wrapper_get_point_in(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 Curve3D::get_point_out(int p_idx){
@@ -83,9 +83,9 @@ Vector3 Curve3D::get_point_out(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_Curve3D_wrapper_get_point_out(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_Curve3D_wrapper_get_point_out(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 Curve3D::get_point_position(int p_idx){
@@ -93,9 +93,9 @@ Vector3 Curve3D::get_point_position(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_Curve3D_wrapper_get_point_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_Curve3D_wrapper_get_point_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Curve3D::get_point_tilt(int p_idx){
@@ -106,9 +106,9 @@ Vector3 Curve3D::interpolate(int p_idx, float p_t){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_Curve3D_wrapper_interpolate(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx, p_t);
+    _wasgo_Curve3D_wrapper_interpolate(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx, p_t);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 Curve3D::interpolate_baked(float p_offset, bool p_cubic){
@@ -116,9 +116,9 @@ Vector3 Curve3D::interpolate_baked(float p_offset, bool p_cubic){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_Curve3D_wrapper_interpolate_baked(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_offset, p_cubic);
+    _wasgo_Curve3D_wrapper_interpolate_baked(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_offset, p_cubic);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 Curve3D::interpolate_baked_up_vector(float p_offset, bool p_apply_tilt){
@@ -126,9 +126,9 @@ Vector3 Curve3D::interpolate_baked_up_vector(float p_offset, bool p_apply_tilt){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_Curve3D_wrapper_interpolate_baked_up_vector(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_offset, p_apply_tilt);
+    _wasgo_Curve3D_wrapper_interpolate_baked_up_vector(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_offset, p_apply_tilt);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 Curve3D::interpolatef(float p_fofs){
@@ -136,9 +136,9 @@ Vector3 Curve3D::interpolatef(float p_fofs){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_Curve3D_wrapper_interpolatef(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_fofs);
+    _wasgo_Curve3D_wrapper_interpolatef(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_fofs);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool Curve3D::is_up_vector_enabled(){
@@ -157,7 +157,7 @@ void Curve3D::set_point_in(int p_idx, Vector3 p_position){
     int wasgo_size_position = 16;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_Curve3D_wrapper_set_point_in(wasgo_id, p_idx, wasgo_buffer_position, wasgo_size_position);
+	_wasgo_Curve3D_wrapper_set_point_in(wasgo_id, p_idx, wasgo_buffer_position, wasgo_size_position, wasgo_size_position);
 }
 void Curve3D::set_point_out(int p_idx, Vector3 p_position){
 
@@ -166,7 +166,7 @@ void Curve3D::set_point_out(int p_idx, Vector3 p_position){
     int wasgo_size_position = 16;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_Curve3D_wrapper_set_point_out(wasgo_id, p_idx, wasgo_buffer_position, wasgo_size_position);
+	_wasgo_Curve3D_wrapper_set_point_out(wasgo_id, p_idx, wasgo_buffer_position, wasgo_size_position, wasgo_size_position);
 }
 void Curve3D::set_point_position(int p_idx, Vector3 p_position){
 
@@ -175,7 +175,7 @@ void Curve3D::set_point_position(int p_idx, Vector3 p_position){
     int wasgo_size_position = 16;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_Curve3D_wrapper_set_point_position(wasgo_id, p_idx, wasgo_buffer_position, wasgo_size_position);
+	_wasgo_Curve3D_wrapper_set_point_position(wasgo_id, p_idx, wasgo_buffer_position, wasgo_size_position, wasgo_size_position);
 }
 void Curve3D::set_point_tilt(int p_idx, float p_tilt){
 	_wasgo_Curve3D_wrapper_set_point_tilt(wasgo_id, p_idx, p_tilt);

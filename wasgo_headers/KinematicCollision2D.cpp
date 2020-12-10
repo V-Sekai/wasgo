@@ -8,7 +8,14 @@ int KinematicCollision2D::get_collider_id(){
 	return (int) _wasgo_KinematicCollision2D_wrapper_get_collider_id(wasgo_id);
 }
 Variant KinematicCollision2D::get_collider_metadata(){
-	return Variant(_wasgo_KinematicCollision2D_wrapper_get_collider_metadata(wasgo_id));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_KinematicCollision2D_wrapper_get_collider_metadata(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 Object KinematicCollision2D::get_collider_shape(){
 	return Object(_wasgo_KinematicCollision2D_wrapper_get_collider_shape(wasgo_id));
@@ -23,7 +30,7 @@ Vector2 KinematicCollision2D::get_collider_velocity(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_KinematicCollision2D_wrapper_get_collider_velocity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Object KinematicCollision2D::get_local_shape(){
@@ -36,7 +43,7 @@ Vector2 KinematicCollision2D::get_normal(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_KinematicCollision2D_wrapper_get_normal(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 KinematicCollision2D::get_position(){
@@ -46,7 +53,7 @@ Vector2 KinematicCollision2D::get_position(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_KinematicCollision2D_wrapper_get_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 KinematicCollision2D::get_remainder(){
@@ -56,7 +63,7 @@ Vector2 KinematicCollision2D::get_remainder(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_KinematicCollision2D_wrapper_get_remainder(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 KinematicCollision2D::get_travel(){
@@ -66,7 +73,7 @@ Vector2 KinematicCollision2D::get_travel(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_KinematicCollision2D_wrapper_get_travel(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 

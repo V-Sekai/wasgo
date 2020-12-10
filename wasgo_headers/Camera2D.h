@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-class Node;
-#include "math_defs.h"
-#include "Node2D.h"
 #include "Vector2.h"
+#include "math_defs.h"
+class Node;
+#include "Node2D.h"
 class Camera2D : public Node2D{
 public:
 enum AnchorMode{

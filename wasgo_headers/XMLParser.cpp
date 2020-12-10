@@ -9,9 +9,9 @@ String XMLParser::get_attribute_name(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_XMLParser_wrapper_get_attribute_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_XMLParser_wrapper_get_attribute_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String XMLParser::get_attribute_value(int p_idx){
@@ -19,9 +19,9 @@ String XMLParser::get_attribute_value(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_XMLParser_wrapper_get_attribute_value(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_XMLParser_wrapper_get_attribute_value(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int XMLParser::get_current_line(){
@@ -30,7 +30,7 @@ int XMLParser::get_current_line(){
 String XMLParser::get_named_attribute_value(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -38,15 +38,15 @@ String XMLParser::get_named_attribute_value(String p_name){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_XMLParser_wrapper_get_named_attribute_value(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_name, wasgo_size_name);
+    _wasgo_XMLParser_wrapper_get_named_attribute_value(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_name, wasgo_size_name);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String XMLParser::get_named_attribute_value_safe(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -54,9 +54,9 @@ String XMLParser::get_named_attribute_value_safe(String p_name){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_XMLParser_wrapper_get_named_attribute_value_safe(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_name, wasgo_size_name);
+    _wasgo_XMLParser_wrapper_get_named_attribute_value_safe(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_name, wasgo_size_name);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String XMLParser::get_node_data(){
@@ -66,7 +66,7 @@ String XMLParser::get_node_data(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_XMLParser_wrapper_get_node_data(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String XMLParser::get_node_name(){
@@ -76,7 +76,7 @@ String XMLParser::get_node_name(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_XMLParser_wrapper_get_node_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int XMLParser::get_node_offset(){
@@ -88,7 +88,7 @@ XMLParser::NodeType XMLParser::get_node_type(){
 bool XMLParser::has_attribute(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -100,7 +100,7 @@ bool XMLParser::is_empty(){
 Error XMLParser::open(String p_file){
 
     Variant wasgo_var_file = p_file;
-    int wasgo_size_file = String(p_file).size();
+    int wasgo_size_file = 10 + String(p_file).size();
     uint8_t wasgo_buffer_file[wasgo_size_file];
     encode_variant(wasgo_var_file, wasgo_buffer_file, wasgo_size_file);
     

@@ -11,7 +11,7 @@ Vector3 PrismMesh::get_size(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_PrismMesh_wrapper_get_size(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 int PrismMesh::get_subdivide_depth(){

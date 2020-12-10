@@ -11,7 +11,7 @@ Transform Listener::get_listener_transform(){
     uint8_t wasgo_ret_buffer[52];
     _wasgo_Listener_wrapper_get_listener_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool Listener::is_current(){

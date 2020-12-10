@@ -4,11 +4,11 @@
 void Polygon2D::add_bone(NodePath p_path, PoolRealArray p_weights){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
-	_wasgo_Polygon2D_wrapper_add_bone(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_weights._get_wasgo_id());
+	_wasgo_Polygon2D_wrapper_add_bone(wasgo_id, wasgo_buffer_path, wasgo_size_path, -69, p_weights._get_wasgo_id());
 }
 void Polygon2D::clear_bones(){
 	_wasgo_Polygon2D_wrapper_clear_bones(wasgo_id);
@@ -27,9 +27,9 @@ NodePath Polygon2D::get_bone_path(int p_index){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_Polygon2D_wrapper_get_bone_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_index);
+    _wasgo_Polygon2D_wrapper_get_bone_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_index);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolRealArray Polygon2D::get_bone_weights(int p_index){
@@ -42,7 +42,7 @@ Color Polygon2D::get_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Polygon2D_wrapper_get_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Polygon2D::get_internal_vertex_count(){
@@ -61,7 +61,7 @@ Vector2 Polygon2D::get_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Polygon2D_wrapper_get_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolVector2Array Polygon2D::get_polygon(){
@@ -77,7 +77,7 @@ NodePath Polygon2D::get_skeleton(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_Polygon2D_wrapper_get_skeleton(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 Texture Polygon2D::get_texture(){
@@ -90,7 +90,7 @@ Vector2 Polygon2D::get_texture_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Polygon2D_wrapper_get_texture_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Polygon2D::get_texture_rotation(){
@@ -106,7 +106,7 @@ Vector2 Polygon2D::get_texture_scale(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Polygon2D_wrapper_get_texture_scale(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolVector2Array Polygon2D::get_uv(){
@@ -121,11 +121,11 @@ void Polygon2D::set_antialiased(bool p_antialiased){
 void Polygon2D::set_bone_path(int p_index, NodePath p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
-	_wasgo_Polygon2D_wrapper_set_bone_path(wasgo_id, p_index, wasgo_buffer_path, wasgo_size_path);
+	_wasgo_Polygon2D_wrapper_set_bone_path(wasgo_id, p_index, wasgo_buffer_path, wasgo_size_path, wasgo_size_path);
 }
 void Polygon2D::set_bone_weights(int p_index, PoolRealArray p_weights){
 	_wasgo_Polygon2D_wrapper_set_bone_weights(wasgo_id, p_index, p_weights._get_wasgo_id());
@@ -166,7 +166,7 @@ void Polygon2D::set_polygons(Array p_polygons){
 void Polygon2D::set_skeleton(NodePath p_skeleton){
 
     Variant wasgo_var_skeleton = p_skeleton;
-    int wasgo_size_skeleton = String(p_skeleton).size();
+    int wasgo_size_skeleton = 10 + String(p_skeleton).size();
     uint8_t wasgo_buffer_skeleton[wasgo_size_skeleton];
     encode_variant(wasgo_var_skeleton, wasgo_buffer_skeleton, wasgo_size_skeleton);
     

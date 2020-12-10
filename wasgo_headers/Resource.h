@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-class Node;
-#include "RID.h"
 #include "Ustring.h"
+#include "RID.h"
 #include "Reference.h"
+class Node;
 class Resource : public Reference{
 public:
 Resource duplicate(bool p_subresources = (bool) false);

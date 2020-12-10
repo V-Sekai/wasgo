@@ -8,7 +8,7 @@ Color StyleBoxLine::get_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_StyleBoxLine_wrapper_get_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float StyleBoxLine::get_grow_begin(){

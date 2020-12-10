@@ -23,7 +23,7 @@ void RigidBody::add_force(Vector3 p_force, Vector3 p_position){
     int wasgo_size_position = 16;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_RigidBody_wrapper_add_force(wasgo_id, wasgo_buffer_force, wasgo_size_force, wasgo_buffer_position, wasgo_size_position);
+	_wasgo_RigidBody_wrapper_add_force(wasgo_id, wasgo_buffer_force, wasgo_size_force, -69, wasgo_buffer_position, wasgo_size_position);
 }
 void RigidBody::add_torque(Vector3 p_torque){
 
@@ -56,7 +56,7 @@ void RigidBody::apply_impulse(Vector3 p_position, Vector3 p_impulse){
     int wasgo_size_impulse = 16;
     encode_variant(wasgo_var_impulse, wasgo_buffer_impulse, wasgo_size_impulse);
     
-	_wasgo_RigidBody_wrapper_apply_impulse(wasgo_id, wasgo_buffer_position, wasgo_size_position, wasgo_buffer_impulse, wasgo_size_impulse);
+	_wasgo_RigidBody_wrapper_apply_impulse(wasgo_id, wasgo_buffer_position, wasgo_size_position, -69, wasgo_buffer_impulse, wasgo_size_impulse);
 }
 void RigidBody::apply_torque_impulse(Vector3 p_impulse){
 
@@ -77,7 +77,7 @@ Vector3 RigidBody::get_angular_velocity(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_RigidBody_wrapper_get_angular_velocity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool RigidBody::get_axis_lock(PhysicsServer::BodyAxis p_axis){
@@ -102,7 +102,7 @@ Basis RigidBody::get_inverse_inertia_tensor(){
     uint8_t wasgo_ret_buffer[40];
     _wasgo_RigidBody_wrapper_get_inverse_inertia_tensor(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Basis) wasgo_ret;
+    return wasgo_ret;
     
 }
 float RigidBody::get_linear_damp(){
@@ -115,7 +115,7 @@ Vector3 RigidBody::get_linear_velocity(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_RigidBody_wrapper_get_linear_velocity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 float RigidBody::get_mass(){

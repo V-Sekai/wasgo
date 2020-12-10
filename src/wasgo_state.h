@@ -59,6 +59,40 @@ public:
 	Dictionary get_properties();
 	void set_property(String key, Variant value);
 	Variant get_property(String key);
+	//different getters and setters for different types to make wrapping easier
+	bool get_property_bool(String key);
+	int get_property_int(String key);
+	float get_property_float(String key);
+	String get_property_string(String key);
+	Vector2 get_property_vector2(String key);
+	Rect2 get_property_rect2(String key);
+	Vector3 get_property_vector3(String key);
+	Transform2D get_property_transform2d(String key);
+	Plane get_property_plane(String key);
+	Quat get_property_quat(String key);
+	AABB get_property_aabb(String key);
+	Basis get_property_basis(String key);
+	Transform get_property_transform(String key);
+	Color get_property_color(String key);
+	NodePath get_property_nodepath(String key);
+
+	void set_property_bool(String key, bool p_value);
+	void set_property_int(String key, int p_value);
+	void set_property_float(String key, float p_value);
+	void set_property_string(String key, String p_value);
+	void set_property_vector2(String key, Vector2 p_value);
+	void set_property_rect2(String key, Rect2 p_value);
+	void set_property_vector3(String key, Vector3 p_value);
+	void set_property_transform2d(String key, Transform2D p_value);
+	void set_property_plane(String key, Plane p_value);
+	void set_property_quat(String key, Quat p_value);
+	void set_property_aabb(String key, AABB p_value);
+	void set_property_basis(String key, Basis p_value);
+	void set_property_transform(String key, Transform p_value);
+	void set_property_color(String key, Color p_value);
+	void set_property_nodepath(String key, NodePath p_value);
+
+	void set_int_property(int p_value, String key);
 
 	void init(wasm_module_t instance);
 
@@ -148,7 +182,7 @@ int _wasgo_get_property_bool(wasm_exec_env_t p_exec_env, const uint8_t *property
 void _wasgo_set_property_bool(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, int value);
 
 int _wasgo_get_property_int(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size);
-void _wasgo_set_property_int(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, int value);
+void _wasgo_set_property_int(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, int value);
 
 float _wasgo_get_property_float(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size);
 void _wasgo_set_property_float(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, float value);

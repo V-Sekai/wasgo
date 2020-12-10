@@ -5,8 +5,8 @@
 #include "wasgo\wasgoid.h"
 
 #include "Mesh.h"
-#include "Node2D.h"
 #include "Texture.h"
+#include "Node2D.h"
 class MeshInstance2D : public Node2D{
 public:
 Mesh get_mesh();

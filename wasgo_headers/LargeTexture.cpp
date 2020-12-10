@@ -8,7 +8,7 @@ int LargeTexture::add_piece(Vector2 p_ofs, Texture p_texture){
     int wasgo_size_ofs = 12;
     encode_variant(wasgo_var_ofs, wasgo_buffer_ofs, wasgo_size_ofs);
     
-	return (int) _wasgo_LargeTexture_wrapper_add_piece(wasgo_id, wasgo_buffer_ofs, wasgo_size_ofs, p_texture._get_wasgo_id());
+	return (int) _wasgo_LargeTexture_wrapper_add_piece(wasgo_id, wasgo_buffer_ofs, wasgo_size_ofs, -69, p_texture._get_wasgo_id());
 }
 void LargeTexture::clear(){
 	_wasgo_LargeTexture_wrapper_clear(wasgo_id);
@@ -21,9 +21,9 @@ Vector2 LargeTexture::get_piece_offset(int p_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_LargeTexture_wrapper_get_piece_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    _wasgo_LargeTexture_wrapper_get_piece_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Texture LargeTexture::get_piece_texture(int p_idx){
@@ -36,7 +36,7 @@ void LargeTexture::set_piece_offset(int p_idx, Vector2 p_ofs){
     int wasgo_size_ofs = 12;
     encode_variant(wasgo_var_ofs, wasgo_buffer_ofs, wasgo_size_ofs);
     
-	_wasgo_LargeTexture_wrapper_set_piece_offset(wasgo_id, p_idx, wasgo_buffer_ofs, wasgo_size_ofs);
+	_wasgo_LargeTexture_wrapper_set_piece_offset(wasgo_id, p_idx, wasgo_buffer_ofs, wasgo_size_ofs, wasgo_size_ofs);
 }
 void LargeTexture::set_piece_texture(int p_idx, Texture p_texture){
 	_wasgo_LargeTexture_wrapper_set_piece_texture(wasgo_id, p_idx, p_texture._get_wasgo_id());

@@ -14,7 +14,7 @@ String WindowDialog::get_title(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_WindowDialog_wrapper_get_title(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 void WindowDialog::set_resizable(bool p_resizable){
@@ -23,7 +23,7 @@ void WindowDialog::set_resizable(bool p_resizable){
 void WindowDialog::set_title(String p_title){
 
     Variant wasgo_var_title = p_title;
-    int wasgo_size_title = String(p_title).size();
+    int wasgo_size_title = 10 + String(p_title).size();
     uint8_t wasgo_buffer_title[wasgo_size_title];
     encode_variant(wasgo_var_title, wasgo_buffer_title, wasgo_size_title);
     

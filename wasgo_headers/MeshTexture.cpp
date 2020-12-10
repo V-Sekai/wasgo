@@ -11,7 +11,7 @@ Vector2 MeshTexture::get_image_size(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_MeshTexture_wrapper_get_image_size(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Mesh MeshTexture::get_mesh(){

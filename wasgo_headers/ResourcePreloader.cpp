@@ -4,16 +4,16 @@
 void ResourcePreloader::add_resource(String p_name, Resource p_resource){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
-	_wasgo_ResourcePreloader_wrapper_add_resource(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_resource._get_wasgo_id());
+	_wasgo_ResourcePreloader_wrapper_add_resource(wasgo_id, wasgo_buffer_name, wasgo_size_name, -69, p_resource._get_wasgo_id());
 }
 Resource ResourcePreloader::get_resource(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -25,7 +25,7 @@ PoolStringArray ResourcePreloader::get_resource_list(){
 bool ResourcePreloader::has_resource(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -34,7 +34,7 @@ bool ResourcePreloader::has_resource(String p_name){
 void ResourcePreloader::remove_resource(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -43,17 +43,17 @@ void ResourcePreloader::remove_resource(String p_name){
 void ResourcePreloader::rename_resource(String p_name, String p_newname){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_newname = p_newname;
-    int wasgo_size_newname = String(p_newname).size();
+    int wasgo_size_newname = 10 + String(p_newname).size();
     uint8_t wasgo_buffer_newname[wasgo_size_newname];
     encode_variant(wasgo_var_newname, wasgo_buffer_newname, wasgo_size_newname);
     
-	_wasgo_ResourcePreloader_wrapper_rename_resource(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_newname, wasgo_size_newname);
+	_wasgo_ResourcePreloader_wrapper_rename_resource(wasgo_id, wasgo_buffer_name, wasgo_size_name, -69, wasgo_buffer_newname, wasgo_size_newname);
 }
 
 ResourcePreloader::ResourcePreloader(WasGoID p_wasgo_id) : Node(p_wasgo_id){

@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
+#include "error_list.h"
 #include "Resource.h"
 #include "Variant.h"
-#include "error_list.h"
 class PackedDataContainer : public Resource{
 public:
 Error pack(Variant p_value);
@@ -26,7 +26,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-WasGoID _wasgo_PackedDataContainer_wrapper_pack(WasGoID wasgo_id, WasGoID p_value);
+WasGoID _wasgo_PackedDataContainer_wrapper_pack(WasGoID wasgo_id, const uint8_t * p_value, int p_value_wasgo_buffer_size);
 int _wasgo_PackedDataContainer_wrapper_size(WasGoID wasgo_id);
 
     //constructor wrappers

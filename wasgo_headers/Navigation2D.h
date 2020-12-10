@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
-#include "Object.h"
-#include "NavigationPolygon.h"
 #include "Transform2D.h"
-#include "Variant.h"
+#include "NavigationPolygon.h"
 #include "Node2D.h"
+#include "Object.h"
+#include "Variant.h"
+#include "Vector2.h"
 class Navigation2D : public Node2D{
 public:
 Vector2 get_closest_point(Vector2 p_to_point);
@@ -33,12 +33,12 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Navigation2D_wrapper_get_closest_point(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_to_point, int p_to_point_wasgo_buffer_size);
+void _wasgo_Navigation2D_wrapper_get_closest_point(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_to_point, int p_to_point_wasgo_buffer_size);
 WasGoID _wasgo_Navigation2D_wrapper_get_closest_point_owner(WasGoID wasgo_id, const uint8_t * p_to_point, int p_to_point_wasgo_buffer_size);
-WasGoID _wasgo_Navigation2D_wrapper_get_simple_path(WasGoID wasgo_id, const uint8_t * p_start, int p_start_wasgo_buffer_size, const uint8_t * p_end, int p_end_wasgo_buffer_size, bool p_optimize);
-int _wasgo_Navigation2D_wrapper_navpoly_add(WasGoID wasgo_id, WasGoID p_mesh, const uint8_t * p_xform, int p_xform_wasgo_buffer_size, WasGoID p_owner);
+WasGoID _wasgo_Navigation2D_wrapper_get_simple_path(WasGoID wasgo_id, const uint8_t * p_start, int p_start_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_end, int p_end_wasgo_buffer_size, bool p_optimize);
+int _wasgo_Navigation2D_wrapper_navpoly_add(WasGoID wasgo_id, WasGoID p_mesh, const uint8_t * p_xform, int wasgo_throwaway, int p_xform_wasgo_buffer_size, WasGoID p_owner);
 void _wasgo_Navigation2D_wrapper_navpoly_remove(WasGoID wasgo_id, int p_id);
-void _wasgo_Navigation2D_wrapper_navpoly_set_transform(WasGoID wasgo_id, int p_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
+void _wasgo_Navigation2D_wrapper_navpoly_set_transform(WasGoID wasgo_id, int p_id, const uint8_t * p_xform, int wasgo_throwaway, int p_xform_wasgo_buffer_size);
 
     //constructor wrappers
     WasGoID _wasgo_Navigation2D_constructor();

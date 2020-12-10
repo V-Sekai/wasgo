@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
-#include "Button.h"
 #include "ColorPicker.h"
+#include "Button.h"
 #include "PopupPanel.h"
+#include "Color.h"
 class ColorPickerButton : public Button{
 public:
 Color get_pick_color();

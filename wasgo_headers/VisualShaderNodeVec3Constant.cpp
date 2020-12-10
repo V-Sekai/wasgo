@@ -8,7 +8,7 @@ Vector3 VisualShaderNodeVec3Constant::get_constant(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_VisualShaderNodeVec3Constant_wrapper_get_constant(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 void VisualShaderNodeVec3Constant::set_constant(Vector3 p_value){

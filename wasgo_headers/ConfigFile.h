@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Variant.h"
-#include "Reference.h"
 #include "Ustring.h"
+#include "Reference.h"
 #include "error_list.h"
+#include "Variant.h"
 class ConfigFile : public Reference{
 public:
 void erase_section(String p_section);
@@ -41,20 +41,20 @@ operator bool();
 //Wrapper Functions
 extern "C"{
 void _wasgo_ConfigFile_wrapper_erase_section(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size);
-void _wasgo_ConfigFile_wrapper_erase_section_key(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size);
+void _wasgo_ConfigFile_wrapper_erase_section_key(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_key, int p_key_wasgo_buffer_size);
 WasGoID _wasgo_ConfigFile_wrapper_get_section_keys(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size);
 WasGoID _wasgo_ConfigFile_wrapper_get_sections(WasGoID wasgo_id);
-WasGoID _wasgo_ConfigFile_wrapper_get_value(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size, WasGoID p_default);
+void _wasgo_ConfigFile_wrapper_get_value(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size, const uint8_t * p_default, int p_default_wasgo_buffer_size);
 int _wasgo_ConfigFile_wrapper_has_section(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size);
-int _wasgo_ConfigFile_wrapper_has_section_key(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size);
+int _wasgo_ConfigFile_wrapper_has_section_key(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_key, int p_key_wasgo_buffer_size);
 WasGoID _wasgo_ConfigFile_wrapper_load(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoID _wasgo_ConfigFile_wrapper_load_encrypted(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_key);
-WasGoID _wasgo_ConfigFile_wrapper_load_encrypted_pass(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, const uint8_t * p_password, int p_password_wasgo_buffer_size);
+WasGoID _wasgo_ConfigFile_wrapper_load_encrypted(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_key);
+WasGoID _wasgo_ConfigFile_wrapper_load_encrypted_pass(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_password, int p_password_wasgo_buffer_size);
 WasGoID _wasgo_ConfigFile_wrapper_parse(WasGoID wasgo_id, const uint8_t * p_data, int p_data_wasgo_buffer_size);
 WasGoID _wasgo_ConfigFile_wrapper_save(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoID _wasgo_ConfigFile_wrapper_save_encrypted(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_key);
-WasGoID _wasgo_ConfigFile_wrapper_save_encrypted_pass(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, const uint8_t * p_password, int p_password_wasgo_buffer_size);
-void _wasgo_ConfigFile_wrapper_set_value(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, const uint8_t * p_key, int p_key_wasgo_buffer_size, WasGoID p_value);
+WasGoID _wasgo_ConfigFile_wrapper_save_encrypted(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_key);
+WasGoID _wasgo_ConfigFile_wrapper_save_encrypted_pass(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_password, int p_password_wasgo_buffer_size);
+void _wasgo_ConfigFile_wrapper_set_value(WasGoID wasgo_id, const uint8_t * p_section, int p_section_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_key, int p_key_wasgo_buffer_size, const uint8_t * p_value, int p_value_wasgo_buffer_size);
 
     //constructor wrappers
     WasGoID _wasgo_ConfigFile_constructor();

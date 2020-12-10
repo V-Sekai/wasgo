@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "AnimationNode.h"
-#include "Node.h"
 #include "NodePath.h"
 #include "Transform.h"
 #include "Ustring.h"
+#include "Node.h"
+#include "AnimationNode.h"
 class AnimationTree : public Node{
 public:
 enum AnimationProcessMode{
@@ -51,7 +51,7 @@ void _wasgo_AnimationTree_wrapper_get_root_motion_track(WasGoID wasgo_id, uint8_
 void _wasgo_AnimationTree_wrapper_get_root_motion_transform(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 WasGoID _wasgo_AnimationTree_wrapper_get_tree_root(WasGoID wasgo_id);
 int _wasgo_AnimationTree_wrapper_is_active(WasGoID wasgo_id);
-void _wasgo_AnimationTree_wrapper_rename_parameter(WasGoID wasgo_id, const uint8_t * p_old_name, int p_old_name_wasgo_buffer_size, const uint8_t * p_new_name, int p_new_name_wasgo_buffer_size);
+void _wasgo_AnimationTree_wrapper_rename_parameter(WasGoID wasgo_id, const uint8_t * p_old_name, int p_old_name_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_new_name, int p_new_name_wasgo_buffer_size);
 void _wasgo_AnimationTree_wrapper_set_active(WasGoID wasgo_id, bool p_active);
 void _wasgo_AnimationTree_wrapper_set_animation_player(WasGoID wasgo_id, const uint8_t * p_root, int p_root_wasgo_buffer_size);
 void _wasgo_AnimationTree_wrapper_set_process_mode(WasGoID wasgo_id, WasGoID p_mode);

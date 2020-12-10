@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
 #include "Control.h"
+#include "Color.h"
 class ColorRect : public Control{
 public:
 Color get_frame_color();

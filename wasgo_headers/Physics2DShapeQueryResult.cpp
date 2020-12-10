@@ -16,11 +16,11 @@ int Physics2DShapeQueryResult::get_result_object_shape(int p_idx){
 RID Physics2DShapeQueryResult::get_result_rid(int p_idx){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
-    _wasgo_Physics2DShapeQueryResult_wrapper_get_result_rid(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_idx);
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_Physics2DShapeQueryResult_wrapper_get_result_rid(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 

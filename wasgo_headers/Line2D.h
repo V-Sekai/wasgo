@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
-#include "Vector2.h"
-#include "Gradient.h"
-#include "Variant.h"
 #include "Curve.h"
+#include "Gradient.h"
 #include "Node2D.h"
+#include "Variant.h"
+#include "Vector2.h"
 #include "Texture.h"
+#include "Color.h"
 class Line2D : public Node2D{
 public:
 enum LineCapMode{
@@ -75,7 +75,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_Line2D_wrapper_add_point(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, int p_at_position);
+void _wasgo_Line2D_wrapper_add_point(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, int wasgo_throwaway, int p_at_position);
 void _wasgo_Line2D_wrapper_clear_points(WasGoID wasgo_id);
 int _wasgo_Line2D_wrapper_get_antialiased(WasGoID wasgo_id);
 WasGoID _wasgo_Line2D_wrapper_get_begin_cap_mode(WasGoID wasgo_id);
@@ -85,7 +85,7 @@ WasGoID _wasgo_Line2D_wrapper_get_end_cap_mode(WasGoID wasgo_id);
 WasGoID _wasgo_Line2D_wrapper_get_gradient(WasGoID wasgo_id);
 WasGoID _wasgo_Line2D_wrapper_get_joint_mode(WasGoID wasgo_id);
 int _wasgo_Line2D_wrapper_get_point_count(WasGoID wasgo_id);
-void _wasgo_Line2D_wrapper_get_point_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_i);
+void _wasgo_Line2D_wrapper_get_point_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_i);
 WasGoID _wasgo_Line2D_wrapper_get_points(WasGoID wasgo_id);
 int _wasgo_Line2D_wrapper_get_round_precision(WasGoID wasgo_id);
 float _wasgo_Line2D_wrapper_get_sharp_limit(WasGoID wasgo_id);
@@ -100,7 +100,7 @@ void _wasgo_Line2D_wrapper_set_default_color(WasGoID wasgo_id, const uint8_t * p
 void _wasgo_Line2D_wrapper_set_end_cap_mode(WasGoID wasgo_id, WasGoID p_mode);
 void _wasgo_Line2D_wrapper_set_gradient(WasGoID wasgo_id, WasGoID p_color);
 void _wasgo_Line2D_wrapper_set_joint_mode(WasGoID wasgo_id, WasGoID p_mode);
-void _wasgo_Line2D_wrapper_set_point_position(WasGoID wasgo_id, int p_i, const uint8_t * p_position, int p_position_wasgo_buffer_size);
+void _wasgo_Line2D_wrapper_set_point_position(WasGoID wasgo_id, int p_i, const uint8_t * p_position, int wasgo_throwaway, int p_position_wasgo_buffer_size);
 void _wasgo_Line2D_wrapper_set_points(WasGoID wasgo_id, WasGoID p_points);
 void _wasgo_Line2D_wrapper_set_round_precision(WasGoID wasgo_id, int p_precision);
 void _wasgo_Line2D_wrapper_set_sharp_limit(WasGoID wasgo_id, float p_limit);

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
 #include "Mesh.h"
+#include "Vector2.h"
 #include "Texture.h"
 class MeshTexture : public Texture{
 public:

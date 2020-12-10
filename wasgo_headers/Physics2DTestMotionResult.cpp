@@ -10,11 +10,11 @@ int Physics2DTestMotionResult::get_collider_id(){
 RID Physics2DTestMotionResult::get_collider_rid(){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
     _wasgo_Physics2DTestMotionResult_wrapper_get_collider_rid(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Physics2DTestMotionResult::get_collider_shape(){
@@ -27,7 +27,7 @@ Vector2 Physics2DTestMotionResult::get_collider_velocity(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Physics2DTestMotionResult_wrapper_get_collider_velocity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 Physics2DTestMotionResult::get_collision_normal(){
@@ -37,7 +37,7 @@ Vector2 Physics2DTestMotionResult::get_collision_normal(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Physics2DTestMotionResult_wrapper_get_collision_normal(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 Physics2DTestMotionResult::get_collision_point(){
@@ -47,7 +47,7 @@ Vector2 Physics2DTestMotionResult::get_collision_point(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Physics2DTestMotionResult_wrapper_get_collision_point(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 Physics2DTestMotionResult::get_motion(){
@@ -57,7 +57,7 @@ Vector2 Physics2DTestMotionResult::get_motion(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Physics2DTestMotionResult_wrapper_get_motion(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 Physics2DTestMotionResult::get_motion_remainder(){
@@ -67,7 +67,7 @@ Vector2 Physics2DTestMotionResult::get_motion_remainder(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Physics2DTestMotionResult_wrapper_get_motion_remainder(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 

@@ -4942,32 +4942,6 @@
 				"name": "value_track_get_update_mode",
 				"return_type": "Animation::UpdateMode"
 			},
-			"value_track_interpolate": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "track_idx",
-						"type": "int"
-					},
-					"1": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "time_sec",
-						"type": "float"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 8,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "value_track_interpolate",
-				"return_type": "Variant"
-			},
 			"value_track_set_update_mode": {
 				"arguments": {
 					"0": {
@@ -32717,7 +32691,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": true,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -32758,7 +32732,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": true,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -32949,7 +32923,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": true,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -33035,7 +33009,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": true,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -33261,7 +33235,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": true,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -33382,7 +33356,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": true,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -33428,7 +33402,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": true,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -33489,7 +33463,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": true,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -33535,7 +33509,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": true,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -33621,7 +33595,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": true,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -38149,23 +38123,6 @@
 		"name": "DynamicFont",
 		"singleton": false
 	},
-	"DynamicFontAtSize": {
-		"api_type": "core",
-		"base_class": "Reference",
-		"constants": {
-
-		},
-		"enums": {
-
-		},
-		"instanciable": false,
-		"is_reference": false,
-		"methods": {
-
-		},
-		"name": "DynamicFontAtSize",
-		"singleton": false
-	},
 	"DynamicFontData": {
 		"api_type": "core",
 		"base_class": "Resource",
@@ -38532,9 +38489,9 @@
 				"1": "FEATURE_SCRIPT",
 				"2": "FEATURE_ASSET_LIB",
 				"3": "FEATURE_SCENE_TREE",
-				"4": "FEATURE_NODE_DOCK",
-				"5": "FEATURE_FILESYSTEM_DOCK",
-				"6": "FEATURE_IMPORT_DOCK",
+				"4": "FEATURE_IMPORT_DOCK",
+				"5": "FEATURE_NODE_DOCK",
+				"6": "FEATURE_FILESYSTEM_DOCK",
 				"7": "FEATURE_MAX"
 			}
 		},
@@ -40371,12 +40328,6 @@
 						"has_default_value": true,
 						"name": "for_property",
 						"type": "String"
-					},
-					"2": {
-						"default_value": false,
-						"has_default_value": true,
-						"name": "inspector_only",
-						"type": "bool"
 					}
 				},
 				"has_vararg": 0,
@@ -41198,46 +41149,6 @@
 				"is_virtual": 32,
 				"name": "forward_canvas_gui_input",
 				"return_type": "bool"
-			},
-			"forward_spatial_draw_over_viewport": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "overlay",
-						"type": "Control"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 32,
-				"name": "forward_spatial_draw_over_viewport",
-				"return_type": null
-			},
-			"forward_spatial_force_draw_over_viewport": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "overlay",
-						"type": "Control"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 32,
-				"name": "forward_spatial_force_draw_over_viewport",
-				"return_type": null
 			},
 			"forward_spatial_gui_input": {
 				"arguments": {
@@ -43907,7 +43818,7 @@
 				"is_reverse": 0,
 				"is_virtual": 32,
 				"name": "get_priority",
-				"return_type": "int"
+				"return_type": "String"
 			},
 			"has_gizmo": {
 				"arguments": {
@@ -49548,21 +49459,6 @@
 				"name": "call_funcv",
 				"return_type": "Variant"
 			},
-			"get_function": {
-				"arguments": {
-
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "get_function",
-				"return_type": "String"
-			},
 			"is_valid": {
 				"arguments": {
 
@@ -52298,7 +52194,7 @@
 					}
 				},
 				"has_vararg": 0,
-				"is_const": 0,
+				"is_const": 8,
 				"is_editor": 0,
 				"is_from_script": 0,
 				"is_normal": 1,
@@ -52333,7 +52229,7 @@
 					}
 				},
 				"has_vararg": 0,
-				"is_const": 0,
+				"is_const": 8,
 				"is_editor": 0,
 				"is_from_script": 0,
 				"is_normal": 1,
@@ -56190,26 +56086,6 @@
 				"is_reverse": 0,
 				"is_virtual": 0,
 				"name": "load",
-				"return_type": "Error"
-			},
-			"load_bmp_from_buffer": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "buffer",
-						"type": "PoolByteArray"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "load_bmp_from_buffer",
 				"return_type": "Error"
 			},
 			"load_jpg_from_buffer": {
@@ -66248,21 +66124,6 @@
 				"name": "get_right_icon",
 				"return_type": "Texture"
 			},
-			"get_scroll_offset": {
-				"arguments": {
-
-				},
-				"has_vararg": 0,
-				"is_const": 8,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "get_scroll_offset",
-				"return_type": "int"
-			},
 			"get_secret_character": {
 				"arguments": {
 
@@ -68700,26 +68561,6 @@
 				"name": "create_trimesh_collision",
 				"return_type": null
 			},
-			"get_active_material": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "surface",
-						"type": "int"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 8,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "get_active_material",
-				"return_type": "Material"
-			},
 			"get_mesh": {
 				"arguments": {
 
@@ -68800,21 +68641,6 @@
 				"name": "get_surface_material_count",
 				"return_type": "int"
 			},
-			"is_software_skinning_transform_normals_enabled": {
-				"arguments": {
-
-				},
-				"has_vararg": 0,
-				"is_const": 8,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "is_software_skinning_transform_normals_enabled",
-				"return_type": "bool"
-			},
 			"set_mesh": {
 				"arguments": {
 					"0": {
@@ -68873,26 +68699,6 @@
 				"is_reverse": 0,
 				"is_virtual": 0,
 				"name": "set_skin",
-				"return_type": null
-			},
-			"set_software_skinning_transform_normals": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "enabled",
-						"type": "bool"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "set_software_skinning_transform_normals",
 				"return_type": null
 			},
 			"set_surface_material": {
@@ -75130,13 +74936,6 @@
 
 		},
 		"enums": {
-			"HandleType": {
-				"0": "APPLICATION_HANDLE",
-				"1": "DISPLAY_HANDLE",
-				"2": "WINDOW_HANDLE",
-				"3": "WINDOW_VIEW",
-				"4": "OPENGL_CONTEXT"
-			},
 			"Month": {
 				"0": "MONTH_JANUARY",
 				"1": "MONTH_FEBRUARY",
@@ -75840,26 +75639,6 @@
 				"is_virtual": 0,
 				"name": "get_name",
 				"return_type": "String"
-			},
-			"get_native_handle": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "handle_type",
-						"type": "OS::HandleType"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "get_native_handle",
-				"return_type": "int"
 			},
 			"get_power_percent_left": {
 				"arguments": {
@@ -77706,26 +77485,6 @@
 				"is_reverse": 0,
 				"is_virtual": 0,
 				"name": "set_window_minimized",
-				"return_type": null
-			},
-			"set_window_mouse_passthrough": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "region",
-						"type": "PoolVector2Array"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "set_window_mouse_passthrough",
 				"return_type": null
 			},
 			"set_window_per_pixel_transparency_enabled": {
@@ -97315,12 +97074,6 @@
 						"has_default_value": true,
 						"name": "replace_files",
 						"type": "bool"
-					},
-					"2": {
-						"default_value": 0,
-						"has_default_value": true,
-						"name": "offset",
-						"type": "int"
 					}
 				},
 				"has_vararg": 0,
@@ -99563,21 +99316,6 @@
 				"name": "get_border_color",
 				"return_type": "Color"
 			},
-			"get_border_width": {
-				"arguments": {
-
-				},
-				"has_vararg": 0,
-				"is_const": 8,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "get_border_width",
-				"return_type": "float"
-			},
 			"get_editor_only": {
 				"arguments": {
 
@@ -99611,26 +99349,6 @@
 				"is_reverse": 0,
 				"is_virtual": 0,
 				"name": "set_border_color",
-				"return_type": null
-			},
-			"set_border_width": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "width",
-						"type": "float"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "set_border_width",
 				"return_type": null
 			},
 			"set_editor_only": {
@@ -119601,21 +119319,6 @@
 				"name": "get_offset_buttons_visible",
 				"return_type": "bool"
 			},
-			"get_previous_tab": {
-				"arguments": {
-
-				},
-				"has_vararg": 0,
-				"is_const": 8,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "get_previous_tab",
-				"return_type": "int"
-			},
 			"get_scrolling_enabled": {
 				"arguments": {
 
@@ -123484,7 +123187,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123510,7 +123213,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123536,7 +123239,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123562,7 +123265,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123588,7 +123291,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123649,7 +123352,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123669,7 +123372,7 @@
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123695,7 +123398,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123715,7 +123418,7 @@
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123756,7 +123459,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123776,7 +123479,7 @@
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123802,7 +123505,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123822,7 +123525,7 @@
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123848,7 +123551,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123868,7 +123571,7 @@
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123903,7 +123606,7 @@
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123929,7 +123632,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123955,7 +123658,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -123981,7 +123684,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -124007,7 +123710,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -124033,7 +123736,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					}
 				},
@@ -124059,7 +123762,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					},
 					"2": {
@@ -124091,7 +123794,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					},
 					"2": {
@@ -124143,7 +123846,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					},
 					"2": {
@@ -124175,7 +123878,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					},
 					"2": {
@@ -124207,7 +123910,7 @@
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "node_type",
+						"name": "type",
 						"type": "String"
 					},
 					"2": {
@@ -133416,36 +133119,6 @@
 				"name": "get_usage",
 				"return_type": "Viewport::Usage"
 			},
-			"get_use_debanding": {
-				"arguments": {
-
-				},
-				"has_vararg": 0,
-				"is_const": 8,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "get_use_debanding",
-				"return_type": "bool"
-			},
-			"get_use_fxaa": {
-				"arguments": {
-
-				},
-				"has_vararg": 0,
-				"is_const": 8,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "get_use_fxaa",
-				"return_type": "bool"
-			},
 			"get_vflip": {
 				"arguments": {
 
@@ -134277,46 +133950,6 @@
 				"is_reverse": 0,
 				"is_virtual": 0,
 				"name": "set_use_arvr",
-				"return_type": null
-			},
-			"set_use_debanding": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "enable",
-						"type": "bool"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "set_use_debanding",
-				"return_type": null
-			},
-			"set_use_fxaa": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "enable",
-						"type": "bool"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "set_use_fxaa",
 				"return_type": null
 			},
 			"set_use_own_world": {
@@ -135213,11 +134846,6 @@
 				"8": "INSTANCE_LIGHTMAP_CAPTURE",
 				"9": "INSTANCE_MAX",
 				"10": "INSTANCE_GEOMETRY_MASK"
-			},
-			"LightBakeMode": {
-				"0": "LIGHT_BAKE_DISABLED",
-				"1": "LIGHT_BAKE_INDIRECT",
-				"2": "LIGHT_BAKE_ALL"
 			},
 			"LightDirectionalShadowDepthRangeMode": {
 				"0": "LIGHT_DIRECTIONAL_SHADOW_DEPTH_RANGE_STABLE",
@@ -140524,32 +140152,6 @@
 				"name": "light_omni_set_shadow_mode",
 				"return_type": null
 			},
-			"light_set_bake_mode": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "light",
-						"type": "RID"
-					},
-					"1": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "bake_mode",
-						"type": "VisualServer::LightBakeMode"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "light_set_bake_mode",
-				"return_type": null
-			},
 			"light_set_color": {
 				"arguments": {
 					"0": {
@@ -145362,58 +144964,6 @@
 				"name": "viewport_set_use_arvr",
 				"return_type": null
 			},
-			"viewport_set_use_debanding": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "viewport",
-						"type": "RID"
-					},
-					"1": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "debanding",
-						"type": "bool"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "viewport_set_use_debanding",
-				"return_type": null
-			},
-			"viewport_set_use_fxaa": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "viewport",
-						"type": "RID"
-					},
-					"1": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "fxaa",
-						"type": "bool"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "viewport_set_use_fxaa",
-				"return_type": null
-			},
 			"viewport_set_vflip": {
 				"arguments": {
 					"0": {
@@ -148344,57 +147894,6 @@
 		"name": "VisualShaderNodeUniform",
 		"singleton": false
 	},
-	"VisualShaderNodeUniformRef": {
-		"api_type": "core",
-		"base_class": "VisualShaderNode",
-		"constants": {
-
-		},
-		"enums": {
-
-		},
-		"instanciable": true,
-		"is_reference": false,
-		"methods": {
-			"get_uniform_name": {
-				"arguments": {
-
-				},
-				"has_vararg": 0,
-				"is_const": 8,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "get_uniform_name",
-				"return_type": "String"
-			},
-			"set_uniform_name": {
-				"arguments": {
-					"0": {
-						"default_value": "",
-						"has_default_value": false,
-						"name": "name",
-						"type": "String"
-					}
-				},
-				"has_vararg": 0,
-				"is_const": 0,
-				"is_editor": 0,
-				"is_from_script": 0,
-				"is_normal": 1,
-				"is_noscript": 0,
-				"is_reverse": 0,
-				"is_virtual": 0,
-				"name": "set_uniform_name",
-				"return_type": null
-			}
-		},
-		"name": "VisualShaderNodeUniformRef",
-		"singleton": false
-	},
 	"VisualShaderNodeVec3Constant": {
 		"api_type": "core",
 		"base_class": "VisualShaderNode",
@@ -148915,12 +148414,12 @@
 				"name": "get_properties",
 				"return_type": "Dictionary"
 			},
-			"get_property": {
+			"get_property_aabb": {
 				"arguments": {
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "arg0",
+						"name": "property",
 						"type": "String"
 					}
 				},
@@ -148932,8 +148431,288 @@
 				"is_noscript": 0,
 				"is_reverse": 0,
 				"is_virtual": 0,
-				"name": "get_property",
-				"return_type": "Variant"
+				"name": "get_property_aabb",
+				"return_type": "AABB"
+			},
+			"get_property_basis": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_basis",
+				"return_type": "Basis"
+			},
+			"get_property_bool": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_bool",
+				"return_type": "bool"
+			},
+			"get_property_color": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_color",
+				"return_type": "Color"
+			},
+			"get_property_float": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_float",
+				"return_type": "float"
+			},
+			"get_property_int": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_int",
+				"return_type": "int"
+			},
+			"get_property_nodepath": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_nodepath",
+				"return_type": "NodePath"
+			},
+			"get_property_plane": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_plane",
+				"return_type": "Plane"
+			},
+			"get_property_quat": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_quat",
+				"return_type": "Quat"
+			},
+			"get_property_rect2": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_rect2",
+				"return_type": "Rect2"
+			},
+			"get_property_string": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_string",
+				"return_type": "String"
+			},
+			"get_property_transform": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_transform",
+				"return_type": "Transform"
+			},
+			"get_property_transform2d": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_transform2d",
+				"return_type": "Transform2D"
+			},
+			"get_property_vector2": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_vector2",
+				"return_type": "Vector2"
+			},
+			"get_property_vector3": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "get_property_vector3",
+				"return_type": "Vector3"
 			},
 			"get_stack_size": {
 				"arguments": {
@@ -148970,7 +148749,7 @@
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "p_heap_size",
+						"name": "heap_size",
 						"type": "int"
 					}
 				},
@@ -148985,12 +148764,38 @@
 				"name": "set_heap_size",
 				"return_type": null
 			},
+			"set_int_property": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "int"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "key",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_int_property",
+				"return_type": null
+			},
 			"set_properties": {
 				"arguments": {
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "p_properties",
+						"name": "properties",
 						"type": "Dictionary"
 					}
 				},
@@ -149005,19 +148810,19 @@
 				"name": "set_properties",
 				"return_type": null
 			},
-			"set_property": {
+			"set_property_aabb": {
 				"arguments": {
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "p_property",
+						"name": "property",
 						"type": "String"
 					},
 					"1": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "arg1",
-						"type": "Variant"
+						"name": "value",
+						"type": "AABB"
 					}
 				},
 				"has_vararg": 0,
@@ -149028,7 +148833,371 @@
 				"is_noscript": 0,
 				"is_reverse": 0,
 				"is_virtual": 0,
-				"name": "set_property",
+				"name": "set_property_aabb",
+				"return_type": null
+			},
+			"set_property_basis": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "Basis"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_basis",
+				"return_type": null
+			},
+			"set_property_bool": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "bool"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_bool",
+				"return_type": null
+			},
+			"set_property_color": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "Color"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_color",
+				"return_type": null
+			},
+			"set_property_float": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "float"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_float",
+				"return_type": null
+			},
+			"set_property_int": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "int"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_int",
+				"return_type": null
+			},
+			"set_property_nodepath": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "NodePath"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_nodepath",
+				"return_type": null
+			},
+			"set_property_plane": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "Plane"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_plane",
+				"return_type": null
+			},
+			"set_property_quat": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "Quat"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_quat",
+				"return_type": null
+			},
+			"set_property_rect2": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "Rect2"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_rect2",
+				"return_type": null
+			},
+			"set_property_string": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "String"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_string",
+				"return_type": null
+			},
+			"set_property_transform": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "Transform"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_transform",
+				"return_type": null
+			},
+			"set_property_transform2d": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "Transform2D"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_transform2d",
+				"return_type": null
+			},
+			"set_property_vector2": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "Vector2"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_vector2",
+				"return_type": null
+			},
+			"set_property_vector3": {
+				"arguments": {
+					"0": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "property",
+						"type": "String"
+					},
+					"1": {
+						"default_value": "",
+						"has_default_value": false,
+						"name": "value",
+						"type": "Vector3"
+					}
+				},
+				"has_vararg": 0,
+				"is_const": 0,
+				"is_editor": 0,
+				"is_from_script": 0,
+				"is_normal": 1,
+				"is_noscript": 0,
+				"is_reverse": 0,
+				"is_virtual": 0,
+				"name": "set_property_vector3",
 				"return_type": null
 			},
 			"set_stack_size": {
@@ -149036,7 +149205,7 @@
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "p_stack_size",
+						"name": "stack_size",
 						"type": "int"
 					}
 				},
@@ -149056,7 +149225,7 @@
 					"0": {
 						"default_value": "",
 						"has_default_value": false,
-						"name": "p_wasm_script",
+						"name": "wasm_script",
 						"type": "WasmResource"
 					}
 				},

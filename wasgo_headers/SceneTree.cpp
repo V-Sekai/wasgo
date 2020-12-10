@@ -4,37 +4,51 @@
 Variant SceneTree::call_group(String p_group, String p_method){
 
     Variant wasgo_var_group = p_group;
-    int wasgo_size_group = String(p_group).size();
+    int wasgo_size_group = 10 + String(p_group).size();
     uint8_t wasgo_buffer_group[wasgo_size_group];
     encode_variant(wasgo_var_group, wasgo_buffer_group, wasgo_size_group);
     
 
     Variant wasgo_var_method = p_method;
-    int wasgo_size_method = String(p_method).size();
+    int wasgo_size_method = 10 + String(p_method).size();
     uint8_t wasgo_buffer_method[wasgo_size_method];
     encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
     
-	return Variant(_wasgo_SceneTree_wrapper_call_group(wasgo_id, wasgo_buffer_group, wasgo_size_group, wasgo_buffer_method, wasgo_size_method));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_SceneTree_wrapper_call_group(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_group, wasgo_size_group, wasgo_buffer_method, wasgo_size_method);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 Variant SceneTree::call_group_flags(int p_flags, String p_group, String p_method){
 
     Variant wasgo_var_group = p_group;
-    int wasgo_size_group = String(p_group).size();
+    int wasgo_size_group = 10 + String(p_group).size();
     uint8_t wasgo_buffer_group[wasgo_size_group];
     encode_variant(wasgo_var_group, wasgo_buffer_group, wasgo_size_group);
     
 
     Variant wasgo_var_method = p_method;
-    int wasgo_size_method = String(p_method).size();
+    int wasgo_size_method = 10 + String(p_method).size();
     uint8_t wasgo_buffer_method[wasgo_size_method];
     encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
     
-	return Variant(_wasgo_SceneTree_wrapper_call_group_flags(wasgo_id, p_flags, wasgo_buffer_group, wasgo_size_group, wasgo_buffer_method, wasgo_size_method));
+
+    Variant wasgo_ret;
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
+    _wasgo_SceneTree_wrapper_call_group_flags(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_flags, wasgo_buffer_group, wasgo_size_group, wasgo_buffer_method, wasgo_size_method);
+    decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
+    return wasgo_ret;
+    
 }
 Error SceneTree::change_scene(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
@@ -73,7 +87,7 @@ int SceneTree::get_node_count(){
 Array SceneTree::get_nodes_in_group(String p_group){
 
     Variant wasgo_var_group = p_group;
-    int wasgo_size_group = String(p_group).size();
+    int wasgo_size_group = 10 + String(p_group).size();
     uint8_t wasgo_buffer_group[wasgo_size_group];
     encode_variant(wasgo_var_group, wasgo_buffer_group, wasgo_size_group);
     
@@ -88,7 +102,7 @@ int SceneTree::get_rpc_sender_id(){
 bool SceneTree::has_group(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -124,20 +138,20 @@ bool SceneTree::is_using_font_oversampling(){
 void SceneTree::notify_group(String p_group, int p_notification){
 
     Variant wasgo_var_group = p_group;
-    int wasgo_size_group = String(p_group).size();
+    int wasgo_size_group = 10 + String(p_group).size();
     uint8_t wasgo_buffer_group[wasgo_size_group];
     encode_variant(wasgo_var_group, wasgo_buffer_group, wasgo_size_group);
     
-	_wasgo_SceneTree_wrapper_notify_group(wasgo_id, wasgo_buffer_group, wasgo_size_group, p_notification);
+	_wasgo_SceneTree_wrapper_notify_group(wasgo_id, wasgo_buffer_group, wasgo_size_group, -69, p_notification);
 }
 void SceneTree::notify_group_flags(int p_call_flags, String p_group, int p_notification){
 
     Variant wasgo_var_group = p_group;
-    int wasgo_size_group = String(p_group).size();
+    int wasgo_size_group = 10 + String(p_group).size();
     uint8_t wasgo_buffer_group[wasgo_size_group];
     encode_variant(wasgo_var_group, wasgo_buffer_group, wasgo_size_group);
     
-	_wasgo_SceneTree_wrapper_notify_group_flags(wasgo_id, p_call_flags, wasgo_buffer_group, wasgo_size_group, p_notification);
+	_wasgo_SceneTree_wrapper_notify_group_flags(wasgo_id, p_call_flags, wasgo_buffer_group, wasgo_size_group, wasgo_size_group, p_notification);
 }
 void SceneTree::queue_delete(Object p_obj){
 	_wasgo_SceneTree_wrapper_queue_delete(wasgo_id, p_obj._get_wasgo_id());
@@ -166,32 +180,44 @@ void SceneTree::set_edited_scene_root(Node p_scene){
 void SceneTree::set_group(String p_group, String p_property, Variant p_value){
 
     Variant wasgo_var_group = p_group;
-    int wasgo_size_group = String(p_group).size();
+    int wasgo_size_group = 10 + String(p_group).size();
     uint8_t wasgo_buffer_group[wasgo_size_group];
     encode_variant(wasgo_var_group, wasgo_buffer_group, wasgo_size_group);
     
 
     Variant wasgo_var_property = p_property;
-    int wasgo_size_property = String(p_property).size();
+    int wasgo_size_property = 10 + String(p_property).size();
     uint8_t wasgo_buffer_property[wasgo_size_property];
     encode_variant(wasgo_var_property, wasgo_buffer_property, wasgo_size_property);
     
-	_wasgo_SceneTree_wrapper_set_group(wasgo_id, wasgo_buffer_group, wasgo_size_group, wasgo_buffer_property, wasgo_size_property, p_value._get_wasgo_id());
+
+    Variant wasgo_var_value = p_value;
+    uint8_t wasgo_buffer_value[256];
+    int wasgo_size_value = 256;
+    encode_variant(wasgo_var_value, wasgo_buffer_value, wasgo_size_value);
+    
+	_wasgo_SceneTree_wrapper_set_group(wasgo_id, wasgo_buffer_group, wasgo_size_group, -69, wasgo_buffer_property, wasgo_size_property, wasgo_buffer_value, wasgo_size_value);
 }
 void SceneTree::set_group_flags(int p_call_flags, String p_group, String p_property, Variant p_value){
 
     Variant wasgo_var_group = p_group;
-    int wasgo_size_group = String(p_group).size();
+    int wasgo_size_group = 10 + String(p_group).size();
     uint8_t wasgo_buffer_group[wasgo_size_group];
     encode_variant(wasgo_var_group, wasgo_buffer_group, wasgo_size_group);
     
 
     Variant wasgo_var_property = p_property;
-    int wasgo_size_property = String(p_property).size();
+    int wasgo_size_property = 10 + String(p_property).size();
     uint8_t wasgo_buffer_property[wasgo_size_property];
     encode_variant(wasgo_var_property, wasgo_buffer_property, wasgo_size_property);
     
-	_wasgo_SceneTree_wrapper_set_group_flags(wasgo_id, p_call_flags, wasgo_buffer_group, wasgo_size_group, wasgo_buffer_property, wasgo_size_property, p_value._get_wasgo_id());
+
+    Variant wasgo_var_value = p_value;
+    uint8_t wasgo_buffer_value[256];
+    int wasgo_size_value = 256;
+    encode_variant(wasgo_var_value, wasgo_buffer_value, wasgo_size_value);
+    
+	_wasgo_SceneTree_wrapper_set_group_flags(wasgo_id, p_call_flags, wasgo_buffer_group, wasgo_size_group, wasgo_size_group, wasgo_buffer_property, wasgo_size_property, wasgo_buffer_value, wasgo_size_value);
 }
 void SceneTree::set_input_as_handled(){
 	_wasgo_SceneTree_wrapper_set_input_as_handled(wasgo_id);
@@ -221,7 +247,7 @@ void SceneTree::set_screen_stretch(SceneTree::StretchMode p_mode, SceneTree::Str
     int wasgo_size_minsize = 12;
     encode_variant(wasgo_var_minsize, wasgo_buffer_minsize, wasgo_size_minsize);
     
-	_wasgo_SceneTree_wrapper_set_screen_stretch(wasgo_id, p_mode._get_wasgo_id(), p_aspect._get_wasgo_id(), wasgo_buffer_minsize, wasgo_size_minsize, p_shrink);
+	_wasgo_SceneTree_wrapper_set_screen_stretch(wasgo_id, p_mode._get_wasgo_id(), p_aspect._get_wasgo_id(), -69, wasgo_buffer_minsize, wasgo_size_minsize, p_shrink);
 }
 void SceneTree::set_use_font_oversampling(bool p_enable){
 	_wasgo_SceneTree_wrapper_set_use_font_oversampling(wasgo_id, p_enable);

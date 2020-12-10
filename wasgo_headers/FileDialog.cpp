@@ -4,7 +4,7 @@
 void FileDialog::add_filter(String p_filter){
 
     Variant wasgo_var_filter = p_filter;
-    int wasgo_size_filter = String(p_filter).size();
+    int wasgo_size_filter = 10 + String(p_filter).size();
     uint8_t wasgo_buffer_filter[wasgo_size_filter];
     encode_variant(wasgo_var_filter, wasgo_buffer_filter, wasgo_size_filter);
     
@@ -26,7 +26,7 @@ String FileDialog::get_current_dir(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_FileDialog_wrapper_get_current_dir(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String FileDialog::get_current_file(){
@@ -36,7 +36,7 @@ String FileDialog::get_current_file(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_FileDialog_wrapper_get_current_file(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String FileDialog::get_current_path(){
@@ -46,7 +46,7 @@ String FileDialog::get_current_path(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_FileDialog_wrapper_get_current_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolStringArray FileDialog::get_filters(){
@@ -76,7 +76,7 @@ void FileDialog::set_access(FileDialog::Access p_access){
 void FileDialog::set_current_dir(String p_dir){
 
     Variant wasgo_var_dir = p_dir;
-    int wasgo_size_dir = String(p_dir).size();
+    int wasgo_size_dir = 10 + String(p_dir).size();
     uint8_t wasgo_buffer_dir[wasgo_size_dir];
     encode_variant(wasgo_var_dir, wasgo_buffer_dir, wasgo_size_dir);
     
@@ -85,7 +85,7 @@ void FileDialog::set_current_dir(String p_dir){
 void FileDialog::set_current_file(String p_file){
 
     Variant wasgo_var_file = p_file;
-    int wasgo_size_file = String(p_file).size();
+    int wasgo_size_file = 10 + String(p_file).size();
     uint8_t wasgo_buffer_file[wasgo_size_file];
     encode_variant(wasgo_var_file, wasgo_buffer_file, wasgo_size_file);
     
@@ -94,7 +94,7 @@ void FileDialog::set_current_file(String p_file){
 void FileDialog::set_current_path(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     

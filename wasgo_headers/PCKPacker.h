@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Reference.h"
 #include "Ustring.h"
+#include "Reference.h"
 #include "error_list.h"
 class PCKPacker : public Reference{
 public:
@@ -27,9 +27,9 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-WasGoID _wasgo_PCKPacker_wrapper_add_file(WasGoID wasgo_id, const uint8_t * p_pck_path, int p_pck_path_wasgo_buffer_size, const uint8_t * p_source_path, int p_source_path_wasgo_buffer_size);
+WasGoID _wasgo_PCKPacker_wrapper_add_file(WasGoID wasgo_id, const uint8_t * p_pck_path, int p_pck_path_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_source_path, int p_source_path_wasgo_buffer_size);
 WasGoID _wasgo_PCKPacker_wrapper_flush(WasGoID wasgo_id, bool p_verbose);
-WasGoID _wasgo_PCKPacker_wrapper_pck_start(WasGoID wasgo_id, const uint8_t * p_pck_name, int p_pck_name_wasgo_buffer_size, int p_alignment);
+WasGoID _wasgo_PCKPacker_wrapper_pck_start(WasGoID wasgo_id, const uint8_t * p_pck_name, int p_pck_name_wasgo_buffer_size, int wasgo_throwaway, int p_alignment);
 
     //constructor wrappers
     WasGoID _wasgo_PCKPacker_constructor();

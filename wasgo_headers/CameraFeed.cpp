@@ -11,7 +11,7 @@ String CameraFeed::get_name(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_CameraFeed_wrapper_get_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 CameraFeed::FeedPosition CameraFeed::get_position(){
@@ -24,7 +24,7 @@ Transform2D CameraFeed::get_transform(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_CameraFeed_wrapper_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool CameraFeed::is_active(){

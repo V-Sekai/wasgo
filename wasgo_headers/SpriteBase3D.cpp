@@ -23,7 +23,7 @@ Rect2 SpriteBase3D::get_item_rect(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_SpriteBase3D_wrapper_get_item_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Color SpriteBase3D::get_modulate(){
@@ -33,7 +33,7 @@ Color SpriteBase3D::get_modulate(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_SpriteBase3D_wrapper_get_modulate(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 SpriteBase3D::get_offset(){
@@ -43,7 +43,7 @@ Vector2 SpriteBase3D::get_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_SpriteBase3D_wrapper_get_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float SpriteBase3D::get_opacity(){

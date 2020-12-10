@@ -11,7 +11,7 @@ Vector2 InputEventScreenDrag::get_position(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_InputEventScreenDrag_wrapper_get_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 InputEventScreenDrag::get_relative(){
@@ -21,7 +21,7 @@ Vector2 InputEventScreenDrag::get_relative(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_InputEventScreenDrag_wrapper_get_relative(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 InputEventScreenDrag::get_speed(){
@@ -31,7 +31,7 @@ Vector2 InputEventScreenDrag::get_speed(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_InputEventScreenDrag_wrapper_get_speed(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 void InputEventScreenDrag::set_index(int p_index){

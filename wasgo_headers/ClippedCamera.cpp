@@ -7,8 +7,8 @@ void ClippedCamera::add_exception(Object p_node){
 void ClippedCamera::add_exception_rid(RID p_rid){
 
     Variant wasgo_var_rid = p_rid;
-    uint8_t wasgo_buffer_rid[0];
-    int wasgo_size_rid = 0;
+    uint8_t wasgo_buffer_rid[256];
+    int wasgo_size_rid = 256;
     encode_variant(wasgo_var_rid, wasgo_buffer_rid, wasgo_size_rid);
     
 	_wasgo_ClippedCamera_wrapper_add_exception_rid(wasgo_id, wasgo_buffer_rid, wasgo_size_rid);
@@ -43,8 +43,8 @@ void ClippedCamera::remove_exception(Object p_node){
 void ClippedCamera::remove_exception_rid(RID p_rid){
 
     Variant wasgo_var_rid = p_rid;
-    uint8_t wasgo_buffer_rid[0];
-    int wasgo_size_rid = 0;
+    uint8_t wasgo_buffer_rid[256];
+    int wasgo_size_rid = 256;
     encode_variant(wasgo_var_rid, wasgo_buffer_rid, wasgo_size_rid);
     
 	_wasgo_ClippedCamera_wrapper_remove_exception_rid(wasgo_id, wasgo_buffer_rid, wasgo_size_rid);

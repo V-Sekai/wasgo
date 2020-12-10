@@ -8,7 +8,7 @@ String AnimationNodeStateMachinePlayback::get_current_node(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AnimationNodeStateMachinePlayback_wrapper_get_current_node(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolStringArray AnimationNodeStateMachinePlayback::get_travel_path(){
@@ -20,7 +20,7 @@ bool AnimationNodeStateMachinePlayback::is_playing(){
 void AnimationNodeStateMachinePlayback::start(String p_node){
 
     Variant wasgo_var_node = p_node;
-    int wasgo_size_node = String(p_node).size();
+    int wasgo_size_node = 10 + String(p_node).size();
     uint8_t wasgo_buffer_node[wasgo_size_node];
     encode_variant(wasgo_var_node, wasgo_buffer_node, wasgo_size_node);
     
@@ -32,7 +32,7 @@ void AnimationNodeStateMachinePlayback::stop(){
 void AnimationNodeStateMachinePlayback::travel(String p_to_node){
 
     Variant wasgo_var_to_node = p_to_node;
-    int wasgo_size_to_node = String(p_to_node).size();
+    int wasgo_size_to_node = 10 + String(p_to_node).size();
     uint8_t wasgo_buffer_to_node[wasgo_size_to_node];
     encode_variant(wasgo_var_to_node, wasgo_buffer_to_node, wasgo_size_to_node);
     

@@ -8,7 +8,7 @@ String InputEventAction::get_action(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_InputEventAction_wrapper_get_action(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 float InputEventAction::get_strength(){
@@ -17,7 +17,7 @@ float InputEventAction::get_strength(){
 void InputEventAction::set_action(String p_action){
 
     Variant wasgo_var_action = p_action;
-    int wasgo_size_action = String(p_action).size();
+    int wasgo_size_action = 10 + String(p_action).size();
     uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     

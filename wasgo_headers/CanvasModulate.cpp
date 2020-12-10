@@ -8,7 +8,7 @@ Color CanvasModulate::get_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_CanvasModulate_wrapper_get_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 void CanvasModulate::set_color(Color p_color){

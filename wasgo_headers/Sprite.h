@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Texture.h"
 #include "Rect2.h"
-#include "Node2D.h"
 #include "Vector2.h"
+#include "Texture.h"
+#include "Node2D.h"
 class Sprite : public Node2D{
 public:
 int get_frame();

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Texture.h"
 #include "Rect2.h"
-#include "Control.h"
 #include "math_defs.h"
+#include "Control.h"
+#include "Texture.h"
 class NinePatchRect : public Control{
 public:
 enum AxisStretchMode{

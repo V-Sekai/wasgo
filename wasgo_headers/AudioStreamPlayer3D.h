@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Spatial.h"
-#include "Ustring.h"
 #include "AudioStream.h"
+#include "Ustring.h"
+#include "Spatial.h"
 #include "AudioStreamPlayback.h"
 class AudioStreamPlayer3D : public Spatial{
 public:

@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Variant.h"
-#include "Reference.h"
 #include "Ustring.h"
+#include "Reference.h"
 #include "error_list.h"
+#include "Variant.h"
 class File : public Reference{
 public:
 enum CompressionMode{
@@ -99,20 +99,20 @@ WasGoID _wasgo_File_wrapper_get_error(WasGoID wasgo_id);
 float _wasgo_File_wrapper_get_float(WasGoID wasgo_id);
 int _wasgo_File_wrapper_get_len(WasGoID wasgo_id);
 void _wasgo_File_wrapper_get_line(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_File_wrapper_get_md5(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_File_wrapper_get_md5(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_path, int p_path_wasgo_buffer_size);
 int _wasgo_File_wrapper_get_modified_time(WasGoID wasgo_id, const uint8_t * p_file, int p_file_wasgo_buffer_size);
 void _wasgo_File_wrapper_get_pascal_string(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_File_wrapper_get_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_File_wrapper_get_path_absolute(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_File_wrapper_get_position(WasGoID wasgo_id);
 float _wasgo_File_wrapper_get_real(WasGoID wasgo_id);
-void _wasgo_File_wrapper_get_sha256(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_path, int p_path_wasgo_buffer_size);
-WasGoID _wasgo_File_wrapper_get_var(WasGoID wasgo_id, bool p_allow_objects);
+void _wasgo_File_wrapper_get_sha256(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_path, int p_path_wasgo_buffer_size);
+void _wasgo_File_wrapper_get_var(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, bool p_allow_objects);
 int _wasgo_File_wrapper_is_open(WasGoID wasgo_id);
-WasGoID _wasgo_File_wrapper_open(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_flags);
-WasGoID _wasgo_File_wrapper_open_compressed(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_mode_flags, WasGoID p_compression_mode);
-WasGoID _wasgo_File_wrapper_open_encrypted(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_mode_flags, WasGoID p_key);
-WasGoID _wasgo_File_wrapper_open_encrypted_with_pass(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, WasGoID p_mode_flags, const uint8_t * p_pass, int p_pass_wasgo_buffer_size);
+WasGoID _wasgo_File_wrapper_open(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_flags);
+WasGoID _wasgo_File_wrapper_open_compressed(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_mode_flags, WasGoID p_compression_mode);
+WasGoID _wasgo_File_wrapper_open_encrypted(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_mode_flags, WasGoID p_key);
+WasGoID _wasgo_File_wrapper_open_encrypted_with_pass(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_mode_flags, const uint8_t * p_pass, int p_pass_wasgo_buffer_size);
 void _wasgo_File_wrapper_seek(WasGoID wasgo_id, int p_position);
 void _wasgo_File_wrapper_seek_end(WasGoID wasgo_id, int p_position);
 void _wasgo_File_wrapper_set_endian_swap(WasGoID wasgo_id, bool p_enable);
@@ -121,14 +121,14 @@ void _wasgo_File_wrapper_store_32(WasGoID wasgo_id, int p_value);
 void _wasgo_File_wrapper_store_64(WasGoID wasgo_id, int p_value);
 void _wasgo_File_wrapper_store_8(WasGoID wasgo_id, int p_value);
 void _wasgo_File_wrapper_store_buffer(WasGoID wasgo_id, WasGoID p_buffer);
-void _wasgo_File_wrapper_store_csv_line(WasGoID wasgo_id, WasGoID p_values, const uint8_t * p_delim, int p_delim_wasgo_buffer_size);
+void _wasgo_File_wrapper_store_csv_line(WasGoID wasgo_id, WasGoID p_values, const uint8_t * p_delim, int wasgo_throwaway, int p_delim_wasgo_buffer_size);
 void _wasgo_File_wrapper_store_double(WasGoID wasgo_id, float p_value);
 void _wasgo_File_wrapper_store_float(WasGoID wasgo_id, float p_value);
 void _wasgo_File_wrapper_store_line(WasGoID wasgo_id, const uint8_t * p_line, int p_line_wasgo_buffer_size);
 void _wasgo_File_wrapper_store_pascal_string(WasGoID wasgo_id, const uint8_t * p_string, int p_string_wasgo_buffer_size);
 void _wasgo_File_wrapper_store_real(WasGoID wasgo_id, float p_value);
 void _wasgo_File_wrapper_store_string(WasGoID wasgo_id, const uint8_t * p_string, int p_string_wasgo_buffer_size);
-void _wasgo_File_wrapper_store_var(WasGoID wasgo_id, WasGoID p_value, bool p_full_objects);
+void _wasgo_File_wrapper_store_var(WasGoID wasgo_id, const uint8_t * p_value, int p_value_wasgo_buffer_size, int wasgo_throwaway, bool p_full_objects);
 
     //constructor wrappers
     WasGoID _wasgo_File_constructor();

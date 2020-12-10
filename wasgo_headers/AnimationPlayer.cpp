@@ -4,11 +4,11 @@
 Error AnimationPlayer::add_animation(String p_name, Animation p_animation){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
-	return Error(_wasgo_AnimationPlayer_wrapper_add_animation(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_animation._get_wasgo_id()));
+	return Error(_wasgo_AnimationPlayer_wrapper_add_animation(wasgo_id, wasgo_buffer_name, wasgo_size_name, -69, p_animation._get_wasgo_id()));
 }
 void AnimationPlayer::advance(float p_delta){
 	_wasgo_AnimationPlayer_wrapper_advance(wasgo_id, p_delta);
@@ -16,7 +16,7 @@ void AnimationPlayer::advance(float p_delta){
 String AnimationPlayer::animation_get_next(String p_anim_from){
 
     Variant wasgo_var_anim_from = p_anim_from;
-    int wasgo_size_anim_from = String(p_anim_from).size();
+    int wasgo_size_anim_from = 10 + String(p_anim_from).size();
     uint8_t wasgo_buffer_anim_from[wasgo_size_anim_from];
     encode_variant(wasgo_var_anim_from, wasgo_buffer_anim_from, wasgo_size_anim_from);
     
@@ -24,25 +24,25 @@ String AnimationPlayer::animation_get_next(String p_anim_from){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_AnimationPlayer_wrapper_animation_get_next(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_anim_from, wasgo_size_anim_from);
+    _wasgo_AnimationPlayer_wrapper_animation_get_next(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_anim_from, wasgo_size_anim_from);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 void AnimationPlayer::animation_set_next(String p_anim_from, String p_anim_to){
 
     Variant wasgo_var_anim_from = p_anim_from;
-    int wasgo_size_anim_from = String(p_anim_from).size();
+    int wasgo_size_anim_from = 10 + String(p_anim_from).size();
     uint8_t wasgo_buffer_anim_from[wasgo_size_anim_from];
     encode_variant(wasgo_var_anim_from, wasgo_buffer_anim_from, wasgo_size_anim_from);
     
 
     Variant wasgo_var_anim_to = p_anim_to;
-    int wasgo_size_anim_to = String(p_anim_to).size();
+    int wasgo_size_anim_to = 10 + String(p_anim_to).size();
     uint8_t wasgo_buffer_anim_to[wasgo_size_anim_to];
     encode_variant(wasgo_var_anim_to, wasgo_buffer_anim_to, wasgo_size_anim_to);
     
-	_wasgo_AnimationPlayer_wrapper_animation_set_next(wasgo_id, wasgo_buffer_anim_from, wasgo_size_anim_from, wasgo_buffer_anim_to, wasgo_size_anim_to);
+	_wasgo_AnimationPlayer_wrapper_animation_set_next(wasgo_id, wasgo_buffer_anim_from, wasgo_size_anim_from, -69, wasgo_buffer_anim_to, wasgo_size_anim_to);
 }
 void AnimationPlayer::clear_caches(){
 	_wasgo_AnimationPlayer_wrapper_clear_caches(wasgo_id);
@@ -55,15 +55,15 @@ String AnimationPlayer::find_animation(Animation p_animation){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_AnimationPlayer_wrapper_find_animation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_animation._get_wasgo_id());
+    _wasgo_AnimationPlayer_wrapper_find_animation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_animation._get_wasgo_id());
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 Animation AnimationPlayer::get_animation(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -82,7 +82,7 @@ String AnimationPlayer::get_assigned_animation(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AnimationPlayer_wrapper_get_assigned_animation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 String AnimationPlayer::get_autoplay(){
@@ -92,23 +92,23 @@ String AnimationPlayer::get_autoplay(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AnimationPlayer_wrapper_get_autoplay(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 float AnimationPlayer::get_blend_time(String p_anim_from, String p_anim_to){
 
     Variant wasgo_var_anim_from = p_anim_from;
-    int wasgo_size_anim_from = String(p_anim_from).size();
+    int wasgo_size_anim_from = 10 + String(p_anim_from).size();
     uint8_t wasgo_buffer_anim_from[wasgo_size_anim_from];
     encode_variant(wasgo_var_anim_from, wasgo_buffer_anim_from, wasgo_size_anim_from);
     
 
     Variant wasgo_var_anim_to = p_anim_to;
-    int wasgo_size_anim_to = String(p_anim_to).size();
+    int wasgo_size_anim_to = 10 + String(p_anim_to).size();
     uint8_t wasgo_buffer_anim_to[wasgo_size_anim_to];
     encode_variant(wasgo_var_anim_to, wasgo_buffer_anim_to, wasgo_size_anim_to);
     
-	return (float) _wasgo_AnimationPlayer_wrapper_get_blend_time(wasgo_id, wasgo_buffer_anim_from, wasgo_size_anim_from, wasgo_buffer_anim_to, wasgo_size_anim_to);
+	return (float) _wasgo_AnimationPlayer_wrapper_get_blend_time(wasgo_id, wasgo_buffer_anim_from, wasgo_size_anim_from, -69, wasgo_buffer_anim_to, wasgo_size_anim_to);
 }
 String AnimationPlayer::get_current_animation(){
 
@@ -117,7 +117,7 @@ String AnimationPlayer::get_current_animation(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AnimationPlayer_wrapper_get_current_animation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 float AnimationPlayer::get_current_animation_length(){
@@ -145,7 +145,7 @@ NodePath AnimationPlayer::get_root(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AnimationPlayer_wrapper_get_root(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 float AnimationPlayer::get_speed_scale(){
@@ -154,7 +154,7 @@ float AnimationPlayer::get_speed_scale(){
 bool AnimationPlayer::has_animation(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -169,25 +169,25 @@ bool AnimationPlayer::is_playing(){
 void AnimationPlayer::play(String p_name, float p_custom_blend, float p_custom_speed, bool p_from_end){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
-	_wasgo_AnimationPlayer_wrapper_play(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_custom_blend, p_custom_speed, p_from_end);
+	_wasgo_AnimationPlayer_wrapper_play(wasgo_id, wasgo_buffer_name, wasgo_size_name, -69, p_custom_blend, p_custom_speed, p_from_end);
 }
 void AnimationPlayer::play_backwards(String p_name, float p_custom_blend){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
-	_wasgo_AnimationPlayer_wrapper_play_backwards(wasgo_id, wasgo_buffer_name, wasgo_size_name, p_custom_blend);
+	_wasgo_AnimationPlayer_wrapper_play_backwards(wasgo_id, wasgo_buffer_name, wasgo_size_name, -69, p_custom_blend);
 }
 void AnimationPlayer::queue(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -196,7 +196,7 @@ void AnimationPlayer::queue(String p_name){
 void AnimationPlayer::remove_animation(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -205,17 +205,17 @@ void AnimationPlayer::remove_animation(String p_name){
 void AnimationPlayer::rename_animation(String p_name, String p_newname){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
 
     Variant wasgo_var_newname = p_newname;
-    int wasgo_size_newname = String(p_newname).size();
+    int wasgo_size_newname = 10 + String(p_newname).size();
     uint8_t wasgo_buffer_newname[wasgo_size_newname];
     encode_variant(wasgo_var_newname, wasgo_buffer_newname, wasgo_size_newname);
     
-	_wasgo_AnimationPlayer_wrapper_rename_animation(wasgo_id, wasgo_buffer_name, wasgo_size_name, wasgo_buffer_newname, wasgo_size_newname);
+	_wasgo_AnimationPlayer_wrapper_rename_animation(wasgo_id, wasgo_buffer_name, wasgo_size_name, -69, wasgo_buffer_newname, wasgo_size_newname);
 }
 void AnimationPlayer::seek(float p_seconds, bool p_update){
 	_wasgo_AnimationPlayer_wrapper_seek(wasgo_id, p_seconds, p_update);
@@ -229,7 +229,7 @@ void AnimationPlayer::set_animation_process_mode(AnimationPlayer::AnimationProce
 void AnimationPlayer::set_assigned_animation(String p_anim){
 
     Variant wasgo_var_anim = p_anim;
-    int wasgo_size_anim = String(p_anim).size();
+    int wasgo_size_anim = 10 + String(p_anim).size();
     uint8_t wasgo_buffer_anim[wasgo_size_anim];
     encode_variant(wasgo_var_anim, wasgo_buffer_anim, wasgo_size_anim);
     
@@ -238,7 +238,7 @@ void AnimationPlayer::set_assigned_animation(String p_anim){
 void AnimationPlayer::set_autoplay(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -247,22 +247,22 @@ void AnimationPlayer::set_autoplay(String p_name){
 void AnimationPlayer::set_blend_time(String p_anim_from, String p_anim_to, float p_sec){
 
     Variant wasgo_var_anim_from = p_anim_from;
-    int wasgo_size_anim_from = String(p_anim_from).size();
+    int wasgo_size_anim_from = 10 + String(p_anim_from).size();
     uint8_t wasgo_buffer_anim_from[wasgo_size_anim_from];
     encode_variant(wasgo_var_anim_from, wasgo_buffer_anim_from, wasgo_size_anim_from);
     
 
     Variant wasgo_var_anim_to = p_anim_to;
-    int wasgo_size_anim_to = String(p_anim_to).size();
+    int wasgo_size_anim_to = 10 + String(p_anim_to).size();
     uint8_t wasgo_buffer_anim_to[wasgo_size_anim_to];
     encode_variant(wasgo_var_anim_to, wasgo_buffer_anim_to, wasgo_size_anim_to);
     
-	_wasgo_AnimationPlayer_wrapper_set_blend_time(wasgo_id, wasgo_buffer_anim_from, wasgo_size_anim_from, wasgo_buffer_anim_to, wasgo_size_anim_to, p_sec);
+	_wasgo_AnimationPlayer_wrapper_set_blend_time(wasgo_id, wasgo_buffer_anim_from, wasgo_size_anim_from, -69, wasgo_buffer_anim_to, wasgo_size_anim_to, p_sec);
 }
 void AnimationPlayer::set_current_animation(String p_anim){
 
     Variant wasgo_var_anim = p_anim;
-    int wasgo_size_anim = String(p_anim).size();
+    int wasgo_size_anim = 10 + String(p_anim).size();
     uint8_t wasgo_buffer_anim[wasgo_size_anim];
     encode_variant(wasgo_var_anim, wasgo_buffer_anim, wasgo_size_anim);
     
@@ -277,7 +277,7 @@ void AnimationPlayer::set_method_call_mode(AnimationPlayer::AnimationMethodCallM
 void AnimationPlayer::set_root(NodePath p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     

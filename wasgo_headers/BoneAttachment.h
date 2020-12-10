@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Spatial.h"
 #include "Ustring.h"
+#include "Spatial.h"
 class BoneAttachment : public Spatial{
 public:
 String get_bone_name();

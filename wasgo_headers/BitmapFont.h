@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
-#include "Font.h"
 #include "Rect2.h"
-#include "error_list.h"
 #include "Ustring.h"
+#include "error_list.h"
+#include "Font.h"
+#include "Vector2.h"
 #include "Texture.h"
 class BitmapFont : public Font{
 public:
@@ -40,8 +40,8 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_BitmapFont_wrapper_add_char(WasGoID wasgo_id, int p_character, int p_texture, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, const uint8_t * p_align, int p_align_wasgo_buffer_size, float p_advance);
-void _wasgo_BitmapFont_wrapper_add_kerning_pair(WasGoID wasgo_id, int p_char_a, int p_char_b, int p_kerning);
+void _wasgo_BitmapFont_wrapper_add_char(WasGoID wasgo_id, int p_character, int p_texture, int wasgo_throwaway, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, const uint8_t * p_align, int p_align_wasgo_buffer_size, float p_advance);
+void _wasgo_BitmapFont_wrapper_add_kerning_pair(WasGoID wasgo_id, int p_char_a, int p_char_b, int wasgo_throwaway, int p_kerning);
 void _wasgo_BitmapFont_wrapper_add_texture(WasGoID wasgo_id, WasGoID p_texture);
 void _wasgo_BitmapFont_wrapper_clear(WasGoID wasgo_id);
 WasGoID _wasgo_BitmapFont_wrapper_create_from_fnt(WasGoID wasgo_id, const uint8_t * p_path, int p_path_wasgo_buffer_size);

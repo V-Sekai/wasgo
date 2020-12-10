@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "CanvasItem.h"
-class Node;
-#include "Transform2D.h"
 #include "Vector2.h"
+class Node;
+#include "CanvasItem.h"
+#include "Transform2D.h"
 class Node2D : public CanvasItem{
 public:
 void apply_scale(Vector2 p_ratio);
@@ -65,7 +65,7 @@ float _wasgo_Node2D_wrapper_get_global_rotation(WasGoID wasgo_id);
 float _wasgo_Node2D_wrapper_get_global_rotation_degrees(WasGoID wasgo_id);
 void _wasgo_Node2D_wrapper_get_global_scale(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_Node2D_wrapper_get_position(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Node2D_wrapper_get_relative_transform_to_parent(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoID p_parent);
+void _wasgo_Node2D_wrapper_get_relative_transform_to_parent(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, WasGoID p_parent);
 float _wasgo_Node2D_wrapper_get_rotation(WasGoID wasgo_id);
 float _wasgo_Node2D_wrapper_get_rotation_degrees(WasGoID wasgo_id);
 void _wasgo_Node2D_wrapper_get_scale(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
@@ -88,8 +88,8 @@ void _wasgo_Node2D_wrapper_set_scale(WasGoID wasgo_id, const uint8_t * p_scale, 
 void _wasgo_Node2D_wrapper_set_transform(WasGoID wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
 void _wasgo_Node2D_wrapper_set_z_as_relative(WasGoID wasgo_id, bool p_enable);
 void _wasgo_Node2D_wrapper_set_z_index(WasGoID wasgo_id, int p_z_index);
-void _wasgo_Node2D_wrapper_to_global(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_local_point, int p_local_point_wasgo_buffer_size);
-void _wasgo_Node2D_wrapper_to_local(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_global_point, int p_global_point_wasgo_buffer_size);
+void _wasgo_Node2D_wrapper_to_global(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_local_point, int p_local_point_wasgo_buffer_size);
+void _wasgo_Node2D_wrapper_to_local(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_global_point, int p_global_point_wasgo_buffer_size);
 void _wasgo_Node2D_wrapper_translate(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
 
     //constructor wrappers

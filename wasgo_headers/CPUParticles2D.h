@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
-#include "Vector2.h"
-class Node;
 #include "Gradient.h"
-#include "Variant.h"
 #include "Curve.h"
 #include "Node2D.h"
+#include "Variant.h"
+#include "Vector2.h"
 #include "Texture.h"
+class Node;
+#include "Color.h"
 class CPUParticles2D : public Node2D{
 public:
 enum DrawOrder{

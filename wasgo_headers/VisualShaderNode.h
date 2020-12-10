@@ -38,10 +38,10 @@ operator bool();
 //Wrapper Functions
 extern "C"{
 WasGoID _wasgo_VisualShaderNode_wrapper_get_default_input_values(WasGoID wasgo_id);
-WasGoID _wasgo_VisualShaderNode_wrapper_get_input_port_default_value(WasGoID wasgo_id, int p_port);
+void _wasgo_VisualShaderNode_wrapper_get_input_port_default_value(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_port);
 int _wasgo_VisualShaderNode_wrapper_get_output_port_for_preview(WasGoID wasgo_id);
 void _wasgo_VisualShaderNode_wrapper_set_default_input_values(WasGoID wasgo_id, WasGoID p_values);
-void _wasgo_VisualShaderNode_wrapper_set_input_port_default_value(WasGoID wasgo_id, int p_port, WasGoID p_value);
+void _wasgo_VisualShaderNode_wrapper_set_input_port_default_value(WasGoID wasgo_id, int p_port, const uint8_t * p_value, int wasgo_throwaway, int p_value_wasgo_buffer_size);
 void _wasgo_VisualShaderNode_wrapper_set_output_port_for_preview(WasGoID wasgo_id, int p_port);
 
     //constructor wrappers

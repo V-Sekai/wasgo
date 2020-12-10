@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Control.h"
 #include "Rect2.h"
 #include "Vector2.h"
+#include "Control.h"
 class Popup : public Control{
 public:
 bool is_exclusive();
@@ -35,7 +35,7 @@ extern "C"{
 int _wasgo_Popup_wrapper_is_exclusive(WasGoID wasgo_id);
 void _wasgo_Popup_wrapper_popup(WasGoID wasgo_id, const uint8_t * p_bounds, int p_bounds_wasgo_buffer_size);
 void _wasgo_Popup_wrapper_popup_centered(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size);
-void _wasgo_Popup_wrapper_popup_centered_clamped(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size, float p_fallback_ratio);
+void _wasgo_Popup_wrapper_popup_centered_clamped(WasGoID wasgo_id, const uint8_t * p_size, int p_size_wasgo_buffer_size, int wasgo_throwaway, float p_fallback_ratio);
 void _wasgo_Popup_wrapper_popup_centered_minsize(WasGoID wasgo_id, const uint8_t * p_minsize, int p_minsize_wasgo_buffer_size);
 void _wasgo_Popup_wrapper_popup_centered_ratio(WasGoID wasgo_id, float p_ratio);
 void _wasgo_Popup_wrapper_set_as_minsize(WasGoID wasgo_id);

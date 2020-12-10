@@ -8,16 +8,16 @@ void Gradient::add_point(float p_offset, Color p_color){
     int wasgo_size_color = 20;
     encode_variant(wasgo_var_color, wasgo_buffer_color, wasgo_size_color);
     
-	_wasgo_Gradient_wrapper_add_point(wasgo_id, p_offset, wasgo_buffer_color, wasgo_size_color);
+	_wasgo_Gradient_wrapper_add_point(wasgo_id, p_offset, wasgo_buffer_color, wasgo_size_color, wasgo_size_color);
 }
 Color Gradient::get_color(int p_point){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_Gradient_wrapper_get_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_point);
+    _wasgo_Gradient_wrapper_get_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_point);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolColorArray Gradient::get_colors(){
@@ -37,9 +37,9 @@ Color Gradient::interpolate(float p_offset){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_Gradient_wrapper_interpolate(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_offset);
+    _wasgo_Gradient_wrapper_interpolate(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_offset);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 void Gradient::remove_point(int p_offset){
@@ -52,7 +52,7 @@ void Gradient::set_color(int p_point, Color p_color){
     int wasgo_size_color = 20;
     encode_variant(wasgo_var_color, wasgo_buffer_color, wasgo_size_color);
     
-	_wasgo_Gradient_wrapper_set_color(wasgo_id, p_point, wasgo_buffer_color, wasgo_size_color);
+	_wasgo_Gradient_wrapper_set_color(wasgo_id, p_point, wasgo_buffer_color, wasgo_size_color, wasgo_size_color);
 }
 void Gradient::set_colors(PoolColorArray p_colors){
 	_wasgo_Gradient_wrapper_set_colors(wasgo_id, p_colors._get_wasgo_id());

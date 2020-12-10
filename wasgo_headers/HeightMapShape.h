@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Variant.h"
 #include "Shape.h"
+#include "Variant.h"
 class HeightMapShape : public Shape{
 public:
 PoolRealArray get_map_data();

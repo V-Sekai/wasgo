@@ -13,11 +13,11 @@ float PhysicsShapeQueryParameters::get_margin(){
 RID PhysicsShapeQueryParameters::get_shape_rid(){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
     _wasgo_PhysicsShapeQueryParameters_wrapper_get_shape_rid(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform PhysicsShapeQueryParameters::get_transform(){
@@ -27,7 +27,7 @@ Transform PhysicsShapeQueryParameters::get_transform(){
     uint8_t wasgo_ret_buffer[52];
     _wasgo_PhysicsShapeQueryParameters_wrapper_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool PhysicsShapeQueryParameters::is_collide_with_areas_enabled(){
@@ -57,8 +57,8 @@ void PhysicsShapeQueryParameters::set_shape(Resource p_shape){
 void PhysicsShapeQueryParameters::set_shape_rid(RID p_shape){
 
     Variant wasgo_var_shape = p_shape;
-    uint8_t wasgo_buffer_shape[0];
-    int wasgo_size_shape = 0;
+    uint8_t wasgo_buffer_shape[256];
+    int wasgo_size_shape = 256;
     encode_variant(wasgo_var_shape, wasgo_buffer_shape, wasgo_size_shape);
     
 	_wasgo_PhysicsShapeQueryParameters_wrapper_set_shape_rid(wasgo_id, wasgo_buffer_shape, wasgo_size_shape);

@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-class Node;
-#include "Reference.h"
 #include "error_list.h"
 #include "NetworkedMultiplayerPeer.h"
+#include "Reference.h"
 #include "Variant.h"
+class Node;
 class MultiplayerAPI : public Reference{
 public:
 enum RPCMode{
@@ -62,7 +62,7 @@ int _wasgo_MultiplayerAPI_wrapper_is_network_server(WasGoID wasgo_id);
 int _wasgo_MultiplayerAPI_wrapper_is_object_decoding_allowed(WasGoID wasgo_id);
 int _wasgo_MultiplayerAPI_wrapper_is_refusing_new_network_connections(WasGoID wasgo_id);
 void _wasgo_MultiplayerAPI_wrapper_poll(WasGoID wasgo_id);
-WasGoID _wasgo_MultiplayerAPI_wrapper_send_bytes(WasGoID wasgo_id, WasGoID p_bytes, int p_id, WasGoID p_mode);
+WasGoID _wasgo_MultiplayerAPI_wrapper_send_bytes(WasGoID wasgo_id, WasGoID p_bytes, int p_id, int wasgo_throwaway, WasGoID p_mode);
 void _wasgo_MultiplayerAPI_wrapper_set_allow_object_decoding(WasGoID wasgo_id, bool p_enable);
 void _wasgo_MultiplayerAPI_wrapper_set_network_peer(WasGoID wasgo_id, WasGoID p_peer);
 void _wasgo_MultiplayerAPI_wrapper_set_refuse_new_network_connections(WasGoID wasgo_id, bool p_refuse);

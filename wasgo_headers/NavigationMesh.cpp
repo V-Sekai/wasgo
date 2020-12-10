@@ -83,7 +83,7 @@ String NavigationMesh::get_source_group_name(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_NavigationMesh_wrapper_get_source_group_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolVector3Array NavigationMesh::get_vertices(){
@@ -155,7 +155,7 @@ void NavigationMesh::set_source_geometry_mode(int p_mask){
 void NavigationMesh::set_source_group_name(String p_mask){
 
     Variant wasgo_var_mask = p_mask;
-    int wasgo_size_mask = String(p_mask).size();
+    int wasgo_size_mask = 10 + String(p_mask).size();
     uint8_t wasgo_buffer_mask[wasgo_size_mask];
     encode_variant(wasgo_var_mask, wasgo_buffer_mask, wasgo_size_mask);
     

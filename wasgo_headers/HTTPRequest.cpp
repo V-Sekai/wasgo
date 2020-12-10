@@ -20,7 +20,7 @@ String HTTPRequest::get_download_file(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_HTTPRequest_wrapper_get_download_file(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int HTTPRequest::get_downloaded_bytes(){
@@ -41,17 +41,17 @@ bool HTTPRequest::is_using_threads(){
 Error HTTPRequest::request(String p_url, PoolStringArray p_custom_headers, bool p_ssl_validate_domain, HTTPClient::Method p_method, String p_request_data){
 
     Variant wasgo_var_url = p_url;
-    int wasgo_size_url = String(p_url).size();
+    int wasgo_size_url = 10 + String(p_url).size();
     uint8_t wasgo_buffer_url[wasgo_size_url];
     encode_variant(wasgo_var_url, wasgo_buffer_url, wasgo_size_url);
     
 
     Variant wasgo_var_request_data = p_request_data;
-    int wasgo_size_request_data = String(p_request_data).size();
+    int wasgo_size_request_data = 10 + String(p_request_data).size();
     uint8_t wasgo_buffer_request_data[wasgo_size_request_data];
     encode_variant(wasgo_var_request_data, wasgo_buffer_request_data, wasgo_size_request_data);
     
-	return Error(_wasgo_HTTPRequest_wrapper_request(wasgo_id, wasgo_buffer_url, wasgo_size_url, p_custom_headers._get_wasgo_id(), p_ssl_validate_domain, p_method._get_wasgo_id(), wasgo_buffer_request_data, wasgo_size_request_data));
+	return Error(_wasgo_HTTPRequest_wrapper_request(wasgo_id, wasgo_buffer_url, wasgo_size_url, -69, p_custom_headers._get_wasgo_id(), p_ssl_validate_domain, p_method._get_wasgo_id(), wasgo_buffer_request_data, wasgo_size_request_data));
 }
 void HTTPRequest::set_body_size_limit(int p_bytes){
 	_wasgo_HTTPRequest_wrapper_set_body_size_limit(wasgo_id, p_bytes);
@@ -62,7 +62,7 @@ void HTTPRequest::set_download_chunk_size(int p_arg0){
 void HTTPRequest::set_download_file(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     

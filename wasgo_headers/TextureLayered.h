@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Resource.h"
 #include "Image.h"
+#include "Resource.h"
 class TextureLayered : public Resource{
 public:
 enum Flags{
@@ -39,14 +39,14 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_TextureLayered_wrapper_create(WasGoID wasgo_id, int p_width, int p_height, int p_depth, WasGoID p_format, int p_flags);
+void _wasgo_TextureLayered_wrapper_create(WasGoID wasgo_id, int p_width, int p_height, int wasgo_throwaway, int p_depth, WasGoID p_format, int p_flags);
 int _wasgo_TextureLayered_wrapper_get_depth(WasGoID wasgo_id);
 int _wasgo_TextureLayered_wrapper_get_flags(WasGoID wasgo_id);
 WasGoID _wasgo_TextureLayered_wrapper_get_format(WasGoID wasgo_id);
 int _wasgo_TextureLayered_wrapper_get_height(WasGoID wasgo_id);
 WasGoID _wasgo_TextureLayered_wrapper_get_layer_data(WasGoID wasgo_id, int p_layer);
 int _wasgo_TextureLayered_wrapper_get_width(WasGoID wasgo_id);
-void _wasgo_TextureLayered_wrapper_set_data_partial(WasGoID wasgo_id, WasGoID p_image, int p_x_offset, int p_y_offset, int p_layer, int p_mipmap);
+void _wasgo_TextureLayered_wrapper_set_data_partial(WasGoID wasgo_id, WasGoID p_image, int p_x_offset, int wasgo_throwaway, int p_y_offset, int p_layer, int p_mipmap);
 void _wasgo_TextureLayered_wrapper_set_flags(WasGoID wasgo_id, int p_flags);
 void _wasgo_TextureLayered_wrapper_set_layer_data(WasGoID wasgo_id, WasGoID p_image, int p_layer);
 

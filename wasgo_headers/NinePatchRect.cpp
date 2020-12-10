@@ -14,7 +14,7 @@ Rect2 NinePatchRect::get_region_rect(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_NinePatchRect_wrapper_get_region_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Texture NinePatchRect::get_texture(){

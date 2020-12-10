@@ -32,7 +32,7 @@ void MultiplayerAPI::poll(){
 	_wasgo_MultiplayerAPI_wrapper_poll(wasgo_id);
 }
 Error MultiplayerAPI::send_bytes(PoolByteArray p_bytes, int p_id, NetworkedMultiplayerPeer::TransferMode p_mode){
-	return Error(_wasgo_MultiplayerAPI_wrapper_send_bytes(wasgo_id, p_bytes._get_wasgo_id(), p_id, p_mode._get_wasgo_id()));
+	return Error(_wasgo_MultiplayerAPI_wrapper_send_bytes(wasgo_id, p_bytes._get_wasgo_id(), p_id, -69, p_mode._get_wasgo_id()));
 }
 void MultiplayerAPI::set_allow_object_decoding(bool p_enable){
 	_wasgo_MultiplayerAPI_wrapper_set_allow_object_decoding(wasgo_id, p_enable);

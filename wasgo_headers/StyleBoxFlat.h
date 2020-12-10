@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
-#include "Corner.h"
-#include "Vector2.h"
 #include "StyleBox.h"
+#include "Vector2.h"
 #include "math_defs.h"
+#include "Corner.h"
+#include "Color.h"
 class StyleBoxFlat : public StyleBox{
 public:
 int get_aa_size();
@@ -82,11 +82,11 @@ void _wasgo_StyleBoxFlat_wrapper_set_border_width_all(WasGoID wasgo_id, int p_wi
 void _wasgo_StyleBoxFlat_wrapper_set_corner_detail(WasGoID wasgo_id, int p_detail);
 void _wasgo_StyleBoxFlat_wrapper_set_corner_radius(WasGoID wasgo_id, WasGoID p_corner, int p_radius);
 void _wasgo_StyleBoxFlat_wrapper_set_corner_radius_all(WasGoID wasgo_id, int p_radius);
-void _wasgo_StyleBoxFlat_wrapper_set_corner_radius_individual(WasGoID wasgo_id, int p_radius_top_left, int p_radius_top_right, int p_radius_bottom_right, int p_radius_bottom_left);
+void _wasgo_StyleBoxFlat_wrapper_set_corner_radius_individual(WasGoID wasgo_id, int p_radius_top_left, int p_radius_top_right, int wasgo_throwaway, int p_radius_bottom_right, int p_radius_bottom_left);
 void _wasgo_StyleBoxFlat_wrapper_set_draw_center(WasGoID wasgo_id, bool p_draw_center);
 void _wasgo_StyleBoxFlat_wrapper_set_expand_margin(WasGoID wasgo_id, WasGoID p_margin, float p_size);
 void _wasgo_StyleBoxFlat_wrapper_set_expand_margin_all(WasGoID wasgo_id, float p_size);
-void _wasgo_StyleBoxFlat_wrapper_set_expand_margin_individual(WasGoID wasgo_id, float p_size_left, float p_size_top, float p_size_right, float p_size_bottom);
+void _wasgo_StyleBoxFlat_wrapper_set_expand_margin_individual(WasGoID wasgo_id, float p_size_left, float p_size_top, int wasgo_throwaway, float p_size_right, float p_size_bottom);
 void _wasgo_StyleBoxFlat_wrapper_set_shadow_color(WasGoID wasgo_id, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 void _wasgo_StyleBoxFlat_wrapper_set_shadow_offset(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size);
 void _wasgo_StyleBoxFlat_wrapper_set_shadow_size(WasGoID wasgo_id, int p_size);

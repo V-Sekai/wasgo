@@ -5,7 +5,7 @@ void AudioServer::add_bus(int p_at_position){
 	_wasgo_AudioServer_wrapper_add_bus(wasgo_id, p_at_position);
 }
 void AudioServer::add_bus_effect(int p_bus_idx, AudioEffect p_effect, int p_at_position){
-	_wasgo_AudioServer_wrapper_add_bus_effect(wasgo_id, p_bus_idx, p_effect._get_wasgo_id(), p_at_position);
+	_wasgo_AudioServer_wrapper_add_bus_effect(wasgo_id, p_bus_idx, p_effect._get_wasgo_id(), -69, p_at_position);
 }
 String AudioServer::capture_get_device(){
 
@@ -14,7 +14,7 @@ String AudioServer::capture_get_device(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AudioServer_wrapper_capture_get_device(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 Array AudioServer::capture_get_device_list(){
@@ -23,7 +23,7 @@ Array AudioServer::capture_get_device_list(){
 void AudioServer::capture_set_device(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -45,12 +45,12 @@ int AudioServer::get_bus_effect_count(int p_bus_idx){
 	return (int) _wasgo_AudioServer_wrapper_get_bus_effect_count(wasgo_id, p_bus_idx);
 }
 AudioEffectInstance AudioServer::get_bus_effect_instance(int p_bus_idx, int p_effect_idx, int p_channel){
-	return AudioEffectInstance(_wasgo_AudioServer_wrapper_get_bus_effect_instance(wasgo_id, p_bus_idx, p_effect_idx, p_channel));
+	return AudioEffectInstance(_wasgo_AudioServer_wrapper_get_bus_effect_instance(wasgo_id, p_bus_idx, p_effect_idx, -69, p_channel));
 }
 int AudioServer::get_bus_index(String p_bus_name){
 
     Variant wasgo_var_bus_name = p_bus_name;
-    int wasgo_size_bus_name = String(p_bus_name).size();
+    int wasgo_size_bus_name = 10 + String(p_bus_name).size();
     uint8_t wasgo_buffer_bus_name[wasgo_size_bus_name];
     encode_variant(wasgo_var_bus_name, wasgo_buffer_bus_name, wasgo_size_bus_name);
     
@@ -61,9 +61,9 @@ String AudioServer::get_bus_name(int p_bus_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_AudioServer_wrapper_get_bus_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_bus_idx);
+    _wasgo_AudioServer_wrapper_get_bus_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_bus_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 float AudioServer::get_bus_peak_volume_left_db(int p_bus_idx, int p_channel){
@@ -77,9 +77,9 @@ String AudioServer::get_bus_send(int p_bus_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_AudioServer_wrapper_get_bus_send(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_bus_idx);
+    _wasgo_AudioServer_wrapper_get_bus_send(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_bus_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 float AudioServer::get_bus_volume_db(int p_bus_idx){
@@ -92,7 +92,7 @@ String AudioServer::get_device(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AudioServer_wrapper_get_device(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 Array AudioServer::get_device_list(){
@@ -147,7 +147,7 @@ void AudioServer::set_bus_count(int p_amount){
 	_wasgo_AudioServer_wrapper_set_bus_count(wasgo_id, p_amount);
 }
 void AudioServer::set_bus_effect_enabled(int p_bus_idx, int p_effect_idx, bool p_enabled){
-	_wasgo_AudioServer_wrapper_set_bus_effect_enabled(wasgo_id, p_bus_idx, p_effect_idx, p_enabled);
+	_wasgo_AudioServer_wrapper_set_bus_effect_enabled(wasgo_id, p_bus_idx, p_effect_idx, -69, p_enabled);
 }
 void AudioServer::set_bus_layout(AudioBusLayout p_bus_layout){
 	_wasgo_AudioServer_wrapper_set_bus_layout(wasgo_id, p_bus_layout._get_wasgo_id());
@@ -158,20 +158,20 @@ void AudioServer::set_bus_mute(int p_bus_idx, bool p_enable){
 void AudioServer::set_bus_name(int p_bus_idx, String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
-	_wasgo_AudioServer_wrapper_set_bus_name(wasgo_id, p_bus_idx, wasgo_buffer_name, wasgo_size_name);
+	_wasgo_AudioServer_wrapper_set_bus_name(wasgo_id, p_bus_idx, wasgo_buffer_name, wasgo_size_name, wasgo_size_name);
 }
 void AudioServer::set_bus_send(int p_bus_idx, String p_send){
 
     Variant wasgo_var_send = p_send;
-    int wasgo_size_send = String(p_send).size();
+    int wasgo_size_send = 10 + String(p_send).size();
     uint8_t wasgo_buffer_send[wasgo_size_send];
     encode_variant(wasgo_var_send, wasgo_buffer_send, wasgo_size_send);
     
-	_wasgo_AudioServer_wrapper_set_bus_send(wasgo_id, p_bus_idx, wasgo_buffer_send, wasgo_size_send);
+	_wasgo_AudioServer_wrapper_set_bus_send(wasgo_id, p_bus_idx, wasgo_buffer_send, wasgo_size_send, wasgo_size_send);
 }
 void AudioServer::set_bus_solo(int p_bus_idx, bool p_enable){
 	_wasgo_AudioServer_wrapper_set_bus_solo(wasgo_id, p_bus_idx, p_enable);
@@ -182,7 +182,7 @@ void AudioServer::set_bus_volume_db(int p_bus_idx, float p_volume_db){
 void AudioServer::set_device(String p_device){
 
     Variant wasgo_var_device = p_device;
-    int wasgo_size_device = String(p_device).size();
+    int wasgo_size_device = 10 + String(p_device).size();
     uint8_t wasgo_buffer_device[wasgo_size_device];
     encode_variant(wasgo_var_device, wasgo_buffer_device, wasgo_size_device);
     
@@ -192,7 +192,7 @@ void AudioServer::set_global_rate_scale(float p_scale){
 	_wasgo_AudioServer_wrapper_set_global_rate_scale(wasgo_id, p_scale);
 }
 void AudioServer::swap_bus_effects(int p_bus_idx, int p_effect_idx, int p_by_effect_idx){
-	_wasgo_AudioServer_wrapper_swap_bus_effects(wasgo_id, p_bus_idx, p_effect_idx, p_by_effect_idx);
+	_wasgo_AudioServer_wrapper_swap_bus_effects(wasgo_id, p_bus_idx, p_effect_idx, -69, p_by_effect_idx);
 }
 void AudioServer::unlock(){
 	_wasgo_AudioServer_wrapper_unlock(wasgo_id);

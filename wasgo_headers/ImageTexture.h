@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
 #include "error_list.h"
+#include "Vector2.h"
 #include "Image.h"
 #include "Ustring.h"
 #include "Texture.h"
@@ -41,7 +41,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ImageTexture_wrapper_create(WasGoID wasgo_id, int p_width, int p_height, WasGoID p_format, int p_flags);
+void _wasgo_ImageTexture_wrapper_create(WasGoID wasgo_id, int p_width, int p_height, int wasgo_throwaway, WasGoID p_format, int p_flags);
 void _wasgo_ImageTexture_wrapper_create_from_image(WasGoID wasgo_id, WasGoID p_image, int p_flags);
 WasGoID _wasgo_ImageTexture_wrapper_get_format(WasGoID wasgo_id);
 float _wasgo_ImageTexture_wrapper_get_lossy_storage_quality(WasGoID wasgo_id);

@@ -8,7 +8,7 @@ Vector2 ParallaxBackground::get_limit_begin(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_ParallaxBackground_wrapper_get_limit_begin(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 ParallaxBackground::get_limit_end(){
@@ -18,7 +18,7 @@ Vector2 ParallaxBackground::get_limit_end(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_ParallaxBackground_wrapper_get_limit_end(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 ParallaxBackground::get_scroll_base_offset(){
@@ -28,7 +28,7 @@ Vector2 ParallaxBackground::get_scroll_base_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_ParallaxBackground_wrapper_get_scroll_base_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 ParallaxBackground::get_scroll_base_scale(){
@@ -38,7 +38,7 @@ Vector2 ParallaxBackground::get_scroll_base_scale(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_ParallaxBackground_wrapper_get_scroll_base_scale(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 ParallaxBackground::get_scroll_offset(){
@@ -48,7 +48,7 @@ Vector2 ParallaxBackground::get_scroll_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_ParallaxBackground_wrapper_get_scroll_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool ParallaxBackground::is_ignore_camera_zoom(){

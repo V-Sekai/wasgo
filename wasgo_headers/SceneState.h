@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-class PackedScene;
 #include "NodePath.h"
 #include "Reference.h"
+class PackedScene;
 #include "Variant.h"
 #include "Ustring.h"
 class SceneState : public Reference{
@@ -54,22 +54,22 @@ extern "C"{
 WasGoID _wasgo_SceneState_wrapper_get_connection_binds(WasGoID wasgo_id, int p_idx);
 int _wasgo_SceneState_wrapper_get_connection_count(WasGoID wasgo_id);
 int _wasgo_SceneState_wrapper_get_connection_flags(WasGoID wasgo_id, int p_idx);
-void _wasgo_SceneState_wrapper_get_connection_method(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-void _wasgo_SceneState_wrapper_get_connection_signal(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-void _wasgo_SceneState_wrapper_get_connection_source(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-void _wasgo_SceneState_wrapper_get_connection_target(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+void _wasgo_SceneState_wrapper_get_connection_method(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
+void _wasgo_SceneState_wrapper_get_connection_signal(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
+void _wasgo_SceneState_wrapper_get_connection_source(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
+void _wasgo_SceneState_wrapper_get_connection_target(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
 int _wasgo_SceneState_wrapper_get_node_count(WasGoID wasgo_id);
 WasGoID _wasgo_SceneState_wrapper_get_node_groups(WasGoID wasgo_id, int p_idx);
 int _wasgo_SceneState_wrapper_get_node_index(WasGoID wasgo_id, int p_idx);
 WasGoID _wasgo_SceneState_wrapper_get_node_instance(WasGoID wasgo_id, int p_idx);
-void _wasgo_SceneState_wrapper_get_node_instance_placeholder(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-void _wasgo_SceneState_wrapper_get_node_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-void _wasgo_SceneState_wrapper_get_node_owner_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
-void _wasgo_SceneState_wrapper_get_node_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx, bool p_for_parent);
+void _wasgo_SceneState_wrapper_get_node_instance_placeholder(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
+void _wasgo_SceneState_wrapper_get_node_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
+void _wasgo_SceneState_wrapper_get_node_owner_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
+void _wasgo_SceneState_wrapper_get_node_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx, bool p_for_parent);
 int _wasgo_SceneState_wrapper_get_node_property_count(WasGoID wasgo_id, int p_idx);
-void _wasgo_SceneState_wrapper_get_node_property_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx, int p_prop_idx);
-WasGoID _wasgo_SceneState_wrapper_get_node_property_value(WasGoID wasgo_id, int p_idx, int p_prop_idx);
-void _wasgo_SceneState_wrapper_get_node_type(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_idx);
+void _wasgo_SceneState_wrapper_get_node_property_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx, int p_prop_idx);
+void _wasgo_SceneState_wrapper_get_node_property_value(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx, int p_prop_idx);
+void _wasgo_SceneState_wrapper_get_node_type(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_idx);
 int _wasgo_SceneState_wrapper_is_node_instance_placeholder(WasGoID wasgo_id, int p_idx);
 
     //constructor wrappers

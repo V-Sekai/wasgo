@@ -8,7 +8,7 @@ void Line2D::add_point(Vector2 p_position, int p_at_position){
     int wasgo_size_position = 12;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_Line2D_wrapper_add_point(wasgo_id, wasgo_buffer_position, wasgo_size_position, p_at_position);
+	_wasgo_Line2D_wrapper_add_point(wasgo_id, wasgo_buffer_position, wasgo_size_position, -69, p_at_position);
 }
 void Line2D::clear_points(){
 	_wasgo_Line2D_wrapper_clear_points(wasgo_id);
@@ -29,7 +29,7 @@ Color Line2D::get_default_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Line2D_wrapper_get_default_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Line2D::LineCapMode Line2D::get_end_cap_mode(){
@@ -49,9 +49,9 @@ Vector2 Line2D::get_point_position(int p_i){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_Line2D_wrapper_get_point_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_i);
+    _wasgo_Line2D_wrapper_get_point_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_i);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolVector2Array Line2D::get_points(){
@@ -109,7 +109,7 @@ void Line2D::set_point_position(int p_i, Vector2 p_position){
     int wasgo_size_position = 12;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_Line2D_wrapper_set_point_position(wasgo_id, p_i, wasgo_buffer_position, wasgo_size_position);
+	_wasgo_Line2D_wrapper_set_point_position(wasgo_id, p_i, wasgo_buffer_position, wasgo_size_position, wasgo_size_position);
 }
 void Line2D::set_points(PoolVector2Array p_points){
 	_wasgo_Line2D_wrapper_set_points(wasgo_id, p_points._get_wasgo_id());

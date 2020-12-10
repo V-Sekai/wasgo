@@ -8,7 +8,7 @@ String AnimatedSprite::get_animation(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AnimatedSprite_wrapper_get_animation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int AnimatedSprite::get_frame(){
@@ -21,7 +21,7 @@ Vector2 AnimatedSprite::get_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_AnimatedSprite_wrapper_get_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float AnimatedSprite::get_speed_scale(){
@@ -45,16 +45,16 @@ bool AnimatedSprite::is_playing(){
 void AnimatedSprite::play(String p_anim, bool p_backwards){
 
     Variant wasgo_var_anim = p_anim;
-    int wasgo_size_anim = String(p_anim).size();
+    int wasgo_size_anim = 10 + String(p_anim).size();
     uint8_t wasgo_buffer_anim[wasgo_size_anim];
     encode_variant(wasgo_var_anim, wasgo_buffer_anim, wasgo_size_anim);
     
-	_wasgo_AnimatedSprite_wrapper_play(wasgo_id, wasgo_buffer_anim, wasgo_size_anim, p_backwards);
+	_wasgo_AnimatedSprite_wrapper_play(wasgo_id, wasgo_buffer_anim, wasgo_size_anim, -69, p_backwards);
 }
 void AnimatedSprite::set_animation(String p_animation){
 
     Variant wasgo_var_animation = p_animation;
-    int wasgo_size_animation = String(p_animation).size();
+    int wasgo_size_animation = 10 + String(p_animation).size();
     uint8_t wasgo_buffer_animation[wasgo_size_animation];
     encode_variant(wasgo_var_animation, wasgo_buffer_animation, wasgo_size_animation);
     

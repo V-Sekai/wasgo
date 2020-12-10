@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "SceneTree.h"
-#include "Object.h"
-#include "Viewport.h"
 #include "NodePath.h"
+#include "SceneTree.h"
 #include "MultiplayerAPI.h"
+#include "Object.h"
 #include "Variant.h"
+#include "Viewport.h"
 #include "Ustring.h"
 class Node : public Object{
 public:
@@ -127,11 +127,11 @@ operator bool();
 //Wrapper Functions
 extern "C"{
 void _wasgo_Node_wrapper_add_child(WasGoID wasgo_id, WasGoID p_node, bool p_legible_unique_name);
-void _wasgo_Node_wrapper_add_child_below_node(WasGoID wasgo_id, WasGoID p_node, WasGoID p_child_node, bool p_legible_unique_name);
-void _wasgo_Node_wrapper_add_to_group(WasGoID wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size, bool p_persistent);
+void _wasgo_Node_wrapper_add_child_below_node(WasGoID wasgo_id, WasGoID p_node, WasGoID p_child_node, int wasgo_throwaway, bool p_legible_unique_name);
+void _wasgo_Node_wrapper_add_to_group(WasGoID wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size, int wasgo_throwaway, bool p_persistent);
 int _wasgo_Node_wrapper_can_process(WasGoID wasgo_id);
 WasGoID _wasgo_Node_wrapper_duplicate(WasGoID wasgo_id, int p_flags);
-WasGoID _wasgo_Node_wrapper_find_node(WasGoID wasgo_id, const uint8_t * p_mask, int p_mask_wasgo_buffer_size, bool p_recursive, bool p_owned);
+WasGoID _wasgo_Node_wrapper_find_node(WasGoID wasgo_id, const uint8_t * p_mask, int p_mask_wasgo_buffer_size, int wasgo_throwaway, bool p_recursive, bool p_owned);
 WasGoID _wasgo_Node_wrapper_find_parent(WasGoID wasgo_id, const uint8_t * p_mask, int p_mask_wasgo_buffer_size);
 WasGoID _wasgo_Node_wrapper_get_child(WasGoID wasgo_id, int p_idx);
 int _wasgo_Node_wrapper_get_child_count(WasGoID wasgo_id);
@@ -149,7 +149,7 @@ WasGoID _wasgo_Node_wrapper_get_node_or_null(WasGoID wasgo_id, const uint8_t * p
 WasGoID _wasgo_Node_wrapper_get_owner(WasGoID wasgo_id);
 WasGoID _wasgo_Node_wrapper_get_parent(WasGoID wasgo_id);
 void _wasgo_Node_wrapper_get_path(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
-void _wasgo_Node_wrapper_get_path_to(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, WasGoID p_node);
+void _wasgo_Node_wrapper_get_path_to(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, WasGoID p_node);
 WasGoID _wasgo_Node_wrapper_get_pause_mode(WasGoID wasgo_id);
 float _wasgo_Node_wrapper_get_physics_process_delta_time(WasGoID wasgo_id);
 int _wasgo_Node_wrapper_get_position_in_parent(WasGoID wasgo_id);
@@ -177,7 +177,7 @@ void _wasgo_Node_wrapper_move_child(WasGoID wasgo_id, WasGoID p_child_node, int 
 void _wasgo_Node_wrapper_print_stray_nodes(WasGoID wasgo_id);
 void _wasgo_Node_wrapper_print_tree(WasGoID wasgo_id);
 void _wasgo_Node_wrapper_print_tree_pretty(WasGoID wasgo_id);
-void _wasgo_Node_wrapper_propagate_call(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoID p_args, bool p_parent_first);
+void _wasgo_Node_wrapper_propagate_call(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_args, bool p_parent_first);
 void _wasgo_Node_wrapper_propagate_notification(WasGoID wasgo_id, int p_what);
 void _wasgo_Node_wrapper_queue_free(WasGoID wasgo_id);
 void _wasgo_Node_wrapper_raise(WasGoID wasgo_id);
@@ -186,16 +186,16 @@ void _wasgo_Node_wrapper_remove_child(WasGoID wasgo_id, WasGoID p_node);
 void _wasgo_Node_wrapper_remove_from_group(WasGoID wasgo_id, const uint8_t * p_group, int p_group_wasgo_buffer_size);
 void _wasgo_Node_wrapper_replace_by(WasGoID wasgo_id, WasGoID p_node, bool p_keep_data);
 void _wasgo_Node_wrapper_request_ready(WasGoID wasgo_id);
-WasGoID _wasgo_Node_wrapper_rpc(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-void _wasgo_Node_wrapper_rpc_config(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size, WasGoID p_mode);
-WasGoID _wasgo_Node_wrapper_rpc_id(WasGoID wasgo_id, int p_peer_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-WasGoID _wasgo_Node_wrapper_rpc_unreliable(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-WasGoID _wasgo_Node_wrapper_rpc_unreliable_id(WasGoID wasgo_id, int p_peer_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
-void _wasgo_Node_wrapper_rset(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
-void _wasgo_Node_wrapper_rset_config(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_mode);
-void _wasgo_Node_wrapper_rset_id(WasGoID wasgo_id, int p_peer_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
-void _wasgo_Node_wrapper_rset_unreliable(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
-void _wasgo_Node_wrapper_rset_unreliable_id(WasGoID wasgo_id, int p_peer_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, WasGoID p_value);
+void _wasgo_Node_wrapper_rpc(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+void _wasgo_Node_wrapper_rpc_config(WasGoID wasgo_id, const uint8_t * p_method, int p_method_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_mode);
+void _wasgo_Node_wrapper_rpc_id(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_peer_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+void _wasgo_Node_wrapper_rpc_unreliable(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+void _wasgo_Node_wrapper_rpc_unreliable_id(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_peer_id, const uint8_t * p_method, int p_method_wasgo_buffer_size);
+void _wasgo_Node_wrapper_rset(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_value, int p_value_wasgo_buffer_size);
+void _wasgo_Node_wrapper_rset_config(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, int wasgo_throwaway, WasGoID p_mode);
+void _wasgo_Node_wrapper_rset_id(WasGoID wasgo_id, int p_peer_id, const uint8_t * p_property, int wasgo_throwaway, int p_property_wasgo_buffer_size, const uint8_t * p_value, int p_value_wasgo_buffer_size);
+void _wasgo_Node_wrapper_rset_unreliable(WasGoID wasgo_id, const uint8_t * p_property, int p_property_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_value, int p_value_wasgo_buffer_size);
+void _wasgo_Node_wrapper_rset_unreliable_id(WasGoID wasgo_id, int p_peer_id, const uint8_t * p_property, int wasgo_throwaway, int p_property_wasgo_buffer_size, const uint8_t * p_value, int p_value_wasgo_buffer_size);
 void _wasgo_Node_wrapper_set_custom_multiplayer(WasGoID wasgo_id, WasGoID p_api);
 void _wasgo_Node_wrapper_set_display_folded(WasGoID wasgo_id, bool p_fold);
 void _wasgo_Node_wrapper_set_filename(WasGoID wasgo_id, const uint8_t * p_filename, int p_filename_wasgo_buffer_size);

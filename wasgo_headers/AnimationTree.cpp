@@ -11,7 +11,7 @@ NodePath AnimationTree::get_animation_player(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AnimationTree_wrapper_get_animation_player(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 AnimationTree::AnimationProcessMode AnimationTree::get_process_mode(){
@@ -24,7 +24,7 @@ NodePath AnimationTree::get_root_motion_track(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AnimationTree_wrapper_get_root_motion_track(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform AnimationTree::get_root_motion_transform(){
@@ -34,7 +34,7 @@ Transform AnimationTree::get_root_motion_transform(){
     uint8_t wasgo_ret_buffer[52];
     _wasgo_AnimationTree_wrapper_get_root_motion_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 AnimationNode AnimationTree::get_tree_root(){
@@ -46,17 +46,17 @@ bool AnimationTree::is_active(){
 void AnimationTree::rename_parameter(String p_old_name, String p_new_name){
 
     Variant wasgo_var_old_name = p_old_name;
-    int wasgo_size_old_name = String(p_old_name).size();
+    int wasgo_size_old_name = 10 + String(p_old_name).size();
     uint8_t wasgo_buffer_old_name[wasgo_size_old_name];
     encode_variant(wasgo_var_old_name, wasgo_buffer_old_name, wasgo_size_old_name);
     
 
     Variant wasgo_var_new_name = p_new_name;
-    int wasgo_size_new_name = String(p_new_name).size();
+    int wasgo_size_new_name = 10 + String(p_new_name).size();
     uint8_t wasgo_buffer_new_name[wasgo_size_new_name];
     encode_variant(wasgo_var_new_name, wasgo_buffer_new_name, wasgo_size_new_name);
     
-	_wasgo_AnimationTree_wrapper_rename_parameter(wasgo_id, wasgo_buffer_old_name, wasgo_size_old_name, wasgo_buffer_new_name, wasgo_size_new_name);
+	_wasgo_AnimationTree_wrapper_rename_parameter(wasgo_id, wasgo_buffer_old_name, wasgo_size_old_name, -69, wasgo_buffer_new_name, wasgo_size_new_name);
 }
 void AnimationTree::set_active(bool p_active){
 	_wasgo_AnimationTree_wrapper_set_active(wasgo_id, p_active);
@@ -64,7 +64,7 @@ void AnimationTree::set_active(bool p_active){
 void AnimationTree::set_animation_player(NodePath p_root){
 
     Variant wasgo_var_root = p_root;
-    int wasgo_size_root = String(p_root).size();
+    int wasgo_size_root = 10 + String(p_root).size();
     uint8_t wasgo_buffer_root[wasgo_size_root];
     encode_variant(wasgo_var_root, wasgo_buffer_root, wasgo_size_root);
     
@@ -76,7 +76,7 @@ void AnimationTree::set_process_mode(AnimationTree::AnimationProcessMode p_mode)
 void AnimationTree::set_root_motion_track(NodePath p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     

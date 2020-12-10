@@ -11,7 +11,7 @@ String ARVRController::get_controller_name(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_ARVRController_wrapper_get_controller_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 ARVRPositionalTracker::TrackerHand ARVRController::get_hand(){

@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-class Node;
 #include "Control.h"
+class Node;
 class Range : public Control{
 public:
 float get_as_ratio();

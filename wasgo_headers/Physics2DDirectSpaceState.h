@@ -5,9 +5,9 @@
 #include "wasgo\wasgoid.h"
 
 #include "Physics2DShapeQueryParameters.h"
-#include "Variant.h"
-#include "Object.h"
 #include "Vector2.h"
+#include "Object.h"
+#include "Variant.h"
 class Physics2DDirectSpaceState : public Object{
 public:
 Array cast_motion(Physics2DShapeQueryParameters p_shape);
@@ -35,9 +35,9 @@ extern "C"{
 WasGoID _wasgo_Physics2DDirectSpaceState_wrapper_cast_motion(WasGoID wasgo_id, WasGoID p_shape);
 WasGoID _wasgo_Physics2DDirectSpaceState_wrapper_collide_shape(WasGoID wasgo_id, WasGoID p_shape, int p_max_results);
 WasGoID _wasgo_Physics2DDirectSpaceState_wrapper_get_rest_info(WasGoID wasgo_id, WasGoID p_shape);
-WasGoID _wasgo_Physics2DDirectSpaceState_wrapper_intersect_point(WasGoID wasgo_id, const uint8_t * p_point, int p_point_wasgo_buffer_size, int p_max_results, WasGoID p_exclude, int p_collision_layer, bool p_collide_with_bodies, bool p_collide_with_areas);
-WasGoID _wasgo_Physics2DDirectSpaceState_wrapper_intersect_point_on_canvas(WasGoID wasgo_id, const uint8_t * p_point, int p_point_wasgo_buffer_size, int p_canvas_instance_id, int p_max_results, WasGoID p_exclude, int p_collision_layer, bool p_collide_with_bodies, bool p_collide_with_areas);
-WasGoID _wasgo_Physics2DDirectSpaceState_wrapper_intersect_ray(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size, WasGoID p_exclude, int p_collision_layer, bool p_collide_with_bodies, bool p_collide_with_areas);
+WasGoID _wasgo_Physics2DDirectSpaceState_wrapper_intersect_point(WasGoID wasgo_id, const uint8_t * p_point, int p_point_wasgo_buffer_size, int wasgo_throwaway, int p_max_results, WasGoID p_exclude, int p_collision_layer, bool p_collide_with_bodies, bool p_collide_with_areas);
+WasGoID _wasgo_Physics2DDirectSpaceState_wrapper_intersect_point_on_canvas(WasGoID wasgo_id, const uint8_t * p_point, int p_point_wasgo_buffer_size, int wasgo_throwaway, int p_canvas_instance_id, int p_max_results, WasGoID p_exclude, int p_collision_layer, bool p_collide_with_bodies, bool p_collide_with_areas);
+WasGoID _wasgo_Physics2DDirectSpaceState_wrapper_intersect_ray(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_to, int p_to_wasgo_buffer_size, WasGoID p_exclude, int p_collision_layer, bool p_collide_with_bodies, bool p_collide_with_areas);
 WasGoID _wasgo_Physics2DDirectSpaceState_wrapper_intersect_shape(WasGoID wasgo_id, WasGoID p_shape, int p_max_results);
 
     //constructor wrappers

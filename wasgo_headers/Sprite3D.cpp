@@ -11,7 +11,7 @@ Vector2 Sprite3D::get_frame_coords(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Sprite3D_wrapper_get_frame_coords(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Sprite3D::get_hframes(){
@@ -24,7 +24,7 @@ Rect2 Sprite3D::get_region_rect(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Sprite3D_wrapper_get_region_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Texture Sprite3D::get_texture(){

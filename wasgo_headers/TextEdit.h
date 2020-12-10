@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
 #include "PopupMenu.h"
 #include "Variant.h"
 #include "Ustring.h"
 #include "Control.h"
+#include "Color.h"
 class TextEdit : public Control{
 public:
 enum MenuItems{
@@ -143,8 +143,8 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_TextEdit_wrapper_add_color_region(WasGoID wasgo_id, const uint8_t * p_begin_key, int p_begin_key_wasgo_buffer_size, const uint8_t * p_end_key, int p_end_key_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size, bool p_line_only);
-void _wasgo_TextEdit_wrapper_add_keyword_color(WasGoID wasgo_id, const uint8_t * p_keyword, int p_keyword_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_TextEdit_wrapper_add_color_region(WasGoID wasgo_id, const uint8_t * p_begin_key, int p_begin_key_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_end_key, int p_end_key_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size, bool p_line_only);
+void _wasgo_TextEdit_wrapper_add_keyword_color(WasGoID wasgo_id, const uint8_t * p_keyword, int p_keyword_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_color, int p_color_wasgo_buffer_size);
 int _wasgo_TextEdit_wrapper_can_fold(WasGoID wasgo_id, int p_line);
 void _wasgo_TextEdit_wrapper_center_viewport_to_cursor(WasGoID wasgo_id);
 void _wasgo_TextEdit_wrapper_clear_colors(WasGoID wasgo_id);
@@ -159,7 +159,7 @@ void _wasgo_TextEdit_wrapper_cursor_set_blink_enabled(WasGoID wasgo_id, bool p_e
 void _wasgo_TextEdit_wrapper_cursor_set_blink_speed(WasGoID wasgo_id, float p_blink_speed);
 void _wasgo_TextEdit_wrapper_cursor_set_block_mode(WasGoID wasgo_id, bool p_enable);
 void _wasgo_TextEdit_wrapper_cursor_set_column(WasGoID wasgo_id, int p_column, bool p_adjust_viewport);
-void _wasgo_TextEdit_wrapper_cursor_set_line(WasGoID wasgo_id, int p_line, bool p_adjust_viewport, bool p_can_be_hidden, int p_wrap_index);
+void _wasgo_TextEdit_wrapper_cursor_set_line(WasGoID wasgo_id, int p_line, bool p_adjust_viewport, int wasgo_throwaway, bool p_can_be_hidden, int p_wrap_index);
 void _wasgo_TextEdit_wrapper_cut(WasGoID wasgo_id);
 void _wasgo_TextEdit_wrapper_deselect(WasGoID wasgo_id);
 void _wasgo_TextEdit_wrapper_draw_minimap(WasGoID wasgo_id, bool p_draw);
@@ -167,8 +167,8 @@ void _wasgo_TextEdit_wrapper_fold_all_lines(WasGoID wasgo_id);
 void _wasgo_TextEdit_wrapper_fold_line(WasGoID wasgo_id, int p_line);
 WasGoID _wasgo_TextEdit_wrapper_get_breakpoints(WasGoID wasgo_id);
 int _wasgo_TextEdit_wrapper_get_h_scroll(WasGoID wasgo_id);
-void _wasgo_TextEdit_wrapper_get_keyword_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_keyword, int p_keyword_wasgo_buffer_size);
-void _wasgo_TextEdit_wrapper_get_line(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_line);
+void _wasgo_TextEdit_wrapper_get_keyword_color(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_keyword, int p_keyword_wasgo_buffer_size);
+void _wasgo_TextEdit_wrapper_get_line(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_line);
 int _wasgo_TextEdit_wrapper_get_line_count(WasGoID wasgo_id);
 WasGoID _wasgo_TextEdit_wrapper_get_menu(WasGoID wasgo_id);
 int _wasgo_TextEdit_wrapper_get_minimap_width(WasGoID wasgo_id);
@@ -209,8 +209,8 @@ void _wasgo_TextEdit_wrapper_menu_option(WasGoID wasgo_id, int p_option);
 void _wasgo_TextEdit_wrapper_paste(WasGoID wasgo_id);
 void _wasgo_TextEdit_wrapper_redo(WasGoID wasgo_id);
 void _wasgo_TextEdit_wrapper_remove_breakpoints(WasGoID wasgo_id);
-WasGoID _wasgo_TextEdit_wrapper_search(WasGoID wasgo_id, const uint8_t * p_key, int p_key_wasgo_buffer_size, int p_flags, int p_from_line, int p_from_column);
-void _wasgo_TextEdit_wrapper_select(WasGoID wasgo_id, int p_from_line, int p_from_column, int p_to_line, int p_to_column);
+WasGoID _wasgo_TextEdit_wrapper_search(WasGoID wasgo_id, const uint8_t * p_key, int p_key_wasgo_buffer_size, int wasgo_throwaway, int p_flags, int p_from_line, int p_from_column);
+void _wasgo_TextEdit_wrapper_select(WasGoID wasgo_id, int p_from_line, int p_from_column, int wasgo_throwaway, int p_to_line, int p_to_column);
 void _wasgo_TextEdit_wrapper_select_all(WasGoID wasgo_id);
 void _wasgo_TextEdit_wrapper_set_breakpoint_gutter_enabled(WasGoID wasgo_id, bool p_enable);
 void _wasgo_TextEdit_wrapper_set_context_menu_enabled(WasGoID wasgo_id, bool p_enable);
@@ -221,7 +221,7 @@ void _wasgo_TextEdit_wrapper_set_h_scroll(WasGoID wasgo_id, int p_value);
 void _wasgo_TextEdit_wrapper_set_hiding_enabled(WasGoID wasgo_id, bool p_enable);
 void _wasgo_TextEdit_wrapper_set_highlight_all_occurrences(WasGoID wasgo_id, bool p_enable);
 void _wasgo_TextEdit_wrapper_set_highlight_current_line(WasGoID wasgo_id, bool p_enabled);
-void _wasgo_TextEdit_wrapper_set_line(WasGoID wasgo_id, int p_line, const uint8_t * p_new_text, int p_new_text_wasgo_buffer_size);
+void _wasgo_TextEdit_wrapper_set_line(WasGoID wasgo_id, int p_line, const uint8_t * p_new_text, int wasgo_throwaway, int p_new_text_wasgo_buffer_size);
 void _wasgo_TextEdit_wrapper_set_line_as_hidden(WasGoID wasgo_id, int p_line, bool p_enable);
 void _wasgo_TextEdit_wrapper_set_minimap_width(WasGoID wasgo_id, int p_width);
 void _wasgo_TextEdit_wrapper_set_override_selected_font_color(WasGoID wasgo_id, bool p_override);

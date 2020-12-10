@@ -4,14 +4,14 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Skin.h"
-class Node;
-#include "Variant.h"
-#include "Spatial.h"
-#include "Transform.h"
-#include "SkinReference.h"
 #include "RID.h"
+#include "Spatial.h"
+#include "SkinReference.h"
+#include "Variant.h"
+#include "Skin.h"
+#include "Transform.h"
 #include "Ustring.h"
+class Node;
 class Skeleton : public Spatial{
 public:
 void add_bone(String p_name);
@@ -63,12 +63,12 @@ void _wasgo_Skeleton_wrapper_clear_bones(WasGoID wasgo_id);
 void _wasgo_Skeleton_wrapper_clear_bones_global_pose_override(WasGoID wasgo_id);
 int _wasgo_Skeleton_wrapper_find_bone(WasGoID wasgo_id, const uint8_t * p_name, int p_name_wasgo_buffer_size);
 int _wasgo_Skeleton_wrapper_get_bone_count(WasGoID wasgo_id);
-void _wasgo_Skeleton_wrapper_get_bone_custom_pose(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_bone_idx);
-void _wasgo_Skeleton_wrapper_get_bone_global_pose(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_bone_idx);
-void _wasgo_Skeleton_wrapper_get_bone_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_bone_idx);
+void _wasgo_Skeleton_wrapper_get_bone_custom_pose(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_bone_idx);
+void _wasgo_Skeleton_wrapper_get_bone_global_pose(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_bone_idx);
+void _wasgo_Skeleton_wrapper_get_bone_name(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_bone_idx);
 int _wasgo_Skeleton_wrapper_get_bone_parent(WasGoID wasgo_id, int p_bone_idx);
-void _wasgo_Skeleton_wrapper_get_bone_pose(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_bone_idx);
-void _wasgo_Skeleton_wrapper_get_bone_rest(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_bone_idx);
+void _wasgo_Skeleton_wrapper_get_bone_pose(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_bone_idx);
+void _wasgo_Skeleton_wrapper_get_bone_rest(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_bone_idx);
 WasGoID _wasgo_Skeleton_wrapper_get_bound_child_nodes_to_bone(WasGoID wasgo_id, int p_bone_idx);
 int _wasgo_Skeleton_wrapper_is_bone_rest_disabled(WasGoID wasgo_id, int p_bone_idx);
 void _wasgo_Skeleton_wrapper_localize_rests(WasGoID wasgo_id);
@@ -77,12 +77,12 @@ void _wasgo_Skeleton_wrapper_physical_bones_remove_collision_exception(WasGoID w
 void _wasgo_Skeleton_wrapper_physical_bones_start_simulation(WasGoID wasgo_id, WasGoID p_bones);
 void _wasgo_Skeleton_wrapper_physical_bones_stop_simulation(WasGoID wasgo_id);
 WasGoID _wasgo_Skeleton_wrapper_register_skin(WasGoID wasgo_id, WasGoID p_skin);
-void _wasgo_Skeleton_wrapper_set_bone_custom_pose(WasGoID wasgo_id, int p_bone_idx, const uint8_t * p_custom_pose, int p_custom_pose_wasgo_buffer_size);
+void _wasgo_Skeleton_wrapper_set_bone_custom_pose(WasGoID wasgo_id, int p_bone_idx, const uint8_t * p_custom_pose, int wasgo_throwaway, int p_custom_pose_wasgo_buffer_size);
 void _wasgo_Skeleton_wrapper_set_bone_disable_rest(WasGoID wasgo_id, int p_bone_idx, bool p_disable);
-void _wasgo_Skeleton_wrapper_set_bone_global_pose_override(WasGoID wasgo_id, int p_bone_idx, const uint8_t * p_pose, int p_pose_wasgo_buffer_size, float p_amount, bool p_persistent);
+void _wasgo_Skeleton_wrapper_set_bone_global_pose_override(WasGoID wasgo_id, int p_bone_idx, const uint8_t * p_pose, int wasgo_throwaway, int p_pose_wasgo_buffer_size, float p_amount, bool p_persistent);
 void _wasgo_Skeleton_wrapper_set_bone_parent(WasGoID wasgo_id, int p_bone_idx, int p_parent_idx);
-void _wasgo_Skeleton_wrapper_set_bone_pose(WasGoID wasgo_id, int p_bone_idx, const uint8_t * p_pose, int p_pose_wasgo_buffer_size);
-void _wasgo_Skeleton_wrapper_set_bone_rest(WasGoID wasgo_id, int p_bone_idx, const uint8_t * p_rest, int p_rest_wasgo_buffer_size);
+void _wasgo_Skeleton_wrapper_set_bone_pose(WasGoID wasgo_id, int p_bone_idx, const uint8_t * p_pose, int wasgo_throwaway, int p_pose_wasgo_buffer_size);
+void _wasgo_Skeleton_wrapper_set_bone_rest(WasGoID wasgo_id, int p_bone_idx, const uint8_t * p_rest, int wasgo_throwaway, int p_rest_wasgo_buffer_size);
 void _wasgo_Skeleton_wrapper_unbind_child_node_from_bone(WasGoID wasgo_id, int p_bone_idx, WasGoID p_node);
 void _wasgo_Skeleton_wrapper_unparent_bone_and_rest(WasGoID wasgo_id, int p_bone_idx);
 

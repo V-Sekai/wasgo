@@ -23,7 +23,7 @@ Vector3 GIProbe::get_extents(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_GIProbe_wrapper_get_extents(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 float GIProbe::get_normal_bias(){

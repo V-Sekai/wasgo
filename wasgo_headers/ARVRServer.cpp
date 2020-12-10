@@ -7,7 +7,7 @@ void ARVRServer::center_on_hmd(ARVRServer::RotationMode p_rotation_mode, bool p_
 ARVRInterface ARVRServer::find_interface(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -20,7 +20,7 @@ Transform ARVRServer::get_hmd_transform(){
     uint8_t wasgo_ret_buffer[52];
     _wasgo_ARVRServer_wrapper_get_hmd_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 ARVRInterface ARVRServer::get_interface(int p_idx){
@@ -51,7 +51,7 @@ Transform ARVRServer::get_reference_frame(){
     uint8_t wasgo_ret_buffer[52];
     _wasgo_ARVRServer_wrapper_get_reference_frame(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 ARVRPositionalTracker ARVRServer::get_tracker(int p_idx){

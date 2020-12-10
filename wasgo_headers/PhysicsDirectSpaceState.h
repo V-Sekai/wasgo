@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Variant.h"
+#include "PhysicsShapeQueryParameters.h"
 #include "Object.h"
 #include "Vector3.h"
-#include "PhysicsShapeQueryParameters.h"
+#include "Variant.h"
 class PhysicsDirectSpaceState : public Object{
 public:
 Array cast_motion(PhysicsShapeQueryParameters p_shape, Vector3 p_motion);
@@ -30,10 +30,10 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-WasGoID _wasgo_PhysicsDirectSpaceState_wrapper_cast_motion(WasGoID wasgo_id, WasGoID p_shape, const uint8_t * p_motion, int p_motion_wasgo_buffer_size);
+WasGoID _wasgo_PhysicsDirectSpaceState_wrapper_cast_motion(WasGoID wasgo_id, WasGoID p_shape, const uint8_t * p_motion, int wasgo_throwaway, int p_motion_wasgo_buffer_size);
 WasGoID _wasgo_PhysicsDirectSpaceState_wrapper_collide_shape(WasGoID wasgo_id, WasGoID p_shape, int p_max_results);
 WasGoID _wasgo_PhysicsDirectSpaceState_wrapper_get_rest_info(WasGoID wasgo_id, WasGoID p_shape);
-WasGoID _wasgo_PhysicsDirectSpaceState_wrapper_intersect_ray(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size, WasGoID p_exclude, int p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas);
+WasGoID _wasgo_PhysicsDirectSpaceState_wrapper_intersect_ray(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_to, int p_to_wasgo_buffer_size, WasGoID p_exclude, int p_collision_mask, bool p_collide_with_bodies, bool p_collide_with_areas);
 WasGoID _wasgo_PhysicsDirectSpaceState_wrapper_intersect_shape(WasGoID wasgo_id, WasGoID p_shape, int p_max_results);
 
     //constructor wrappers

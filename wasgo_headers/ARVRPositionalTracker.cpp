@@ -17,7 +17,7 @@ String ARVRPositionalTracker::get_name(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_ARVRPositionalTracker_wrapper_get_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 Basis ARVRPositionalTracker::get_orientation(){
@@ -27,7 +27,7 @@ Basis ARVRPositionalTracker::get_orientation(){
     uint8_t wasgo_ret_buffer[40];
     _wasgo_ARVRPositionalTracker_wrapper_get_orientation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Basis) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 ARVRPositionalTracker::get_position(){
@@ -37,7 +37,7 @@ Vector3 ARVRPositionalTracker::get_position(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_ARVRPositionalTracker_wrapper_get_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 float ARVRPositionalTracker::get_rumble(){
@@ -57,9 +57,9 @@ Transform ARVRPositionalTracker::get_transform(bool p_adjust_by_reference_frame)
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 52;
     uint8_t wasgo_ret_buffer[52];
-    _wasgo_ARVRPositionalTracker_wrapper_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_adjust_by_reference_frame);
+    _wasgo_ARVRPositionalTracker_wrapper_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_adjust_by_reference_frame);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 ARVRServer::TrackerType ARVRPositionalTracker::get_type(){

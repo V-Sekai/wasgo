@@ -4,11 +4,11 @@
 RID CanvasLayer::get_canvas(){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
     _wasgo_CanvasLayer_wrapper_get_canvas(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 Node CanvasLayer::get_custom_viewport(){
@@ -27,7 +27,7 @@ Vector2 CanvasLayer::get_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_CanvasLayer_wrapper_get_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float CanvasLayer::get_rotation(){
@@ -43,7 +43,7 @@ Vector2 CanvasLayer::get_scale(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_CanvasLayer_wrapper_get_scale(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform2D CanvasLayer::get_transform(){
@@ -53,7 +53,7 @@ Transform2D CanvasLayer::get_transform(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_CanvasLayer_wrapper_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool CanvasLayer::is_following_viewport(){

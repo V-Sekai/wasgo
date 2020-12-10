@@ -2,7 +2,7 @@
 #include "marshalls.h"
 #include "ImageTexture.h"
 void ImageTexture::create(int p_width, int p_height, Image::Format p_format, int p_flags){
-	_wasgo_ImageTexture_wrapper_create(wasgo_id, p_width, p_height, p_format._get_wasgo_id(), p_flags);
+	_wasgo_ImageTexture_wrapper_create(wasgo_id, p_width, p_height, -69, p_format._get_wasgo_id(), p_flags);
 }
 void ImageTexture::create_from_image(Image p_image, int p_flags){
 	_wasgo_ImageTexture_wrapper_create_from_image(wasgo_id, p_image._get_wasgo_id(), p_flags);
@@ -19,7 +19,7 @@ ImageTexture::Storage ImageTexture::get_storage(){
 Error ImageTexture::load(String p_path){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     

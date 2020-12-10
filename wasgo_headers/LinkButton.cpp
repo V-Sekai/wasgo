@@ -8,7 +8,7 @@ String LinkButton::get_text(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_LinkButton_wrapper_get_text(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 LinkButton::UnderlineMode LinkButton::get_underline_mode(){
@@ -17,7 +17,7 @@ LinkButton::UnderlineMode LinkButton::get_underline_mode(){
 void LinkButton::set_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     

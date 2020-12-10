@@ -11,7 +11,7 @@ String Area2D::get_audio_bus_name(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_Area2D_wrapper_get_audio_bus_name(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Area2D::get_collision_layer(){
@@ -39,7 +39,7 @@ Vector2 Area2D::get_gravity_vector(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Area2D_wrapper_get_gravity_vector(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Area2D::get_linear_damp(){
@@ -81,7 +81,7 @@ void Area2D::set_angular_damp(float p_angular_damp){
 void Area2D::set_audio_bus_name(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     

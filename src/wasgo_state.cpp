@@ -74,16 +74,50 @@ void WasGoState::_stop() {
 }
 
 void WasGoState::_bind_methods() {
-	ClassDB::bind_method(D_METHOD("set_wasm_script", "p_wasm_script"), &WasGoState::set_wasm_script);
+	ClassDB::bind_method(D_METHOD("set_wasm_script", "wasm_script"), &WasGoState::set_wasm_script);
 	ClassDB::bind_method(D_METHOD("get_wasm_script"), &WasGoState::get_wasm_script);
-	ClassDB::bind_method(D_METHOD("set_properties", "p_properties"), &WasGoState::set_properties);
+	ClassDB::bind_method(D_METHOD("set_properties", "properties"), &WasGoState::set_properties);
 	ClassDB::bind_method(D_METHOD("get_properties"), &WasGoState::get_properties);
-	ClassDB::bind_method(D_METHOD("set_property", "p_property"), &WasGoState::set_property);
-	ClassDB::bind_method(D_METHOD("get_property"), &WasGoState::get_property);
-	ClassDB::bind_method(D_METHOD("set_stack_size", "p_stack_size"), &WasGoState::set_stack_size);
+	// ClassDB::bind_method(D_METHOD("set_property", "property", "value"), &WasGoState::set_property);
+	// ClassDB::bind_method(D_METHOD("get_property", "property"), &WasGoState::get_property);
+	ClassDB::bind_method(D_METHOD("set_stack_size", "stack_size"), &WasGoState::set_stack_size);
 	ClassDB::bind_method(D_METHOD("get_stack_size"), &WasGoState::get_stack_size);
-	ClassDB::bind_method(D_METHOD("set_heap_size", "p_heap_size"), &WasGoState::set_heap_size);
+	ClassDB::bind_method(D_METHOD("set_heap_size", "heap_size"), &WasGoState::set_heap_size);
 	ClassDB::bind_method(D_METHOD("get_heap_size"), &WasGoState::get_heap_size);
+
+	//for the wrappers
+	ClassDB::bind_method(D_METHOD("set_property_bool", "property", "value"), &WasGoState::set_property_bool);
+	ClassDB::bind_method(D_METHOD("get_property_bool", "property"), &WasGoState::get_property_bool);
+	ClassDB::bind_method(D_METHOD("set_property_int", "property", "value"), &WasGoState::set_property_int);
+	ClassDB::bind_method(D_METHOD("get_property_int", "property"), &WasGoState::get_property_int);
+	ClassDB::bind_method(D_METHOD("set_property_float", "property", "value"), &WasGoState::set_property_float);
+	ClassDB::bind_method(D_METHOD("get_property_float", "property"), &WasGoState::get_property_float);
+	ClassDB::bind_method(D_METHOD("set_property_string", "property", "value"), &WasGoState::set_property_string);
+	ClassDB::bind_method(D_METHOD("get_property_string", "property"), &WasGoState::get_property_string);
+	ClassDB::bind_method(D_METHOD("set_property_vector2", "property", "value"), &WasGoState::set_property_vector2);
+	ClassDB::bind_method(D_METHOD("get_property_vector2", "property"), &WasGoState::get_property_vector2);
+	ClassDB::bind_method(D_METHOD("set_property_rect2", "property", "value"), &WasGoState::set_property_rect2);
+	ClassDB::bind_method(D_METHOD("get_property_rect2", "property"), &WasGoState::get_property_rect2);
+	ClassDB::bind_method(D_METHOD("set_property_vector3", "property", "value"), &WasGoState::set_property_vector3);
+	ClassDB::bind_method(D_METHOD("get_property_vector3", "property"), &WasGoState::get_property_vector3);
+	ClassDB::bind_method(D_METHOD("set_property_transform2d", "property", "value"), &WasGoState::set_property_transform2d);
+	ClassDB::bind_method(D_METHOD("get_property_transform2d", "property"), &WasGoState::get_property_transform2d);
+	ClassDB::bind_method(D_METHOD("set_property_plane", "property", "value"), &WasGoState::set_property_plane);
+	ClassDB::bind_method(D_METHOD("get_property_plane", "property"), &WasGoState::get_property_plane);
+	ClassDB::bind_method(D_METHOD("set_property_quat", "property", "value"), &WasGoState::set_property_quat);
+	ClassDB::bind_method(D_METHOD("get_property_quat", "property"), &WasGoState::get_property_quat);
+	ClassDB::bind_method(D_METHOD("set_property_aabb", "property", "value"), &WasGoState::set_property_aabb);
+	ClassDB::bind_method(D_METHOD("get_property_aabb", "property"), &WasGoState::get_property_aabb);
+	ClassDB::bind_method(D_METHOD("set_property_basis", "property", "value"), &WasGoState::set_property_basis);
+	ClassDB::bind_method(D_METHOD("get_property_basis", "property"), &WasGoState::get_property_basis);
+	ClassDB::bind_method(D_METHOD("set_property_transform", "property", "value"), &WasGoState::set_property_transform);
+	ClassDB::bind_method(D_METHOD("get_property_transform", "property"), &WasGoState::get_property_transform);
+	ClassDB::bind_method(D_METHOD("set_property_color", "property", "value"), &WasGoState::set_property_color);
+	ClassDB::bind_method(D_METHOD("get_property_color", "property"), &WasGoState::get_property_color);
+	ClassDB::bind_method(D_METHOD("set_property_nodepath", "property", "value"), &WasGoState::set_property_nodepath);
+	ClassDB::bind_method(D_METHOD("get_property_nodepath", "property"), &WasGoState::get_property_nodepath);
+
+	ClassDB::bind_method(D_METHOD("set_int_property", "value", "key"), &WasGoState::set_int_property);
 
 	//callbacks
 	ClassDB::bind_method(D_METHOD("_input", "p_event"), &WasGoState::_input);
@@ -260,7 +294,7 @@ Dictionary WasGoState::get_properties() {
 void WasGoState::set_property(String key, Variant value) {
 	//I don't think you can dynamically change the stack and heap sizes, so we're gonna only change it if the wasm module is not active
 	// if (!is_active()) {
-		properties[key] = value;
+	properties[key] = value;
 	// }
 }
 Variant WasGoState::get_property(String key) {
@@ -454,7 +488,6 @@ int _wasgo_get_property_int(wasm_exec_env_t p_exec_env, const uint8_t *property_
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
 	Variant name = String();
 	decode_variant(name, property_name, property_name_size);
-	int value = state->get_property(name);
 	return (int)state->get_property(name);
 }
 void _wasgo_set_property_int(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, int value){
@@ -742,4 +775,100 @@ bool _wasgo_is_processing_unhandled_input(wasm_exec_env_t p_exec_env) {
 bool _wasgo_is_processing_unhandled_key_input(wasm_exec_env_t p_exec_env) {
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
 	return state->is_processing_unhandled_key_input();
+}
+
+bool WasGoState::get_property_bool(String key){
+	return get_property(key);
+}
+int WasGoState::get_property_int(String key){
+	return get_property(key);
+}
+float WasGoState::get_property_float(String key){
+	return get_property(key);
+}
+String WasGoState::get_property_string(String key){
+	return get_property(key);
+}
+Vector2 WasGoState::get_property_vector2(String key){
+	return get_property(key);
+}
+Rect2 WasGoState::get_property_rect2(String key){
+	return get_property(key);
+}
+Vector3 WasGoState::get_property_vector3(String key){
+	return get_property(key);
+}
+Transform2D WasGoState::get_property_transform2d(String key){
+	return get_property(key);
+}
+Plane WasGoState::get_property_plane(String key){
+	return get_property(key);
+}
+Quat WasGoState::get_property_quat(String key){
+	return get_property(key);
+}
+AABB WasGoState::get_property_aabb(String key){
+	return get_property(key);
+}
+Basis WasGoState::get_property_basis(String key){
+	return get_property(key);
+}
+Transform WasGoState::get_property_transform(String key){
+	return get_property(key);
+}
+Color WasGoState::get_property_color(String key){
+	return get_property(key);
+}
+NodePath WasGoState::get_property_nodepath(String key){
+	return get_property(key);
+}
+
+void WasGoState::set_property_bool(String key, bool p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_int(String key, int p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_float(String key, float p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_string(String key, String p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_vector2(String key, Vector2 p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_rect2(String key, Rect2 p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_vector3(String key, Vector3 p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_transform2d(String key, Transform2D p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_plane(String key, Plane p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_quat(String key, Quat p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_aabb(String key, AABB p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_basis(String key, Basis p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_transform(String key, Transform p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_color(String key, Color p_value){
+	set_property(key, p_value);
+}
+void WasGoState::set_property_nodepath(String key, NodePath p_value){
+	set_property(key, p_value);
+}
+
+void WasGoState::set_int_property(int p_value, String key) {
+	set_property(key, p_value);
 }

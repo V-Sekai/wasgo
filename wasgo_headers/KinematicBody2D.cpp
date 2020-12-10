@@ -8,7 +8,7 @@ Vector2 KinematicBody2D::get_floor_normal(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_KinematicBody2D_wrapper_get_floor_normal(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 KinematicBody2D::get_floor_velocity(){
@@ -18,7 +18,7 @@ Vector2 KinematicBody2D::get_floor_velocity(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_KinematicBody2D_wrapper_get_floor_velocity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float KinematicBody2D::get_safe_margin(){
@@ -49,7 +49,7 @@ KinematicCollision2D KinematicBody2D::move_and_collide(Vector2 p_rel_vec, bool p
     int wasgo_size_rel_vec = 12;
     encode_variant(wasgo_var_rel_vec, wasgo_buffer_rel_vec, wasgo_size_rel_vec);
     
-	return KinematicCollision2D(_wasgo_KinematicBody2D_wrapper_move_and_collide(wasgo_id, wasgo_buffer_rel_vec, wasgo_size_rel_vec, p_infinite_inertia, p_exclude_raycast_shapes, p_test_only));
+	return KinematicCollision2D(_wasgo_KinematicBody2D_wrapper_move_and_collide(wasgo_id, wasgo_buffer_rel_vec, wasgo_size_rel_vec, -69, p_infinite_inertia, p_exclude_raycast_shapes, p_test_only));
 }
 Vector2 KinematicBody2D::move_and_slide(Vector2 p_linear_velocity, Vector2 p_up_direction, bool p_stop_on_slope, int p_max_slides, float p_floor_max_angle, bool p_infinite_inertia){
 
@@ -68,9 +68,9 @@ Vector2 KinematicBody2D::move_and_slide(Vector2 p_linear_velocity, Vector2 p_up_
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_KinematicBody2D_wrapper_move_and_slide(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_linear_velocity, wasgo_size_linear_velocity, wasgo_buffer_up_direction, wasgo_size_up_direction, p_stop_on_slope, p_max_slides, p_floor_max_angle, p_infinite_inertia);
+    _wasgo_KinematicBody2D_wrapper_move_and_slide(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_linear_velocity, wasgo_size_linear_velocity, wasgo_buffer_up_direction, wasgo_size_up_direction, p_stop_on_slope, p_max_slides, p_floor_max_angle, p_infinite_inertia);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 KinematicBody2D::move_and_slide_with_snap(Vector2 p_linear_velocity, Vector2 p_snap, Vector2 p_up_direction, bool p_stop_on_slope, int p_max_slides, float p_floor_max_angle, bool p_infinite_inertia){
@@ -96,9 +96,9 @@ Vector2 KinematicBody2D::move_and_slide_with_snap(Vector2 p_linear_velocity, Vec
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_KinematicBody2D_wrapper_move_and_slide_with_snap(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_linear_velocity, wasgo_size_linear_velocity, wasgo_buffer_snap, wasgo_size_snap, wasgo_buffer_up_direction, wasgo_size_up_direction, p_stop_on_slope, p_max_slides, p_floor_max_angle, p_infinite_inertia);
+    _wasgo_KinematicBody2D_wrapper_move_and_slide_with_snap(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_linear_velocity, wasgo_size_linear_velocity, wasgo_buffer_snap, wasgo_size_snap, wasgo_buffer_up_direction, wasgo_size_up_direction, p_stop_on_slope, p_max_slides, p_floor_max_angle, p_infinite_inertia);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 void KinematicBody2D::set_safe_margin(float p_pixels){
@@ -120,7 +120,7 @@ bool KinematicBody2D::test_move(Transform2D p_from, Vector2 p_rel_vec, bool p_in
     int wasgo_size_rel_vec = 12;
     encode_variant(wasgo_var_rel_vec, wasgo_buffer_rel_vec, wasgo_size_rel_vec);
     
-	return (bool) _wasgo_KinematicBody2D_wrapper_test_move(wasgo_id, wasgo_buffer_from, wasgo_size_from, wasgo_buffer_rel_vec, wasgo_size_rel_vec, p_infinite_inertia);
+	return (bool) _wasgo_KinematicBody2D_wrapper_test_move(wasgo_id, wasgo_buffer_from, wasgo_size_from, -69, wasgo_buffer_rel_vec, wasgo_size_rel_vec, p_infinite_inertia);
 }
 
 KinematicBody2D::KinematicBody2D(WasGoID p_wasgo_id) : PhysicsBody2D(p_wasgo_id){

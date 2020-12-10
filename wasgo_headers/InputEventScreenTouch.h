@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "InputEvent.h"
 #include "Vector2.h"
+#include "InputEvent.h"
 class InputEventScreenTouch : public InputEvent{
 public:
 int get_index();

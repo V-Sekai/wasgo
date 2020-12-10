@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
+#include "Transform.h"
 #include "PhysicsBody.h"
 #include "Vector3.h"
-#include "Transform.h"
 class PhysicalBone : public PhysicsBody{
 public:
 enum JointType{
@@ -55,7 +55,7 @@ operator bool();
 //Wrapper Functions
 extern "C"{
 void _wasgo_PhysicalBone_wrapper_apply_central_impulse(WasGoID wasgo_id, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
-void _wasgo_PhysicalBone_wrapper_apply_impulse(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
+void _wasgo_PhysicalBone_wrapper_apply_impulse(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
 void _wasgo_PhysicalBone_wrapper_get_body_offset(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_PhysicalBone_wrapper_get_bone_id(WasGoID wasgo_id);
 float _wasgo_PhysicalBone_wrapper_get_bounce(WasGoID wasgo_id);

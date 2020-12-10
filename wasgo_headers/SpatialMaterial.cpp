@@ -8,7 +8,7 @@ Color SpatialMaterial::get_albedo(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_SpatialMaterial_wrapper_get_albedo(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float SpatialMaterial::get_alpha_scissor_threshold(){
@@ -81,7 +81,7 @@ Color SpatialMaterial::get_emission(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_SpatialMaterial_wrapper_get_emission(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float SpatialMaterial::get_emission_energy(){
@@ -163,7 +163,7 @@ Color SpatialMaterial::get_transmission(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_SpatialMaterial_wrapper_get_transmission(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 SpatialMaterial::get_uv1_offset(){
@@ -173,7 +173,7 @@ Vector3 SpatialMaterial::get_uv1_offset(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_SpatialMaterial_wrapper_get_uv1_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 SpatialMaterial::get_uv1_scale(){
@@ -183,7 +183,7 @@ Vector3 SpatialMaterial::get_uv1_scale(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_SpatialMaterial_wrapper_get_uv1_scale(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 float SpatialMaterial::get_uv1_triplanar_blend_sharpness(){
@@ -196,7 +196,7 @@ Vector3 SpatialMaterial::get_uv2_offset(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_SpatialMaterial_wrapper_get_uv2_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 SpatialMaterial::get_uv2_scale(){
@@ -206,7 +206,7 @@ Vector3 SpatialMaterial::get_uv2_scale(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_SpatialMaterial_wrapper_get_uv2_scale(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 float SpatialMaterial::get_uv2_triplanar_blend_sharpness(){

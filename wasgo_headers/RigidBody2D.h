@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Vector2.h"
-#include "Variant.h"
-#include "PhysicsBody2D.h"
-#include "PhysicsMaterial.h"
 #include "Physics2DTestMotionResult.h"
+#include "PhysicsBody2D.h"
+#include "Variant.h"
+#include "PhysicsMaterial.h"
+#include "Vector2.h"
 class RigidBody2D : public PhysicsBody2D{
 public:
 enum CCDMode{
@@ -87,10 +87,10 @@ operator bool();
 //Wrapper Functions
 extern "C"{
 void _wasgo_RigidBody2D_wrapper_add_central_force(WasGoID wasgo_id, const uint8_t * p_force, int p_force_wasgo_buffer_size);
-void _wasgo_RigidBody2D_wrapper_add_force(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size, const uint8_t * p_force, int p_force_wasgo_buffer_size);
+void _wasgo_RigidBody2D_wrapper_add_force(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_force, int p_force_wasgo_buffer_size);
 void _wasgo_RigidBody2D_wrapper_add_torque(WasGoID wasgo_id, float p_torque);
 void _wasgo_RigidBody2D_wrapper_apply_central_impulse(WasGoID wasgo_id, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
-void _wasgo_RigidBody2D_wrapper_apply_impulse(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
+void _wasgo_RigidBody2D_wrapper_apply_impulse(WasGoID wasgo_id, const uint8_t * p_offset, int p_offset_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_impulse, int p_impulse_wasgo_buffer_size);
 void _wasgo_RigidBody2D_wrapper_apply_torque_impulse(WasGoID wasgo_id, float p_torque);
 float _wasgo_RigidBody2D_wrapper_get_angular_damp(WasGoID wasgo_id);
 float _wasgo_RigidBody2D_wrapper_get_angular_velocity(WasGoID wasgo_id);
@@ -134,7 +134,7 @@ void _wasgo_RigidBody2D_wrapper_set_physics_material_override(WasGoID wasgo_id, 
 void _wasgo_RigidBody2D_wrapper_set_sleeping(WasGoID wasgo_id, bool p_sleeping);
 void _wasgo_RigidBody2D_wrapper_set_use_custom_integrator(WasGoID wasgo_id, bool p_enable);
 void _wasgo_RigidBody2D_wrapper_set_weight(WasGoID wasgo_id, float p_weight);
-int _wasgo_RigidBody2D_wrapper_test_motion(WasGoID wasgo_id, const uint8_t * p_motion, int p_motion_wasgo_buffer_size, bool p_infinite_inertia, float p_margin, WasGoID p_result);
+int _wasgo_RigidBody2D_wrapper_test_motion(WasGoID wasgo_id, const uint8_t * p_motion, int p_motion_wasgo_buffer_size, int wasgo_throwaway, bool p_infinite_inertia, float p_margin, WasGoID p_result);
 
     //constructor wrappers
     WasGoID _wasgo_RigidBody2D_constructor();

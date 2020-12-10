@@ -4,12 +4,12 @@
 
 #include "wasgo\wasgoid.h"
 
+#include "NodePath.h"
+#include "Skeleton.h"
+#include "Transform.h"
+#include "Ustring.h"
 #include "Vector3.h"
 #include "Node.h"
-#include "NodePath.h"
-#include "Transform.h"
-#include "Skeleton.h"
-#include "Ustring.h"
 class SkeletonIK : public Node{
 public:
 float get_interpolation();

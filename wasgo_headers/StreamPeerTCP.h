@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "StreamPeer.h"
 #include "Ustring.h"
 #include "error_list.h"
+#include "StreamPeer.h"
 class StreamPeerTCP : public StreamPeer{
 public:
 enum Status{
@@ -37,7 +37,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-WasGoID _wasgo_StreamPeerTCP_wrapper_connect_to_host(WasGoID wasgo_id, const uint8_t * p_host, int p_host_wasgo_buffer_size, int p_port);
+WasGoID _wasgo_StreamPeerTCP_wrapper_connect_to_host(WasGoID wasgo_id, const uint8_t * p_host, int p_host_wasgo_buffer_size, int wasgo_throwaway, int p_port);
 void _wasgo_StreamPeerTCP_wrapper_disconnect_from_host(WasGoID wasgo_id);
 void _wasgo_StreamPeerTCP_wrapper_get_connected_host(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 int _wasgo_StreamPeerTCP_wrapper_get_connected_port(WasGoID wasgo_id);

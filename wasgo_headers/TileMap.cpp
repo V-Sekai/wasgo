@@ -15,9 +15,9 @@ Vector2 TileMap::get_cell_autotile_coord(int p_x, int p_y){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_TileMap_wrapper_get_cell_autotile_coord(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_x, p_y);
+    _wasgo_TileMap_wrapper_get_cell_autotile_coord(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_x, p_y);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 TileMap::get_cell_size(){
@@ -27,7 +27,7 @@ Vector2 TileMap::get_cell_size(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_TileMap_wrapper_get_cell_size(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int TileMap::get_cellv(Vector2 p_position){
@@ -73,7 +73,7 @@ Transform2D TileMap::get_custom_transform(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_TileMap_wrapper_get_custom_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 TileMap::HalfOffset TileMap::get_half_offset(){
@@ -107,7 +107,7 @@ Rect2 TileMap::get_used_rect(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_TileMap_wrapper_get_used_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool TileMap::is_cell_transposed(int p_x, int p_y){
@@ -139,9 +139,9 @@ Vector2 TileMap::map_to_world(Vector2 p_map_position, bool p_ignore_half_ofs){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_TileMap_wrapper_map_to_world(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_map_position, wasgo_size_map_position, p_ignore_half_ofs);
+    _wasgo_TileMap_wrapper_map_to_world(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_map_position, wasgo_size_map_position, p_ignore_half_ofs);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 void TileMap::set_cell(int p_x, int p_y, int p_tile, bool p_flip_x, bool p_flip_y, bool p_transpose, Vector2 p_autotile_coord){
@@ -151,7 +151,7 @@ void TileMap::set_cell(int p_x, int p_y, int p_tile, bool p_flip_x, bool p_flip_
     int wasgo_size_autotile_coord = 12;
     encode_variant(wasgo_var_autotile_coord, wasgo_buffer_autotile_coord, wasgo_size_autotile_coord);
     
-	_wasgo_TileMap_wrapper_set_cell(wasgo_id, p_x, p_y, p_tile, p_flip_x, p_flip_y, p_transpose, wasgo_buffer_autotile_coord, wasgo_size_autotile_coord);
+	_wasgo_TileMap_wrapper_set_cell(wasgo_id, p_x, p_y, -69, p_tile, p_flip_x, p_flip_y, p_transpose, wasgo_buffer_autotile_coord, wasgo_size_autotile_coord);
 }
 void TileMap::set_cell_size(Vector2 p_size){
 
@@ -169,7 +169,7 @@ void TileMap::set_cellv(Vector2 p_position, int p_tile, bool p_flip_x, bool p_fl
     int wasgo_size_position = 12;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_TileMap_wrapper_set_cellv(wasgo_id, wasgo_buffer_position, wasgo_size_position, p_tile, p_flip_x, p_flip_y, p_transpose);
+	_wasgo_TileMap_wrapper_set_cellv(wasgo_id, wasgo_buffer_position, wasgo_size_position, -69, p_tile, p_flip_x, p_flip_y, p_transpose);
 }
 void TileMap::set_centered_textures(bool p_enable){
 	_wasgo_TileMap_wrapper_set_centered_textures(wasgo_id, p_enable);
@@ -256,7 +256,7 @@ void TileMap::update_bitmask_region(Vector2 p_start, Vector2 p_end){
     int wasgo_size_end = 12;
     encode_variant(wasgo_var_end, wasgo_buffer_end, wasgo_size_end);
     
-	_wasgo_TileMap_wrapper_update_bitmask_region(wasgo_id, wasgo_buffer_start, wasgo_size_start, wasgo_buffer_end, wasgo_size_end);
+	_wasgo_TileMap_wrapper_update_bitmask_region(wasgo_id, wasgo_buffer_start, wasgo_size_start, -69, wasgo_buffer_end, wasgo_size_end);
 }
 void TileMap::update_dirty_quadrants(){
 	_wasgo_TileMap_wrapper_update_dirty_quadrants(wasgo_id);
@@ -272,9 +272,9 @@ Vector2 TileMap::world_to_map(Vector2 p_world_position){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_TileMap_wrapper_world_to_map(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_world_position, wasgo_size_world_position);
+    _wasgo_TileMap_wrapper_world_to_map(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_world_position, wasgo_size_world_position);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 

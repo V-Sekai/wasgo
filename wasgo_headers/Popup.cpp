@@ -29,7 +29,7 @@ void Popup::popup_centered_clamped(Vector2 p_size, float p_fallback_ratio){
     int wasgo_size_size = 12;
     encode_variant(wasgo_var_size, wasgo_buffer_size, wasgo_size_size);
     
-	_wasgo_Popup_wrapper_popup_centered_clamped(wasgo_id, wasgo_buffer_size, wasgo_size_size, p_fallback_ratio);
+	_wasgo_Popup_wrapper_popup_centered_clamped(wasgo_id, wasgo_buffer_size, wasgo_size_size, -69, p_fallback_ratio);
 }
 void Popup::popup_centered_minsize(Vector2 p_minsize){
 

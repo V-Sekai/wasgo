@@ -17,17 +17,17 @@ Vector2 Physics2DShapeQueryParameters::get_motion(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Physics2DShapeQueryParameters_wrapper_get_motion(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 RID Physics2DShapeQueryParameters::get_shape_rid(){
 
     Variant wasgo_ret;
-    int wasgo_ret_buffer_size = 0;
-    uint8_t wasgo_ret_buffer[0];
+    int wasgo_ret_buffer_size = 256;
+    uint8_t wasgo_ret_buffer[256];
     _wasgo_Physics2DShapeQueryParameters_wrapper_get_shape_rid(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (RID) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform2D Physics2DShapeQueryParameters::get_transform(){
@@ -37,7 +37,7 @@ Transform2D Physics2DShapeQueryParameters::get_transform(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_Physics2DShapeQueryParameters_wrapper_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool Physics2DShapeQueryParameters::is_collide_with_areas_enabled(){
@@ -76,8 +76,8 @@ void Physics2DShapeQueryParameters::set_shape(Resource p_shape){
 void Physics2DShapeQueryParameters::set_shape_rid(RID p_shape){
 
     Variant wasgo_var_shape = p_shape;
-    uint8_t wasgo_buffer_shape[0];
-    int wasgo_size_shape = 0;
+    uint8_t wasgo_buffer_shape[256];
+    int wasgo_size_shape = 256;
     encode_variant(wasgo_var_shape, wasgo_buffer_shape, wasgo_size_shape);
     
 	_wasgo_Physics2DShapeQueryParameters_wrapper_set_shape_rid(wasgo_id, wasgo_buffer_shape, wasgo_size_shape);

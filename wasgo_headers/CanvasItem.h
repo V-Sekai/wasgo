@@ -4,22 +4,22 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
-#include "InputEvent.h"
-#include "Vector2.h"
-#include "Font.h"
-#include "Mesh.h"
-#include "MultiMesh.h"
 #include "Rect2.h"
-#include "RID.h"
-#include "Node.h"
-class StyleBox;
+#include "InputEvent.h"
+#include "MultiMesh.h"
 #include "Transform2D.h"
-#include "Material.h"
-#include "World2D.h"
-#include "Variant.h"
+#include "Mesh.h"
 #include "Ustring.h"
+#include "RID.h"
+#include "Font.h"
+#include "World2D.h"
+class StyleBox;
+#include "Variant.h"
+#include "Vector2.h"
+#include "Material.h"
 #include "Texture.h"
+#include "Node.h"
+#include "Color.h"
 class CanvasItem : public Node{
 public:
 enum BlendMode{
@@ -104,27 +104,27 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_CanvasItem_wrapper_draw_arc(WasGoID wasgo_id, const uint8_t * p_center, int p_center_wasgo_buffer_size, float p_radius, float p_start_angle, float p_end_angle, int p_point_count, const uint8_t * p_color, int p_color_wasgo_buffer_size, float p_width, bool p_antialiased);
-float _wasgo_CanvasItem_wrapper_draw_char(WasGoID wasgo_id, WasGoID p_font, const uint8_t * p_position, int p_position_wasgo_buffer_size, const uint8_t * p_char, int p_char_wasgo_buffer_size, const uint8_t * p_next, int p_next_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size);
-void _wasgo_CanvasItem_wrapper_draw_circle(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, float p_radius, const uint8_t * p_color, int p_color_wasgo_buffer_size);
-void _wasgo_CanvasItem_wrapper_draw_colored_polygon(WasGoID wasgo_id, WasGoID p_points, const uint8_t * p_color, int p_color_wasgo_buffer_size, WasGoID p_uvs, WasGoID p_texture, WasGoID p_normal_map, bool p_antialiased);
-void _wasgo_CanvasItem_wrapper_draw_line(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, const uint8_t * p_to, int p_to_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size, float p_width, bool p_antialiased);
-void _wasgo_CanvasItem_wrapper_draw_mesh(WasGoID wasgo_id, WasGoID p_mesh, WasGoID p_texture, WasGoID p_normal_map, const uint8_t * p_transform, int p_transform_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size);
-void _wasgo_CanvasItem_wrapper_draw_multiline(WasGoID wasgo_id, WasGoID p_points, const uint8_t * p_color, int p_color_wasgo_buffer_size, float p_width, bool p_antialiased);
-void _wasgo_CanvasItem_wrapper_draw_multiline_colors(WasGoID wasgo_id, WasGoID p_points, WasGoID p_colors, float p_width, bool p_antialiased);
-void _wasgo_CanvasItem_wrapper_draw_multimesh(WasGoID wasgo_id, WasGoID p_multimesh, WasGoID p_texture, WasGoID p_normal_map);
-void _wasgo_CanvasItem_wrapper_draw_polygon(WasGoID wasgo_id, WasGoID p_points, WasGoID p_colors, WasGoID p_uvs, WasGoID p_texture, WasGoID p_normal_map, bool p_antialiased);
-void _wasgo_CanvasItem_wrapper_draw_polyline(WasGoID wasgo_id, WasGoID p_points, const uint8_t * p_color, int p_color_wasgo_buffer_size, float p_width, bool p_antialiased);
-void _wasgo_CanvasItem_wrapper_draw_polyline_colors(WasGoID wasgo_id, WasGoID p_points, WasGoID p_colors, float p_width, bool p_antialiased);
-void _wasgo_CanvasItem_wrapper_draw_primitive(WasGoID wasgo_id, WasGoID p_points, WasGoID p_colors, WasGoID p_uvs, WasGoID p_texture, float p_width, WasGoID p_normal_map);
-void _wasgo_CanvasItem_wrapper_draw_rect(WasGoID wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size, bool p_filled, float p_width, bool p_antialiased);
-void _wasgo_CanvasItem_wrapper_draw_set_transform(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, float p_rotation, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
+void _wasgo_CanvasItem_wrapper_draw_arc(WasGoID wasgo_id, const uint8_t * p_center, int p_center_wasgo_buffer_size, int wasgo_throwaway, float p_radius, float p_start_angle, float p_end_angle, int p_point_count, const uint8_t * p_color, int p_color_wasgo_buffer_size, float p_width, bool p_antialiased);
+float _wasgo_CanvasItem_wrapper_draw_char(WasGoID wasgo_id, WasGoID p_font, const uint8_t * p_position, int wasgo_throwaway, int p_position_wasgo_buffer_size, const uint8_t * p_char, int p_char_wasgo_buffer_size, const uint8_t * p_next, int p_next_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size);
+void _wasgo_CanvasItem_wrapper_draw_circle(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, int wasgo_throwaway, float p_radius, const uint8_t * p_color, int p_color_wasgo_buffer_size);
+void _wasgo_CanvasItem_wrapper_draw_colored_polygon(WasGoID wasgo_id, WasGoID p_points, const uint8_t * p_color, int wasgo_throwaway, int p_color_wasgo_buffer_size, WasGoID p_uvs, WasGoID p_texture, WasGoID p_normal_map, bool p_antialiased);
+void _wasgo_CanvasItem_wrapper_draw_line(WasGoID wasgo_id, const uint8_t * p_from, int p_from_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_to, int p_to_wasgo_buffer_size, const uint8_t * p_color, int p_color_wasgo_buffer_size, float p_width, bool p_antialiased);
+void _wasgo_CanvasItem_wrapper_draw_mesh(WasGoID wasgo_id, WasGoID p_mesh, WasGoID p_texture, int wasgo_throwaway, WasGoID p_normal_map, const uint8_t * p_transform, int p_transform_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size);
+void _wasgo_CanvasItem_wrapper_draw_multiline(WasGoID wasgo_id, WasGoID p_points, const uint8_t * p_color, int wasgo_throwaway, int p_color_wasgo_buffer_size, float p_width, bool p_antialiased);
+void _wasgo_CanvasItem_wrapper_draw_multiline_colors(WasGoID wasgo_id, WasGoID p_points, WasGoID p_colors, int wasgo_throwaway, float p_width, bool p_antialiased);
+void _wasgo_CanvasItem_wrapper_draw_multimesh(WasGoID wasgo_id, WasGoID p_multimesh, WasGoID p_texture, int wasgo_throwaway, WasGoID p_normal_map);
+void _wasgo_CanvasItem_wrapper_draw_polygon(WasGoID wasgo_id, WasGoID p_points, WasGoID p_colors, int wasgo_throwaway, WasGoID p_uvs, WasGoID p_texture, WasGoID p_normal_map, bool p_antialiased);
+void _wasgo_CanvasItem_wrapper_draw_polyline(WasGoID wasgo_id, WasGoID p_points, const uint8_t * p_color, int wasgo_throwaway, int p_color_wasgo_buffer_size, float p_width, bool p_antialiased);
+void _wasgo_CanvasItem_wrapper_draw_polyline_colors(WasGoID wasgo_id, WasGoID p_points, WasGoID p_colors, int wasgo_throwaway, float p_width, bool p_antialiased);
+void _wasgo_CanvasItem_wrapper_draw_primitive(WasGoID wasgo_id, WasGoID p_points, WasGoID p_colors, int wasgo_throwaway, WasGoID p_uvs, WasGoID p_texture, float p_width, WasGoID p_normal_map);
+void _wasgo_CanvasItem_wrapper_draw_rect(WasGoID wasgo_id, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, int wasgo_throwaway, const uint8_t * p_color, int p_color_wasgo_buffer_size, bool p_filled, float p_width, bool p_antialiased);
+void _wasgo_CanvasItem_wrapper_draw_set_transform(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size, int wasgo_throwaway, float p_rotation, const uint8_t * p_scale, int p_scale_wasgo_buffer_size);
 void _wasgo_CanvasItem_wrapper_draw_set_transform_matrix(WasGoID wasgo_id, const uint8_t * p_xform, int p_xform_wasgo_buffer_size);
-void _wasgo_CanvasItem_wrapper_draw_string(WasGoID wasgo_id, WasGoID p_font, const uint8_t * p_position, int p_position_wasgo_buffer_size, const uint8_t * p_text, int p_text_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size, int p_clip_w);
-void _wasgo_CanvasItem_wrapper_draw_style_box(WasGoID wasgo_id, WasGoID p_style_box, const uint8_t * p_rect, int p_rect_wasgo_buffer_size);
-void _wasgo_CanvasItem_wrapper_draw_texture(WasGoID wasgo_id, WasGoID p_texture, const uint8_t * p_position, int p_position_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size, WasGoID p_normal_map);
-void _wasgo_CanvasItem_wrapper_draw_texture_rect(WasGoID wasgo_id, WasGoID p_texture, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, bool p_tile, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size, bool p_transpose, WasGoID p_normal_map);
-void _wasgo_CanvasItem_wrapper_draw_texture_rect_region(WasGoID wasgo_id, WasGoID p_texture, const uint8_t * p_rect, int p_rect_wasgo_buffer_size, const uint8_t * p_src_rect, int p_src_rect_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size, bool p_transpose, WasGoID p_normal_map, bool p_clip_uv);
+void _wasgo_CanvasItem_wrapper_draw_string(WasGoID wasgo_id, WasGoID p_font, const uint8_t * p_position, int wasgo_throwaway, int p_position_wasgo_buffer_size, const uint8_t * p_text, int p_text_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size, int p_clip_w);
+void _wasgo_CanvasItem_wrapper_draw_style_box(WasGoID wasgo_id, WasGoID p_style_box, const uint8_t * p_rect, int wasgo_throwaway, int p_rect_wasgo_buffer_size);
+void _wasgo_CanvasItem_wrapper_draw_texture(WasGoID wasgo_id, WasGoID p_texture, const uint8_t * p_position, int wasgo_throwaway, int p_position_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size, WasGoID p_normal_map);
+void _wasgo_CanvasItem_wrapper_draw_texture_rect(WasGoID wasgo_id, WasGoID p_texture, const uint8_t * p_rect, int wasgo_throwaway, int p_rect_wasgo_buffer_size, bool p_tile, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size, bool p_transpose, WasGoID p_normal_map);
+void _wasgo_CanvasItem_wrapper_draw_texture_rect_region(WasGoID wasgo_id, WasGoID p_texture, const uint8_t * p_rect, int wasgo_throwaway, int p_rect_wasgo_buffer_size, const uint8_t * p_src_rect, int p_src_rect_wasgo_buffer_size, const uint8_t * p_modulate, int p_modulate_wasgo_buffer_size, bool p_transpose, WasGoID p_normal_map, bool p_clip_uv);
 void _wasgo_CanvasItem_wrapper_force_update_transform(WasGoID wasgo_id);
 void _wasgo_CanvasItem_wrapper_get_canvas(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_CanvasItem_wrapper_get_canvas_item(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size);
@@ -149,7 +149,7 @@ int _wasgo_CanvasItem_wrapper_is_set_as_toplevel(WasGoID wasgo_id);
 int _wasgo_CanvasItem_wrapper_is_transform_notification_enabled(WasGoID wasgo_id);
 int _wasgo_CanvasItem_wrapper_is_visible(WasGoID wasgo_id);
 int _wasgo_CanvasItem_wrapper_is_visible_in_tree(WasGoID wasgo_id);
-void _wasgo_CanvasItem_wrapper_make_canvas_position_local(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, const uint8_t * p_screen_point, int p_screen_point_wasgo_buffer_size);
+void _wasgo_CanvasItem_wrapper_make_canvas_position_local(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, const uint8_t * p_screen_point, int p_screen_point_wasgo_buffer_size);
 WasGoID _wasgo_CanvasItem_wrapper_make_input_local(WasGoID wasgo_id, WasGoID p_event);
 void _wasgo_CanvasItem_wrapper_set_as_toplevel(WasGoID wasgo_id, bool p_enable);
 void _wasgo_CanvasItem_wrapper_set_draw_behind_parent(WasGoID wasgo_id, bool p_enable);

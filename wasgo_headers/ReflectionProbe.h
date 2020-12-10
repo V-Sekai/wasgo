@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
+#include "Vector3.h"
 #include "Color.h"
 #include "VisualInstance.h"
-#include "Vector3.h"
 class ReflectionProbe : public VisualInstance{
 public:
 enum UpdateMode{

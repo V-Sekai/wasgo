@@ -8,7 +8,7 @@ Vector3 SpatialVelocityTracker::get_tracked_linear_velocity(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_SpatialVelocityTracker_wrapper_get_tracked_linear_velocity(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool SpatialVelocityTracker::is_tracking_physics_step(){

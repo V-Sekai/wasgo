@@ -7,9 +7,9 @@
 #include "Popup.h"
 class Node;
 #include "Container.h"
-#include "Control.h"
 #include "Ustring.h"
 #include "Texture.h"
+#include "Control.h"
 class TabContainer : public Container{
 public:
 enum TabAlign{
@@ -67,7 +67,7 @@ WasGoID _wasgo_TabContainer_wrapper_get_tab_control(WasGoID wasgo_id, int p_tab_
 int _wasgo_TabContainer_wrapper_get_tab_count(WasGoID wasgo_id);
 int _wasgo_TabContainer_wrapper_get_tab_disabled(WasGoID wasgo_id, int p_tab_idx);
 WasGoID _wasgo_TabContainer_wrapper_get_tab_icon(WasGoID wasgo_id, int p_tab_idx);
-void _wasgo_TabContainer_wrapper_get_tab_title(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_tab_idx);
+void _wasgo_TabContainer_wrapper_get_tab_title(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_tab_idx);
 int _wasgo_TabContainer_wrapper_get_tabs_rearrange_group(WasGoID wasgo_id);
 int _wasgo_TabContainer_wrapper_get_use_hidden_tabs_for_min_size(WasGoID wasgo_id);
 void _wasgo_TabContainer_wrapper_set_current_tab(WasGoID wasgo_id, int p_tab_idx);
@@ -76,7 +76,7 @@ void _wasgo_TabContainer_wrapper_set_popup(WasGoID wasgo_id, WasGoID p_popup);
 void _wasgo_TabContainer_wrapper_set_tab_align(WasGoID wasgo_id, WasGoID p_align);
 void _wasgo_TabContainer_wrapper_set_tab_disabled(WasGoID wasgo_id, int p_tab_idx, bool p_disabled);
 void _wasgo_TabContainer_wrapper_set_tab_icon(WasGoID wasgo_id, int p_tab_idx, WasGoID p_icon);
-void _wasgo_TabContainer_wrapper_set_tab_title(WasGoID wasgo_id, int p_tab_idx, const uint8_t * p_title, int p_title_wasgo_buffer_size);
+void _wasgo_TabContainer_wrapper_set_tab_title(WasGoID wasgo_id, int p_tab_idx, const uint8_t * p_title, int wasgo_throwaway, int p_title_wasgo_buffer_size);
 void _wasgo_TabContainer_wrapper_set_tabs_rearrange_group(WasGoID wasgo_id, int p_group_id);
 void _wasgo_TabContainer_wrapper_set_tabs_visible(WasGoID wasgo_id, bool p_visible);
 void _wasgo_TabContainer_wrapper_set_use_hidden_tabs_for_min_size(WasGoID wasgo_id, bool p_enabled);

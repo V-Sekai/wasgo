@@ -14,7 +14,7 @@ Transform Spatial::get_global_transform(){
     uint8_t wasgo_ret_buffer[52];
     _wasgo_Spatial_wrapper_get_global_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 Spatial Spatial::get_parent_spatial(){
@@ -27,7 +27,7 @@ Vector3 Spatial::get_rotation(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_Spatial_wrapper_get_rotation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 Spatial::get_rotation_degrees(){
@@ -37,7 +37,7 @@ Vector3 Spatial::get_rotation_degrees(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_Spatial_wrapper_get_rotation_degrees(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 Spatial::get_scale(){
@@ -47,7 +47,7 @@ Vector3 Spatial::get_scale(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_Spatial_wrapper_get_scale(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform Spatial::get_transform(){
@@ -57,7 +57,7 @@ Transform Spatial::get_transform(){
     uint8_t wasgo_ret_buffer[52];
     _wasgo_Spatial_wrapper_get_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 Spatial::get_translation(){
@@ -67,7 +67,7 @@ Vector3 Spatial::get_translation(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_Spatial_wrapper_get_translation(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 World Spatial::get_world(){
@@ -80,7 +80,7 @@ void Spatial::global_rotate(Vector3 p_axis, float p_angle){
     int wasgo_size_axis = 16;
     encode_variant(wasgo_var_axis, wasgo_buffer_axis, wasgo_size_axis);
     
-	_wasgo_Spatial_wrapper_global_rotate(wasgo_id, wasgo_buffer_axis, wasgo_size_axis, p_angle);
+	_wasgo_Spatial_wrapper_global_rotate(wasgo_id, wasgo_buffer_axis, wasgo_size_axis, -69, p_angle);
 }
 void Spatial::global_scale(Vector3 p_scale){
 
@@ -134,7 +134,7 @@ void Spatial::look_at(Vector3 p_target, Vector3 p_up){
     int wasgo_size_up = 16;
     encode_variant(wasgo_var_up, wasgo_buffer_up, wasgo_size_up);
     
-	_wasgo_Spatial_wrapper_look_at(wasgo_id, wasgo_buffer_target, wasgo_size_target, wasgo_buffer_up, wasgo_size_up);
+	_wasgo_Spatial_wrapper_look_at(wasgo_id, wasgo_buffer_target, wasgo_size_target, -69, wasgo_buffer_up, wasgo_size_up);
 }
 void Spatial::look_at_from_position(Vector3 p_position, Vector3 p_target, Vector3 p_up){
 
@@ -155,7 +155,7 @@ void Spatial::look_at_from_position(Vector3 p_position, Vector3 p_target, Vector
     int wasgo_size_up = 16;
     encode_variant(wasgo_var_up, wasgo_buffer_up, wasgo_size_up);
     
-	_wasgo_Spatial_wrapper_look_at_from_position(wasgo_id, wasgo_buffer_position, wasgo_size_position, wasgo_buffer_target, wasgo_size_target, wasgo_buffer_up, wasgo_size_up);
+	_wasgo_Spatial_wrapper_look_at_from_position(wasgo_id, wasgo_buffer_position, wasgo_size_position, -69, wasgo_buffer_target, wasgo_size_target, wasgo_buffer_up, wasgo_size_up);
 }
 void Spatial::orthonormalize(){
 	_wasgo_Spatial_wrapper_orthonormalize(wasgo_id);
@@ -167,7 +167,7 @@ void Spatial::rotate(Vector3 p_axis, float p_angle){
     int wasgo_size_axis = 16;
     encode_variant(wasgo_var_axis, wasgo_buffer_axis, wasgo_size_axis);
     
-	_wasgo_Spatial_wrapper_rotate(wasgo_id, wasgo_buffer_axis, wasgo_size_axis, p_angle);
+	_wasgo_Spatial_wrapper_rotate(wasgo_id, wasgo_buffer_axis, wasgo_size_axis, -69, p_angle);
 }
 void Spatial::rotate_object_local(Vector3 p_axis, float p_angle){
 
@@ -176,7 +176,7 @@ void Spatial::rotate_object_local(Vector3 p_axis, float p_angle){
     int wasgo_size_axis = 16;
     encode_variant(wasgo_var_axis, wasgo_buffer_axis, wasgo_size_axis);
     
-	_wasgo_Spatial_wrapper_rotate_object_local(wasgo_id, wasgo_buffer_axis, wasgo_size_axis, p_angle);
+	_wasgo_Spatial_wrapper_rotate_object_local(wasgo_id, wasgo_buffer_axis, wasgo_size_axis, -69, p_angle);
 }
 void Spatial::rotate_x(float p_angle){
 	_wasgo_Spatial_wrapper_rotate_x(wasgo_id, p_angle);
@@ -288,9 +288,9 @@ Vector3 Spatial::to_global(Vector3 p_local_point){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_Spatial_wrapper_to_global(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_local_point, wasgo_size_local_point);
+    _wasgo_Spatial_wrapper_to_global(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_local_point, wasgo_size_local_point);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector3 Spatial::to_local(Vector3 p_global_point){
@@ -304,9 +304,9 @@ Vector3 Spatial::to_local(Vector3 p_global_point){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 16;
     uint8_t wasgo_ret_buffer[16];
-    _wasgo_Spatial_wrapper_to_local(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_global_point, wasgo_size_global_point);
+    _wasgo_Spatial_wrapper_to_local(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_global_point, wasgo_size_global_point);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 void Spatial::translate(Vector3 p_offset){

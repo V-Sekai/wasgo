@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Reference.h"
 #include "Ustring.h"
 #include "Vector2.h"
+#include "Reference.h"
 class ARVRInterface : public Reference{
 public:
 enum Capabilities{

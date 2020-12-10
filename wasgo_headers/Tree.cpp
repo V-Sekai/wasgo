@@ -33,9 +33,9 @@ String Tree::get_column_title(int p_column){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_Tree_wrapper_get_column_title(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_column);
+    _wasgo_Tree_wrapper_get_column_title(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_column);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Tree::get_column_width(int p_column){
@@ -51,7 +51,7 @@ Rect2 Tree::get_custom_popup_rect(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_Tree_wrapper_get_custom_popup_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Tree::get_drop_mode_flags(){
@@ -77,9 +77,9 @@ Rect2 Tree::get_item_area_rect(Object p_item, int p_column){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 20;
     uint8_t wasgo_ret_buffer[20];
-    _wasgo_Tree_wrapper_get_item_area_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_item._get_wasgo_id(), p_column);
+    _wasgo_Tree_wrapper_get_item_area_rect(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_item._get_wasgo_id(), p_column);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Rect2) wasgo_ret;
+    return wasgo_ret;
     
 }
 TreeItem Tree::get_item_at_position(Vector2 p_position){
@@ -107,7 +107,7 @@ Vector2 Tree::get_scroll(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Tree_wrapper_get_scroll(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Tree::SelectMode Tree::get_select_mode(){
@@ -140,11 +140,11 @@ void Tree::set_column_min_width(int p_column, int p_min_width){
 void Tree::set_column_title(int p_column, String p_title){
 
     Variant wasgo_var_title = p_title;
-    int wasgo_size_title = String(p_title).size();
+    int wasgo_size_title = 10 + String(p_title).size();
     uint8_t wasgo_buffer_title[wasgo_size_title];
     encode_variant(wasgo_var_title, wasgo_buffer_title, wasgo_size_title);
     
-	_wasgo_Tree_wrapper_set_column_title(wasgo_id, p_column, wasgo_buffer_title, wasgo_size_title);
+	_wasgo_Tree_wrapper_set_column_title(wasgo_id, p_column, wasgo_buffer_title, wasgo_size_title, wasgo_size_title);
 }
 void Tree::set_column_titles_visible(bool p_visible){
 	_wasgo_Tree_wrapper_set_column_titles_visible(wasgo_id, p_visible);

@@ -4,9 +4,9 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Spatial.h"
 #include "Mesh.h"
 #include "Ustring.h"
+#include "Spatial.h"
 #include "ARVRPositionalTracker.h"
 class ARVRController : public Spatial{
 public:

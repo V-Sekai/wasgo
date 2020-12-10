@@ -8,19 +8,19 @@ void VisualShader::add_node(VisualShader::Type p_type, VisualShaderNode p_node, 
     int wasgo_size_position = 12;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_VisualShader_wrapper_add_node(wasgo_id, p_type._get_wasgo_id(), p_node._get_wasgo_id(), wasgo_buffer_position, wasgo_size_position, p_id);
+	_wasgo_VisualShader_wrapper_add_node(wasgo_id, p_type._get_wasgo_id(), p_node._get_wasgo_id(), -69, wasgo_buffer_position, wasgo_size_position, p_id);
 }
 bool VisualShader::can_connect_nodes(VisualShader::Type p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port){
-	return (bool) _wasgo_VisualShader_wrapper_can_connect_nodes(wasgo_id, p_type._get_wasgo_id(), p_from_node, p_from_port, p_to_node, p_to_port);
+	return (bool) _wasgo_VisualShader_wrapper_can_connect_nodes(wasgo_id, p_type._get_wasgo_id(), p_from_node, -69, p_from_port, p_to_node, p_to_port);
 }
 Error VisualShader::connect_nodes(VisualShader::Type p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port){
-	return Error(_wasgo_VisualShader_wrapper_connect_nodes(wasgo_id, p_type._get_wasgo_id(), p_from_node, p_from_port, p_to_node, p_to_port));
+	return Error(_wasgo_VisualShader_wrapper_connect_nodes(wasgo_id, p_type._get_wasgo_id(), p_from_node, -69, p_from_port, p_to_node, p_to_port));
 }
 void VisualShader::connect_nodes_forced(VisualShader::Type p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port){
-	_wasgo_VisualShader_wrapper_connect_nodes_forced(wasgo_id, p_type._get_wasgo_id(), p_from_node, p_from_port, p_to_node, p_to_port);
+	_wasgo_VisualShader_wrapper_connect_nodes_forced(wasgo_id, p_type._get_wasgo_id(), p_from_node, -69, p_from_port, p_to_node, p_to_port);
 }
 void VisualShader::disconnect_nodes(VisualShader::Type p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port){
-	_wasgo_VisualShader_wrapper_disconnect_nodes(wasgo_id, p_type._get_wasgo_id(), p_from_node, p_from_port, p_to_node, p_to_port);
+	_wasgo_VisualShader_wrapper_disconnect_nodes(wasgo_id, p_type._get_wasgo_id(), p_from_node, -69, p_from_port, p_to_node, p_to_port);
 }
 Vector2 VisualShader::get_graph_offset(){
 
@@ -29,7 +29,7 @@ Vector2 VisualShader::get_graph_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_VisualShader_wrapper_get_graph_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 VisualShaderNode VisualShader::get_node(VisualShader::Type p_type, int p_id){
@@ -46,16 +46,16 @@ Vector2 VisualShader::get_node_position(VisualShader::Type p_type, int p_id){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_VisualShader_wrapper_get_node_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_type._get_wasgo_id(), p_id);
+    _wasgo_VisualShader_wrapper_get_node_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_type._get_wasgo_id(), p_id);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int VisualShader::get_valid_node_id(VisualShader::Type p_type){
 	return (int) _wasgo_VisualShader_wrapper_get_valid_node_id(wasgo_id, p_type._get_wasgo_id());
 }
 bool VisualShader::is_node_connection(VisualShader::Type p_type, int p_from_node, int p_from_port, int p_to_node, int p_to_port){
-	return (bool) _wasgo_VisualShader_wrapper_is_node_connection(wasgo_id, p_type._get_wasgo_id(), p_from_node, p_from_port, p_to_node, p_to_port);
+	return (bool) _wasgo_VisualShader_wrapper_is_node_connection(wasgo_id, p_type._get_wasgo_id(), p_from_node, -69, p_from_port, p_to_node, p_to_port);
 }
 void VisualShader::remove_node(VisualShader::Type p_type, int p_id){
 	_wasgo_VisualShader_wrapper_remove_node(wasgo_id, p_type._get_wasgo_id(), p_id);
@@ -79,7 +79,7 @@ void VisualShader::set_node_position(VisualShader::Type p_type, int p_id, Vector
     int wasgo_size_position = 12;
     encode_variant(wasgo_var_position, wasgo_buffer_position, wasgo_size_position);
     
-	_wasgo_VisualShader_wrapper_set_node_position(wasgo_id, p_type._get_wasgo_id(), p_id, wasgo_buffer_position, wasgo_size_position);
+	_wasgo_VisualShader_wrapper_set_node_position(wasgo_id, p_type._get_wasgo_id(), p_id, -69, wasgo_buffer_position, wasgo_size_position);
 }
 
 VisualShader::VisualShader(WasGoID p_wasgo_id) : Shader(p_wasgo_id){

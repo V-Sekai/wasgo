@@ -4,8 +4,8 @@
 void SpringArm::add_excluded_object(RID p_RID){
 
     Variant wasgo_var_RID = p_RID;
-    uint8_t wasgo_buffer_RID[0];
-    int wasgo_size_RID = 0;
+    uint8_t wasgo_buffer_RID[256];
+    int wasgo_size_RID = 256;
     encode_variant(wasgo_var_RID, wasgo_buffer_RID, wasgo_size_RID);
     
 	_wasgo_SpringArm_wrapper_add_excluded_object(wasgo_id, wasgo_buffer_RID, wasgo_size_RID);
@@ -31,8 +31,8 @@ Shape SpringArm::get_shape(){
 bool SpringArm::remove_excluded_object(RID p_RID){
 
     Variant wasgo_var_RID = p_RID;
-    uint8_t wasgo_buffer_RID[0];
-    int wasgo_size_RID = 0;
+    uint8_t wasgo_buffer_RID[256];
+    int wasgo_size_RID = 256;
     encode_variant(wasgo_var_RID, wasgo_buffer_RID, wasgo_size_RID);
     
 	return (bool) _wasgo_SpringArm_wrapper_remove_excluded_object(wasgo_id, wasgo_buffer_RID, wasgo_size_RID);

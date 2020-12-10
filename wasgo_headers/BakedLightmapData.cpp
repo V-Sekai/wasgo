@@ -4,11 +4,11 @@
 void BakedLightmapData::add_user(NodePath p_path, Texture p_lightmap, int p_instance){
 
     Variant wasgo_var_path = p_path;
-    int wasgo_size_path = String(p_path).size();
+    int wasgo_size_path = 10 + String(p_path).size();
     uint8_t wasgo_buffer_path[wasgo_size_path];
     encode_variant(wasgo_var_path, wasgo_buffer_path, wasgo_size_path);
     
-	_wasgo_BakedLightmapData_wrapper_add_user(wasgo_id, wasgo_buffer_path, wasgo_size_path, p_lightmap._get_wasgo_id(), p_instance);
+	_wasgo_BakedLightmapData_wrapper_add_user(wasgo_id, wasgo_buffer_path, wasgo_size_path, -69, p_lightmap._get_wasgo_id(), p_instance);
 }
 void BakedLightmapData::clear_users(){
 	_wasgo_BakedLightmapData_wrapper_clear_users(wasgo_id);
@@ -20,7 +20,7 @@ void BakedLightmapData::clear_users(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_BakedLightmapData_wrapper_get_bounds(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (AABB) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform BakedLightmapData::get_cell_space_transform(){
@@ -30,7 +30,7 @@ Transform BakedLightmapData::get_cell_space_transform(){
     uint8_t wasgo_ret_buffer[52];
     _wasgo_BakedLightmapData_wrapper_get_cell_space_transform(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform) wasgo_ret;
+    return wasgo_ret;
     
 }
 int BakedLightmapData::get_cell_subdiv(){
@@ -53,9 +53,9 @@ NodePath BakedLightmapData::get_user_path(int p_user_idx){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_BakedLightmapData_wrapper_get_user_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_user_idx);
+    _wasgo_BakedLightmapData_wrapper_get_user_path(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_user_idx);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (NodePath) wasgo_ret;
+    return wasgo_ret;
     
 }
 void BakedLightmapData::set_bounds(::AABB p_bounds){

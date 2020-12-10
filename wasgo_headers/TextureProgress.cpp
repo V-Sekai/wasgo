@@ -23,7 +23,7 @@ Vector2 TextureProgress::get_radial_center_offset(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_TextureProgress_wrapper_get_radial_center_offset(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float TextureProgress::get_radial_initial_angle(){
@@ -39,7 +39,7 @@ Color TextureProgress::get_tint_over(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_TextureProgress_wrapper_get_tint_over(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Color TextureProgress::get_tint_progress(){
@@ -49,7 +49,7 @@ Color TextureProgress::get_tint_progress(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_TextureProgress_wrapper_get_tint_progress(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Color TextureProgress::get_tint_under(){
@@ -59,7 +59,7 @@ Color TextureProgress::get_tint_under(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_TextureProgress_wrapper_get_tint_under(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Texture TextureProgress::get_under_texture(){

@@ -4,22 +4,22 @@
 Button AcceptDialog::add_button(String p_text, bool p_right, String p_action){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     
 
     Variant wasgo_var_action = p_action;
-    int wasgo_size_action = String(p_action).size();
+    int wasgo_size_action = 10 + String(p_action).size();
     uint8_t wasgo_buffer_action[wasgo_size_action];
     encode_variant(wasgo_var_action, wasgo_buffer_action, wasgo_size_action);
     
-	return Button(_wasgo_AcceptDialog_wrapper_add_button(wasgo_id, wasgo_buffer_text, wasgo_size_text, p_right, wasgo_buffer_action, wasgo_size_action));
+	return Button(_wasgo_AcceptDialog_wrapper_add_button(wasgo_id, wasgo_buffer_text, wasgo_size_text, -69, p_right, wasgo_buffer_action, wasgo_size_action));
 }
 Button AcceptDialog::add_cancel(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -41,7 +41,7 @@ String AcceptDialog::get_text(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AcceptDialog_wrapper_get_text(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 bool AcceptDialog::has_autowrap(){
@@ -59,7 +59,7 @@ void AcceptDialog::set_hide_on_ok(bool p_enabled){
 void AcceptDialog::set_text(String p_text){
 
     Variant wasgo_var_text = p_text;
-    int wasgo_size_text = String(p_text).size();
+    int wasgo_size_text = 10 + String(p_text).size();
     uint8_t wasgo_buffer_text[wasgo_size_text];
     encode_variant(wasgo_var_text, wasgo_buffer_text, wasgo_size_text);
     

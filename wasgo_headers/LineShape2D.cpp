@@ -11,7 +11,7 @@ Vector2 LineShape2D::get_normal(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_LineShape2D_wrapper_get_normal(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 void LineShape2D::set_d(float p_d){

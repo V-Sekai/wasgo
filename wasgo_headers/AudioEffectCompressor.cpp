@@ -23,7 +23,7 @@ String AudioEffectCompressor::get_sidechain(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_AudioEffectCompressor_wrapper_get_sidechain(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 float AudioEffectCompressor::get_threshold(){
@@ -47,7 +47,7 @@ void AudioEffectCompressor::set_release_ms(float p_release_ms){
 void AudioEffectCompressor::set_sidechain(String p_sidechain){
 
     Variant wasgo_var_sidechain = p_sidechain;
-    int wasgo_size_sidechain = String(p_sidechain).size();
+    int wasgo_size_sidechain = 10 + String(p_sidechain).size();
     uint8_t wasgo_buffer_sidechain[wasgo_size_sidechain];
     encode_variant(wasgo_var_sidechain, wasgo_buffer_sidechain, wasgo_size_sidechain);
     

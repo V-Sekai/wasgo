@@ -2058,7 +2058,7 @@ void _wasgo_Node_wrapper_request_ready(wasm_exec_env_t exec_env, WasGoState::Was
 	return;
 }
 
-WasGoState::WasGoID _wasgo_Node_wrapper_rpc(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_method, int p_wasgo_buffer_size_method){
+void _wasgo_Node_wrapper_rpc(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_method, int p_wasgo_buffer_size_method){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		Node *caller = (Node *) ((Object *) state->lookup_object(caller_id));
@@ -2068,13 +2068,11 @@ WasGoState::WasGoID _wasgo_Node_wrapper_rpc(wasm_exec_env_t exec_env, WasGoState
 			Variant * method = &v_method;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_method};
-			Variant wasgo_ret = caller->call((String)"rpc", varargs, 1, error);
+			Variant wasgo_local_ret = caller->call((String)"rpc", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
 			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: rpc");}
-			return state->handle_return_variant(wasgo_ret);
 		}
-	}
-	return WasGoState::WasGoID();
-}
+	}}
 
 void _wasgo_Node_wrapper_rpc_config(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_method, int p_wasgo_buffer_size_method, WasGoState::WasGoID p_mode){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -2094,7 +2092,7 @@ void _wasgo_Node_wrapper_rpc_config(wasm_exec_env_t exec_env, WasGoState::WasGoI
 	return;
 }
 
-WasGoState::WasGoID _wasgo_Node_wrapper_rpc_id(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_peer_id, const uint8_t * p_method, int p_wasgo_buffer_size_method){
+void _wasgo_Node_wrapper_rpc_id(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, int p_peer_id, const uint8_t * p_method, int p_wasgo_buffer_size_method){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		Node *caller = (Node *) ((Object *) state->lookup_object(caller_id));
@@ -2105,15 +2103,13 @@ WasGoState::WasGoID _wasgo_Node_wrapper_rpc_id(wasm_exec_env_t exec_env, WasGoSt
 			Variant * method = &v_method;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_peer_id, & v_method};
-			Variant wasgo_ret = caller->call((String)"rpc_id", varargs, 2, error);
+			Variant wasgo_local_ret = caller->call((String)"rpc_id", varargs, 2, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
 			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: rpc_id");}
-			return state->handle_return_variant(wasgo_ret);
 		}
-	}
-	return WasGoState::WasGoID();
-}
+	}}
 
-WasGoState::WasGoID _wasgo_Node_wrapper_rpc_unreliable(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_method, int p_wasgo_buffer_size_method){
+void _wasgo_Node_wrapper_rpc_unreliable(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_method, int p_wasgo_buffer_size_method){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		Node *caller = (Node *) ((Object *) state->lookup_object(caller_id));
@@ -2123,15 +2119,13 @@ WasGoState::WasGoID _wasgo_Node_wrapper_rpc_unreliable(wasm_exec_env_t exec_env,
 			Variant * method = &v_method;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_method};
-			Variant wasgo_ret = caller->call((String)"rpc_unreliable", varargs, 1, error);
+			Variant wasgo_local_ret = caller->call((String)"rpc_unreliable", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
 			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: rpc_unreliable");}
-			return state->handle_return_variant(wasgo_ret);
 		}
-	}
-	return WasGoState::WasGoID();
-}
+	}}
 
-WasGoState::WasGoID _wasgo_Node_wrapper_rpc_unreliable_id(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_peer_id, const uint8_t * p_method, int p_wasgo_buffer_size_method){
+void _wasgo_Node_wrapper_rpc_unreliable_id(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, int p_peer_id, const uint8_t * p_method, int p_wasgo_buffer_size_method){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		Node *caller = (Node *) ((Object *) state->lookup_object(caller_id));
@@ -2142,15 +2136,13 @@ WasGoState::WasGoID _wasgo_Node_wrapper_rpc_unreliable_id(wasm_exec_env_t exec_e
 			Variant * method = &v_method;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_peer_id, & v_method};
-			Variant wasgo_ret = caller->call((String)"rpc_unreliable_id", varargs, 2, error);
+			Variant wasgo_local_ret = caller->call((String)"rpc_unreliable_id", varargs, 2, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
 			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: rpc_unreliable_id");}
-			return state->handle_return_variant(wasgo_ret);
 		}
-	}
-	return WasGoState::WasGoID();
-}
+	}}
 
-void _wasgo_Node_wrapper_rset(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, WasGoState::WasGoID p_value){
+void _wasgo_Node_wrapper_rset(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		Node *caller = (Node *) ((Object *) state->lookup_object(caller_id));
@@ -2158,7 +2150,9 @@ void _wasgo_Node_wrapper_rset(wasm_exec_env_t exec_env, WasGoState::WasGoID call
 			Variant v_property = String();
 			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
 			Variant * property = &v_property;
-			Variant v_value = state->lookup_object(p_value);
+			Variant v_value = Variant();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_property, & v_value};
 			Variant wasgo_ret = caller->call((String)"rset", varargs, 2, error);
@@ -2186,7 +2180,7 @@ void _wasgo_Node_wrapper_rset_config(wasm_exec_env_t exec_env, WasGoState::WasGo
 	return;
 }
 
-void _wasgo_Node_wrapper_rset_id(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_peer_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, WasGoState::WasGoID p_value){
+void _wasgo_Node_wrapper_rset_id(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_peer_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		Node *caller = (Node *) ((Object *) state->lookup_object(caller_id));
@@ -2195,7 +2189,9 @@ void _wasgo_Node_wrapper_rset_id(wasm_exec_env_t exec_env, WasGoState::WasGoID c
 			Variant v_property = String();
 			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
 			Variant * property = &v_property;
-			Variant v_value = state->lookup_object(p_value);
+			Variant v_value = Variant();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_peer_id, & v_property, & v_value};
 			Variant wasgo_ret = caller->call((String)"rset_id", varargs, 3, error);
@@ -2205,7 +2201,7 @@ void _wasgo_Node_wrapper_rset_id(wasm_exec_env_t exec_env, WasGoState::WasGoID c
 	return;
 }
 
-void _wasgo_Node_wrapper_rset_unreliable(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, WasGoState::WasGoID p_value){
+void _wasgo_Node_wrapper_rset_unreliable(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		Node *caller = (Node *) ((Object *) state->lookup_object(caller_id));
@@ -2213,7 +2209,9 @@ void _wasgo_Node_wrapper_rset_unreliable(wasm_exec_env_t exec_env, WasGoState::W
 			Variant v_property = String();
 			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
 			Variant * property = &v_property;
-			Variant v_value = state->lookup_object(p_value);
+			Variant v_value = Variant();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_property, & v_value};
 			Variant wasgo_ret = caller->call((String)"rset_unreliable", varargs, 2, error);
@@ -2223,7 +2221,7 @@ void _wasgo_Node_wrapper_rset_unreliable(wasm_exec_env_t exec_env, WasGoState::W
 	return;
 }
 
-void _wasgo_Node_wrapper_rset_unreliable_id(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_peer_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, WasGoState::WasGoID p_value){
+void _wasgo_Node_wrapper_rset_unreliable_id(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_peer_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		Node *caller = (Node *) ((Object *) state->lookup_object(caller_id));
@@ -2232,7 +2230,9 @@ void _wasgo_Node_wrapper_rset_unreliable_id(wasm_exec_env_t exec_env, WasGoState
 			Variant v_property = String();
 			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
 			Variant * property = &v_property;
-			Variant v_value = state->lookup_object(p_value);
+			Variant v_value = Variant();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_peer_id, & v_property, & v_value};
 			Variant wasgo_ret = caller->call((String)"rset_unreliable_id", varargs, 3, error);
@@ -2682,7 +2682,7 @@ void _wasgo_Resource_wrapper_take_over_path(wasm_exec_env_t exec_env, WasGoState
     }
             
 
-WasGoState::WasGoID _wasgo_SceneTree_wrapper_call_group(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_group, int p_wasgo_buffer_size_group, const uint8_t * p_method, int p_wasgo_buffer_size_method){
+void _wasgo_SceneTree_wrapper_call_group(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_group, int p_wasgo_buffer_size_group, const uint8_t * p_method, int p_wasgo_buffer_size_method){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		SceneTree *caller = (SceneTree *) ((Object *) state->lookup_object(caller_id));
@@ -2695,15 +2695,13 @@ WasGoState::WasGoID _wasgo_SceneTree_wrapper_call_group(wasm_exec_env_t exec_env
 			Variant * method = &v_method;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_group, & v_method};
-			Variant wasgo_ret = caller->call((String)"call_group", varargs, 2, error);
+			Variant wasgo_local_ret = caller->call((String)"call_group", varargs, 2, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
 			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: call_group");}
-			return state->handle_return_variant(wasgo_ret);
 		}
-	}
-	return WasGoState::WasGoID();
-}
+	}}
 
-WasGoState::WasGoID _wasgo_SceneTree_wrapper_call_group_flags(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_flags, const uint8_t * p_group, int p_wasgo_buffer_size_group, const uint8_t * p_method, int p_wasgo_buffer_size_method){
+void _wasgo_SceneTree_wrapper_call_group_flags(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, int p_flags, const uint8_t * p_group, int p_wasgo_buffer_size_group, const uint8_t * p_method, int p_wasgo_buffer_size_method){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		SceneTree *caller = (SceneTree *) ((Object *) state->lookup_object(caller_id));
@@ -2717,13 +2715,11 @@ WasGoState::WasGoID _wasgo_SceneTree_wrapper_call_group_flags(wasm_exec_env_t ex
 			Variant * method = &v_method;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_flags, & v_group, & v_method};
-			Variant wasgo_ret = caller->call((String)"call_group_flags", varargs, 3, error);
+			Variant wasgo_local_ret = caller->call((String)"call_group_flags", varargs, 3, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
 			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: call_group_flags");}
-			return state->handle_return_variant(wasgo_ret);
 		}
-	}
-	return WasGoState::WasGoID();
-}
+	}}
 
 WasGoState::WasGoID _wasgo_SceneTree_wrapper_change_scene(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_path, int p_wasgo_buffer_size_path){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -3254,7 +3250,7 @@ void _wasgo_SceneTree_wrapper_set_edited_scene_root(wasm_exec_env_t exec_env, Wa
 	return;
 }
 
-void _wasgo_SceneTree_wrapper_set_group(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_group, int p_wasgo_buffer_size_group, const uint8_t * p_property, int p_wasgo_buffer_size_property, WasGoState::WasGoID p_value){
+void _wasgo_SceneTree_wrapper_set_group(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_group, int p_wasgo_buffer_size_group, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		SceneTree *caller = (SceneTree *) ((Object *) state->lookup_object(caller_id));
@@ -3265,7 +3261,9 @@ void _wasgo_SceneTree_wrapper_set_group(wasm_exec_env_t exec_env, WasGoState::Wa
 			Variant v_property = String();
 			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
 			Variant * property = &v_property;
-			Variant v_value = state->lookup_object(p_value);
+			Variant v_value = Variant();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_group, & v_property, & v_value};
 			Variant wasgo_ret = caller->call((String)"set_group", varargs, 3, error);
@@ -3275,7 +3273,7 @@ void _wasgo_SceneTree_wrapper_set_group(wasm_exec_env_t exec_env, WasGoState::Wa
 	return;
 }
 
-void _wasgo_SceneTree_wrapper_set_group_flags(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_call_flags, const uint8_t * p_group, int p_wasgo_buffer_size_group, const uint8_t * p_property, int p_wasgo_buffer_size_property, WasGoState::WasGoID p_value){
+void _wasgo_SceneTree_wrapper_set_group_flags(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_call_flags, const uint8_t * p_group, int p_wasgo_buffer_size_group, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
 	if(state){
 		SceneTree *caller = (SceneTree *) ((Object *) state->lookup_object(caller_id));
@@ -3287,7 +3285,9 @@ void _wasgo_SceneTree_wrapper_set_group_flags(wasm_exec_env_t exec_env, WasGoSta
 			Variant v_property = String();
 			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
 			Variant * property = &v_property;
-			Variant v_value = state->lookup_object(p_value);
+			Variant v_value = Variant();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
 			Variant::CallError error;
 			const Variant* varargs[] = {& v_call_flags, & v_group, & v_property, & v_value};
 			Variant wasgo_ret = caller->call((String)"set_group_flags", varargs, 4, error);
@@ -4287,6 +4287,692 @@ void _wasgo_SpatialVelocityTracker_wrapper_update_position(wasm_exec_env_t exec_
 			const Variant* varargs[] = {& v_position};
 			Variant wasgo_ret = caller->call((String)"update_position", varargs, 1, error);
 			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: update_position");}
+		}
+	}
+	return;
+}
+
+    WasGoState::WasGoID _wasgo_WasGoState_constructor(){
+        return 0;
+    }
+    void _wasgo_WasGoState_destructor(WasGoState::WasGoID p_wasgo_id){
+
+    }
+            
+
+int _wasgo_WasGoState_wrapper_get_heap_size(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			int wasgo_ret = (int) caller->call((String)"get_heap_size", varargs, 0, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_heap_size");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+WasGoState::WasGoID _wasgo_WasGoState_wrapper_get_properties(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			Variant wasgo_ret = caller->call((String)"get_properties", varargs, 0, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_properties");}
+			return state->handle_return_variant(wasgo_ret);
+		}
+	}
+	return WasGoState::WasGoID();
+}
+
+void _wasgo_WasGoState_wrapper_get_property_aabb(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_aabb", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_aabb");}
+		}
+	}}
+
+void _wasgo_WasGoState_wrapper_get_property_basis(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_basis", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_basis");}
+		}
+	}}
+
+int _wasgo_WasGoState_wrapper_get_property_bool(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			int wasgo_ret = (int) caller->call((String)"get_property_bool", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_bool");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+void _wasgo_WasGoState_wrapper_get_property_color(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_color", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_color");}
+		}
+	}}
+
+float _wasgo_WasGoState_wrapper_get_property_float(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			float wasgo_ret = (float) caller->call((String)"get_property_float", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_float");}
+			return wasgo_ret;
+		}
+	}
+	return float();
+}
+
+int _wasgo_WasGoState_wrapper_get_property_int(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			int wasgo_ret = (int) caller->call((String)"get_property_int", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_int");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+void _wasgo_WasGoState_wrapper_get_property_nodepath(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_nodepath", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_nodepath");}
+		}
+	}}
+
+void _wasgo_WasGoState_wrapper_get_property_plane(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_plane", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_plane");}
+		}
+	}}
+
+void _wasgo_WasGoState_wrapper_get_property_quat(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_quat", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_quat");}
+		}
+	}}
+
+void _wasgo_WasGoState_wrapper_get_property_rect2(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_rect2", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_rect2");}
+		}
+	}}
+
+void _wasgo_WasGoState_wrapper_get_property_string(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_string", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_string");}
+		}
+	}}
+
+void _wasgo_WasGoState_wrapper_get_property_transform(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_transform", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_transform");}
+		}
+	}}
+
+void _wasgo_WasGoState_wrapper_get_property_transform2d(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_transform2d", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_transform2d");}
+		}
+	}}
+
+void _wasgo_WasGoState_wrapper_get_property_vector2(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_vector2", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_vector2");}
+		}
+	}}
+
+void _wasgo_WasGoState_wrapper_get_property_vector3(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_property, int p_wasgo_buffer_size_property){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property};
+			Variant wasgo_local_ret = caller->call((String)"get_property_vector3", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_property_vector3");}
+		}
+	}}
+
+int _wasgo_WasGoState_wrapper_get_stack_size(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			int wasgo_ret = (int) caller->call((String)"get_stack_size", varargs, 0, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_stack_size");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+WasGoState::WasGoID _wasgo_WasGoState_wrapper_get_wasm_script(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			Variant wasgo_ret = caller->call((String)"get_wasm_script", varargs, 0, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_wasm_script");}
+			return state->handle_return_variant(wasgo_ret);
+		}
+	}
+	return WasGoState::WasGoID();
+}
+
+void _wasgo_WasGoState_wrapper_set_heap_size(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_heap_size){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_heap_size = (int) p_heap_size;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_heap_size};
+			Variant wasgo_ret = caller->call((String)"set_heap_size", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_heap_size");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_int_property(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_value, const uint8_t * p_key, int p_wasgo_buffer_size_key){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_value = (int) p_value;
+			Variant v_key = String();
+			decode_variant(v_key, p_key, p_wasgo_buffer_size_key);
+			Variant * key = &v_key;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_value, & v_key};
+			Variant wasgo_ret = caller->call((String)"set_int_property", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_int_property");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_properties(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, WasGoState::WasGoID p_properties){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_properties = state->lookup_object(p_properties);
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_properties};
+			Variant wasgo_ret = caller->call((String)"set_properties", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_properties");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_aabb(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = AABB();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_aabb", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_aabb");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_basis(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = Basis();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_basis", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_basis");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_bool(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, bool p_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = (bool) p_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_bool", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_bool");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_color(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = Color();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_color", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_color");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_float(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, float p_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = (float) p_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_float", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_float");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_int(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, int p_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = (int) p_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_int", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_int");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_nodepath(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = NodePath();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_nodepath", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_nodepath");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_plane(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = Plane();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_plane", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_plane");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_quat(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = Quat();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_quat", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_quat");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_rect2(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = Rect2();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_rect2", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_rect2");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_string(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = String();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_string", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_string");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_transform(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = Transform();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_transform", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_transform");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_transform2d(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = Transform2D();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_transform2d", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_transform2d");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_vector2(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = Vector2();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_vector2", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_vector2");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_property_vector3(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, const uint8_t * p_property, int p_wasgo_buffer_size_property, const uint8_t * p_value, int p_wasgo_buffer_size_value){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_property = String();
+			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
+			Variant * property = &v_property;
+			Variant v_value = Vector3();
+			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
+			Variant * value = &v_value;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_property, & v_value};
+			Variant wasgo_ret = caller->call((String)"set_property_vector3", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_property_vector3");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_stack_size(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, int p_stack_size){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_stack_size = (int) p_stack_size;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_stack_size};
+			Variant wasgo_ret = caller->call((String)"set_stack_size", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_stack_size");}
+		}
+	}
+	return;
+}
+
+void _wasgo_WasGoState_wrapper_set_wasm_script(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, WasGoState::WasGoID p_wasm_script){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		WasGoState *caller = (WasGoState *) ((Object *) state->lookup_object(caller_id));
+		if(caller){
+			Variant v_wasm_script = state->lookup_object(p_wasm_script);
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_wasm_script};
+			Variant wasgo_ret = caller->call((String)"set_wasm_script", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_wasm_script");}
 		}
 	}
 	return;

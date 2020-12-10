@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "VisualShaderNode.h"
 #include "Transform.h"
+#include "VisualShaderNode.h"
 class VisualShaderNodeTransformConstant : public VisualShaderNode{
 public:
 Transform get_constant();

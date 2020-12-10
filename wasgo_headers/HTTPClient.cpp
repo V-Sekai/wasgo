@@ -7,11 +7,11 @@ void HTTPClient::close(){
 Error HTTPClient::connect_to_host(String p_host, int p_port, bool p_use_ssl, bool p_verify_host){
 
     Variant wasgo_var_host = p_host;
-    int wasgo_size_host = String(p_host).size();
+    int wasgo_size_host = 10 + String(p_host).size();
     uint8_t wasgo_buffer_host[wasgo_size_host];
     encode_variant(wasgo_var_host, wasgo_buffer_host, wasgo_size_host);
     
-	return Error(_wasgo_HTTPClient_wrapper_connect_to_host(wasgo_id, wasgo_buffer_host, wasgo_size_host, p_port, p_use_ssl, p_verify_host));
+	return Error(_wasgo_HTTPClient_wrapper_connect_to_host(wasgo_id, wasgo_buffer_host, wasgo_size_host, -69, p_port, p_use_ssl, p_verify_host));
 }
 StreamPeer HTTPClient::get_connection(){
 	return StreamPeer(_wasgo_HTTPClient_wrapper_get_connection(wasgo_id));
@@ -51,9 +51,9 @@ String HTTPClient::query_string_from_dict(Dictionary p_fields){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
     uint8_t wasgo_ret_buffer[256];
-    _wasgo_HTTPClient_wrapper_query_string_from_dict(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_fields._get_wasgo_id());
+    _wasgo_HTTPClient_wrapper_query_string_from_dict(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_fields._get_wasgo_id());
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolByteArray HTTPClient::read_response_body_chunk(){
@@ -62,26 +62,26 @@ PoolByteArray HTTPClient::read_response_body_chunk(){
 Error HTTPClient::request(HTTPClient::Method p_method, String p_url, PoolStringArray p_headers, String p_body){
 
     Variant wasgo_var_url = p_url;
-    int wasgo_size_url = String(p_url).size();
+    int wasgo_size_url = 10 + String(p_url).size();
     uint8_t wasgo_buffer_url[wasgo_size_url];
     encode_variant(wasgo_var_url, wasgo_buffer_url, wasgo_size_url);
     
 
     Variant wasgo_var_body = p_body;
-    int wasgo_size_body = String(p_body).size();
+    int wasgo_size_body = 10 + String(p_body).size();
     uint8_t wasgo_buffer_body[wasgo_size_body];
     encode_variant(wasgo_var_body, wasgo_buffer_body, wasgo_size_body);
     
-	return Error(_wasgo_HTTPClient_wrapper_request(wasgo_id, p_method._get_wasgo_id(), wasgo_buffer_url, wasgo_size_url, p_headers._get_wasgo_id(), wasgo_buffer_body, wasgo_size_body));
+	return Error(_wasgo_HTTPClient_wrapper_request(wasgo_id, p_method._get_wasgo_id(), wasgo_buffer_url, wasgo_size_url, wasgo_size_url, p_headers._get_wasgo_id(), wasgo_buffer_body, wasgo_size_body));
 }
 Error HTTPClient::request_raw(HTTPClient::Method p_method, String p_url, PoolStringArray p_headers, PoolByteArray p_body){
 
     Variant wasgo_var_url = p_url;
-    int wasgo_size_url = String(p_url).size();
+    int wasgo_size_url = 10 + String(p_url).size();
     uint8_t wasgo_buffer_url[wasgo_size_url];
     encode_variant(wasgo_var_url, wasgo_buffer_url, wasgo_size_url);
     
-	return Error(_wasgo_HTTPClient_wrapper_request_raw(wasgo_id, p_method._get_wasgo_id(), wasgo_buffer_url, wasgo_size_url, p_headers._get_wasgo_id(), p_body._get_wasgo_id()));
+	return Error(_wasgo_HTTPClient_wrapper_request_raw(wasgo_id, p_method._get_wasgo_id(), wasgo_buffer_url, wasgo_size_url, wasgo_size_url, p_headers._get_wasgo_id(), p_body._get_wasgo_id()));
 }
 void HTTPClient::set_blocking_mode(bool p_enabled){
 	_wasgo_HTTPClient_wrapper_set_blocking_mode(wasgo_id, p_enabled);

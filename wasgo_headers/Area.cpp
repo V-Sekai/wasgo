@@ -11,7 +11,7 @@ String Area::get_audio_bus(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_Area_wrapper_get_audio_bus(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Area::get_collision_layer(){
@@ -39,7 +39,7 @@ Vector3 Area::get_gravity_vector(){
     uint8_t wasgo_ret_buffer[16];
     _wasgo_Area_wrapper_get_gravity_vector(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector3) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Area::get_linear_damp(){
@@ -64,7 +64,7 @@ String Area::get_reverb_bus(){
     uint8_t wasgo_ret_buffer[256];
     _wasgo_Area_wrapper_get_reverb_bus(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (String) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Area::get_reverb_uniformity(){
@@ -100,7 +100,7 @@ void Area::set_angular_damp(float p_angular_damp){
 void Area::set_audio_bus(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     
@@ -157,7 +157,7 @@ void Area::set_reverb_amount(float p_amount){
 void Area::set_reverb_bus(String p_name){
 
     Variant wasgo_var_name = p_name;
-    int wasgo_size_name = String(p_name).size();
+    int wasgo_size_name = 10 + String(p_name).size();
     uint8_t wasgo_buffer_name[wasgo_size_name];
     encode_variant(wasgo_var_name, wasgo_buffer_name, wasgo_size_name);
     

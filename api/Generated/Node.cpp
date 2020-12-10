@@ -5,7 +5,7 @@ void Node::add_child(Node p_node, bool p_legible_unique_name){
 	_wasgo_Node_wrapper_add_child(wasgo_id, p_node._get_wasgo_id(), p_legible_unique_name);
 }
 void Node::add_child_below_node(Node p_node, Node p_child_node, bool p_legible_unique_name){
-	_wasgo_Node_wrapper_add_child_below_node(wasgo_id, p_node._get_wasgo_id(), p_child_node._get_wasgo_id(), p_legible_unique_name);
+	_wasgo_Node_wrapper_add_child_below_node(wasgo_id, p_node._get_wasgo_id(), p_child_node._get_wasgo_id(), -69, p_legible_unique_name);
 }
 void Node::add_to_group(String p_group, bool p_persistent){
 
@@ -13,8 +13,8 @@ void Node::add_to_group(String p_group, bool p_persistent){
     uint8_t wasgo_buffer_group[128];
     int wasgo_size_group = 128;
     encode_variant(wasgo_var_group, wasgo_buffer_group, wasgo_size_group);
-    
-	_wasgo_Node_wrapper_add_to_group(wasgo_id, wasgo_buffer_group, wasgo_size_group, p_persistent);
+
+	_wasgo_Node_wrapper_add_to_group(wasgo_id, wasgo_buffer_group, wasgo_size_group, -69, p_persistent);
 }
 bool Node::can_process(){
 	return (bool) _wasgo_Node_wrapper_can_process(wasgo_id);
@@ -28,8 +28,8 @@ Node Node::find_node(String p_mask, bool p_recursive, bool p_owned){
     uint8_t wasgo_buffer_mask[128];
     int wasgo_size_mask = 128;
     encode_variant(wasgo_var_mask, wasgo_buffer_mask, wasgo_size_mask);
-    
-	return Node(_wasgo_Node_wrapper_find_node(wasgo_id, wasgo_buffer_mask, wasgo_size_mask, p_recursive, p_owned));
+
+	return Node(_wasgo_Node_wrapper_find_node(wasgo_id, wasgo_buffer_mask, wasgo_size_mask, -69, p_recursive, p_owned));
 }
 Node Node::find_parent(String p_mask){
 
@@ -292,8 +292,8 @@ Variant Node::rpc_id(int p_peer_id, String p_method){
     uint8_t wasgo_buffer_method[128];
     int wasgo_size_method = 128;
     encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
-    
-	return Variant(_wasgo_Node_wrapper_rpc_id(wasgo_id, p_peer_id, wasgo_buffer_method, wasgo_size_method));
+
+	return Variant(_wasgo_Node_wrapper_rpc_id(wasgo_id, p_peer_id, wasgo_buffer_method, -69, wasgo_size_method));
 }
 Variant Node::rpc_unreliable(String p_method){
 
@@ -310,8 +310,8 @@ Variant Node::rpc_unreliable_id(int p_peer_id, String p_method){
     uint8_t wasgo_buffer_method[128];
     int wasgo_size_method = 128;
     encode_variant(wasgo_var_method, wasgo_buffer_method, wasgo_size_method);
-    
-	return Variant(_wasgo_Node_wrapper_rpc_unreliable_id(wasgo_id, p_peer_id, wasgo_buffer_method, wasgo_size_method));
+
+	return Variant(_wasgo_Node_wrapper_rpc_unreliable_id(wasgo_id, p_peer_id, wasgo_buffer_method, -69, wasgo_size_method));
 }
 void Node::rset(String p_property, Variant p_value){
 
@@ -319,8 +319,8 @@ void Node::rset(String p_property, Variant p_value){
     uint8_t wasgo_buffer_property[128];
     int wasgo_size_property = 128;
     encode_variant(wasgo_var_property, wasgo_buffer_property, wasgo_size_property);
-    
-	_wasgo_Node_wrapper_rset(wasgo_id, wasgo_buffer_property, wasgo_size_property, p_value._get_wasgo_id());
+
+	_wasgo_Node_wrapper_rset(wasgo_id, wasgo_buffer_property, wasgo_size_property, -69, p_value._get_wasgo_id());
 }
 // void Node::rset_config(String p_property, MultiplayerAPI::RPCMode p_mode){
 
@@ -337,8 +337,8 @@ void Node::rset_id(int p_peer_id, String p_property, Variant p_value){
     uint8_t wasgo_buffer_property[128];
     int wasgo_size_property = 128;
     encode_variant(wasgo_var_property, wasgo_buffer_property, wasgo_size_property);
-    
-	_wasgo_Node_wrapper_rset_id(wasgo_id, p_peer_id, wasgo_buffer_property, wasgo_size_property, p_value._get_wasgo_id());
+
+	_wasgo_Node_wrapper_rset_id(wasgo_id, p_peer_id, wasgo_buffer_property, wasgo_size_property, -69, p_value._get_wasgo_id());
 }
 void Node::rset_unreliable(String p_property, Variant p_value){
 
@@ -346,8 +346,8 @@ void Node::rset_unreliable(String p_property, Variant p_value){
     uint8_t wasgo_buffer_property[128];
     int wasgo_size_property = 128;
     encode_variant(wasgo_var_property, wasgo_buffer_property, wasgo_size_property);
-    
-	_wasgo_Node_wrapper_rset_unreliable(wasgo_id, wasgo_buffer_property, wasgo_size_property, p_value._get_wasgo_id());
+
+	_wasgo_Node_wrapper_rset_unreliable(wasgo_id, wasgo_buffer_property, wasgo_size_property, -69, p_value._get_wasgo_id());
 }
 void Node::rset_unreliable_id(int p_peer_id, String p_property, Variant p_value){
 
@@ -355,8 +355,8 @@ void Node::rset_unreliable_id(int p_peer_id, String p_property, Variant p_value)
     uint8_t wasgo_buffer_property[128];
     int wasgo_size_property = 128;
     encode_variant(wasgo_var_property, wasgo_buffer_property, wasgo_size_property);
-    
-	_wasgo_Node_wrapper_rset_unreliable_id(wasgo_id, p_peer_id, wasgo_buffer_property, wasgo_size_property, p_value._get_wasgo_id());
+
+	_wasgo_Node_wrapper_rset_unreliable_id(wasgo_id, p_peer_id, wasgo_buffer_property, wasgo_size_property, -69, p_value._get_wasgo_id());
 }
 // void Node::set_custom_multiplayer(MultiplayerAPI p_api){
 // 	_wasgo_Node_wrapper_set_custom_multiplayer(wasgo_id, p_api._get_wasgo_id());

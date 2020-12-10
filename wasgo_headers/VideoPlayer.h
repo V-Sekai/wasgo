@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "VideoStream.h"
-#include "Control.h"
 #include "Ustring.h"
+#include "VideoStream.h"
 #include "Texture.h"
+#include "Control.h"
 class VideoPlayer : public Control{
 public:
 int get_audio_track();

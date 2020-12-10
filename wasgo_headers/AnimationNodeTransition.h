@@ -33,12 +33,12 @@ operator bool();
 extern "C"{
 float _wasgo_AnimationNodeTransition_wrapper_get_cross_fade_time(WasGoID wasgo_id);
 int _wasgo_AnimationNodeTransition_wrapper_get_enabled_inputs(WasGoID wasgo_id);
-void _wasgo_AnimationNodeTransition_wrapper_get_input_caption(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int p_input);
+void _wasgo_AnimationNodeTransition_wrapper_get_input_caption(WasGoID wasgo_id, uint8_t * wasgo_ret, int wasgo_ret_size, int wasgo_throwaway, int p_input);
 int _wasgo_AnimationNodeTransition_wrapper_is_input_set_as_auto_advance(WasGoID wasgo_id, int p_input);
 void _wasgo_AnimationNodeTransition_wrapper_set_cross_fade_time(WasGoID wasgo_id, float p_time);
 void _wasgo_AnimationNodeTransition_wrapper_set_enabled_inputs(WasGoID wasgo_id, int p_amount);
 void _wasgo_AnimationNodeTransition_wrapper_set_input_as_auto_advance(WasGoID wasgo_id, int p_input, bool p_enable);
-void _wasgo_AnimationNodeTransition_wrapper_set_input_caption(WasGoID wasgo_id, int p_input, const uint8_t * p_caption, int p_caption_wasgo_buffer_size);
+void _wasgo_AnimationNodeTransition_wrapper_set_input_caption(WasGoID wasgo_id, int p_input, const uint8_t * p_caption, int wasgo_throwaway, int p_caption_wasgo_buffer_size);
 
     //constructor wrappers
     WasGoID _wasgo_AnimationNodeTransition_constructor();

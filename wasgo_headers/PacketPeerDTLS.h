@@ -4,11 +4,11 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "PacketPeer.h"
 #include "PacketPeerUDP.h"
-#include "X509Certificate.h"
 #include "error_list.h"
+#include "X509Certificate.h"
 #include "Ustring.h"
+#include "PacketPeer.h"
 class PacketPeerDTLS : public PacketPeer{
 public:
 enum Status{
@@ -37,7 +37,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-WasGoID _wasgo_PacketPeerDTLS_wrapper_connect_to_peer(WasGoID wasgo_id, WasGoID p_packet_peer, bool p_validate_certs, const uint8_t * p_for_hostname, int p_for_hostname_wasgo_buffer_size, WasGoID p_valid_certificate);
+WasGoID _wasgo_PacketPeerDTLS_wrapper_connect_to_peer(WasGoID wasgo_id, WasGoID p_packet_peer, bool p_validate_certs, int wasgo_throwaway, const uint8_t * p_for_hostname, int p_for_hostname_wasgo_buffer_size, WasGoID p_valid_certificate);
 void _wasgo_PacketPeerDTLS_wrapper_disconnect_from_peer(WasGoID wasgo_id);
 WasGoID _wasgo_PacketPeerDTLS_wrapper_get_status(WasGoID wasgo_id);
 void _wasgo_PacketPeerDTLS_wrapper_poll(WasGoID wasgo_id);

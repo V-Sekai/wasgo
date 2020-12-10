@@ -26,7 +26,7 @@ Vector2 Node2D::get_global_position(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Node2D_wrapper_get_global_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Node2D::get_global_rotation(){
@@ -42,7 +42,7 @@ Vector2 Node2D::get_global_scale(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Node2D_wrapper_get_global_scale(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 Node2D::get_position(){
@@ -52,7 +52,7 @@ Vector2 Node2D::get_position(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Node2D_wrapper_get_position(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Transform2D Node2D::get_relative_transform_to_parent(Node p_parent){
@@ -60,9 +60,9 @@ Transform2D Node2D::get_relative_transform_to_parent(Node p_parent){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 28;
     uint8_t wasgo_ret_buffer[28];
-    _wasgo_Node2D_wrapper_get_relative_transform_to_parent(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, p_parent._get_wasgo_id());
+    _wasgo_Node2D_wrapper_get_relative_transform_to_parent(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, p_parent._get_wasgo_id());
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Transform2D) wasgo_ret;
+    return wasgo_ret;
     
 }
 float Node2D::get_rotation(){
@@ -78,7 +78,7 @@ Vector2 Node2D::get_scale(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Node2D_wrapper_get_scale(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Node2D::get_z_index(){
@@ -197,9 +197,9 @@ Vector2 Node2D::to_global(Vector2 p_local_point){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_Node2D_wrapper_to_global(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_local_point, wasgo_size_local_point);
+    _wasgo_Node2D_wrapper_to_global(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_local_point, wasgo_size_local_point);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 Vector2 Node2D::to_local(Vector2 p_global_point){
@@ -213,9 +213,9 @@ Vector2 Node2D::to_local(Vector2 p_global_point){
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 12;
     uint8_t wasgo_ret_buffer[12];
-    _wasgo_Node2D_wrapper_to_local(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, wasgo_buffer_global_point, wasgo_size_global_point);
+    _wasgo_Node2D_wrapper_to_local(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size, -69, wasgo_buffer_global_point, wasgo_size_global_point);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 void Node2D::translate(Vector2 p_offset){

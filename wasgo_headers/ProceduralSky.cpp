@@ -8,7 +8,7 @@ Color ProceduralSky::get_ground_bottom_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_ProceduralSky_wrapper_get_ground_bottom_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float ProceduralSky::get_ground_curve(){
@@ -24,7 +24,7 @@ Color ProceduralSky::get_ground_horizon_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_ProceduralSky_wrapper_get_ground_horizon_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float ProceduralSky::get_sky_curve(){
@@ -40,7 +40,7 @@ Color ProceduralSky::get_sky_horizon_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_ProceduralSky_wrapper_get_sky_horizon_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 Color ProceduralSky::get_sky_top_color(){
@@ -50,7 +50,7 @@ Color ProceduralSky::get_sky_top_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_ProceduralSky_wrapper_get_sky_top_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float ProceduralSky::get_sun_angle_max(){
@@ -66,7 +66,7 @@ Color ProceduralSky::get_sun_color(){
     uint8_t wasgo_ret_buffer[20];
     _wasgo_ProceduralSky_wrapper_get_sun_color(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Color) wasgo_ret;
+    return wasgo_ret;
     
 }
 float ProceduralSky::get_sun_curve(){

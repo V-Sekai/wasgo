@@ -13,11 +13,11 @@ bool UDPServer::is_listening(){
 Error UDPServer::listen(int p_port, String p_bind_address){
 
     Variant wasgo_var_bind_address = p_bind_address;
-    int wasgo_size_bind_address = String(p_bind_address).size();
+    int wasgo_size_bind_address = 10 + String(p_bind_address).size();
     uint8_t wasgo_buffer_bind_address[wasgo_size_bind_address];
     encode_variant(wasgo_var_bind_address, wasgo_buffer_bind_address, wasgo_size_bind_address);
     
-	return Error(_wasgo_UDPServer_wrapper_listen(wasgo_id, p_port, wasgo_buffer_bind_address, wasgo_size_bind_address));
+	return Error(_wasgo_UDPServer_wrapper_listen(wasgo_id, p_port, wasgo_buffer_bind_address, wasgo_size_bind_address, wasgo_size_bind_address));
 }
 Error UDPServer::poll(){
 	return Error(_wasgo_UDPServer_wrapper_poll(wasgo_id));

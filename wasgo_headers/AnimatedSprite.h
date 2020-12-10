@@ -4,10 +4,10 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "SpriteFrames.h"
 #include "Ustring.h"
-#include "Node2D.h"
 #include "Vector2.h"
+#include "SpriteFrames.h"
+#include "Node2D.h"
 class AnimatedSprite : public Node2D{
 public:
 String get_animation();
@@ -53,7 +53,7 @@ int _wasgo_AnimatedSprite_wrapper_is_centered(WasGoID wasgo_id);
 int _wasgo_AnimatedSprite_wrapper_is_flipped_h(WasGoID wasgo_id);
 int _wasgo_AnimatedSprite_wrapper_is_flipped_v(WasGoID wasgo_id);
 int _wasgo_AnimatedSprite_wrapper_is_playing(WasGoID wasgo_id);
-void _wasgo_AnimatedSprite_wrapper_play(WasGoID wasgo_id, const uint8_t * p_anim, int p_anim_wasgo_buffer_size, bool p_backwards);
+void _wasgo_AnimatedSprite_wrapper_play(WasGoID wasgo_id, const uint8_t * p_anim, int p_anim_wasgo_buffer_size, int wasgo_throwaway, bool p_backwards);
 void _wasgo_AnimatedSprite_wrapper_set_animation(WasGoID wasgo_id, const uint8_t * p_animation, int p_animation_wasgo_buffer_size);
 void _wasgo_AnimatedSprite_wrapper_set_centered(WasGoID wasgo_id, bool p_centered);
 void _wasgo_AnimatedSprite_wrapper_set_flip_h(WasGoID wasgo_id, bool p_flip_h);

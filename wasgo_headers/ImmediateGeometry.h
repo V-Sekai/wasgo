@@ -4,13 +4,13 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "Color.h"
-#include "Vector3.h"
-#include "Vector2.h"
-#include "Mesh.h"
-#include "GeometryInstance.h"
-#include "Plane.h"
 #include "Texture.h"
+#include "Mesh.h"
+#include "Plane.h"
+#include "Vector2.h"
+#include "GeometryInstance.h"
+#include "Vector3.h"
+#include "Color.h"
 class ImmediateGeometry : public GeometryInstance{
 public:
 void add_sphere(int p_lats, int p_lons, float p_radius, bool p_add_uv = (bool) true);
@@ -38,7 +38,7 @@ operator bool();
 
 //Wrapper Functions
 extern "C"{
-void _wasgo_ImmediateGeometry_wrapper_add_sphere(WasGoID wasgo_id, int p_lats, int p_lons, float p_radius, bool p_add_uv);
+void _wasgo_ImmediateGeometry_wrapper_add_sphere(WasGoID wasgo_id, int p_lats, int p_lons, int wasgo_throwaway, float p_radius, bool p_add_uv);
 void _wasgo_ImmediateGeometry_wrapper_add_vertex(WasGoID wasgo_id, const uint8_t * p_position, int p_position_wasgo_buffer_size);
 void _wasgo_ImmediateGeometry_wrapper_begin(WasGoID wasgo_id, WasGoID p_primitive, WasGoID p_texture);
 void _wasgo_ImmediateGeometry_wrapper_clear(WasGoID wasgo_id);

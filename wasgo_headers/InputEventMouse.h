@@ -4,8 +4,8 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "InputEventWithModifiers.h"
 #include "Vector2.h"
+#include "InputEventWithModifiers.h"
 class InputEventMouse : public InputEventWithModifiers{
 public:
 int get_button_mask();

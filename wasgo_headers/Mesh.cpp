@@ -20,7 +20,7 @@ TriangleMesh Mesh::generate_triangle_mesh(){
     uint8_t wasgo_ret_buffer[28];
     _wasgo_Mesh_wrapper_get_aabb(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (AABB) wasgo_ret;
+    return wasgo_ret;
     
 }
 PoolVector3Array Mesh::get_faces(){
@@ -33,7 +33,7 @@ Vector2 Mesh::get_lightmap_size_hint(){
     uint8_t wasgo_ret_buffer[12];
     _wasgo_Mesh_wrapper_get_lightmap_size_hint(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
-    return (Vector2) wasgo_ret;
+    return wasgo_ret;
     
 }
 int Mesh::get_surface_count(){
