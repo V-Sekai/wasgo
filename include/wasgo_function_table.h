@@ -2,6 +2,7 @@
 #define WASGO_FUNCTION_TABLE
 #include "wasm_export.h"
 #include "wasgo_state.h"
+#include "wasgo_math.h"
 #include "wasgo_native_wrappers.h"
 #include <math.h>
 static NativeSymbol native_symbols[] = 
@@ -54,19 +55,21 @@ EXPORT_WASM_API_WITH_SIG(_wasgo_is_physics_processing_internal,"()"),
 //EXPORT_WASM_API_WITH_SIG(_wasgo_is_processing_unhandled_input,"()"),
 //EXPORT_WASM_API_WITH_SIG(_wasgo_is_processing_unhandled_key_input,"()"),
 //MATH
-EXPORT_WASM_API(cos),
-EXPORT_WASM_API(sin),
-EXPORT_WASM_API(tan),
-EXPORT_WASM_API(acos),
-EXPORT_WASM_API(asin),
-EXPORT_WASM_API(atan),
-EXPORT_WASM_API(cosf),
-EXPORT_WASM_API(sinf),
-EXPORT_WASM_API(tanf),
-EXPORT_WASM_API(acosf),
-EXPORT_WASM_API(asinf),
-EXPORT_WASM_API(atanf),
-EXPORT_WASM_API(atan2f),
+{"cos",_wasgo_cos, "(f)f"},
+{"sin",_wasgo_sin, "(f)f"},
+{"tan",_wasgo_tan, "(f)f"},
+{"acos",_wasgo_acos, "(f)f"},
+{"asin",_wasgo_asin, "(f)f"},
+{"atan",_wasgo_atan, "(f)f"},
+{"atan2",_wasgo_atan2, "(ff)f"},
+{"cosf",_wasgo_cosf, "(f)f"},
+{"sinf",_wasgo_sinf, "(f)f"},
+{"tanf",_wasgo_tanf, "(f)f"},
+{"acosf",_wasgo_acosf, "(f)f"},
+{"asinf",_wasgo_asinf, "(f)f"},
+{"atanf",_wasgo_atanf, "(f)f"},
+{"atan2f",_wasgo_atan2f, "(ff)f"},
+{"rand",_wasgo_rand, "()i"},
 	EXPORT_WASM_API_WITH_SIG(_wasgo_InputEvent_wrapper_accumulate, "(ii)i"),
 	EXPORT_WASM_API_WITH_SIG(_wasgo_InputEvent_wrapper_as_text, "(i*~)"),
 	EXPORT_WASM_API_WITH_SIG(_wasgo_InputEvent_wrapper_get_action_strength, "(i*~)f"),

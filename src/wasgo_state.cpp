@@ -138,7 +138,7 @@ void WasGoState::_validate_property(PropertyInfo &property) const{
 }
 void WasGoState::_notification(int p_what) {
 	// TODO: Uncomment this
-	if (!Engine::get_singleton()->is_editor_hint()){ // only run in game
+	if (!Engine::get_singleton()->is_editor_hint() || p_what == NOTIFICATION_READY){ // only run in game but use the ready function so that the properties autopopulate
 	switch (p_what) {
 		case NOTIFICATION_READY:{
 			_initialize();
@@ -202,12 +202,18 @@ Variant WasGoState::lookup_object(WasGoID id) {
 	} else if (referencedObjectsReverse.has(id)) {
 		return referencedObjectsReverse[id];
 	}
+	Array print_arr;
+	print_arr.append(id);
+	print_error(String("Invalid WasGoID: {0}").format(print_arr));
 	return Variant();
 }
 Variant WasGoState::lookup_createdObject(WasGoID id) {
 	if (createdObjectsReverse.has(id)) {
 		return createdObjectsReverse[id];
 	}
+	Array print_arr;
+	print_arr.append(id);
+	print_error(String("Invalid WasGoID: {0}").format(print_arr));
 	return Variant();
 }
 
@@ -215,6 +221,9 @@ Variant WasGoState::lookup_referencedObject(WasGoID id) {
 	if (referencedObjectsReverse.has(id)) {
 		return referencedObjectsReverse[id];
 	}
+	Array print_arr;
+	print_arr.append(id);
+	print_error(String("Invalid WasGoID: {0}").format(print_arr));
 	return Variant();
 }
 // Variant *WasGoState::lookup_variant(WasGoID id){
@@ -230,18 +239,21 @@ WasGoState::WasGoID WasGoState::lookup_wasgo_object(Variant obj){
 	} else if (referencedObjects.has(obj)){
 		return referencedObjects[obj];
 	}
+	print_error("Invalid Object Lookup");
 	return 0;
 }
 WasGoState::WasGoID WasGoState::lookup_wasgo_createdObject(Variant obj){
 	if (createdObjects.has(obj)) {
 		return createdObjects[obj];
 	}
+	print_error("Invalid Object Lookup");
 	return 0;
 }
 WasGoState::WasGoID WasGoState::lookup_wasgo_referencedObject(Variant obj){
 	if (referencedObjects.has(obj)) {
 		return referencedObjects[obj];
 	}
+	print_error("Invalid Object Lookup");
 	return 0;
 }
 
@@ -308,34 +320,37 @@ WasGoState::WasGoID WasGoState::generate_id(){
 
 WasGoState::WasGoID WasGoState::create_object(Variant obj) {
 	WasGoID wasgo_id = 0;
-	if (createdObjects.has(obj)) {
-		wasgo_id = createdObjects[obj];
-	}
-	else if (referencedObjects.has(obj)){
-		wasgo_id = referencedObjects[obj];
-	}
-	else {
-		wasgo_id = generate_id();
-		// createdObjects.set(obj, wasgo_id);
-		// createdObjectsReverse.set(wasgo_id, obj);
-		createdObjects[obj] = wasgo_id;
-		createdObjectsReverse[wasgo_id] = obj;
+	if (obj.get_type() != Variant::OBJECT || !obj.is_zero()) {
+		if (createdObjects.has(obj)) {
+			wasgo_id = createdObjects[obj];
+		} else if (referencedObjects.has(obj)) {
+			wasgo_id = referencedObjects[obj];
+		} else {
+			wasgo_id = generate_id();
+			// createdObjects.set(obj, wasgo_id);
+			// createdObjectsReverse.set(wasgo_id, obj);
+			createdObjects[obj] = wasgo_id;
+			createdObjectsReverse[wasgo_id] = obj;
+		}
 	}
 	return wasgo_id;
 }
 
 WasGoState::WasGoID WasGoState::reference_object(Variant obj) {
 	WasGoID wasgo_id = 0;
-	if (referencedObjects.has(obj)) {
-		wasgo_id = referencedObjects[obj];
-	} if (createdObjects.has(obj)){
-		wasgo_id = createdObjects[obj];
-	} else {
-		wasgo_id = generate_id();
-		// referencedObjects.set(obj, wasgo_id);
-		// referencedObjectsReverse.set(wasgo_id, obj);
-		referencedObjects[obj] =  wasgo_id;
-		referencedObjectsReverse[wasgo_id] = obj;
+	if (obj.get_type() != Variant::OBJECT || !obj.is_zero()) {
+		if (referencedObjects.has(obj)) {
+			wasgo_id = referencedObjects[obj];
+		}
+		if (createdObjects.has(obj)) {
+			wasgo_id = createdObjects[obj];
+		} else {
+			wasgo_id = generate_id();
+			// referencedObjects.set(obj, wasgo_id);
+			// referencedObjectsReverse.set(wasgo_id, obj);
+			referencedObjects[obj] = wasgo_id;
+			referencedObjectsReverse[wasgo_id] = obj;
+		}
 	}
 	return wasgo_id;
 }

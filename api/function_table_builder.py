@@ -651,6 +651,7 @@ def write_function_table(file_path, api_dict):
            "#define WASGO_FUNCTION_TABLE",
            "#include \"wasm_export.h\"",
            "#include \"wasgo_state.h\"",
+           "#include \"wasgo_math.h\"",
            "#include \"wasgo_native_wrappers.h\"",
            "#include <math.h>",
            "static NativeSymbol native_symbols[] = ",
@@ -704,19 +705,22 @@ def write_function_table(file_path, api_dict):
             "//EXPORT_WASM_API_WITH_SIG(_wasgo_is_processing_unhandled_key_input,\"()\"),",
 
             "//MATH",
-            "EXPORT_WASM_API(cos),",
-            "EXPORT_WASM_API(sin),",
-            "EXPORT_WASM_API(tan),",
-            "EXPORT_WASM_API(acos),",
-            "EXPORT_WASM_API(asin),",
-            "EXPORT_WASM_API(atan),",
-            "EXPORT_WASM_API(cosf),",
-            "EXPORT_WASM_API(sinf),",
-            "EXPORT_WASM_API(tanf),",
-            "EXPORT_WASM_API(acosf),",
-            "EXPORT_WASM_API(asinf),",
-            "EXPORT_WASM_API(atanf),",
-            "EXPORT_WASM_API(atan2f),",
+            "{\"cos\",_wasgo_cos, \"(f)f\"},",
+            "{\"sin\",_wasgo_sin, \"(f)f\"},",
+            "{\"tan\",_wasgo_tan, \"(f)f\"},",
+            "{\"acos\",_wasgo_acos, \"(f)f\"},",
+            "{\"asin\",_wasgo_asin, \"(f)f\"},",
+            "{\"atan\",_wasgo_atan, \"(f)f\"},",
+            "{\"atan2\",_wasgo_atan2, \"(ff)f\"},",
+            "{\"cosf\",_wasgo_cosf, \"(f)f\"},",
+            "{\"sinf\",_wasgo_sinf, \"(f)f\"},",
+            "{\"tanf\",_wasgo_tanf, \"(f)f\"},",
+            "{\"acosf\",_wasgo_acosf, \"(f)f\"},",
+            "{\"asinf\",_wasgo_asinf, \"(f)f\"},",
+            "{\"atanf\",_wasgo_atanf, \"(f)f\"},",
+            "{\"atan2f\",_wasgo_atan2f, \"(ff)f\"},",
+            "{\"rand\",_wasgo_rand, \"()i\"},",
+            # "{\"random\",_wasgo_random, \"()f\"},",
             ]
     def constructor_destructor_wrappers(class_name):
         return ["""
@@ -974,7 +978,7 @@ def write_wasm_classes(file_path, api_dict):
         return ", ".join(args)
 
     def converted_arg_string(arg_type, arg_name):
-        if (arg_type == "bool" or arg_type == "int" or arg_type == "float"):
+        if (arg_type == "bool" or arg_type == "int" or arg_type == "float" or "::" in arg_name):
             return ["p_" + arg_name]
         elif arg_type in wasm_variants or arg_type in wasm_variants_string:
             return ["wasgo_buffer_{0}".format(arg_name), "wasgo_size_{0}".format(arg_name)]
@@ -1202,8 +1206,8 @@ if __name__ == "__main__":
     #Step 2 put the native wrappers in the function table
     write_function_table("../include/wasgo_function_table.h", api_dict)
     #Step 3 declare all classes and methods for the wasm side which will call the wrappers
-    write_wasm_class_headers("../wasgo_headers", api_dict)
+    write_wasm_class_headers("../../../../wasgo_headers", api_dict)
     #Step 4 define all classes
-    write_wasm_classes("../wasgo_headers", api_dict)
+    write_wasm_classes("../../../../wasgo_headers", api_dict)
     # #Step 5 create a Wasgo Class that holds properties and the wasgo ID type
     # write_wasgo_class("../wasgo_headers/wasgo/wasgo.h")

@@ -19,6 +19,7 @@ CPPFLAGS ?= $(INC_FLAGS) -MMD -MP
 
 CPPFLAGS += --target=wasm32-wasi
 CPPFLAGS += -O3
+CPPFLAGS += -finline-functions
 CPPFLAGS += -z
 CPPFLAGS += stack-size=409600
 CPPFLAGS += -Wl,--initial-memory=65536000

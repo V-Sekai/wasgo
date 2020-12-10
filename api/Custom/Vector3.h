@@ -232,7 +232,6 @@ Vector3 Vector3::project(const Vector3 &p_b) const {
 }
 
 real_t Vector3::angle_to(const Vector3 &p_b) const {
-
 	return Math::atan2(cross(p_b).length(), dot(p_b));
 }
 

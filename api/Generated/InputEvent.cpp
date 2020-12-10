@@ -8,7 +8,7 @@ String InputEvent::as_text(){
 
     Variant wasgo_ret;
     int wasgo_ret_buffer_size = 256;
-    uint8_t wasgo_ret_buffer[256];
+    uint8_t wasgo_ret_buffer[256] = {0};
     _wasgo_InputEvent_wrapper_as_text(wasgo_id, wasgo_ret_buffer, wasgo_ret_buffer_size);
     decode_variant(wasgo_ret, wasgo_ret_buffer, wasgo_ret_buffer_size);
     return (String) wasgo_ret;

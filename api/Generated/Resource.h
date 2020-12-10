@@ -4,16 +4,15 @@
 
 #include "wasgo\wasgoid.h"
 
-#include "reference.h"
-// class Node;
-// #include "Node.h"
-#include "Ustring.h"
 #include "RID.h"
-
+#include "Ustring.h"
+// class Node;
+#include "Node.h"
+#include "Reference.h"
 class Resource : public Reference{
 public:
 Resource duplicate(bool p_subresources = (bool) false);
-// Node get_local_scene();
+Node get_local_scene();
 String get_name();
 String get_path();
 RID get_rid();

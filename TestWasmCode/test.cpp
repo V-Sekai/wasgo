@@ -1,80 +1,78 @@
-#include <stdio.h>
-#include "wasgo/wasgo.h"
+
 #include "Spatial.h"
-#include "WasGoState.h"
+#include "Transform.h"
+#include "wasgo\wasgo.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include "keyboard.h"
+#include "math_defs.h"
 
-Spatial spin_node;
 
-WasGoState other_state;
+float velocity = 0;
+int frame_counter = 0;
+float thrust = 0;
+float thrust_limit = 50;
+float thrust_delta = 0;
+float gravity_influence = 100;
 
-// void _ready() {
-// 	Node this_node = WasGo::this_node();
-// 	Variant path = WasGo::get_property("other_node", Variant::NODE_PATH);
-// 	printf("NodePath: %ls\n", String(path).ascii().ptr());
-// 	if (path.booleanize()) {
-// 		spin_node = (Spatial)this_node.get_node(path);
-// 		if (spin_node._get_wasgo_id()) {
-// 			printf("rotating wasgo object id but not locally: %d\n", spin_node._get_wasgo_id());
-// 			// node2.rotate_object_local(Vector3(0, 1, 0), 0.1f);
-// 			// spin_node.rotate_y(0.1);
-// 		} else {
-// 			printf("unable to rotate wasgo object id: %d\n", spin_node._get_wasgo_id());
-// 		}
-// 	} else {
-// 		printf("path was not valid :(\n");
-// 	}
-// 	// printf("This is the name of the node from the node path: %ls\n", node2.get_name().ascii().ptrw());
-// }
-
-void _ready() {
-	// printf("ready callback\n");
-	// Node this_node = WasGo::this_node();
-	// NodePath other_path = WasGo::get_property_nodepath("other_state");
-	// other_state = (WasGoState)this_node.get_node(WasGo::get_property_nodepath("other_state"));
-	// if (other_state) {
-	// 	printf("got node: %ls\n", other_state.get_name().ascii().ptr());
-	// }
-	// WasGo::set_property_int("pls just work2", 456);
+void _ready(){
+	thrust_limit = WasGo::get_property_float("thrust_limit");
+	gravity_influence = WasGo::get_property_float("gravity_influence");
 }
 
-void _process(float delta) {
-	// printf("this code runs every frame\n");
-	// Spatial spin_node = (Spatial)WasGo::this_node().get_node(WasGo::get_property("spin_node", Variant::NODE_PATH));
-	// if (spin_node) {
-	// 	printf("spin time %d\n", (int)(((float)WasGo::get_property("spin_speed")) * 100.0f));
-	// 	spin_node.rotate_y(WasGo::get_property("spin_speed"));
-	// } else {
-	// 	printf("spin_node is null %d\n", spin_node._get_wasgo_id());
-	// 	Node this_node = WasGo::this_node();
-	// 	Variant path = WasGo::get_property("other_node", Variant::NODE_PATH);
-	// 	spin_node = (Spatial)this_node.get_node(path);
-	// }
+void _unhandled_key_input(InputEventKey p_key_event) {
+	p_key_event.get_scancode();
+	switch (p_key_event.get_scancode()) {
+		case KEY_W: {
+			if(p_key_event.is_pressed()){
+				thrust_delta = 1;
+			} else {
+				thrust_delta = 0;
+			}
+		} break;
+		case KEY_S: {
+			if (p_key_event.is_pressed()) {
+				thrust_delta = -1;
+			} else {
+				thrust_delta = 0;
+			}
+		} break;
 
-	other_state = (WasGoState)WasGo::this_node().get_node(WasGo::get_property_nodepath("other_state"));
-	if (other_state) {
-		// other_state.set_int_property(69, "asdfasdfasdfasdf");
-		other_state.set_property_int("asdfasdfasdfasdf", 69);
-		// other_state.set_property_string("foo", "bar");
-		// other_state.set_property_vector3("asdff", Vector3(1,2,3));
-		// printf("got node: %ls\n", other_state.get_name().ascii().ptr());
-	} else {
-		printf("other state doesn't exist\n");
-		other_state = (WasGoState)WasGo::this_node().get_node(WasGo::get_property_nodepath("other_state"));
+		default:
+			break;
 	}
 }
 
-	// void _input(InputEvent event){
-	// 	// printf("We got input!!!: %ls\n", event.as_text().ascii().ptr());
-	// }
+void _physics_process(float delta) {
+	float y_ang = 0;
+	Spatial plane;
+	Vector3 direction;
+	Vector3 target_vector;
+	Transform t;
+	float target_speed = 0;
 
-	// void _unhandled_key_input(InputEventKey p_key_event){
-	// 	// printf("we got the key: %ls\n", p_key_event.as_text().ascii().ptr());
-	// 	if (other_state) {
-	// 		printf("other state's property being set\n");
-	// 		other_state.set_property_int("some_property", 123);
-	// 		printf("other state property set to %d\n", (int)other_state.get_property_int("some_property"));
-	// 	} else {
-	// 		printf("other state doesn't exist\n");
-	// 		other_state = (WasGoState)WasGo::this_node().get_node(WasGo::get_property_nodepath("other_state"));
-	// 	}
-	// }
+	Node this_node = WasGo::this_node();
+	Variant path = WasGo::get_property_nodepath("other_node");
+	plane = (Spatial)this_node.get_node(path);
+
+	Basis b = plane.get_transform().get_basis();
+	direction = b.get_axis(2);
+	y_ang = direction.angle_to(Vector3(0, 1, 0));
+	if ((thrust <= thrust_limit && thrust_delta > 0) || (thrust >= thrust_limit * -1 && thrust_delta < 0)) {
+		thrust += thrust_delta;
+	}
+	target_speed = thrust + (y_ang / Math_PI - 0.5) * gravity_influence;//we subtract 0.5 from the angle over pi because gravity's influence should be zero at 90 degrees or when the angle over pi is 0.5
+	velocity = (velocity * 0.9 + target_speed * 0.1) / 2;
+	target_vector = Vector3(0, 0, velocity);
+	t = plane.get_transform();
+	t.translate(target_vector * delta);
+	plane.set_transform(t);
+
+//only print every 60 frames to prevent log spam
+	frame_counter = (frame_counter + 1) % 60;
+	if (frame_counter == 0) {
+		printf("thrust: %d\n", int(thrust * 1000));
+		printf("y_ang: %d\n", int(y_ang * 1000));
+		printf("velocity: %d\n", int(velocity * 1000));
+	}
+}

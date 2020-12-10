@@ -44,6 +44,7 @@ Object::Object(WasGoID p_wasgo_id) {
 
 Object::Object() {
 	//TODO call wrapper function that makes a new object file and returns the new id. Then put that id in the object
+	wasgo_id = 0;
 }
 Object::~Object(){
 
