@@ -731,6 +731,8 @@ def write_function_table(file_path, api_dict):
         ret = []
         for content in contents['methods'].values():
             arguments = "i"
+            if(contents["singleton"]):
+                arguments =""
             if(content['return_type'] != "void" and content["return_type"] and wrapper_return_types(content['return_type']) == "void"):
                 arguments += "*~"
 
@@ -833,8 +835,10 @@ def write_wasm_class_headers(file_path, api_dict):
 
         return ret
 
-    def single_wrapper(name, return_type, arguments):
+    def single_wrapper(name, return_type, arguments, singleton = False):
         arg_list = ["WasGoID wasgo_id"]
+        if(singleton):
+            arg_list = []
         if return_type in wasm_variants:
             arg_list += ["uint8_t * wasgo_ret", "int wasgo_ret_size"]
 
@@ -933,20 +937,22 @@ operator bool();
             n, class_dict['methods'])
 
         # if (class_dict["instanciable"] and not class_dict["singleton"]):
-        header_file_data += constructor(n, diff_type_names(class_dict["base_class"]))
+        if(not class_dict["singleton"]):
+            header_file_data += constructor(n, diff_type_names(class_dict["base_class"]))
 
         header_file_data += ["};"]
         
         header_file_data += ["\n\n//Wrapper Functions",
         "extern \"C\"{"
         ]
-        header_file_data += [single_wrapper(wrapper_method_names(n, method_name), api_dict[class_name]["methods"][method_name]["return_type"], api_dict[class_dict["name"]]["methods"][method_name]["arguments"].values()) for method_name in class_dict["methods"]]
-        header_file_data += [
-            """
-    //constructor wrappers
-    WasGoID _wasgo_{0}_constructor();
-            """.format(n)
-        ]
+        header_file_data += [single_wrapper(wrapper_method_names(n, method_name), api_dict[class_name]["methods"][method_name]["return_type"], api_dict[class_dict["name"]]["methods"][method_name]["arguments"].values(), class_dict["singleton"]) for method_name in class_dict["methods"]]
+        if(not class_dict["singleton"]):
+            header_file_data += [
+                """
+        //constructor wrappers
+        WasGoID _wasgo_{0}_constructor();
+                """.format(n)
+            ]
         header_file_data += ["}",
                                 "#endif"
                                 ]
@@ -984,9 +990,12 @@ def write_wasm_classes(file_path, api_dict):
             return ["wasgo_buffer_{0}".format(arg_name), "wasgo_size_{0}".format(arg_name)]
         else:
             return ["p_{0}._get_wasgo_id()".format(arg_name)]
-    def wrapper_body(class_name, method_name, return_type, arguments):
+    def wrapper_body(class_name, method_name, return_type, arguments, singleton = False):
         out = ["{0} {1}::{2}({3}){{".format(diff_type_names(return_type), class_name, method_name, arg_string(arguments))]
-        formatted_args = ["wasgo_id"]
+        if(singleton):
+            formatted_args = []
+        else:
+            formatted_args = ["wasgo_id"]
         if (return_type in wasm_variants):
             formatted_args += ["wasgo_ret_buffer", "wasgo_ret_buffer_size"]
         for arg in arguments:
@@ -1077,8 +1086,7 @@ WasGoID {0}::_get_wasgo_id(){{
             ]
             out += ["#include \"{0}.h\"".format(n)]
             for methods in class_dict["methods"].values():
-                
-                out += wrapper_body(n, methods['name'], void_if_null(methods['return_type']), methods['arguments'].values())
+                out += wrapper_body(n, methods['name'], void_if_null(methods['return_type']), methods['arguments'].values(), class_dict["singleton"])
             
             # if (class_dict["instanciable"] and not class_dict["singleton"]):
             if (not class_dict["singleton"]):
@@ -1171,7 +1179,8 @@ class_whitelist = [
     "InputEventMouseMotion",
     "InputEventWithModifiers",
     "Resource",
-    "WasGoState"
+    "WasGoState",
+    "Input"
 ]
 
 
@@ -1199,7 +1208,7 @@ if __name__ == "__main__":
     wasgo_api = json.load(wasgo_file)
     wasgo_file.close()
 
-    wasgo_api = [api for api in wasgo_api.values() if api["singleton"] == False and api["api_type"] == "core" and api["base_class"] != "Script"]
+    wasgo_api = [api for api in wasgo_api.values()]# if api["singleton"] == False and api["api_type"] == "core" and api["base_class"] != "Script"]
     api_dict = list_to_name_dict(wasgo_api)
     #Step 1 make the native side function wrappers
     write_native_wrapper_header("../include/wasgo_native_wrappers.h", api_dict)

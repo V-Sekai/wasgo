@@ -289,6 +289,11 @@ void WasGoState::set_wasm_script(Ref<WasmResource> p_wasm_script) {
 	}
 	wasm_script = p_wasm_script;
 	_initialize();
+	if (is_inside_tree() && ready_callback) {//call the ready callback again because we must have missed the first one
+		if (!wasm_runtime_call_wasm(exec_env, ready_callback, 0, nullptr)) {
+			printf("wasm ready callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+		}
+	}
 }
 Ref<WasmResource> WasGoState::get_wasm_script() {
 	return wasm_script;

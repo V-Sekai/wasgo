@@ -204,6 +204,656 @@
 #include "scene/resources/world.h"
 #include "scene/resources/world_2d.h"
 #include "scene/resources/default_theme/default_theme.h"
+#include "core/os/input.h"
+
+    WasGoState::WasGoID _wasgo_Input_constructor(){
+        return 0;
+    }
+    void _wasgo_Input_destructor(WasGoState::WasGoID p_wasgo_id){
+
+    }
+
+void _wasgo_Input_wrapper_action_press(wasm_exec_env_t exec_env, const uint8_t * p_action, int p_wasgo_buffer_size_action, float p_strength){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_action = String();
+			decode_variant(v_action, p_action, p_wasgo_buffer_size_action);
+			Variant * action = &v_action;
+			Variant v_strength = (float) p_strength;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_action, & v_strength};
+			Variant wasgo_ret = caller->call((String)"action_press", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: action_press");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_action_release(wasm_exec_env_t exec_env, const uint8_t * p_action, int p_wasgo_buffer_size_action){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_action = String();
+			decode_variant(v_action, p_action, p_wasgo_buffer_size_action);
+			Variant * action = &v_action;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_action};
+			Variant wasgo_ret = caller->call((String)"action_release", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: action_release");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_add_joy_mapping(wasm_exec_env_t exec_env, const uint8_t * p_mapping, int p_wasgo_buffer_size_mapping, bool p_update_existing){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_mapping = String();
+			decode_variant(v_mapping, p_mapping, p_wasgo_buffer_size_mapping);
+			Variant * mapping = &v_mapping;
+			Variant v_update_existing = (bool) p_update_existing;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_mapping, & v_update_existing};
+			Variant wasgo_ret = caller->call((String)"add_joy_mapping", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: add_joy_mapping");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_get_accelerometer(wasm_exec_env_t exec_env, uint8_t * wasgo_ret, int wasgo_ret_len){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			Variant wasgo_local_ret = caller->call((String)"get_accelerometer", varargs, 0, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_accelerometer");}
+		}
+	}}
+
+float _wasgo_Input_wrapper_get_action_strength(wasm_exec_env_t exec_env, const uint8_t * p_action, int p_wasgo_buffer_size_action){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_action = String();
+			decode_variant(v_action, p_action, p_wasgo_buffer_size_action);
+			Variant * action = &v_action;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_action};
+			float wasgo_ret = (float) caller->call((String)"get_action_strength", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_action_strength");}
+			return wasgo_ret;
+		}
+	}
+	return float();
+}
+
+WasGoState::WasGoID _wasgo_Input_wrapper_get_connected_joypads(wasm_exec_env_t exec_env){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			Variant wasgo_ret = caller->call((String)"get_connected_joypads", varargs, 0, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_connected_joypads");}
+			return state->handle_return_variant(wasgo_ret);
+		}
+	}
+	return WasGoState::WasGoID();
+}
+
+WasGoState::WasGoID _wasgo_Input_wrapper_get_current_cursor_shape(wasm_exec_env_t exec_env){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			Variant wasgo_ret = caller->call((String)"get_current_cursor_shape", varargs, 0, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_current_cursor_shape");}
+			return state->handle_return_variant(wasgo_ret);
+		}
+	}
+	return WasGoState::WasGoID();
+}
+
+void _wasgo_Input_wrapper_get_gravity(wasm_exec_env_t exec_env, uint8_t * wasgo_ret, int wasgo_ret_len){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			Variant wasgo_local_ret = caller->call((String)"get_gravity", varargs, 0, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_gravity");}
+		}
+	}}
+
+void _wasgo_Input_wrapper_get_gyroscope(wasm_exec_env_t exec_env, uint8_t * wasgo_ret, int wasgo_ret_len){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			Variant wasgo_local_ret = caller->call((String)"get_gyroscope", varargs, 0, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_gyroscope");}
+		}
+	}}
+
+float _wasgo_Input_wrapper_get_joy_axis(wasm_exec_env_t exec_env, int p_device, int p_axis){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_device = (int) p_device;
+			Variant v_axis = (int) p_axis;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_device, & v_axis};
+			float wasgo_ret = (float) caller->call((String)"get_joy_axis", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_joy_axis");}
+			return wasgo_ret;
+		}
+	}
+	return float();
+}
+
+int _wasgo_Input_wrapper_get_joy_axis_index_from_string(wasm_exec_env_t exec_env, const uint8_t * p_axis, int p_wasgo_buffer_size_axis){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_axis = String();
+			decode_variant(v_axis, p_axis, p_wasgo_buffer_size_axis);
+			Variant * axis = &v_axis;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_axis};
+			int wasgo_ret = (int) caller->call((String)"get_joy_axis_index_from_string", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_joy_axis_index_from_string");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+void _wasgo_Input_wrapper_get_joy_axis_string(wasm_exec_env_t exec_env, uint8_t * wasgo_ret, int wasgo_ret_len, int p_axis_index){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_axis_index = (int) p_axis_index;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_axis_index};
+			Variant wasgo_local_ret = caller->call((String)"get_joy_axis_string", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_joy_axis_string");}
+		}
+	}}
+
+int _wasgo_Input_wrapper_get_joy_button_index_from_string(wasm_exec_env_t exec_env, const uint8_t * p_button, int p_wasgo_buffer_size_button){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_button = String();
+			decode_variant(v_button, p_button, p_wasgo_buffer_size_button);
+			Variant * button = &v_button;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_button};
+			int wasgo_ret = (int) caller->call((String)"get_joy_button_index_from_string", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_joy_button_index_from_string");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+void _wasgo_Input_wrapper_get_joy_button_string(wasm_exec_env_t exec_env, uint8_t * wasgo_ret, int wasgo_ret_len, int p_button_index){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_button_index = (int) p_button_index;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_button_index};
+			Variant wasgo_local_ret = caller->call((String)"get_joy_button_string", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_joy_button_string");}
+		}
+	}}
+
+void _wasgo_Input_wrapper_get_joy_guid(wasm_exec_env_t exec_env, uint8_t * wasgo_ret, int wasgo_ret_len, int p_device){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_device = (int) p_device;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_device};
+			Variant wasgo_local_ret = caller->call((String)"get_joy_guid", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_joy_guid");}
+		}
+	}}
+
+void _wasgo_Input_wrapper_get_joy_name(wasm_exec_env_t exec_env, uint8_t * wasgo_ret, int wasgo_ret_len, int p_device){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_device = (int) p_device;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_device};
+			Variant wasgo_local_ret = caller->call((String)"get_joy_name", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_joy_name");}
+		}
+	}}
+
+float _wasgo_Input_wrapper_get_joy_vibration_duration(wasm_exec_env_t exec_env, int p_device){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_device = (int) p_device;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_device};
+			float wasgo_ret = (float) caller->call((String)"get_joy_vibration_duration", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_joy_vibration_duration");}
+			return wasgo_ret;
+		}
+	}
+	return float();
+}
+
+void _wasgo_Input_wrapper_get_joy_vibration_strength(wasm_exec_env_t exec_env, uint8_t * wasgo_ret, int wasgo_ret_len, int p_device){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_device = (int) p_device;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_device};
+			Variant wasgo_local_ret = caller->call((String)"get_joy_vibration_strength", varargs, 1, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_joy_vibration_strength");}
+		}
+	}}
+
+void _wasgo_Input_wrapper_get_last_mouse_speed(wasm_exec_env_t exec_env, uint8_t * wasgo_ret, int wasgo_ret_len){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			// Variant wasgo_local_ret = caller->call((String)"get_last_mouse_speed", varargs, 0, error);
+			Vector2 mouse_speed = caller->get_last_mouse_speed();
+			Variant wasgo_local_ret = mouse_speed;
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			// if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_last_mouse_speed");}
+		}
+	}}
+
+void _wasgo_Input_wrapper_get_magnetometer(wasm_exec_env_t exec_env, uint8_t * wasgo_ret, int wasgo_ret_len){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			Variant wasgo_local_ret = caller->call((String)"get_magnetometer", varargs, 0, error);
+			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_magnetometer");}
+		}
+	}}
+
+int _wasgo_Input_wrapper_get_mouse_button_mask(wasm_exec_env_t exec_env){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			int wasgo_ret = (int) caller->call((String)"get_mouse_button_mask", varargs, 0, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_mouse_button_mask");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+WasGoState::WasGoID _wasgo_Input_wrapper_get_mouse_mode(wasm_exec_env_t exec_env){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant::CallError error;
+			const Variant ** varargs = nullptr;
+			Variant wasgo_ret = caller->call((String)"get_mouse_mode", varargs, 0, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_mouse_mode");}
+			return state->handle_return_variant(wasgo_ret);
+		}
+	}
+	return WasGoState::WasGoID();
+}
+
+int _wasgo_Input_wrapper_is_action_just_pressed(wasm_exec_env_t exec_env, const uint8_t * p_action, int p_wasgo_buffer_size_action){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_action = String();
+			decode_variant(v_action, p_action, p_wasgo_buffer_size_action);
+			Variant * action = &v_action;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_action};
+			int wasgo_ret = (int) caller->call((String)"is_action_just_pressed", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: is_action_just_pressed");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+int _wasgo_Input_wrapper_is_action_just_released(wasm_exec_env_t exec_env, const uint8_t * p_action, int p_wasgo_buffer_size_action){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_action = String();
+			decode_variant(v_action, p_action, p_wasgo_buffer_size_action);
+			Variant * action = &v_action;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_action};
+			int wasgo_ret = (int) caller->call((String)"is_action_just_released", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: is_action_just_released");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+int _wasgo_Input_wrapper_is_action_pressed(wasm_exec_env_t exec_env, const uint8_t * p_action, int p_wasgo_buffer_size_action){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_action = String();
+			decode_variant(v_action, p_action, p_wasgo_buffer_size_action);
+			Variant * action = &v_action;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_action};
+			int wasgo_ret = (int) caller->call((String)"is_action_pressed", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: is_action_pressed");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+int _wasgo_Input_wrapper_is_joy_button_pressed(wasm_exec_env_t exec_env, int p_device, int p_button){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_device = (int) p_device;
+			Variant v_button = (int) p_button;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_device, & v_button};
+			int wasgo_ret = (int) caller->call((String)"is_joy_button_pressed", varargs, 2, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: is_joy_button_pressed");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+int _wasgo_Input_wrapper_is_joy_known(wasm_exec_env_t exec_env, int p_device){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_device = (int) p_device;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_device};
+			int wasgo_ret = (int) caller->call((String)"is_joy_known", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: is_joy_known");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+int _wasgo_Input_wrapper_is_key_pressed(wasm_exec_env_t exec_env, int p_scancode){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_scancode = (int) p_scancode;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_scancode};
+			int wasgo_ret = (int) caller->call((String)"is_key_pressed", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: is_key_pressed");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+int _wasgo_Input_wrapper_is_mouse_button_pressed(wasm_exec_env_t exec_env, int p_button){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_button = (int) p_button;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_button};
+			int wasgo_ret = (int) caller->call((String)"is_mouse_button_pressed", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: is_mouse_button_pressed");}
+			return wasgo_ret;
+		}
+	}
+	return int();
+}
+
+void _wasgo_Input_wrapper_joy_connection_changed(wasm_exec_env_t exec_env, int p_device, bool p_connected, const uint8_t * p_name, int p_wasgo_buffer_size_name, const uint8_t * p_guid, int p_wasgo_buffer_size_guid){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_device = (int) p_device;
+			Variant v_connected = (bool) p_connected;
+			Variant v_name = String();
+			decode_variant(v_name, p_name, p_wasgo_buffer_size_name);
+			Variant * name = &v_name;
+			Variant v_guid = String();
+			decode_variant(v_guid, p_guid, p_wasgo_buffer_size_guid);
+			Variant * guid = &v_guid;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_device, & v_connected, & v_name, & v_guid};
+			Variant wasgo_ret = caller->call((String)"joy_connection_changed", varargs, 4, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: joy_connection_changed");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_parse_input_event(wasm_exec_env_t exec_env, WasGoState::WasGoID p_event){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_event = state->lookup_object(p_event);
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_event};
+			Variant wasgo_ret = caller->call((String)"parse_input_event", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: parse_input_event");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_remove_joy_mapping(wasm_exec_env_t exec_env, const uint8_t * p_guid, int p_wasgo_buffer_size_guid){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_guid = String();
+			decode_variant(v_guid, p_guid, p_wasgo_buffer_size_guid);
+			Variant * guid = &v_guid;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_guid};
+			Variant wasgo_ret = caller->call((String)"remove_joy_mapping", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: remove_joy_mapping");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_set_custom_mouse_cursor(wasm_exec_env_t exec_env, WasGoState::WasGoID p_image, int p_shape, const uint8_t * p_hotspot, int p_wasgo_buffer_size_hotspot){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_image = state->lookup_object(p_image);
+			Variant v_shape = state->lookup_object(p_shape);
+			Variant v_hotspot = Vector2();
+			decode_variant(v_hotspot, p_hotspot, p_wasgo_buffer_size_hotspot);
+			Variant * hotspot = &v_hotspot;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_image, & v_shape, & v_hotspot};
+			Variant wasgo_ret = caller->call((String)"set_custom_mouse_cursor", varargs, 3, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_custom_mouse_cursor");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_set_default_cursor_shape(wasm_exec_env_t exec_env, int p_shape){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_shape = state->lookup_object(p_shape);
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_shape};
+			Variant wasgo_ret = caller->call((String)"set_default_cursor_shape", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_default_cursor_shape");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_set_mouse_mode(wasm_exec_env_t exec_env, int p_mode){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			// Variant v_mode = state->lookup_object(p_mode);
+			// Variant::CallError error;
+			// const Variant* varargs[] = {& v_mode};
+			// Variant wasgo_ret = caller->call((String)"set_mouse_mode", varargs, 1, error);
+
+			// if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_mouse_mode");}
+
+			caller->set_mouse_mode((Input::MouseMode) p_mode);
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_set_use_accumulated_input(wasm_exec_env_t exec_env, bool p_enable){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_enable = (bool) p_enable;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_enable};
+			Variant wasgo_ret = caller->call((String)"set_use_accumulated_input", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: set_use_accumulated_input");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_start_joy_vibration(wasm_exec_env_t exec_env, int p_device, float p_weak_magnitude, float p_strong_magnitude, float p_duration){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_device = (int) p_device;
+			Variant v_weak_magnitude = (float) p_weak_magnitude;
+			Variant v_strong_magnitude = (float) p_strong_magnitude;
+			Variant v_duration = (float) p_duration;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_device, & v_weak_magnitude, & v_strong_magnitude, & v_duration};
+			Variant wasgo_ret = caller->call((String)"start_joy_vibration", varargs, 4, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: start_joy_vibration");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_stop_joy_vibration(wasm_exec_env_t exec_env, int p_device){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_device = (int) p_device;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_device};
+			Variant wasgo_ret = caller->call((String)"stop_joy_vibration", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: stop_joy_vibration");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_vibrate_handheld(wasm_exec_env_t exec_env, int p_duration_ms){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_duration_ms = (int) p_duration_ms;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_duration_ms};
+			Variant wasgo_ret = caller->call((String)"vibrate_handheld", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: vibrate_handheld");}
+		}
+	}
+	return;
+}
+
+void _wasgo_Input_wrapper_warp_mouse_position(wasm_exec_env_t exec_env, const uint8_t * p_to, int p_wasgo_buffer_size_to){
+	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
+	if(state){
+		Input *caller = Input::get_singleton();
+		if(caller){
+			Variant v_to = Vector2();
+			decode_variant(v_to, p_to, p_wasgo_buffer_size_to);
+			Variant * to = &v_to;
+			Variant::CallError error;
+			const Variant* varargs[] = {& v_to};
+			Variant wasgo_ret = caller->call((String)"warp_mouse_position", varargs, 1, error);
+			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: warp_mouse_position");}
+		}
+	}
+	return;
+}
 
     WasGoState::WasGoID _wasgo_InputEvent_constructor(){
         return 0;
@@ -866,7 +1516,7 @@ void _wasgo_InputEventMouseMotion_wrapper_get_relative(wasm_exec_env_t exec_env,
 			const Variant ** varargs = nullptr;
 			Variant wasgo_local_ret = caller->call((String)"get_relative", varargs, 0, error);
 			Error wasgo_encode_error = encode_variant(wasgo_local_ret, wasgo_ret, wasgo_ret_len);
-			if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_relative");}
+			// if(error.error != Variant::CallError::CALL_OK){print_line("BAD WASGO CALL: get_relative");}
 		}
 	}}
 
