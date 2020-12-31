@@ -5,7 +5,7 @@ BUILD_DIR ?= .
 # COPY_DEST := "C\:\\Users\\Michael\\Documents\\_Active\\V-Sekai\\groups"
 # COPY_DEST := C:/Users/Michael/Documents/_Active/V-Sekai/groups/
 
-CXX := "./zig-linux-x86_64-0.7.1+8078d8cd3/zig"
+CXX := "../../thirdparty/zig-linux-x86_64-0.7.1+8078d8cd3/zig"
 # CXX := "C:/Users/Michael/Documents/_Active/godot-wasm/godot/modules/WasGo/thirdparty/wasm-micro-runtime/wamr-sdk/opt/wasi-sdk/bin/clang.exe"
 
 SRCS := $(wildcard *.cpp ../../api/Custom/*.cpp ../../api/Custom/wasgo/*.cpp ../../api/Generated/*.cpp)

@@ -349,14 +349,12 @@ NodePath NodePath::simplified() const {
 }
 
 NodePath::NodePath(const String &p_path) {
-
-	printf("converting string to nodepath\n");
 	data = NULL;
 
-	if (p_path.length() == 0)
+	if (!p_path.length()) {
 		return;
+	}
 
-	printf("string received %ls\n", p_path.ascii().ptr());
 	String path = p_path;
 	Vector<StringName> subpath;
 
@@ -389,8 +387,6 @@ NodePath::NodePath(const String &p_path) {
 		path = path.substr(0, subpath_pos);
 	}
 
-	printf("entering for loop\n");
-
 	for (int i = (int)absolute; i < path.length(); i++) {
 
 		if (path[i] == '/') {
@@ -409,7 +405,6 @@ NodePath::NodePath(const String &p_path) {
 	if (slices == 0 && !absolute && !subpath.size())
 		return;
 
-	printf("about to memnew\n");
 	data = memnew(Data);
 	data->refcount.init();
 	data->absolute = absolute;
@@ -424,7 +419,6 @@ NodePath::NodePath(const String &p_path) {
 	int from = (int)absolute;
 	int slice = 0;
 
-	printf("entering another for loop\n");
 	for (int i = (int)absolute; i < path.length() + 1; i++) {
 
 		if (path[i] == '/' || path[i] == 0) {
@@ -433,7 +427,6 @@ NodePath::NodePath(const String &p_path) {
 
 				String name = path.substr(from, i - from);
 
-				printf("name found %ls\n", name.ascii().ptr());
 				ERR_FAIL_INDEX(slice, data->path.size());
 				data->path.write[slice++] = name;
 			}
@@ -442,10 +435,6 @@ NodePath::NodePath(const String &p_path) {
 		} else {
 			last_is_slash = false;
 		}
-	}
-	printf("path so far:\n");
-	for (int i = 0; i < data->path.size(); i++) {
-		printf("\t%ls\n", String(data->path[i]).ascii().ptr());
 	}
 }
 
