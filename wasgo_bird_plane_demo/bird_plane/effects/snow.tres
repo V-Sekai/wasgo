@@ -1,0 +1,15 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://bird_plane/effects/VXgkg8o.png" type="Texture" id=1]
+
+
+[resource]
+flags_unshaded = true
+flags_do_not_receive_shadows = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.305882, 0.305882, 0.305882, 0.113725 )
+albedo_texture = ExtResource( 1 )
