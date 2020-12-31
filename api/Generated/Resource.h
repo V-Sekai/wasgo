@@ -2,7 +2,7 @@
 #ifndef RESOURCE_H
 #define RESOURCE_H
 
-#include "wasgo\wasgoid.h"
+#include "wasgo/wasgoid.h"
 
 #include "RID.h"
 #include "Ustring.h"

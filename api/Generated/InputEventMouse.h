@@ -2,7 +2,7 @@
 #ifndef INPUTEVENTMOUSE_H
 #define INPUTEVENTMOUSE_H
 
-#include "wasgo\wasgoid.h"
+#include "wasgo/wasgoid.h"
 
 #include "InputEventWithModifiers.h"
 #include "Vector2.h"

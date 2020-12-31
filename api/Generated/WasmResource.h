@@ -2,7 +2,7 @@
 #ifndef WASMRESOURCE_H
 #define WASMRESOURCE_H
 
-#include "wasgo\wasgoid.h"
+#include "wasgo/wasgoid.h"
 
 #include "Resource.h"
 #include "Variant.h"

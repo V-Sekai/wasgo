@@ -2,7 +2,7 @@
 #ifndef SPATIAL_H
 #define SPATIAL_H
 
-#include "wasgo\wasgoid.h"
+#include "wasgo/wasgoid.h"
 
 #include "Vector3.h"
 // #include "World.h"

@@ -2,7 +2,7 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include "wasgo\wasgoid.h"
+#include "wasgo/wasgoid.h"
 
 // #include "Viewport.h"
 // #include "SceneTree.h"

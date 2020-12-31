@@ -2,7 +2,7 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include "wasgo\wasgoid.h"
+#include "wasgo/wasgoid.h"
 
 #include "Vector3.h"
 #include "InputEvent.h"

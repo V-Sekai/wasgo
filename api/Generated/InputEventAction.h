@@ -2,7 +2,7 @@
 #ifndef INPUTEVENTACTION_H
 #define INPUTEVENTACTION_H
 
-#include "wasgo\wasgoid.h"
+#include "wasgo/wasgoid.h"
 
 #include "InputEvent.h"
 #include "Ustring.h"

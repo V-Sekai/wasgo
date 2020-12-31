@@ -2,7 +2,7 @@
 #ifndef INPUTEVENT_H
 #define INPUTEVENT_H
 
-#include "wasgo\wasgoid.h"
+#include "wasgo/wasgoid.h"
 
 #include "Resource.h"
 #include "Vector2.h"

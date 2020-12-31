@@ -2,7 +2,7 @@
 #ifndef INPUTEVENTKEY_H
 #define INPUTEVENTKEY_H
 
-#include "wasgo\wasgoid.h"
+#include "wasgo/wasgoid.h"
 
 #include "InputEventWithModifiers.h"
 class InputEventKey : public InputEventWithModifiers{

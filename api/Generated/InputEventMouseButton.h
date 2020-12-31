@@ -2,7 +2,7 @@
 #ifndef INPUTEVENTMOUSEBUTTON_H
 #define INPUTEVENTMOUSEBUTTON_H
 
-#include "wasgo\wasgoid.h"
+#include "wasgo/wasgoid.h"
 
 #include "InputEventMouse.h"
 class InputEventMouseButton : public InputEventMouse{

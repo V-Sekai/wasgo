@@ -2,7 +2,7 @@
 #ifndef WASGOSTATE_H
 #define WASGOSTATE_H
 
-#include "wasgo\wasgoid.h"
+#include "wasgo/wasgoid.h"
 
 #include "Vector3.h"
 #include "Vector2.h"
