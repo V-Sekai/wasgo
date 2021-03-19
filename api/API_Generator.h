@@ -1,8 +1,8 @@
 #ifndef WASGO_API_GENERATOR_H
 #define WASGO_API_GENERATOR_H
 
-#include "core/engine.h"
-#include "core/variant.h"
+#include "core/config/engine.h"
+#include "core/variant/variant.h"
 #include "scene/main/node.h"
 
 class WasGoAPIGen{

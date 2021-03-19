@@ -16,33 +16,33 @@ if (wasm != nullptr){
     	return script_module_map[wasm->get_path()];
  }
 
-  PoolByteArray array = wasm->get_buf(); //gets the binary data
-  int buf_size = array.size(); //buffer_length
-  uint8_t* buffer = (uint8_t*) array.read().ptr(); //buffer
+ Vector<uint8_t> array = wasm->get_buf(); //gets the binary data
+ int buf_size = array.size(); //buffer_length
+ uint8_t *buffer = (uint8_t *)array.ptr(); //buffer
 
-  char error_buf[128];
-	// char *buffer = nullptr;
-	// uint32_t buf_size;
+ char error_buf[128];
+ // char *buffer = nullptr;
+ // uint32_t buf_size;
 
-	// Error err;
-	// FileAccess *file = FileAccess::open(script_path, FileAccess::READ, &err);
-	// if (err != OK) {
-	// 	//printf("We couldnt read the file: %s\n", script_path);
-  //       return nullptr;
-	// }
-	// buffer = (char *)malloc(file->get_len());
-	// buf_size = file->get_len();
-	// file->get_buffer((uint8_t *)buffer, file->get_len());
-	// file->close();
-  //
-	// if (!buffer) {
-	// 	//printf("Open wasm app file [%s] failed.\n", script_path);
-	// 	if (buffer) free(buffer);
-  //       return nullptr;
-	// }
+ // Error err;
+ // FileAccess *file = FileAccess::open(script_path, FileAccess::READ, &err);
+ // if (err != OK) {
+ // 	//printf("We couldnt read the file: %s\n", script_path);
+ //       return nullptr;
+ // }
+ // buffer = (char *)malloc(file->get_len());
+ // buf_size = file->get_len();
+ // file->get_buffer((uint8_t *)buffer, file->get_len());
+ // file->close();
+ //
+ // if (!buffer) {
+ // 	//printf("Open wasm app file [%s] failed.\n", script_path);
+ // 	if (buffer) free(buffer);
+ //       return nullptr;
+ // }
 
-  script_module_map.set(wasm->get_path(), wasm_runtime_load(buffer, buf_size, error_buf, sizeof(error_buf)));
-	return script_module_map[wasm->get_path()];
+ script_module_map.set(wasm->get_path(), wasm_runtime_load(buffer, buf_size, error_buf, sizeof(error_buf)));
+ return script_module_map[wasm->get_path()];
  }
  return nullptr;
 }

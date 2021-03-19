@@ -1,9 +1,10 @@
 /* resource_wasm.h */
-#include "core/resource.h"
-#include "wasm_export.h"
 
 #ifndef RESOURCE_WASM_H
 #define RESOURCE_WASM_H
+
+#include "core/io/resource.h"
+#include "wasm_export.h"
 
 class WasmResource : public Resource {
     GDCLASS(WasmResource, Resource);
@@ -17,11 +18,13 @@ protected:
     }
 */    
 private:
-    PoolByteArray wasm_buf;
+	Vector<uint8_t> wasm_buf;
+
 public:
     Error load_file(const String &p_path);
     Error save_file(const String &p_path, const RES &p_resource);
 
-    PoolByteArray get_buf();
+	Vector<uint8_t> get_buf();
+	WasmResource();
 };
 #endif // RESOURCE_WASM_H

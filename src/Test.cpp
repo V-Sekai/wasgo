@@ -76,7 +76,7 @@ extern "C" int32_t calculate_native(wasm_exec_env_t exec_env, int32_t n, int32_t
 	printf("calling into native function: %s, n=%d, func1=%d, func2=%d\n",
 			__FUNCTION__, n, func1, func2);
 
-	uint32_t argv[] = { n };
+	uint32_t argv[] = { (uint32_t) n };
 	if (!wasm_runtime_call_indirect(exec_env, func1, 1, argv)) {
 		printf("call func1 failed\n");
 		return 0xDEAD;

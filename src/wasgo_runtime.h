@@ -2,14 +2,14 @@
 #ifndef WASGO_RUNTIME_H
 #define WASGO_RUNTIME_H
 
-#include "core/object.h"
+// #include "core/object.h"
+#include "core/config/engine.h"
 #include "core/os/file_access.h"
-#include "core/variant.h"
-#include "core/engine.h"
-#include "wasm_export.h"
+#include "core/variant/variant.h"
 #include "resource_loader_wasm.h"
 #include "resource_wasm.h"
-#include "core/list.h"
+#include "wasm_export.h"
+// #include "core/list.h"
 
   class WasGoRuntime : public Object {
     GDCLASS(WasGoRuntime, Object);
