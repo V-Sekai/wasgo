@@ -18,33 +18,33 @@ void WasGoState::_initialize() {
 			wasm_runtime_set_user_data(exec_env, this);
 
 			if (notification_callback = wasm_runtime_lookup_function(module_inst, "_notification", NULL)) {
-				print_line("The notification callback found");
+				print_line("The notification callback found.");
 			}
 			if (ready_callback = wasm_runtime_lookup_function(module_inst, "_ready", NULL)) {
-				print_line("The ready callback found");
+				print_line("The ready callback found.");
 			}
 			if (process_callback = wasm_runtime_lookup_function(module_inst, "_process", NULL)) {
 				set_process(true);
-				print_line("The process callback found");
+				print_line("The process callback found.");
 			}
 			if (physics_process_callback = wasm_runtime_lookup_function(module_inst, "_physics_process", NULL)) {
 				set_physics_process(true);
-				print_line("The physics_process callback found");
+				print_line("The physics_process callback found.");
 			}
 			if (wasm_runtime_lookup_function(module_inst, "_input", NULL) && (input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_input", NULL))) {
 				set_process_input(true);
-				print_line("The input callback found");
+				print_line("The input callback found.");
 			}
 			if (wasm_runtime_lookup_function(module_inst, "_unhandled_input", NULL) && (unhandled_input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_unhandled_input", NULL))) {
 				set_process_unhandled_input(true);
-				print_line("The unhandled_input callback found");
+				print_line("The unhandled_input callback found.");
 			}
 			if (wasm_runtime_lookup_function(module_inst, "_unhandled_key_input", NULL) && (unhandled_key_input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_unhandled_key_input", NULL))) {
 				set_process_unhandled_key_input(true);
-				print_line("The unhandled_key_input callback found");
+				print_line("The unhandled_key_input callback found.");
 			}
 		} else {
-			printf("WASM FAILED TO LOAD");
+			printf("WASM FAILED TO LOAD.");
 		}
 	}
 }
@@ -144,7 +144,7 @@ void WasGoState::_notification(int p_what) {
 			_initialize();
 			if (ready_callback) {
 				if(!wasm_runtime_call_wasm(exec_env, ready_callback, 0, nullptr)) {
-					printf("wasm ready callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+					printf("Wasm ready callback failed. %s\n", wasm_runtime_get_exception(module_inst));
 				}
 			}
 		} break;
@@ -155,7 +155,7 @@ void WasGoState::_notification(int p_what) {
 				uint32_t argv[2];
 				memcpy(argv, &delta, sizeof(delta));
 				if (!wasm_runtime_call_wasm(exec_env, process_callback, 1, argv)) {
-					printf("wasm process callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+					printf("Wasm process callback failed. %s\n", wasm_runtime_get_exception(module_inst));
 				}
 			}
 		} break;
@@ -166,7 +166,7 @@ void WasGoState::_notification(int p_what) {
 				uint32_t argv[2];
 				memcpy(argv, &delta, sizeof(delta));
 				if (!wasm_runtime_call_wasm(exec_env, physics_process_callback, 1, argv)) {
-					printf("wasm physics process callback failed. %s\n", wasm_runtime_get_exception(module_inst));
+					printf("Wasm physics process callback failed. %s\n", wasm_runtime_get_exception(module_inst));
 				}
 			}
 
@@ -405,7 +405,7 @@ WasGoState::WasGoID WasGoState::handle_return_variant(Variant var){
 	// 		id = reference_object(obj);
 	// 	} else {
 	// 		//We shouldn't be able to get here
-	// 		printf("ERROR: unexpected ref type");
+	// 		printf("ERROR: unexpected ref type.");
 	// 	}
 	// } else {
 	// 	// if (var.get_type() == Variant::OBJECT) {
