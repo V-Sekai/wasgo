@@ -5,3 +5,7 @@ thirdparty/wasi-sysroot/
 thirdparty/zig-linux-x86_64-0.7.1\+8078d8cd3/
 
 wasgo_bird_plane_demo/.import/
+
+*.o
+
+__pycache__/

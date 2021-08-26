@@ -10,7 +10,7 @@
 static Ref<ResourceFormatLoaderWasm> wasm_loader;
 static WasGoRuntime *wasgo_runtime = NULL;
 
-void register_WasGo_types() {
+void register_wasgo_types() {
 	printf("REGISTERING WASGO\n");
 	printf("Creating some test wasgo objects\n");
 
@@ -53,7 +53,7 @@ void register_WasGo_types() {
 #endif
 }
 
-void unregister_WasGo_types(){
+void unregister_wasgo_types(){
 	ResourceLoader::remove_resource_format_loader(wasm_loader);
 	wasm_loader.unref();
 }
