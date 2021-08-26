@@ -629,7 +629,7 @@ void _wasgo_get_property_quat(wasm_exec_env_t p_exec_env, const uint8_t *propert
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
 	Variant name = String();
 	decode_variant(name, property_name, property_name_size);
-	Quat ret = state->get_property(name);
+	Quaternion ret = state->get_property(name);
 	encode_variant(ret, value, value_size);
 }
 void _wasgo_set_property_quat(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size) {
@@ -677,7 +677,7 @@ void _wasgo_get_property_transform(wasm_exec_env_t p_exec_env, const uint8_t *pr
 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(p_exec_env);
 	Variant name = String();
 	decode_variant(name, property_name, property_name_size);
-	Transform ret = state->get_property(name);
+	Transform3D ret = state->get_property(name);
 	encode_variant(ret, value, value_size);
 }
 void _wasgo_set_property_transform(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size) {
@@ -823,7 +823,7 @@ Transform2D WasGoState::get_property_transform2d(String key){
 Plane WasGoState::get_property_plane(String key){
 	return get_property(key);
 }
-Quat WasGoState::get_property_quat(String key){
+Quaternion WasGoState::get_property_quat(String key){
 	return get_property(key);
 }
 AABB WasGoState::get_property_aabb(String key){
@@ -832,7 +832,7 @@ AABB WasGoState::get_property_aabb(String key){
 Basis WasGoState::get_property_basis(String key){
 	return get_property(key);
 }
-Transform WasGoState::get_property_transform(String key){
+Transform3D WasGoState::get_property_transform(String key){
 	return get_property(key);
 }
 Color WasGoState::get_property_color(String key){
@@ -869,7 +869,7 @@ void WasGoState::set_property_transform2d(String key, Transform2D p_value){
 void WasGoState::set_property_plane(String key, Plane p_value){
 	set_property(key, p_value);
 }
-void WasGoState::set_property_quat(String key, Quat p_value){
+void WasGoState::set_property_quat(String key, Quaternion p_value){
 	set_property(key, p_value);
 }
 void WasGoState::set_property_aabb(String key, AABB p_value){
@@ -878,7 +878,7 @@ void WasGoState::set_property_aabb(String key, AABB p_value){
 void WasGoState::set_property_basis(String key, Basis p_value){
 	set_property(key, p_value);
 }
-void WasGoState::set_property_transform(String key, Transform p_value){
+void WasGoState::set_property_transform(String key, Transform3D p_value){
 	set_property(key, p_value);
 }
 void WasGoState::set_property_color(String key, Color p_value){

@@ -92,7 +92,7 @@ public:
 	static Vector3 get_property_vector3(String key);
 	static Transform2D get_property_transform2d(String key);
 	static Plane get_property_plane(String key);
-	static Quat get_property_quat(String key);
+	static Quaternion get_property_quat(String key);
 	static AABB get_property_aabb(String key);
 	static Basis get_property_basis(String key);
 	static Transform get_property_transform(String key);
@@ -108,7 +108,7 @@ public:
 	static void set_property_vector3(String key, Vector3 p_value);
 	static void set_property_transform2d(String key, Transform2D p_value);
 	static void set_property_plane(String key, Plane p_value);
-	static void set_property_quat(String key, Quat p_value);
+	static void set_property_quat(String key, Quaternion p_value);
 	static void set_property_aabb(String key, AABB p_value);
 	static void set_property_basis(String key, Basis p_value);
 	static void set_property_transform(String key, Transform p_value);

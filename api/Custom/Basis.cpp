@@ -341,11 +341,11 @@ void Basis::rotate(const Vector3 &p_euler) {
 	*this = rotated(p_euler);
 }
 
-Basis Basis::rotated(const Quat &p_quat) const {
+Basis Basis::rotated(const Quaternion &p_quat) const {
 	return Basis(p_quat) * (*this);
 }
 
-void Basis::rotate(const Quat &p_quat) {
+void Basis::rotate(const Quaternion &p_quat) {
 	*this = rotated(p_quat);
 }
 
@@ -363,7 +363,7 @@ Vector3 Basis::get_rotation_euler() const {
 	return m.get_euler();
 }
 
-Quat Basis::get_rotation_quat() const {
+Quaternion Basis::get_rotation_quat() const {
 	// Assumes that the matrix can be decomposed into a proper rotation and scaling matrix as M = R.S,
 	// and returns the Euler angles corresponding to the rotation part, complementing get_scale().
 	// See the comment in get_scale() for further information.
@@ -785,7 +785,7 @@ Basis::operator String() const {
 	return mtx;
 }
 
-Quat Basis::get_quat() const {
+Quaternion Basis::get_quat() const {
 
 #ifdef MATH_CHECKS
 	ERR_FAIL_COND_V_MSG(!is_rotation(), Quat(), "Basis must be normalized in order to be casted to a Quaternion. Use get_rotation_quat() or call orthonormalized() instead.");
@@ -961,7 +961,7 @@ void Basis::get_axis_angle(Vector3 &r_axis, real_t &r_angle) const {
 	r_angle = angle;
 }
 
-void Basis::set_quat(const Quat &p_quat) {
+void Basis::set_quat(const Quaternion &p_quat) {
 
 	real_t d = p_quat.length_squared();
 	real_t s = 2.0 / d;
@@ -1014,7 +1014,7 @@ void Basis::set_euler_scale(const Vector3 &p_euler, const Vector3 &p_scale) {
 	rotate(p_euler);
 }
 
-void Basis::set_quat_scale(const Quat &p_quat, const Vector3 &p_scale) {
+void Basis::set_quat_scale(const Quaternion &p_quat, const Vector3 &p_scale) {
 	set_diagonal(p_scale);
 	rotate(p_quat);
 }
@@ -1036,8 +1036,8 @@ void Basis::set_diagonal(const Vector3 &p_diag) {
 Basis Basis::slerp(const Basis &target, const real_t &t) const {
 
 	//consider scale
-	Quat from(*this);
-	Quat to(target);
+	Quaternion from(*this);
+	Quaternion to(target);
 
 	Basis b(from.slerp(to, t));
 	b.elements[0] *= Math::lerp(elements[0].length(), target.elements[0].length(), t);

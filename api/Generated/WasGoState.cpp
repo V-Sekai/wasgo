@@ -114,7 +114,7 @@ Plane WasGoState::get_property_plane(String p_property){
     return wasgo_ret;
     
 }
-Quat WasGoState::get_property_quat(String p_property){
+Quaternion WasGoState::get_property_quat(String p_property){
 
     Variant wasgo_var_property = p_property;
     int wasgo_size_property = 10 + String(p_property).size();
@@ -349,7 +349,7 @@ void WasGoState::set_property_plane(String p_property, Plane p_value){
     
 	_wasgo_WasGoState_wrapper_set_property_plane(wasgo_id, wasgo_buffer_property, wasgo_size_property, -69, wasgo_buffer_value, wasgo_size_value);
 }
-void WasGoState::set_property_quat(String p_property, Quat p_value){
+void WasGoState::set_property_quat(String p_property, Quaternion p_value){
 
     Variant wasgo_var_property = p_property;
     int wasgo_size_property = 10 + String(p_property).size();

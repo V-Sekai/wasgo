@@ -106,7 +106,7 @@ Vector3 Quat::get_euler_yxz() const {
 	return m.get_euler_yxz();
 }
 
-void Quat::operator*=(const Quat &q) {
+void Quat::operator*=(const Quaternion &q) {
 
 	set(w * q.x + x * q.w + y * q.z - z * q.y,
 			w * q.y + y * q.w + z * q.x - x * q.z,
@@ -114,14 +114,14 @@ void Quat::operator*=(const Quat &q) {
 			w * q.w - x * q.x - y * q.y - z * q.z);
 }
 
-Quat Quat::operator*(const Quat &q) const {
+Quaternion Quat::operator*(const Quaternion &q) const {
 
-	Quat r = *this;
+	Quaternion r = *this;
 	r *= q;
 	return r;
 }
 
-bool Quat::is_equal_approx(const Quat &p_quat) const {
+bool Quat::is_equal_approx(const Quaternion &p_quat) const {
 
 	return Math::is_equal_approx(x, p_quat.x) && Math::is_equal_approx(y, p_quat.y) && Math::is_equal_approx(z, p_quat.z) && Math::is_equal_approx(w, p_quat.w);
 }
@@ -135,7 +135,7 @@ void Quat::normalize() {
 	*this /= length();
 }
 
-Quat Quat::normalized() const {
+Quaternion Quat::normalized() const {
 	return *this / length();
 }
 
@@ -143,19 +143,19 @@ bool Quat::is_normalized() const {
 	return Math::is_equal_approx(length_squared(), 1.0, UNIT_EPSILON); //use less epsilon
 }
 
-Quat Quat::inverse() const {
+Quaternion Quat::inverse() const {
 #ifdef MATH_CHECKS
 	ERR_FAIL_COND_V_MSG(!is_normalized(), Quat(), "The quaternion must be normalized.");
 #endif
 	return Quat(-x, -y, -z, w);
 }
 
-Quat Quat::slerp(const Quat &q, const real_t &t) const {
+Quaternion Quat::slerp(const Quaternion &q, const real_t &t) const {
 #ifdef MATH_CHECKS
 	ERR_FAIL_COND_V_MSG(!is_normalized(), Quat(), "The start quaternion must be normalized.");
 	ERR_FAIL_COND_V_MSG(!q.is_normalized(), Quat(), "The end quaternion must be normalized.");
 #endif
-	Quat to1;
+	Quaternion to1;
 	real_t omega, cosom, sinom, scale0, scale1;
 
 	// calc cosine
@@ -197,12 +197,12 @@ Quat Quat::slerp(const Quat &q, const real_t &t) const {
 			scale0 * w + scale1 * to1.w);
 }
 
-Quat Quat::slerpni(const Quat &q, const real_t &t) const {
+Quaternion Quat::slerpni(const Quaternion &q, const real_t &t) const {
 #ifdef MATH_CHECKS
 	ERR_FAIL_COND_V_MSG(!is_normalized(), Quat(), "The start quaternion must be normalized.");
 	ERR_FAIL_COND_V_MSG(!q.is_normalized(), Quat(), "The end quaternion must be normalized.");
 #endif
-	const Quat &from = *this;
+	const Quaternion &from = *this;
 
 	real_t dot = from.dot(q);
 
@@ -219,15 +219,15 @@ Quat Quat::slerpni(const Quat &q, const real_t &t) const {
 			invFactor * from.w + newFactor * q.w);
 }
 
-Quat Quat::cubic_slerp(const Quat &q, const Quat &prep, const Quat &postq, const real_t &t) const {
+Quaternion Quat::cubic_slerp(const Quaternion &q, const Quaternion &prep, const Quaternion &postq, const real_t &t) const {
 #ifdef MATH_CHECKS
 	ERR_FAIL_COND_V_MSG(!is_normalized(), Quat(), "The start quaternion must be normalized.");
 	ERR_FAIL_COND_V_MSG(!q.is_normalized(), Quat(), "The end quaternion must be normalized.");
 #endif
 	//the only way to do slerp :|
 	real_t t2 = (1.0 - t) * t * 2;
-	Quat sp = this->slerp(q, t);
-	Quat sq = prep.slerpni(postq, t);
+	Quaternion sp = this->slerp(q, t);
+	Quaternion sq = prep.slerpni(postq, t);
 	return sp.slerpni(sq, t2);
 }
 

@@ -38,18 +38,18 @@
 #include "math_funcs.h"
 #include "Ustring.h"
 
-class Quat {
+class Quaternion {
 public:
 	real_t x, y, z, w;
 
 	_FORCE_INLINE_ real_t length_squared() const;
-	bool is_equal_approx(const Quat &p_quat) const;
+	bool is_equal_approx(const Quaternion &p_quat) const;
 	real_t length() const;
 	void normalize();
-	Quat normalized() const;
+	Quaternion normalized() const;
 	bool is_normalized() const;
-	Quat inverse() const;
-	_FORCE_INLINE_ real_t dot(const Quat &q) const;
+	Quaternion inverse() const;
+	_FORCE_INLINE_ real_t dot(const Quaternion &q) const;
 
 	void set_euler_xyz(const Vector3 &p_euler);
 	Vector3 get_euler_xyz() const;
@@ -59,9 +59,9 @@ public:
 	void set_euler(const Vector3 &p_euler) { set_euler_yxz(p_euler); };
 	Vector3 get_euler() const { return get_euler_yxz(); };
 
-	Quat slerp(const Quat &q, const real_t &t) const;
-	Quat slerpni(const Quat &q, const real_t &t) const;
-	Quat cubic_slerp(const Quat &q, const Quat &prep, const Quat &postq, const real_t &t) const;
+	Quaternion slerp(const Quaternion &q, const real_t &t) const;
+	Quaternion slerpni(const Quaternion &q, const real_t &t) const;
+	Quaternion cubic_slerp(const Quaternion &q, const Quaternion &prep, const Quaternion &postq, const real_t &t) const;
 
 	void set_axis_angle(const Vector3 &axis, const real_t &angle);
 	_FORCE_INLINE_ void get_axis_angle(Vector3 &r_axis, real_t &r_angle) const {
@@ -72,10 +72,10 @@ public:
 		r_axis.z = z * r;
 	}
 
-	void operator*=(const Quat &q);
-	Quat operator*(const Quat &q) const;
+	void operator*=(const Quaternion &q);
+	Quaternion operator*(const Quaternion &q) const;
 
-	Quat operator*(const Vector3 &v) const {
+	Quaternion operator*(const Vector3 &v) const {
 		return Quat(w * v.x + y * v.z - z * v.y,
 				w * v.y + z * v.x - x * v.z,
 				w * v.z + x * v.y - y * v.x,
@@ -91,18 +91,18 @@ public:
 		return v + ((uv * w) + u.cross(uv)) * ((real_t)2);
 	}
 
-	_FORCE_INLINE_ void operator+=(const Quat &q);
-	_FORCE_INLINE_ void operator-=(const Quat &q);
+	_FORCE_INLINE_ void operator+=(const Quaternion &q);
+	_FORCE_INLINE_ void operator-=(const Quaternion &q);
 	_FORCE_INLINE_ void operator*=(const real_t &s);
 	_FORCE_INLINE_ void operator/=(const real_t &s);
-	_FORCE_INLINE_ Quat operator+(const Quat &q2) const;
-	_FORCE_INLINE_ Quat operator-(const Quat &q2) const;
-	_FORCE_INLINE_ Quat operator-() const;
-	_FORCE_INLINE_ Quat operator*(const real_t &s) const;
-	_FORCE_INLINE_ Quat operator/(const real_t &s) const;
+	_FORCE_INLINE_ Quaternion operator+(const Quaternion &q2) const;
+	_FORCE_INLINE_ Quaternion operator-(const Quaternion &q2) const;
+	_FORCE_INLINE_ Quaternion operator-() const;
+	_FORCE_INLINE_ Quaternion operator*(const real_t &s) const;
+	_FORCE_INLINE_ Quaternion operator/(const real_t &s) const;
 
-	_FORCE_INLINE_ bool operator==(const Quat &p_quat) const;
-	_FORCE_INLINE_ bool operator!=(const Quat &p_quat) const;
+	_FORCE_INLINE_ bool operator==(const Quaternion &p_quat) const;
+	_FORCE_INLINE_ bool operator!=(const Quaternion &p_quat) const;
 
 	operator String() const;
 
@@ -121,14 +121,14 @@ public:
 	Quat(const Vector3 &axis, const real_t &angle) { set_axis_angle(axis, angle); }
 
 	Quat(const Vector3 &euler) { set_euler(euler); }
-	Quat(const Quat &q) :
+	Quat(const Quaternion &q) :
 			x(q.x),
 			y(q.y),
 			z(q.z),
 			w(q.w) {
 	}
 
-	Quat operator=(const Quat &q) {
+	Quaternion operator=(const Quaternion &q) {
 		x = q.x;
 		y = q.y;
 		z = q.z;
@@ -166,7 +166,7 @@ public:
 	}
 };
 
-real_t Quat::dot(const Quat &q) const {
+real_t Quat::dot(const Quaternion &q) const {
 	return x * q.x + y * q.y + z * q.z + w * q.w;
 }
 
@@ -174,14 +174,14 @@ real_t Quat::length_squared() const {
 	return dot(*this);
 }
 
-void Quat::operator+=(const Quat &q) {
+void Quat::operator+=(const Quaternion &q) {
 	x += q.x;
 	y += q.y;
 	z += q.z;
 	w += q.w;
 }
 
-void Quat::operator-=(const Quat &q) {
+void Quat::operator-=(const Quaternion &q) {
 	x -= q.x;
 	y -= q.y;
 	z -= q.z;
@@ -200,34 +200,34 @@ void Quat::operator/=(const real_t &s) {
 	*this *= 1.0 / s;
 }
 
-Quat Quat::operator+(const Quat &q2) const {
-	const Quat &q1 = *this;
+Quaternion Quat::operator+(const Quaternion &q2) const {
+	const Quaternion &q1 = *this;
 	return Quat(q1.x + q2.x, q1.y + q2.y, q1.z + q2.z, q1.w + q2.w);
 }
 
-Quat Quat::operator-(const Quat &q2) const {
-	const Quat &q1 = *this;
+Quaternion Quat::operator-(const Quaternion &q2) const {
+	const Quaternion &q1 = *this;
 	return Quat(q1.x - q2.x, q1.y - q2.y, q1.z - q2.z, q1.w - q2.w);
 }
 
-Quat Quat::operator-() const {
-	const Quat &q2 = *this;
+Quaternion Quat::operator-() const {
+	const Quaternion &q2 = *this;
 	return Quat(-q2.x, -q2.y, -q2.z, -q2.w);
 }
 
-Quat Quat::operator*(const real_t &s) const {
+Quaternion Quat::operator*(const real_t &s) const {
 	return Quat(x * s, y * s, z * s, w * s);
 }
 
-Quat Quat::operator/(const real_t &s) const {
+Quaternion Quat::operator/(const real_t &s) const {
 	return *this * (1.0 / s);
 }
 
-bool Quat::operator==(const Quat &p_quat) const {
+bool Quat::operator==(const Quaternion &p_quat) const {
 	return x == p_quat.x && y == p_quat.y && z == p_quat.z && w == p_quat.w;
 }
 
-bool Quat::operator!=(const Quat &p_quat) const {
+bool Quat::operator!=(const Quaternion &p_quat) const {
 	return x != p_quat.x || y != p_quat.y || z != p_quat.z || w != p_quat.w;
 }
 

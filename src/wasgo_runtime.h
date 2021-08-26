@@ -4,7 +4,7 @@
 
 // #include "core/object.h"
 #include "core/config/engine.h"
-#include "core/os/file_access.h"
+#include "core/io/file_access.h"
 #include "core/variant/variant.h"
 #include "resource_loader_wasm.h"
 #include "resource_wasm.h"

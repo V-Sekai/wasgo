@@ -878,13 +878,13 @@ bool Variant::booleanize() const {
 // 			CASE_TYPE(math, OP_MULTIPLY, QUAT) {
 // 				switch (p_b.type) {
 // 					case VECTOR3: {
-// 						_RETURN(reinterpret_cast<const Quat *>(p_a._data._mem)->xform(*(const Vector3 *)p_b._data._mem));
+// 						_RETURN(reinterpret_cast<const Quaternion *>(p_a._data._mem)->xform(*(const Vector3 *)p_b._data._mem));
 // 					}
 // 					case QUAT: {
-// 						_RETURN(*reinterpret_cast<const Quat *>(p_a._data._mem) * *reinterpret_cast<const Quat *>(p_b._data._mem));
+// 						_RETURN(*reinterpret_cast<const Quaternion *>(p_a._data._mem) * *reinterpret_cast<const Quaternion *>(p_b._data._mem));
 // 					}
 // 					case REAL: {
-// 						_RETURN(*reinterpret_cast<const Quat *>(p_a._data._mem) * p_b._data._real);
+// 						_RETURN(*reinterpret_cast<const Quaternion *>(p_a._data._mem) * p_b._data._real);
 // 					}
 // 					default: _RETURN_FAIL;
 // 				}
@@ -951,7 +951,7 @@ bool Variant::booleanize() const {
 // 					_RETURN("Division By Zero");
 // 				}
 // #endif
-// 				_RETURN(*reinterpret_cast<const Quat *>(p_a._data._mem) / p_b._data._real);
+// 				_RETURN(*reinterpret_cast<const Quaternion *>(p_a._data._mem) / p_b._data._real);
 // 			}
 
 // 			DEFAULT_OP_NUM_DIV(math, OP_DIVIDE, INT, _int);
@@ -1358,7 +1358,7 @@ bool Variant::booleanize() const {
 // 		case QUAT: {
 
 // 			if (p_value.type == Variant::INT) {
-// 				Quat *v = reinterpret_cast<Quat *>(_data._mem);
+// 				Quaternion *v = reinterpret_cast<Quaternion *>(_data._mem);
 // 				if (p_index == CoreStringNames::singleton->x) {
 // 					v->x = p_value._data._int;
 // 					valid = true;
@@ -1373,7 +1373,7 @@ bool Variant::booleanize() const {
 // 					valid = true;
 // 				}
 // 			} else if (p_value.type == Variant::REAL) {
-// 				Quat *v = reinterpret_cast<Quat *>(_data._mem);
+// 				Quaternion *v = reinterpret_cast<Quaternion *>(_data._mem);
 // 				if (p_index == CoreStringNames::singleton->x) {
 // 					v->x = p_value._data._real;
 // 					valid = true;
@@ -1604,7 +1604,7 @@ bool Variant::booleanize() const {
 // 		} break;
 // 		case QUAT: {
 
-// 			const Quat *v = reinterpret_cast<const Quat *>(_data._mem);
+// 			const Quaternion *v = reinterpret_cast<const Quaternion *>(_data._mem);
 // 			if (p_index == CoreStringNames::singleton->x) {
 // 				return v->x;
 // 			} else if (p_index == CoreStringNames::singleton->y) {
@@ -1964,7 +1964,7 @@ bool Variant::booleanize() const {
 // 			if (p_index.get_type() == Variant::STRING) {
 
 // 				const String *str = reinterpret_cast<const String *>(p_index._data._mem);
-// 				Quat *v = reinterpret_cast<Quat *>(_data._mem);
+// 				Quaternion *v = reinterpret_cast<Quaternion *>(_data._mem);
 // 				if (*str == "x") {
 // 					valid = true;
 // 					v->x = p_value;
@@ -2382,7 +2382,7 @@ bool Variant::booleanize() const {
 // 			if (p_index.get_type() == Variant::STRING) {
 
 // 				const String *str = reinterpret_cast<const String *>(p_index._data._mem);
-// 				const Quat *v = reinterpret_cast<const Quat *>(_data._mem);
+// 				const Quaternion *v = reinterpret_cast<const Quaternion *>(_data._mem);
 // 				if (*str == "x") {
 // 					valid = true;
 // 					return v->x;
@@ -3471,9 +3471,9 @@ bool Variant::booleanize() const {
 // 		}
 // 			return;
 // 		case QUAT: {
-// 			Quat empty_rot;
-// 			const Quat *qa = reinterpret_cast<const Quat *>(a._data._mem);
-// 			const Quat *qb = reinterpret_cast<const Quat *>(b._data._mem);
+// 			Quaternion empty_rot;
+// 			const Quaternion *qa = reinterpret_cast<const Quaternion *>(a._data._mem);
+// 			const Quaternion *qb = reinterpret_cast<const Quaternion *>(b._data._mem);
 // 			r_dst = *qa * empty_rot.slerp(*qb, c);
 // 		}
 // 			return;
@@ -3597,7 +3597,7 @@ bool Variant::booleanize() const {
 // 		}
 // 			return;
 // 		case QUAT: {
-// 			r_dst = reinterpret_cast<const Quat *>(a._data._mem)->slerp(*reinterpret_cast<const Quat *>(b._data._mem), c);
+// 			r_dst = reinterpret_cast<const Quaternion *>(a._data._mem)->slerp(*reinterpret_cast<const Quaternion *>(b._data._mem), c);
 // 		}
 // 			return;
 // 		case AABB: {

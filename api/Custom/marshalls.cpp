@@ -250,7 +250,7 @@ Error decode_variant(Variant &r_variant, const uint8_t *p_buffer, int p_len, int
 		case Variant::QUAT: {
 
 			ERR_FAIL_COND_V(len < 4 * 4, ERR_INVALID_DATA);
-			Quat val;
+			Quaternion val;
 			val.x = decode_float(&buf[0]);
 			val.y = decode_float(&buf[4]);
 			val.z = decode_float(&buf[8]);
@@ -396,7 +396,7 @@ Error decode_variant(Variant &r_variant, const uint8_t *p_buffer, int p_len, int
 		// 			r_variant = (Object *)NULL;
 		// 		} else {
 		// 			Ref<EncodedObjectAsID> obj_as_id;
-		// 			obj_as_id.instance();
+		// 			obj_as_id.instantiate();
 		// 			obj_as_id->set_object_id(val);
 
 		// 			r_variant = obj_as_id;
@@ -1001,7 +1001,7 @@ Error encode_variant(const Variant &p_variant, uint8_t *r_buffer, int &r_len, bo
 		case Variant::QUAT: {
 
 			if (buf) {
-				Quat q = p_variant;
+				Quaternion q = p_variant;
 				encode_float(q.x, &buf[0]);
 				encode_float(q.y, &buf[4]);
 				encode_float(q.z, &buf[8]);

@@ -877,7 +877,7 @@
 // 			} else if (id2 == "KEY") {
 
 // 				Ref<InputEventKey> key;
-// 				key.instance();
+// 				key.instantiate();
 // 				ie = key;
 
 // 				get_token(p_stream, token, line, r_err_str);
@@ -936,7 +936,7 @@
 // 			} else if (id2 == "MBUTTON") {
 
 // 				Ref<InputEventMouseButton> mb;
-// 				mb.instance();
+// 				mb.instantiate();
 // 				ie = mb;
 
 // 				get_token(p_stream, token, line, r_err_str);
@@ -962,7 +962,7 @@
 // 			} else if (id2 == "JBUTTON") {
 
 // 				Ref<InputEventJoypadButton> jb;
-// 				jb.instance();
+// 				jb.instantiate();
 // 				ie = jb;
 
 // 				get_token(p_stream, token, line, r_err_str);
@@ -988,7 +988,7 @@
 // 			} else if (id2 == "JAXIS") {
 
 // 				Ref<InputEventJoypadMotion> jm;
-// 				jm.instance();
+// 				jm.instantiate();
 // 				ie = jm;
 
 // 				get_token(p_stream, token, line, r_err_str);
@@ -1599,7 +1599,7 @@
 // 		} break;
 // 		case Variant::QUAT: {
 
-// 			Quat quat = p_variant;
+// 			Quaternion quat = p_variant;
 // 			p_store_string_func(p_store_string_ud, "Quat( " + rtosfix(quat.x) + ", " + rtosfix(quat.y) + ", " + rtosfix(quat.z) + ", " + rtosfix(quat.w) + " )");
 
 // 		} break;

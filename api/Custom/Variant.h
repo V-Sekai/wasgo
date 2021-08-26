@@ -288,7 +288,7 @@ public:
 	Variant(const Vector3 &p_vector3);
 	Variant(const Plane &p_plane);
 	Variant(const ::AABB &p_aabb);
-	Variant(const Quat &p_quat);
+	Variant(const Quaternion &p_quat);
 	Variant(const Basis &p_matrix);
 	Variant(const Transform2D &p_transform);
 	Variant(const Transform &p_transform);

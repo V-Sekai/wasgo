@@ -1,7 +1,7 @@
 /* resource_wasm.cpp */
 
 #include "resource_wasm.h"
-#include "core/os/file_access.h"
+#include "core/io/file_access.h"
 
 WasmResource::WasmResource(){
 	wasm_buf = Vector<uint8_t>();

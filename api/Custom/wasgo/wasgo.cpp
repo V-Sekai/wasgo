@@ -459,7 +459,7 @@ Plane WasGo::get_property_plane(String key){
 	decode_variant(ret, value_buffer, value_buffer_size);
 	return ret;
 }
-Quat WasGo::get_property_quat(String key){
+Quaternion WasGo::get_property_quat(String key){
 	int name_buffer_size = 4 + key.size();
 	uint8_t name_buffer[name_buffer_size];
 	encode_variant(key, name_buffer, name_buffer_size);
@@ -604,7 +604,7 @@ void WasGo::set_property_plane(String key, Plane value) {
 	encode_variant(value, value_buffer, value_buffer_size);
 	_wasgo_set_property_plane(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 }
-void WasGo::set_property_quat(String key, Quat value) {
+void WasGo::set_property_quat(String key, Quaternion value) {
 	int name_buffer_size = 4 + key.size();
 	uint8_t name_buffer[name_buffer_size];
 	encode_variant(key, name_buffer, name_buffer_size);

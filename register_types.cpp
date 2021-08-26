@@ -27,7 +27,7 @@ void register_wasgo_types() {
 
 	Engine::get_singleton()->add_singleton(Engine::Singleton("WasGo", WasGoRuntime::get_singleton()));
 
-	wasm_loader.instance();
+	wasm_loader.instantiate();
 	ResourceLoader::add_resource_format_loader(wasm_loader);
 
 #ifdef WASGO_API_GENERATION

@@ -6,7 +6,7 @@
 
 RES ResourceFormatLoaderWasm::load(const String &p_path, const String &p_original_path, Error *r_error, bool p_use_sub_threads, float *r_progress, CacheMode p_cache_mode) {
 	Ref<WasmResource> wasm;
-	wasm.instance();
+	wasm.instantiate();
 	if (r_error) {
 	    *r_error = OK;
     }
