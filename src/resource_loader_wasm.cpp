@@ -4,9 +4,10 @@
 
 #include "resource_wasm.h"
 
-RES ResourceFormatLoaderWasm::load(const String &p_path, const String &p_original_path, Error *r_error) {
-    Ref<WasmResource> wasm = memnew(WasmResource);
-    if (r_error) {
+RES ResourceFormatLoaderWasm::load(const String &p_path, const String &p_original_path, Error *r_error, bool p_use_sub_threads, float *r_progress, CacheMode p_cache_mode) {
+	Ref<WasmResource> wasm;
+	wasm.instance();
+	if (r_error) {
 	    *r_error = OK;
     }
     Error err = wasm->load_file(p_path);
