@@ -15,9 +15,9 @@ Error WasmResource::load_file(const String &p_path) {
 //		printf("We couldnt read the file: %s\n", p_path);
 		return err;
 	}
-	wasm_buf.resize(file->get_len());
+	wasm_buf.resize(file->get_length());
 	uint8_t *w = wasm_buf.ptrw();
-	err = (Error)file->get_buffer(&w[0], file->get_len());
+	err = (Error)file->get_buffer(&w[0], file->get_length());
 	file->close();
     return err;
 }

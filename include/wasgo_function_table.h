@@ -1,7 +1,7 @@
 #ifndef WASGO_FUNCTION_TABLE
 #define WASGO_FUNCTION_TABLE
 #include "wasm_export.h"
-#include "wasgo_state.h"
+#include "src/wasgo_state.h"
 #include "wasgo_math.h"
 #include "wasgo_native_wrappers.h"
 #include <math.h>

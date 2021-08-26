@@ -166,9 +166,9 @@ int WasGoTest::test() {
 		printf("We couldnt read the file: %s\n", wasm_path);
 		goto fail;
 	}
-	buffer = (char *) malloc(file->get_len());
-	buf_size = file->get_len();
-	file->get_buffer((uint8_t *)buffer, file->get_len());
+	buffer = (char *) malloc(file->get_length());
+	buf_size = file->get_length();
+	file->get_buffer((uint8_t *)buffer, file->get_length());
 	file->close();
 
 	if (!buffer) {

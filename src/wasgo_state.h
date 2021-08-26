@@ -72,7 +72,7 @@ public:
 	Quaternion get_property_quat(String key);
 	AABB get_property_aabb(String key);
 	Basis get_property_basis(String key);
-	Transform get_property_transform(String key);
+	Transform3D get_property_transform(String key);
 	Color get_property_color(String key);
 	NodePath get_property_nodepath(String key);
 
@@ -88,7 +88,7 @@ public:
 	void set_property_quat(String key, Quaternion p_value);
 	void set_property_aabb(String key, AABB p_value);
 	void set_property_basis(String key, Basis p_value);
-	void set_property_transform(String key, Transform p_value);
+	void set_property_transform(String key, Transform3D p_value);
 	void set_property_color(String key, Color p_value);
 	void set_property_nodepath(String key, NodePath p_value);
 
