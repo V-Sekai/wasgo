@@ -1,7 +1,7 @@
 #ifndef WASGO_NATIVE_WRAPPER_HEADERS
 #define WASGO_NATIVE_WRAPPER_HEADERS
 #include "wasm_export.h"
-#include "wasgo_state.h"
+#include "src/wasgo_state.h"
 #include "core/io/marshalls.h"
 #include "core/variant/variant.h"
 #include "scene/register_scene_types.h"
@@ -40,20 +40,19 @@
 #include "scene/2d/sprite_2d.h"
 #include "scene/2d/tile_map.h"
 #include "scene/2d/touch_screen_button.h"
-#include "scene/2d/visibility_notifier_2d.h"
-#include "scene/2d/y_sort.h"
+#include "servers/rendering/renderer_canvas_cull.h"
 #include "scene/3d/area_3d.h"
 #include "scene/3d/xr_nodes.h"
 #include "scene/3d/audio_stream_player_3d.h"
-#include "scene/3d/baked_lightmap.h"
+// #include "scene/3d/baked_lightmap.h"
 #include "scene/3d/bone_attachment_3d.h"
 #include "scene/3d/camera_3d.h"
 #include "scene/3d/collision_object_3d.h"
 #include "scene/3d/collision_polygon_3d.h"
 #include "scene/3d/collision_shape_3d.h"
 #include "scene/3d/cpu_particles_3d.h"
-#include "scene/3d/gi_probe.h"
-#include "scene/3d/immediate_geometry_3d.h"
+// #include "scene/3d/gi_probe.h"
+// #include "scene/3d/immediate_geometry_3d.h"
 // #include "scene/3d/interpolated_camera.h"
 #include "core/input/input.h"
 #include "scene/3d/light_3d.h"
@@ -79,7 +78,7 @@
 #include "scene/3d/spring_arm_3d.h"
 #include "scene/3d/sprite_3d.h"
 #include "scene/3d/vehicle_body_3d.h"
-#include "scene/3d/visibility_notifier_3d.h"
+// #include "scene/3d/visibility_notifier_3d.h"
 #include "scene/3d/visual_instance_3d.h"
 #include "scene/3d/voxelizer.h"
 #include "scene/3d/world_environment.h"
@@ -131,7 +130,7 @@
 #include "scene/gui/scroll_bar.h"
 #include "scene/gui/scroll_container.h"
 #include "scene/gui/separator.h"
-#include "scene/gui/shortcut.h"
+// #include "scene/gui/shortcut.h"
 #include "scene/gui/slider.h"
 #include "scene/gui/spin_box.h"
 #include "scene/gui/split_container.h"
@@ -171,7 +170,7 @@
 #include "scene/resources/font.h"
 #include "scene/resources/gradient.h"
 #include "scene/resources/height_map_shape_3d.h"
-#include "scene/resources/line_shape_2d.h"
+// #include "scene/resources/line_shape_2d.h"
 #include "scene/resources/material.h"
 #include "scene/resources/mesh.h"
 #include "scene/resources/mesh_data_tool.h"
@@ -182,7 +181,7 @@
 #include "scene/resources/physics_material.h"
 #include "scene/resources/polygon_path_finder.h"
 #include "scene/resources/primitive_meshes.h"
-#include "scene/resources/ray_shape_2d.h"
+// #include "scene/resources/ray_shape_2d.h"
 #include "scene/resources/rectangle_shape_2d.h"
 #include "scene/resources/resource_format_text.h"
 #include "scene/resources/segment_shape_2d.h"
@@ -4590,7 +4589,7 @@ void _wasgo_Node3D_wrapper_set_global_transform(wasm_exec_env_t exec_env, WasGoS
 	if(state){
 		Node3D *caller = (Node3D *) ((Object *) state->lookup_object(caller_id));
 		if(caller){
-			Variant v_global = Transform();
+			Variant v_global = Transform3D();
 			decode_variant(v_global, p_global, p_wasgo_buffer_size_global);
 			Variant * global = &v_global;
 			Callable::CallError error;
@@ -4717,7 +4716,7 @@ void _wasgo_Node3D_wrapper_set_transform(wasm_exec_env_t exec_env, WasGoState::W
 	if(state){
 		Node3D *caller = (Node3D *) ((Object *) state->lookup_object(caller_id));
 		if(caller){
-			Variant v_local = Transform();
+			Variant v_local = Transform3D();
 			decode_variant(v_local, p_local, p_wasgo_buffer_size_local);
 			Variant * local = &v_local;
 			Callable::CallError error;
@@ -5464,7 +5463,7 @@ void _wasgo_WasGoState_wrapper_set_property_quat(wasm_exec_env_t exec_env, WasGo
 			Variant v_property = String();
 			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
 			Variant * property = &v_property;
-			Variant v_value = Quat();
+			Variant v_value = Quaternion();
 			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
 			Variant * value = &v_value;
 			Callable::CallError error;
@@ -5524,7 +5523,7 @@ void _wasgo_WasGoState_wrapper_set_property_transform(wasm_exec_env_t exec_env, 
 			Variant v_property = String();
 			decode_variant(v_property, p_property, p_wasgo_buffer_size_property);
 			Variant * property = &v_property;
-			Variant v_value = Transform();
+			Variant v_value = Transform3D();
 			decode_variant(v_value, p_value, p_wasgo_buffer_size_value);
 			Variant * value = &v_value;
 			Callable::CallError error;

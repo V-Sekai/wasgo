@@ -84,7 +84,7 @@ else:
   sdk.append("./thirdparty/wasm-micro-runtime/core/shared/platform/linux/platform_init.c")
 
 module_env.Prepend( CPPPATH = [
-    "./include",
+    ".",
   ])
 module_env.add_source_files(env.modules_sources, sdk)
 module_env.add_source_files(env.modules_sources, "src/*.cpp")
@@ -92,15 +92,17 @@ module_env.add_source_files(env.modules_sources, "api/*.cpp")
 module_env.add_source_files(env.modules_sources, "*.cpp")
 # module_env.Append(CCFLAGS=['-O2']) # Flags for C and C++ code
 # module_env.Append(CXXFLAGS=['-std=c++11']) # Flags for C++ code only
+module_env.Append(CPPDEFINES=[
+  "BH_PLATFORM_WINDOWS",
+  "WIN32",
+  "_WINDOWS",
+])
 
 module_env.Append(CPPDEFINES=[
   ("BH_FREE", "wasm_runtime_free"),
   ("BH_MALLOC", "wasm_runtime_malloc"),
-  "BH_PLATFORM_WINDOWS",
   "HAVE_STRUCT_TIMESPEC",
   "BUILD_TARGET_X86_64",
-  "WIN32",
-  "_WINDOWS",
   ("WASM_API_EXTERN", ""),
   ("WASM_RUNTIME_API_EXTERN", ""),
   ("WASM_ENABLE_AOT", 1),

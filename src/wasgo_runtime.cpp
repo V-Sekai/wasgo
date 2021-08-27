@@ -1,5 +1,5 @@
 #include "wasgo_runtime.h"
-#include "wasgo_function_table.h"
+#include "include/wasgo_function_table.h"
 
 char WasGoRuntime::global_heap_buf[512 * 1024 * 100];
 WasGoRuntime *WasGoRuntime::singleton = NULL;

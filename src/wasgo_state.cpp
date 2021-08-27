@@ -1,6 +1,7 @@
 #include "wasgo_state.h"
 #include "core/io/marshalls.h"
 #include "wasgo_runtime.h"
+#include <cstdint>
 
 void WasGoState::_initialize() {
 	_stop();
@@ -136,7 +137,7 @@ void WasGoState::_bind_methods() {
 
 void WasGoState::_validate_property(PropertyInfo &property) const{
 }
-void WasGoState::_notification(int p_what) {
+void WasGoState::_notification(uint32_t p_what) {
 	// TODO: Uncomment this
 	if (!Engine::get_singleton()->is_editor_hint() || p_what == NOTIFICATION_READY){ // only run in game but use the ready function so that the properties autopopulate
 	switch (p_what) {
