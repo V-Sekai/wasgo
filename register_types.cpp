@@ -6,6 +6,7 @@
 #include "src/wasgo_runtime.h"
 #include "src/wasgo_state.h"
 #include "stdio.h"
+#include "include/wasgo_function_table.h"
 
 static Ref<ResourceFormatLoaderWasm> wasm_loader;
 static WasGoRuntime *wasgo_runtime = NULL;
@@ -16,8 +17,8 @@ void register_wasgo_types() {
 
 	wasgo_runtime = new(WasGoRuntime);
 
-	// wasgo_runtime->initialize(native_symbols);
-	// WasGoTest::test();
+	wasgo_runtime->initialize(native_symbols, sizeof(native_symbols)/sizeof(NativeSymbol));
+	WasGoTest::test();
 
 	printf("DONE\n");
 	ClassDB::register_class<WasGoState>();

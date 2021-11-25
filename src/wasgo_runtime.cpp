@@ -78,6 +78,8 @@ void WasGoRuntime::initialize(NativeSymbol symbols[], int native_symbol_size) {
 	init_args.native_symbols = symbols;
 
 	if (!wasm_runtime_full_init(&init_args)) {
-		printf("Init runtime environment failed.\n");
+		printf("Init Wasgo runtime environment failed.\n");
+	} else {
+		printf("Wasgo runtime environment running.\n");
 	}
 }

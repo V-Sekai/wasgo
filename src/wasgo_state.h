@@ -43,7 +43,7 @@ public:
 	void _stop();
 
 	virtual void _validate_property(PropertyInfo &property) const;
-	void _notification(int p_what);
+	void _notification(uint32_t p_what);
 	static void _bind_methods();
 
 	void set_stack_size(int p_stack_size);

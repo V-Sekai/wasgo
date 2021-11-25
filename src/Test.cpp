@@ -9,6 +9,7 @@
 #include "wasm_export.h"
 #include "core/io/file_access.h"
 #include "wasgo_state.h"
+#include "include/wasgo_function_table.h"
 // #include "wasm_runtime_common.h"
 
 #include "math.h"

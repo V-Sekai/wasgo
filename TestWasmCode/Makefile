@@ -8,7 +8,7 @@ BUILD_DIR ?= .
 CXX := "clang"
 # CXX := "C:/Users/Michael/Documents/_Active/godot-wasm/godot/modules/WasGo/thirdparty/wasm-micro-runtime/wamr-sdk/opt/wasi-sdk/bin/clang.exe"
 
-SRCS := $(wildcard *.cpp ../api/Custom/*.cpp ../api/Custom/wasgo/*.cpp ../api/Generated/*.cpp)
+SRCS := $(wildcard *.cpp ../api/Custom/core/*.cpp ../api/Custom/core/variant/*.cpp ../api/Custom/wasgo/*.cpp)
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 
