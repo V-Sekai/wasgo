@@ -10,6 +10,7 @@
 #include "core/io/file_access.h"
 #include "wasgo_state.h"
 #include "include/wasgo_function_table.h"
+// #include "thirdparty/wasm-micro-runtime/core/iwasm/include/lib_export.h"
 // #include "wasm_runtime_common.h"
 
 #include "math.h"
@@ -120,6 +121,11 @@ int WasGoTest::test() {
 
 	RuntimeInitArgs init_args;
 	memset(&init_args, 0, sizeof(RuntimeInitArgs));
+	
+	
+	int ret_val = -1;
+	uint32 argv[4];
+	double arg_d = 0.000101;
 
 	// Define an array of NativeSymbol for the APIs to be exported.
 	// Note: the array must be static defined since runtime
@@ -130,18 +136,18 @@ int WasGoTest::test() {
 	static NativeSymbol test_native_symbols[] = {
 		{
 				"intToStr", // the name of WASM function name
-				intToStr, // the native function pointer
+				(void *) intToStr, // the native function pointer
 				"(i*~i)i", // the function prototype signature, avoid to use i32
 				NULL // attachment is NULL
 		},
 		{
 				"get_pow", // the name of WASM function name
-				get_pow, // the native function pointer
+				(void *) get_pow, // the native function pointer
 				"(ii)i", // the function prototype signature, avoid to use i32
 				NULL // attachment is NULL
 		},
 		{ "calculate_native",
-				calculate_native,
+				(void *) calculate_native,
 				"(iii)i",
 				NULL }
 	};
@@ -150,8 +156,7 @@ int WasGoTest::test() {
 	init_args.mem_alloc_option.pool.heap_buf = test_global_heap_buf;
 	init_args.mem_alloc_option.pool.heap_size = sizeof(test_global_heap_buf);
 
-	// Native symbols need below registration phase
-	init_args.n_native_symbols = sizeof(test_native_symbols) / sizeof(NativeSymbol);
+	init_args.n_native_symbols = 3;
 	init_args.native_module_name = "env";
 	init_args.native_symbols = test_native_symbols;
 
@@ -199,9 +204,6 @@ int WasGoTest::test() {
 		printf("Create wasm execution environment failed.\n");
 		goto fail;
 	}
-
-	uint32 argv[4];
-	double arg_d = 0.000101;
 	argv[0] = 10;
 	// the second arg will occupy two array elements
 	// memcpy(&argv[1], &arg_d, sizeof(arg_d));
@@ -210,7 +212,6 @@ int WasGoTest::test() {
 	// char *arg_s = "";
 	// memcpy(&argv[1], &arg_s, sizeof(arg_s));
 	// *(float *)(argv + 3) = 300.002;
-
 	if (!(func = wasm_runtime_lookup_function(module_inst, "test", NULL))) {
 		printf("The test wasm function is not found.\n");
 		printf("error buffer: %s\n", error_buf);
@@ -224,7 +225,7 @@ int WasGoTest::test() {
 		goto fail;
 	}
 
-	int ret_val = *(int *)argv;
+	ret_val = *(int *)argv;
 	printf("Native finished calling wasm function test(), returned a int value: %d\n", ret_val);
 
 	// if (!(func = wasm_runtime_lookup_function(module_inst, "generate_float", NULL))) {

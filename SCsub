@@ -48,9 +48,9 @@ sdk = [
 "./thirdparty/wasm-micro-runtime/core/iwasm/aot/arch/aot_reloc_x86_64.c",
 ]
 
-if module_env.msvc:
-  sdk.append("./thirdparty/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.asm")
-  module_env["AS"] ="ml64"
+if module_env.msvc or module_env["use_mingw"]:
+  sdk.append("./thirdparty/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64_GAS.s")
+  
   # module_env.Append(CFLAGS=['/std:c99'])
 else:
   sdk.append("./thirdparty/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s")
@@ -96,6 +96,7 @@ module_env.Append(CPPDEFINES=[
   "BH_PLATFORM_WINDOWS",
   "WIN32",
   "_WINDOWS",
+  "TIME_UTC=1", # Don't know if this is correct. Windows uses local time.
 ])
 
 module_env.Append(CPPDEFINES=[
