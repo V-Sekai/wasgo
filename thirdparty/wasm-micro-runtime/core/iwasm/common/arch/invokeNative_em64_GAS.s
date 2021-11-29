@@ -1,9 +1,9 @@
 
 .intel_syntax noprefix
 
-.text
-
-
+    .text
+    .align 2
+.globl invokeNative
 invokeNative:
     push rbp
     mov rbp, rsp

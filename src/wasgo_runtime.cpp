@@ -50,6 +50,7 @@ if (wasm != nullptr){
 WasGoRuntime::WasGoRuntime() {
 	singleton = this;
 	singleton->initialize(native_symbols, sizeof(native_symbols) / sizeof(NativeSymbol));
+	printf("wasgoruntime");
 }
 
 WasGoRuntime::~WasGoRuntime() {

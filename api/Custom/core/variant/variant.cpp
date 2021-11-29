@@ -30,20 +30,15 @@
 
 #include "variant.h"
 
-
 Variant::Variant(){
-	wasgo_id = 0;
 }
 Variant::~Variant(){
-	_variant_deconstructor(wasgo_id);
+	if(wasgo_id != NULL_WASGO_ID){
+		_variant_deconstructor(wasgo_id);
+	}
 }
 const bool Variant::_valid_wasgo_id(){
 	return wasgo_id > 0 && _variant_check_id(wasgo_id);
-}
-Variant Variant::_from_wasgo_id(WasGoID p_wasgo_id){
-	Variant v;
-	v._set_wasgo_id(p_wasgo_id);
-	return v;
 }
 void Variant::_set_wasgo_id(WasGoID id){
 	wasgo_id = id;
@@ -55,45 +50,67 @@ static std::string _get_type_name(){
 	return "Variant";
 }
 Variant Variant::call(const std::string &p_method, Variant **p_args, const int p_argcount){
-	WasGoID* args = new WasGoID[p_argcount];
+	_EncodedVariant* args = new _EncodedVariant[p_argcount];
 	for (int i = 0; i < p_argcount; i++){
 		if(p_args[i] == nullptr){
-			args[i] = NULL_WASGO_ID;
+			args[i] = _EncodedVariant();
 		} else {
-			args[i] = p_args[i]->_get_wasgo_id();
+			args[i] = p_args[i]->_encode();
 		}
 	}
-	Variant v;
-	v._set_wasgo_id(_variant_call(wasgo_id, p_method, args, p_argcount));
-	return v;
+	return _decode(_variant_call(wasgo_id, p_method, args, p_argcount));
+}
+Variant Variant::call_op(const Operator p_op, Variant **p_args, const int p_argcount){
+	_EncodedVariant* args = new _EncodedVariant[p_argcount];
+	for (int i = 0; i < p_argcount; i++){
+		if(p_args[i] == nullptr){
+			args[i] = _EncodedVariant();
+		} else {
+			args[i] = p_args[i]->_encode();
+		}
+	}
+	return _decode(_variant_call_op(wasgo_id, p_op, args, p_argcount));
 }
 Variant Variant::call_const(const std::string &p_method, Variant **p_args, const int p_argcount){
-	WasGoID* args = new WasGoID[p_argcount];
+	_EncodedVariant* args = new _EncodedVariant[p_argcount];
 	for (int i = 0; i < p_argcount; i++){
 		if(p_args[i] == nullptr){
-			args[i] = NULL_WASGO_ID;
+			args[i] = _EncodedVariant();
 		} else {
-			args[i] = p_args[i]->_get_wasgo_id();
+			args[i] = p_args[i]->_encode();
 		}
 	}
-	Variant v;
-	v._set_wasgo_id(_variant_call(wasgo_id, p_method, args, p_argcount));
-	return v;
+	return _decode(_variant_call(wasgo_id, p_method, args, p_argcount));
 }
 Variant Variant::call_static(const std::string &p_method, Variant **p_args, const int p_argcount){
-	WasGoID* args = new WasGoID[p_argcount];
+	_EncodedVariant* args = new _EncodedVariant[p_argcount];
 	for (int i = 0; i < p_argcount; i++){
 		if(p_args[i] == nullptr){
-			args[i] = NULL_WASGO_ID;
+			args[i] = _EncodedVariant();
 		} else {
-			args[i] = p_args[i]->_get_wasgo_id();
+			args[i] = p_args[i]->_encode();
 		}
 	}
+	return _decode(_variant_call_static(_get_type_name(), p_method, args, p_argcount));
+}
+
+_EncodedVariant Variant::_encode(){//overwrite this if you have some extra logic
+	return _EncodedVariant(wasgo_id);
+}
+
+Variant Variant::_decode(_EncodedVariant ev){
 	Variant v;
-	v._set_wasgo_id(_variant_call_static(_get_type_name(), p_method, args, p_argcount));
+	v._set_wasgo_id(ev._id);
 	return v;
 }
 
+Variant::operator bool() const{
+	return false;//TODO actual conversion to bool
+}
+Variant::Variant(bool p_bool){
+	_EncodedVariant args[] = {_EncodedVariant(p_bool ? "true" : "false")};
+	wasgo_id = _variant_constructor(Variant::Type::BOOL, args, 1)._id;
+}
 // #include "core/core_string_names.h"
 // #include "core/debugger/engine_debugger.h"
 // #include "core/io/json.h"

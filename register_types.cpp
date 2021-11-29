@@ -17,7 +17,7 @@ void register_wasgo_types() {
 
 	wasgo_runtime = new(WasGoRuntime);
 
-	wasgo_runtime->initialize(native_symbols, sizeof(native_symbols)/sizeof(NativeSymbol));
+	// wasgo_runtime->initialize(native_symbols, sizeof(native_symbols)/sizeof(NativeSymbol));
 	WasGoTest::test();
 
 	printf("DONE\n");

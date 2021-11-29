@@ -156,7 +156,7 @@ int WasGoTest::test() {
 	init_args.mem_alloc_option.pool.heap_buf = test_global_heap_buf;
 	init_args.mem_alloc_option.pool.heap_size = sizeof(test_global_heap_buf);
 
-	init_args.n_native_symbols = 3;
+	init_args.n_native_symbols = sizeof(test_native_symbols) / sizeof(NativeSymbol);
 	init_args.native_module_name = "env";
 	init_args.native_symbols = test_native_symbols;
 
