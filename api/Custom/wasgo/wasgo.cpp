@@ -1,5 +1,5 @@
 #include "wasgo.h"
-// #include "marshalls.h"
+#include "encode_decode.h"
 // #include "Object.h"
 #include <stdio.h>
 #include <string.h>
@@ -11,26 +11,26 @@
 // 	Variant ret;
 // 	switch (type) {
 // 		case (Variant::BOOL): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			return _wasgo_get_property_bool(name_buffer, name_buffer_size);
 // 		} break;
 // 		case (Variant::INT): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			Variant name = property;
 // 			encode_variant(name, name_buffer, name_buffer_size);
 // 			return _wasgo_get_property_int(name_buffer, name_buffer_size);
 // 		} break;
 // 		case (Variant::REAL): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			return _wasgo_get_property_float(name_buffer, name_buffer_size);
 // 		} break;
 // 		case (Variant::STRING): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[STRING_MAX];
@@ -41,7 +41,7 @@
 
 // 		} break;
 // 		case (Variant::VECTOR2): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[12];
@@ -51,7 +51,7 @@
 // 			return ret;
 // 		} break;
 // 		case (Variant::RECT2): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[20];
@@ -61,7 +61,7 @@
 // 			return ret;
 // 		} break;
 // 		case (Variant::VECTOR3): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[16];
@@ -71,7 +71,7 @@
 // 			return ret;
 // 		} break;
 // 		case (Variant::TRANSFORM2D): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[28];
@@ -81,7 +81,7 @@
 // 			return ret;
 // 		} break;
 // 		case (Variant::PLANE): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[20];
@@ -91,7 +91,7 @@
 // 			return ret;
 // 		} break;
 // 		case (Variant::QUAT): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[20];
@@ -101,7 +101,7 @@
 // 			return ret;
 // 		} break;
 // 		case (Variant::AABB): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[28];
@@ -111,7 +111,7 @@
 // 			return ret;
 // 		} break;
 // 		case (Variant::BASIS): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[40];
@@ -121,7 +121,7 @@
 // 			return ret;
 // 		} break;
 // 		case (Variant::TRANSFORM): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[52];
@@ -131,7 +131,7 @@
 // 			return ret;
 // 		} break;
 // 		case (Variant::COLOR): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[20];
@@ -141,7 +141,7 @@
 // 			return ret;
 // 		} break;
 // 		case (Variant::NODE_PATH): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t value_buffer[STRING_MAX];
@@ -151,7 +151,7 @@
 // 			return ret;
 // 		} break;
 // 		default: {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			Object::_from_wasgo_id(_wasgo_get_property_object(name_buffer, name_buffer_size));
@@ -163,28 +163,28 @@
 // void WasGo::set_property(String property, Variant value) {
 // 	switch (value.get_type()) {
 // 		case (Variant::BOOL): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			_wasgo_set_property_bool(name_buffer, name_buffer_size, (int) value);
 
 // 		} break;
 // 		case (Variant::INT): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			_wasgo_set_property_int(name_buffer, name_buffer_size, (int)value);
 
 // 		} break;
 // 		case (Variant::REAL): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			_wasgo_set_property_float(name_buffer, name_buffer_size, (float)value);
 
 // 		} break;
 // 		case (Variant::STRING): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -194,7 +194,7 @@
 
 // 		} break;
 // 		case (Variant::VECTOR2): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -204,7 +204,7 @@
 
 // 		} break;
 // 		case (Variant::RECT2): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -214,7 +214,7 @@
 
 // 		} break;
 // 		case (Variant::VECTOR3): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -224,7 +224,7 @@
 
 // 		} break;
 // 		case (Variant::TRANSFORM2D): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -234,7 +234,7 @@
 
 // 		} break;
 // 		case (Variant::PLANE): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -244,7 +244,7 @@
 
 // 		} break;
 // 		case (Variant::QUAT): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -254,7 +254,7 @@
 
 // 		} break;
 // 		case (Variant::AABB): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -264,7 +264,7 @@
 
 // 		} break;
 // 		case (Variant::BASIS): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -274,7 +274,7 @@
 
 // 		} break;
 // 		case (Variant::TRANSFORM): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -284,7 +284,7 @@
 
 // 		} break;
 // 		case (Variant::COLOR): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -294,7 +294,7 @@
 
 // 		} break;
 // 		case (Variant::NODE_PATH): {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			uint8_t *value_buffer;
@@ -304,7 +304,7 @@
 
 // 		} break;
 // 		default: {
-// 			int name_buffer_size = 4 + property.size();
+// 			size_t name_buffer_size = 4 + property.size();
 // 			uint8_t name_buffer[name_buffer_size];
 // 			encode_variant(property, name_buffer, name_buffer_size);
 // 			Object obj = value;
@@ -373,70 +373,46 @@ bool WasGo::is_processing_unhandled_key_input(){
 // 	InputEventKey event(p_wasgo_id);
 // 	_unhandled_key_input(event);
 // }
-static inline unsigned int encode_uint32(uint32_t p_uint, uint8_t *p_arr) {
-
-	for (int i = 0; i < 4; i++) {
-
-		*p_arr = p_uint & 0xFF;
-		p_arr++;
-		p_uint >>= 8;
-	}
-
-	return sizeof(uint32_t);
-}
-static void _encode_string(const char * utf8, uint8_t *buf, int &r_len) {
-	size_t length = strlen(utf8);
-	if (buf) {
-		encode_uint32(length, buf);
-		buf += 4;
-		memcpy(buf, utf8, length);
-		buf += length;
-	}
-
-	r_len += 4 + length;
-	while (r_len % 4) {
-		r_len++; //pad
-		if (buf) {
-			*(buf++) = 0;
-		}
-	}
-}
 
 bool WasGo::get_property_bool(const char * key) {
-	int name_buffer_size = 4 + strlen(key);
+	size_t name_buffer_size = 4 + strlen(key);
+	uint8_t name_buffer[name_buffer_size];
+	_encode_string(key, name_buffer, name_buffer_size);
+	return (bool) _wasgo_get_property_bool(name_buffer, name_buffer_size);
+}
+int WasGo::get_property_int(const char * key) {
+	size_t name_buffer_size = 4 + strlen(key);
 	uint8_t name_buffer[name_buffer_size];
 	_encode_string(key, name_buffer, name_buffer_size);
 	return _wasgo_get_property_bool(name_buffer, name_buffer_size);
-	// return false;
-}
-int WasGo::get_property_int(const char * key) {
-	// int name_buffer_size = 4 + key.size();
-	// uint8_t name_buffer[name_buffer_size];
-	// encode_variant(key, name_buffer, name_buffer_size);
-	// return _wasgo_get_property_bool(name_buffer, name_buffer_size);
-	return 0;
 }
 float WasGo::get_property_float(const char * key){
-	// int name_buffer_size = 4 + key.size();
-	// uint8_t name_buffer[name_buffer_size];
-	// encode_variant(key, name_buffer, name_buffer_size);
-	// return _wasgo_get_property_float(name_buffer, name_buffer_size);
-	return 0;
+	size_t name_buffer_size = 4 + strlen(key);
+	uint8_t name_buffer[name_buffer_size];
+	_encode_string(key, name_buffer, name_buffer_size);
+	return _wasgo_get_property_float(name_buffer, name_buffer_size);
 }
-const char * WasGo::get_property_string(const char * key){
-	// int name_buffer_size = 4 + key.size();
-	// uint8_t name_buffer[name_buffer_size];
-	// encode_variant(key, name_buffer, name_buffer_size);
-	// uint8_t value_buffer[STRING_MAX];
-	// int value_buffer_size = STRING_MAX;
-	// _wasgo_get_property_string(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
-	// Variant ret;
-	// decode_variant(ret, value_buffer, value_buffer_size);
-	// return ret;
-	return "";
+void WasGo::get_property_string(const char * key, char * &ret){
+	size_t name_buffer_size = 4 + strlen(key);
+	uint8_t name_buffer[name_buffer_size];
+	_encode_string(key, name_buffer, name_buffer_size);
+	uint8_t value_buffer[STRING_MAX];
+	int value_buffer_size = STRING_MAX;
+	_wasgo_get_property_string(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
+	
+	//make sure it's null terminated before returning
+	for (int i = 0; i < value_buffer_size; i++){
+		if(i < value_buffer_size - 1 && value_buffer[i] == '\0'){//null came too early
+			return;
+		} else if (i == value_buffer_size - 1 && value_buffer[i] != '\0'){//null not at end
+			return;
+		}
+	}
+	ret = new char[value_buffer_size];
+	memcpy(ret, value_buffer, value_buffer_size);
 }
 // Vector2 WasGo::get_property_vector2(String key){
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	uint8_t value_buffer[12];
@@ -448,7 +424,7 @@ const char * WasGo::get_property_string(const char * key){
 
 // }
 // Rect2 WasGo::get_property_rect2(String key){
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	uint8_t value_buffer[20];
@@ -459,7 +435,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	return ret;
 // }
 // Vector3 WasGo::get_property_vector3(String key){
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	uint8_t value_buffer[16];
@@ -470,7 +446,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	return ret;
 // }
 // Transform2D WasGo::get_property_transform2d(String key){
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	uint8_t value_buffer[28];
@@ -481,7 +457,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	return ret;
 // }
 // Plane WasGo::get_property_plane(String key){
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	uint8_t value_buffer[20];
@@ -492,7 +468,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	return ret;
 // }
 // Quaternion WasGo::get_property_quat(String key){
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	uint8_t value_buffer[20];
@@ -503,7 +479,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	return ret;
 // }
 // AABB WasGo::get_property_aabb(String key){
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	uint8_t value_buffer[28];
@@ -514,7 +490,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	return ret;
 // }
 // Basis WasGo::get_property_basis(String key){
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	uint8_t value_buffer[40];
@@ -525,7 +501,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	return ret;
 // }
 // Transform WasGo::get_property_transform(String key){
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	uint8_t value_buffer[52];
@@ -536,7 +512,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	return ret;
 // }
 // Color WasGo::get_property_color(String key){
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	uint8_t value_buffer[20];
@@ -547,7 +523,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	return ret;
 // }
 // NodePath WasGo::get_property_nodepath(String key){
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	uint8_t value_buffer[STRING_MAX];
@@ -560,25 +536,25 @@ const char * WasGo::get_property_string(const char * key){
 // }
 
 // void WasGo::set_property_bool(String key, bool value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	_wasgo_set_property_bool(name_buffer, name_buffer_size, (int)value);
 // }
 // void WasGo::set_property_int(String key, int value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	_wasgo_set_property_int(name_buffer, name_buffer_size, (int)value);
 // }
 // void WasGo::set_property_float(String key, float value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	_wasgo_set_property_float(name_buffer, name_buffer_size, (float)value);
 // }
 // void WasGo::set_property_string(String key, String value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 // 	int value_buffer_size = STRING_MAX;
@@ -587,7 +563,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	_wasgo_set_property_string(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 // }
 // void WasGo::set_property_vector2(String key, Vector2 value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 	
@@ -597,7 +573,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	_wasgo_set_property_vector2(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 // }
 // void WasGo::set_property_rect2(String key, Rect2 value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 	
@@ -607,7 +583,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	_wasgo_set_property_rect2(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 // }
 // void WasGo::set_property_vector3(String key, Vector3 value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 	
@@ -617,7 +593,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	_wasgo_set_property_vector3(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 // }
 // void WasGo::set_property_transform2d(String key, Transform2D value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 	
@@ -627,7 +603,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	_wasgo_set_property_transform2d(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 // }
 // void WasGo::set_property_plane(String key, Plane value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 	
@@ -637,7 +613,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	_wasgo_set_property_plane(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 // }
 // void WasGo::set_property_quat(String key, Quaternion value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 	
@@ -647,7 +623,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	_wasgo_set_property_quat(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 // }
 // void WasGo::set_property_aabb(String key, AABB value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 	
@@ -657,7 +633,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	_wasgo_set_property_aabb(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 // }
 // void WasGo::set_property_basis(String key, Basis value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 	
@@ -667,7 +643,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	_wasgo_set_property_basis(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 // }
 // void WasGo::set_property_transform(String key, Transform value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 	
@@ -677,7 +653,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	_wasgo_set_property_transform(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 // }
 // void WasGo::set_property_color(String key, Color value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 	
@@ -687,7 +663,7 @@ const char * WasGo::get_property_string(const char * key){
 // 	_wasgo_set_property_color(name_buffer, name_buffer_size, value_buffer, value_buffer_size, value_buffer_size);
 // }
 // void WasGo::set_property_nodepath(String key, NodePath value) {
-// 	int name_buffer_size = 4 + key.size();
+// 	size_t name_buffer_size = 4 + key.size();
 // 	uint8_t name_buffer[name_buffer_size];
 // 	encode_variant(key, name_buffer, name_buffer_size);
 

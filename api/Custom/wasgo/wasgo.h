@@ -3,9 +3,10 @@
 #define WASGO_H
 
 #include "variant/variant.h"
+#include "encode_decode.h"
 #include <stdint.h>
 
-typedef uint32_t WasGoID;
+// typedef uint32_t WasGoID;
 // class InputEvent;
 // class InputEventKey;
 
@@ -85,7 +86,7 @@ public:
 	static bool get_property_bool(const char *key);
 	static int get_property_int(const char *key);
 	static float get_property_float(const char *key);
-	static const char *get_property_string(const char *key);
+	static void get_property_string(const char *key, char * &ret);
 	// static Vector2 get_property_vector2(const char *key);
 	// static Rect2 get_property_rect2(const char *key);
 	// static Vector3 get_property_vector3(const char *key);

@@ -3,7 +3,8 @@
 
 #include <stdint.h>
 
-typedef uint32_t WasGoID;
+typedef uint64_t WasGoID;
+typedef uint8_t WasGoByte;
 #define NULL_WASGO_ID 0
 
 #endif

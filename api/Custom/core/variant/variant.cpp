@@ -1,116 +1,235 @@
-/*************************************************************************/
-/*  variant.cpp                                                          */
-/*************************************************************************/
-/*                       This file is part of:                           */
-/*                           GODOT ENGINE                                */
-/*                      https://godotengine.org                          */
-/*************************************************************************/
-/* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2021 Godot Engine contributors (cf. AUTHORS.md).   */
-/*                                                                       */
-/* Permission is hereby granted, free of charge, to any person obtaining */
-/* a copy of this software and associated documentation files (the       */
-/* "Software"), to deal in the Software without restriction, including   */
-/* without limitation the rights to use, copy, modify, merge, publish,   */
-/* distribute, sublicense, and/or sell copies of the Software, and to    */
-/* permit persons to whom the Software is furnished to do so, subject to */
-/* the following conditions:                                             */
-/*                                                                       */
-/* The above copyright notice and this permission notice shall be        */
-/* included in all copies or substantial portions of the Software.       */
-/*                                                                       */
-/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
-/* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
-/* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
-/* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
-/* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
-/* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
-/* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
-/*************************************************************************/
-
 #include "variant.h"
+#include "encode_decode.h"
+#include <string>
 
 Variant::Variant(){
 }
 Variant::~Variant(){
-	if(wasgo_id != NULL_WASGO_ID){
-		_variant_deconstructor(wasgo_id);
+	if(_wasgo_data_type == _id_data){
+		_wasgo_variant_deconstructor(_wasgo_data._id);
 	}
 }
 const bool Variant::_valid_wasgo_id(){
-	return wasgo_id > 0 && _variant_check_id(wasgo_id);
+	return _wasgo_data_type == _id_data && _wasgo_variant_check_id(_wasgo_data._id);
 }
 void Variant::_set_wasgo_id(WasGoID id){
-	wasgo_id = id;
+	_wasgo_data_type = _id_data;
+	_wasgo_data._id = id;
 }
 const WasGoID Variant::_get_wasgo_id(){
-	return wasgo_id;
+	if(_wasgo_data_type == _id_data){
+		return _wasgo_data._id;
+	} else {
+		return NULL_WASGO_ID;
+	}
 }
 static char *get_type_name(){
 	return "Variant";
 }
-Variant Variant::call(const char *p_method, Variant **p_args, const int p_argcount){
-	_EncodedVariant args[p_argcount];
-	for (int i = 0; i < p_argcount; i++){
+Variant Variant::call(const char *p_method, Variant **p_args, const size_t p_argcount){
+	if(_wasgo_data_type != _id_data){
+		return Variant();//data lives on wasm side only
+	}
+	WasGoByte *args[p_argcount];
+	size_t arg_lengths[p_argcount];
+	for (int i = 0; i < p_argcount; i++) {
 		if(p_args[i] == nullptr){
-			args[i] = _EncodedVariant();
+			args[i] = 0;
+			arg_lengths[i] = 0;
 		} else {
-			args[i] = p_args[i]->_encode();
+			p_args[i]->_wasgo_encode(args[i], arg_lengths[i]);
 		}
 	}
-	Variant ret = _decode(_variant_call(wasgo_id, p_method, args, p_argcount));
+	WasGoByte *ret_buffer;
+	size_t ret_length;
+	_wasgo_variant_call(_wasgo_data._id, p_method, args, arg_lengths, p_argcount, ret_buffer, ret_length);
+	Variant ret = _wasgo_decode(ret_buffer, ret_length);
+	delete ret_buffer;
 	return ret;
 }
-Variant Variant::call_op(const Operator p_op, Variant **p_args, const int p_argcount){
-	_EncodedVariant* args = new _EncodedVariant[p_argcount];
-	for (int i = 0; i < p_argcount; i++){
+Variant Variant::call_op(const Operator p_op, Variant **p_args, const size_t p_argcount){
+	if(_wasgo_data_type != _id_data){
+		return Variant();//data lives on wasm side only
+	}
+	WasGoByte *args[p_argcount];
+	size_t arg_lengths[p_argcount];
+	for (int i = 0; i < p_argcount; i++) {
 		if(p_args[i] == nullptr){
-			args[i] = _EncodedVariant();
+			args[i] = 0;
+			arg_lengths[i] = 0;
 		} else {
-			args[i] = p_args[i]->_encode();
+			p_args[i]->_wasgo_encode(args[i], arg_lengths[i]);
 		}
 	}
-	return _decode(_variant_call_op(wasgo_id, p_op, args, p_argcount));
+	WasGoByte *ret_buffer;
+	size_t ret_length;
+	_wasgo_variant_call_op(_wasgo_data._id, p_op, args, arg_lengths, p_argcount, ret_buffer, ret_length);
+	Variant ret = _wasgo_decode(ret_buffer, ret_length);
+	delete ret_buffer;
+	return ret;
 }
-Variant Variant::call_const(const char *p_method, Variant **p_args, const int p_argcount){
-	_EncodedVariant* args = new _EncodedVariant[p_argcount];
-	for (int i = 0; i < p_argcount; i++){
+Variant Variant::call_const(const char *p_method, Variant **p_args, const size_t p_argcount){
+	if(_wasgo_data_type != _id_data){
+		return Variant();//data lives on wasm side only
+	}
+	WasGoByte *args[p_argcount];
+	size_t arg_lengths[p_argcount];
+	for (int i = 0; i < p_argcount; i++) {
 		if(p_args[i] == nullptr){
-			args[i] = _EncodedVariant();
+			args[i] = 0;
+			arg_lengths[i] = 0;
 		} else {
-			args[i] = p_args[i]->_encode();
+			p_args[i]->_wasgo_encode(args[i], arg_lengths[i]);
 		}
 	}
-	return _decode(_variant_call(wasgo_id, p_method, args, p_argcount));
+	WasGoByte *ret_buffer;
+	size_t ret_length;
+	_wasgo_variant_call_const(_wasgo_data._id, p_method, args, arg_lengths, p_argcount, ret_buffer, ret_length);
+	Variant ret = _wasgo_decode(ret_buffer, ret_length);
+	delete ret_buffer;
+	return ret;
 }
-Variant Variant::call_static(const char *p_method, Variant **p_args, const int p_argcount){
-	_EncodedVariant* args = new _EncodedVariant[p_argcount];
-	for (int i = 0; i < p_argcount; i++){
+Variant Variant::call_static(const char *p_method, Variant **p_args, const size_t p_argcount){
+	WasGoByte *args[p_argcount];
+	size_t arg_lengths[p_argcount];
+	for (int i = 0; i < p_argcount; i++) {
 		if(p_args[i] == nullptr){
-			args[i] = _EncodedVariant();
+			args[i] = 0;
+			arg_lengths[i] = 0;
 		} else {
-			args[i] = p_args[i]->_encode();
+			p_args[i]->_wasgo_encode(args[i], arg_lengths[i]);
 		}
 	}
-	return _decode(_variant_call_static(_get_type_name(), p_method, args, p_argcount));
+	WasGoByte *ret_buffer;
+	size_t ret_length;
+	_wasgo_variant_call_static(_get_wasgo_type_name(), p_method, args, arg_lengths, p_argcount, ret_buffer, ret_length);
+	Variant ret = _wasgo_decode(ret_buffer, ret_length);
+	delete ret_buffer;
+	return ret;
 }
 
-_EncodedVariant Variant::_encode(){//overwrite this if you have some extra logic
-	return _EncodedVariant(wasgo_id);
+void Variant::_wasgo_encode(WasGoByte * &p_buffer, size_t &p_length){//overwrite this if you have some extra logic
+	//if data is stored on godot side, just write the wasgo_id, else encode data to buffer
+	WasGoByte *data_buffer;
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			p_length = encode_uint64((uint64_t) _wasgo_data._bool, nullptr);//this is how godot gets the length for things it encodes
+			data_buffer = new WasGoByte[p_length];
+			encode_uint64((uint64_t)_wasgo_data._bool, data_buffer);
+			break;
+		}
+		case (_int_data):{
+			p_length = encode_uint64((uint64_t) _wasgo_data._int, nullptr);//this is how godot gets the length for things it encodes
+			data_buffer = new WasGoByte[p_length];
+			encode_uint64((uint64_t) _wasgo_data._int, data_buffer);
+			break;
+		}
+		case (_float_data):{
+			p_length = encode_double((double) _wasgo_data._float, nullptr);//this is how godot gets the length for things it encodes
+			data_buffer = new WasGoByte[p_length];
+			encode_double((double) _wasgo_data._float, data_buffer);
+			break;
+		}
+		case (_str_data):{
+			p_length = encode_cstring((char *) _wasgo_data._str, nullptr);//this is how godot gets the length for things it encodes
+			data_buffer = new WasGoByte[p_length];
+			encode_cstring((char *) _wasgo_data._str, data_buffer);
+			break;
+		}
+		case (_id_data):{
+			p_length = encode_cstring((char *) _get_wasgo_type_name(), nullptr) + encode_uint64((uint64_t) _wasgo_data._id, nullptr);//this is how godot gets the length for things it encodes
+			p_buffer = new WasGoByte[p_length];
+			size_t offset = encode_cstring((char *) _get_wasgo_type_name(), p_buffer);
+			encode_uint64((uint64_t) _wasgo_data._id, p_buffer + offset);
+			break;
+		}
+		default:{//ptr_data
+			_custom_wasgo_encode(data_buffer, p_length);
+			break;
+		}
+	}
+	//first byte tells us what type it is
+	p_length ++;
+	p_buffer = new WasGoByte[p_length];
+	p_buffer[0] = (WasGoByte)_wasgo_data_type;
+	memcpy(p_buffer + 1, data_buffer, p_length - 1);
+	delete (data_buffer);
+}
+void Variant::_custom_wasgo_encode(WasGoByte * &p_buffer, size_t &p_length){//overwrite this to implement a datatype that lives on wasm-side but needs to occasionally be sent to godot-side. Needs to mimic how Godot's built-in encoder works
+	p_length = 0;
 }
 
-Variant Variant::_decode(_EncodedVariant &&ev){
+Variant Variant::_wasgo_decode(WasGoByte * p_bytes, size_t p_length){
 	Variant v;
-	v._set_wasgo_id(ev._id);
+	if(p_length == 0){
+		return v;
+	}
+	v._wasgo_data_type = (Variant::_wasgo_data_enum)p_bytes[0];
+	if(p_length < 2){
+		return v;
+	}
+	switch (v._wasgo_data_type) {
+		case (_bool_data):{
+			v._wasgo_data._bool = (bool) decode_uint64(p_bytes + 1);
+			break;
+		}
+		case (_int_data):{
+			v._wasgo_data._int = (int64_t) decode_uint64(p_bytes + 1);
+			break;
+		}
+		case (_float_data):{
+			v._wasgo_data._float = (double) decode_uint64(p_bytes + 1);
+			break;
+		}
+		case (_str_data):{
+			WasGoByte *remaining_bytes = p_bytes + 1;
+			size_t remaining_length = p_length - 1;
+			_decode_string(remaining_bytes, remaining_length, nullptr, v._wasgo_data._str);
+			break;
+		}
+		case (_id_data):{
+			//skip decoding the variant type string for now. We'll figure out what to do with it later
+			v._wasgo_data._id = (WasGoID) decode_uint64(p_bytes + p_length - sizeof(WasGoID));
+			break;
+		}
+		default:{//ptr_data
+			return _custom_wasgo_decode(p_bytes, p_length);
+			break;
+		}
+	}
+	return v;
+}
+Variant Variant::_custom_wasgo_decode(uint8_t * p_bytes, size_t p_length){//overwrite this to implement a datatype that lives on wasm-side but needs to occasionally be sent to godot-side. Needs to mimic how Godot's built-in decoder works
+	Variant v;
 	return v;
 }
 
 Variant::operator bool() const{
-	return false;//TODO actual conversion to bool
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			return _wasgo_data._bool;
+		}
+		case (_int_data):{
+			return _wasgo_data._int;
+		}
+		case (_float_data):{
+			return _wasgo_data._float;
+		}
+		case (_str_data):{
+			return _wasgo_data._str;
+		}
+		case (_id_data):{
+			return _wasgo_data._id;
+		}
+		default:{//ptr_data
+			return _wasgo_data._ptr;
+		}
+	}
+	return _wasgo_data_type == _bool_data && _wasgo_data._bool;//TODO actual conversion to bool
 }
 Variant::Variant(bool p_bool){
-	_EncodedVariant args[] = {_EncodedVariant(p_bool ? "true" : "false")};
-	wasgo_id = _variant_constructor(Variant::Type::BOOL, args, 1)._id;
+	_wasgo_data_type = _bool_data;
+	_wasgo_data._bool = p_bool;
 }
 // #include "core/core_string_names.h"
 // #include "core/debugger/engine_debugger.h"
@@ -998,7 +1117,7 @@ Variant::Variant(bool p_bool){
 
 // 		// arrays
 // 		case PACKED_BYTE_ARRAY: {
-// 			return PackedArrayRef<uint8_t>::get_array(_data.packed_array).size() == 0;
+// 			return PackedArrayRef<WasGoByte>::get_array(_data.packed_array).size() == 0;
 
 // 		} break;
 // 		case PACKED_INT32_ARRAY: {
@@ -1229,9 +1348,9 @@ Variant::Variant(bool p_bool){
 
 // 		// arrays
 // 		case PACKED_BYTE_ARRAY: {
-// 			_data.packed_array = static_cast<PackedArrayRef<uint8_t> *>(p_variant._data.packed_array)->reference();
+// 			_data.packed_array = static_cast<PackedArrayRef<WasGoByte> *>(p_variant._data.packed_array)->reference();
 // 			if (!_data.packed_array) {
-// 				_data.packed_array = PackedArrayRef<uint8_t>::create();
+// 				_data.packed_array = PackedArrayRef<WasGoByte>::create();
 // 			}
 
 // 		} break;
@@ -1799,7 +1918,7 @@ Variant::Variant(bool p_bool){
 // 			return stringify_vector(operator Vector<String>(), recursion_count);
 // 		} break;
 // 		case PACKED_BYTE_ARRAY: {
-// 			return stringify_vector(operator Vector<uint8_t>(), recursion_count);
+// 			return stringify_vector(operator Vector<WasGoByte>(), recursion_count);
 // 		} break;
 // 		case PACKED_INT32_ARRAY: {
 // 			return stringify_vector(operator Vector<int32_t>(), recursion_count);
@@ -2147,7 +2266,7 @@ Variant::Variant(bool p_bool){
 // 			return _convert_array<DA, Array>(p_variant.operator Array());
 // 		}
 // 		case Variant::PACKED_BYTE_ARRAY: {
-// 			return _convert_array<DA, Vector<uint8_t>>(p_variant.operator Vector<uint8_t>());
+// 			return _convert_array<DA, Vector<WasGoByte>>(p_variant.operator Vector<WasGoByte>());
 // 		}
 // 		case Variant::PACKED_INT32_ARRAY: {
 // 			return _convert_array<DA, Vector<int32_t>>(p_variant.operator Vector<int32_t>());
@@ -2187,11 +2306,11 @@ Variant::Variant(bool p_bool){
 // 	}
 // }
 
-// Variant::operator Vector<uint8_t>() const {
+// Variant::operator Vector<WasGoByte>() const {
 // 	if (type == PACKED_BYTE_ARRAY) {
-// 		return static_cast<PackedArrayRef<uint8_t> *>(_data.packed_array)->array;
+// 		return static_cast<PackedArrayRef<WasGoByte> *>(_data.packed_array)->array;
 // 	} else {
-// 		return _convert_array_from_variant<Vector<uint8_t>>(*this);
+// 		return _convert_array_from_variant<Vector<WasGoByte>>(*this);
 // 	}
 // }
 
@@ -2590,10 +2709,10 @@ Variant::Variant(bool p_bool){
 // 	}
 // }
 
-// Variant::Variant(const Vector<uint8_t> &p_byte_array) {
+// Variant::Variant(const Vector<WasGoByte> &p_byte_array) {
 // 	type = PACKED_BYTE_ARRAY;
 
-// 	_data.packed_array = PackedArrayRef<uint8_t>::create(p_byte_array);
+// 	_data.packed_array = PackedArrayRef<WasGoByte>::create(p_byte_array);
 // }
 
 // Variant::Variant(const Vector<int32_t> &p_int32_array) {
@@ -2798,7 +2917,7 @@ Variant::Variant(bool p_bool){
 
 // 		// arrays
 // 		case PACKED_BYTE_ARRAY: {
-// 			_data.packed_array = PackedArrayRef<uint8_t>::reference_from(_data.packed_array, p_variant._data.packed_array);
+// 			_data.packed_array = PackedArrayRef<WasGoByte>::reference_from(_data.packed_array, p_variant._data.packed_array);
 // 		} break;
 // 		case PACKED_INT32_ARRAY: {
 // 			_data.packed_array = PackedArrayRef<int32_t>::reference_from(_data.packed_array, p_variant._data.packed_array);
@@ -2988,11 +3107,11 @@ Variant::Variant(bool p_bool){
 
 // 		} break;
 // 		case PACKED_BYTE_ARRAY: {
-// 			const Vector<uint8_t> &arr = PackedArrayRef<uint8_t>::get_array(_data.packed_array);
+// 			const Vector<WasGoByte> &arr = PackedArrayRef<WasGoByte>::get_array(_data.packed_array);
 // 			int len = arr.size();
 // 			if (likely(len)) {
-// 				const uint8_t *r = arr.ptr();
-// 				return hash_djb2_buffer((uint8_t *)&r[0], len);
+// 				const WasGoByte *r = arr.ptr();
+// 				return hash_djb2_buffer((WasGoByte *)&r[0], len);
 // 			} else {
 // 				return hash_djb2_one_64(0);
 // 			}
@@ -3003,7 +3122,7 @@ Variant::Variant(bool p_bool){
 // 			int len = arr.size();
 // 			if (likely(len)) {
 // 				const int32_t *r = arr.ptr();
-// 				return hash_djb2_buffer((uint8_t *)&r[0], len * sizeof(int32_t));
+// 				return hash_djb2_buffer((WasGoByte *)&r[0], len * sizeof(int32_t));
 // 			} else {
 // 				return hash_djb2_one_64(0);
 // 			}
@@ -3014,7 +3133,7 @@ Variant::Variant(bool p_bool){
 // 			int len = arr.size();
 // 			if (likely(len)) {
 // 				const int64_t *r = arr.ptr();
-// 				return hash_djb2_buffer((uint8_t *)&r[0], len * sizeof(int64_t));
+// 				return hash_djb2_buffer((WasGoByte *)&r[0], len * sizeof(int64_t));
 // 			} else {
 // 				return hash_djb2_one_64(0);
 // 			}
@@ -3026,7 +3145,7 @@ Variant::Variant(bool p_bool){
 
 // 			if (likely(len)) {
 // 				const float *r = arr.ptr();
-// 				return hash_djb2_buffer((uint8_t *)&r[0], len * sizeof(float));
+// 				return hash_djb2_buffer((WasGoByte *)&r[0], len * sizeof(float));
 // 			} else {
 // 				return hash_djb2_one_float(0.0);
 // 			}
@@ -3038,7 +3157,7 @@ Variant::Variant(bool p_bool){
 
 // 			if (likely(len)) {
 // 				const double *r = arr.ptr();
-// 				return hash_djb2_buffer((uint8_t *)&r[0], len * sizeof(double));
+// 				return hash_djb2_buffer((WasGoByte *)&r[0], len * sizeof(double));
 // 			} else {
 // 				return hash_djb2_one_float(0.0);
 // 			}

@@ -1,72 +1,41 @@
-/*************************************************************************/
-/*  variant.h                                                            */
-/*************************************************************************/
-/*                       This file is part of:                           */
-/*                           GODOT ENGINE                                */
-/*                      https://godotengine.org                          */
-/*************************************************************************/
-/* Copyright (c) 2007-2021 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2021 Godot Engine contributors (cf. AUTHORS.md).   */
-/*                                                                       */
-/* Permission is hereby granted, free of charge, to any person obtaining */
-/* a copy of this software and associated documentation files (the       */
-/* "Software"), to deal in the Software without restriction, including   */
-/* without limitation the rights to use, copy, modify, merge, publish,   */
-/* distribute, sublicense, and/or sell copies of the Software, and to    */
-/* permit persons to whom the Software is furnished to do so, subject to */
-/* the following conditions:                                             */
-/*                                                                       */
-/* The above copyright notice and this permission notice shall be        */
-/* included in all copies or substantial portions of the Software.       */
-/*                                                                       */
-/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
-/* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
-/* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
-/* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
-/* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
-/* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
-/* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
-/*************************************************************************/
-
 #ifndef VARIANT_H
 #define VARIANT_H
 
 #include "wasgoid.h"
 
-struct _EncodedVariant {
-	WasGoID _id = NULL_WASGO_ID; //data exists on the godot side, we don't need to actually encode anything
-	const char * _data = nullptr; //data encoded as a string, we will need to decode and store on wasm side
-	_EncodedVariant(){
-	}
-	_EncodedVariant(WasGoID p_id){
-		_id = p_id;
-	}
-	_EncodedVariant(const char * p_data){
-		_data = p_data;
-	}
-	_EncodedVariant(const _EncodedVariant&) = delete;
-	_EncodedVariant& operator=(const _EncodedVariant&) = delete;
-	_EncodedVariant(_EncodedVariant &&other) {
-		_id = other._id;
-		_data = other._data;
-		other._id = 0;
-		other._data = nullptr;
-	}
-	_EncodedVariant& operator=(_EncodedVariant&& other) {
-		_id = other._id;
-		_data = other._data;
-		other._id = 0;
-		other._data = nullptr;
-		return *this;
-	}
-	~_EncodedVariant() {
-		// delete(_data);
-	}
-};
+// struct _EncodedVariant {
+// 	WasGoID _id = NULL_WASGO_ID; //data exists on the godot side, we don't need to actually encode anything
+// 	const char * _data = nullptr; //data encoded as a string, we will need to decode and store on wasm side
+// 	_EncodedVariant(){
+// 	}
+// 	_EncodedVariant(WasGoID p_id){
+// 		_id = p_id;
+// 	}
+// 	_EncodedVariant(const char * p_data){
+// 		_data = p_data;
+// 	}
+// 	_EncodedVariant(const _EncodedVariant&) = delete;
+// 	_EncodedVariant& operator=(const _EncodedVariant&) = delete;
+// 	_EncodedVariant(_EncodedVariant &&other) {
+// 		_id = other._id;
+// 		_data = other._data;
+// 		other._id = 0;
+// 		other._data = nullptr;
+// 	}
+// 	_EncodedVariant& operator=(_EncodedVariant&& other) {
+// 		_id = other._id;
+// 		_data = other._data;
+// 		other._id = 0;
+// 		other._data = nullptr;
+// 		return *this;
+// 	}
+// 	~_EncodedVariant() {
+// 		// delete(_data);
+// 	}
+// };
 
 class Variant {
 public:
-
 	enum Operator {
 		//comparison
 		OP_EQUAL,
@@ -153,34 +122,52 @@ public:
 	// static Variant _from_wasgo_id(WasGoID p_wasgo_id);
 	void _set_wasgo_id(WasGoID id);
 	const WasGoID _get_wasgo_id();
-	static char * _get_type_name();
+	static char * _get_wasgo_type_name();
 	
 	//for passing variants to and from the godot engine
-	_EncodedVariant _encode();
-	static Variant _decode(_EncodedVariant &&ev);
+	void _wasgo_encode(uint8_t * &p_buffer, size_t &p_length);
+	static Variant _wasgo_decode(uint8_t * p_bytes, size_t p_length);
+	void _custom_wasgo_encode(uint8_t * &p_buffer, size_t &p_length);
+	static Variant _custom_wasgo_decode(uint8_t * p_bytes, size_t p_length);
 	
 	operator bool() const;//auto convert to bool
 	Variant(bool p_bool);//auto convert from bool
 
 protected:
-	Variant call(const char *p_method, Variant **p_args, const int p_argcount);
-	Variant call_op(const Operator p_op, Variant **p_args, const int p_argcount);
-	Variant call_const(const char *p_method, Variant **p_args, const int p_argcount);
-	static Variant call_static(const char *p_method, Variant **p_args, const int p_argcount);
+	Variant call(const char *p_method, Variant **p_args, const size_t p_argcount);
+	Variant call_op(const Operator p_op, Variant **p_args, const size_t p_argcount);
+	Variant call_const(const char *p_method, Variant **p_args, const size_t p_argcount);
+	static Variant call_static(const char *p_method, Variant **p_args, const size_t p_argcount);
 private:
-	WasGoID wasgo_id = NULL_WASGO_ID;
-	Variant();//creates a variant on the godot side
+	union _wasgo_data_union {
+		bool _bool;
+		int64_t _int;
+		double _float;
+		char * _str;
+		WasGoID _id;
+		void * _ptr;//for advanced datatypes that exist on wasm-side like Vector3
+	} _wasgo_data = {NULL_WASGO_ID};
+	enum _wasgo_data_enum{//what type is being represented by the union
+		_bool_data,
+		_int_data,
+		_float_data,
+		_str_data,
+		_id_data,
+		_ptr_data,
+	} _wasgo_data_type = _id_data;
+	Variant(); //creates a variant on the godot side
 };
 
 // WasGoID _variant_get_variant();
-bool _variant_check_id(WasGoID id);
-_EncodedVariant _variant_constructor(Variant::Type type, _EncodedVariant *p_args, const int p_argcount);
-void _variant_deconstructor(WasGoID id);
-_EncodedVariant _variant_call(WasGoID id, const char *p_method, _EncodedVariant *p_args, const int p_argcount);
-_EncodedVariant _variant_call_op(WasGoID id, const Variant::Operator p_op, _EncodedVariant *p_args, const int p_argcount);
-_EncodedVariant _variant_call_const(WasGoID id, const char *p_method, _EncodedVariant *p_args, const int p_argcount);
-static _EncodedVariant _variant_call_static(char * type, const char *p_method, _EncodedVariant *p_args, const int p_argcount);
-
+extern "C"{
+bool _wasgo_variant_check_id(WasGoID id);
+void _wasgo_variant_constructor(Variant::Type type, uint8_t *p_args, uint8_t *p_arglengths, int p_argcount, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_variant_deconstructor(WasGoID id);
+void _wasgo_variant_call(WasGoID id, const char *p_method, uint8_t **p_args, size_t *p_arglengths, int p_argcount, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_variant_call_op(WasGoID id, const Variant::Operator p_op, uint8_t **p_args, size_t *p_arglengths, int p_argcount, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_variant_call_const(WasGoID id, const char *p_method, uint8_t **p_args, size_t *p_arglengths, int p_argcount, uint8_t * wasgo_ret, int wasgo_ret_size);
+static void _wasgo_variant_call_static(char * type, const char *p_method, uint8_t **p_args, size_t *p_arglengths, int p_argcount, uint8_t * wasgo_ret, int wasgo_ret_size);
+}
 // #include "core/input/input_enums.h"
 // #include "core/io/ip_address.h"
 // #include "core/math/aabb.h"
