@@ -31,19 +31,36 @@
 #ifndef VARIANT_H
 #define VARIANT_H
 
-#include "wasgo/wasgoid.h"
-#include <string>
+#include "wasgoid.h"
 
 struct _EncodedVariant {
 	WasGoID _id = NULL_WASGO_ID; //data exists on the godot side, we don't need to actually encode anything
-	std::string _data = ""; //data encoded as a string, we will need to decode and store on wasm side
+	const char * _data = nullptr; //data encoded as a string, we will need to decode and store on wasm side
 	_EncodedVariant(){
 	}
 	_EncodedVariant(WasGoID p_id){
 		_id = p_id;
 	}
-	_EncodedVariant(std::string p_data){
+	_EncodedVariant(const char * p_data){
 		_data = p_data;
+	}
+	_EncodedVariant(const _EncodedVariant&) = delete;
+	_EncodedVariant& operator=(const _EncodedVariant&) = delete;
+	_EncodedVariant(_EncodedVariant &&other) {
+		_id = other._id;
+		_data = other._data;
+		other._id = 0;
+		other._data = nullptr;
+	}
+	_EncodedVariant& operator=(_EncodedVariant&& other) {
+		_id = other._id;
+		_data = other._data;
+		other._id = 0;
+		other._data = nullptr;
+		return *this;
+	}
+	~_EncodedVariant() {
+		// delete(_data);
 	}
 };
 
@@ -136,20 +153,20 @@ public:
 	// static Variant _from_wasgo_id(WasGoID p_wasgo_id);
 	void _set_wasgo_id(WasGoID id);
 	const WasGoID _get_wasgo_id();
-	static std::string _get_type_name();
+	static char * _get_type_name();
 	
 	//for passing variants to and from the godot engine
 	_EncodedVariant _encode();
-	static Variant _decode(_EncodedVariant ev);
+	static Variant _decode(_EncodedVariant &&ev);
 	
 	operator bool() const;//auto convert to bool
 	Variant(bool p_bool);//auto convert from bool
 
 protected:
-	Variant call(const std::string &p_method, Variant **p_args, const int p_argcount);
+	Variant call(const char *p_method, Variant **p_args, const int p_argcount);
 	Variant call_op(const Operator p_op, Variant **p_args, const int p_argcount);
-	Variant call_const(const std::string &p_method, Variant **p_args, const int p_argcount);
-	static Variant call_static(const std::string &p_method, Variant **p_args, const int p_argcount);
+	Variant call_const(const char *p_method, Variant **p_args, const int p_argcount);
+	static Variant call_static(const char *p_method, Variant **p_args, const int p_argcount);
 private:
 	WasGoID wasgo_id = NULL_WASGO_ID;
 	Variant();//creates a variant on the godot side
@@ -159,10 +176,10 @@ private:
 bool _variant_check_id(WasGoID id);
 _EncodedVariant _variant_constructor(Variant::Type type, _EncodedVariant *p_args, const int p_argcount);
 void _variant_deconstructor(WasGoID id);
-_EncodedVariant _variant_call(WasGoID id, const std::string &p_method, _EncodedVariant *p_args, const int p_argcount);
+_EncodedVariant _variant_call(WasGoID id, const char *p_method, _EncodedVariant *p_args, const int p_argcount);
 _EncodedVariant _variant_call_op(WasGoID id, const Variant::Operator p_op, _EncodedVariant *p_args, const int p_argcount);
-_EncodedVariant _variant_call_const(WasGoID id, const std::string &p_method, _EncodedVariant *p_args, const int p_argcount);
-static _EncodedVariant _variant_call_static(std::string type, const std::string &p_method, _EncodedVariant *p_args, const int p_argcount);
+_EncodedVariant _variant_call_const(WasGoID id, const char *p_method, _EncodedVariant *p_args, const int p_argcount);
+static _EncodedVariant _variant_call_static(char * type, const char *p_method, _EncodedVariant *p_args, const int p_argcount);
 
 // #include "core/input/input_enums.h"
 // #include "core/io/ip_address.h"

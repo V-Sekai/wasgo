@@ -1,7 +1,7 @@
 
 // #include "Spatial.h"
 // #include "Transform.h"
-#include "wasgo\wasgo.h"
+#include "wasgo.h"
 #include <stdio.h>
 #include <stdlib.h>
 // #include "keyboard.h"
@@ -16,8 +16,17 @@ float thrust_delta = 0;
 float gravity_influence = 100;
 
 void _ready(){
-	thrust_limit = WasGo::get_property_float("thrust_limit");
-	gravity_influence = WasGo::get_property_float("gravity_influence");
+	// thrust_limit = WasGo::get_property_float("thrust_limit");
+	// gravity_influence = WasGo::get_property_float("gravity_influence");
+	printf("wasm test is running");
+}
+
+extern "C"
+int test(){
+	printf("\n-------------------------------\ncalling test from inside wasm runtime\n");
+	Variant v = true;
+	printf("\nreturning to godot\n--------------------------------------");
+	return 69;
 }
 
 // void _unhandled_key_input(InputEventKey p_key_event) {

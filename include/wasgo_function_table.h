@@ -70,6 +70,9 @@ EXPORT_WASM_API_WITH_SIG((void *)_wasgo_is_processing_unhandled_key_input,"()"),
 {"atanf",(void *) _wasgo_atanf, "(f)f"},
 {"atan2f",(void *) _wasgo_atan2f, "(ff)f"},
 {"rand",(void *) _wasgo_rand, "()i"},
+
+//Variant
+EXPORT_WASM_API_WITH_SIG((void *)_wasgo_is_processing_unhandled_key_input,"()"),
 // 	EXPORT_WASM_API_WITH_SIG(_wasgo_Input_wrapper_action_press, "(*~f)"),
 // 	EXPORT_WASM_API_WITH_SIG(_wasgo_Input_wrapper_action_release, "(*~)"),
 // 	EXPORT_WASM_API_WITH_SIG(_wasgo_Input_wrapper_add_joy_mapping, "(*~i)"),

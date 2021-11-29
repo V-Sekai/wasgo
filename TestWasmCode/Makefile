@@ -2,10 +2,11 @@ TARGET_EXEC ?= test.wasm
 
 BUILD_DIR ?= .
 
-# COPY_DEST := "C\:\\Users\\Michael\\Documents\\_Active\\V-Sekai\\groups"
+# COPY_DEST := "C\:/Users/Michael/Documents/_Active/V-Sekai/groups"
 # COPY_DEST := C:/Users/Michael/Documents/_Active/V-Sekai/groups/
 
-CXX := "clang"
+# CXX := "clang++"
+CXX := "C:/Users/Michael/Documents/emsdk/upstream/bin/wasm32-wasi-clang++.exe"
 # CXX := "C:/Users/Michael/Documents/_Active/godot-wasm/godot/modules/WasGo/thirdparty/wasm-micro-runtime/wamr-sdk/opt/wasi-sdk/bin/clang.exe"
 
 SRCS := $(wildcard *.cpp ../api/Custom/core/*.cpp ../api/Custom/core/variant/*.cpp ../api/Custom/wasgo/*.cpp)
@@ -24,9 +25,9 @@ CPPFLAGS += -z
 CPPFLAGS += stack-size=409600
 CPPFLAGS += -Wl,--initial-memory=65536000
 CPPFLAGS += -std=c++11
-CPPFLAGS += --sysroot=C:\\wasi-sdk-11.0\\wasi-sysroot
-# CPPFLAGS += --sysroot=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\thirdparty\\wasm-micro-runtime\\wamr-sdk\\app\\libc-builtin-sysroot
-# CPPFLAGS += -Wl,--allow-undefined-file=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\thirdparty\\wasm-micro-runtime\\wamr-sdk\\app\\libc-builtin-sysroot\\share\\defined-symbols.txt
+CPPFLAGS += --sysroot=C:/wasi-sdk-11.0/wasi-sysroot
+# CPPFLAGS += --sysroot=C:/Users/Michael/Documents/_Active/godot-wasm/godot/modules/WasGo/thirdparty/wasm-micro-runtime/wamr-sdk/app/libc-builtin-sysroot
+# CPPFLAGS += -Wl,--allow-undefined-file=C:/Users/Michael/Documents/_Active/godot-wasm/godot/modules/WasGo/thirdparty/wasm-micro-runtime/wamr-sdk/app/libc-builtin-sysroot/share/defined-symbols.txt
 CPPFLAGS += -Wl,--strip-all
 CPPFLAGS += -Wl,--no-entry
 CPPFLAGS += -nostdlib
@@ -42,16 +43,18 @@ CPPFLAGS += -Wl,--export=_unhandled_key_input
 CPPFLAGS += -Wl,--export=_wasgo_input
 CPPFLAGS += -Wl,--export=_wasgo_unhandled_input
 CPPFLAGS += -Wl,--export=_wasgo_unhandled_key_input
+CPPFLAGS += -Wl,--export=test
 CPPFLAGS += -Wl,--allow-undefined
-# CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\modules\\WasGo\\wasgo_headers
-# CPPFLAGS += --include-directory=C:\\Users\\Michael\\Documents\\_Active\\godot-wasm\\godot\\godot\modules\WasGo\thirdparty\wasm-micro-runtime\wamr-sdk\opt\wasi-sdk\lib\clang\10.0.0\include
-CPPFLAGS += --include-directory=..\\api\\Custom
-CPPFLAGS += --include-directory=..\\api\\Generated
-# CPPFLAGS += --include-directory=..\\wasgo_headers
-# CPPFLAGS += --include-directory=C:\\wasi-sdk-11.0\\wasi-sysroot\\include
-# CPPFLAGS += --include-directory=C:\\wasi-sdk-11.0\\wasi-sysroot\\include\\c++\\v1
+# CPPFLAGS += --include-directory=C:/Users/Michael/Documents/_Active/godot-wasm/godot/modules/WasGo/wasgo_headers
+# CPPFLAGS += --include-directory=C:/Users/Michael/Documents/_Active/godot-wasm/godot/godot\modules\WasGo\thirdparty\wasm-micro-runtime\wamr-sdk\opt\wasi-sdk\lib\clang\10.0.0\include
+CPPFLAGS += --include-directory=../api/Custom/core
+CPPFLAGS += --include-directory=../api/Custom/wasgo
+# CPPFLAGS += --include-directory=../api/Generated
+# CPPFLAGS += --include-directory=../wasgo_headers
+# CPPFLAGS += --include-directory=C:/wasi-sdk-11.0/wasi-sysroot/include
+# CPPFLAGS += --include-directory=C:/wasi-sdk-11.0/wasi-sysroot/include/c++/v1
 CPPFLAGS += -DNO_THREADS
-# CPPFLAGS += -oC:\\Users\\Michael\\Documents\\_Active\\V-Sekai\\groups\\test.wasm
+# CPPFLAGS += -oC:/Users/Michael/Documents/_Active/V-Sekai/groups/test.wasm
 # CPPFLAGS += -v
 
 # $(COPY_DEST)/%.wasm: test.wasm

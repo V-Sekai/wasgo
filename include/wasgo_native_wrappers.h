@@ -203,6 +203,29 @@
 // #include "scene/resources/world_3d.h"
 // #include "scene/resources/world_2d.h"
 
+// bool _wasgo_variant_check_id(WasGoState::WasGoID id){
+//     return false;
+// }
+// WasGoState::_EncodedVariant _wasgo_variant_constructor(Variant::Type type, WasGoState::_EncodedVariant *p_args, const int p_argcount){
+    
+// }
+// void _wasgo_variant_deconstructor(WasGoState::WasGoID id){
+    
+// }
+// WasGoState::_EncodedVariant _wasgo_variant_call(WasGoState::WasGoID id, const std::string &p_method, WasGoState::_EncodedVariant *p_args, const int p_argcount){
+    
+// }
+// WasGoState::_EncodedVariant _wasgo_variant_call_op(WasGoState::WasGoID id, const Variant::Operator p_op, WasGoState::_EncodedVariant *p_args, const int p_argcount){
+    
+// }
+// WasGoState::_EncodedVariant _wasgo_variant_call_const(WasGoState::WasGoID id, const std::string &p_method, WasGoState::_EncodedVariant *p_args, const int p_argcount){
+    
+// }
+// static WasGoState::_EncodedVariant _wasgo_variant_call_static(std::string type, const std::string &p_method, WasGoState::_EncodedVariant *p_args, const int p_argcount){
+    
+// }
+
+
 // WasGoState::WasGoID _wasgo_Input_constructor() {
 // 	return 0;
 //     }

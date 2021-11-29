@@ -1,7 +1,8 @@
-#include "wasgo/wasgo.h"
+#include "wasgo.h"
 // #include "marshalls.h"
 // #include "Object.h"
 #include <stdio.h>
+#include <string.h>
 
 #define STRING_MAX 256
 
@@ -372,29 +373,57 @@ bool WasGo::is_processing_unhandled_key_input(){
 // 	InputEventKey event(p_wasgo_id);
 // 	_unhandled_key_input(event);
 // }
+static inline unsigned int encode_uint32(uint32_t p_uint, uint8_t *p_arr) {
 
-bool WasGo::get_property_bool(std::string key) {
-	// int name_buffer_size = 4 + key.size();
-	// uint8_t name_buffer[name_buffer_size];
-	// encode_variant(key, name_buffer, name_buffer_size);
-	// return _wasgo_get_property_bool(name_buffer, name_buffer_size);
-	return false;
+	for (int i = 0; i < 4; i++) {
+
+		*p_arr = p_uint & 0xFF;
+		p_arr++;
+		p_uint >>= 8;
+	}
+
+	return sizeof(uint32_t);
 }
-int WasGo::get_property_int(std::string key) {
+static void _encode_string(const char * utf8, uint8_t *buf, int &r_len) {
+	size_t length = strlen(utf8);
+	if (buf) {
+		encode_uint32(length, buf);
+		buf += 4;
+		memcpy(buf, utf8, length);
+		buf += length;
+	}
+
+	r_len += 4 + length;
+	while (r_len % 4) {
+		r_len++; //pad
+		if (buf) {
+			*(buf++) = 0;
+		}
+	}
+}
+
+bool WasGo::get_property_bool(const char * key) {
+	int name_buffer_size = 4 + strlen(key);
+	uint8_t name_buffer[name_buffer_size];
+	_encode_string(key, name_buffer, name_buffer_size);
+	return _wasgo_get_property_bool(name_buffer, name_buffer_size);
+	// return false;
+}
+int WasGo::get_property_int(const char * key) {
 	// int name_buffer_size = 4 + key.size();
 	// uint8_t name_buffer[name_buffer_size];
 	// encode_variant(key, name_buffer, name_buffer_size);
 	// return _wasgo_get_property_bool(name_buffer, name_buffer_size);
 	return 0;
 }
-float WasGo::get_property_float(std::string key){
+float WasGo::get_property_float(const char * key){
 	// int name_buffer_size = 4 + key.size();
 	// uint8_t name_buffer[name_buffer_size];
 	// encode_variant(key, name_buffer, name_buffer_size);
 	// return _wasgo_get_property_float(name_buffer, name_buffer_size);
 	return 0;
 }
-std::string WasGo::get_property_string(std::string key){
+const char * WasGo::get_property_string(const char * key){
 	// int name_buffer_size = 4 + key.size();
 	// uint8_t name_buffer[name_buffer_size];
 	// encode_variant(key, name_buffer, name_buffer_size);

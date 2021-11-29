@@ -46,11 +46,11 @@ void Variant::_set_wasgo_id(WasGoID id){
 const WasGoID Variant::_get_wasgo_id(){
 	return wasgo_id;
 }
-static std::string _get_type_name(){
+static char *get_type_name(){
 	return "Variant";
 }
-Variant Variant::call(const std::string &p_method, Variant **p_args, const int p_argcount){
-	_EncodedVariant* args = new _EncodedVariant[p_argcount];
+Variant Variant::call(const char *p_method, Variant **p_args, const int p_argcount){
+	_EncodedVariant args[p_argcount];
 	for (int i = 0; i < p_argcount; i++){
 		if(p_args[i] == nullptr){
 			args[i] = _EncodedVariant();
@@ -58,7 +58,8 @@ Variant Variant::call(const std::string &p_method, Variant **p_args, const int p
 			args[i] = p_args[i]->_encode();
 		}
 	}
-	return _decode(_variant_call(wasgo_id, p_method, args, p_argcount));
+	Variant ret = _decode(_variant_call(wasgo_id, p_method, args, p_argcount));
+	return ret;
 }
 Variant Variant::call_op(const Operator p_op, Variant **p_args, const int p_argcount){
 	_EncodedVariant* args = new _EncodedVariant[p_argcount];
@@ -71,7 +72,7 @@ Variant Variant::call_op(const Operator p_op, Variant **p_args, const int p_argc
 	}
 	return _decode(_variant_call_op(wasgo_id, p_op, args, p_argcount));
 }
-Variant Variant::call_const(const std::string &p_method, Variant **p_args, const int p_argcount){
+Variant Variant::call_const(const char *p_method, Variant **p_args, const int p_argcount){
 	_EncodedVariant* args = new _EncodedVariant[p_argcount];
 	for (int i = 0; i < p_argcount; i++){
 		if(p_args[i] == nullptr){
@@ -82,7 +83,7 @@ Variant Variant::call_const(const std::string &p_method, Variant **p_args, const
 	}
 	return _decode(_variant_call(wasgo_id, p_method, args, p_argcount));
 }
-Variant Variant::call_static(const std::string &p_method, Variant **p_args, const int p_argcount){
+Variant Variant::call_static(const char *p_method, Variant **p_args, const int p_argcount){
 	_EncodedVariant* args = new _EncodedVariant[p_argcount];
 	for (int i = 0; i < p_argcount; i++){
 		if(p_args[i] == nullptr){
@@ -98,7 +99,7 @@ _EncodedVariant Variant::_encode(){//overwrite this if you have some extra logic
 	return _EncodedVariant(wasgo_id);
 }
 
-Variant Variant::_decode(_EncodedVariant ev){
+Variant Variant::_decode(_EncodedVariant &&ev){
 	Variant v;
 	v._set_wasgo_id(ev._id);
 	return v;

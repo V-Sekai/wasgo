@@ -2,9 +2,8 @@
 #ifndef WASGO_H
 #define WASGO_H
 
-#include "core/variant/variant.h"
+#include "variant/variant.h"
 #include <stdint.h>
-#include <string>
 
 typedef uint32_t WasGoID;
 // class InputEvent;
@@ -80,41 +79,41 @@ bool _wasgo_is_processing_unhandled_key_input();
 // class Node;//Why does this work?
 class WasGo {
 public:
-	// static Variant get_property(std::string property, Variant::Type = Variant::REAL);
-	// static void set_property(std::string property, Variant value);
+	// static Variant get_property(const char *property, Variant::Type = Variant::REAL);
+	// static void set_property(const char *property, Variant value);
 
-	static bool get_property_bool(std::string key);
-	static int get_property_int(std::string key);
-	static float get_property_float(std::string key);
-	static std::string get_property_string(std::string key);
-	// static Vector2 get_property_vector2(std::string key);
-	// static Rect2 get_property_rect2(std::string key);
-	// static Vector3 get_property_vector3(std::string key);
-	// static Transform2D get_property_transform2d(std::string key);
-	// static Plane get_property_plane(std::string key);
-	// static Quaternion get_property_quat(std::string key);
-	// static AABB get_property_aabb(std::string key);
-	// static Basis get_property_basis(std::string key);
-	// static Transform3D get_property_transform(std::string key);
-	// static Color get_property_color(std::string key);
-	// static NodePath get_property_nodepath(std::string key);
+	static bool get_property_bool(const char *key);
+	static int get_property_int(const char *key);
+	static float get_property_float(const char *key);
+	static const char *get_property_string(const char *key);
+	// static Vector2 get_property_vector2(const char *key);
+	// static Rect2 get_property_rect2(const char *key);
+	// static Vector3 get_property_vector3(const char *key);
+	// static Transform2D get_property_transform2d(const char *key);
+	// static Plane get_property_plane(const char *key);
+	// static Quaternion get_property_quat(const char *key);
+	// static AABB get_property_aabb(const char *key);
+	// static Basis get_property_basis(const char *key);
+	// static Transform3D get_property_transform(const char *key);
+	// static Color get_property_color(const char *key);
+	// static NodePath get_property_nodepath(const char *key);
 
-	static void set_property(std::string key, Variant variant);
-	// static void set_property_bool(std::string key, bool p_value);
-	// static void set_property_int(std::string key, int p_value);
-	// static void set_property_float(std::string key, float p_value);
-	// static void set_property_string(std::string key, std::string p_value);
-	// static void set_property_vector2(std::string key, Vector2 p_value);
-	// static void set_property_rect2(std::string key, Rect2 p_value);
-	// static void set_property_vector3(std::string key, Vector3 p_value);
-	// static void set_property_transform2d(std::string key, Transform2D p_value);
-	// static void set_property_plane(std::string key, Plane p_value);
-	// static void set_property_quat(std::string key, Quaternion p_value);
-	// static void set_property_aabb(std::string key, AABB p_value);
-	// static void set_property_basis(std::string key, Basis p_value);
-	// static void set_property_transform(std::string key, Transform3D p_value);
-	// static void set_property_color(std::string key, Color p_value);
-	// static void set_property_nodepath(std::string key, NodePath p_value);
+	static void set_property(const char *key, Variant variant);
+	// static void set_property_bool(const char *key, bool p_value);
+	// static void set_property_int(const char *key, int p_value);
+	// static void set_property_float(const char *key, float p_value);
+	// static void set_property_string(const char *key, const char *p_value);
+	// static void set_property_vector2(const char *key, Vector2 p_value);
+	// static void set_property_rect2(const char *key, Rect2 p_value);
+	// static void set_property_vector3(const char *key, Vector3 p_value);
+	// static void set_property_transform2d(const char *key, Transform2D p_value);
+	// static void set_property_plane(const char *key, Plane p_value);
+	// static void set_property_quat(const char *key, Quaternion p_value);
+	// static void set_property_aabb(const char *key, AABB p_value);
+	// static void set_property_basis(const char *key, Basis p_value);
+	// static void set_property_transform(const char *key, Transform3D p_value);
+	// static void set_property_color(const char *key, Color p_value);
+	// static void set_property_nodepath(const char *key, NodePath p_value);
 
 	// static Node this_node();
 	static void set_process(bool p_enable);

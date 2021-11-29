@@ -35,6 +35,20 @@ public:
 		SLERP
 	};
 	typedef uint32_t WasGoID;
+	
+	#define NULL_WASGO_ID 0
+	struct _EncodedVariant {
+		WasGoID _id = NULL_WASGO_ID; //data exists on the godot side, we don't need to actually encode anything
+		std::string _data = ""; //data encoded as a string, we will need to decode and store on wasm side
+		_EncodedVariant(){
+		}
+		_EncodedVariant(WasGoID p_id){
+			_id = p_id;
+		}
+		_EncodedVariant(std::string p_data){
+			_data = p_data;
+		}
+	};
 
 	WasGoState();
 	~WasGoState();
