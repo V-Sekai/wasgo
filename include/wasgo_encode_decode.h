@@ -1,39 +1,13 @@
-/*************************************************************************/
-/*  marshalls.h                                                          */
-/*************************************************************************/
-/*                       This file is part of:                           */
-/*                           GODOT ENGINE                                */
-/*                      https://godotengine.org                          */
-/*************************************************************************/
-/* Copyright (c) 2007-2020 Juan Linietsky, Ariel Manzur.                 */
-/* Copyright (c) 2014-2020 Godot Engine contributors (cf. AUTHORS.md).   */
-/*                                                                       */
-/* Permission is hereby granted, free of charge, to any person obtaining */
-/* a copy of this software and associated documentation files (the       */
-/* "Software"), to deal in the Software without restriction, including   */
-/* without limitation the rights to use, copy, modify, merge, publish,   */
-/* distribute, sublicense, and/or sell copies of the Software, and to    */
-/* permit persons to whom the Software is furnished to do so, subject to */
-/* the following conditions:                                             */
-/*                                                                       */
-/* The above copyright notice and this permission notice shall be        */
-/* included in all copies or substantial portions of the Software.       */
-/*                                                                       */
-/* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,       */
-/* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF    */
-/* MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.*/
-/* IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY  */
-/* CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,  */
-/* TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE     */
-/* SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.                */
-/*************************************************************************/
+//Lots of this is copied from Godot's marshalls.h
 
-#ifndef MARSHALLS_H
-#define MARSHALLS_H
+#ifndef WASGO_ENCODE_DECODE_H
+#define WASGO_ENCODE_DECODE_H
 
 // #include "reference.h"
 // #include "typedefs.h"
 #include "wasgoid.h"
+#include <string>
+#include <limits.h>
 // #include "Variant.h"
 
 /**
@@ -184,8 +158,64 @@ static inline double decode_double(const WasGoByte *p_arr) {
 	return md.d;
 }
 
-static void _encode_string(const char *utf8, WasGoByte *buf, size_t &r_len);
-static void _decode_string(WasGoByte *&buf, size_t &len, size_t *r_len, char *&r_string);
+#define _S(a) ((int32_t)a)
+#define ERR_FAIL_COND_V(cond) if(cond){return;}
+#define ERR_FAIL_ADD_OF(a, b) ERR_FAIL_COND_V(_S(b) < 0 || _S(a) < 0 || _S(a) > INT_MAX - _S(b))
+#define ERR_FAIL_MUL_OF(a, b) ERR_FAIL_COND_V(_S(a) < 0 || _S(b) <= 0 || _S(a) > INT_MAX / _S(b))
+
+#define ENCODE_MASK 0xFF
+#define ENCODE_FLAG_64 1 << 16
+#define ENCODE_FLAG_OBJECT_AS_ID 1 << 16
+
+static void _decode_string(WasGoByte *&buf, size_t &len, size_t *r_len, char *&r_string) {
+	ERR_FAIL_COND_V(len < 4)
+
+	int32_t strlen = decode_uint32(buf);
+	int32_t pad = 0;
+
+	// Handle padding
+	if (strlen % 4) {
+		pad = 4 - strlen % 4;
+	}
+
+	buf += 4;
+	len -= 4;
+
+	// Ensure buffer is big enough
+	ERR_FAIL_ADD_OF(strlen, pad);
+	ERR_FAIL_COND_V(strlen < 0 || strlen + pad > len);
+
+	char *str = (char *)buf;
+	// ERR_FAIL_COND_V(str =(const char *)buf, strlen));
+	r_string = str;
+
+	// Add padding
+	strlen += pad;
+
+	// Update buffer pos, left data count, and return size
+	buf += strlen;
+	len -= strlen;
+	if (r_len) {
+		(*r_len) += 4 + strlen;
+	}
+}
+static void _encode_string(const char *utf8, WasGoByte *buf, size_t &r_len) {
+	size_t length = strlen(utf8);
+	if (buf) {
+		encode_uint32(length, buf);
+		buf += 4;
+		memcpy(buf, utf8, length);
+		buf += length;
+	}
+
+	r_len += 4 + length;
+	while (r_len % 4) {
+		r_len++; //pad
+		if (buf) {
+			*(buf++) = 0;
+		}
+	}
+}
 // class EncodedObjectAsID : public Reference {
 // 	// GDCLASS(EncodedObjectAsID, Reference);
 

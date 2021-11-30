@@ -3,8 +3,9 @@
 #define WASGO_H
 
 #include "variant/variant.h"
-#include "encode_decode.h"
+#include "wasgo_encode_decode.h"
 #include <stdint.h>
+#include <limits>
 
 // typedef uint32_t WasGoID;
 // class InputEvent;

@@ -72,6 +72,9 @@ EXPORT_WASM_API_WITH_SIG((void *)_wasgo_is_processing_unhandled_key_input,"()"),
 {"rand",(void *) _wasgo_rand, "()i"},
 
 //Variant
+EXPORT_WASM_API_WITH_SIG(_wasgo_variant_deconstructor,"(I)"),
+
+//Input
 EXPORT_WASM_API_WITH_SIG((void *)_wasgo_is_processing_unhandled_key_input,"()"),
 // 	EXPORT_WASM_API_WITH_SIG(_wasgo_Input_wrapper_action_press, "(*~f)"),
 // 	EXPORT_WASM_API_WITH_SIG(_wasgo_Input_wrapper_action_release, "(*~)"),

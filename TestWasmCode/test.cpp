@@ -25,7 +25,24 @@ extern "C"
 int test(){
 	printf("\n-------------------------------\ncalling test from inside wasm runtime\n");
 	Variant v = true;
-	printf("\nreturning to godot\n--------------------------------------");
+	if(v){
+		printf("v is true\n");
+	} else {
+		printf("v is false\n");
+	}
+	v = false;
+	if(v){
+		printf("v is true\n");
+	} else {
+		printf("v is false\n");
+	}
+	v = 42;
+	printf("v is %d\n", (int)v);
+	v = 43.4564356;
+	printf("v is %d\n", (int)v);
+	v = "hello world";
+	printf("v is %s\n", (char *)v);
+	printf("\nreturning to godot\n--------------------------------------\n");
 	return 69;
 }
 

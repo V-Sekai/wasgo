@@ -1,5 +1,5 @@
 #include "wasgo.h"
-#include "encode_decode.h"
+#include "wasgo_encode_decode.h"
 // #include "Object.h"
 #include <stdio.h>
 #include <string.h>

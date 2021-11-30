@@ -2,10 +2,11 @@
 #define WASGO_NATIVE_WRAPPER_HEADERS
 #include "wasm_export.h"
 #include "src/wasgo_state.h"
-#include "core/io/marshalls.h"
-#include "core/variant/variant.h"
-#include "scene/register_scene_types.h"
-#include "scene/scene_string_names.h"
+// #include "core/io/marshalls.h"
+// #include "core/variant/variant.h"
+// #include "scene/register_scene_types.h"
+// #include "scene/scene_string_names.h"
+#include "wasgo_encode_decode.h"
 // // #include "scene/2d/animated_sprite.h"
 // #include "scene/2d/area_2d.h"
 // #include "scene/2d/audio_stream_player_2d.h"
@@ -209,9 +210,9 @@
 // WasGoState::_EncodedVariant _wasgo_variant_constructor(Variant::Type type, WasGoState::_EncodedVariant *p_args, const int p_argcount){
     
 // }
-// void _wasgo_variant_deconstructor(WasGoState::WasGoID id){
+inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::WasGoID id){
     
-// }
+}
 // WasGoState::_EncodedVariant _wasgo_variant_call(WasGoState::WasGoID id, const std::string &p_method, WasGoState::_EncodedVariant *p_args, const int p_argcount){
     
 // }

@@ -132,12 +132,73 @@ public:
 	
 	operator bool() const;//auto convert to bool
 	Variant(bool p_bool);//auto convert from bool
+	// operator int() const;//auto convert to int
+	// Variant(int p_int);//auto convert from int
+	// operator uint8_t() const;//auto convert to uint8_t
+	// Variant(uint8_t p_uint8_t);//auto convert from uint8_t
+	// operator uint16_t() const;//auto convert to uint16_t
+	// Variant(uint16_t p_uint16_t);//auto convert from uint16_t
+	// operator uint32_t() const;//auto convert to uint32_t
+	// Variant(uint32_t p_uint32_t);//auto convert from uint32_t
+	operator uint64_t() const;//auto convert to uint64_t
+	Variant(uint64_t p_uint64_t);//auto convert from uint64_t
+	// operator int8_t() const;//auto convert to int8_t
+	// Variant(int8_t p_int8_t);//auto convert from int8_t
+	// operator int16_t() const;//auto convert to int16_t
+	// Variant(int16_t p_int16_t);//auto convert from int16_t
+	// operator int32_t() const;//auto convert to int32_t
+	// Variant(int32_t p_int32_t);//auto convert from int32_t
+	operator int64_t() const;//auto convert to uint64_t
+	Variant(int64_t p_uint64_t);//auto convert from uint64_t
+	
+	operator signed int() const;
+	Variant(signed int p_int);
+	operator unsigned int() const;
+	Variant(unsigned int p_int);
+	operator signed short() const;
+	Variant(signed short p_short);
+	operator unsigned short() const;
+	Variant(unsigned short p_short);
+	operator signed char() const;
+	Variant(signed char p_char);
+	operator unsigned char() const;
+	Variant(unsigned char p_char);
+	
+	operator float() const;//auto convert to float
+	Variant(float p_float);//auto convert from float
+	operator double() const;//auto convert to double
+	Variant(double p_double);//auto convert from double
+	
+	//DANGER WILL ROBINSON
+	operator char*() const;//auto convert to char *
+	// operator wchar_t *() const;//auto convert to char *
+	// Variant(const char* p_char_str);//auto convert from char *
+	Variant(const char *const p_cstring);
+	Variant(const wchar_t *p_wstring);
+	
+	Variant(const Variant&) = delete;
+	Variant& operator=(const Variant&) = delete;
+	Variant(Variant &&other) {
+		_wasgo_data_type = other._wasgo_data_type;
+		_wasgo_data = other._wasgo_data;
+		other._wasgo_data_type = _id_data;
+		other._wasgo_data._id = NULL_WASGO_ID;
+	}
+	Variant& operator=(Variant&& other) {
+		_delete_data();
+		_wasgo_data_type = other._wasgo_data_type;
+		_wasgo_data = other._wasgo_data;
+		other._wasgo_data_type = _id_data;
+		other._wasgo_data._id = NULL_WASGO_ID;
+		return *this;
+	}
 
 protected:
 	Variant call(const char *p_method, Variant **p_args, const size_t p_argcount);
 	Variant call_op(const Operator p_op, Variant **p_args, const size_t p_argcount);
 	Variant call_const(const char *p_method, Variant **p_args, const size_t p_argcount);
 	static Variant call_static(const char *p_method, Variant **p_args, const size_t p_argcount);
+	void _delete_data();//Need to override this if storing data on godot side
 private:
 	union _wasgo_data_union {
 		bool _bool;
@@ -145,7 +206,6 @@ private:
 		double _float;
 		char * _str;
 		WasGoID _id;
-		void * _ptr;//for advanced datatypes that exist on wasm-side like Vector3
 	} _wasgo_data = {NULL_WASGO_ID};
 	enum _wasgo_data_enum{//what type is being represented by the union
 		_bool_data,
@@ -153,10 +213,11 @@ private:
 		_float_data,
 		_str_data,
 		_id_data,
-		_ptr_data,
 	} _wasgo_data_type = _id_data;
 	Variant(); //creates a variant on the godot side
 };
+
+// static_assert(sizeof(wchar_t) == sizeof(char32_t));
 
 // WasGoID _variant_get_variant();
 extern "C"{
@@ -166,7 +227,7 @@ void _wasgo_variant_deconstructor(WasGoID id);
 void _wasgo_variant_call(WasGoID id, const char *p_method, uint8_t **p_args, size_t *p_arglengths, int p_argcount, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_variant_call_op(WasGoID id, const Variant::Operator p_op, uint8_t **p_args, size_t *p_arglengths, int p_argcount, uint8_t * wasgo_ret, int wasgo_ret_size);
 void _wasgo_variant_call_const(WasGoID id, const char *p_method, uint8_t **p_args, size_t *p_arglengths, int p_argcount, uint8_t * wasgo_ret, int wasgo_ret_size);
-static void _wasgo_variant_call_static(char * type, const char *p_method, uint8_t **p_args, size_t *p_arglengths, int p_argcount, uint8_t * wasgo_ret, int wasgo_ret_size);
+void _wasgo_variant_call_static(char * type, const char *p_method, uint8_t **p_args, size_t *p_arglengths, int p_argcount, uint8_t * wasgo_ret, int wasgo_ret_size);
 }
 // #include "core/input/input_enums.h"
 // #include "core/io/ip_address.h"

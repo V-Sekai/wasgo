@@ -1,11 +1,12 @@
 #include "variant.h"
-#include "encode_decode.h"
+#include "wasgo_encode_decode.h"
 #include <string>
 
 Variant::Variant(){
 }
 Variant::~Variant(){
-	if(_wasgo_data_type == _id_data){
+	_delete_data();
+	if (_wasgo_data_type == _id_data) {
 		_wasgo_variant_deconstructor(_wasgo_data._id);
 	}
 }
@@ -221,15 +222,421 @@ Variant::operator bool() const{
 		case (_id_data):{
 			return _wasgo_data._id;
 		}
-		default:{//ptr_data
-			return _wasgo_data._ptr;
-		}
 	}
-	return _wasgo_data_type == _bool_data && _wasgo_data._bool;//TODO actual conversion to bool
 }
 Variant::Variant(bool p_bool){
 	_wasgo_data_type = _bool_data;
 	_wasgo_data._bool = p_bool;
+}
+// Variant::operator int()const{
+// 	switch (_wasgo_data_type) {
+// 		case (_bool_data):{
+// 			return _wasgo_data._bool;
+// 		}
+// 		case (_int_data):{
+// 			return _wasgo_data._int;
+// 		}
+// 		case (_float_data):{
+// 			printf("we are casting floats to ints\n");
+// 			return _wasgo_data._float;
+// 		}
+// 		default:{//ptr_data
+// 			printf("Error casting Variant to int\n");
+// 			return 0;
+// 		}
+// 	}
+// }
+// Variant::Variant(int p_int){
+// 	_wasgo_data_type = _int_data;
+// 	_wasgo_data._int = p_int;
+// }
+// Variant::operator uint8_t()const{
+// 	switch (_wasgo_data_type) {
+// 		case (_bool_data):{
+// 			return _wasgo_data._bool;
+// 		}
+// 		case (_int_data):{
+// 			return _wasgo_data._int;
+// 		}
+// 		case (_float_data):{
+// 			return _wasgo_data._float;
+// 		}
+// 		default:{//ptr_data
+// 			printf("Error casting Variant to uint8_t\n");
+// 			return 0;
+// 		}
+// 	}
+// }
+// Variant::Variant(uint8_t p_uint8_t){
+// 	_wasgo_data_type = _int_data;
+// 	_wasgo_data._int = p_uint8_t;
+// }
+// Variant::operator uint16_t()const{
+// 	switch (_wasgo_data_type) {
+// 		case (_bool_data):{
+// 			return _wasgo_data._bool;
+// 		}
+// 		case (_int_data):{
+// 			return _wasgo_data._int;
+// 		}
+// 		case (_float_data):{
+// 			return _wasgo_data._float;
+// 		}
+// 		default:{//ptr_data
+// 			printf("Error casting Variant to uint16_t\n");
+// 			return 0;
+// 		}
+// 	}
+// }
+// Variant::Variant(uint16_t p_uint16_t){
+// 	_wasgo_data_type = _int_data;
+// 	_wasgo_data._int = p_uint16_t;
+// }
+// Variant::operator uint32_t()const{
+// 	switch (_wasgo_data_type) {
+// 		case (_bool_data):{
+// 			return _wasgo_data._bool;
+// 		}
+// 		case (_int_data):{
+// 			return _wasgo_data._int;
+// 		}
+// 		case (_float_data):{
+// 			return _wasgo_data._float;
+// 		}
+// 		default:{//ptr_data
+// 			printf("Error casting Variant to uint32_t\n");
+// 			return 0;
+// 		}
+// 	}
+// }
+// Variant::Variant(uint32_t p_uint32_t){
+// 	_wasgo_data_type = _int_data;
+// 	_wasgo_data._int = p_uint32_t;
+// }
+Variant::operator uint64_t()const{
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			return _wasgo_data._bool;
+		}
+		case (_int_data):{
+			return _wasgo_data._int;
+		}
+		case (_float_data):{
+			return _wasgo_data._float;
+		}
+		default:{//ptr_data
+			printf("Error casting Variant to uint64_t\n");
+			return 0;
+		}
+	}
+}
+Variant::Variant(uint64_t p_uint64_t){
+	_wasgo_data_type = _int_data;
+	_wasgo_data._int = p_uint64_t;
+}
+// Variant::operator int8_t()const{
+// 	switch (_wasgo_data_type) {
+// 		case (_bool_data):{
+// 			return _wasgo_data._bool;
+// 		}
+// 		case (_int_data):{
+// 			return _wasgo_data._int;
+// 		}
+// 		case (_float_data):{
+// 			return _wasgo_data._float;
+// 		}
+// 		default:{//ptr_data
+// 			printf("Error casting Variant to int8_t\n");
+// 			return 0;
+// 		}
+// 	}
+// }
+// Variant::Variant(int8_t p_int8_t){
+// 	_wasgo_data_type = _int_data;
+// 	_wasgo_data._int = p_int8_t;
+// }
+// Variant::operator int16_t()const{
+// 	switch (_wasgo_data_type) {
+// 		case (_bool_data):{
+// 			return _wasgo_data._bool;
+// 		}
+// 		case (_int_data):{
+// 			return _wasgo_data._int;
+// 		}
+// 		case (_float_data):{
+// 			return _wasgo_data._float;
+// 		}
+// 		default:{//ptr_data
+// 			printf("Error casting Variant to int16_t\n");
+// 			return 0;
+// 		}
+// 	}
+// }
+// Variant::Variant(int16_t p_int16_t){
+// 	_wasgo_data_type = _int_data;
+// 	_wasgo_data._int = p_int16_t;
+// }
+// Variant::operator int32_t()const{
+// 	switch (_wasgo_data_type) {
+// 		case (_bool_data):{
+// 			return _wasgo_data._bool;
+// 		}
+// 		case (_int_data):{
+// 			return _wasgo_data._int;
+// 		}
+// 		case (_float_data):{
+// 			return _wasgo_data._float;
+// 		}
+// 		default:{//ptr_data
+// 			printf("Error casting Variant to int32_t\n");
+// 			return 0;
+// 		}
+// 	}
+// }
+// Variant::Variant(int32_t p_int32_t){
+// 	_wasgo_data_type = _int_data;
+// 	_wasgo_data._int = p_int32_t;
+// }
+Variant::operator int64_t()const{
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			return _wasgo_data._bool;
+		}
+		case (_int_data):{
+			return _wasgo_data._int;
+		}
+		case (_float_data):{
+			return _wasgo_data._float;
+		}
+		default:{//ptr_data
+			printf("Error casting Variant to int64_t\n");
+			return 0;
+		}
+	}
+}
+Variant::Variant(int64_t p_int64_t){
+	_wasgo_data_type = _int_data;
+	_wasgo_data._int = p_int64_t;
+}
+
+Variant::operator signed int() const{
+	
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			return _wasgo_data._bool;
+		}
+		case (_int_data):{
+			return _wasgo_data._int;
+		}
+		case (_float_data):{
+			return _wasgo_data._float;
+		}
+		default:{//ptr_data
+			printf("Error casting Variant to signed int\n");
+			return 0;
+		}
+	}
+}
+Variant::Variant(signed int p_int){
+	_wasgo_data_type = _int_data;
+	_wasgo_data._int = p_int;
+}
+Variant::operator unsigned int() const{
+	
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			return _wasgo_data._bool;
+		}
+		case (_int_data):{
+			return _wasgo_data._int;
+		}
+		case (_float_data):{
+			return _wasgo_data._float;
+		}
+		default:{//ptr_data
+			printf("Error casting Variant to unsigned int\n");
+			return 0;
+		}
+	}
+}
+Variant::Variant(unsigned int p_int){
+	_wasgo_data_type = _int_data;
+	_wasgo_data._int = p_int;
+}
+Variant::operator signed short() const{
+	
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			return _wasgo_data._bool;
+		}
+		case (_int_data):{
+			return _wasgo_data._int;
+		}
+		case (_float_data):{
+			return _wasgo_data._float;
+		}
+		default:{//ptr_data
+			printf("Error casting Variant to signed short\n");
+			return 0;
+		}
+	}
+}
+Variant::Variant(signed short p_short){
+	_wasgo_data_type = _int_data;
+	_wasgo_data._int = p_short;
+}
+Variant::operator unsigned short() const{
+	
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			return _wasgo_data._bool;
+		}
+		case (_int_data):{
+			return _wasgo_data._int;
+		}
+		case (_float_data):{
+			return _wasgo_data._float;
+		}
+		default:{//ptr_data
+			printf("Error casting Variant to unsigned short\n");
+			return 0;
+		}
+	}
+}
+Variant::Variant(unsigned short p_short){
+	_wasgo_data_type = _int_data;
+	_wasgo_data._int = p_short;
+}
+Variant::operator signed char() const{
+	
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			return _wasgo_data._bool;
+		}
+		case (_int_data):{
+			return _wasgo_data._int;
+		}
+		case (_float_data):{
+			return _wasgo_data._float;
+		}
+		default:{//ptr_data
+			printf("Error casting Variant to signed char\n");
+			return 0;
+		}
+	}
+}
+Variant::Variant(signed char p_char){
+	_wasgo_data_type = _int_data;
+	_wasgo_data._int = p_char;
+}
+Variant::operator unsigned char() const{
+	
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			return _wasgo_data._bool;
+		}
+		case (_int_data):{
+			return _wasgo_data._int;
+		}
+		case (_float_data):{
+			return _wasgo_data._float;
+		}
+		default:{//ptr_data
+			printf("Error casting Variant to unsigned char\n");
+			return 0;
+		}
+	}
+}
+Variant::Variant(unsigned char p_char){
+	_wasgo_data_type = _int_data;
+	_wasgo_data._int = p_char;
+}
+
+Variant::operator float()const{
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			return _wasgo_data._bool;
+		}
+		case (_int_data):{
+			return _wasgo_data._int;
+		}
+		case (_float_data):{
+			return _wasgo_data._float;
+		}
+		default:{//ptr_data
+			printf("Error casting Variant to float\n");
+			return 0;
+		}
+	}
+}
+Variant::Variant(float p_float){
+	_wasgo_data_type = _float_data;
+	_wasgo_data._float = p_float;
+}
+Variant::operator double()const{
+	switch (_wasgo_data_type) {
+		case (_bool_data):{
+			return _wasgo_data._bool;
+		}
+		case (_int_data):{
+			return _wasgo_data._int;
+		}
+		case (_float_data):{
+			return _wasgo_data._float;
+		}
+		default:{//ptr_data
+			printf("Error casting Variant to double\n");
+			return 0;
+		}
+	}
+}
+Variant::Variant(double p_double){
+	_wasgo_data_type = _float_data;
+	_wasgo_data._float = p_double;
+}
+
+Variant::operator char *()const{
+	switch (_wasgo_data_type) {
+		case (_str_data):{
+			return _wasgo_data._str;
+		}
+		default:{//ptr_data
+			printf("Error casting Variant to char *\n");
+			return "";
+		}
+	}
+}
+// Variant::operator wchar_t *()const{
+// 	switch (_wasgo_data_type) {
+// 		case (_str_data):{
+// 			return _wasgo_data._str;
+// 		}
+// 		default:{//ptr_data
+// 			printf("Error casting Variant to char *\n");
+// 			return L"";
+// 		}
+// 	}
+// }
+Variant::Variant(const char *const p_char_str){
+	_wasgo_data_type = _str_data;
+	size_t wstring_length = 0;
+	_wasgo_data._str = (char *)malloc(strlen(p_char_str));
+	strcpy(_wasgo_data._str, p_char_str);
+}
+// Variant::Variant(const wchar_t *const p_wstring){
+// 	_delete_data();
+// 	_wasgo_data_type = _str_data;
+// 	size_t wstring_length = 0;
+// 	_wasgo_data._str = (wchar_t *)malloc(wcslen(p_wstring) * sizeof(wchar_t));
+// 	wcscpy(_wasgo_data._str, p_wstring);
+// }
+
+void Variant::_delete_data(){
+	if(_wasgo_data_type == _str_data && _wasgo_data._str != nullptr){
+		// delete[] _wasgo_data._str;
+		free(_wasgo_data._str);
+		_wasgo_data._str = nullptr;
+	}
 }
 // #include "core/core_string_names.h"
 // #include "core/debugger/engine_debugger.h"
