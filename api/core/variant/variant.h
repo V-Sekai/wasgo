@@ -3,37 +3,6 @@
 
 #include "wasgoid.h"
 
-// struct _EncodedVariant {
-// 	WasGoID _id = NULL_WASGO_ID; //data exists on the godot side, we don't need to actually encode anything
-// 	const char * _data = nullptr; //data encoded as a string, we will need to decode and store on wasm side
-// 	_EncodedVariant(){
-// 	}
-// 	_EncodedVariant(WasGoID p_id){
-// 		_id = p_id;
-// 	}
-// 	_EncodedVariant(const char * p_data){
-// 		_data = p_data;
-// 	}
-// 	_EncodedVariant(const _EncodedVariant&) = delete;
-// 	_EncodedVariant& operator=(const _EncodedVariant&) = delete;
-// 	_EncodedVariant(_EncodedVariant &&other) {
-// 		_id = other._id;
-// 		_data = other._data;
-// 		other._id = 0;
-// 		other._data = nullptr;
-// 	}
-// 	_EncodedVariant& operator=(_EncodedVariant&& other) {
-// 		_id = other._id;
-// 		_data = other._data;
-// 		other._id = 0;
-// 		other._data = nullptr;
-// 		return *this;
-// 	}
-// 	~_EncodedVariant() {
-// 		// delete(_data);
-// 	}
-// };
-
 class Variant {
 public:
 	enum Operator {
@@ -173,8 +142,8 @@ public:
 	operator char*() const;//auto convert to char *
 	// operator wchar_t *() const;//auto convert to char *
 	// Variant(const char* p_char_str);//auto convert from char *
-	Variant(const char *const p_cstring);
-	Variant(const wchar_t *p_wstring);
+	Variant(const char *const p_char_str);
+	// Variant(const wchar_t *p_wstring);
 	
 	Variant(const Variant&) = delete;
 	Variant& operator=(const Variant&) = delete;

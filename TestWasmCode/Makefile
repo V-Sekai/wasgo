@@ -9,7 +9,7 @@ BUILD_DIR ?= .
 CXX := "C:/Users/Michael/Documents/emsdk/upstream/bin/wasm32-wasi-clang++.exe"
 # CXX := "C:/Users/Michael/Documents/_Active/godot-wasm/godot/modules/WasGo/thirdparty/wasm-micro-runtime/wamr-sdk/opt/wasi-sdk/bin/clang.exe"
 
-SRCS := $(wildcard *.cpp ../api/Custom/core/*.cpp ../api/Custom/core/variant/*.cpp ../api/Custom/wasgo/*.cpp)
+SRCS := $(wildcard *.cpp ../api/core/*.cpp ../api/core/variant/*.cpp ../api/wasgo/*.cpp ../api/shared/*.cpp)
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 
@@ -47,8 +47,9 @@ CPPFLAGS += -Wl,--export=test
 CPPFLAGS += -Wl,--allow-undefined
 # CPPFLAGS += --include-directory=C:/Users/Michael/Documents/_Active/godot-wasm/godot/modules/WasGo/wasgo_headers
 # CPPFLAGS += --include-directory=C:/Users/Michael/Documents/_Active/godot-wasm/godot/godot\modules\WasGo\thirdparty\wasm-micro-runtime\wamr-sdk\opt\wasi-sdk\lib\clang\10.0.0\include
-CPPFLAGS += --include-directory=../api/Custom/core
-CPPFLAGS += --include-directory=../api/Custom/wasgo
+CPPFLAGS += --include-directory=../api/core
+CPPFLAGS += --include-directory=../api/wasgo
+CPPFLAGS += --include-directory=../api/shared
 # CPPFLAGS += --include-directory=../api/Generated
 # CPPFLAGS += --include-directory=../wasgo_headers
 # CPPFLAGS += --include-directory=C:/wasi-sdk-11.0/wasi-sysroot/include

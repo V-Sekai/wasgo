@@ -6,7 +6,7 @@
 // #include "core/variant/variant.h"
 // #include "scene/register_scene_types.h"
 // #include "scene/scene_string_names.h"
-#include "wasgo_encode_decode.h"
+#include "api/shared/wasgo_encode_decode.h"
 // // #include "scene/2d/animated_sprite.h"
 // #include "scene/2d/area_2d.h"
 // #include "scene/2d/audio_stream_player_2d.h"
