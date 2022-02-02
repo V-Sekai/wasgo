@@ -48,13 +48,15 @@ sdk = [
 "./thirdparty/wasm-micro-runtime/core/iwasm/aot/arch/aot_reloc_x86_64.c",
 ]
 
-if module_env["platform"] == "windows" and (module_env.msvc or module_env["use_mingw"]):
+if module_env["platform"] == "windows" and module_env.msvc:
+  sdk.append("./thirdparty/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.asm")
+elif module_env["platform"] == "windows" and module_env["use_mingw"]:
   sdk.append("./thirdparty/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64_GAS.s")
-  
-  # module_env.Append(CFLAGS=['/std:c99'])
-else:
+elif module_env["platform"] == "linuxbsd":
   sdk.append("./thirdparty/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64.s")
-  # module_env.Append(CFLAGS=['-std=c11'])
+else:
+  sdk.append("./thirdparty/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_general.c")
+ 
 
 if module_env["platform"] == "windows":
   sdk += [
@@ -87,11 +89,16 @@ else:
   ]
   sdk = sdk + posix
   sdk.append("./thirdparty/wasm-micro-runtime/core/shared/platform/linux/platform_init.c")
+
   module_env.Append(CPPDEFINES=[
     "BH_PLATFORM_LINUX",
   ])
 
-module_env["ASFLAGS"] = "-c"
+if module_env["platform"] == "windows" and module_env.msvc:
+  module_env["AS"] = "ml64"
+else:
+  module_env["ASFLAGS"] = "-c"
+
 module_env.Prepend( CPPPATH = [
     ".",
   ])
