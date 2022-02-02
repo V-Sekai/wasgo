@@ -48,7 +48,7 @@ sdk = [
 "./thirdparty/wasm-micro-runtime/core/iwasm/aot/arch/aot_reloc_x86_64.c",
 ]
 
-if module_env.msvc or module_env["use_mingw"]:
+if module_env["platform"] == "windows" and (module_env.msvc or module_env["use_mingw"]):
   sdk.append("./thirdparty/wasm-micro-runtime/core/iwasm/common/arch/invokeNative_em64_GAS.s")
   
   # module_env.Append(CFLAGS=['/std:c99'])
