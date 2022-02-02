@@ -69,6 +69,11 @@ if module_env["platform"] == "windows":
     "./thirdparty/wasm-micro-runtime/core/shared/platform/windows/../include",
     "./thirdparty/wasm-micro-runtime/core/iwasm/include",
   ])
+  module_env.Append(CPPDEFINES=[
+    "BH_PLATFORM_WINDOWS",
+    "WIN32",
+    "_WINDOWS",
+  ])
 else:
   module_env.Prepend( CPPPATH = [
     "./thirdparty/wasm-micro-runtime/core/shared/platform/linux",
@@ -82,7 +87,11 @@ else:
   ]
   sdk = sdk + posix
   sdk.append("./thirdparty/wasm-micro-runtime/core/shared/platform/linux/platform_init.c")
+  module_env.Append(CPPDEFINES=[
+    "BH_PLATFORM_LINUX",
+  ])
 
+module_env["ASFLAGS"] = "-c"
 module_env.Prepend( CPPPATH = [
     ".",
   ])
@@ -93,14 +102,9 @@ module_env.add_source_files(env.modules_sources, "api/shared/*.cpp")
 module_env.add_source_files(env.modules_sources, "*.cpp")
 # module_env.Append(CCFLAGS=['-O2']) # Flags for C and C++ code
 # module_env.Append(CXXFLAGS=['-std=c++11']) # Flags for C++ code only
-module_env.Append(CPPDEFINES=[
-  "BH_PLATFORM_WINDOWS",
-  "WIN32",
-  "_WINDOWS",
-  "TIME_UTC=1", # Don't know if this is correct. Windows uses local time.
-])
 
 module_env.Append(CPPDEFINES=[
+  "TIME_UTC=1", # Don't know if this is correct. Windows uses local time.
   ("BH_FREE", "wasm_runtime_free"),
   ("BH_MALLOC", "wasm_runtime_malloc"),
   "HAVE_STRUCT_TIMESPEC",
