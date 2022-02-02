@@ -43,9 +43,6 @@ sdk = [
 "./thirdparty/wasm-micro-runtime/core/iwasm/interpreter/wasm_interp_classic.c",
 "./thirdparty/wasm-micro-runtime/core/iwasm/interpreter/wasm_loader.c",
 "./thirdparty/wasm-micro-runtime/core/iwasm/interpreter/wasm_runtime.c",
-"./thirdparty/wasm-micro-runtime/core/iwasm/aot/aot_loader.c",
-"./thirdparty/wasm-micro-runtime/core/iwasm/aot/aot_runtime.c",
-"./thirdparty/wasm-micro-runtime/core/iwasm/aot/arch/aot_reloc_x86_64.c",
 ]
 
 if module_env["platform"] == "windows" and module_env.msvc:
@@ -94,6 +91,22 @@ else:
     "BH_PLATFORM_LINUX",
   ])
 
+if platform == "web":
+  # Web probably cannot build AOT
+  module_env.Append(CPPDEFINES=[
+    "BUILD_TARGET_X86_32",
+  ])
+else:
+  module_env.Append(CPPDEFINES=[
+    "BUILD_TARGET_X86_64",
+    ("WASM_ENABLE_AOT", 1),
+  ])
+  sdk += [
+    "./thirdparty/wasm-micro-runtime/core/iwasm/aot/aot_loader.c",
+    "./thirdparty/wasm-micro-runtime/core/iwasm/aot/aot_runtime.c",
+    "./thirdparty/wasm-micro-runtime/core/iwasm/aot/arch/aot_reloc_x86_64.c",
+  ]
+
 if module_env["platform"] == "windows" and module_env.msvc:
   module_env["AS"] = "ml64"
 else:
@@ -115,10 +128,8 @@ module_env.Append(CPPDEFINES=[
   ("BH_FREE", "wasm_runtime_free"),
   ("BH_MALLOC", "wasm_runtime_malloc"),
   "HAVE_STRUCT_TIMESPEC",
-  "BUILD_TARGET_X86_64",
   ("WASM_API_EXTERN", ""),
   ("WASM_RUNTIME_API_EXTERN", ""),
-  ("WASM_ENABLE_AOT", 1),
   ("WASM_ENABLE_BULK_MEMORY", 0),
   ("WASM_ENABLE_FAST_INTERP", 0),
   ("WASM_ENABLE_INTERP", 1),
