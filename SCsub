@@ -91,7 +91,7 @@ else:
     "BH_PLATFORM_LINUX",
   ])
 
-if platform == "web":
+if module_env["platform"] == "javascript":
   # Web probably cannot build AOT
   module_env.Append(CPPDEFINES=[
     "BUILD_TARGET_X86_32",
