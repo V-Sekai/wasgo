@@ -115,13 +115,6 @@ else:
 module_env.Prepend( CPPPATH = [
     ".",
   ])
-module_env.add_source_files(env.modules_sources, sdk)
-module_env.add_source_files(env.modules_sources, "src/*.cpp")
-module_env.add_source_files(env.modules_sources, "api/*.cpp")
-module_env.add_source_files(env.modules_sources, "api/shared/*.cpp")
-module_env.add_source_files(env.modules_sources, "*.cpp")
-# module_env.Append(CCFLAGS=['-O2']) # Flags for C and C++ code
-# module_env.Append(CXXFLAGS=['-std=c++11']) # Flags for C++ code only
 
 module_env.Append(CPPDEFINES=[
   "TIME_UTC=1", # Don't know if this is correct. Windows uses local time.
@@ -140,3 +133,15 @@ module_env.Append(CPPDEFINES=[
   ("WASM_ENABLE_SHARED_MEMORY", 0),
   # ("WASGO_API_GENERATION", "wasgo_api.json"), # will default to wasgo_api.json if no filename is provided
 ])
+
+# module_env.Append(CCFLAGS=['-O2']) # Flags for C and C++ code
+# module_env.Append(CXXFLAGS=['-std=c++11']) # Flags for C++ code only
+
+env_thirdparty = module_env.Clone()
+env_thirdparty.disable_warnings()
+env_thirdparty.add_source_files(env.modules_sources, sdk)
+env_thirdparty.add_source_files(env.modules_sources, "src/*.cpp")
+env_thirdparty.add_source_files(env.modules_sources, "api/*.cpp")
+env_thirdparty.add_source_files(env.modules_sources, "api/shared/*.cpp")
+
+module_env.add_source_files(env.modules_sources, "*.cpp")

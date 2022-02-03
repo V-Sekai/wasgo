@@ -6,9 +6,10 @@
 // #include "reference.h"
 // #include "typedefs.h"
 #include "wasgoid.h"
+#include <cstddef>
 #include <string>
 #include <limits.h>
-// #include "Variant.h"
+#include "core/variant/variant.h"
 
 /**
   * Miscellaneous helpers for marshalling data types, and encoding
@@ -159,63 +160,64 @@ static inline double decode_double(const WasGoByte *p_arr) {
 }
 
 #define _S(a) ((int32_t)a)
-#define ERR_FAIL_COND_V(cond) if(cond){return;}
-#define ERR_FAIL_ADD_OF(a, b) ERR_FAIL_COND_V(_S(b) < 0 || _S(a) < 0 || _S(a) > INT_MAX - _S(b))
-#define ERR_FAIL_MUL_OF(a, b) ERR_FAIL_COND_V(_S(a) < 0 || _S(b) <= 0 || _S(a) > INT_MAX / _S(b))
+#define ERR_FAIL_ADD_OF(a, b) ERR_FAIL_COND(_S(b) < 0 || _S(a) < 0 || _S(a) > INT_MAX - _S(b))
+#define ERR_FAIL_MUL_OF(a, b) ERR_FAIL_COND(_S(a) < 0 || _S(b) <= 0 || _S(a) > INT_MAX / _S(b))
 
 #define ENCODE_MASK 0xFF
 #define ENCODE_FLAG_64 1 << 16
 #define ENCODE_FLAG_OBJECT_AS_ID 1 << 16
 
-static void _decode_string(WasGoByte *&buf, size_t &len, size_t *r_len, char *&r_string) {
-	ERR_FAIL_COND_V(len < 4)
+// static void _decode_string(WasGoByte *&buf, size_t &len, size_t *r_len, char *&r_string) {
+// 	ERR_FAIL_COND(len < 4);
 
-	int32_t strlen = decode_uint32(buf);
-	int32_t pad = 0;
+// 	int32_t strlen = decode_uint32(buf);
+// 	size_t pad = 0;
 
-	// Handle padding
-	if (strlen % 4) {
-		pad = 4 - strlen % 4;
-	}
+// 	// Handle padding
+// 	if (strlen % 4) {
+// 		pad = 4 - strlen % 4;
+// 	}
 
-	buf += 4;
-	len -= 4;
+// 	buf += 4;
+// 	len -= 4;
 
-	// Ensure buffer is big enough
-	ERR_FAIL_ADD_OF(strlen, pad);
-	ERR_FAIL_COND_V(strlen < 0 || strlen + pad > len);
+// 	// Ensure buffer is big enough
+// 	ERR_FAIL_ADD_OF(strlen, pad);
+// 	ERR_FAIL_COND(strlen < 0);
+// 	ERR_FAIL_INDEX(strlen + pad, len);
 
-	char *str = (char *)buf;
-	// ERR_FAIL_COND_V(str =(const char *)buf, strlen));
-	r_string = str;
+// 	char *str = (char *)buf;
+// 	// ERR_FAIL_COND_V(str =(const char *)buf, strlen));
+// 	r_string = str;
 
-	// Add padding
-	strlen += pad;
+// 	// Add padding
+// 	strlen += pad;
 
-	// Update buffer pos, left data count, and return size
-	buf += strlen;
-	len -= strlen;
-	if (r_len) {
-		(*r_len) += 4 + strlen;
-	}
-}
-static void _encode_string(const char *utf8, WasGoByte *buf, size_t &r_len) {
-	size_t length = strlen(utf8);
-	if (buf) {
-		encode_uint32(length, buf);
-		buf += 4;
-		memcpy(buf, utf8, length);
-		buf += length;
-	}
+// 	// Update buffer pos, left data count, and return size
+// 	buf += strlen;
+// 	len -= strlen;
+// 	if (r_len) {
+// 		(*r_len) += 4 + strlen;
+// 	}
+// }
+// static void _encode_string(const char *utf8, WasGoByte *buf, size_t &r_len) {
+// 	size_t length = strlen(utf8);
+// 	if (buf) {
+// 		encode_uint32(length, buf);
+// 		buf += 4;
+// 		memcpy(buf, utf8, length);
+// 		buf += length;
+// 	}
 
-	r_len += 4 + length;
-	while (r_len % 4) {
-		r_len++; //pad
-		if (buf) {
-			*(buf++) = 0;
-		}
-	}
-}
+// 	r_len += 4 + length;
+// 	while (r_len % 4) {
+// 		r_len++; //pad
+// 		if (buf) {
+// 			*(buf++) = 0;
+// 		}
+// 	}
+// }
+
 // class EncodedObjectAsID : public Reference {
 // 	// GDCLASS(EncodedObjectAsID, Reference);
 
