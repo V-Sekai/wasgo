@@ -1,5 +1,4 @@
 #include "register_types.h"
-#include "api/API_Generator.h"
 #include "src/Test.h"
 #include "src/resource_loader_wasm.h"
 #include "src/resource_wasm.h"
@@ -12,18 +11,18 @@ static Ref<ResourceFormatLoaderWasm> wasm_loader;
 static WasGoRuntime *wasgo_runtime = NULL;
 
 void register_wasgo_types() {
-	printf("REGISTERING WASGO\n");
-	printf("Creating some test wasgo objects\n");
+	// printf("REGISTERING WASGO\n");
+	// printf("Creating some test wasgo objects\n");
 
 	wasgo_runtime = new(WasGoRuntime);
 
 	// wasgo_runtime->initialize(native_symbols, sizeof(native_symbols)/sizeof(NativeSymbol));
-	WasGoTest::test();
 
-	printf("DONE\n");
+	// printf("DONE\n");
 	ClassDB::register_class<WasGoState>();
 	ClassDB::register_class<ResourceFormatLoaderWasm>();
 	ClassDB::register_class<WasmResource>();
+	ClassDB::register_class<WasGoRuntime>();
 	ClassDB::register_class<WasGoRuntime>();
 
 	Engine::get_singleton()->add_singleton(Engine::Singleton("WasGo", WasGoRuntime::get_singleton()));
@@ -52,6 +51,7 @@ void register_wasgo_types() {
 	printf(filepath);
 	printf("***\n");
 #endif
+	WasGoTest::test();
 }
 
 void unregister_wasgo_types(){
