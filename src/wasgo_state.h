@@ -20,6 +20,7 @@ These nodes also handle things like translating wasm commands to Godot functions
 #include "scene/main/node.h"
 
 class WasGoState : public Node {
+	friend class WasGoCallable;
 	GDCLASS(WasGoState, Node);
 
 	//Properties
