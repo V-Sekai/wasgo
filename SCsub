@@ -110,6 +110,14 @@ else:
 if module_env["platform"] == "windows" and module_env.msvc:
   module_env["AS"] = "ml64"
 else:
+  if module_env["platform"] == "windows":
+    import subprocess
+    try:
+      subprocess.check_call([str(module_env["AS"]), "--version"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    except:
+      old_as = str(module_env["AS"])
+      module_env["AS"] = "x86_64-w64-mingw32-as"
+      print(old_as + " not found. switching to " + str(module_env["AS"]))
   module_env["ASFLAGS"] = "-c"
 
 module_env.Prepend( CPPPATH = [
