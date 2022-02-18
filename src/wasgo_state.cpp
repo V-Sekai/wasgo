@@ -144,7 +144,6 @@ void WasGoState::_notification(uint32_t p_what) {
 	if (!Engine::get_singleton()->is_editor_hint() || p_what == NOTIFICATION_READY){ // only run in game but use the ready function so that the properties autopopulate
 	switch (p_what) {
 		case NOTIFICATION_READY:{
-			_initialize();
 			if (ready_callback) {
 				if(!wasm_runtime_call_wasm(exec_env, ready_callback, 0, nullptr)) {
 					printf("Wasm ready callback failed. %s\n", wasm_runtime_get_exception(module_inst));

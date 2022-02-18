@@ -139,6 +139,9 @@ int WasGoTest::test() {
 	Variant return_val = Variant(0);
 	Callable::CallError r_call_error;
 	callable.call(&args, 0, return_val, r_call_error);
+
+	// Rest of the test code kept only for reference purposes.
+#if 0
 	// virtual void call(const Variant **p_arguments, int p_argcount, Variant &r_return_value, Callable::CallError &r_call_error) const override;
 	// print_line(vformat("return value: %d", return_val));
 	// print_line(vformat("call error: %d", r_call_error));
@@ -177,10 +180,10 @@ int WasGoTest::test() {
 	init_args.native_module_name = "env";
 	init_args.native_symbols = test_native_symbols;
 
-	if (!wasm_runtime_full_init(&init_args)) {
-		printf("Init runtime environment failed.\n");
-		return -1;
-	}
+	//if (!wasm_runtime_full_init(&init_args)) {
+	//	printf("Init runtime environment failed.\n");
+	//	return -1;
+	//}
 
 	// buffer = bh_read_file_to_buffer(wasm_path, &buf_size);
 	Error err;
@@ -319,6 +322,7 @@ fail:
 	}
 	if (module) wasm_runtime_unload(module);
 	if (buffer) free(buffer);
-	wasm_runtime_destroy();
+	//wasm_runtime_destroy();
+#endif
 	return 0;
 }
