@@ -9,7 +9,7 @@
 #include <cstddef>
 #include <string>
 #include <limits.h>
-#include "core/variant/variant.h"
+// #include "core/variant/variant.h"
 
 /**
   * Miscellaneous helpers for marshalling data types, and encoding

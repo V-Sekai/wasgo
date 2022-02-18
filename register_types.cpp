@@ -3,9 +3,10 @@
 #include "src/resource_loader_wasm.h"
 #include "src/resource_wasm.h"
 #include "src/wasgo_runtime.h"
+#include "src/wasgo_callable.h"
 #include "src/wasgo_state.h"
 #include "stdio.h"
-#include "include/wasgo_function_table.h"
+// #include "include/wasgo_function_table.h"
 
 static Ref<ResourceFormatLoaderWasm> wasm_loader;
 static WasGoRuntime *wasgo_runtime = NULL;
@@ -23,7 +24,7 @@ void register_wasgo_types() {
 	ClassDB::register_class<ResourceFormatLoaderWasm>();
 	ClassDB::register_class<WasmResource>();
 	ClassDB::register_class<WasGoRuntime>();
-	ClassDB::register_class<WasGoRuntime>();
+	// ClassDB::register_class<WasGoCallable>();
 
 	Engine::get_singleton()->add_singleton(Engine::Singleton("WasGo", WasGoRuntime::get_singleton()));
 

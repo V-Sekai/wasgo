@@ -5,9 +5,10 @@
 #include "src/wasgo_state.h"
 
 // #include <math.h>
+// class WasGoState;
 class WasGoCallable : public CallableCustom {
-	ObjectID wasgo_state_id;
-	wasm_function_inst_t wasgo_func;
+	ObjectID wasgo_state_id = ObjectID();
+	wasm_function_inst_t wasgo_func = wasm_function_inst_t();
 
 public:
 	static bool equal_func(const CallableCustom *p_a, const CallableCustom *p_b);

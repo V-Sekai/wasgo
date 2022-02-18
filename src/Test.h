@@ -3,8 +3,8 @@
 
 // #include <core/engine.h>
 // #include <core/variant.h>
-#include <core/variant/variant.h>
-#include <scene/main/node.h>
+#include "core/variant/variant.h"
+#include "scene/main/node.h"
 
 class WasGoTest : public Object {
 	GDCLASS(WasGoTest, Object);

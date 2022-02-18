@@ -19,12 +19,13 @@ protected:
 */    
 private:
 	Vector<uint8_t> wasm_buf;
+	wasm_module_t module = nullptr;
 
 public:
     Error load_file(const String &p_path);
     Error save_file(const String &p_path, const RES &p_resource);
 
-	Vector<uint8_t> get_buf();
+	const Vector<uint8_t>& get_buf();
 	WasmResource();
 };
 #endif // RESOURCE_WASM_H

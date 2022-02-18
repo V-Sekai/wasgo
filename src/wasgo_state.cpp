@@ -2,6 +2,7 @@
 #include "core/io/marshalls.h"
 #include "wasgo_runtime.h"
 #include <cstdint>
+#include "wasgo_callable.h"
 
 void WasGoState::_initialize() {
 	_stop();
@@ -17,6 +18,8 @@ void WasGoState::_initialize() {
 					sizeof(error_buf));
 			exec_env = wasm_runtime_create_exec_env(module_inst, stack_size);
 			wasm_runtime_set_user_data(exec_env, this);
+			void *wasgo_func = wasm_runtime_lookup_function(module_inst, "test", "()i");
+			printf("found func %x\n", wasgo_func);
 
 			if (notification_callback = wasm_runtime_lookup_function(module_inst, "_notification", NULL)) {
 				print_line("The notification callback found.");
@@ -124,6 +127,8 @@ void WasGoState::_bind_methods() {
 	ClassDB::bind_method(D_METHOD("_input", "p_event"), &WasGoState::_input);
 	ClassDB::bind_method(D_METHOD("_unhandled_input", "p_event"), &WasGoState::_unhandled_input);
 	ClassDB::bind_method(D_METHOD("_unhandled_key_input", "p_event"), &WasGoState::_unhandled_key_input);
+	
+	ClassDB::bind_method(D_METHOD("get_callable", "func", "definition"), &WasGoState::get_callable);
 
 	ADD_GROUP("script", "script_");
 	ADD_PROPERTY(PropertyInfo(Variant::OBJECT, "script_binary", PROPERTY_HINT_RESOURCE_TYPE, "WasmResource"), "set_wasm_script", "get_wasm_script");
@@ -891,4 +896,9 @@ void WasGoState::set_property_nodepath(String key, NodePath p_value){
 
 void WasGoState::set_int_property(int p_value, String key) {
 	set_property(key, p_value);
+}
+
+
+Callable WasGoState::get_callable(String p_func, String p_definition) {
+	return (Callable) memnew (WasGoCallable(this, p_func, p_definition));
 }

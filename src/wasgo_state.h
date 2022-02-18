@@ -18,6 +18,9 @@ These nodes also handle things like translating wasm commands to Godot functions
 // #include "core/engine.h"
 #include "core/variant/variant.h"
 #include "scene/main/node.h"
+// #include "wasgo_callable.h"
+
+// class WasGoCallable;
 
 class WasGoState : public Node {
 	friend class WasGoCallable;
@@ -153,9 +156,10 @@ public:
 	void _input(const Ref<InputEvent> &p_event);
 	void _unhandled_input(Ref<InputEvent> p_event);
 	void _unhandled_key_input(Ref<InputEventKey> p_event);
+	
+	Callable get_callable(String p_func, String p_definition);
 
 private:
-	wasm_module_t module = NULL;
 	wasm_module_inst_t module_inst = NULL;
 	wasm_exec_env_t exec_env = NULL;
 	uint32_t wasm_buffer = 0;
@@ -187,6 +191,9 @@ private:
 	// HashMap<WasGoID, int> referencedObjectCounts;
 	// HashMap<WasGoID, int> referencedArraysCounts;
 	// HashMap<WasGoID, int> referencedDictionaryCounts;
+
+
+
 };
 
 

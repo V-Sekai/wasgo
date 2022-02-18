@@ -10,6 +10,7 @@
 #include "core/io/file_access.h"
 #include "wasgo_state.h"
 #include "include/wasgo_function_table.h"
+#include "wasgo_callable.h"
 // #include "thirdparty/wasm-micro-runtime/core/iwasm/include/lib_export.h"
 // #include "wasm_runtime_common.h"
 
@@ -127,6 +128,22 @@ int WasGoTest::test() {
 	uint32 argv[4];
 	double arg_d = 0.000101;
 
+	printf("Creating WasGoState.\n");
+	Ref<WasmResource> reference = ResourceLoader::load(wasm_path);
+	WasGoState state;
+	state.set_wasm_script(reference);
+	printf("Creating Wasm callable.\n");
+	WasGoCallable callable = WasGoCallable(&state, "test", "()i");
+	Variant var = Variant(420);
+	const Variant *args = &var;
+	Variant return_val = Variant(0);
+	Callable::CallError r_call_error;
+	callable.call(&args, 0, return_val, r_call_error);
+	// virtual void call(const Variant **p_arguments, int p_argcount, Variant &r_return_value, Callable::CallError &r_call_error) const override;
+	// print_line(vformat("return value: %d", return_val));
+	// print_line(vformat("call error: %d", r_call_error));
+	print_line(vformat("Wasm callable created."));
+
 	// Define an array of NativeSymbol for the APIs to be exported.
 	// Note: the array must be static defined since runtime
 	//            will keep it after registration
@@ -212,26 +229,36 @@ int WasGoTest::test() {
 	// char *arg_s = "";
 	// memcpy(&argv[1], &arg_s, sizeof(arg_s));
 	// *(float *)(argv + 3) = 300.002;
-	if (!(func = wasm_runtime_lookup_function(module_inst, "test", NULL))) {
-		printf("The test wasm function is not found.\n");
-		printf("error buffer: %s\n", error_buf);
-		goto fail;
-	}
 
-	// pass 4 elements for function arguments
-	if (!wasm_runtime_call_wasm(exec_env, func, 0, argv)) {
-		printf("call wasm function test failed. %s\n", wasm_runtime_get_exception(module_inst));
-		printf("error buffer: %s\n", error_buf);
-		goto fail;
-	}
 
-	ret_val = *(int *)argv;
-	printf("Native finished calling wasm function test(), returned a int value: %d\n", ret_val);
+
+	//CUSTOM TEST FUNCTION HERE.Just uncomment the next few lines
+	// if (!(func = wasm_runtime_lookup_function(module_inst, "test", NULL))) {
+	// 	printf("The test wasm function is not found.\n");
+	// 	printf("error buffer: %s\n", error_buf);
+	// 	goto fail;
+	// }
+
+	// // pass 4 elements for function arguments
+	// if (!wasm_runtime_call_wasm(exec_env, func, 0, argv)) {
+	// 	printf("call wasm function test failed. %s\n", wasm_runtime_get_exception(module_inst));
+	// 	printf("error buffer: %s\n", error_buf);
+	// 	goto fail;
+	// }
+
+	// ret_val = *(int *)argv;
+	// printf("Native finished calling wasm function test(), returned a int value: %d\n", ret_val);
 
 	// if (!(func = wasm_runtime_lookup_function(module_inst, "generate_float", NULL))) {
 	// 	printf("The generate_float wasm function is not found.\n");
 	// 	goto fail;
 	// }
+
+
+
+	
+
+	
 
 	// // pass 4 elements for function arguments
 	// if (!wasm_runtime_call_wasm(exec_env, func, 4, argv)) {

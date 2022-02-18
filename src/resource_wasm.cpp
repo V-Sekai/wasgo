@@ -8,6 +8,9 @@ WasmResource::WasmResource(){
 }
 
 Error WasmResource::load_file(const String &p_path) {
+	if (!wasm_buf.is_empty()) {
+		return Error::ERR_ALREADY_IN_USE;
+	}
     // buffer = bh_read_file_to_buffer(p_path, &buf_size);
 	Error err;
 	FileAccess *file = FileAccess::open(p_path, FileAccess::READ, &err);
@@ -27,6 +30,6 @@ void WasmResource::_bind_methods()
             ClassDB::bind_method(D_METHOD("get_buf"), &WasmResource::get_buf);
     }
 
-Vector<uint8_t> WasmResource::get_buf() {
+const Vector<uint8_t>& WasmResource::get_buf() {
     return wasm_buf;
 }
