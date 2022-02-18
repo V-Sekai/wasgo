@@ -4,6 +4,7 @@
 #define RESOURCE_WASM_H
 
 #include "core/io/resource.h"
+#include "core/io/resource_loader.h"
 #include "wasm_export.h"
 
 class WasmResource : public Resource {
@@ -19,13 +20,16 @@ protected:
 */    
 private:
 	Vector<uint8_t> wasm_buf;
-	wasm_module_t module = nullptr;
+	RID module_rid = RID();
 
 public:
     Error load_file(const String &p_path);
-    Error save_file(const String &p_path, const RES &p_resource);
 
-	const Vector<uint8_t>& get_buf();
-	WasmResource();
+	void set_wasm_buf(Vector<uint8_t> buf);
+	const Vector<uint8_t> &get_wasm_buf() { return wasm_buf; }
+	virtual RID get_rid() const override;
+
+	~WasmResource();
 };
+
 #endif // RESOURCE_WASM_H

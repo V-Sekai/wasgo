@@ -1,4 +1,5 @@
 #include "wasgo_state.h"
+#include "wasm_export.h"
 #include "core/io/marshalls.h"
 #include "wasgo_runtime.h"
 #include <cstdint>
@@ -7,49 +8,45 @@
 void WasGoState::_initialize() {
 	_stop();
 	reference_object(this);
-	if (wasm_script.is_valid()) {
-		module = WasGoRuntime::get_singleton()->load_module(wasm_script);
-		if (module) {
-			char error_buf[128];
-			module_inst = wasm_runtime_instantiate(module,
-					stack_size,
-					heap_size,
-					error_buf,
-					sizeof(error_buf));
-			exec_env = wasm_runtime_create_exec_env(module_inst, stack_size);
-			wasm_runtime_set_user_data(exec_env, this);
-			void *wasgo_func = wasm_runtime_lookup_function(module_inst, "test", "()i");
-			printf("found func %x\n", wasgo_func);
+	ERR_FAIL_COND(!wasm_script.is_valid());
 
-			if (notification_callback = wasm_runtime_lookup_function(module_inst, "_notification", NULL)) {
-				print_line("The notification callback found.");
-			}
-			if (ready_callback = wasm_runtime_lookup_function(module_inst, "_ready", NULL)) {
-				print_line("The ready callback found.");
-			}
-			if (process_callback = wasm_runtime_lookup_function(module_inst, "_process", NULL)) {
-				set_process(true);
-				print_line("The process callback found.");
-			}
-			if (physics_process_callback = wasm_runtime_lookup_function(module_inst, "_physics_process", NULL)) {
-				set_physics_process(true);
-				print_line("The physics_process callback found.");
-			}
-			if (wasm_runtime_lookup_function(module_inst, "_input", NULL) && (input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_input", NULL))) {
-				set_process_input(true);
-				print_line("The input callback found.");
-			}
-			if (wasm_runtime_lookup_function(module_inst, "_unhandled_input", NULL) && (unhandled_input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_unhandled_input", NULL))) {
-				set_process_unhandled_input(true);
-				print_line("The unhandled_input callback found.");
-			}
-			if (wasm_runtime_lookup_function(module_inst, "_unhandled_key_input", NULL) && (unhandled_key_input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_unhandled_key_input", NULL))) {
-				set_process_unhandled_key_input(true);
-				print_line("The unhandled_key_input callback found.");
-			}
-		} else {
-			printf("WASM FAILED TO LOAD.");
-		}
+	String err_string;
+	module_inst = WasGoRuntime::get_singleton()->instantiate_module(wasm_script->get_rid(),
+		stack_size,
+		heap_size,
+		err_string);
+	ERR_FAIL_COND_MSG(module_inst == nullptr, vformat("Failed to instantiate wasm module %s: \"%s\".", get_path(), err_string));
+
+	exec_env = wasm_runtime_create_exec_env(module_inst, stack_size);
+	wasm_runtime_set_user_data(exec_env, this);
+	void *wasgo_func = wasm_runtime_lookup_function(module_inst, "test", "()i");
+	printf("found func %x\n", wasgo_func);
+
+	if (notification_callback = wasm_runtime_lookup_function(module_inst, "_notification", NULL)) {
+		print_line("The notification callback found.");
+	}
+	if (ready_callback = wasm_runtime_lookup_function(module_inst, "_ready", NULL)) {
+		print_line("The ready callback found.");
+	}
+	if (process_callback = wasm_runtime_lookup_function(module_inst, "_process", NULL)) {
+		set_process(true);
+		print_line("The process callback found.");
+	}
+	if (physics_process_callback = wasm_runtime_lookup_function(module_inst, "_physics_process", NULL)) {
+		set_physics_process(true);
+		print_line("The physics_process callback found.");
+	}
+	if (wasm_runtime_lookup_function(module_inst, "_input", NULL) && (input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_input", NULL))) {
+		set_process_input(true);
+		print_line("The input callback found.");
+	}
+	if (wasm_runtime_lookup_function(module_inst, "_unhandled_input", NULL) && (unhandled_input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_unhandled_input", NULL))) {
+		set_process_unhandled_input(true);
+		print_line("The unhandled_input callback found.");
+	}
+	if (wasm_runtime_lookup_function(module_inst, "_unhandled_key_input", NULL) && (unhandled_key_input_callback = wasm_runtime_lookup_function(module_inst, "_wasgo_unhandled_key_input", NULL))) {
+		set_process_unhandled_key_input(true);
+		print_line("The unhandled_key_input callback found.");
 	}
 }
 
@@ -290,6 +287,7 @@ int WasGoState::get_heap_size(){
 
 void WasGoState::set_wasm_script(Ref<WasmResource> p_wasm_script) {
 	//Only change it if the wasm module is not active
+	ERR_FAIL_COND(is_active()); // Fail instead of stopping.
 	if (!is_active()) {
 		_stop();
 	}

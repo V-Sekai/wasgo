@@ -37,10 +37,6 @@ void WasGoCallable::call(const Variant **p_arguments, int p_argcount, Variant &r
 		const Variant * arg = p_arguments[i];
 		argv[i + 1] = * arg;
 	}
-	const Vector<uint8_t> &xbuf = state->get_wasm_script()->get_buf();
-	if (xbuf.size() > 4) {
-		printf("call() size: %d pointer: %016x first 4 bytes: %02x %02x %02x %02x\n", xbuf.size(), xbuf.ptr(), xbuf[0], xbuf[1], xbuf[2], xbuf[3]);
-	}
 	// if (!wasm_runtime_call_wasm(state->exec_env, wasgo_func, p_argcount, (uint32_t*) argv.ptr())) {
 	if (!wasm_runtime_call_wasm(state->exec_env, wasgo_func, p_argcount, (uint32_t*) &fake_arg)) {
 		printf("call wasm callable failed. %s\n", wasm_runtime_get_exception(state->module_inst));
@@ -60,10 +56,6 @@ const Callable* WasGoCallable::get_base_comparator() const {
 
 WasGoCallable::WasGoCallable(WasGoState *p_state, String p_func, String p_definition) {
 	if(p_state != nullptr && p_state->module_inst != nullptr){
-		const Vector<uint8_t> &xbuf = p_state->get_wasm_script()->get_buf();
-		if (xbuf.size() > 4) {
-			printf("Callable() size: %d pointer: %016x first 4 bytes: %02x %02x %02x %02x\n", xbuf.size(), xbuf.ptr(), xbuf[0], xbuf[1], xbuf[2], xbuf[3]);
-		}
 		wasgo_state_id = p_state->get_instance_id();
 		ERR_FAIL_COND(!(wasgo_func = wasm_runtime_lookup_function(p_state->module_inst, p_func.utf8().get_data(), p_definition.utf8().get_data())));
 

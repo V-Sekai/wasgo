@@ -1,4 +1,5 @@
 #include "wasgo_runtime.h"
+#include "wasm_export.h"
 #include "include/wasgo_function_table.h"
 
 char WasGoRuntime::global_heap_buf[512 * 1024 * 100];
@@ -10,15 +11,53 @@ WasGoRuntime *WasGoRuntime::get_singleton() {
 }
 
 //wasm_module_t WasGoRuntime::load_module(String script_path){
-wasm_module_t WasGoRuntime::load_module(Vector<uint8_t> wasm_code){
+RID WasGoRuntime::load_module(Vector<uint8_t> wasm_code, String &r_error){
 	MutexLock l(mutex);
 	int buf_size = wasm_code.size(); //buffer_length
 	uint8_t *buffer = (uint8_t *)wasm_code.ptr(); //buffer
 
 	char error_buf[128];
+	error_buf[0] = 0;
 
 	wasm_module_t res = wasm_runtime_load(buffer, buf_size, error_buf, sizeof(error_buf));
-	return res;
+	r_error = error_buf;
+	if (!res) {
+		return RID();
+	}
+	return module_rids.make_rid(res);
+}
+
+void WasGoRuntime::unload_module(RID module_rid) {
+	wasm_module_t module = module_rids.get_or_null(module_rid);
+	if (module) {
+		wasm_runtime_unload(module);
+		module_rids.free(module_rid);
+	}
+}
+
+wasm_module_inst_t WasGoRuntime::instantiate_module(RID module_rid,
+		uint32_t stack_size, uint32_t heap_size, String &r_error_str) {
+	if (module_rid == RID()) {
+		r_error_str = "Null RID passed to instantiate_module.";
+		return nullptr;
+	}
+	char error_buf[128];
+	error_buf[0] = 0;
+	wasm_module_t module = module_rids.get_or_null(module_rid);
+	if (module == nullptr) {
+		r_error_str = "Invalid RID passed to instantiate_module.";
+		return nullptr;
+	}
+
+	wasm_module_inst_t module_inst = wasm_runtime_instantiate(module,
+		stack_size,
+		heap_size,
+		error_buf,
+		sizeof(error_buf));
+	if (module_inst == nullptr) {
+		r_error_str = error_buf;
+	}
+	return module_inst;
 }
 
 WasGoRuntime::WasGoRuntime() {
@@ -29,11 +68,11 @@ WasGoRuntime::WasGoRuntime() {
 WasGoRuntime::~WasGoRuntime() {
   //void get_key_list(List<TKey> *p_keys) const {
 
-  List<String> keys;
-  script_module_map.get_key_list(&keys);
-  List<String>::Element *curr = keys.front();
+  List<RID> keys;
+  module_rids.get_owned_list(&keys);
+  List<RID>::Element *curr = keys.front();
   while(curr->next() != NULL){
-    wasm_runtime_unload(script_module_map[curr->get()]);
+    wasm_runtime_unload(module_rids.get_or_null(curr->get()));
     curr = curr->next();
   }
   wasm_runtime_destroy();

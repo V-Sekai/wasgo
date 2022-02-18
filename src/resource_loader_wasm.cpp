@@ -10,7 +10,7 @@ RES ResourceFormatLoaderWasm::load(const String &p_path, const String &p_origina
 	if (r_error) {
 	    *r_error = OK;
     }
-    Error err = wasm->load_file(p_path);
+	*r_error = wasm->load_file(p_path);
     return wasm;
 }
 
