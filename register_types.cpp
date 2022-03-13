@@ -52,7 +52,9 @@ void register_wasgo_types() {
 	printf(filepath);
 	printf("***\n");
 #endif
+#ifdef WASGO_TEST
 	WasGoTest::test();
+#endif
 }
 
 void unregister_wasgo_types(){

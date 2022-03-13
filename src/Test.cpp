@@ -131,10 +131,10 @@ int WasGoTest::test() {
 	printf("Creating WasGoState.\n");
 	Ref<WasmResource> reference = ResourceLoader::load(wasm_path);
 	ERR_FAIL_COND_V(reference.is_null(), FAILED);
-	WasGoState state;
-	state.set_wasm_script(reference);
+	WasGoState *state = memnew(WasGoState); // This leaks memory because it's not put in the tree.
+	state->set_wasm_script(reference);
 	printf("Creating Wasm callable.\n");
-	WasGoCallable callable = WasGoCallable(&state, "test", "()i");
+	WasGoCallable callable = WasGoCallable(state, "test", "()i");
 	Variant var = Variant(420);
 	const Variant *args = &var;
 	Variant return_val = Variant(0);
