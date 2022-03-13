@@ -130,6 +130,7 @@ int WasGoTest::test() {
 
 	printf("Creating WasGoState.\n");
 	Ref<WasmResource> reference = ResourceLoader::load(wasm_path);
+	ERR_FAIL_COND_V(reference.is_null(), FAILED);
 	WasGoState state;
 	state.set_wasm_script(reference);
 	printf("Creating Wasm callable.\n");
