@@ -9,6 +9,7 @@ void WasGoState::_initialize() {
 	_stop();
 	reference_object(this);
 	ERR_FAIL_COND(!wasm_script.is_valid());
+	ERR_FAIL_COND(!is_inside_tree());
 
 	String err_string;
 	module_inst = WasGoRuntime::get_singleton()->instantiate_module(wasm_script->get_rid(),
