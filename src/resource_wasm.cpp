@@ -34,6 +34,7 @@ void WasmResource::set_wasm_buf(Vector<uint8_t> buf) {
 	if (module_rid != RID()) {
 		return; // Avoid mutating already-loaded module.
 	}
+	ERR_FAIL_COND(!buf.size());
 	String err_string;
 	wasm_buf = buf;
 	module_rid = WasGoRuntime::get_singleton()->load_module(wasm_buf, err_string);
