@@ -1,20 +1,20 @@
 #include "wasgo_runtime.h"
-#include "wasm_export.h"
 #include "include/wasgo_function_table.h"
+#include "wasm_export.h"
 
 char WasGoRuntime::global_heap_buf[512 * 1024 * 100];
 WasGoRuntime *WasGoRuntime::singleton = NULL;
 RuntimeInitArgs WasGoRuntime::init_args;
 
 WasGoRuntime *WasGoRuntime::get_singleton() {
-  return singleton;
+	return singleton;
 }
 
-//wasm_module_t WasGoRuntime::load_module(String script_path){
-RID WasGoRuntime::load_module(Vector<uint8_t> wasm_code, String &r_error){
+// wasm_module_t WasGoRuntime::load_module(String script_path){
+RID WasGoRuntime::load_module(Vector<uint8_t> wasm_code, String &r_error) {
 	MutexLock l(mutex);
-	int buf_size = wasm_code.size(); //buffer_length
-	uint8_t *buffer = (uint8_t *)wasm_code.ptr(); //buffer
+	int buf_size = wasm_code.size(); // buffer_length
+	uint8_t *buffer = (uint8_t *)wasm_code.ptr(); // buffer
 
 	char error_buf[128];
 	error_buf[0] = 0;
@@ -50,10 +50,10 @@ wasm_module_inst_t WasGoRuntime::instantiate_module(RID module_rid,
 	}
 
 	wasm_module_inst_t module_inst = wasm_runtime_instantiate(module,
-		stack_size,
-		heap_size,
-		error_buf,
-		sizeof(error_buf));
+			stack_size,
+			heap_size,
+			error_buf,
+			sizeof(error_buf));
 	if (module_inst == nullptr) {
 		r_error_str = error_buf;
 	}
@@ -66,16 +66,21 @@ WasGoRuntime::WasGoRuntime() {
 }
 
 WasGoRuntime::~WasGoRuntime() {
-  //void get_key_list(List<TKey> *p_keys) const {
+	// void get_key_list(List<TKey> *p_keys) const {
 
-  List<RID> keys;
-  module_rids.get_owned_list(&keys);
-  List<RID>::Element *curr = keys.front();
-  while(curr->next() != NULL){
-    wasm_runtime_unload(module_rids.get_or_null(curr->get()));
-    curr = curr->next();
-  }
-  wasm_runtime_destroy();
+	List<RID> keys;
+	module_rids.get_owned_list(&keys);
+	List<RID>::Element *curr = keys.front();
+	while (curr && curr->next() != nullptr) {
+		WASMModuleCommon *module_rid = module_rids.get_or_null(curr->get());
+		if (!module_rid) {
+			curr = curr->next();
+			continue;
+		}
+		wasm_runtime_unload(module_rid);
+		curr = curr->next();
+	}
+	wasm_runtime_destroy();
 }
 
 void WasGoRuntime::initialize(NativeSymbol symbols[], int native_symbol_size) {
