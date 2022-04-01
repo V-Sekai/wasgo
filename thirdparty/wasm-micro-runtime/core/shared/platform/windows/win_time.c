@@ -6,8 +6,9 @@
 #include "platform_api_vmcore.h"
 #include <time.h>
 
-#if defined(__MINGW32__) && !defined(_UCRT)
-int timespec_get(struct timespec *spec, int)
+#ifdef __MINGW32__
+int
+timespec_get(struct timespec *spec, int)
 {
     __int64 wintime;
     GetSystemTimeAsFileTime((FILETIME *)&wintime);
