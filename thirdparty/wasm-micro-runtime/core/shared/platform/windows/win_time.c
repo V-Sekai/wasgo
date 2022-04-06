@@ -6,7 +6,7 @@
 #include "platform_api_vmcore.h"
 #include <time.h>
 
-#if defined(__MINGW32__) && !defined(_UCRT)
+#if defined(__MINGW32__) && !defined(_TIMESPEC_DEFINED)
 int timespec_get(struct timespec *spec, int)
 {
     __int64 wintime;
