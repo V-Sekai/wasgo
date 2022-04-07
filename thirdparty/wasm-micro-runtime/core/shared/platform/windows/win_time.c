@@ -6,7 +6,8 @@
 #include "platform_api_vmcore.h"
 #include <time.h>
 
-#if defined(__MINGW32__) && !defined(_TIMESPEC_DEFINED)
+#ifndef _TIMESPEC_DEFINED
+#if defined(__MINGW32__)
 int timespec_get(struct timespec *spec, int)
 {
     __int64 wintime;
@@ -16,6 +17,7 @@ int timespec_get(struct timespec *spec, int)
     spec->tv_nsec = wintime % 10000000ll * 100; //nano-seconds
     return 0;
 }
+#endif
 #endif
 uint64
 os_time_get_boot_microsecond()
