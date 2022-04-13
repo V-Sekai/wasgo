@@ -10,7 +10,7 @@ Error WasmResource::load_file(const String &p_path) {
 	}
     // buffer = bh_read_file_to_buffer(p_path, &buf_size);
 	Error err;
-	FileAccess *file = FileAccess::open(p_path, FileAccess::READ, &err);
+	Ref<FileAccess> file = FileAccess::open(p_path, FileAccess::READ, &err);
 	if (err != OK) {
 //		printf("We couldnt read the file: %s\n", p_path);
 		return err;
@@ -19,7 +19,6 @@ Error WasmResource::load_file(const String &p_path) {
 	buf.resize(file->get_length());
 	uint8_t *w = buf.ptrw();
 	uint32_t read_amt = file->get_buffer(&w[0], file->get_length());
-	file->close();
 	if (read_amt != buf.size()) {
 		return file->get_error();
 	}
