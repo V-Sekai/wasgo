@@ -7,7 +7,10 @@
 #include <time.h>
 
 #if defined(__MINGW32__)
-int timespec_get(struct timespec *spec, int)
+#include <_mingw.h>
+// llvm-mingw 10 adds timespec_get. We cannot redefine it in newer compilers.
+#if __MINGW64_VERSION_MAJOR < 10
+static int timespec_get(struct timespec *spec, int)
 {
     __int64 wintime;
     GetSystemTimeAsFileTime((FILETIME *)&wintime);
@@ -16,6 +19,7 @@ int timespec_get(struct timespec *spec, int)
     spec->tv_nsec = wintime % 10000000ll * 100; //nano-seconds
     return 0;
 }
+#endif
 #endif
 uint64
 os_time_get_boot_microsecond()
