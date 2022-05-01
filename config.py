@@ -3,8 +3,8 @@
 
 def can_build(env, platform):
     # Not presently available on web
-    return platform != "javascript"
-
+    return platform != "javascript" and platform != "linuxbsd"
+  
 
 def configure(env):
     pass
