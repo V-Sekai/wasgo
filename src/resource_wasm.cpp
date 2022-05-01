@@ -1,20 +1,20 @@
 /* resource_wasm.cpp */
 
 #include "resource_wasm.h"
-#include "wasgo_runtime.h"
+
+#include "core/core_bind.h"
 #include "core/io/file_access.h"
+
+#include "wasgo_runtime.h"
 
 Error WasmResource::load_file(const String &p_path) {
 	if (!wasm_buf.is_empty()) {
 		return Error::ERR_ALREADY_IN_USE;
 	}
-    // buffer = bh_read_file_to_buffer(p_path, &buf_size);
 	Error err;
 	Ref<FileAccess> file = FileAccess::open(p_path, FileAccess::READ, &err);
-	if (err != OK) {
-//		printf("We couldnt read the file: %s\n", p_path);
-		return err;
-	}
+	ERR_FAIL_COND_V_MSG(err != OK, err, vformat("We couldn't read the file: %s\n", p_path));
+	ERR_FAIL_COND_V_MSG(file.is_null(), FAILED, vformat("We couldn't read the file: %s\n", p_path));
 	Vector<uint8_t> buf;
 	buf.resize(file->get_length());
 	uint8_t *w = buf.ptrw();
