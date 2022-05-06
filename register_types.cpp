@@ -2,20 +2,24 @@
 #include "src/Test.h"
 #include "src/resource_loader_wasm.h"
 #include "src/resource_wasm.h"
-#include "src/wasgo_runtime.h"
 #include "src/wasgo_callable.h"
+#include "src/wasgo_runtime.h"
 #include "src/wasgo_state.h"
 #include "stdio.h"
+
 // #include "include/wasgo_function_table.h"
 
 static Ref<ResourceFormatLoaderWasm> wasm_loader;
 static WasGoRuntime *wasgo_runtime = NULL;
 
-void register_wasgo_types() {
+void initialize_wasgo_module(ModuleInitializationLevel p_level) {
+	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
+		return;
+	}
 	// printf("REGISTERING WASGO\n");
 	// printf("Creating some test wasgo objects\n");
 
-	wasgo_runtime = new(WasGoRuntime);
+	wasgo_runtime = new (WasGoRuntime);
 
 	// wasgo_runtime->initialize(native_symbols, sizeof(native_symbols)/sizeof(NativeSymbol));
 
@@ -57,7 +61,10 @@ void register_wasgo_types() {
 #endif
 }
 
-void unregister_wasgo_types(){
+void uninitialize_wasgo_module(ModuleInitializationLevel p_level) {
+	if (p_level != MODULE_INITIALIZATION_LEVEL_SCENE) {
+		return;
+	}
 	ResourceLoader::remove_resource_format_loader(wasm_loader);
 	wasm_loader.unref();
 }
