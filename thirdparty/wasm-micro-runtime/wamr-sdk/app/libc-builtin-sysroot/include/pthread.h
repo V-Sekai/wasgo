@@ -6,6 +6,12 @@
 #ifndef _WAMR_LIB_PTHREAD_H
 #define _WAMR_LIB_PTHREAD_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include <stdint.h>
+
 /* Data type define of pthread, mutex, cond and key */
 typedef unsigned int pthread_t;
 typedef unsigned int pthread_mutex_t;
@@ -41,7 +47,7 @@ int pthread_cond_init(pthread_cond_t *cond, const void *attr);
 int pthread_cond_wait(pthread_cond_t *cond, pthread_mutex_t *mutex);
 
 int pthread_cond_timedwait(pthread_cond_t *cond, pthread_mutex_t *mutex,
-                           unsigned int useconds);
+                           uint64_t useconds);
 
 int pthread_cond_signal(pthread_cond_t *cond);
 
@@ -55,5 +61,9 @@ int pthread_setspecific(pthread_key_t key, const void *value);
 void *pthread_getspecific(pthread_key_t key);
 
 int pthread_key_delete(pthread_key_t key);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* end of _WAMR_LIB_PTHREAD_H */

@@ -10,14 +10,13 @@
 #include <stdbool.h>
 #include "lib_export.h"
 
-
 #ifndef WASM_RUNTIME_API_EXTERN
-#if defined(MSVC) || defined(__MINGW32__)
-    #if defined(COMPILING_WASM_RUNTIME_API)
-        #define WASM_RUNTIME_API_EXTERN __declspec(dllexport)
-    #else
-        #define WASM_RUNTIME_API_EXTERN __declspec(dllimport)
-    #endif
+#if defined(_MSC_BUILD)
+#if defined(COMPILING_WASM_RUNTIME_API)
+#define WASM_RUNTIME_API_EXTERN __declspec(dllexport)
+#else
+#define WASM_RUNTIME_API_EXTERN __declspec(dllimport)
+#endif
 #else
 #define WASM_RUNTIME_API_EXTERN
 #endif
@@ -26,6 +25,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+/* clang-format off */
 
 #define get_module_inst(exec_env) \
     wasm_runtime_get_module_inst(exec_env)
@@ -48,12 +49,11 @@ extern "C" {
 #define module_free(offset) \
     wasm_runtime_module_free(module_inst, offset)
 
-#define native_raw_return_type(type, args) type *raw_ret = (type*)(args)
+#define native_raw_return_type(type, args) type *raw_ret = (type *)(args)
 
-#define native_raw_get_arg(type, name, args) type name = *((type*)(args++))
+#define native_raw_get_arg(type, name, args) type name = *((type *)(args++))
 
 #define native_raw_set_return(val) *raw_ret = (val)
-
 
 #ifndef WASM_MODULE_T_DEFINED
 #define WASM_MODULE_T_DEFINED
@@ -93,6 +93,8 @@ typedef enum {
     Package_Type_Unknown = 0xFFFF
 } package_type_t;
 
+#ifndef MEM_ALLOC_OPTION_DEFINED
+#define MEM_ALLOC_OPTION_DEFINED
 /* Memory allocator type */
 typedef enum {
     /* pool mode, allocate memory from user defined heap buffer */
@@ -117,6 +119,7 @@ typedef union MemAllocOption {
         void *free_func;
     } allocator;
 } MemAllocOption;
+#endif
 
 /* WASM runtime initialize arguments */
 typedef struct RuntimeInitArgs {
@@ -130,6 +133,11 @@ typedef struct RuntimeInitArgs {
     /* maximum thread number, only used when
         WASM_ENABLE_THREAD_MGR is defined */
     uint32_t max_thread_num;
+#if WASM_ENABLE_DEBUG_INTERP != 0
+    char ip_addr[128];
+    int platform_port;
+    int instance_port;
+#endif
 } RuntimeInitArgs;
 
 #ifndef WASM_VALKIND_T_DEFINED
@@ -150,14 +158,14 @@ enum wasm_valkind_enum {
 struct wasm_ref_t;
 
 typedef struct wasm_val_t {
-  wasm_valkind_t kind;
-  union {
-    int32_t i32;
-    int64_t i64;
-    float f32;
-    double f64;
-    struct wasm_ref_t* ref;
-  } of;
+    wasm_valkind_t kind;
+    union {
+        int32_t i32;
+        int64_t i64;
+        float f32;
+        double f64;
+        struct wasm_ref_t *ref;
+    } of;
 } wasm_val_t;
 #endif
 
@@ -227,7 +235,17 @@ wasm_runtime_free(void *ptr);
 WASM_RUNTIME_API_EXTERN package_type_t
 get_package_type(const uint8_t *buf, uint32_t size);
 
-#if WASM_ENABLE_MULTI_MODULE != 0
+/**
+ * Check whether a file is an AOT XIP (Execution In Place) file
+ *
+ * @param buf the package buffer
+ * @param size the package buffer size
+ *
+ * @return true if success, false otherwise
+ */
+WASM_RUNTIME_API_EXTERN bool
+wasm_runtime_is_xip_file(const uint8_t *buf, uint32_t size);
+
 /**
  * It is a callback for WAMR providing by embedding to load a module file
  * into a buffer
@@ -275,7 +293,6 @@ wasm_runtime_register_module(const char *module_name, wasm_module_t module,
  */
 WASM_RUNTIME_API_EXTERN wasm_module_t
 wasm_runtime_find_module_registered(const char *module_name);
-#endif /* WASM_ENABLE_MULTI_MODULE */
 
 /**
  * Load a WASM module from a specified byte buffer. The byte buffer can be
@@ -316,6 +333,14 @@ WASM_RUNTIME_API_EXTERN void
 wasm_runtime_unload(wasm_module_t module);
 
 WASM_RUNTIME_API_EXTERN void
+wasm_runtime_set_wasi_args_ex(wasm_module_t module,
+                           const char *dir_list[], uint32_t dir_count,
+                           const char *map_dir_list[], uint32_t map_dir_count,
+                           const char *env[], uint32_t env_count,
+                           char *argv[], int argc,
+                           int stdinfd, int stdoutfd, int stderrfd);
+
+WASM_RUNTIME_API_EXTERN void
 wasm_runtime_set_wasi_args(wasm_module_t module,
                            const char *dir_list[], uint32_t dir_count,
                            const char *map_dir_list[], uint32_t map_dir_count,
@@ -335,8 +360,7 @@ wasm_runtime_set_wasi_args(wasm_module_t module,
  *        specified here is ignored.
  * @param heap_size the default heap size of the module instance, a heap will
  *        be created besides the app memory space. Both wasm app and native
- *        function can allocate memory from the heap. If heap_size is 0, the
- *        default heap size will be used.
+ *        function can allocate memory from the heap.
  * @param error_buf buffer to output the error info if failed
  * @param error_buf_size the size of the error buffer
  *
@@ -396,6 +420,47 @@ WASM_RUNTIME_API_EXTERN void
 wasm_runtime_destroy_exec_env(wasm_exec_env_t exec_env);
 
 /**
+ * Start debug instance based on given execution environment.
+ * Note:
+ *   The debug instance will be destroyed during destroying the
+ *   execution environment, developers don't need to destroy it
+ *   manually.
+ *   If the cluster of this execution environment has already
+ *   been bound to a debug instance, this function will return true
+ *   directly.
+ *   If developer spawns some exec_env by wasm_runtime_spawn_exec_env,
+ *   don't need to call this function for every spawned exec_env as
+ *   they are sharing the same cluster with the main exec_env.
+ *
+ * @param exec_env the execution environment to start debug instance
+ *
+ * @return debug port if success, 0 otherwise.
+ */
+WASM_RUNTIME_API_EXTERN uint32_t
+wasm_runtime_start_debug_instance(wasm_exec_env_t exec_env);
+
+/**
+ * Initialize thread environment.
+ * Note:
+ *   If developer creates a child thread by himself to call the
+ *   the wasm function in that thread, he should call this API
+ *   firstly before calling the wasm function and then call
+ *   wasm_runtime_destroy_thread_env() after calling the wasm
+ *   function. If the thread is created from the runtime API,
+ *   it is unnecessary to call these two APIs.
+ *
+ * @return true if success, false otherwise
+ */
+WASM_RUNTIME_API_EXTERN bool
+wasm_runtime_init_thread_env(void);
+
+/**
+ * Destroy thread environment
+ */
+WASM_RUNTIME_API_EXTERN void
+wasm_runtime_destroy_thread_env(void);
+
+/**
  * Get WASM module instance from execution environment
  *
  * @param exec_env the execution environment to retrieve
@@ -412,7 +477,10 @@ wasm_runtime_get_module_inst(wasm_exec_env_t exec_env);
  * @param exec_env the execution environment to call the function,
  *   which must be created from wasm_create_exec_env()
  * @param function the function to call
- * @param argc the number of arguments
+ * @param argc total cell number that the function parameters occupy,
+ *   a cell is a slot of the uint32 array argv[], e.g. i32/f32 argument
+ *   occupies one cell, i64/f64 argument occupies two cells, note that
+ *   it might be different from the parameter number of the function
  * @param argv the arguments. If the function has return value,
  *   the first (or first two in case 64-bit return value) element of
  *   argv stores the return value of the called WASM function after this
@@ -477,7 +545,9 @@ wasm_runtime_call_wasm_v(wasm_exec_env_t exec_env,
  *
  * @param module_inst the WASM module instance
  * @param argc the number of arguments
- * @param argv the arguments array
+ * @param argv the arguments array, if the main function has return value,
+ *   *(int*)argv stores the return value of the called main function after
+ *   this function returns.
  *
  * @return true if the main function is called, false otherwise and exception
  *   will be thrown, the caller can call wasm_runtime_get_exception to get
@@ -536,6 +606,9 @@ wasm_runtime_clear_exception(wasm_module_inst_t module_inst);
 
 /**
  * Set custom data to WASM module instance.
+ * Note:
+ *  If WAMR_BUILD_LIB_PTHREAD is enabled, this API
+ *  will spread the custom data to all threads
  *
  * @param module_inst the WASM module instance
  * @param custom_data the custom data to be set
@@ -613,10 +686,11 @@ wasm_runtime_validate_app_addr(wasm_module_inst_t module_inst,
 
 /**
  * Similar to wasm_runtime_validate_app_addr(), except that the size parameter
- * is not provided. This function validates the app string address, check whether it
- * belongs to WASM module instance's address space, or in its heap space or
- * memory space. Moreover, it checks whether it is the offset of a string that
- * is end with '\0'.
+ * is not provided. This function validates the app string address, check
+ * whether it belongs to WASM module instance's address space, or in its heap
+ * space or memory space. Moreover, it checks whether it is the offset of a
+ * string that is end with '\0'.
+ *
  * @param module_inst the WASM module instance
  * @param app_str_offset the app address of the string to validate, which is a
  *        relative address
@@ -685,12 +759,15 @@ wasm_runtime_get_app_addr_range(wasm_module_inst_t module_inst,
                                 uint32_t *p_app_end_offset);
 
 /**
- * Get the native address range (absolute address) that a native address belongs to
+ * Get the native address range (absolute address) that a native address
+ * belongs to
  *
  * @param module_inst the WASM module instance
  * @param native_ptr the native address to retrieve
- * @param p_native_start_addr buffer to output the native start address if not NULL
- * @param p_native_end_addr buffer to output the native end address if not NULL
+ * @param p_native_start_addr buffer to output the native start address
+ *        if not NULL
+ * @param p_native_end_addr buffer to output the native end address
+ *        if not NULL
  *
  * @return true if success, false otherwise.
  */
@@ -701,31 +778,31 @@ wasm_runtime_get_native_addr_range(wasm_module_inst_t module_inst,
                                    uint8_t **p_native_end_addr);
 
 /**
-  * Register native functions with same module name
-  *
-  * @param module_name the module name of the native functions
-  * @param native_symbols specifies an array of NativeSymbol structures which
-  *        contain the names, function pointers and signatures
-  *        Note: WASM runtime will not allocate memory to clone the data, so
-  *              user must ensure the array can be used forever
-  *        Meanings of letters in function signature:
-  *          'i': the parameter is i32 type
-  *          'I': the parameter is i64 type
-  *          'f': the parameter is f32 type
-  *          'F': the parameter is f64 type
-  *          '*': the parameter is a pointer (i32 in WASM), and runtime will
-  *               auto check its boundary before calling the native function.
-  *               If it is followed by '~', the checked length of the pointer
-  *               is gotten from the following parameter, if not, the checked
-  *               length of the pointer is 1.
-  *          '~': the parameter is the pointer's length with i32 type, and must
-  *               follow after '*'
-  *          '$': the parameter is a string (i32 in WASM), and runtime will
-  *               auto check its boundary before calling the native function
-  * @param n_native_symbols specifies the number of native symbols in the array
-  *
-  * @return true if success, false otherwise
-  */
+ * Register native functions with same module name
+ *
+ * @param module_name the module name of the native functions
+ * @param native_symbols specifies an array of NativeSymbol structures which
+ *        contain the names, function pointers and signatures
+ *        Note: WASM runtime will not allocate memory to clone the data, so
+ *              user must ensure the array can be used forever
+ *        Meanings of letters in function signature:
+ *          'i': the parameter is i32 type
+ *          'I': the parameter is i64 type
+ *          'f': the parameter is f32 type
+ *          'F': the parameter is f64 type
+ *          '*': the parameter is a pointer (i32 in WASM), and runtime will
+ *               auto check its boundary before calling the native function.
+ *               If it is followed by '~', the checked length of the pointer
+ *               is gotten from the following parameter, if not, the checked
+ *               length of the pointer is 1.
+ *          '~': the parameter is the pointer's length with i32 type, and must
+ *               follow after '*'
+ *          '$': the parameter is a string (i32 in WASM), and runtime will
+ *               auto check its boundary before calling the native function
+ * @param n_native_symbols specifies the number of native symbols in the array
+ *
+ * @return true if success, false otherwise
+ */
 WASM_RUNTIME_API_EXTERN bool
 wasm_runtime_register_natives(const char *module_name,
                               NativeSymbol *native_symbols,
@@ -734,7 +811,7 @@ wasm_runtime_register_natives(const char *module_name,
 /**
  * Register native functions with same module name, similar to
  *   wasm_runtime_register_natives, the difference is that runtime passes raw
- * arguments to native API, which means that the native API should be defined as:
+ * arguments to native API, which means that the native API should be defined as
  *   void foo(wasm_exec_env_t exec_env, uint64 *args);
  * and native API should extract arguments one by one from args array with macro
  *   native_raw_get_arg
@@ -763,8 +840,7 @@ wasm_runtime_get_function_attachment(wasm_exec_env_t exec_env);
  * @param user_data the user data to be set
  */
 WASM_RUNTIME_API_EXTERN void
-wasm_runtime_set_user_data(wasm_exec_env_t exec_env,
-                           void *user_data);
+wasm_runtime_set_user_data(wasm_exec_env_t exec_env, void *user_data);
 /**
  * Get the user data within execution environment.
  *
@@ -787,9 +863,16 @@ wasm_runtime_get_user_data(wasm_exec_env_t exec_env);
 WASM_RUNTIME_API_EXTERN void
 wasm_runtime_dump_mem_consumption(wasm_exec_env_t exec_env);
 
-#if WASM_ENABLE_THREAD_MGR != 0
+/**
+ * Dump runtime performance profiler data of each function
+ *
+ * @param module_inst the WASM module instance to profile
+ */
+WASM_RUNTIME_API_EXTERN void
+wasm_runtime_dump_perf_profiling(wasm_module_inst_t module_inst);
+
 /* wasm thread callback function type */
-typedef void* (*wasm_thread_callback_t)(wasm_exec_env_t, void *);
+typedef void *(*wasm_thread_callback_t)(wasm_exec_env_t, void *);
 /* wasm thread type */
 typedef uintptr_t wasm_thread_t;
 
@@ -844,7 +927,55 @@ wasm_runtime_spawn_thread(wasm_exec_env_t exec_env, wasm_thread_t *tid,
  */
 WASM_RUNTIME_API_EXTERN int32_t
 wasm_runtime_join_thread(wasm_thread_t tid, void **retval);
-#endif
+
+/**
+ * Map external object to an internal externref index: if the index
+ *   has been created, return it, otherwise create the index.
+ *
+ * @param module_inst the WASM module instance that the extern object
+ *        belongs to
+ * @param extern_obj the external object to be mapped
+ * @param p_externref_idx return externref index of the external object
+ *
+ * @return true if success, false otherwise
+ */
+WASM_RUNTIME_API_EXTERN bool
+wasm_externref_obj2ref(wasm_module_inst_t module_inst,
+                       void *extern_obj, uint32_t *p_externref_idx);
+
+/**
+ * Retrieve the external object from an internal externref index
+ *
+ * @param externref_idx the externref index to retrieve
+ * @param p_extern_obj return the mapped external object of
+ *        the externref index
+ *
+ * @return true if success, false otherwise
+ */
+WASM_RUNTIME_API_EXTERN bool
+wasm_externref_ref2obj(uint32_t externref_idx, void **p_extern_obj);
+
+/**
+ * Retain an extern object which is mapped to the internal externref
+ *   so that the object won't be cleaned during extern object reclaim
+ *   if it isn't used.
+ *
+ * @param externref_idx the externref index of an external object
+ *        to retain
+ * @return true if success, false otherwise
+ */
+WASM_RUNTIME_API_EXTERN bool
+wasm_externref_retain(uint32_t externref_idx);
+
+/**
+ * dump the call stack
+ *
+ * @param exec_env the execution environment
+ */
+WASM_RUNTIME_API_EXTERN void
+wasm_runtime_dump_call_stack(wasm_exec_env_t exec_env);
+
+/* clang-format on */
 
 #ifdef __cplusplus
 }

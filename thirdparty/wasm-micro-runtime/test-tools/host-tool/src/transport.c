@@ -22,7 +22,8 @@
 
 unsigned char leading[2] = { 0x12, 0x34 };
 
-bool tcp_init(const char *address, uint16_t port, int *fd)
+bool
+tcp_init(const char *address, uint16_t port, int *fd)
 {
     int sock;
     struct sockaddr_in servaddr;
@@ -35,7 +36,7 @@ bool tcp_init(const char *address, uint16_t port, int *fd)
     servaddr.sin_addr.s_addr = inet_addr(address);
     servaddr.sin_port = htons(port);
 
-    if (connect(sock, (SA*) &servaddr, sizeof(servaddr)) != 0) {
+    if (connect(sock, (SA *)&servaddr, sizeof(servaddr)) != 0) {
         close(sock);
         return false;
     }
@@ -44,7 +45,8 @@ bool tcp_init(const char *address, uint16_t port, int *fd)
     return true;
 }
 
-int parse_baudrate(int baud)
+int
+parse_baudrate(int baud)
 {
     switch (baud) {
         case 9600:
@@ -88,7 +90,8 @@ int parse_baudrate(int baud)
     }
 }
 
-bool uart_init(const char *device, int baudrate, int *fd)
+bool
+uart_init(const char *device, int baudrate, int *fd)
 {
     int uart_fd;
     struct termios uart_term;
@@ -115,16 +118,16 @@ bool uart_init(const char *device, int baudrate, int *fd)
     }
 
     *fd = uart_fd;
-
     return true;
 }
 
-bool udp_send(const char *address, int port, const char *buf, int len)
+bool
+udp_send(const char *address, int port, const char *buf, int len)
 {
     int sockfd;
     struct sockaddr_in servaddr;
 
-    if ((sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0 )
+    if ((sockfd = socket(AF_INET, SOCK_DGRAM, 0)) < 0)
         return false;
 
     memset(&servaddr, 0, sizeof(servaddr));
@@ -133,15 +136,15 @@ bool udp_send(const char *address, int port, const char *buf, int len)
     servaddr.sin_port = htons(port);
     servaddr.sin_addr.s_addr = INADDR_ANY;
 
-    sendto(sockfd, buf, len, MSG_CONFIRM, (const struct sockaddr *) &servaddr,
-        sizeof(servaddr));
+    sendto(sockfd, buf, len, MSG_CONFIRM, (const struct sockaddr *)&servaddr,
+           sizeof(servaddr));
 
     close(sockfd);
-
     return true;
 }
 
-bool host_tool_send_data(int fd, const char *buf, unsigned int len)
+bool
+host_tool_send_data(int fd, const char *buf, unsigned int len)
 {
     int cnt = 0;
     ssize_t ret;
@@ -150,7 +153,8 @@ bool host_tool_send_data(int fd, const char *buf, unsigned int len)
         return false;
     }
 
-    resend: ret = write(fd, buf, len);
+resend:
+    ret = write(fd, buf, len);
 
     if (ret == -1) {
         if (errno == ECONNRESET) {
@@ -171,7 +175,11 @@ bool host_tool_send_data(int fd, const char *buf, unsigned int len)
     return (ret == len);
 }
 
-#define SET_RECV_PHASE(ctx, new_phase) {ctx->phase = new_phase; ctx->size_in_phase = 0;}
+#define SET_RECV_PHASE(ctx, new_phase) \
+    do {                               \
+        ctx->phase = new_phase;        \
+        ctx->size_in_phase = 0;        \
+    } while (0)
 
 /*
  * input:    1 byte from remote
@@ -181,7 +189,8 @@ bool host_tool_send_data(int fd, const char *buf, unsigned int len)
  *           0 completed packet
  *           2 in receiving payload
  */
-int on_imrt_link_byte_arrive(unsigned char ch, imrt_link_recv_context_t *ctx)
+int
+on_imrt_link_byte_arrive(unsigned char ch, imrt_link_recv_context_t *ctx)
 {
     if (ctx->phase == Phase_Non_Start) {
         if (ctx->message.payload) {
@@ -192,26 +201,31 @@ int on_imrt_link_byte_arrive(unsigned char ch, imrt_link_recv_context_t *ctx)
 
         if (leading[0] == ch) {
             ctx->phase = Phase_Leading;
-        } else {
+        }
+        else {
             return -1;
         }
-    } else if (ctx->phase == Phase_Leading) {
+    }
+    else if (ctx->phase == Phase_Leading) {
         if (leading[1] == ch) {
             SET_RECV_PHASE(ctx, Phase_Type);
-        } else {
+        }
+        else {
             ctx->phase = Phase_Non_Start;
             return -1;
         }
-    } else if (ctx->phase == Phase_Type) {
-        unsigned char *p = (unsigned char *) &ctx->message.message_type;
+    }
+    else if (ctx->phase == Phase_Type) {
+        unsigned char *p = (unsigned char *)&ctx->message.message_type;
         p[ctx->size_in_phase++] = ch;
 
         if (ctx->size_in_phase == sizeof(ctx->message.message_type)) {
             ctx->message.message_type = ntohs(ctx->message.message_type);
             SET_RECV_PHASE(ctx, Phase_Size);
         }
-    } else if (ctx->phase == Phase_Size) {
-        unsigned char * p = (unsigned char *) &ctx->message.payload_size;
+    }
+    else if (ctx->phase == Phase_Size) {
+        unsigned char *p = (unsigned char *)&ctx->message.payload_size;
         p[ctx->size_in_phase++] = ch;
 
         if (ctx->size_in_phase == sizeof(ctx->message.payload_size)) {
@@ -229,15 +243,11 @@ int on_imrt_link_byte_arrive(unsigned char ch, imrt_link_recv_context_t *ctx)
                 return 0;
             }
 
-            if (ctx->message.payload_size > 1024 * 1024) {
-                SET_RECV_PHASE(ctx, Phase_Non_Start);
-                return -1;
-            }
-
-            ctx->message.payload = (char *) malloc(ctx->message.payload_size);
+            ctx->message.payload = (char *)malloc(ctx->message.payload_size);
             SET_RECV_PHASE(ctx, Phase_Payload);
         }
-    } else if (ctx->phase == Phase_Payload) {
+    }
+    else if (ctx->phase == Phase_Payload) {
         ctx->message.payload[ctx->size_in_phase++] = ch;
 
         if (ctx->size_in_phase == ctx->message.payload_size) {
