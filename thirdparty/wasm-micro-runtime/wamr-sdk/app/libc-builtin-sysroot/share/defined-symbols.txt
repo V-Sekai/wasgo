@@ -40,7 +40,6 @@ strncmp
 strncpy
 malloc
 calloc
-realloc
 strdup
 free
 atoi

@@ -15,17 +15,12 @@ extern "C" {
    version 2.11, we implement them by ourselves. */
 typedef uintptr_t pthread_rwlock_t;
 
-int
-pthread_rwlock_init(pthread_rwlock_t *rwlock, void *attr);
-int
-pthread_rwlock_destroy(pthread_rwlock_t *rwlock);
+int pthread_rwlock_init(pthread_rwlock_t *rwlock, void *attr);
+int pthread_rwlock_destroy(pthread_rwlock_t *rwlock);
 
-int
-pthread_rwlock_wrlock(pthread_rwlock_t *rwlock);
-int
-pthread_rwlock_rdlock(pthread_rwlock_t *rwlock);
-int
-pthread_rwlock_unlock(pthread_rwlock_t *rwlock);
+int pthread_rwlock_wrlock(pthread_rwlock_t *rwlock);
+int pthread_rwlock_rdlock(pthread_rwlock_t *rwlock);
+int pthread_rwlock_unlock(pthread_rwlock_t *rwlock);
 #endif /* end of SGX_THREAD_LOCK_INITIALIZER */
 
 #ifdef __cplusplus
@@ -33,3 +28,4 @@ pthread_rwlock_unlock(pthread_rwlock_t *rwlock);
 #endif
 
 #endif /* end of _SGX_PTHREAD_H */
+

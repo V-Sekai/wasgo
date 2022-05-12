@@ -18,6 +18,8 @@
 #include "bh_vector.h"
 #include "runtime_timer.h"
 
+
+
 /**
  * WA_MALLOC/WA_FREE need to be redefined for both
  * runtime native and WASM app respectively.
@@ -35,9 +37,5 @@
 #define WA_FREE wasm_runtime_free
 #endif
 
-/* The epsilon value is from https://www.cplusplus.com/reference/cfloat/ */
-
-#define WA_FLT_EPSILON 1e-5f
-#define WA_DBL_EPSILON 1e-9
-
 #endif /* #ifndef _BH_PLATFORM_H */
+

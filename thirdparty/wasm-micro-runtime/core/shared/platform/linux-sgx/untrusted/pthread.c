@@ -6,8 +6,7 @@
 #include <stdlib.h>
 #include <pthread.h>
 
-int
-ocall_pthread_rwlock_init(void **rwlock, void *attr)
+int ocall_pthread_rwlock_init(void **rwlock, void *attr)
 {
     int ret = 0;
 
@@ -16,7 +15,7 @@ ocall_pthread_rwlock_init(void **rwlock, void *attr)
         return -1;
 
     ret = pthread_rwlock_init((pthread_rwlock_t *)*rwlock, NULL);
-    if (ret != 0) {
+    if  (ret != 0) {
         free(*rwlock);
         *rwlock = NULL;
     }
@@ -24,8 +23,7 @@ ocall_pthread_rwlock_init(void **rwlock, void *attr)
     return ret;
 }
 
-int
-ocall_pthread_rwlock_destroy(void *rwlock)
+int ocall_pthread_rwlock_destroy(void *rwlock)
 {
     pthread_rwlock_t *lock = (pthread_rwlock_t *)rwlock;
     int ret;
@@ -35,20 +33,18 @@ ocall_pthread_rwlock_destroy(void *rwlock)
     return ret;
 }
 
-int
-ocall_pthread_rwlock_rdlock(void *rwlock)
+int ocall_pthread_rwlock_rdlock(void *rwlock)
 {
     return pthread_rwlock_rdlock((pthread_rwlock_t *)rwlock);
 }
 
-int
-ocall_pthread_rwlock_wrlock(void *rwlock)
+int ocall_pthread_rwlock_wrlock(void *rwlock)
 {
     return pthread_rwlock_wrlock((pthread_rwlock_t *)rwlock);
 }
 
-int
-ocall_pthread_rwlock_unlock(void *rwlock)
+int ocall_pthread_rwlock_unlock(void *rwlock)
 {
     return pthread_rwlock_unlock((pthread_rwlock_t *)rwlock);
 }
+

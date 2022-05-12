@@ -1,23 +1,16 @@
 __attribute__((import_module("mA")))
-__attribute__((import_name("A1"))) extern int
-A1();
+__attribute__((import_name("A"))) extern int
+A();
 
-__attribute__((export_name("B1"))) int
-B1()
+int
+B()
 {
-    return 21;
-}
-
-__attribute__((export_name("B2"))) int
-B2()
-{
-    return A1();
+    return 11;
 }
 
 int
-B3()
+call_A()
 {
-    return 23;
+    return A();
 }
 
-/* mA is a  reactor. it doesn't need a main() */

@@ -1,7 +1,3 @@
-/*
- * Copyright (C) 2019 Intel Corporation.  All rights reserved.
- * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
- */
 
 #ifndef CONNECTION_UART
 #include <netdb.h>
@@ -45,16 +41,11 @@ static char *uart_device = "/dev/ttyS2";
 static int baudrate = B115200;
 #endif
 
-extern void
-init_sensor_framework();
-extern void
-exit_sensor_framework();
-extern void
-exit_connection_framework();
-extern int
-aee_host_msg_callback(void *msg, uint32_t msg_len);
-extern bool
-init_connection_framework();
+extern void init_sensor_framework();
+extern void exit_sensor_framework();
+extern void exit_connection_framework();
+extern int aee_host_msg_callback(void *msg, uint16_t msg_len);
+extern bool init_connection_framework();
 
 #ifndef CONNECTION_UART
 int listenfd = -1;
@@ -68,8 +59,7 @@ int uartfd = -1;
 static bool server_mode = false;
 
 // Function designed for chat between client and server.
-void *
-func(void *arg)
+void* func(void* arg)
 {
     char buff[MAX];
     int n;
@@ -83,8 +73,7 @@ func(void *arg)
         if (sockfd == -1) {
             printf("socket creation failed...\n");
             return NULL;
-        }
-        else
+        } else
             printf("Socket successfully created..\n");
         bzero(&servaddr, sizeof(servaddr));
         // assign IP, PORT
@@ -93,12 +82,11 @@ func(void *arg)
         servaddr.sin_port = htons(port);
 
         // connect the client socket to server socket
-        if (connect(sockfd, (SA *)&servaddr, sizeof(servaddr)) != 0) {
+        if (connect(sockfd, (SA*) &servaddr, sizeof(servaddr)) != 0) {
             printf("connection with the server failed...\n");
             sleep(10);
             continue;
-        }
-        else {
+        } else {
             printf("connected to the server..\n");
         }
 
@@ -109,7 +97,7 @@ func(void *arg)
             // read the message from client and copy it in buffer
             n = read(sockfd, buff, sizeof(buff));
             // print buffer which contains the client contents
-            // fprintf(stderr, "recieved %d bytes from host: %s", n, buff);
+            //fprintf(stderr, "recieved %d bytes from host: %s", n, buff);
 
             // socket disconnected
             if (n <= 0)
@@ -123,14 +111,12 @@ func(void *arg)
     close(sockfd);
 }
 
-static bool
-host_init()
+static bool host_init()
 {
     return true;
 }
 
-int
-host_send(void *ctx, const char *buf, int size)
+int host_send(void * ctx, const char *buf, int size)
 {
     int ret;
 
@@ -149,8 +135,7 @@ host_send(void *ctx, const char *buf, int size)
     return -1;
 }
 
-void
-host_destroy()
+void host_destroy()
 {
     if (server_mode)
         close(listenfd);
@@ -160,19 +145,16 @@ host_destroy()
     pthread_mutex_unlock(&sock_lock);
 }
 
-/* clang-format off */
 host_interface interface = {
     .init = host_init,
     .send = host_send,
     .destroy = host_destroy
 };
-/* clang-format on */
 
 /* Change it to 1 when fuzzing test */
 #define WASM_ENABLE_FUZZ_TEST 0
 
-void *
-func_server_mode(void *arg)
+void* func_server_mode(void* arg)
 {
     int clilent;
     struct sockaddr_in serv_addr, cli_addr;
@@ -192,14 +174,14 @@ func_server_mode(void *arg)
     }
 
     /* Initialize socket structure */
-    bzero((char *)&serv_addr, sizeof(serv_addr));
+    bzero((char *) &serv_addr, sizeof(serv_addr));
 
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_addr.s_addr = INADDR_ANY;
     serv_addr.sin_port = htons(port);
 
     /* Now bind the host address using bind() call.*/
-    if (bind(listenfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
+    if (bind(listenfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
         perror("ERROR on binding");
         exit(1);
     }
@@ -210,7 +192,7 @@ func_server_mode(void *arg)
     while (1) {
         pthread_mutex_lock(&sock_lock);
 
-        sockfd = accept(listenfd, (struct sockaddr *)&cli_addr, &clilent);
+        sockfd = accept(listenfd, (struct sockaddr *) &cli_addr, &clilent);
 
         pthread_mutex_unlock(&sock_lock);
 
@@ -242,7 +224,7 @@ func_server_mode(void *arg)
         }
 #if WASM_ENABLE_FUZZ_TEST != 0
         /* Exit the process when host disconnect.
-           This is helpful for reproducing failure case. */
+         * This is helpful for reproducing failure case. */
         close(sockfd);
         exit(1);
 #endif
@@ -250,8 +232,7 @@ func_server_mode(void *arg)
 }
 
 #else
-static int
-parse_baudrate(int baud)
+static int parse_baudrate(int baud)
 {
     switch (baud) {
         case 9600:
@@ -294,8 +275,7 @@ parse_baudrate(int baud)
             return -1;
     }
 }
-static bool
-uart_init(const char *device, int baudrate, int *fd)
+static bool uart_init(const char *device, int baudrate, int *fd)
 {
     int uart_fd;
     struct termios uart_term;
@@ -326,8 +306,7 @@ uart_init(const char *device, int baudrate, int *fd)
     return true;
 }
 
-static void *
-func_uart_mode(void *arg)
+static void *func_uart_mode(void *arg)
 {
     int n;
     char buff[MAX];
@@ -354,8 +333,7 @@ func_uart_mode(void *arg)
     return NULL;
 }
 
-static int
-uart_send(void *ctx, const char *buf, int size)
+static int uart_send(void * ctx, const char *buf, int size)
 {
     int ret;
 
@@ -364,28 +342,23 @@ uart_send(void *ctx, const char *buf, int size)
     return ret;
 }
 
-static void
-uart_destroy()
+static void uart_destroy()
 {
     close(uartfd);
 }
 
-/* clang-format off */
-static host_interface interface = {
-    .send = uart_send,
-    .destroy = uart_destroy
-};
-/* clang-format on */
+static host_interface interface = { .send = uart_send, .destroy = uart_destroy };
 
 #endif
 
-static attr_container_t *
-read_test_sensor(void *sensor)
+
+
+static attr_container_t * read_test_sensor(void * sensor)
 {
+    //luc: for test
     attr_container_t *attr_obj = attr_container_create("read test sensor data");
     if (attr_obj) {
-        bool ret =
-            attr_container_set_string(&attr_obj, "name", "read test sensor");
+        bool ret = attr_container_set_string(&attr_obj, "name", "read test sensor");
         if (!ret) {
             attr_container_destroy(attr_obj);
             return NULL;
@@ -395,17 +368,15 @@ read_test_sensor(void *sensor)
     return NULL;
 }
 
-static bool
-config_test_sensor(void *s, void *config)
+static bool config_test_sensor(void * s, void * config)
 {
     return false;
 }
 
+
 static char global_heap_buf[1024 * 1024] = { 0 };
 
-/* clang-format off */
-static void
-showUsage()
+static void showUsage()
 {
 #ifndef CONNECTION_UART
      printf("Usage:\n");
@@ -426,10 +397,8 @@ showUsage()
      printf("\t<Baudrate> represents the UART device baudrate and the default is 115200\n");
 #endif
 }
-/* clang-format on */
 
-static bool
-parse_args(int argc, char *argv[])
+static bool parse_args(int argc, char *argv[])
 {
     int c;
 
@@ -437,14 +406,14 @@ parse_args(int argc, char *argv[])
         int optIndex = 0;
         static struct option longOpts[] = {
 #ifndef CONNECTION_UART
-            { "server_mode", no_argument, NULL, 's' },
-            { "host_address", required_argument, NULL, 'a' },
-            { "port", required_argument, NULL, 'p' },
+            { "server_mode",    no_argument,       NULL, 's' },
+            { "host_address",   required_argument, NULL, 'a' },
+            { "port",           required_argument, NULL, 'p' },
 #else
-            { "uart", required_argument, NULL, 'u' },
-            { "baudrate", required_argument, NULL, 'b' },
+            { "uart",           required_argument, NULL, 'u' },
+            { "baudrate",       required_argument, NULL, 'b' },
 #endif
-            { "help", required_argument, NULL, 'h' },
+            { "help",           required_argument, NULL, 'h' },
             { 0, 0, 0, 0 }
         };
 
@@ -488,8 +457,7 @@ parse_args(int argc, char *argv[])
 }
 
 // Driver function
-int
-iwasm_main(int argc, char *argv[])
+int iwasm_main(int argc, char *argv[])
 {
     RuntimeInitArgs init_args;
     korp_tid tid;
@@ -526,22 +494,23 @@ iwasm_main(int argc, char *argv[])
 
     /* sensor framework */
     init_sensor_framework();
-    /* add the sys sensor objects */
-    add_sys_sensor("sensor_test1", "This is a sensor for test", 0, 1000,
-                   read_test_sensor, config_test_sensor);
-    add_sys_sensor("sensor_test2", "This is a sensor for test", 0, 1000,
-                   read_test_sensor, config_test_sensor);
+    // add the sys sensor objects
+    add_sys_sensor("sensor_test",
+                   "This is a sensor for test",
+                   0,
+                   1000,
+                   read_test_sensor,
+            config_test_sensor);
     start_sensor_framework();
 
 #ifndef CONNECTION_UART
     if (server_mode)
         os_thread_create(&tid, func_server_mode, NULL,
-                         BH_APPLET_PRESERVED_STACK_SIZE);
+        BH_APPLET_PRESERVED_STACK_SIZE);
     else
         os_thread_create(&tid, func, NULL, BH_APPLET_PRESERVED_STACK_SIZE);
 #else
-    os_thread_create(&tid, func_uart_mode, NULL,
-                     BH_APPLET_PRESERVED_STACK_SIZE);
+    os_thread_create(&tid, func_uart_mode, NULL, BH_APPLET_PRESERVED_STACK_SIZE);
 #endif
 
     app_manager_startup(&interface);

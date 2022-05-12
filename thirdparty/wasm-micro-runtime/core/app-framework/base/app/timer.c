@@ -16,23 +16,22 @@
 #endif
 
 struct user_timer {
-    struct user_timer *next;
+    struct user_timer * next;
     int timer_id;
     void (*user_timer_callback)(user_timer_t);
 };
 
-struct user_timer *g_timers = NULL;
+struct user_timer * g_timers = NULL;
 
-user_timer_t
-api_timer_create(int interval, bool is_period, bool auto_start,
-                 on_user_timer_update_f on_timer_update)
+user_timer_t api_timer_create(int interval, bool is_period, bool auto_start,
+        on_user_timer_update_f on_timer_update)
 {
 
     int timer_id = wasm_create_timer(interval, is_period, auto_start);
 
-    // TODO
-    struct user_timer *timer =
-        (struct user_timer *)malloc(sizeof(struct user_timer));
+    //TODO
+    struct user_timer * timer = (struct user_timer *) malloc(
+            sizeof(struct user_timer));
     if (timer == NULL) {
         // TODO: remove the timer_id
         printf("### api_timer_create malloc faild!!! \n");
@@ -53,8 +52,7 @@ api_timer_create(int interval, bool is_period, bool auto_start,
     return timer;
 }
 
-void
-api_timer_cancel(user_timer_t timer)
+void api_timer_cancel(user_timer_t timer)
 {
     user_timer_t t = g_timers, prev = NULL;
 
@@ -65,30 +63,26 @@ api_timer_cancel(user_timer_t timer)
             if (prev == NULL) {
                 g_timers = t->next;
                 free(t);
-            }
-            else {
+            } else {
                 prev->next = t->next;
                 free(t);
             }
             return;
-        }
-        else {
+        } else {
             prev = t;
             t = t->next;
         }
     }
 }
 
-void
-api_timer_restart(user_timer_t timer, int interval)
+void api_timer_restart(user_timer_t timer, int interval)
 {
     wasm_timer_restart(timer->timer_id, interval);
 }
 
-void
-on_timer_callback(int timer_id)
+void on_timer_callback(int timer_id)
 {
-    struct user_timer *t = g_timers;
+    struct user_timer * t = g_timers;
 
     while (t) {
         if (t->timer_id == timer_id) {
@@ -98,3 +92,4 @@ on_timer_callback(int timer_id)
         t = t->next;
     }
 }
+

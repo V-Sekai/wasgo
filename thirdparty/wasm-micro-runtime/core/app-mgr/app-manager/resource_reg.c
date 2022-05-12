@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
  */
 
+
 #include "native_interface.h"
 #include "app_manager.h"
 #include "app_manager_export.h"
@@ -12,15 +13,14 @@
 
 typedef struct _app_res_register {
     struct _app_res_register *next;
-    char *url;
+    char * url;
     void (*request_handler)(request_t *, void *);
     uint32 register_id;
 } app_res_register_t;
 
-static app_res_register_t *g_resources = NULL;
+static app_res_register_t * g_resources = NULL;
 
-void
-module_request_handler(request_t *request, void *user_data)
+void module_request_handler(request_t *request, void *user_data)
 {
     unsigned int mod_id = (unsigned int)(uintptr_t)user_data;
     bh_message_t msg;
@@ -54,11 +54,10 @@ module_request_handler(request_t *request, void *user_data)
     }
 
     app_manager_printf("Send request to app %s success.\n",
-                       m_data->module_name);
+            m_data->module_name);
 }
 
-void
-targeted_app_request_handler(request_t *request, void *unused)
+void targeted_app_request_handler(request_t *request, void *unused)
 {
     char applet_name[128] = { 0 };
     int offset;
@@ -75,8 +74,7 @@ targeted_app_request_handler(request_t *request, void *unused)
     char *p = strchr(applet_name, '/');
     if (p) {
         *p = 0;
-    }
-    else
+    } else
         return;
     app_manager_printf("Send request to applet: %s\n", applet_name);
 
@@ -86,17 +84,16 @@ targeted_app_request_handler(request_t *request, void *unused)
     m_data = module_data_list_lookup(applet_name);
     if (!m_data) {
         SEND_ERR_RESPONSE(request->mid,
-                          "Send request to applet failed: invalid applet name");
+                "Send request to applet failed: invalid applet name");
         goto end;
     }
 
     module_request_handler(request, (void *)(uintptr_t)m_data->id);
-end:
-    request->url = url;
+    end: request->url = url;
+
 }
 
-void
-am_send_response(response_t *response)
+void am_send_response(response_t *response)
 {
     module_data *m_data;
 
@@ -104,15 +101,15 @@ am_send_response(response_t *response)
     m_data = module_data_list_lookup_id(response->reciever);
     if (!m_data) {
         send_response_to_host(response);
-    }
-    else {
-        response_t *resp_for_send = clone_response(response);
+
+    } else {
+        response_t * resp_for_send = clone_response(response);
         if (!resp_for_send) {
             return;
         }
 
         bh_message_t msg = bh_new_msg(RESTFUL_RESPONSE, resp_for_send,
-                                      sizeof(*resp_for_send), response_cleaner);
+                sizeof(*resp_for_send), response_cleaner);
         if (!msg) {
             response_cleaner(resp_for_send);
             return;
@@ -124,8 +121,7 @@ am_send_response(response_t *response)
     }
 }
 
-void *
-am_dispatch_request(request_t *request)
+void * am_dispatch_request(request_t *request)
 {
     app_res_register_t *r = g_resources;
 
@@ -139,12 +135,10 @@ am_dispatch_request(request_t *request)
     return NULL;
 }
 
-bool
-am_register_resource(const char *url,
-                     void (*request_handler)(request_t *, void *),
-                     uint32 register_id)
+bool am_register_resource(const char *url,
+        void (*request_handler)(request_t *, void *), uint32 register_id)
 {
-    app_res_register_t *r = g_resources;
+    app_res_register_t * r = g_resources;
     int register_num = 0;
 
     while (r) {
@@ -164,7 +158,7 @@ am_register_resource(const char *url,
     if (register_num >= RESOURCE_REGISTRATION_NUM_MAX)
         return false;
 
-    r = (app_res_register_t *)APP_MGR_MALLOC(sizeof(app_res_register_t));
+    r = (app_res_register_t *) APP_MGR_MALLOC(sizeof(app_res_register_t));
     if (r == NULL)
         return false;
 
@@ -183,11 +177,10 @@ am_register_resource(const char *url,
     return true;
 }
 
-void
-am_cleanup_registeration(uint32 register_id)
+void am_cleanup_registeration(uint32 register_id)
 {
-    app_res_register_t *r = g_resources;
-    app_res_register_t *prev = NULL;
+    app_res_register_t * r = g_resources;
+    app_res_register_t * prev = NULL;
 
     while (r) {
         app_res_register_t *next = r->next;
@@ -200,8 +193,7 @@ am_cleanup_registeration(uint32 register_id)
 
             APP_MGR_FREE(r->url);
             APP_MGR_FREE(r);
-        }
-        else
+        } else
             /* if r is freed, should not change prev. Only set prev to r
              when r isn't freed. */
             prev = r;

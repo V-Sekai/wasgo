@@ -38,7 +38,8 @@ os_realloc(void *ptr, unsigned size)
 
 void
 os_free(void *ptr)
-{}
+{
+}
 
 void *
 os_mmap(void *hint, size_t size, int prot, int flags)
@@ -62,4 +63,5 @@ os_mprotect(void *addr, size_t size, int prot)
 
 void
 os_dcache_flush()
-{}
+{
+}

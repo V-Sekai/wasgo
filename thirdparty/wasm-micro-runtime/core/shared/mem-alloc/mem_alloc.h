@@ -39,14 +39,15 @@ void
 mem_allocator_free(mem_allocator_t allocator, void *ptr);
 
 int
-mem_allocator_migrate(mem_allocator_t allocator, char *pool_buf_new,
-                      uint32 pool_buf_size);
+mem_allocator_migrate(mem_allocator_t allocator,
+                      char *pool_buf_new, uint32 pool_buf_size);
 
-bool
-mem_allocator_is_heap_corrupted(mem_allocator_t allocator);
+void
+mem_allocator_destroy_lock(mem_allocator_t allocator);
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif /* #ifndef __MEM_ALLOC_H */
+

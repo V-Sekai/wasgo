@@ -25,9 +25,11 @@ struct HashMap {
     HashMapElem *elements[1];
 };
 
-HashMap *
-bh_hash_map_create(uint32 size, bool use_lock, HashFunc hash_func,
-                   KeyEqualFunc key_equal_func, KeyDestroyFunc key_destroy_func,
+HashMap*
+bh_hash_map_create(uint32 size, bool use_lock,
+                   HashFunc hash_func,
+                   KeyEqualFunc key_equal_func,
+                   KeyDestroyFunc key_destroy_func,
                    ValueDestroyFunc value_destroy_func)
 {
     HashMap *map;
@@ -40,15 +42,16 @@ bh_hash_map_create(uint32 size, bool use_lock, HashFunc hash_func,
 
     if (!hash_func || !key_equal_func) {
         LOG_ERROR("HashMap create failed: hash function or key equal function "
-                  " is NULL.\n");
+                " is NULL.\n");
         return NULL;
     }
 
-    total_size = offsetof(HashMap, elements)
-                 + sizeof(HashMapElem *) * (uint64)size
-                 + (use_lock ? sizeof(korp_mutex) : 0);
+    total_size = offsetof(HashMap, elements) +
+                 sizeof(HashMapElem *) * (uint64)size +
+                 (use_lock ? sizeof(korp_mutex) : 0);
 
-    if (total_size >= UINT32_MAX || !(map = BH_MALLOC((uint32)total_size))) {
+    if (total_size >= UINT32_MAX
+        || !(map = BH_MALLOC((uint32)total_size))) {
         LOG_ERROR("HashMap create failed: alloc memory failed.\n");
         return NULL;
     }
@@ -56,8 +59,9 @@ bh_hash_map_create(uint32 size, bool use_lock, HashFunc hash_func,
     memset(map, 0, (uint32)total_size);
 
     if (use_lock) {
-        map->lock = (korp_mutex *)((uint8 *)map + offsetof(HashMap, elements)
-                                   + sizeof(HashMapElem *) * size);
+        map->lock = (korp_mutex*)
+                    ((uint8*)map + offsetof(HashMap, elements)
+                     + sizeof(HashMapElem *) * size);
         if (os_mutex_init(map->lock)) {
             LOG_ERROR("HashMap create failed: init map lock failed.\n");
             BH_FREE(map);
@@ -120,7 +124,7 @@ fail:
     return false;
 }
 
-void *
+void*
 bh_hash_map_find(HashMap *map, void *key)
 {
     uint32 index;
@@ -157,7 +161,8 @@ bh_hash_map_find(HashMap *map, void *key)
 }
 
 bool
-bh_hash_map_update(HashMap *map, void *key, void *value, void **p_old_value)
+bh_hash_map_update(HashMap *map, void *key, void *value,
+                   void **p_old_value)
 {
     uint32 index;
     HashMapElem *elem;
@@ -194,8 +199,8 @@ bh_hash_map_update(HashMap *map, void *key, void *value, void **p_old_value)
 }
 
 bool
-bh_hash_map_remove(HashMap *map, void *key, void **p_old_key,
-                   void **p_old_value)
+bh_hash_map_remove(HashMap *map, void *key,
+                   void **p_old_key, void **p_old_value)
 {
     uint32 index;
     HashMapElem *elem, *prev;
@@ -285,11 +290,11 @@ bh_hash_map_destroy(HashMap *map)
 uint32
 bh_hash_map_get_struct_size(HashMap *hashmap)
 {
-    uint32 size = (uint32)(uintptr_t)offsetof(HashMap, elements)
-                  + (uint32)sizeof(HashMapElem *) * hashmap->size;
+    uint32 size = offsetof(HashMap, elements)
+                  + sizeof(HashMapElem *) * hashmap->size;
 
     if (hashmap->lock) {
-        size += (uint32)sizeof(korp_mutex);
+        size += sizeof(korp_mutex);
     }
 
     return size;
@@ -298,12 +303,11 @@ bh_hash_map_get_struct_size(HashMap *hashmap)
 uint32
 bh_hash_map_get_elem_struct_size()
 {
-    return (uint32)sizeof(HashMapElem);
+    return sizeof(HashMapElem);
 }
 
 bool
-bh_hash_map_traverse(HashMap *map, TraverseCallbackFunc callback,
-                     void *user_data)
+bh_hash_map_traverse(HashMap *map, TraverseCallbackFunc callback)
 {
     uint32 index;
     HashMapElem *elem, *next;
@@ -321,7 +325,7 @@ bh_hash_map_traverse(HashMap *map, TraverseCallbackFunc callback,
         elem = map->elements[index];
         while (elem) {
             next = elem->next;
-            callback(elem->key, elem->value, user_data);
+            callback(elem->key, elem->value);
             elem = next;
         }
     }

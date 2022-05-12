@@ -10,8 +10,7 @@
 
 extern char g_widget_text[];
 
-static void
-btn_event_cb(lv_obj_t *btn, lv_event_t event);
+static void btn_event_cb(lv_obj_t *btn, lv_event_t event);
 
 uint32_t count = 0;
 char count_str[11] = { 0 };
@@ -22,8 +21,7 @@ lv_obj_t *label_count1;
 int label_count1_value = 100;
 char label_count1_str[11] = { 0 };
 
-void
-timer1_update(user_timer_t timer1)
+void timer1_update(user_timer_t timer1)
 {
     if ((count % 100) == 0) {
         snprintf(count_str, sizeof(count_str), "%d", count / 100);
@@ -32,8 +30,7 @@ timer1_update(user_timer_t timer1)
     ++count;
 }
 
-void
-on_init()
+void on_init()
 {
     char *text;
 
@@ -46,11 +43,8 @@ on_init()
     count_label = lv_label_create(NULL, NULL);
     lv_obj_align(count_label, NULL, LV_ALIGN_IN_TOP_MID, 0, 0);
 
-    btn1 = lv_btn_create(
-        NULL, NULL); /*Create a button on the currently loaded screen*/
-    lv_obj_set_event_cb(
-        btn1,
-        btn_event_cb); /*Set function to be called when the button is released*/
+    btn1 = lv_btn_create(NULL, NULL); /*Create a button on the currently loaded screen*/
+    lv_obj_set_event_cb(btn1, btn_event_cb); /*Set function to be called when the button is released*/
     lv_obj_align(btn1, NULL, LV_ALIGN_CENTER, 0, 0); /*Align below the label*/
 
     /*Create a label on the button*/
@@ -70,13 +64,12 @@ on_init()
         printf("Fail to create timer.\n");
 }
 
-static void
-btn_event_cb(lv_obj_t *btn, lv_event_t event)
+static void btn_event_cb(lv_obj_t *btn, lv_event_t event)
 {
-    if (event == LV_EVENT_RELEASED) {
+    if(event == LV_EVENT_RELEASED) {
         label_count1_value--;
-        snprintf(label_count1_str, sizeof(label_count1_str), "%d",
-                 label_count1_value);
+        snprintf(label_count1_str, sizeof(label_count1_str),
+                 "%d", label_count1_value);
         lv_label_set_text(label_count1, label_count1_str);
         if (label_count1_value == 0)
             label_count1_value = 100;

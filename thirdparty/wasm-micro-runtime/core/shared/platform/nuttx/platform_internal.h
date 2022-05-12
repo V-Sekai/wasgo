@@ -6,7 +6,6 @@
 #ifndef _PLATFORM_INTERNAL_H
 #define _PLATFORM_INTERNAL_H
 
-#include <assert.h>
 #include <ctype.h>
 #include <errno.h>
 #include <inttypes.h>
@@ -17,8 +16,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include <sys/time.h>
-#include <sys/mman.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -38,11 +35,8 @@ typedef pthread_t korp_thread;
 /* Default thread priority */
 #define BH_THREAD_DEFAULT_PRIORITY 100
 
-#define os_printf printf
+#define os_printf  printf
 #define os_vprintf vprintf
-
-/* On NuttX, time_t is uint32_t */
-#define BH_TIME_T_MAX 0xffffffff
 
 #ifdef __cplusplus
 }

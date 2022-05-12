@@ -9,6 +9,7 @@
 #include "bh_platform.h"
 #include "wasm_export.h"
 
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -22,14 +23,15 @@ typedef unsigned int timer_id_t;
 typedef unsigned int timer_id_t;
 
 timer_id_t
-wasm_create_timer(wasm_exec_env_t exec_env, int interval, bool is_period,
-                  bool auto_start);
+wasm_create_timer(wasm_exec_env_t exec_env,
+                  int interval, bool is_period, bool auto_start);
 void
 wasm_timer_destroy(wasm_exec_env_t exec_env, timer_id_t timer_id);
 void
 wasm_timer_cancel(wasm_exec_env_t exec_env, timer_id_t timer_id);
 void
-wasm_timer_restart(wasm_exec_env_t exec_env, timer_id_t timer_id, int interval);
+wasm_timer_restart(wasm_exec_env_t exec_env,
+                   timer_id_t timer_id, int interval);
 uint32
 wasm_get_sys_tick_ms(wasm_exec_env_t exec_env);
 
@@ -38,3 +40,4 @@ wasm_get_sys_tick_ms(wasm_exec_env_t exec_env);
 #endif
 
 #endif /* end of _TIMER_API_H_ */
+

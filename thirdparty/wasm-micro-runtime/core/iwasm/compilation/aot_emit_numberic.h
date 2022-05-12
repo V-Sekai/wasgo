@@ -31,14 +31,12 @@ bool
 aot_compile_op_i64_popcnt(AOTCompContext *comp_ctx, AOTFuncContext *func_ctx);
 
 bool
-aot_compile_op_i32_arithmetic(AOTCompContext *comp_ctx,
-                              AOTFuncContext *func_ctx, IntArithmetic arith_op,
-                              uint8 **p_frame_ip);
+aot_compile_op_i32_arithmetic(AOTCompContext *comp_ctx, AOTFuncContext *func_ctx,
+                              IntArithmetic arith_op, uint8 **p_frame_ip);
 
 bool
-aot_compile_op_i64_arithmetic(AOTCompContext *comp_ctx,
-                              AOTFuncContext *func_ctx, IntArithmetic arith_op,
-                              uint8 **p_frame_ip);
+aot_compile_op_i64_arithmetic(AOTCompContext *comp_ctx, AOTFuncContext *func_ctx,
+                              IntArithmetic arith_op, uint8 **p_frame_ip);
 
 bool
 aot_compile_op_i32_bitwise(AOTCompContext *comp_ctx, AOTFuncContext *func_ctx,
@@ -65,13 +63,11 @@ aot_compile_op_f64_math(AOTCompContext *comp_ctx, AOTFuncContext *func_ctx,
                         FloatMath math_op);
 
 bool
-aot_compile_op_f32_arithmetic(AOTCompContext *comp_ctx,
-                              AOTFuncContext *func_ctx,
+aot_compile_op_f32_arithmetic(AOTCompContext *comp_ctx, AOTFuncContext *func_ctx,
                               FloatArithmetic arith_op);
 
 bool
-aot_compile_op_f64_arithmetic(AOTCompContext *comp_ctx,
-                              AOTFuncContext *func_ctx,
+aot_compile_op_f64_arithmetic(AOTCompContext *comp_ctx, AOTFuncContext *func_ctx,
                               FloatArithmetic arith_op);
 
 bool
@@ -85,3 +81,4 @@ aot_compile_op_f64_copysign(AOTCompContext *comp_ctx, AOTFuncContext *func_ctx);
 #endif
 
 #endif /* end of _AOT_EMIT_NUMBERIC_H_ */
+

@@ -21,22 +21,18 @@ typedef struct NativeSymbol {
     void *attachment;
 } NativeSymbol;
 
-/* clang-format off */
-#define EXPORT_WASM_API(symbol) \
-    { #symbol, (void *)symbol, NULL, NULL }
-#define EXPORT_WASM_API2(symbol) \
-    { #symbol, (void *)symbol##_wrapper, NULL, NULL }
+#define EXPORT_WASM_API(symbol)  {#symbol, (void*)symbol, NULL, NULL}
+#define EXPORT_WASM_API2(symbol) {#symbol, (void*)symbol##_wrapper, NULL, NULL}
 
 #define EXPORT_WASM_API_WITH_SIG(symbol, signature) \
-    { #symbol, (void *)symbol, signature, NULL }
+                                 {#symbol, (void*)symbol, signature, NULL}
 #define EXPORT_WASM_API_WITH_SIG2(symbol, signature) \
-    { #symbol, (void *)symbol##_wrapper, signature, NULL }
+                                 {#symbol, (void*)symbol##_wrapper, signature, NULL}
 
 #define EXPORT_WASM_API_WITH_ATT(symbol, signature, attachment) \
-    { #symbol, (void *)symbol, signature, attachment }
+                                 {#symbol, (void*)symbol, signature, attachment}
 #define EXPORT_WASM_API_WITH_ATT2(symbol, signature, attachment) \
-    { #symbol, (void *)symbol##_wrapper, signature, attachment }
-/* clang-format on */
+                                 {#symbol, (void*)symbol##_wrapper, signature, attachment}
 
 /**
  * Get the exported APIs of base lib
@@ -52,4 +48,5 @@ get_base_lib_export_apis(NativeSymbol **p_base_lib_apis);
 }
 #endif
 
-#endif /* end of _LIB_EXPORT_H_ */
+#endif
+

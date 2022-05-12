@@ -8,6 +8,8 @@
  * @date   Wed Aug  3 10:46:38 2011
  *
  * @brief  This file defines GC modules types and interfaces.
+ *
+ *
  */
 
 #ifndef _EMS_GC_H
@@ -31,15 +33,15 @@ extern "C" {
 
 #define GC_MAX_HEAP_SIZE (256 * BH_KB)
 
-typedef void *gc_handle_t;
-typedef void *gc_object_t;
-typedef int64 gc_int64;
+typedef void * gc_handle_t;
+typedef void * gc_object_t;
+typedef int64  gc_int64;
 typedef uint32 gc_uint32;
-typedef int32 gc_int32;
+typedef int32  gc_int32;
 typedef uint16 gc_uint16;
-typedef int16 gc_int16;
-typedef uint8 gc_uint8;
-typedef int8 gc_int8;
+typedef int16  gc_int16;
+typedef uint8  gc_uint8;
+typedef int8   gc_int8;
 typedef uint32 gc_size_t;
 
 typedef enum {
@@ -103,17 +105,16 @@ gc_get_heap_struct_size(void);
  * @return GC_SUCCESS if success, GC_ERROR otherwise
  */
 int
-gc_migrate(gc_handle_t handle, char *pool_buf_new, gc_size_t pool_buf_size);
+gc_migrate(gc_handle_t handle,
+           char *pool_buf_new, gc_size_t pool_buf_size);
 
 /**
- * Check whether the heap is corrupted
+ * Destroy lock of heap
  *
- * @param handle handle of the heap
- *
- * @return true if success, false otherwise
+ * @param handle the heap handle
  */
-bool
-gc_is_heap_corrupted(gc_handle_t handle);
+void
+gc_destroy_lock(gc_handle_t handle);
 
 /**
  * Get Heap Stats
@@ -123,7 +124,7 @@ gc_is_heap_corrupted(gc_handle_t handle);
  * @param mmt [in] type of heap, MMT_SHARED or MMT_INSTANCE
  */
 void *
-gc_heap_stats(void *heap, uint32 *stats, int size);
+gc_heap_stats(void *heap, uint32* stats, int size);
 
 #if BH_ENABLE_GC_VERIFY == 0
 
@@ -139,16 +140,17 @@ gc_free_vo(void *heap, gc_object_t obj);
 #else /* else of BH_ENABLE_GC_VERIFY */
 
 gc_object_t
-gc_alloc_vo_internal(void *heap, gc_size_t size, const char *file, int line);
+gc_alloc_vo_internal(void *heap, gc_size_t size,
+                     const char *file, int line);
 
 gc_object_t
-gc_realloc_vo_internal(void *heap, void *ptr, gc_size_t size, const char *file,
-                       int line);
+gc_realloc_vo_internal(void *heap, void *ptr, gc_size_t size,
+                       const char *file, int line);
 
 int
-gc_free_vo_internal(void *heap, gc_object_t obj, const char *file, int line);
+gc_free_vo_internal(void *heap, gc_object_t obj,
+                    const char *file, int line);
 
-/* clang-format off */
 #define gc_alloc_vo(heap, size) \
     gc_alloc_vo_internal(heap, size, __FILE__, __LINE__)
 
@@ -157,7 +159,6 @@ gc_free_vo_internal(void *heap, gc_object_t obj, const char *file, int line);
 
 #define gc_free_vo(heap, obj) \
     gc_free_vo_internal(heap, obj, __FILE__, __LINE__)
-/* clang-format on */
 
 #endif /* end of BH_ENABLE_GC_VERIFY */
 
@@ -166,3 +167,4 @@ gc_free_vo_internal(void *heap, gc_object_t obj, const char *file, int line);
 #endif
 
 #endif
+

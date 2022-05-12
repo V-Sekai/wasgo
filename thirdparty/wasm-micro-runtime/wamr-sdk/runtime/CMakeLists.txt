@@ -24,9 +24,7 @@ endif ()
 
 include(${CONFIG_PATH})
 
-if (NOT DEFINED OUT_DIR)
-    set (OUT_DIR      "${CMAKE_CURRENT_LIST_DIR}/../out/${WAMR_BUILD_SDK_PROFILE}")
-endif ()
+set (OUT_DIR      "${CMAKE_CURRENT_LIST_DIR}/../out/${WAMR_BUILD_SDK_PROFILE}")
 set (RUNTIME_SDK_DIR        "${OUT_DIR}/runtime-sdk")
 
 include(${CMAKE_CURRENT_LIST_DIR}/../../build-scripts/runtime_lib.cmake)

@@ -6,11 +6,11 @@
 #include "bh_queue.h"
 
 typedef struct bh_queue_node {
-    struct bh_queue_node *next;
-    struct bh_queue_node *prev;
+    struct bh_queue_node * next;
+    struct bh_queue_node * prev;
     unsigned short tag;
     unsigned int len;
-    void *body;
+    void * body;
     bh_msg_cleaner msg_cleaner;
 } bh_queue_node;
 
@@ -20,26 +20,23 @@ struct bh_queue {
     unsigned int cnt;
     unsigned int max;
     unsigned int drops;
-    bh_queue_node *head;
-    bh_queue_node *tail;
+    bh_queue_node * head;
+    bh_queue_node * tail;
 
     bool exit_loop_run;
 };
 
-char *
-bh_message_payload(bh_message_t message)
+char * bh_message_payload(bh_message_t message)
 {
     return message->body;
 }
 
-uint32
-bh_message_payload_len(bh_message_t message)
+uint32 bh_message_payload_len(bh_message_t message)
 {
     return message->len;
 }
 
-int
-bh_message_type(bh_message_t message)
+int bh_message_type(bh_message_t message)
 {
     return message->tag;
 }
@@ -71,8 +68,7 @@ bh_queue_create()
     return queue;
 }
 
-void
-bh_queue_destroy(bh_queue *queue)
+void bh_queue_destroy(bh_queue *queue)
 {
     bh_queue_node *node;
 
@@ -93,8 +89,7 @@ bh_queue_destroy(bh_queue *queue)
     bh_queue_free(queue);
 }
 
-bool
-bh_post_msg2(bh_queue *queue, bh_queue_node *msg)
+bool bh_post_msg2(bh_queue *queue, bh_queue_node *msg)
 {
     if (queue->cnt >= queue->max) {
         queue->drops++;
@@ -112,8 +107,7 @@ bh_post_msg2(bh_queue *queue, bh_queue_node *msg)
         queue->cnt = 1;
 
         bh_queue_cond_signal(&queue->queue_wait_cond);
-    }
-    else {
+    } else {
         msg->next = NULL;
         msg->prev = queue->tail;
         queue->tail->next = msg;
@@ -126,8 +120,8 @@ bh_post_msg2(bh_queue *queue, bh_queue_node *msg)
     return true;
 }
 
-bool
-bh_post_msg(bh_queue *queue, unsigned short tag, void *body, unsigned int len)
+bool bh_post_msg(bh_queue *queue, unsigned short tag, void *body,
+                 unsigned int len)
 {
     bh_queue_node *msg = bh_new_msg(tag, body, len, NULL);
     if (msg == NULL) {
@@ -145,24 +139,23 @@ bh_post_msg(bh_queue *queue, unsigned short tag, void *body, unsigned int len)
     return true;
 }
 
-bh_queue_node *
-bh_new_msg(unsigned short tag, void *body, unsigned int len, void *handler)
+bh_queue_node * bh_new_msg(unsigned short tag, void *body, unsigned int len,
+                           void * handler)
 {
-    bh_queue_node *msg =
-        (bh_queue_node *)bh_queue_malloc(sizeof(bh_queue_node));
+    bh_queue_node *msg = (bh_queue_node*)
+                         bh_queue_malloc(sizeof(bh_queue_node));
     if (msg == NULL)
         return NULL;
     memset(msg, 0, sizeof(bh_queue_node));
     msg->len = len;
     msg->body = body;
     msg->tag = tag;
-    msg->msg_cleaner = (bh_msg_cleaner)handler;
+    msg->msg_cleaner = (bh_msg_cleaner) handler;
 
     return msg;
 }
 
-void
-bh_free_msg(bh_queue_node *msg)
+void bh_free_msg(bh_queue_node *msg)
 {
     if (msg->msg_cleaner) {
         msg->msg_cleaner(msg->body);
@@ -178,8 +171,7 @@ bh_free_msg(bh_queue_node *msg)
     bh_queue_free(msg);
 }
 
-bh_message_t
-bh_get_msg(bh_queue *queue, uint64 timeout_us)
+bh_message_t bh_get_msg(bh_queue *queue, int timeout)
 {
     bh_queue_node *msg = NULL;
     bh_queue_mutex_lock(&queue->queue_lock);
@@ -188,27 +180,25 @@ bh_get_msg(bh_queue *queue, uint64 timeout_us)
         bh_assert(queue->head == NULL);
         bh_assert(queue->tail == NULL);
 
-        if (timeout_us == 0) {
+        if (timeout == 0) {
             bh_queue_mutex_unlock(&queue->queue_lock);
             return NULL;
         }
 
         bh_queue_cond_timedwait(&queue->queue_wait_cond, &queue->queue_lock,
-                                timeout_us);
+                                timeout);
     }
 
     if (queue->cnt == 0) {
         bh_assert(queue->head == NULL);
         bh_assert(queue->tail == NULL);
-    }
-    else if (queue->cnt == 1) {
+    } else if (queue->cnt == 1) {
         bh_assert(queue->head == queue->tail);
 
         msg = queue->head;
         queue->head = queue->tail = NULL;
         queue->cnt = 0;
-    }
-    else {
+    } else {
         msg = queue->head;
         queue->head = queue->head->next;
         queue->head->prev = NULL;
@@ -220,8 +210,7 @@ bh_get_msg(bh_queue *queue, uint64 timeout_us)
     return msg;
 }
 
-unsigned
-bh_queue_get_message_count(bh_queue *queue)
+unsigned bh_queue_get_message_count(bh_queue *queue)
 {
     if (!queue)
         return 0;
@@ -229,15 +218,15 @@ bh_queue_get_message_count(bh_queue *queue)
     return queue->cnt;
 }
 
-void
-bh_queue_enter_loop_run(bh_queue *queue, bh_queue_handle_msg_callback handle_cb,
-                        void *arg)
+void bh_queue_enter_loop_run(bh_queue *queue,
+                             bh_queue_handle_msg_callback handle_cb,
+                             void *arg)
 {
     if (!queue)
         return;
 
     while (!queue->exit_loop_run) {
-        bh_queue_node *message = bh_get_msg(queue, BHT_WAIT_FOREVER);
+        bh_queue_node * message = bh_get_msg(queue, (int)BHT_WAIT_FOREVER);
 
         if (message) {
             handle_cb(message, arg);
@@ -246,8 +235,7 @@ bh_queue_enter_loop_run(bh_queue *queue, bh_queue_handle_msg_callback handle_cb,
     }
 }
 
-void
-bh_queue_exit_loop_run(bh_queue *queue)
+void bh_queue_exit_loop_run(bh_queue *queue)
 {
     if (queue) {
         queue->exit_loop_run = true;

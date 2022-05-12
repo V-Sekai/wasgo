@@ -13,9 +13,10 @@
 extern "C" {
 #endif
 
-/**
- * This file defines connection library which should be implemented by
- * different platforms
+/*
+ *****************
+ * This file defines connection library which should be implemented by different platforms
+ *****************
  */
 
 /*
@@ -71,5 +72,6 @@ extern connection_interface_t connection_impl;
 #ifdef __cplusplus
 }
 #endif
+
 
 #endif /* CONNECTION_LIB_H_ */

@@ -1,7 +1,7 @@
 // WebAssembly C API
 
-#ifndef _WASM_C_API_H_
-#define _WASM_C_API_H_
+#ifndef WASM_H
+#define WASM_H
 
 #include <stddef.h>
 #include <stdint.h>
@@ -10,12 +10,8 @@
 #include <assert.h>
 
 #ifndef WASM_API_EXTERN
-#if defined(_MSC_BUILD)
-#if defined(COMPILING_WASM_RUNTIME_API)
-#define WASM_API_EXTERN __declspec(dllexport)
-#else
+#ifdef _WIN32
 #define WASM_API_EXTERN __declspec(dllimport)
-#endif
 #else
 #define WASM_API_EXTERN
 #endif
@@ -25,21 +21,19 @@
 extern "C" {
 #endif
 
-/* clang-format off */
-
 ///////////////////////////////////////////////////////////////////////////////
 // Auxiliaries
 
 // Machine types
-#if (__STDC_VERSION__) > 199901L
-inline void assertions(void) {
+#if (__STDC_VERSION__ > 199901L)
+inline void assertions() {
   static_assert(sizeof(float) == sizeof(uint32_t), "incompatible float type");
   static_assert(sizeof(double) == sizeof(uint64_t), "incompatible double type");
   static_assert(sizeof(intptr_t) == sizeof(uint32_t) ||
                 sizeof(intptr_t) == sizeof(uint64_t),
                 "incompatible pointer type");
 }
-#endif
+#endif /* __STDC_VERSION__  > 199901L */
 
 typedef char byte_t;
 typedef float float32_t;
@@ -81,7 +75,7 @@ typedef double float64_t;
 // Vectors
 // size: capacity
 // num_elems: current number of elements
-// size_of_elem: size of one elemen
+// size_of_elem: size of one element
 #define WASM_DECLARE_VEC(name, ptr_or_none) \
   typedef struct wasm_##name##_vec_t { \
     size_t size; \
@@ -118,12 +112,6 @@ typedef wasm_byte_vec_t wasm_name_t;
 static inline void wasm_name_new_from_string(
   own wasm_name_t* out, const char* s
 ) {
-  wasm_name_new(out, strlen(s), s);
-}
-
-static inline void wasm_name_new_from_string_nt(
-  own wasm_name_t* out, const char* s
-) {
   wasm_name_new(out, strlen(s) + 1, s);
 }
 
@@ -131,53 +119,12 @@ static inline void wasm_name_new_from_string_nt(
 ///////////////////////////////////////////////////////////////////////////////
 // Runtime Environment
 
-// Configuration
-
-WASM_DECLARE_OWN(config)
-
-WASM_API_EXTERN own wasm_config_t* wasm_config_new(void);
-
-// Embedders may provide custom functions for manipulating configs.
-
-
 // Engine
 
 WASM_DECLARE_OWN(engine)
 
-WASM_API_EXTERN own wasm_engine_t* wasm_engine_new(void);
-WASM_API_EXTERN own wasm_engine_t* wasm_engine_new_with_config(own wasm_config_t*);
+WASM_API_EXTERN own wasm_engine_t* wasm_engine_new();
 
-#ifndef MEM_ALLOC_OPTION_DEFINED
-#define MEM_ALLOC_OPTION_DEFINED
-/* same definition from wasm_export.h */
-/* Memory allocator type */
-typedef enum {
-    /* pool mode, allocate memory from user defined heap buffer */
-    Alloc_With_Pool = 0,
-    /* user allocator mode, allocate memory from user defined
-       malloc function */
-    Alloc_With_Allocator,
-    /* system allocator mode, allocate memory from system allocator,
-       or, platform's os_malloc function */
-    Alloc_With_System_Allocator,
-} mem_alloc_type_t;
-
-/* Memory allocator option */
-typedef union MemAllocOption {
-    struct {
-        void *heap_buf;
-        uint32_t heap_size;
-    } pool;
-    struct {
-        void *malloc_func;
-        void *realloc_func;
-        void *free_func;
-    } allocator;
-} MemAllocOption;
-#endif
-
-WASM_API_EXTERN own wasm_engine_t *
-wasm_engine_new_with_args(mem_alloc_type_t type, const MemAllocOption *opts);
 
 // Store
 
@@ -211,7 +158,7 @@ static const uint32_t wasm_limits_max_default = 0xffffffff;
   WASM_DECLARE_OWN(name) \
   WASM_DECLARE_VEC(name, *) \
   \
-  WASM_API_EXTERN own wasm_##name##_t* wasm_##name##_copy(const wasm_##name##_t*);
+  WASM_API_EXTERN own wasm_##name##_t* wasm_##name##_copy(wasm_##name##_t*);
 
 
 // Value Types
@@ -383,12 +330,7 @@ WASM_DECLARE_VEC(val, )
   WASM_DECLARE_OWN(name) \
   \
   WASM_API_EXTERN own wasm_##name##_t* wasm_##name##_copy(const wasm_##name##_t*); \
-  WASM_API_EXTERN bool wasm_##name##_same(const wasm_##name##_t*, const wasm_##name##_t*); \
-  \
-  WASM_API_EXTERN void* wasm_##name##_get_host_info(const wasm_##name##_t*); \
-  WASM_API_EXTERN void wasm_##name##_set_host_info(wasm_##name##_t*, void*); \
-  WASM_API_EXTERN void wasm_##name##_set_host_info_with_finalizer( \
-    wasm_##name##_t*, void*, void (*)(void*));
+  WASM_API_EXTERN bool wasm_##name##_same(const wasm_##name##_t*, const wasm_##name##_t*);
 
 #define WASM_DECLARE_REF(name) \
   WASM_DECLARE_REF_BASE(name) \
@@ -408,42 +350,17 @@ WASM_DECLARE_VEC(val, )
 
 WASM_DECLARE_REF_BASE(ref)
 
-
-// Frames
-
-WASM_DECLARE_OWN(frame)
-WASM_DECLARE_VEC(frame, *)
-WASM_API_EXTERN own wasm_frame_t* wasm_frame_copy(const wasm_frame_t*);
-
-WASM_API_EXTERN struct wasm_instance_t* wasm_frame_instance(const wasm_frame_t*);
-WASM_API_EXTERN uint32_t wasm_frame_func_index(const wasm_frame_t*);
-WASM_API_EXTERN size_t wasm_frame_func_offset(const wasm_frame_t*);
-WASM_API_EXTERN size_t wasm_frame_module_offset(const wasm_frame_t*);
-
-
 // Traps
 
 typedef wasm_name_t wasm_message_t;  // null terminated
 
-WASM_DECLARE_REF(trap)
+WASM_DECLARE_REF_BASE(trap)
 
 WASM_API_EXTERN own wasm_trap_t* wasm_trap_new(wasm_store_t* store, const wasm_message_t*);
 
 WASM_API_EXTERN void wasm_trap_message(const wasm_trap_t*, own wasm_message_t* out);
-WASM_API_EXTERN own wasm_frame_t* wasm_trap_origin(const wasm_trap_t*);
-WASM_API_EXTERN void wasm_trap_trace(const wasm_trap_t*, own wasm_frame_vec_t* out);
-
-
-// Foreign Objects
-
-WASM_DECLARE_REF(foreign)
-
-WASM_API_EXTERN own wasm_foreign_t* wasm_foreign_new(wasm_store_t*);
-
 
 // Modules
-// WASM_DECLARE_SHARABLE_REF(module)
-
 #ifndef WASM_MODULE_T_DEFINED
 #define WASM_MODULE_T_DEFINED
 struct WASMModuleCommon;
@@ -453,9 +370,12 @@ typedef struct WASMModuleCommon *wasm_module_t;
 WASM_API_EXTERN own wasm_module_t* wasm_module_new(
   wasm_store_t*, const wasm_byte_vec_t* binary);
 
+WASM_API_EXTERN bool wasm_module_validate(wasm_store_t*, const wasm_byte_vec_t* binary);
+
 WASM_API_EXTERN void wasm_module_delete(own wasm_module_t*);
 
-WASM_API_EXTERN bool wasm_module_validate(wasm_store_t*, const wasm_byte_vec_t* binary);
+WASM_API_EXTERN own wasm_module_t* wasm_module_copy(const wasm_module_t*);
+WASM_API_EXTERN bool wasm_module_same(const wasm_module_t*, const wasm_module_t*);
 
 WASM_API_EXTERN void wasm_module_imports(const wasm_module_t*, own wasm_importtype_vec_t* out);
 WASM_API_EXTERN void wasm_module_exports(const wasm_module_t*, own wasm_exporttype_vec_t* out);
@@ -469,9 +389,9 @@ WASM_API_EXTERN own wasm_module_t* wasm_module_deserialize(wasm_store_t*, const 
 WASM_DECLARE_REF(func)
 
 typedef own wasm_trap_t* (*wasm_func_callback_t)(
-  const wasm_val_vec_t* args, own wasm_val_vec_t *results);
+  const wasm_val_t args[], wasm_val_t results[]);
 typedef own wasm_trap_t* (*wasm_func_callback_with_env_t)(
-  void* env, const wasm_val_vec_t *args, wasm_val_vec_t *results);
+  void* env, const wasm_val_t args[], wasm_val_t results[]);
 
 WASM_API_EXTERN own wasm_func_t* wasm_func_new(
   wasm_store_t*, const wasm_functype_t*, wasm_func_callback_t);
@@ -484,12 +404,12 @@ WASM_API_EXTERN size_t wasm_func_param_arity(const wasm_func_t*);
 WASM_API_EXTERN size_t wasm_func_result_arity(const wasm_func_t*);
 
 WASM_API_EXTERN own wasm_trap_t* wasm_func_call(
-  const wasm_func_t*, const wasm_val_vec_t* args, wasm_val_vec_t* results);
+  const wasm_func_t*, const wasm_val_t args[], wasm_val_t results[]);
 
 
 // Global Instances
 
-WASM_DECLARE_REF(global)
+WASM_DECLARE_REF_BASE(global)
 
 WASM_API_EXTERN own wasm_global_t* wasm_global_new(
   wasm_store_t*, const wasm_globaltype_t*, const wasm_val_t*);
@@ -502,7 +422,7 @@ WASM_API_EXTERN void wasm_global_set(wasm_global_t*, const wasm_val_t*);
 
 // Table Instances
 
-WASM_DECLARE_REF(table)
+WASM_DECLARE_REF_BASE(table)
 
 typedef uint32_t wasm_table_size_t;
 
@@ -520,7 +440,7 @@ WASM_API_EXTERN bool wasm_table_grow(wasm_table_t*, wasm_table_size_t delta, was
 
 // Memory Instances
 
-WASM_DECLARE_REF(memory)
+WASM_DECLARE_REF_BASE(memory)
 
 typedef uint32_t wasm_memory_pages_t;
 
@@ -539,7 +459,7 @@ WASM_API_EXTERN bool wasm_memory_grow(wasm_memory_t*, wasm_memory_pages_t delta)
 
 // Externals
 
-WASM_DECLARE_REF(extern)
+WASM_DECLARE_REF_BASE(extern)
 WASM_DECLARE_VEC(extern, *)
 
 WASM_API_EXTERN wasm_externkind_t wasm_extern_kind(const wasm_extern_t*);
@@ -568,17 +488,11 @@ WASM_API_EXTERN const wasm_memory_t* wasm_extern_as_memory_const(const wasm_exte
 
 // Module Instances
 
-WASM_DECLARE_REF(instance)
+WASM_DECLARE_REF_BASE(instance)
 
 WASM_API_EXTERN own wasm_instance_t* wasm_instance_new(
-  wasm_store_t*, const wasm_module_t*, const wasm_extern_vec_t *imports,
+  wasm_store_t*, const wasm_module_t*, const wasm_extern_t* const imports[],
   own wasm_trap_t**
-);
-
-// please refer to wasm_runtime_instantiate(...) in core/iwasm/include/wasm_export.h
-WASM_API_EXTERN own wasm_instance_t* wasm_instance_new_with_args(
-  wasm_store_t*, const wasm_module_t*, const wasm_extern_vec_t *imports,
-  own wasm_trap_t**, const uint32_t stack_size, const uint32_t heap_size
 );
 
 WASM_API_EXTERN void wasm_instance_exports(const wasm_instance_t*, own wasm_extern_vec_t* out);
@@ -587,38 +501,32 @@ WASM_API_EXTERN void wasm_instance_exports(const wasm_instance_t*, own wasm_exte
 ///////////////////////////////////////////////////////////////////////////////
 // Convenience
 
-// Vectors
-
-#define WASM_EMPTY_VEC {0, NULL, 0, 0}
-#define WASM_ARRAY_VEC(array) {sizeof(array)/sizeof(*(array)), array, sizeof(array)/sizeof(*(array)), sizeof(*(array))}
-
-
 // Value Type construction short-hands
 
-static inline own wasm_valtype_t* wasm_valtype_new_i32(void) {
+static inline own wasm_valtype_t* wasm_valtype_new_i32() {
   return wasm_valtype_new(WASM_I32);
 }
-static inline own wasm_valtype_t* wasm_valtype_new_i64(void) {
+static inline own wasm_valtype_t* wasm_valtype_new_i64() {
   return wasm_valtype_new(WASM_I64);
 }
-static inline own wasm_valtype_t* wasm_valtype_new_f32(void) {
+static inline own wasm_valtype_t* wasm_valtype_new_f32() {
   return wasm_valtype_new(WASM_F32);
 }
-static inline own wasm_valtype_t* wasm_valtype_new_f64(void) {
+static inline own wasm_valtype_t* wasm_valtype_new_f64() {
   return wasm_valtype_new(WASM_F64);
 }
 
-static inline own wasm_valtype_t* wasm_valtype_new_anyref(void) {
+static inline own wasm_valtype_t* wasm_valtype_new_anyref() {
   return wasm_valtype_new(WASM_ANYREF);
 }
-static inline own wasm_valtype_t* wasm_valtype_new_funcref(void) {
+static inline own wasm_valtype_t* wasm_valtype_new_funcref() {
   return wasm_valtype_new(WASM_FUNCREF);
 }
 
 
 // Function Types construction short-hands
 
-static inline own wasm_functype_t* wasm_functype_new_0_0(void) {
+static inline own wasm_functype_t* wasm_functype_new_0_0() {
   wasm_valtype_vec_t params, results;
   wasm_valtype_vec_new_empty(&params);
   wasm_valtype_vec_new_empty(&results);
@@ -765,23 +673,13 @@ static inline void* wasm_val_ptr(const wasm_val_t* val) {
 #endif
 }
 
-#define WASM_I32_VAL(i) {.kind = WASM_I32, .of = {.i32 = i}}
-#define WASM_I64_VAL(i) {.kind = WASM_I64, .of = {.i64 = i}}
-#define WASM_F32_VAL(z) {.kind = WASM_F32, .of = {.f32 = z}}
-#define WASM_F64_VAL(z) {.kind = WASM_F64, .of = {.f64 = z}}
-#define WASM_REF_VAL(r) {.kind = WASM_ANYREF, .of = {.ref = r}}
-#define WASM_INIT_VAL {.kind = WASM_ANYREF, .of = {.ref = NULL}}
-
-#define KILOBYTE(n) ((n) * 1024)
 
 ///////////////////////////////////////////////////////////////////////////////
 
 #undef own
 
-/* clang-format on */
-
 #ifdef __cplusplus
-} // extern "C"
+}  // extern "C"
 #endif
 
-#endif // #ifdef _WASM_C_API_H_
+#endif  // #ifdef WASM_H

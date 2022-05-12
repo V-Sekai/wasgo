@@ -34,7 +34,7 @@ typedef void (*ValueDestroyFunc)(void *key);
 
 /* traverse callback function:
    auto called when traverse every hash element */
-typedef void (*TraverseCallbackFunc)(void *key, void *value, void *user_data);
+typedef void (*TraverseCallbackFunc)(void *key, void *value);
 
 /**
  * Create a hash map.
@@ -51,9 +51,11 @@ typedef void (*TraverseCallbackFunc)(void *key, void *value, void *user_data);
  *
  * @return the hash map created, NULL if failed
  */
-HashMap *
-bh_hash_map_create(uint32 size, bool use_lock, HashFunc hash_func,
-                   KeyEqualFunc key_equal_func, KeyDestroyFunc key_destroy_func,
+HashMap*
+bh_hash_map_create(uint32 size, bool use_lock,
+                   HashFunc hash_func,
+                   KeyEqualFunc key_equal_func,
+                   KeyDestroyFunc key_destroy_func,
                    ValueDestroyFunc value_destroy_func);
 
 /**
@@ -77,7 +79,7 @@ bh_hash_map_insert(HashMap *map, void *key, void *value);
  *
  * @return the value of the found element if success, NULL otherwise
  */
-void *
+void*
 bh_hash_map_find(HashMap *map, void *key);
 
 /**
@@ -93,7 +95,8 @@ bh_hash_map_find(HashMap *map, void *key);
  *       it will be copied to p_old_value for user to process.
  */
 bool
-bh_hash_map_update(HashMap *map, void *key, void *value, void **p_old_value);
+bh_hash_map_update(HashMap *map, void *key, void *value,
+                   void **p_old_value);
 
 /**
  * Remove an element from the hash map
@@ -109,8 +112,8 @@ bh_hash_map_update(HashMap *map, void *key, void *value, void **p_old_value);
  *       p_old_key and p_old_value for user to process.
  */
 bool
-bh_hash_map_remove(HashMap *map, void *key, void **p_old_key,
-                   void **p_old_value);
+bh_hash_map_remove(HashMap *map, void *key,
+                   void **p_old_key, void **p_old_value);
 
 /**
  * Destroy the hashmap
@@ -147,19 +150,18 @@ bh_hash_map_get_elem_struct_size();
  * Traverse the hash map and call the callback function
  *
  * @param map the hash map to traverse
- * @param callback the function to be called for every element
- * @param user_data the argument to be passed to the callback function
+ * @callback the function to be called for every element
  *
  * @return true if success, false otherwise
  * Note: if the hash map has lock, the map will be locked during traverse,
  *       keep the callback function as simple as possible.
  */
 bool
-bh_hash_map_traverse(HashMap *map, TraverseCallbackFunc callback,
-                     void *user_data);
+bh_hash_map_traverse(HashMap *map, TraverseCallbackFunc callback);
 
 #ifdef __cplusplus
 }
 #endif
 
 #endif /* endof WASM_HASHMAP_H */
+

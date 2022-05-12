@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 
-#define HOST_MODE_AON 1
+#define HOST_MODE_AON  1
 #define HOST_MODE_UART 2
 #define HOST_MODE_TEST 3
 
@@ -21,3 +21,4 @@ extern "C" {
 #endif
 
 #endif
+

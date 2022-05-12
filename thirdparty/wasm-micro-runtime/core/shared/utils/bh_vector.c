@@ -5,14 +5,13 @@
 
 #include "bh_vector.h"
 
-static uint8 *
-alloc_vector_data(size_t length, size_t size_elem)
+static uint8*
+alloc_vector_data(uint32 length, uint32 size_elem)
 {
     uint64 total_size = ((uint64)size_elem) * length;
     uint8 *data;
 
-    if (length > UINT32_MAX || size_elem > UINT32_MAX
-        || total_size > UINT32_MAX) {
+    if (total_size > UINT32_MAX) {
         return NULL;
     }
 
@@ -24,7 +23,7 @@ alloc_vector_data(size_t length, size_t size_elem)
 }
 
 static bool
-extend_vector(Vector *vector, size_t length)
+extend_vector(Vector *vector, uint32 length)
 {
     uint8 *data;
 
@@ -46,7 +45,7 @@ extend_vector(Vector *vector, size_t length)
 }
 
 bool
-bh_vector_init(Vector *vector, size_t init_length, size_t size_elem)
+bh_vector_init(Vector *vector, uint32 init_length, uint32 size_elem)
 {
     if (!vector) {
         LOG_ERROR("Init vector failed: vector is NULL.\n");
@@ -81,13 +80,12 @@ bh_vector_set(Vector *vector, uint32 index, const void *elem_buf)
         return false;
     }
 
-    memcpy(vector->data + vector->size_elem * index, elem_buf,
-           vector->size_elem);
+    memcpy(vector->data + vector->size_elem * index,
+            elem_buf, vector->size_elem);
     return true;
 }
 
-bool
-bh_vector_get(const Vector *vector, uint32 index, void *elem_buf)
+bool bh_vector_get(const Vector *vector, uint32 index, void *elem_buf)
 {
     if (!vector || !elem_buf) {
         LOG_ERROR("Get vector elem failed: vector or elem buf is NULL.\n");
@@ -104,10 +102,9 @@ bh_vector_get(const Vector *vector, uint32 index, void *elem_buf)
     return true;
 }
 
-bool
-bh_vector_insert(Vector *vector, uint32 index, const void *elem_buf)
+bool bh_vector_insert(Vector *vector, uint32 index, const void *elem_buf)
 {
-    size_t i;
+    uint32 i;
     uint8 *p;
 
     if (!vector || !elem_buf) {
@@ -136,8 +133,7 @@ bh_vector_insert(Vector *vector, uint32 index, const void *elem_buf)
     return true;
 }
 
-bool
-bh_vector_append(Vector *vector, const void *elem_buf)
+bool bh_vector_append(Vector *vector, const void *elem_buf)
 {
     if (!vector || !elem_buf) {
         LOG_ERROR("Append vector elem failed: vector or elem buf is NULL.\n");
@@ -149,8 +145,8 @@ bh_vector_append(Vector *vector, const void *elem_buf)
         return false;
     }
 
-    memcpy(vector->data + vector->size_elem * vector->num_elems, elem_buf,
-           vector->size_elem);
+    memcpy(vector->data + vector->size_elem * vector->num_elems,
+           elem_buf, vector->size_elem);
     vector->num_elems++;
     return true;
 }
@@ -186,7 +182,7 @@ bh_vector_remove(Vector *vector, uint32 index, void *old_elem_buf)
     return true;
 }
 
-size_t
+uint32
 bh_vector_size(const Vector *vector)
 {
     return vector ? vector->num_elems : 0;

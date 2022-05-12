@@ -30,10 +30,11 @@ aot_compile_op_get_global(AOTCompContext *comp_ctx, AOTFuncContext *func_ctx,
 
 bool
 aot_compile_op_set_global(AOTCompContext *comp_ctx, AOTFuncContext *func_ctx,
-                          uint32 global_idx, bool is_aux_stack);
+                          uint32 global_idx);
 
 #ifdef __cplusplus
 } /* end of extern "C" */
 #endif
 
 #endif /* end of _AOT_EMIT_VARIABLE_H_ */
+

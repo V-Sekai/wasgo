@@ -5,8 +5,6 @@
 
 rm -fr build && mkdir build
 cd build
-# Build With LazyJIT
-# cmake .. -DWAMR_BUILD_JIT=1 -DWAMR_BUILD_LAZY_JIT=1
 cmake .. -DWAMR_BUILD_JIT=1
 make
 cd ..

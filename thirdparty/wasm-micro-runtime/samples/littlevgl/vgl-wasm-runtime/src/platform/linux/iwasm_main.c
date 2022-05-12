@@ -43,16 +43,11 @@ static char *uart_device = "/dev/ttyS2";
 static int baudrate = B115200;
 #endif
 
-extern void
-init_sensor_framework();
-extern void
-exit_sensor_framework();
-extern void
-exit_connection_framework();
-extern int
-aee_host_msg_callback(void *msg, uint32_t msg_len);
-extern bool
-init_connection_framework();
+extern void init_sensor_framework();
+extern void exit_sensor_framework();
+extern void exit_connection_framework();
+extern int aee_host_msg_callback(void *msg, uint16_t msg_len);
+extern bool init_connection_framework();
 
 #ifndef CONNECTION_UART
 int listenfd = -1;
@@ -66,8 +61,7 @@ int uartfd = -1;
 static bool server_mode = false;
 
 // Function designed for chat between client and server.
-void *
-func(void *arg)
+void* func(void* arg)
 {
     char buff[MAX];
     int n;
@@ -81,8 +75,7 @@ func(void *arg)
         if (sockfd == -1) {
             printf("socket creation failed...\n");
             return NULL;
-        }
-        else
+        } else
             printf("Socket successfully created..\n");
         bzero(&servaddr, sizeof(servaddr));
         // assign IP, PORT
@@ -91,12 +84,11 @@ func(void *arg)
         servaddr.sin_port = htons(port);
 
         // connect the client socket to server socket
-        if (connect(sockfd, (SA *)&servaddr, sizeof(servaddr)) != 0) {
+        if (connect(sockfd, (SA*) &servaddr, sizeof(servaddr)) != 0) {
             printf("connection with the server failed...\n");
             sleep(10);
             continue;
-        }
-        else {
+        } else {
             printf("connected to the server..\n");
         }
 
@@ -107,7 +99,7 @@ func(void *arg)
             // read the message from client and copy it in buffer
             n = read(sockfd, buff, sizeof(buff));
             // print buffer which contains the client contents
-            // fprintf(stderr, "recieved %d bytes from host: %s", n, buff);
+            //fprintf(stderr, "recieved %d bytes from host: %s", n, buff);
 
             // socket disconnected
             if (n <= 0)
@@ -121,14 +113,12 @@ func(void *arg)
     close(sockfd);
 }
 
-static bool
-host_init()
+static bool host_init()
 {
     return true;
 }
 
-int
-host_send(void *ctx, const char *buf, int size)
+int host_send(void * ctx, const char *buf, int size)
 {
     int ret;
 
@@ -147,8 +137,7 @@ host_send(void *ctx, const char *buf, int size)
     return -1;
 }
 
-void
-host_destroy()
+void host_destroy()
 {
     if (server_mode)
         close(listenfd);
@@ -158,12 +147,13 @@ host_destroy()
     pthread_mutex_unlock(&sock_lock);
 }
 
-host_interface interface = { .init = host_init,
+host_interface interface = {
+                             .init = host_init,
                              .send = host_send,
-                             .destroy = host_destroy };
+                             .destroy = host_destroy
+                           };
 
-void *
-func_server_mode(void *arg)
+void* func_server_mode(void* arg)
 {
     int clilent;
     struct sockaddr_in serv_addr, cli_addr;
@@ -183,14 +173,14 @@ func_server_mode(void *arg)
     }
 
     /* Initialize socket structure */
-    bzero((char *)&serv_addr, sizeof(serv_addr));
+    bzero((char *) &serv_addr, sizeof(serv_addr));
 
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_addr.s_addr = INADDR_ANY;
     serv_addr.sin_port = htons(port);
 
     /* Now bind the host address using bind() call.*/
-    if (bind(listenfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) < 0) {
+    if (bind(listenfd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
         perror("ERROR on binding");
         exit(1);
     }
@@ -201,7 +191,7 @@ func_server_mode(void *arg)
     while (1) {
         pthread_mutex_lock(&sock_lock);
 
-        sockfd = accept(listenfd, (struct sockaddr *)&cli_addr, &clilent);
+        sockfd = accept(listenfd, (struct sockaddr *) &cli_addr, &clilent);
 
         pthread_mutex_unlock(&sock_lock);
 
@@ -235,8 +225,7 @@ func_server_mode(void *arg)
 }
 
 #else
-static int
-parse_baudrate(int baud)
+static int parse_baudrate(int baud)
 {
     switch (baud) {
         case 9600:
@@ -279,8 +268,7 @@ parse_baudrate(int baud)
             return -1;
     }
 }
-static bool
-uart_init(const char *device, int baudrate, int *fd)
+static bool uart_init(const char *device, int baudrate, int *fd)
 {
     int uart_fd;
     struct termios uart_term;
@@ -311,8 +299,7 @@ uart_init(const char *device, int baudrate, int *fd)
     return true;
 }
 
-static void *
-func_uart_mode(void *arg)
+static void *func_uart_mode(void *arg)
 {
     int n;
     char buff[MAX];
@@ -339,8 +326,7 @@ func_uart_mode(void *arg)
     return NULL;
 }
 
-static int
-uart_send(void *ctx, const char *buf, int size)
+static int uart_send(void * ctx, const char *buf, int size)
 {
     int ret;
 
@@ -349,14 +335,12 @@ uart_send(void *ctx, const char *buf, int size)
     return ret;
 }
 
-static void
-uart_destroy()
+static void uart_destroy()
 {
     close(uartfd);
 }
 
-static host_interface interface = { .send = uart_send,
-                                    .destroy = uart_destroy };
+static host_interface interface = { .send = uart_send, .destroy = uart_destroy };
 
 #endif
 
@@ -366,7 +350,6 @@ static char global_heap_buf[400 * 1024] = { 0 };
 static char global_heap_buf[270 * 1024] = { 0 };
 #endif
 
-/* clang-format off */
 static void showUsage()
 {
 #ifndef CONNECTION_UART
@@ -390,10 +373,8 @@ static void showUsage()
      printf("\nNote:\n");
      printf("\tUse -w|--wasi_root to specify the root dir (default to '.') of WASI wasm modules. \n");
 }
-/* clang-format on */
 
-static bool
-parse_args(int argc, char *argv[])
+static bool parse_args(int argc, char *argv[])
 {
     int c;
 
@@ -401,17 +382,17 @@ parse_args(int argc, char *argv[])
         int optIndex = 0;
         static struct option longOpts[] = {
 #ifndef CONNECTION_UART
-            { "server_mode", no_argument, NULL, 's' },
-            { "host_address", required_argument, NULL, 'a' },
-            { "port", required_argument, NULL, 'p' },
+            { "server_mode",    no_argument,       NULL, 's' },
+            { "host_address",   required_argument, NULL, 'a' },
+            { "port",           required_argument, NULL, 'p' },
 #else
-            { "uart", required_argument, NULL, 'u' },
-            { "baudrate", required_argument, NULL, 'b' },
+            { "uart",           required_argument, NULL, 'u' },
+            { "baudrate",       required_argument, NULL, 'b' },
 #endif
 #if WASM_ENABLE_LIBC_WASI != 0
-            { "wasi_root", required_argument, NULL, 'w' },
+            { "wasi_root",      required_argument, NULL, 'w' },
 #endif
-            { "help", required_argument, NULL, 'h' },
+            { "help",           required_argument, NULL, 'h' },
             { 0, 0, 0, 0 }
         };
 
@@ -472,8 +453,7 @@ static NativeSymbol native_symbols[] = {
 };
 
 // Driver function
-int
-iwasm_main(int argc, char *argv[])
+int iwasm_main(int argc, char *argv[])
 {
     RuntimeInitArgs init_args;
     korp_tid tid;
@@ -513,12 +493,11 @@ iwasm_main(int argc, char *argv[])
 #ifndef CONNECTION_UART
     if (server_mode)
         os_thread_create(&tid, func_server_mode, NULL,
-                         BH_APPLET_PRESERVED_STACK_SIZE);
+        BH_APPLET_PRESERVED_STACK_SIZE);
     else
         os_thread_create(&tid, func, NULL, BH_APPLET_PRESERVED_STACK_SIZE);
 #else
-    os_thread_create(&tid, func_uart_mode, NULL,
-                     BH_APPLET_PRESERVED_STACK_SIZE);
+    os_thread_create(&tid, func_uart_mode, NULL, BH_APPLET_PRESERVED_STACK_SIZE);
 #endif
 
     app_manager_startup(&interface);

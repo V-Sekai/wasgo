@@ -13,34 +13,30 @@
 #include "event.h"
 #include "watchdog.h"
 #include "runtime_lib.h"
-#if WASM_ENABLE_INTERP != 0
 #include "wasm.h"
-#endif
 #if WASM_ENABLE_AOT != 0
 #include "aot_export.h"
 #endif
 
-/* clang-format off */
 #if WASM_ENABLE_INTERP != 0 || WASM_ENABLE_JIT != 0
 /* Wasm bytecode file 4 version bytes */
 static uint8 wasm_bytecode_version[4] = {
-    (uint8)0x01,
-    (uint8)0x00,
-    (uint8)0x00,
-    (uint8)0x00
+    (uint8) 0x01,
+    (uint8) 0x00,
+    (uint8) 0x00,
+    (uint8) 0x00
 };
 #endif
 
 #if WASM_ENABLE_AOT != 0
 /* Wasm aot file 4 version bytes */
 static uint8 wasm_aot_version[4] = {
-    (uint8)0x02,
-    (uint8)0x00,
-    (uint8)0x00,
-    (uint8)0x00
+    (uint8) 0x02,
+    (uint8) 0x00,
+    (uint8) 0x00,
+    (uint8) 0x00
 };
 #endif
-/* clang-format on */
 
 static union {
     int a;
@@ -135,7 +131,8 @@ destroy_all_wasm_sections(wasm_section_list_t sections);
 
 static void
 destroy_part_wasm_sections(wasm_section_list_t *p_sections,
-                           uint8 *section_types, int section_cnt);
+                           uint8 *section_types,
+                           int section_cnt);
 #endif
 
 #if WASM_ENABLE_AOT != 0
@@ -143,7 +140,8 @@ static void
 destroy_all_aot_sections(aot_section_list_t sections);
 
 static void
-destroy_part_aot_sections(aot_section_list_t *p_sections, uint8 *section_types,
+destroy_part_aot_sections(aot_section_list_t *p_sections,
+                          uint8 *section_types,
                           int section_cnt);
 #endif
 
@@ -152,9 +150,8 @@ int g_msg_type[Max_Msg_Callback] = { 0 };
 message_type_handler_t g_msg_callbacks[Max_Msg_Callback] = { 0 };
 
 #define Max_Cleanup_Callback 10
-static resource_cleanup_handler_t g_cleanup_callbacks[Max_Cleanup_Callback] = {
-    0
-};
+static resource_cleanup_handler_t
+g_cleanup_callbacks[Max_Cleanup_Callback] = { 0 };
 
 module_interface wasm_app_module_interface = {
     wasm_app_module_init,
@@ -165,15 +162,6 @@ module_interface wasm_app_module_interface = {
     wasm_app_module_get_module_data,
     wasm_app_module_on_install_request_byte_arrive
 };
-
-#if WASM_ENABLE_INTERP == 0
-static unsigned
-align_uint(unsigned v, unsigned b)
-{
-    unsigned m = b - 1;
-    return (v + m) & ~m;
-}
-#endif
 
 static void
 exchange_uint32(uint8 *p_data)
@@ -199,6 +187,7 @@ app_manager_lookup_function(const wasm_module_inst_t module_inst,
     return func;
 }
 
+
 static void
 app_instance_queue_callback(void *queue_msg, void *arg)
 {
@@ -207,180 +196,174 @@ app_instance_queue_callback(void *queue_msg, void *arg)
 
     wasm_module_inst_t inst = (wasm_module_inst_t)arg;
     module_data *m_data = app_manager_get_module_data(Module_WASM_App, inst);
-    wasm_data *wasm_app_data = (wasm_data *)m_data->internal_data;
+    wasm_data *wasm_app_data = (wasm_data*)m_data->internal_data;
     int message_type = bh_message_type(queue_msg);
 
     bh_assert(m_data);
 
     if (message_type < BASE_EVENT_MAX) {
         switch (message_type) {
-            case RESTFUL_REQUEST:
-            {
-                request_t *request = (request_t *)bh_message_payload(queue_msg);
-                int size;
-                char *buffer;
-                int32 buffer_offset;
+            case RESTFUL_REQUEST: {
+                 request_t *request = (request_t *)bh_message_payload(queue_msg);
+                 int size;
+                 char *buffer;
+                 int32 buffer_offset;
 
-                app_manager_printf("App %s got request, url %s, action %d\n",
-                                   m_data->module_name, request->url,
-                                   request->action);
+                 app_manager_printf("App %s got request, url %s, action %d\n",
+                                    m_data->module_name,
+                                    request->url,
+                                    request->action);
 
-                func_onRequest = app_manager_lookup_function(
-                    inst, "_on_request", "(i32i32)");
-                if (!func_onRequest) {
-                    app_manager_printf("Cannot find function onRequest\n");
-                    break;
-                }
+                 func_onRequest = app_manager_lookup_function(inst,
+                                                              "_on_request",
+                                                              "(i32i32)");
+                 if (!func_onRequest) {
+                     app_manager_printf("Cannot find function onRequest\n");
+                     break;
+                 }
 
-                buffer = pack_request(request, &size);
-                if (buffer == NULL)
-                    break;
+                 buffer = pack_request(request, &size);
+                 if (buffer == NULL)
+                     break;
 
-                buffer_offset =
-                    wasm_runtime_module_dup_data(inst, buffer, size);
-                if (buffer_offset == 0) {
-                    const char *exception = wasm_runtime_get_exception(inst);
-                    if (exception) {
-                        app_manager_printf(
-                            "Got exception running wasm code: %s\n", exception);
-                        wasm_runtime_clear_exception(inst);
-                    }
-                    free_req_resp_packet(buffer);
-                    break;
-                }
+                 buffer_offset = wasm_runtime_module_dup_data(inst, buffer, size);
+                 if (buffer_offset == 0) {
+                     const char *exception = wasm_runtime_get_exception(inst);
+                     if (exception) {
+                         app_manager_printf("Got exception running wasm code: %s\n",
+                                            exception);
+                         wasm_runtime_clear_exception(inst);
+                     }
+                     free_req_resp_packet(buffer);
+                     break;
+                 }
 
-                free_req_resp_packet(buffer);
+                 free_req_resp_packet(buffer);
 
-                argv[0] = (uint32)buffer_offset;
-                argv[1] = (uint32)size;
+                 argv[0] = (uint32) buffer_offset;
+                 argv[1] = (uint32) size;
 
-                if (!wasm_runtime_call_wasm(wasm_app_data->exec_env,
-                                            func_onRequest, 2, argv)) {
-                    const char *exception = wasm_runtime_get_exception(inst);
-                    bh_assert(exception);
-                    app_manager_printf("Got exception running wasm code: %s\n",
-                                       exception);
-                    wasm_runtime_clear_exception(inst);
-                    wasm_runtime_module_free(inst, buffer_offset);
-                    break;
-                }
+                 if (!wasm_runtime_call_wasm(wasm_app_data->exec_env, func_onRequest,
+                                             2, argv)) {
+                     const char *exception = wasm_runtime_get_exception(inst);
+                     bh_assert(exception);
+                     app_manager_printf("Got exception running wasm code: %s\n",
+                                        exception);
+                     wasm_runtime_clear_exception(inst);
+                     wasm_runtime_module_free(inst, buffer_offset);
+                     break;
+                 }
 
-                wasm_runtime_module_free(inst, buffer_offset);
-                app_manager_printf("Wasm app process request success.\n");
-                break;
+                 wasm_runtime_module_free(inst, buffer_offset);
+                 app_manager_printf("Wasm app process request success.\n");
+                 break;
             }
-            case RESTFUL_RESPONSE:
-            {
-                wasm_function_inst_t func_onResponse;
-                response_t *response =
-                    (response_t *)bh_message_payload(queue_msg);
-                int size;
-                char *buffer;
-                int32 buffer_offset;
+            case RESTFUL_RESPONSE: {
+                 wasm_function_inst_t func_onResponse;
+                 response_t *response = (response_t *) bh_message_payload(queue_msg);
+                 int size;
+                 char *buffer;
+                 int32 buffer_offset;
 
-                app_manager_printf("App %s got response_t,status %d\n",
-                                   m_data->module_name, response->status);
+                 app_manager_printf("App %s got response_t,status %d\n",
+                                    m_data->module_name, response->status);
 
-                func_onResponse = app_manager_lookup_function(
-                    inst, "_on_response", "(i32i32)");
-                if (!func_onResponse) {
-                    app_manager_printf("Cannot find function on_response\n");
-                    break;
-                }
+                 func_onResponse =
+                     app_manager_lookup_function(inst, "_on_response", "(i32i32)");
+                 if (!func_onResponse) {
+                     app_manager_printf("Cannot find function on_response\n");
+                     break;
+                 }
 
-                buffer = pack_response(response, &size);
-                if (buffer == NULL)
-                    break;
+                 buffer = pack_response(response, &size);
+                 if (buffer == NULL)
+                     break;
 
-                buffer_offset =
-                    wasm_runtime_module_dup_data(inst, buffer, size);
-                if (buffer_offset == 0) {
-                    const char *exception = wasm_runtime_get_exception(inst);
-                    if (exception) {
-                        app_manager_printf(
-                            "Got exception running wasm code: %s\n", exception);
-                        wasm_runtime_clear_exception(inst);
-                    }
-                    free_req_resp_packet(buffer);
-                    break;
-                }
+                 buffer_offset = wasm_runtime_module_dup_data(inst, buffer, size);
+                 if (buffer_offset == 0) {
+                     const char *exception = wasm_runtime_get_exception(inst);
+                     if (exception) {
+                         app_manager_printf("Got exception running wasm code: %s\n",
+                                            exception);
+                         wasm_runtime_clear_exception(inst);
+                     }
+                     free_req_resp_packet(buffer);
+                     break;
+                 }
 
-                free_req_resp_packet(buffer);
+                 free_req_resp_packet(buffer);
 
-                argv[0] = (uint32)buffer_offset;
-                argv[1] = (uint32)size;
+                 argv[0] = (uint32) buffer_offset;
+                 argv[1] = (uint32) size;
 
-                if (!wasm_runtime_call_wasm(wasm_app_data->exec_env,
-                                            func_onResponse, 2, argv)) {
-                    const char *exception = wasm_runtime_get_exception(inst);
-                    bh_assert(exception);
-                    app_manager_printf("Got exception running wasm code: %s\n",
-                                       exception);
-                    wasm_runtime_clear_exception(inst);
-                    wasm_runtime_module_free(inst, buffer_offset);
-                    break;
-                }
+                 if (!wasm_runtime_call_wasm(wasm_app_data->exec_env, func_onResponse,
+                                             2, argv)) {
+                     const char *exception = wasm_runtime_get_exception(inst);
+                     bh_assert(exception);
+                     app_manager_printf("Got exception running wasm code: %s\n",
+                                        exception);
+                     wasm_runtime_clear_exception(inst);
+                     wasm_runtime_module_free(inst, buffer_offset);
+                     break;
+                 }
 
-                wasm_runtime_module_free(inst, buffer_offset);
-                app_manager_printf("Wasm app process response success.\n");
-                break;
+                 wasm_runtime_module_free(inst, buffer_offset);
+                 app_manager_printf("Wasm app process response success.\n");
+                 break;
             }
-            default:
-            {
-                for (int i = 0; i < Max_Msg_Callback; i++) {
-                    if (g_msg_type[i] == message_type) {
-                        g_msg_callbacks[i](m_data, queue_msg);
-                        return;
-                    }
-                }
-                app_manager_printf(
-                    "Invalid message type of WASM app queue message.\n");
-                break;
+            default: {
+                 for (int i = 0; i < Max_Msg_Callback; i++) {
+                     if (g_msg_type[i] == message_type) {
+                         g_msg_callbacks[i](m_data, queue_msg);
+                         return;
+                     }
+                 }
+                 app_manager_printf("Invalid message type of WASM app queue message.\n");
+                 break;
+
             }
         }
     }
     else {
         switch (message_type) {
-            case TIMER_EVENT_WASM:
-            {
-                unsigned int timer_id;
-                if (bh_message_payload(queue_msg)) {
-                    /* Call Timer.callOnTimer() method */
-                    func_onTimer = app_manager_lookup_function(
-                        inst, "_on_timer_callback", "(i32)");
+            case TIMER_EVENT_WASM: {
+                 unsigned int timer_id;
+                 if (bh_message_payload(queue_msg)) {
+                     /* Call Timer.callOnTimer() method */
+                     func_onTimer =
+                         app_manager_lookup_function(inst,
+                                                      "_on_timer_callback",
+                                                      "(i32)");
 
-                    if (!func_onTimer) {
-                        app_manager_printf(
-                            "Cannot find function _on_timer_callback\n");
-                        break;
-                    }
-                    timer_id =
-                        (unsigned int)(uintptr_t)bh_message_payload(queue_msg);
-                    argv[0] = timer_id;
-                    if (!wasm_runtime_call_wasm(wasm_app_data->exec_env,
-                                                func_onTimer, 1, argv)) {
-                        const char *exception =
-                            wasm_runtime_get_exception(inst);
-                        bh_assert(exception);
-                        app_manager_printf(
-                            "Got exception running wasm code: %s\n", exception);
-                        wasm_runtime_clear_exception(inst);
-                    }
-                }
-                break;
+                     if (!func_onTimer) {
+                         app_manager_printf("Cannot find function _on_timer_callback\n");
+                         break;
+                     }
+                     timer_id =
+                         (unsigned int)(uintptr_t)bh_message_payload(queue_msg);
+                     argv[0] = timer_id;
+                     if (!wasm_runtime_call_wasm(wasm_app_data->exec_env, func_onTimer,
+                                                 1, argv)) {
+                         const char *exception = wasm_runtime_get_exception(inst);
+                         bh_assert(exception);
+                         app_manager_printf("Got exception running wasm code: %s\n",
+                                            exception);
+                         wasm_runtime_clear_exception(inst);
+                     }
+                 }
+                 break;
             }
-            default:
-            {
-                for (int i = 0; i < Max_Msg_Callback; i++) {
-                    if (g_msg_type[i] == message_type) {
-                        g_msg_callbacks[i](m_data, queue_msg);
-                        return;
-                    }
-                }
-                app_manager_printf(
-                    "Invalid message type of WASM app queue message.\n");
-                break;
+            default: {
+                 for (int i = 0; i < Max_Msg_Callback; i++) {
+                     if (g_msg_type[i] == message_type) {
+                         g_msg_callbacks[i](m_data, queue_msg);
+                         return;
+                     }
+                 }
+                 app_manager_printf("Invalid message type of WASM app queue message.\n");
+                 break;
             }
+
         }
     }
 }
@@ -427,14 +410,14 @@ wasm_app_prepare_wasi_dir(wasm_module_t module, const char *module_name,
 #endif
 
 /* WASM app thread main routine */
-static void *
+static void*
 wasm_app_routine(void *arg)
 {
     wasm_function_inst_t func_onInit;
     wasm_function_inst_t func_onDestroy;
 
-    module_data *m_data = (module_data *)arg;
-    wasm_data *wasm_app_data = (wasm_data *)m_data->internal_data;
+    module_data *m_data = (module_data *) arg;
+    wasm_data *wasm_app_data = (wasm_data*) m_data->internal_data;
     wasm_module_inst_t inst = wasm_app_data->wasm_module_inst;
 
     /* Set m_data to the VM managed instance's custom data */
@@ -449,13 +432,12 @@ wasm_app_routine(void *arg)
            which initializes the wasi envrionment. The "_start" function
            will call "main" function */
         if ((func_start = wasm_runtime_lookup_wasi_start_function(inst))) {
-            if (!wasm_runtime_call_wasm(wasm_app_data->exec_env, func_start, 0,
-                                        NULL)) {
+            if (!wasm_runtime_call_wasm(wasm_app_data->exec_env, func_start,
+                                        0, NULL)) {
                 const char *exception = wasm_runtime_get_exception(inst);
                 bh_assert(exception);
-                app_manager_printf(
-                    "Got exception running wasi start function: %s\n",
-                    exception);
+                app_manager_printf("Got exception running wasi start function: %s\n",
+                        exception);
                 wasm_runtime_clear_exception(inst);
                 goto fail1;
             }
@@ -472,11 +454,12 @@ wasm_app_routine(void *arg)
         goto fail1;
     }
 
-    if (!wasm_runtime_call_wasm(wasm_app_data->exec_env, func_onInit, 0,
-                                NULL)) {
+    if (!wasm_runtime_call_wasm(wasm_app_data->exec_env, func_onInit,
+                                0, NULL)) {
         const char *exception = wasm_runtime_get_exception(inst);
         bh_assert(exception);
-        app_manager_printf("Got exception running WASM code: %s\n", exception);
+        app_manager_printf("Got exception running WASM code: %s\n",
+               exception);
         wasm_runtime_clear_exception(inst);
         /* call on_destroy() in case some resources are opened in on_init()
          * and then exception thrown */
@@ -492,8 +475,7 @@ fail2:
     /* Call WASM app onDestroy() method if there is */
     func_onDestroy = app_manager_lookup_function(inst, "_on_destroy", "()");
     if (func_onDestroy)
-        wasm_runtime_call_wasm(wasm_app_data->exec_env, func_onDestroy, 0,
-                               NULL);
+        wasm_runtime_call_wasm(wasm_app_data->exec_env, func_onDestroy, 0, NULL);
 
 fail1:
 
@@ -504,7 +486,7 @@ static void
 cleanup_app_resource(module_data *m_data)
 {
     int i;
-    wasm_data *wasm_app_data = (wasm_data *)m_data->internal_data;
+    wasm_data *wasm_app_data = (wasm_data*) m_data->internal_data;
     bool is_bytecode = wasm_app_data->is_bytecode;
 
     am_cleanup_registeration(m_data->id);
@@ -522,21 +504,18 @@ cleanup_app_resource(module_data *m_data)
 
     /* Destroy remain sections (i.e. data segment section for bytecode file
      * or text section of aot file) from app file's section list. */
-    if (is_bytecode) {
+    if (is_bytecode)
 #if WASM_ENABLE_INTERP != 0 || WASM_ENABLE_JIT != 0
-        destroy_all_wasm_sections(
-            (wasm_section_list_t)(wasm_app_data->sections));
+        destroy_all_wasm_sections((wasm_section_list_t)(wasm_app_data->sections));
 #else
         bh_assert(0);
 #endif
-    }
-    else {
+    else
 #if WASM_ENABLE_AOT != 0
         destroy_all_aot_sections((aot_section_list_t)(wasm_app_data->sections));
 #else
         bh_assert(0);
 #endif
-    }
 
     if (wasm_app_data->wasm_module)
         wasm_runtime_unload(wasm_app_data->wasm_module);
@@ -580,7 +559,7 @@ wasm_app_module_init(void)
 #define MAX_INT_STR_LEN 11
 
 static bool
-wasm_app_module_install(request_t *msg)
+wasm_app_module_install(request_t * msg)
 {
     unsigned int m_data_size, heap_size, stack_size;
     unsigned int timeout, timers, err_size;
@@ -589,14 +568,14 @@ wasm_app_module_install(request_t *msg)
     wasm_app_file_t *wasm_app_file;
     wasm_data *wasm_app_data;
     package_type_t package_type;
-    module_data *m_data = NULL;
+    module_data *m_data;
     wasm_module_t module = NULL;
     wasm_module_inst_t inst = NULL;
     wasm_exec_env_t exec_env = NULL;
     char m_name[APP_NAME_MAX_LEN] = { 0 };
     char timeout_str[MAX_INT_STR_LEN] = { 0 };
     char heap_size_str[MAX_INT_STR_LEN] = { 0 };
-    char timers_str[MAX_INT_STR_LEN] = { 0 }, err[128], err_resp[256];
+    char timers_str[MAX_INT_STR_LEN] = { 0 }, err[256];
 #if WASM_ENABLE_LIBC_WASI != 0
     char wasi_dir_buf[PATH_MAX] = { 0 };
     const char *wasi_dir_list[] = { wasi_dir_buf };
@@ -606,38 +585,27 @@ wasm_app_module_install(request_t *msg)
 
     /* Check payload */
     if (!msg->payload || msg->payload_len == 0) {
-        SEND_ERR_RESPONSE(msg->mid,
-                          "Install WASM app failed: invalid wasm file.");
+        SEND_ERR_RESPONSE(msg->mid, "Install WASM app failed: invalid wasm file.");
         return false;
     }
-
-    /* Judge the app type is AOTed or not */
-    package_type = get_package_type((uint8 *)msg->payload, msg->payload_len);
-    wasm_app_file = (wasm_app_file_t *)msg->payload;
 
     /* Check app name */
     properties_offset = check_url_start(msg->url, strlen(msg->url), "/applet");
     bh_assert(properties_offset > 0);
-    if (properties_offset <= 0) {
-        SEND_ERR_RESPONSE(msg->mid,
-                          "Install WASM app failed: invalid app name.");
-        goto fail;
-    }
-
+    if (properties_offset <= 0)
+        return false;
     properties = msg->url + properties_offset;
     find_key_value(properties, strlen(properties), "name", m_name,
                    sizeof(m_name) - 1, '&');
 
     if (strlen(m_name) == 0) {
-        SEND_ERR_RESPONSE(msg->mid,
-                          "Install WASM app failed: invalid app name.");
-        goto fail;
+        SEND_ERR_RESPONSE(msg->mid, "Install WASM app failed: invalid app name.");
+        return false;
     }
 
     if (app_manager_lookup_module_data(m_name)) {
-        SEND_ERR_RESPONSE(msg->mid,
-                          "Install WASM app failed: app already installed.");
-        goto fail;
+        SEND_ERR_RESPONSE(msg->mid, "Install WASM app failed: app already installed.");
+        return false;
     }
 
     /* Parse heap size */
@@ -652,13 +620,15 @@ wasm_app_module_install(request_t *msg)
             heap_size = APP_HEAP_SIZE_MAX;
     }
 
+    /* Judge the app type is AOTed or not */
+    package_type = get_package_type((uint8 *) msg->payload, msg->payload_len);
+
     /* Load WASM file and instantiate*/
     switch (package_type) {
 #if WASM_ENABLE_AOT != 0
         case Wasm_Module_AoT:
         {
             wasm_aot_file_t *aot_file;
-            /* clang-format off */
             /* Sections to be released after loading */
             uint8 sections1[] = {
                 AOT_SECTION_TYPE_TARGET_INFO,
@@ -666,46 +636,53 @@ wasm_app_module_install(request_t *msg)
                 AOT_SECTION_TYPE_FUNCTION,
                 AOT_SECTION_TYPE_EXPORT,
                 AOT_SECTION_TYPE_RELOCATION,
-                AOT_SECTION_TYPE_SIGANATURE,
-                AOT_SECTION_TYPE_CUSTOM,
+                AOT_SECTION_TYPE_SIGANATURE
             };
-            /* clang-format on */
 
+            wasm_app_file = (wasm_app_file_t *) msg->payload;
+            bh_assert(wasm_app_file);
             aot_file = &wasm_app_file->u.aot;
 
             /* Load AOT module from sections */
             module = wasm_runtime_load_from_sections(aot_file->sections, true,
                                                      err, err_size);
             if (!module) {
-                snprintf(err_resp, sizeof(err_resp),
-                         "Install WASM app failed: %s", err);
-                SEND_ERR_RESPONSE(msg->mid, err_resp);
-                goto fail;
+                SEND_ERR_RESPONSE(msg->mid,
+                                  "Install WASM app failed: load WASM file failed.");
+                app_manager_printf("error: %s\n", err);
+                destroy_all_aot_sections(aot_file->sections);
+                return false;
             }
             /* Destroy useless sections from list after load */
-            destroy_part_aot_sections(&aot_file->sections, sections1,
+            destroy_part_aot_sections(&aot_file->sections,
+                                      sections1,
                                       sizeof(sections1) / sizeof(uint8));
 
 #if WASM_ENABLE_LIBC_WASI != 0
-            if (!wasm_app_prepare_wasi_dir(module, m_name, wasi_dir_buf,
-                                           sizeof(wasi_dir_buf))) {
-                SEND_ERR_RESPONSE(
-                    msg->mid,
-                    "Install WASM app failed: prepare wasi env failed.");
-                goto fail;
+            if (!wasm_app_prepare_wasi_dir(module, m_name,
+                                           wasi_dir_buf, sizeof(wasi_dir_buf))) {
+                SEND_ERR_RESPONSE(msg->mid,
+                                  "Install WASM app failed: prepare wasi env failed.");
+                wasm_runtime_unload(module);
+                destroy_all_aot_sections(aot_file->sections);
+                return false;
             }
-            wasm_runtime_set_wasi_args(module, wasi_dir_list, 1, NULL, 0, NULL,
-                                       0, NULL, 0);
+            wasm_runtime_set_wasi_args(module,
+                                       wasi_dir_list, 1,
+                                       NULL, 0,
+                                       NULL, 0,
+                                       NULL, 0);
 #endif
 
             /* Instantiate the AOT module */
-            inst =
-                wasm_runtime_instantiate(module, 0, heap_size, err, err_size);
+            inst = wasm_runtime_instantiate(module, 0, heap_size, err, err_size);
             if (!inst) {
-                snprintf(err_resp, sizeof(err_resp),
-                         "Install WASM app failed: %s", err);
-                SEND_ERR_RESPONSE(msg->mid, err);
-                goto fail;
+                SEND_ERR_RESPONSE(msg->mid,
+                                  "Install WASM app failed: instantiate wasm runtime failed.");
+                app_manager_printf("error: %s\n", err);
+                wasm_runtime_unload(module);
+                destroy_all_aot_sections(aot_file->sections);
+                return false;
             }
             break;
         }
@@ -726,64 +703,69 @@ wasm_app_module_install(request_t *msg)
                 SECTION_TYPE_GLOBAL,
                 SECTION_TYPE_EXPORT,
                 SECTION_TYPE_START,
-                SECTION_TYPE_ELEM,
-#if WASM_ENABLE_BULK_MEMORY != 0
-                SECTION_TYPE_DATACOUNT
-#endif
-
+                SECTION_TYPE_ELEM
             };
             /* Sections to be released after instantiating */
             uint8 sections2[] = { SECTION_TYPE_DATA };
 
+            wasm_app_file = (wasm_app_file_t *) msg->payload;
+            bh_assert(wasm_app_file);
             bytecode_file = &wasm_app_file->u.bytecode;
 
             /* Load wasm module from sections */
-            module = wasm_runtime_load_from_sections(bytecode_file->sections,
-                                                     false, err, err_size);
+            module = wasm_runtime_load_from_sections(bytecode_file->sections, false,
+                                                     err, err_size);
             if (!module) {
-                snprintf(err_resp, sizeof(err_resp),
-                         "Install WASM app failed: %s", err);
-                SEND_ERR_RESPONSE(msg->mid, err_resp);
-                goto fail;
+                SEND_ERR_RESPONSE(msg->mid,
+                                  "Install WASM app failed: load WASM file failed.");
+                app_manager_printf("error: %s\n", err);
+                destroy_all_wasm_sections(bytecode_file->sections);
+                return false;
             }
 
             /* Destroy useless sections from list after load */
-            destroy_part_wasm_sections(&bytecode_file->sections, sections1,
+            destroy_part_wasm_sections(&bytecode_file->sections,
+                                       sections1,
                                        sizeof(sections1) / sizeof(uint8));
 
 #if WASM_ENABLE_LIBC_WASI != 0
-            if (!wasm_app_prepare_wasi_dir(module, m_name, wasi_dir_buf,
-                                           sizeof(wasi_dir_buf))) {
-                SEND_ERR_RESPONSE(
-                    msg->mid,
-                    "Install WASM app failed: prepare wasi env failed.");
-                goto fail;
+            if (!wasm_app_prepare_wasi_dir(module, m_name,
+                                           wasi_dir_buf, sizeof(wasi_dir_buf))) {
+                SEND_ERR_RESPONSE(msg->mid,
+                                  "Install WASM app failed: prepare wasi env failed.");
+                wasm_runtime_unload(module);
+                destroy_all_wasm_sections(bytecode_file->sections);
+                return false;
             }
-            wasm_runtime_set_wasi_args(module, wasi_dir_list, 1, NULL, 0, NULL,
-                                       0, NULL, 0);
+            wasm_runtime_set_wasi_args(module,
+                                       wasi_dir_list, 1,
+                                       NULL, 0,
+                                       NULL, 0,
+                                       NULL, 0);
 #endif
 
             /* Instantiate the wasm module */
-            inst =
-                wasm_runtime_instantiate(module, 0, heap_size, err, err_size);
+            inst = wasm_runtime_instantiate(module, 0, heap_size, err, err_size);
             if (!inst) {
-                snprintf(err_resp, sizeof(err_resp),
-                         "Install WASM app failed: %s", err);
-                SEND_ERR_RESPONSE(msg->mid, err_resp);
-                goto fail;
+                SEND_ERR_RESPONSE(msg->mid,
+                                  "Install WASM app failed: instantiate wasm runtime failed.");
+                app_manager_printf("error: %s\n", err);
+                wasm_runtime_unload(module);
+                destroy_all_wasm_sections(bytecode_file->sections);
+                return false;
             }
 
             /* Destroy useless sections from list after instantiate */
-            destroy_part_wasm_sections(&bytecode_file->sections, sections2,
+            destroy_part_wasm_sections(&bytecode_file->sections,
+                                       sections2,
                                        sizeof(sections2) / sizeof(uint8));
             break;
         }
 #endif /* endof WASM_ENALBE_INTERP != 0 || WASM_ENABLE_JIT != 0 */
         default:
-            SEND_ERR_RESPONSE(
-                msg->mid,
-                "Install WASM app failed: invalid wasm package type.");
-            goto fail;
+            SEND_ERR_RESPONSE(msg->mid,
+                              "Install WASM app failed: invalid wasm package type.");
+            return false;
     }
 
     /* Create module data including the wasm_app_data as its internal_data*/
@@ -791,15 +773,14 @@ wasm_app_module_install(request_t *msg)
     m_data_size = align_uint(m_data_size, 4);
     m_data = APP_MGR_MALLOC(m_data_size + sizeof(wasm_data));
     if (!m_data) {
-        SEND_ERR_RESPONSE(msg->mid,
-                          "Install WASM app failed: allocate memory failed.");
+        SEND_ERR_RESPONSE(msg->mid, "Install WASM app failed: allocate memory failed.");
         goto fail;
     }
     memset(m_data, 0, m_data_size + sizeof(wasm_data));
 
     m_data->module_type = Module_WASM_App;
-    m_data->internal_data = (uint8 *)m_data + m_data_size;
-    wasm_app_data = (wasm_data *)m_data->internal_data;
+    m_data->internal_data = (uint8*) m_data + m_data_size;
+    wasm_app_data = (wasm_data*) m_data->internal_data;
     wasm_app_data->wasm_module_inst = inst;
     wasm_app_data->wasm_module = module;
     wasm_app_data->m_data = m_data;
@@ -813,9 +794,8 @@ wasm_app_module_install(request_t *msg)
     }
 
     if (!(wasm_app_data->exec_env = exec_env =
-              wasm_runtime_create_exec_env(inst, DEFAULT_WASM_STACK_SIZE))) {
-        SEND_ERR_RESPONSE(msg->mid,
-                          "Install WASM app failed: create exec env failed.");
+                wasm_runtime_create_exec_env(inst, DEFAULT_WASM_STACK_SIZE))) {
+        SEND_ERR_RESPONSE(msg->mid, "Install WASM app failed: create exec env failed.");
         goto fail;
     }
 
@@ -833,8 +813,7 @@ wasm_app_module_install(request_t *msg)
     /* Set module data - create queue */
     m_data->queue = bh_queue_create();
     if (!m_data->queue) {
-        SEND_ERR_RESPONSE(msg->mid,
-                          "Install WASM app failed: create app queue failed.");
+        SEND_ERR_RESPONSE(msg->mid, "Install WASM app failed: create app queue failed.");
         goto fail;
     }
 
@@ -863,9 +842,8 @@ wasm_app_module_install(request_t *msg)
 
     /* Initialize watchdog timer */
     if (!watchdog_timer_init(m_data)) {
-        SEND_ERR_RESPONSE(
-            msg->mid,
-            "Install WASM app failed: create app watchdog timer failed.");
+        SEND_ERR_RESPONSE(msg->mid,
+                          "Install WASM app failed: create app watchdog timer failed.");
         goto fail;
     }
 
@@ -875,8 +853,7 @@ wasm_app_module_install(request_t *msg)
 #endif
     /* Create WASM app thread. */
     if (os_thread_create(&wasm_app_data->thread_id, wasm_app_routine,
-                         (void *)m_data, stack_size)
-        != 0) {
+                         (void*) m_data, stack_size) != 0) {
         module_data_list_remove(m_data);
         SEND_ERR_RESPONSE(msg->mid,
                           "Install WASM app failed: create app thread failed.");
@@ -894,13 +871,8 @@ wasm_app_module_install(request_t *msg)
 fail:
     if (m_data)
         release_module(m_data);
-
-    if (inst)
-        wasm_runtime_deinstantiate(inst);
-
-    if (module)
-        wasm_runtime_unload(module);
-
+    wasm_runtime_deinstantiate(inst);
+    wasm_runtime_unload(module);
     if (exec_env)
         wasm_runtime_destroy_exec_env(exec_env);
 
@@ -948,8 +920,7 @@ wasm_app_module_uninstall(request_t *msg)
                    sizeof(m_name) - 1, '&');
 
     if (strlen(m_name) == 0) {
-        SEND_ERR_RESPONSE(msg->mid,
-                          "Uninstall WASM app failed: invalid app name.");
+        SEND_ERR_RESPONSE(msg->mid, "Uninstall WASM app failed: invalid app name.");
         return false;
     }
 
@@ -960,15 +931,13 @@ wasm_app_module_uninstall(request_t *msg)
     }
 
     if (m_data->module_type != Module_WASM_App) {
-        SEND_ERR_RESPONSE(msg->mid,
-                          "Uninstall WASM app failed: invalid module type.");
+        SEND_ERR_RESPONSE(msg->mid, "Uninstall WASM app failed: invalid module type.");
         return false;
     }
 
     if (m_data->wd_timer.is_interrupting) {
-        SEND_ERR_RESPONSE(
-            msg->mid,
-            "Uninstall WASM app failed: app is being interrupted by watchdog.");
+        SEND_ERR_RESPONSE(msg->mid,
+                          "Uninstall WASM app failed: app is being interrupted by watchdog.");
         return false;
     }
 
@@ -976,7 +945,7 @@ wasm_app_module_uninstall(request_t *msg)
     bh_queue_exit_loop_run(m_data->queue);
 
     /* Wait for wasm app thread to exit */
-    wasm_app_data = (wasm_data *)m_data->internal_data;
+    wasm_app_data = (wasm_data*) m_data->internal_data;
     os_thread_join(wasm_app_data->thread_id, NULL);
 
     cleanup_app_resource(m_data);
@@ -996,13 +965,13 @@ wasm_app_module_uninstall(request_t *msg)
 static bool
 wasm_app_module_handle_host_url(void *queue_msg)
 {
-    /* TODO: implement in future */
+    //todo: implement in future
     app_manager_printf("App handles host url address %d\n",
                        (int)(uintptr_t)queue_msg);
     return false;
 }
 
-static module_data *
+static module_data*
 wasm_app_module_get_module_data(void *inst)
 {
     wasm_module_inst_t module_inst = (wasm_module_inst_t)inst;
@@ -1012,19 +981,19 @@ wasm_app_module_get_module_data(void *inst)
 static void
 wasm_app_module_watchdog_kill(module_data *m_data)
 {
-    /* TODO: implement in future */
+    //todo: implement in future
     app_manager_printf("Watchdog kills app: %s\n", m_data->module_name);
     return;
 }
 
 bool
 wasm_register_msg_callback(int message_type,
-                           message_type_handler_t message_handler)
+                                message_type_handler_t message_handler)
 {
     int i;
     int freeslot = -1;
     for (i = 0; i < Max_Msg_Callback; i++) {
-        /* replace handler for the same event registered */
+        // replace handler for the same event registered
         if (g_msg_type[i] == message_type)
             break;
 
@@ -1037,8 +1006,7 @@ wasm_register_msg_callback(int message_type,
     else if (freeslot != -1) {
         g_msg_callbacks[freeslot] = message_handler;
         g_msg_type[freeslot] = message_type;
-    }
-    else
+    } else
         return false;
 
     return true;
@@ -1059,19 +1027,18 @@ wasm_register_cleanup_callback(resource_cleanup_handler_t handler)
     return false;
 }
 
-#define RECV_INTEGER(value, next_phase)                \
-    do {                                               \
-        uint8 *p = (uint8 *)&value;                    \
-        p[recv_ctx.size_in_phase++] = ch;              \
-        if (recv_ctx.size_in_phase == sizeof(value)) { \
-            if (sizeof(value) == 4)                    \
-                value = ntohl(value);                  \
-            else if (sizeof(value) == 2)               \
-                value = ntohs(value);                  \
-            recv_ctx.phase = next_phase;               \
-            recv_ctx.size_in_phase = 0;                \
-        }                                              \
-    } while (0)
+#define RECV_INTEGER(value, next_phase) do {        \
+    uint8 *p = (uint8 *)&value;     \
+    p[recv_ctx.size_in_phase++] = ch;               \
+    if (recv_ctx.size_in_phase == sizeof(value)) {  \
+      if (sizeof(value) == 4)                       \
+        value = ntohl(value);                       \
+      else if (sizeof(value) == 2)                  \
+        value = ntohs(value);                       \
+      recv_ctx.phase = next_phase;                  \
+      recv_ctx.size_in_phase = 0;                   \
+    }                                               \
+  } while(0)
 
 /* return:
  * 1: whole wasm app arrived
@@ -1079,11 +1046,11 @@ wasm_register_cleanup_callback(resource_cleanup_handler_t handler)
  * -1: fail to process the byte arrived, e.g. allocate memory fail
  */
 static bool
-wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
+wasm_app_module_on_install_request_byte_arrive(uint8 ch,
+                                               int request_total_size,
                                                int *received_size)
 {
     uint8 *p;
-    int magic;
     package_type_t package_type = Package_Type_Unknown;
 
     if (recv_ctx.phase == Phase_Req_Ver) {
@@ -1120,20 +1087,17 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
         return true;
     }
     else if (recv_ctx.phase == Phase_Req_Url_Len) {
-        p = (uint8 *)&recv_ctx.message.request_url_len;
+        p = (uint8*)&recv_ctx.message.request_url_len;
 
         p[recv_ctx.size_in_phase++] = ch;
-        if (recv_ctx.size_in_phase
-            == sizeof(recv_ctx.message.request_url_len)) {
+        if (recv_ctx.size_in_phase ==
+                sizeof(recv_ctx.message.request_url_len)) {
             recv_ctx.message.request_url_len =
                 ntohs(recv_ctx.message.request_url_len);
             recv_ctx.message.request_url =
                 APP_MGR_MALLOC(recv_ctx.message.request_url_len + 1);
             if (NULL == recv_ctx.message.request_url) {
                 app_manager_printf("Allocate memory failed!\n");
-                SEND_ERR_RESPONSE(recv_ctx.message.request_mid,
-                                  "Install WASM app failed: "
-                                  "allocate memory failed.");
                 goto fail;
             }
             memset(recv_ctx.message.request_url, 0,
@@ -1157,18 +1121,19 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
     }
     else if (recv_ctx.phase == Phase_App_Magic) {
         /* start to receive wasm app magic: bytecode or aot */
-        p = (uint8 *)&recv_ctx.message.app_file_magic;
+        p = (uint8*)&recv_ctx.message.app_file_magic;
 
         p[recv_ctx.size_in_phase++] = ch;
 
-        if (recv_ctx.size_in_phase == sizeof(recv_ctx.message.app_file_magic)) {
-            magic = recv_ctx.message.app_file_magic;
+        if (recv_ctx.size_in_phase ==
+                sizeof(recv_ctx.message.app_file_magic)) {
+            int magic = recv_ctx.message.app_file_magic;
             package_type = get_package_type((uint8 *)&magic, sizeof(magic) + 1);
             switch (package_type) {
 #if WASM_ENABLE_INTERP != 0 || WASM_ENABLE_JIT != 0
                 case Wasm_Module_Bytecode:
                     recv_ctx.message.app_file.u.bytecode.magic =
-                        recv_ctx.message.app_file_magic;
+                                               recv_ctx.message.app_file_magic;
                     recv_ctx.phase = Phase_Wasm_Version;
                     recv_ctx.size_in_phase = 0;
                     break;
@@ -1176,15 +1141,14 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
 #if WASM_ENABLE_AOT != 0
                 case Wasm_Module_AoT:
                     recv_ctx.message.app_file.u.aot.magic =
-                        recv_ctx.message.app_file_magic;
+                                               recv_ctx.message.app_file_magic;
                     recv_ctx.phase = Phase_AOT_Version;
                     recv_ctx.size_in_phase = 0;
                     break;
 #endif
                 default:
                     SEND_ERR_RESPONSE(recv_ctx.message.request_mid,
-                                      "Install WASM app failed: "
-                                      "invalid file format.");
+                                      "Install WASM app failed: invalid file format.");
                     goto fail;
             }
         }
@@ -1192,19 +1156,17 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
     }
 #if WASM_ENABLE_INTERP != 0 || WASM_ENABLE_JIT != 0
     else if (recv_ctx.phase == Phase_Wasm_Version) {
-        p = (uint8 *)&recv_ctx.message.app_file.u.bytecode.version;
+        p = (uint8*)&recv_ctx.message.app_file.u.bytecode.version;
 
         if (ch == wasm_bytecode_version[recv_ctx.size_in_phase])
             p[recv_ctx.size_in_phase++] = ch;
         else {
             app_manager_printf("Invalid WASM version!\n");
-            SEND_ERR_RESPONSE(recv_ctx.message.request_mid,
-                              "Install WASM app failed: invalid WASM version.");
             goto fail;
         }
 
-        if (recv_ctx.size_in_phase
-            == sizeof(recv_ctx.message.app_file.u.bytecode.version)) {
+        if (recv_ctx.size_in_phase ==
+                sizeof(recv_ctx.message.app_file.u.bytecode.version)) {
             recv_ctx.phase = Phase_Wasm_Section_Type;
             recv_ctx.size_in_phase = 0;
         }
@@ -1212,19 +1174,10 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
     }
     else if (recv_ctx.phase == Phase_Wasm_Section_Type) {
         uint8 section_type = ch;
-#if WASM_ENABLE_BULK_MEMORY == 0
-        uint8 section_type_max = SECTION_TYPE_DATA;
-#else
-        uint8 section_type_max = SECTION_TYPE_DATACOUNT;
-#endif
-        if (section_type <= section_type_max) {
+        if (section_type <= SECTION_TYPE_DATA) {
             wasm_section_t *new_section;
-            if (!(new_section = (wasm_section_t *)APP_MGR_MALLOC(
-                      sizeof(wasm_section_t)))) {
+            if (!(new_section = (wasm_section_t *) APP_MGR_MALLOC(sizeof(wasm_section_t)))) {
                 app_manager_printf("Allocate memory failed!\n");
-                SEND_ERR_RESPONSE(recv_ctx.message.request_mid,
-                                  "Install WASM app failed: "
-                                  "allocate memory failed.");
                 goto fail;
             }
             memset(new_section, 0, sizeof(wasm_section_t));
@@ -1237,8 +1190,7 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
                 recv_ctx.message.app_file.u.bytecode.section_end = new_section;
             }
             else {
-                recv_ctx.message.app_file.u.bytecode.section_end->next =
-                    new_section;
+                recv_ctx.message.app_file.u.bytecode.section_end->next = new_section;
                 recv_ctx.message.app_file.u.bytecode.section_end = new_section;
             }
 
@@ -1248,20 +1200,13 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
             return true;
         }
         else {
-            char error_buf[128];
-
             app_manager_printf("Invalid wasm section type: %d\n", section_type);
-            snprintf(error_buf, sizeof(error_buf),
-                     "Install WASM app failed: invalid wasm section type %d",
-                     section_type);
-            SEND_ERR_RESPONSE(recv_ctx.message.request_mid, error_buf);
             goto fail;
         }
     }
     else if (recv_ctx.phase == Phase_Wasm_Section_Size) {
         /* the last section is the current receiving one */
-        wasm_section_t *section =
-            recv_ctx.message.app_file.u.bytecode.section_end;
+        wasm_section_t *section = recv_ctx.message.app_file.u.bytecode.section_end;
         uint32 byte;
 
         bh_assert(section);
@@ -1272,23 +1217,16 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
             ((byte & 0x7f) << recv_ctx.size_in_phase * 7);
         recv_ctx.size_in_phase++;
         /* check leab128 overflow for uint32 value */
-        if (recv_ctx.size_in_phase
-            > (sizeof(section->section_body_size) * 8 + 7 - 1) / 7) {
-            app_manager_printf("LEB overflow when parsing section size\n");
-            SEND_ERR_RESPONSE(recv_ctx.message.request_mid,
-                              "Install WASM app failed: "
-                              "LEB overflow when parsing section size");
+        if (recv_ctx.size_in_phase >
+                (sizeof(section->section_body_size) * 8 + 7 - 1) / 7) {
+            app_manager_printf(" LEB overflow when parsing section size\n");
             goto fail;
         }
 
         if ((byte & 0x80) == 0) {
             /* leb128 encoded section size parsed done */
-            if (!(section->section_body =
-                      APP_MGR_MALLOC(section->section_body_size))) {
+            if (!(section->section_body = APP_MGR_MALLOC(section->section_body_size))) {
                 app_manager_printf("Allocate memory failed!\n");
-                SEND_ERR_RESPONSE(
-                    recv_ctx.message.request_mid,
-                    "Install WASM app failed: allocate memory failed");
                 goto fail;
             }
             recv_ctx.phase = Phase_Wasm_Section_Content;
@@ -1299,8 +1237,7 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
     }
     else if (recv_ctx.phase == Phase_Wasm_Section_Content) {
         /* the last section is the current receiving one */
-        wasm_section_t *section =
-            recv_ctx.message.app_file.u.bytecode.section_end;
+        wasm_section_t *section = recv_ctx.message.app_file.u.bytecode.section_end;
 
         bh_assert(section);
 
@@ -1317,15 +1254,7 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
                 }
                 else {
                     app_manager_printf("Handle install message failed!\n");
-                    SEND_ERR_RESPONSE(recv_ctx.message.request_mid,
-                                      "Install WASM app failed: "
-                                      "handle install message failed");
-                    /**
-                     * The sections were destroyed inside
-                     * module_wasm_app_handle_install_msg(),
-                     * no need to destroy again.
-                     */
-                    return false;
+                    goto fail;
                 }
             }
             else {
@@ -1340,19 +1269,17 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
 #endif /* end of WASM_ENABLE_INTERP != 0 || WASM_ENABLE_JIT != 0 */
 #if WASM_ENABLE_AOT != 0
     else if (recv_ctx.phase == Phase_AOT_Version) {
-        p = (uint8 *)&recv_ctx.message.app_file.u.aot.version;
+        p = (uint8*)&recv_ctx.message.app_file.u.aot.version;
 
         if (ch == wasm_aot_version[recv_ctx.size_in_phase])
             p[recv_ctx.size_in_phase++] = ch;
         else {
-            app_manager_printf("Invalid AOT version!\n");
-            SEND_ERR_RESPONSE(recv_ctx.message.request_mid,
-                              "Install WASM app failed: invalid AOT version");
+            app_manager_printf("Invalid WASM AOT version!\n");
             goto fail;
         }
 
-        if (recv_ctx.size_in_phase
-            == sizeof(recv_ctx.message.app_file.u.aot.version)) {
+        if (recv_ctx.size_in_phase ==
+                sizeof(recv_ctx.message.app_file.u.aot.version)) {
             recv_ctx.phase = Phase_AOT_Section_ID;
             recv_ctx.size_in_phase = 0;
         }
@@ -1360,21 +1287,17 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
     }
     else if (recv_ctx.phase == Phase_AOT_Section_ID) {
         aot_section_t *cur_section;
-        uint32 aot_file_cur_offset =
-            recv_ctx.total_received_size - 1
-            - 18 /* Request fixed part */ - recv_ctx.message.request_url_len;
+        uint32 aot_file_cur_offset = recv_ctx.total_received_size - 1 -
+                                     18 /* Request fixed part */ -
+                                     recv_ctx.message.request_url_len;
 
         if (recv_ctx.size_in_phase == 0) {
             /* Skip paddings */
             if (aot_file_cur_offset % 4)
                 return true;
 
-            if (!(cur_section =
-                      (aot_section_t *)APP_MGR_MALLOC(sizeof(aot_section_t)))) {
+            if (!(cur_section = (aot_section_t *) APP_MGR_MALLOC(sizeof(aot_section_t)))) {
                 app_manager_printf("Allocate memory failed!\n");
-                SEND_ERR_RESPONSE(recv_ctx.message.request_mid,
-                                  "Install WASM app failed: "
-                                  "allocate memory failed");
                 goto fail;
             }
             memset(cur_section, 0, sizeof(aot_section_t));
@@ -1388,8 +1311,7 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
                 recv_ctx.message.app_file.u.aot.section_end->next = cur_section;
                 recv_ctx.message.app_file.u.aot.section_end = cur_section;
             }
-        }
-        else {
+        } else {
             cur_section = recv_ctx.message.app_file.u.aot.section_end;
             bh_assert(cur_section);
         }
@@ -1400,20 +1322,13 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
             /* Notes: integers are always little endian encoded in AOT file */
             if (!is_little_endian())
                 exchange_uint32(p);
-            if (cur_section->section_type < AOT_SECTION_TYPE_SIGANATURE
-                || cur_section->section_type == AOT_SECTION_TYPE_CUSTOM) {
+            if (cur_section->section_type < AOT_SECTION_TYPE_SIGANATURE) {
                 recv_ctx.phase = Phase_AOT_Section_Size;
                 recv_ctx.size_in_phase = 0;
             }
             else {
-                char error_buf[128];
-
                 app_manager_printf("Invalid AOT section id: %d\n",
                                    cur_section->section_type);
-                snprintf(error_buf, sizeof(error_buf),
-                         "Install WASM app failed: invalid AOT section id %d",
-                         cur_section->section_type);
-                SEND_ERR_RESPONSE(recv_ctx.message.request_mid, error_buf);
                 goto fail;
             }
         }
@@ -1425,7 +1340,7 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
         aot_section_t *section = recv_ctx.message.app_file.u.aot.section_end;
         bh_assert(section);
 
-        p = (uint8 *)&section->section_body_size;
+        p = (uint8*)&section->section_body_size;
         p[recv_ctx.size_in_phase++] = ch;
         if (recv_ctx.size_in_phase == sizeof(section->section_body_size)) {
             /* Notes: integers are always little endian encoded in AOT file */
@@ -1436,11 +1351,9 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
                 if (section->section_type == AOT_SECTION_TYPE_TEXT) {
                     int map_prot =
                         MMAP_PROT_READ | MMAP_PROT_WRITE | MMAP_PROT_EXEC;
-#if defined(BUILD_TARGET_X86_64) || defined(BUILD_TARGET_AMD_64) \
-    || defined(BUILD_TARGET_RISCV64_LP64D)                       \
-    || defined(BUILD_TARGET_RISCV64_LP64)
-                    /* aot code and data in x86_64 must be in range 0 to 2G due
-                       to relocation for R_X86_64_32/32S/PC32 */
+#if defined(BUILD_TARGET_X86_64) || defined(BUILD_TARGET_AMD_64)
+                    /* aot code and data in x86_64 must be in range 0 to 2G due to
+                       relocation for R_X86_64_32/32S/PC32 */
                     int map_flags = MMAP_MAP_32BIT;
 #else
                     int map_flags = MMAP_MAP_NONE;
@@ -1450,13 +1363,9 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
                     total_size = (total_size + 3) & ~((uint64)3);
                     if (total_size >= UINT32_MAX
                         || !(section->section_body =
-                                 os_mmap(NULL, (uint32)total_size, map_prot,
-                                         map_flags))) {
-                        app_manager_printf(
-                            "Allocate executable memory failed!\n");
-                        SEND_ERR_RESPONSE(recv_ctx.message.request_mid,
-                                          "Install WASM app failed: "
-                                          "allocate memory failed");
+                                os_mmap(NULL, (uint32)total_size,
+                                        map_prot, map_flags))) {
+                        app_manager_printf("Allocate executable memory failed!\n");
                         goto fail;
                     }
 #if defined(BUILD_TARGET_X86_64) || defined(BUILD_TARGET_AMD_64)
@@ -1467,11 +1376,8 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
                 }
                 else {
                     if (!(section->section_body =
-                              APP_MGR_MALLOC(section->section_body_size))) {
+                                APP_MGR_MALLOC(section->section_body_size))) {
                         app_manager_printf("Allocate memory failed!\n");
-                        SEND_ERR_RESPONSE(recv_ctx.message.request_mid,
-                                          "Install WASM app failed: "
-                                          "allocate memory failed");
                         goto fail;
                     }
                 }
@@ -1492,12 +1398,12 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
 
         if (recv_ctx.size_in_phase == section->section_body_size) {
             if (section->section_type == AOT_SECTION_TYPE_TEXT) {
-                uint32 total_size =
-                    section->section_body_size + aot_get_plt_table_size();
+                uint32 total_size = section->section_body_size
+                                    + aot_get_plt_table_size();
                 total_size = (total_size + 3) & ~3;
                 if (total_size > section->section_body_size) {
-                    memset(section->section_body + section->section_body_size,
-                           0, total_size - section->section_body_size);
+                   memset(section->section_body + section->section_body_size,
+                          0, total_size - section->section_body_size);
                     section->section_body_size = total_size;
                 }
             }
@@ -1511,15 +1417,7 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
                 }
                 else {
                     app_manager_printf("Handle install message failed!\n");
-                    SEND_ERR_RESPONSE(recv_ctx.message.request_mid,
-                                      "Install WASM app failed: "
-                                      "handle install message failed");
-                    /**
-                     * The sections were destroyed inside
-                     * module_wasm_app_handle_install_msg(),
-                     * no need to destroy again.
-                     */
-                    return false;
+                    goto fail;
                 }
             }
             else {
@@ -1534,14 +1432,10 @@ wasm_app_module_on_install_request_byte_arrive(uint8 ch, int request_total_size,
 #endif /* end of WASM_ENABLE_AOT != 0 */
 
 fail:
-    /* Restore the package type */
-    magic = recv_ctx.message.app_file_magic;
-    package_type = get_package_type((uint8 *)&magic, sizeof(magic) + 1);
     switch (package_type) {
 #if WASM_ENABLE_INTERP != 0 || WASM_ENABLE_JIT != 0
         case Wasm_Module_Bytecode:
-            destroy_all_wasm_sections(
-                recv_ctx.message.app_file.u.bytecode.sections);
+            destroy_all_wasm_sections(recv_ctx.message.app_file.u.bytecode.sections);
             break;
 #endif
 #if WASM_ENABLE_AOT != 0
@@ -1558,7 +1452,10 @@ fail:
         recv_ctx.message.request_url = NULL;
     }
 
-    memset(&recv_ctx, 0, sizeof(recv_ctx));
+    recv_ctx.phase = Phase_Req_Ver;
+    recv_ctx.size_in_phase = 0;
+    recv_ctx.total_received_size = 0;
+
     return false;
 }
 
@@ -1568,7 +1465,7 @@ module_wasm_app_handle_install_msg(install_wasm_app_msg_t *message)
     request_t *request = NULL;
     bh_message_t msg;
 
-    request = (request_t *)APP_MGR_MALLOC(sizeof(request_t));
+    request = (request_t *) APP_MGR_MALLOC(sizeof(request_t));
     if (request == NULL)
         return false;
 
@@ -1588,8 +1485,8 @@ module_wasm_app_handle_install_msg(install_wasm_app_msg_t *message)
 
     /* Request payload is set to wasm_app_file_t struct,
      * but not whole app buffer */
-    bh_memcpy_s(request->payload, request->payload_len, &message->app_file,
-                request->payload_len);
+    bh_memcpy_s(request->payload, request->payload_len,
+                &message->app_file, request->payload_len);
 
     /* Since it's a wasm app install request, so directly post to app-mgr's
      * queue. The benefit is that section list can be freed when the msg
@@ -1622,7 +1519,8 @@ destroy_all_wasm_sections(wasm_section_list_t sections)
 
 static void
 destroy_part_wasm_sections(wasm_section_list_t *p_sections,
-                           uint8 *section_types, int section_cnt)
+                           uint8 *section_types,
+                           int section_cnt)
 {
     int i;
     for (i = 0; i < section_cnt; i++) {
@@ -1669,8 +1567,10 @@ destroy_all_aot_sections(aot_section_list_t sections)
     }
 }
 
+
 static void
-destroy_part_aot_sections(aot_section_list_t *p_sections, uint8 *section_types,
+destroy_part_aot_sections(aot_section_list_t *p_sections,
+                          uint8 *section_types,
                           int section_cnt)
 {
     int i;
@@ -1715,7 +1615,7 @@ wasm_set_wasi_root_dir(const char *root_dir)
     if (!(path = realpath(root_dir, resolved_path)))
         return false;
 
-    snprintf(wasi_root_dir, sizeof(wasi_root_dir), "%s", path);
+    strncpy(wasi_root_dir, path, sizeof(wasi_root_dir));
     return true;
 }
 
@@ -1725,3 +1625,4 @@ wasm_get_wasi_root_dir()
     return wasi_root_dir;
 }
 #endif
+

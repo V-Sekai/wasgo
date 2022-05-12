@@ -6,8 +6,9 @@
 #ifndef _AOT_EXPORT_H
 #define _AOT_EXPORT_H
 
-#include <stdint.h>
+#include <inttypes.h>
 #include <stdbool.h>
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -25,12 +26,6 @@ aot_create_comp_data(void *wasm_module);
 void
 aot_destroy_comp_data(aot_comp_data_t comp_data);
 
-#if WASM_ENABLE_DEBUG_AOT != 0
-typedef void *dwar_extractor_handle_t;
-dwar_extractor_handle_t
-create_dwarf_extractor(aot_comp_data_t comp_data, char *file_name);
-#endif
-
 enum {
     AOT_FORMAT_FILE,
     AOT_OBJECT_FILE,
@@ -38,23 +33,16 @@ enum {
     AOT_LLVMIR_OPT_FILE,
 };
 
-typedef struct AOTCompOption {
+typedef struct AOTCompOption{
     bool is_jit_mode;
-    bool is_indirect_mode;
     char *target_arch;
     char *target_abi;
     char *target_cpu;
     char *cpu_features;
-    bool is_sgx_platform;
     bool enable_bulk_memory;
     bool enable_thread_mgr;
     bool enable_tail_call;
-    bool enable_simd;
-    bool enable_ref_types;
-    bool enable_aux_stack_check;
-    bool enable_aux_stack_frame;
-    bool disable_llvm_intrinsics;
-    bool disable_llvm_lto;
+    bool is_sgx_platform;
     uint32_t opt_level;
     uint32_t size_level;
     uint32_t output_format;
@@ -62,7 +50,8 @@ typedef struct AOTCompOption {
 } AOTCompOption, *aot_comp_option_t;
 
 aot_comp_context_t
-aot_create_comp_context(aot_comp_data_t comp_data, aot_comp_option_t option);
+aot_create_comp_context(aot_comp_data_t comp_data,
+                        aot_comp_option_t option);
 
 void
 aot_destroy_comp_context(aot_comp_context_t comp_ctx);
@@ -77,24 +66,14 @@ bool
 aot_emit_object_file(aot_comp_context_t comp_ctx, const char *file_name);
 
 bool
-aot_emit_aot_file(aot_comp_context_t comp_ctx, aot_comp_data_t comp_data,
+aot_emit_aot_file(aot_comp_context_t comp_ctx,
+                  aot_comp_data_t comp_data,
                   const char *file_name);
 
 void
 aot_destroy_aot_file(uint8_t *aot_file);
 
-bool
-aot_compile_wasm_file_init();
-
-uint8_t *
-aot_compile_wasm_file(const uint8_t *wasm_file_buf, uint32_t wasm_file_size,
-                      uint32_t opt_level, uint32_t size_level, char *error_buf,
-                      uint32_t error_buf_size, uint32_t *p_aot_file_size);
-
-void
-aot_compile_wasm_file_destroy();
-
-char *
+char*
 aot_get_last_error();
 
 uint32_t
