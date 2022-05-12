@@ -1,4 +1,4 @@
-#include "Test.h"
+#include "wasgo_test.h"
 // #include "bh_getopt.h"
 // #include "bh_read_file.h"
 #define HashMap bh_HashMap

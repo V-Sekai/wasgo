@@ -1,5 +1,5 @@
 #include "register_types.h"
-#include "src/Test.h"
+#include "src/wasgo_test.h"
 #include "src/resource_loader_wasm.h"
 #include "src/resource_wasm.h"
 #include "src/wasgo_callable.h"
