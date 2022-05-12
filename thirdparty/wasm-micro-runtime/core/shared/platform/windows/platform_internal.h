@@ -23,11 +23,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <stdint.h>
-#include <malloc.h>
-#include <process.h>
-#include <winsock2.h>
 #include <windows.h>
-#include <BaseTsd.h>
 
 #ifdef __cplusplus
 extern "C" {
