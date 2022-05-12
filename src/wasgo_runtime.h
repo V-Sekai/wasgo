@@ -17,8 +17,8 @@ struct WASMModuleInstanceCommon;
 typedef struct WASMModuleInstanceCommon *wasm_module_inst_t;
 
 class WasGoRuntime : public Object {
-    GDCLASS(WasGoRuntime, Object);
-    static WasGoRuntime *singleton;
+	GDCLASS(WasGoRuntime, Object);
+	static WasGoRuntime *singleton;
 
 	Mutex mutex;
 	RID_PtrOwner<WASMModuleCommon> module_rids;

@@ -1,6 +1,6 @@
 /*************************************************************************/
 /*  wasgo_state.h                                                        */
-/*************************************************************************/ 
+/*************************************************************************/
 /*
 This file defines the WasGoState class.
 A WasGoState contains everything needed to run a wasm script.
@@ -26,9 +26,9 @@ class WasGoState : public Node {
 	friend class WasGoCallable;
 	GDCLASS(WasGoState, Node);
 
-	//Properties
+	// Properties
 	Ref<WasmResource> wasm_script;
-	Dictionary properties = {}; //Properties to be passed to the script when it starts up
+	Dictionary properties = {}; // Properties to be passed to the script when it starts up
 	uint32_t stack_size = 8192;
 	uint32_t heap_size = 8192;
 
@@ -39,17 +39,17 @@ public:
 		SLERP
 	};
 	typedef uint32_t WasGoID;
-	
-	#define NULL_WASGO_ID 0
+
+#define NULL_WASGO_ID 0
 	struct _EncodedVariant {
-		WasGoID _id = NULL_WASGO_ID; //data exists on the godot side, we don't need to actually encode anything
-		std::string _data = ""; //data encoded as a string, we will need to decode and store on wasm side
-		_EncodedVariant(){
+		WasGoID _id = NULL_WASGO_ID; // data exists on the godot side, we don't need to actually encode anything
+		std::string _data = ""; // data encoded as a string, we will need to decode and store on wasm side
+		_EncodedVariant() {
 		}
-		_EncodedVariant(WasGoID p_id){
+		_EncodedVariant(WasGoID p_id) {
 			_id = p_id;
 		}
-		_EncodedVariant(std::string p_data){
+		_EncodedVariant(std::string p_data) {
 			_data = p_data;
 		}
 	};
@@ -77,7 +77,7 @@ public:
 	Dictionary get_properties();
 	void set_property(String key, Variant value);
 	Variant get_property(String key);
-	//different getters and setters for different types to make wrapping easier
+	// different getters and setters for different types to make wrapping easier
 	bool get_property_bool(String key);
 	int get_property_int(String key);
 	float get_property_float(String key);
@@ -114,7 +114,7 @@ public:
 
 	void init(wasm_module_t instance);
 
-	//Starting from here
+	// Starting from here
 	int call_wasm_function(String func_name, int argc = 0, uint32_t *argv = nullptr);
 
 	int call_object_function(WasGoID object_id, int argc, uint32_t *argv);
@@ -127,23 +127,23 @@ public:
 	Variant lookup_referencedObject(WasGoID id);
 	// Variant *lookup_variant(WasGoID id);
 
-	WasGoID lookup_wasgo_object(Variant  obj);
-	WasGoID lookup_wasgo_createdObject(Variant  obj);
-	WasGoID lookup_wasgo_referencedObject(Variant  obj);
+	WasGoID lookup_wasgo_object(Variant obj);
+	WasGoID lookup_wasgo_createdObject(Variant obj);
+	WasGoID lookup_wasgo_referencedObject(Variant obj);
 	// WasGoID lookup_variant_reverse(Variant *);
 
 	bool is_active();
 
-	//the regular node callbacks
-	// void _enter_tree();
-	// void _exit_tree();
-	// String _get_configuration_warning();
-	// void _input(InputEvent event);
-	// void _physics_process(float delta);
-	// void _process(float delta);
-	// void _ready();
-	// void _unhandled_input(InputEvent event);
-	// void _unhandled_key_input(InputEventKey event);
+	// the regular node callbacks
+	//  void _enter_tree();
+	//  void _exit_tree();
+	//  String _get_configuration_warning();
+	//  void _input(InputEvent event);
+	//  void _physics_process(float delta);
+	//  void _process(float delta);
+	//  void _ready();
+	//  void _unhandled_input(InputEvent event);
+	//  void _unhandled_key_input(InputEventKey event);
 
 	WasGoID generate_id();
 	// WasGoID create_variant(Variant var);
@@ -156,7 +156,7 @@ public:
 	void _input(const Ref<InputEvent> &p_event);
 	void _unhandled_input(Ref<InputEvent> p_event);
 	void _unhandled_key_input(Ref<InputEventKey> p_event);
-	
+
 	Callable get_callable(String p_func, String p_definition);
 
 private:
@@ -181,9 +181,9 @@ private:
 	Dictionary referencedObjects;
 	Dictionary referencedObjectsReverse;
 
-	//Only for special types that are not Objects. No referencing allowed. Everything is pass by value
-	// HashMap<Variant, WasGoID> createdVariants;
-	// HashMap<WasGoID, Variant> createdVariantsReverse;
+	// Only for special types that are not Objects. No referencing allowed. Everything is pass by value
+	//  HashMap<Variant, WasGoID> createdVariants;
+	//  HashMap<WasGoID, Variant> createdVariantsReverse;
 
 	HashMap<WasGoID, InterpolationType> networkedVariants;
 
@@ -191,61 +191,57 @@ private:
 	// HashMap<WasGoID, int> referencedObjectCounts;
 	// HashMap<WasGoID, int> referencedArraysCounts;
 	// HashMap<WasGoID, int> referencedDictionaryCounts;
-
-
-
 };
 
-
-//WRAPPERS
+// WRAPPERS
 WasGoState::WasGoID _wasgo_this_node(wasm_exec_env_t exec_env);
 
 int _wasgo_get_property_bool(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size);
-void _wasgo_set_property_bool(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, int value);
+void _wasgo_set_property_bool(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, int value);
 
-int _wasgo_get_property_int(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size);
+int _wasgo_get_property_int(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size);
 void _wasgo_set_property_int(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, int value);
 
-float _wasgo_get_property_float(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size);
-void _wasgo_set_property_float(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, float value);
+float _wasgo_get_property_float(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size);
+void _wasgo_set_property_float(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, float value);
 
-void _wasgo_get_property_string(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_string(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_string(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_string(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-void _wasgo_get_property_vector2(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_vector2(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_vector2(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_vector2(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-void _wasgo_get_property_rect2(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_rect2(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_rect2(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_rect2(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-void _wasgo_get_property_vector3(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_vector3(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_vector3(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_vector3(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-void _wasgo_get_property_transform2d(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_transform2d(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_transform2d(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_transform2d(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-void _wasgo_get_property_plane(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_plane(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_plane(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_plane(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-void _wasgo_get_property_quat(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_quat(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_quat(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_quat(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-void _wasgo_get_property_basis(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_basis(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_basis(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_basis(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-void _wasgo_get_property_aabb(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_aabb(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_aabb(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_aabb(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-void _wasgo_get_property_transform(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_transform(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_transform(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_transform(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-void _wasgo_get_property_color(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_color(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_color(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_color(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-void _wasgo_get_property_nodepath(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
-void _wasgo_set_property_nodepath(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_get_property_nodepath(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
+void _wasgo_set_property_nodepath(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, uint8_t *value, int value_size);
 
-WasGoState::WasGoID _wasgo_get_property_object(wasm_exec_env_t p_exec_env, const uint8_t* property_name, int property_name_size);
+WasGoState::WasGoID _wasgo_get_property_object(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size);
 void _wasgo_set_property_object(wasm_exec_env_t p_exec_env, const uint8_t *property_name, int property_name_size, WasGoState::WasGoID p_wasgo_id);
 
 void _wasgo_set_process(wasm_exec_env_t p_exec_env, bool p_enable);

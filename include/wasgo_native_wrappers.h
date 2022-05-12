@@ -1,7 +1,7 @@
 #ifndef WASGO_NATIVE_WRAPPER_HEADERS
 #define WASGO_NATIVE_WRAPPER_HEADERS
-#include "wasm_export.h"
 #include "src/wasgo_state.h"
+#include "wasm_export.h"
 // #include "core/io/marshalls.h"
 // #include "core/variant/variant.h"
 // #include "scene/register_scene_types.h"
@@ -208,24 +208,22 @@
 //     return false;
 // }
 // WasGoState::_EncodedVariant _wasgo_variant_constructor(Variant::Type type, WasGoState::_EncodedVariant *p_args, const int p_argcount){
-    
+
 // }
-inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::WasGoID id){
-    
+inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::WasGoID id) {
 }
 // WasGoState::_EncodedVariant _wasgo_variant_call(WasGoState::WasGoID id, const std::string &p_method, WasGoState::_EncodedVariant *p_args, const int p_argcount){
-    
+
 // }
 // WasGoState::_EncodedVariant _wasgo_variant_call_op(WasGoState::WasGoID id, const Variant::Operator p_op, WasGoState::_EncodedVariant *p_args, const int p_argcount){
-    
+
 // }
 // WasGoState::_EncodedVariant _wasgo_variant_call_const(WasGoState::WasGoID id, const std::string &p_method, WasGoState::_EncodedVariant *p_args, const int p_argcount){
-    
+
 // }
 // static WasGoState::_EncodedVariant _wasgo_variant_call_static(std::string type, const std::string &p_method, WasGoState::_EncodedVariant *p_args, const int p_argcount){
-    
-// }
 
+// }
 
 // WasGoState::WasGoID _wasgo_Input_constructor() {
 // 	return 0;
@@ -882,7 +880,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_InputEvent_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // int _wasgo_InputEvent_wrapper_accumulate(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, WasGoState::WasGoID p_with_event){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -1104,7 +1101,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_InputEventAction_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // void _wasgo_InputEventAction_wrapper_get_action(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -1187,7 +1183,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_InputEventKey_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // int _wasgo_InputEventKey_wrapper_get_scancode(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -1300,7 +1295,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_InputEventMouse_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // int _wasgo_InputEventMouse_wrapper_get_button_mask(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -1398,7 +1392,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_InputEventMouseButton_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // int _wasgo_InputEventMouseButton_wrapper_get_button_index(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -1511,7 +1504,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_InputEventMouseMotion_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // float _wasgo_InputEventMouseMotion_wrapper_get_pressure(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -1639,7 +1631,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_InputEventWithModifiers_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // int _wasgo_InputEventWithModifiers_wrapper_get_alt(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -1797,7 +1788,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_Node_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // void _wasgo_Node_wrapper_add_child(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, WasGoState::WasGoID p_node, bool p_legible_unique_name){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -3178,7 +3168,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_Resource_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // WasGoState::WasGoID _wasgo_Resource_wrapper_duplicate(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, bool p_subresources){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -3351,7 +3340,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_SceneTree_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // void _wasgo_SceneTree_wrapper_call_group(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len, const uint8_t * p_group, int p_wasgo_buffer_size_group, const uint8_t * p_method, int p_wasgo_buffer_size_method){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -4113,7 +4101,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_Node3D_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // void _wasgo_Node3D_wrapper_force_update_transform(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -4884,7 +4871,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_VelocityTracker3D_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // void _wasgo_VelocityTracker3D_wrapper_get_tracked_linear_velocity(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id, uint8_t * wasgo_ret, int wasgo_ret_len){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);
@@ -4969,7 +4955,6 @@ inline void _wasgo_variant_deconstructor(wasm_exec_env_t exec_env, WasGoState::W
 //     void _wasgo_WasGoState_destructor(WasGoState::WasGoID p_wasgo_id){
 
 //     }
-            
 
 // int _wasgo_WasGoState_wrapper_get_heap_size(wasm_exec_env_t exec_env, WasGoState::WasGoID caller_id){
 // 	WasGoState *state = (WasGoState *)wasm_runtime_get_user_data(exec_env);

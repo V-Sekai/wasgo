@@ -8,22 +8,22 @@ Ref<Resource> ResourceFormatLoaderWasm::load(const String &p_path, const String 
 	Ref<WasmResource> wasm;
 	wasm.instantiate();
 	if (r_error) {
-	    *r_error = OK;
-    }
+		*r_error = OK;
+	}
 	*r_error = wasm->load_file(p_path);
-    return wasm;
+	return wasm;
 }
 
 void ResourceFormatLoaderWasm::get_recognized_extensions(List<String> *r_extensions) const {
-    if (!r_extensions->find("wasm")) {
-            r_extensions->push_back("wasm");
-    }
+	if (!r_extensions->find("wasm")) {
+		r_extensions->push_back("wasm");
+	}
 }
 
 String ResourceFormatLoaderWasm::get_resource_type(const String &p_path) const {
-    return "Resource";
+	return "Resource";
 }
 
 bool ResourceFormatLoaderWasm::handles_type(const String &p_type) const {
-    return ClassDB::is_parent_class(p_type, "Resource");
+	return ClassDB::is_parent_class(p_type, "Resource");
 }

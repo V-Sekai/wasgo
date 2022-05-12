@@ -6,11 +6,11 @@
 #include "bh_platform.h"
 #undef HashMap
 #undef Vector
-#include "wasm_export.h"
 #include "core/io/file_access.h"
-#include "wasgo_state.h"
 #include "include/wasgo_function_table.h"
 #include "wasgo_callable.h"
+#include "wasgo_state.h"
+#include "wasm_export.h"
 // #include "thirdparty/wasm-micro-runtime/core/iwasm/include/lib_export.h"
 // #include "wasm_runtime_common.h"
 
@@ -79,7 +79,7 @@ extern "C" int32_t calculate_native(wasm_exec_env_t exec_env, int32_t n, int32_t
 	printf("calling into native function: %s, n=%d, func1=%d, func2=%d\n",
 			__FUNCTION__, n, func1, func2);
 
-	uint32_t argv[] = { (uint32_t) n };
+	uint32_t argv[] = { (uint32_t)n };
 	if (!wasm_runtime_call_indirect(exec_env, func1, 1, argv)) {
 		printf("call func1 failed\n");
 		return 0xDEAD;
@@ -122,8 +122,7 @@ int WasGoTest::test() {
 
 	RuntimeInitArgs init_args;
 	memset(&init_args, 0, sizeof(RuntimeInitArgs));
-	
-	
+
 	int ret_val = -1;
 	uint32 argv[4];
 	double arg_d = 0.000101;
