@@ -1,4 +1,14 @@
-# WasGo Lifecycle Proposal
+# WasGo Lifecycle Design
+
+## Contributors
+
+* MMMaellon
+* Pushknat 
+* Rammalyala 
+* Luftccc
+* iFire
+* Lyuma
+* Saracen
 
 ## Abstract
 
