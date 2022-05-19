@@ -30,7 +30,8 @@ void initialize_wasgo_module(ModuleInitializationLevel p_level) {
 	ClassDB::register_class<WasGoRuntime>();
 	// ClassDB::register_class<WasGoCallable>();
 
-	Engine::get_singleton()->add_singleton(Engine::Singleton("WasGo", WasGoRuntime::get_singleton()));
+	// TODO: fire 2022-05-18 how to create a singleton accessible from scripts:
+	// Engine::get_singleton()->add_singleton(Engine::Singleton("WasGo", WasGoRuntime::get_singleton()));
 
 	wasm_loader.instantiate();
 	ResourceLoader::add_resource_format_loader(wasm_loader);
