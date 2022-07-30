@@ -48,7 +48,7 @@ void WasGoCallable::call(const Variant **p_arguments, int p_argcount, Variant &r
 	r_return_value = argv[0];
 };
 Error WasGoCallable::rpc(int p_peer_id, const Variant **p_arguments, int p_argcount, Callable::CallError &r_call_error) const {
-
+	return FAILED;
 };
 const Callable *WasGoCallable::get_base_comparator() const {
 	return nullptr;
