@@ -20,7 +20,7 @@ public:
 	virtual CompareLessFunc get_compare_less_func() const override;
 	virtual ObjectID get_object() const override; // must always be able to provide an object
 	virtual void call(const Variant **p_arguments, int p_argcount, Variant &r_return_value, Callable::CallError &r_call_error) const override;
-	virtual void rpc(int p_peer_id, const Variant **p_arguments, int p_argcount, Callable::CallError &r_call_error) const override;
+	virtual Error rpc(int p_peer_id, const Variant **p_arguments, int p_argcount, Callable::CallError &r_call_error) const override;
 	virtual const Callable *get_base_comparator() const override;
 
 	// WasGoCallable();
