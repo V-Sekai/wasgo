@@ -60,7 +60,7 @@ public:
 	void _initialize();
 	void _stop();
 
-	virtual void _validate_property(PropertyInfo &property) const override;
+	void _validate_property(PropertyInfo &property) const;
 	void _notification(uint32_t p_what);
 	static void _bind_methods();
 
