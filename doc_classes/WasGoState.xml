@@ -9,210 +9,210 @@
 	<methods>
 		<method name="get_callable">
 			<return type="Callable" />
-			<argument index="0" name="func" type="String" />
-			<argument index="1" name="definition" type="String" />
+			<param index="0" name="func" type="String" />
+			<param index="1" name="definition" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_aabb">
 			<return type="AABB" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_basis">
 			<return type="Basis" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_bool">
 			<return type="bool" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_color">
 			<return type="Color" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_float">
 			<return type="float" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_int">
 			<return type="int" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_nodepath">
 			<return type="NodePath" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_plane">
 			<return type="Plane" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_quat">
 			<return type="Quaternion" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_rect2">
 			<return type="Rect2" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_string">
 			<return type="String" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_transform">
 			<return type="Transform3D" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_transform2d">
 			<return type="Transform2D" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_vector2">
 			<return type="Vector2" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="get_property_vector3">
 			<return type="Vector3" />
-			<argument index="0" name="property" type="String" />
+			<param index="0" name="property" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="set_int_property">
 			<return type="void" />
-			<argument index="0" name="value" type="int" />
-			<argument index="1" name="key" type="String" />
+			<param index="0" name="value" type="int" />
+			<param index="1" name="key" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_aabb">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="AABB" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="AABB" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_basis">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="Basis" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="Basis" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_bool">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="bool" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="bool" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_color">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="Color" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="Color" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_float">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="float" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="float" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_int">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="int" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="int" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_nodepath">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="NodePath" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="NodePath" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_plane">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="Plane" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="Plane" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_quat">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="Quaternion" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="Quaternion" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_rect2">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="Rect2" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="Rect2" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_string">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="String" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="String" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_transform">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="Transform3D" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="Transform3D" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_transform2d">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="Transform2D" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="Transform2D" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_vector2">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="Vector2" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="Vector2" />
 			<description>
 			</description>
 		</method>
 		<method name="set_property_vector3">
 			<return type="void" />
-			<argument index="0" name="property" type="String" />
-			<argument index="1" name="value" type="Vector3" />
+			<param index="0" name="property" type="String" />
+			<param index="1" name="value" type="Vector3" />
 			<description>
 			</description>
 		</method>
