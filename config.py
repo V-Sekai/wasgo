@@ -1,6 +1,6 @@
 def can_build(env, platform):
     # Not presently available on web
-    return platform != "javascript"
+    return platform != "web"
 
 
 def configure(env):
