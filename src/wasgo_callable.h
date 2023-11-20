@@ -4,8 +4,6 @@
 #include "core/variant/variant.h"
 #include "src/wasgo_state.h"
 
-// #include <math.h>
-// class WasGoState;
 class WasGoCallable : public CallableCustom {
 	ObjectID wasgo_state_id = ObjectID();
 	wasm_function_inst_t wasgo_func = wasm_function_inst_t();

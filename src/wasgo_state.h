@@ -1,6 +1,7 @@
 /*************************************************************************/
 /*  wasgo_state.h                                                        */
 /*************************************************************************/
+
 /*
 This file defines the WasGoState class.
 A WasGoState contains everything needed to run a wasm script.
@@ -13,14 +14,10 @@ These nodes also handle things like translating wasm commands to Godot functions
 #ifndef WASGO_STATE_H
 #define WASGO_STATE_H
 
-#include "resource_wasm.h"
-#include "wasm_export.h"
-// #include "core/engine.h"
 #include "core/variant/variant.h"
+#include "resource_wasm.h"
 #include "scene/main/node.h"
-// #include "wasgo_callable.h"
-
-// class WasGoCallable;
+#include "wasm_export.h"
 
 class WasGoState : public Node {
 	friend class WasGoCallable;

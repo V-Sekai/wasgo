@@ -2,14 +2,12 @@
 #ifndef WASGO_RUNTIME_H
 #define WASGO_RUNTIME_H
 
-// #include "core/object.h"
 #include "core/config/engine.h"
 #include "core/io/file_access.h"
 #include "core/templates/rid_owner.h"
 #include "core/variant/variant.h"
 #include "resource_loader_wasm.h"
 #include "resource_wasm.h"
-// #include "core/list.h"
 
 struct WASMModuleCommon;
 typedef struct WASMModuleCommon *wasm_module_t;
