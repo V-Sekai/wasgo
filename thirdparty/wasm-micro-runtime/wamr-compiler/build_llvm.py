@@ -8,15 +8,17 @@ import os
 import sys
 from pathlib import Path
 
+
 def clone_llvm():
     llvm_dir = Path("llvm")
-    if(llvm_dir.exists() == False):
+    if llvm_dir.exists() == False:
         print("Clone llvm to core/deps/ ..")
         for line in os.popen("git clone --branch release/10.x https://github.com/llvm/llvm-project.git llvm"):
             print(line)
     else:
         print("llvm source codes already existed")
     return llvm_dir
+
 
 """ def detect_VS_version():
     program_dirs = [os.environ['ProgramFiles(x86)'], os.environ['ProgramFiles']]
@@ -38,29 +40,29 @@ def main():
     print("current OS is ", current_os)
 
     current_dir = Path.cwd()
-    deps_dir = current_dir.joinpath( "../core/deps")
+    deps_dir = current_dir.joinpath("../core/deps")
 
     os.chdir(deps_dir)
     llvm_dir = clone_llvm()
     os.chdir(llvm_dir)
 
-    if(current_os == "linux"):
+    if current_os == "linux":
         build_dir_name = "build"
         llvm_file = "bin/llvm-lto"
-       # generator = '"Unix Makefiles"'
-    elif(current_os == "win32"):
+    # generator = '"Unix Makefiles"'
+    elif current_os == "win32":
         build_dir_name = "win32build"
         llvm_file = "LLVM.sln"
-       # generator = '"Visual Studio 15 2017"'
+    # generator = '"Visual Studio 15 2017"'
     else:
         build_dir_name = "build"
-       # generator = '""'
+    # generator = '""'
 
-    Path(build_dir_name).mkdir(exist_ok = True)
+    Path(build_dir_name).mkdir(exist_ok=True)
     build_dir = Path(build_dir_name)
     os.chdir(build_dir)
 
-    if ( not Path(llvm_file).exists()):
+    if not Path(llvm_file).exists():
         core_number = os.cpu_count()
         print("Build llvm with", core_number, " cores")
         cmd = 'cmake ../llvm \
@@ -85,10 +87,10 @@ def main():
     else:
         print("llvm has already been Cmaked")
 
-    if(current_os == "linux"):
+    if current_os == "linux":
         for line in os.popen("make -j {}".format(core_number)):
             print(line)
-    elif(current_os == "win32"):
+    elif current_os == "win32":
         print("Please open LLVM.sln in {} to build *Release* version".format(build_dir.absolute()))
 
     os.chdir(current_dir)
